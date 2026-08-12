@@ -1,0 +1,318 @@
+/* ==========================================
+   MOBILE NAVBAR OVERLAY & SIDEBAR
+   PREMIUM LIGHT THEME
+   ========================================== */
+
+/* Overlay */
+.mobile-sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4); /* Dark transparent overlay */
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobile-sidebar-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Sidebar Container */
+.mobile-sidebar {
+    position: fixed;
+    top: 0;
+    left: -320px;
+    width: 320px;
+    max-width: 85vw;
+    height: 100vh;
+    background: #FFFFFF; /* Clean white background */
+    box-shadow: 10px 0 40px rgba(0, 0, 0, 0.08); /* Soft shadows */
+    z-index: 2010;
+    transition: left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.mobile-sidebar.active {
+    left: 0;
+}
+
+/* Scrollbar hiding for clean look */
+.mobile-sidebar::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+}
+
+/* Sidebar Header */
+.mobile-sidebar-header {
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #FFFFFF;
+    border-bottom: 1px solid #F0F0F0;
+    position: sticky;
+    top: 0;
+    z-index: 2015;
+}
+
+.mobile-sidebar-header .brand-logo {
+    height: 40px;
+    width: auto;
+}
+
+.mobile-sidebar-close {
+    background: #F8F9FA;
+    border: none;
+    color: #334155;
+    font-size: 1.2rem;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.mobile-sidebar-close:hover {
+    transform: rotate(90deg);
+    background: #FFEDF0;
+    color: var(--brand-red, #E11D48);
+}
+
+/* Menu Links */
+.mobile-sidebar-nav {
+    flex-grow: 1;
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.mobile-nav-link {
+    font-weight: 600;
+    font-size: 1.1rem; /* Large typography */
+    color: #334155;
+    text-decoration: none;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    border-radius: 12px;
+    border-left: 4px solid transparent;
+}
+
+.mobile-nav-link .nav-link-inner {
+    display: flex;
+    align-items: center;
+    gap: 18px; /* 18px spacing between icon and text */
+}
+
+.mobile-nav-link .nav-link-inner i {
+    font-size: 1.3rem;
+    color: #64748B;
+    transition: color 0.3s;
+}
+
+.mobile-nav-link:hover {
+    background: #F8F9FA;
+    transform: translateY(-2px); /* Hover Lift */
+}
+
+.mobile-nav-link:hover .nav-link-inner i {
+    color: var(--brand-red, #E11D48);
+}
+
+.mobile-nav-link.active,
+.mobile-nav-link:active {
+    background: #FFF1F2; /* Light red background */
+    border-left: 4px solid var(--brand-red, #E11D48); /* Red left border */
+    color: var(--brand-red, #E11D48); /* Red text */
+}
+
+.mobile-nav-link.active .nav-link-inner i,
+.mobile-nav-link:active .nav-link-inner i {
+    color: var(--brand-red, #E11D48);
+}
+
+/* Accordion */
+.mobile-accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    background: transparent;
+    padding-left: 20px;
+}
+
+.mobile-accordion-content.open {
+    max-height: 500px;
+}
+
+.mobile-accordion-link {
+    display: block;
+    padding: 12px 24px 12px 34px;
+    color: #64748B;
+    font-weight: 500;
+    font-size: 15px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    border-radius: 8px;
+    margin: 4px 0;
+}
+
+.mobile-accordion-link:hover {
+    color: var(--brand-red, #E11D48);
+    background: #F8F9FA;
+    transform: translateX(5px);
+}
+
+.mobile-nav-link .chevron {
+    transition: transform 0.3s;
+    font-size: 14px;
+    color: #64748B;
+}
+
+.mobile-nav-link.open .chevron {
+    transform: rotate(180deg);
+}
+
+/* Bottom CTA Section */
+.mobile-sidebar-footer {
+    padding: 24px;
+    border-top: 1px solid #F0F0F0;
+    background: #FAFAFA;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.mobile-cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.btn-premium-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 14px;
+    font-weight: 600;
+    font-size: 1.05rem;
+    text-decoration: none;
+    border-radius: 50px; /* Rounded pill design */
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.btn-premium-cta.call-btn {
+    background: linear-gradient(135deg, #E11D48 0%, #BE123C 100%);
+    color: #FFFFFF;
+}
+
+.btn-premium-cta.call-btn:hover {
+    background: linear-gradient(135deg, #BE123C 0%, #9F1239 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(225, 29, 72, 0.3);
+    color: #FFFFFF;
+}
+
+.btn-premium-cta.whatsapp-btn {
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    color: #FFFFFF;
+}
+
+.btn-premium-cta.whatsapp-btn:hover {
+    background: linear-gradient(135deg, #128C7E 0%, #075E54 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+    color: #FFFFFF;
+}
+
+/* Premium Social Icons */
+.mobile-socials {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFFFFF;
+    color: #334155;
+    font-size: 1.1rem;
+    border-radius: 50%;
+    text-decoration: none;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.social-icon:hover {
+    transform: translateY(-3px) scale(1.05);
+    background: var(--brand-red, #E11D48);
+    color: #FFFFFF;
+    box-shadow: 0 5px 15px rgba(225, 29, 72, 0.2);
+}
+
+.social-icon.whatsapp:hover {
+    background: #25D366;
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.2);
+}
+
+.mobile-copyright {
+    text-align: center;
+    font-size: 12px;
+    color: #94A3B8;
+}
+
+/* Custom Hamburger Icon */
+.custom-hamburger {
+    display: none;
+    background: transparent;
+    border: none;
+    width: 35px;
+    height: 35px;
+    position: relative;
+    cursor: pointer;
+}
+
+.custom-hamburger span {
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background: var(--text-main, #334155);
+    border-radius: 2px;
+    left: 0;
+    transition: 0.25s ease-in-out;
+}
+
+.custom-hamburger span:nth-child(1) { top: 8px; }
+.custom-hamburger span:nth-child(2) { top: 16px; }
+.custom-hamburger span:nth-child(3) { top: 24px; }
+
+@media (max-width: 991px) {
+    .custom-hamburger {
+        display: block;
+    }
+    /* Hide desktop nav */
+    .collapse.navbar-collapse {
+        display: none !important;
+    }
+}

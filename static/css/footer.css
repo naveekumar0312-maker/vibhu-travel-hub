@@ -1,0 +1,342 @@
+/* ==========================================================
+   SEASON BIRD STYLE FOOTER CSS
+   ========================================================== */
+
+.premium-footer {
+    position: relative;
+    background-image: 
+        linear-gradient(rgba(14, 38, 25, 0.85), rgba(14, 38, 25, 0.95)), /* Dark green overlay */
+        url('../images/hero-slider/background-2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #e2e8f0;
+    padding: 25px 0 0 0;
+    height: auto;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* ----------------------------------------------------
+   Newsletter Section
+----------------------------------------------------- */
+.footer-newsletter {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 15px 20px;
+}
+
+.newsletter-title {
+    font-size: 32px;
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 12px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.newsletter-input {
+    flex: 1;
+    height: 52px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 12px 16px;
+    font-size: 15px;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    outline: none;
+}
+
+.newsletter-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.newsletter-submit {
+    width: 52px;
+    height: 52px;
+    background: #dc3545; /* Red brand accent */
+    color: #fff;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.newsletter-submit:hover {
+    background: #bb2d3b;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(220, 53, 69, 0.5);
+}
+
+.newsletter-inline-msg {
+    height: 48px;
+    max-width: 600px;
+    margin: 15px auto 0 auto;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    backdrop-filter: blur(10px);
+}
+.newsletter-inline-msg.success {
+    background: rgba(25, 135, 84, 0.2);
+    border: 1px solid rgba(25, 135, 84, 0.4);
+    color: #fff;
+}
+.newsletter-inline-msg.error {
+    background: rgba(220, 53, 69, 0.2);
+    border: 1px solid rgba(220, 53, 69, 0.4);
+    color: #fff;
+}
+
+/* ----------------------------------------------------
+   Main Footer Container (3 Columns)
+----------------------------------------------------- */
+.sf-container {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.5fr;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 40px 25px 40px;
+}
+
+/* ----------------------------------------------------
+   Column 1: Company Info
+----------------------------------------------------- */
+.sf-logo-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.sf-company-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 2rem;
+    color: #ffffff;
+    margin-bottom: 25px;
+}
+
+.sf-logo {
+    width: 45px;
+    height: auto;
+}
+
+.sf-about-text {
+    color: #f1f5f9;
+    line-height: 1.8;
+    font-size: 0.95rem;
+    margin-bottom: 30px;
+    max-width: 350px;
+}
+
+/* Social Icons (Outlined Circles) */
+.sf-socials {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.sf-social-link {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    transition: all 0.3s ease;
+}
+
+.sf-social-link:hover {
+    background: #ff8c00; /* Orange accent */
+    border-color: #ff8c00;
+    color: #ffffff;
+}
+
+/* ----------------------------------------------------
+   Headings & Links
+----------------------------------------------------- */
+.sf-heading {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+.sf-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.sf-links li a {
+    color: #f1f5f9;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 400;
+    transition: all 0.3s ease;
+}
+
+.sf-links li a:hover {
+    color: #ff8c00;
+}
+
+/* ----------------------------------------------------
+   Contact Information
+----------------------------------------------------- */
+.sf-contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.sf-contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.sf-contact-icon {
+    color: #ff8c00;
+    font-size: 1.2rem;
+    margin-top: 3px;
+}
+
+.sf-contact-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.sf-contact-value {
+    color: #f1f5f9;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.sf-contact-value.sf-address {
+    font-style: normal;
+}
+
+a.sf-contact-value:hover {
+    color: #ff8c00;
+}
+
+/* ----------------------------------------------------
+   Bottom Copyright Bar
+----------------------------------------------------- */
+.sf-bottom-bar {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 25px 40px;
+}
+
+.sf-bottom-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.sf-copyright {
+    color: #f1f5f9;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.sf-copyright span {
+    color: #ff8c00;
+}
+
+/* ----------------------------------------------------
+   Reveal Animations
+----------------------------------------------------- */
+.footer-reveal-item {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.footer-reveal-item.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-1 { transition-delay: 0.15s; }
+.delay-2 { transition-delay: 0.3s; }
+.delay-3 { transition-delay: 0.45s; }
+.delay-4 { transition-delay: 0.6s; }
+
+/* ----------------------------------------------------
+   Responsive Media Queries
+----------------------------------------------------- */
+@media (max-width: 991px) {
+    .sf-container {
+        grid-template-columns: 1fr 1fr;
+        padding: 30px 30px 25px 30px;
+    }
+    
+    .sf-col.sf-logo-col {
+        grid-column: span 2;
+    }
+    
+    .newsletter-title {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sf-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 30px 20px 25px 20px;
+    }
+    
+    .sf-col.sf-logo-col {
+        grid-column: span 1;
+    }
+    
+    .newsletter-title {
+        font-size: 24px;
+        margin-bottom: 16px;
+    }
+    
+    .newsletter-form {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .newsletter-input {
+        width: 100%;
+    }
+    
+    .newsletter-submit {
+        width: 100%;
+        border-radius: 12px;
+    }
+}

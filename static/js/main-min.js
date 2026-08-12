@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",(()=>{const e=document.querySelectorAll(".aero-item");e.forEach((t=>{t.querySelector(".aero-header").addEventListener("click",(()=>{t.classList.contains("active")?t.classList.remove("active"):(e.forEach((e=>{e.classList.remove("active")})),t.classList.add("active"))}))}))}));

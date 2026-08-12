@@ -1,0 +1,20 @@
+/* ROUTE CARDS (Popular Routes) */
+.route-card {
+    min-height: 250px;
+    transition: var(--transition-smooth);
+    cursor: pointer;
+}
+.route-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2) !important;
+}
+.route-card:hover .route-overlay {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.9));
+}
+.route-overlay {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.8));
+    transition: var(--transition-smooth);
+}
+.route-content {
+    z-index: 2;
+}

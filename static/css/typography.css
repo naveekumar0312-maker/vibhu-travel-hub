@@ -1,0 +1,136 @@
+/* ==========================================================
+   GLOBAL TYPOGRAPHY - VIBHU TRAVEL HUB
+   ========================================================== */
+
+/* Google Fonts - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    /* Font Family */
+    --font-primary: 'Poppins', sans-serif;
+
+    /* Base Font Sizing & Typography Details */
+    --base-line-height: 1.8;
+    --base-word-spacing: 0.05em;
+
+    /* ==========================================
+       MOBILE TYPOGRAPHY (Default - up to 767px)
+       ========================================== */
+    --fs-hero-title: 32px;
+    --fs-section-heading: 28px;
+    --fs-card-heading: 20px;
+    --fs-sub-heading: 18px;
+    --fs-paragraph: 15px;
+    --fs-button: 15px;
+    --fs-nav: 16px;
+}
+
+/* ==========================================
+   TABLET TYPOGRAPHY (768px - 991px)
+   ========================================== */
+@media (min-width: 768px) {
+    :root {
+        --fs-hero-title: 40px;
+        --fs-section-heading: 36px;
+    }
+}
+
+/* ==========================================
+   LAPTOP TYPOGRAPHY (992px - 1199px)
+   ========================================== */
+@media (min-width: 992px) {
+    :root {
+        --fs-hero-title: 48px;
+        --fs-card-heading: 22px; /* Smooth scale */
+        --fs-sub-heading: 19px; /* Smooth scale */
+    }
+}
+
+/* ==========================================
+   DESKTOP TYPOGRAPHY (1200px+)
+   ========================================== */
+@media (min-width: 1200px) {
+    :root {
+        --fs-hero-title: 56px;
+        --fs-section-heading: 42px;
+        --fs-card-heading: 24px;
+        --fs-sub-heading: 20px;
+        --fs-paragraph: 16px;
+        --fs-button: 16px;
+        --fs-nav: 16px;
+    }
+}
+
+/* ==========================================================
+   GLOBAL ELEMENT STYLING
+   ========================================================== */
+
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+body, button, input, textarea, select {
+    font-family: var(--font-primary) !important;
+    font-size: var(--fs-paragraph);
+    font-weight: 400;
+    line-height: var(--base-line-height);
+    word-spacing: var(--base-word-spacing);
+    color: #334155; /* Default body text color, can be overridden */
+}
+
+/* Headings Base Reset */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-primary) !important;
+    color: #0f172a; /* Default heading color */
+    line-height: 1.3;
+    margin-top: 0;
+    letter-spacing: -0.01em;
+}
+
+/* Hero Title */
+.hero-title, h1 {
+    font-size: var(--fs-hero-title);
+    font-weight: 700;
+}
+
+/* Section Heading */
+.section-heading, h2 {
+    font-size: var(--fs-section-heading);
+    font-weight: 700;
+}
+
+/* Card Heading */
+.card-heading, h3 {
+    font-size: var(--fs-card-heading);
+    font-weight: 600;
+}
+
+/* Sub Heading */
+.sub-heading, h4 {
+    font-size: var(--fs-sub-heading);
+    font-weight: 500;
+}
+
+/* Paragraphs */
+p {
+    font-size: var(--fs-paragraph);
+    font-weight: 400;
+    line-height: var(--base-line-height);
+}
+
+/* Buttons */
+button, .btn {
+    font-family: var(--font-primary) !important;
+    font-size: var(--fs-button);
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+/* Navigation Links */
+nav a, .nav-link {
+    font-family: var(--font-primary) !important;
+    font-size: var(--fs-nav);
+    font-weight: 500;
+}

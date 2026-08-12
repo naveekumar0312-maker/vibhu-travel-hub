@@ -1,0 +1,543 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About Vibhu Travel Hub | Best Travel Agency in Coimbatore{% endblock %}
+
+{% block description %}Learn about Vibhu Travel Hub, one of the leading travel agencies in Coimbatore offering Taxi Services, Tempo Traveller, Bus Rental, Corporate Travel, Pilgrimage Tours and South India Tour Packages.{% endblock %}
+
+{% block og_title %}About Vibhu Travel Hub | Best Travel Agency in Coimbatore{% endblock %}
+{% block og_description %}Learn about Vibhu Travel Hub, one of the leading travel agencies in Coimbatore offering Taxi Services, Tempo Traveller, Bus Rental, Corporate Travel, Pilgrimage Tours and South India Tour Packages.{% endblock %}
+{% block og_url %}https://www.vibhutravelhub.com/about/{% endblock %}
+
+{% block canonical %}https://www.vibhutravelhub.com/about/{% endblock %}
+
+{% block extra_css %}
+<!-- AOS CSS for scroll animations -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<!-- About Us Specific CSS -->
+<link rel="stylesheet" href="{% static 'css/premium-about.css' %}?v={{ STATIC_VERSION }}">
+<link rel="stylesheet" href="{% static 'css/about.css' %}?v={{ STATIC_VERSION }}">
+<link rel="stylesheet" href="{% static 'css/fleet.css' %}?v={{ STATIC_VERSION }}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+
+<style>
+    /* Buttons */
+    .btn-premium {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 14px 32px;
+        border-radius: 50px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        border: none;
+        cursor: pointer;
+    }
+    .btn-primary-luxury {
+        background: #E11D48;
+        color: white;
+        box-shadow: 0 8px 20px rgba(225, 29, 72, 0.3);
+    }
+    .btn-primary-luxury:hover {
+        background: #BE123C;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 12px 25px rgba(225, 29, 72, 0.4);
+    }
+    .btn-outline-luxury {
+        background: rgba(255,255,255,0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.5);
+        color: white;
+    }
+    .btn-outline-luxury:hover {
+        background: white;
+        color: #0F172A;
+    }
+
+    /* ==========================================
+       HERO SECTION
+       ========================================== */
+    .hero-section {
+        height: 100vh;
+        min-height: 700px;
+        position: relative;
+        padding: 0 !important;
+        margin: 0 !important;
+        display: flex;
+        align-items: center;
+    }
+    .hero-swiper {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        z-index: 1;
+    }
+    .hero-swiper img {
+        width: 100%; height: 100%; object-fit: cover;
+    }
+    .hero-overlay {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: linear-gradient(to right, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.4) 100%);
+        z-index: 2;
+    }
+    .hero-content {
+        position: relative;
+        z-index: 3;
+        max-width: 800px;
+        padding: 0 20px;
+    }
+    .hero-title {
+        color: white;
+        font-size: 4.5rem;
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 20px;
+        letter-spacing: -2px;
+    }
+    .hero-title span {
+        color: #E11D48;
+        display: block;
+    }
+    .hero-subtitle {
+        color: rgba(255,255,255,0.9);
+        font-size: 1.2rem;
+        margin-bottom: 40px;
+        max-width: 600px;
+        line-height: 1.6;
+    }
+    .hero-tags {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+    }
+    .hero-tags span {
+        background: rgba(255,255,255,0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.2);
+        color: white;
+        padding: 8px 20px;
+        border-radius: 50px;
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+    
+    @media (max-width: 991px) {
+        .hero-title { font-size: 3.5rem; }
+    }
+    @media (max-width: 768px) {
+        .hero-title { font-size: 2.8rem; }
+        .hero-tags { display: none; }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="about-page-wrapper">
+
+    <!-- ==========================================
+        HERO SECTION
+    =========================================== -->
+    <section class="hero-section">
+        <div class="swiper hero-swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="{% static 'images/hero-slider/background-1.jpg' %}" alt="Vibhu Travel Hub"></div>
+                <div class="swiper-slide"><img src="{% static 'images/hero-slider/background-4.jpg' %}" alt="Vibhu Travel Hub"></div>
+                <div class="swiper-slide"><img src="{% static 'images/hero-slider/background-3.jpg' %}" alt="Vibhu Travel Hub"></div>
+            </div>
+            <div class="hero-overlay"></div>
+        </div>
+
+        <div class="container position-relative z-3">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="hero-content">
+                        <h1 class="hero-title">
+                            Experience Luxury Travel
+                            <span>Across South India.</span>
+                        </h1>
+                        <p class="hero-subtitle">
+                            Vibhu Travel Hub provides premium taxi, tempo traveller, luxury bus, corporate travel, and airport transfer services across Coimbatore with professional drivers.
+                        </p>
+                        <div class="d-flex flex-wrap gap-3">
+                            <a href="tel:+919655866660" class="btn-premium anim-btn btn-primary-luxury">
+                                <i class="bi bi-telephone-fill"></i> +91 96558 66660
+                            </a>
+                            <a href="https://wa.me/919655866660" target="_blank" class="btn-premium anim-btn btn-outline-luxury">
+                                <i class="bi bi-whatsapp"></i> Chat on WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+        SECTION 2: WHO WE ARE
+    =========================================== -->
+    {% include 'includes/about_section.html' with about_label="WHO WE ARE" about_heading="Creating Memorable Journeys with Comfort, Safety & Luxury" primary_btn_text="Book Now" secondary_btn_text="Explore Fleet" secondary_btn_link="#fleet" %}
+
+    <!-- ==========================================
+        SECTION 3: OUR NUMBERS
+    =========================================== -->
+    {% include 'includes/stats_section.html' %}
+
+    <!-- ==========================================
+        SECTION 4: WHY CHOOSE VIBHU
+    =========================================== -->
+    <section class="why-choose-section text-center py-5" style="background: #ffffff;">
+        <div class="container py-4">
+            <span class="premium-about-label">WHY CHOOSE US</span>
+            <h2 class="premium-about-heading mb-5">Experience the Vibhu Difference</h2>
+            
+            <div class="row g-4 justify-content-center">
+                <!-- Icon Cards -->
+                <div class="col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="premium-icon-card">
+                        <div class="pic-icon"><i class="fa-solid fa-user-tie"></i></div>
+                        <h4 class="pic-title">Professional Drivers</h4>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="premium-icon-card">
+                        <div class="pic-icon"><i class="fa-solid fa-location-crosshairs"></i></div>
+                        <h4 class="pic-title">GPS Enabled Vehicles</h4>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="premium-icon-card">
+                        <div class="pic-icon"><i class="fa-solid fa-car"></i></div>
+                        <h4 class="pic-title">Luxury Fleet</h4>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+                    <div class="premium-icon-card">
+                        <div class="pic-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                        <h4 class="pic-title">Safe Journey</h4>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="premium-icon-card">
+                        <div class="pic-icon"><i class="fa-solid fa-tag"></i></div>
+                        <h4 class="pic-title">Affordable Price</h4>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="premium-icon-card">
+                        <div class="pic-icon"><i class="fa-solid fa-headset"></i></div>
+                        <h4 class="pic-title">24×7 Support</h4>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="premium-icon-card">
+                        <div class="pic-icon"><i class="fa-solid fa-plane-departure"></i></div>
+                        <h4 class="pic-title">Airport Pickup</h4>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+                    <div class="premium-icon-card">
+                        <div class="pic-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                        <h4 class="pic-title">Customized Tours</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+        SECTION 5: OUR SERVICES
+    =========================================== -->
+    <section id="services" class="premium-services-section py-5" style="background: #F8F9FA;">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <span class="premium-about-label">OUR SERVICES</span>
+                <h2 class="premium-about-heading">Comprehensive Travel Solutions</h2>
+            </div>
+            
+            <div class="row g-4">
+                <!-- 1 -->
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="premium-service-card">
+                        <img src="{% static 'images/services/taxi.webp' %}" alt="Taxi Service" loading="lazy">
+                        <div class="psc-content">
+                            <h3>Taxi Service</h3>
+                            <a href="{% url 'local_taxi_service' %}" class="psc-btn">Book Now <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- 2 -->
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="premium-service-card">
+                        <img src="{% static 'images/vehicles/tempo_nonac.webp' %}" alt="Tempo Traveller" loading="lazy">
+                        <div class="psc-content">
+                            <h3>Tempo Traveller</h3>
+                            <a href="{% url 'tempo_traveller' %}" class="psc-btn">Book Now <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- 3 -->
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="premium-service-card">
+                        <img src="{% static 'images/services/bus.webp' %}" alt="Mini Bus" loading="lazy">
+                        <div class="psc-content">
+                            <h3>Mini Bus</h3>
+                            <a href="{% url 'bus_booking' %}" class="psc-btn">Book Now <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- 4 -->
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="premium-service-card">
+                        <img src="{% static 'images/services/bus.webp' %}" alt="Luxury Bus" loading="lazy">
+                        <div class="psc-content">
+                            <h3>Luxury Bus</h3>
+                            <a href="{% url 'bus_booking' %}" class="psc-btn">Book Now <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- 5 -->
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="premium-service-card">
+                        <img src="{% static 'images/services/corporate.webp' %}" alt="Corporate Travel" loading="lazy">
+                        <div class="psc-content">
+                            <h3>Corporate Travel</h3>
+                            <a href="{% url 'corporate_travel' %}" class="psc-btn">Book Now <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- 6 -->
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="premium-service-card">
+                        <img src="{% static 'images/services/temple.webp' %}" alt="Pilgrimage Tours" loading="lazy">
+                        <div class="psc-content">
+                            <h3>Pilgrimage Tours</h3>
+                            <a href="{% url 'pilgrimage_trips' %}" class="psc-btn">Book Now <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- 7 -->
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="premium-service-card">
+                        <img src="{% static 'images/services/outstation.webp' %}" alt="Outstation Tours" loading="lazy">
+                        <div class="psc-content">
+                            <h3>Outstation Tours</h3>
+                            <a href="{% url 'outstation_tours' %}" class="psc-btn">Book Now <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- 8 -->
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="premium-service-card">
+                        <img src="{% static 'images/services/taxi.webp' %}" alt="Airport Transfer" loading="lazy">
+                        <div class="psc-content">
+                            <h3>Airport Transfer</h3>
+                            <a href="{% url 'local_taxi_service' %}" class="psc-btn">Book Now <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==========================================
+        SECTION 7: WHY CUSTOMERS TRUST US
+    =========================================== -->
+    <section class="trust-timeline-section py-5" style="background: #F8F9FA;">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
+                    <div class="premium-image-wrapper">
+                        <img src="{% static 'images/about/hero.webp' %}" alt="Trust Vibhu Travel Hub" loading="lazy" class="img-fluid rounded-4 shadow-lg">
+                    </div>
+                </div>
+                <div class="col-lg-6 ps-lg-5" data-aos="fade-left">
+                    <span class="premium-about-label">TRUST & RELIABILITY</span>
+                    <h2 class="premium-about-heading mb-4">Why Customers Trust Us</h2>
+                    
+                    <div class="premium-timeline">
+                        <div class="pt-item">
+                            <div class="pt-icon"><i class="fa-solid fa-certificate"></i></div>
+                            <div class="pt-content">
+                                <h4>Licensed Business</h4>
+                                <p>Government approved and certified travel agency in Tamil Nadu.</p>
+                            </div>
+                        </div>
+                        <div class="pt-item">
+                            <div class="pt-icon"><i class="fa-solid fa-id-card-clip"></i></div>
+                            <div class="pt-content">
+                                <h4>Verified Drivers</h4>
+                                <p>Background checked, experienced, and highly professional chauffeurs.</p>
+                            </div>
+                        </div>
+                        <div class="pt-item">
+                            <div class="pt-icon"><i class="fa-solid fa-clock"></i></div>
+                            <div class="pt-content">
+                                <h4>24×7 Service</h4>
+                                <p>Round the clock travel support and vehicle availability.</p>
+                            </div>
+                        </div>
+                        <div class="pt-item">
+                            <div class="pt-icon"><i class="fa-solid fa-star"></i></div>
+                            <div class="pt-content">
+                                <h4>Luxury Fleet</h4>
+                                <p>Immaculately maintained vehicles for absolute comfort.</p>
+                            </div>
+                        </div>
+                        <div class="pt-item pb-0 border-0">
+                            <div class="pt-icon"><i class="fa-solid fa-indian-rupee-sign"></i></div>
+                            <div class="pt-content">
+                                <h4>Transparent Pricing</h4>
+                                <p>Clear upfront costs with zero hidden charges.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- ==========================================
+        SECTION 10: FAQ
+    =========================================== -->
+    <section class="premium-faq-section py-5" style="background: #ffffff;">
+        <div class="container py-4 text-center">
+            <span class="premium-about-label">FAQ</span>
+            <h2 class="premium-about-heading mb-5">Frequently Asked Questions</h2>
+            
+            <div class="accordion premium-accordion mx-auto text-start" id="premiumFaqAccordion" style="max-width: 800px;" data-aos="fade-up">
+                <div class="accordion-item mb-3 border-0 shadow-sm rounded-4 overflow-hidden">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button fw-bold py-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true">
+                            How do I book a vehicle?
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#premiumFaqAccordion">
+                        <div class="accordion-body text-muted pb-4">
+                            You can book a vehicle by clicking the "Book Now" button on any vehicle card, which opens our Enquiry form. Alternatively, you can message us on WhatsApp or call our support team directly.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item mb-3 border-0 shadow-sm rounded-4 overflow-hidden">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed fw-bold py-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false">
+                            Are there any hidden charges?
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#premiumFaqAccordion">
+                        <div class="accordion-body text-muted pb-4">
+                            No, we believe in transparent pricing. The quote provided to you covers all standard charges. Tolls and parking fees are typically extra unless specified in your custom package.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item mb-3 border-0 shadow-sm rounded-4 overflow-hidden">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed fw-bold py-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false">
+                            Do you provide Outstation trips?
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#premiumFaqAccordion">
+                        <div class="accordion-body text-muted pb-4">
+                            Yes! We specialize in Outstation Tours, Pilgrimage Trips, and Corporate Travel across Tamil Nadu, Kerala, Karnataka, and beyond.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- ==========================================
+        SECTION 12: CONTACT
+    =========================================== -->
+    <section class="premium-contact-section py-5" style="background: #F8F9FA;">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <span class="premium-about-label">GET IN TOUCH</span>
+                <h2 class="premium-about-heading">Contact Vibhu Travel Hub</h2>
+            </div>
+            
+            <div class="row g-4 mb-5">
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="premium-contact-card text-center p-4 bg-white rounded-4 shadow-sm h-100 border border-light">
+                        <i class="bi bi-telephone-fill text-danger fs-1 mb-3"></i>
+                        <h5 class="fw-bold">Phone</h5>
+                        <p class="text-muted mb-0">+91 96558 66660</p>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="premium-contact-card text-center p-4 bg-white rounded-4 shadow-sm h-100 border border-light">
+                        <i class="bi bi-envelope-fill text-danger fs-1 mb-3"></i>
+                        <h5 class="fw-bold">Email</h5>
+                        <p class="text-muted mb-0">vibhutravelhub66@gmail.com</p>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="premium-contact-card text-center p-4 bg-white rounded-4 shadow-sm h-100 border border-light">
+                        <i class="bi bi-geo-alt-fill text-danger fs-1 mb-3"></i>
+                        <h5 class="fw-bold">Office</h5>
+                        <p class="text-muted mb-0">Joyce Villa Building,<br>87, Grey Town,<br>Coimbatore,<br>Tamil Nadu – 641018,<br>India</p>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="400">
+                    <div class="premium-contact-card text-center p-4 bg-white rounded-4 shadow-sm h-100 border border-light">
+                        <i class="bi bi-clock-fill text-danger fs-1 mb-3"></i>
+                        <h5 class="fw-bold">Working Hours</h5>
+                        <p class="text-muted mb-0">24/7 Available</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="premium-map-wrapper rounded-4 shadow-sm overflow-hidden" data-aos="fade-up">
+                <iframe src="https://maps.google.com/maps?q=Joyce%20Villa%20Building,%2087,%20Grey%20Town,%20Coimbatore,%20Tamil%20Nadu%20641018,%20India&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<!-- GLightbox JS -->
+<script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        AOS.init({ once: true });
+        
+        const lightbox = GLightbox({
+            selector: '.glightbox',
+            touchNavigation: true,
+            loop: true,
+            zoomable: true
+        });
+
+        // Initialize Hero Swiper with Fade Effect
+        var heroSwiper = new Swiper('.hero-swiper', {
+            effect: 'fade',
+            fadeEffect: { crossFade: true },
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            speed: 1500,
+        });
+    });
+</script>
+<!-- About Us specific JS -->
+<script src="{% static 'js/about.js' %}?v={{ STATIC_VERSION }}"></script>
+{% endblock %}

@@ -1,0 +1,206 @@
+{% extends 'dashboard/base_dashboard.html' %}
+
+{% block title %}Enquiries{% endblock %}
+{% block page_title %}Manage Enquiries{% endblock %}
+
+{% block content %}
+<div class="glass-card anim-card p-4">
+    <!-- Header & Search -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h5 class="text-dark fw-bold mb-0">Website Enquiries</h5>
+        <div class="d-flex gap-2">
+            <form method="GET" action="{% url 'dashboard_enquiries' %}" class="d-flex gap-2">
+                <input type="text" name="q" value="{{ query }}" class="form-control anim-input form-control-sm glass-input text-dark" placeholder="Search name, email, phone...">
+                <button type="submit" class="btn btn-sm btn-danger"><i class="bi bi-search"></i></button>
+                {% if query %}
+                    <a href="{% url 'dashboard_enquiries' %}" class="btn btn-sm btn-outline-secondary">Clear</a>
+                {% endif %}
+            </form>
+            <button class="btn btn-sm btn-outline-success"><i class="bi bi-file-earmark-excel"></i> Export</button>
+        </div>
+    </div>
+    
+    <!-- Table -->
+    <div class="table-responsive">
+        <table class="table table-hover custom-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Customer Name</th>
+                    <th>Contact Info</th>
+                    <th>Trip Details</th>
+                    <th>Vehicle</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for enquiry in page_obj %}
+                <tr>
+                    <td>{{ enquiry.created_at|date:"M d, Y H:i" }}</td>
+                    <td class="fw-bold text-dark">{{ enquiry.name }}</td>
+                    <td>
+                        <div class="small">
+                            <i class="bi bi-telephone-fill text-muted"></i> <span class="text-dark">{{ enquiry.phone }}</span><br>
+                            {% if enquiry.email %}<i class="bi bi-envelope-fill text-muted"></i> <span class="text-dark">{{ enquiry.email }}</span>{% endif %}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="small">
+                            <span class="text-muted">From:</span> <span class="text-dark">{{ enquiry.pickup }}</span><br>
+                            <span class="text-muted">To:</span> <span class="text-dark">{{ enquiry.drop|default:enquiry.destination|default:"Not specified" }}</span>
+                        </div>
+                    </td>
+                    <td><span class="badge bg-secondary">Not specified</span></td>
+                    <td>
+                        {% if enquiry.status == 'New' %}
+                            <span class="badge bg-danger">New</span>
+                        {% elif enquiry.status == 'Contacted' %}
+                            <span class="badge bg-warning text-dark">Contacted</span>
+                        {% else %}
+                            <span class="badge bg-success">{{ enquiry.status }}</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        <div class="btn-group">
+                            <button class="btn btn-sm btn-primary rounded-start" data-bs-toggle="modal" data-bs-target="#viewModal{{ enquiry.id }}" title="View"><i class="bi bi-eye-fill"></i></button>
+                            <!-- Delete Trigger -->
+                            <button class="btn btn-sm btn-danger rounded-end" data-bs-toggle="modal" data-bs-target="#deleteModal{{ enquiry.id }}" title="Delete">
+                                <i class="bi bi-trash-fill"></i>
+                            </button>
+                        </div>
+                        
+                        <!-- View Modal -->
+                        <div class="modal fade" id="viewModal{{ enquiry.id }}" tabindex="-1" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-lg">
+                                <div class="modal-content glass-panel" style="background: #FFFFFF; border: 1px solid var(--border-color);">
+                                    <div class="modal-header border-bottom">
+                                        <h5 class="modal-title text-dark fw-bold"><i class="bi bi-info-circle me-2"></i>Enquiry Details</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body text-dark">
+                                        <div class="row g-3">
+                                            <div class="col-md-6">
+                                                <small class="text-muted text-uppercase fw-bold">Customer Name</small>
+                                                <div class="fs-6">{{ enquiry.name }}</div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <small class="text-muted text-uppercase fw-bold">Submitted Date</small>
+                                                <div class="fs-6">{{ enquiry.created_at|date:"M d, Y H:i" }}</div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <small class="text-muted text-uppercase fw-bold">Mobile Number</small>
+                                                <div class="fs-6">{{ enquiry.phone }}</div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <small class="text-muted text-uppercase fw-bold">Email Address</small>
+                                                <div class="fs-6">{{ enquiry.email|default:"Not specified" }}</div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <small class="text-muted text-uppercase fw-bold">Travel Date</small>
+                                                <div class="fs-6">{{ enquiry.travel_date|date:"M d, Y" }}</div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <small class="text-muted text-uppercase fw-bold">Vehicle</small>
+                                                <div class="fs-6">Not specified</div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <small class="text-muted text-uppercase fw-bold">Pickup Location</small>
+                                                <div class="fs-6">{{ enquiry.pickup }}</div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <small class="text-muted text-uppercase fw-bold">Drop Location</small>
+                                                <div class="fs-6">{{ enquiry.drop|default:enquiry.destination|default:"Not specified" }}</div>
+                                            </div>
+                                            <div class="col-12 mt-3">
+                                                <small class="text-muted text-uppercase fw-bold">Message / Additional Requirements</small>
+                                                <div class="p-3 bg-light rounded border mt-1">
+                                                    {{ enquiry.message|default:"No additional message." }}
+                                                </div>
+                                            </div>
+                                            <div class="col-12 mt-3">
+                                                <small class="text-muted text-uppercase fw-bold">Status</small>
+                                                <div>
+                                                    {% if enquiry.status == 'New' %}
+                                                        <span class="badge bg-danger">New</span>
+                                                    {% elif enquiry.status == 'Contacted' %}
+                                                        <span class="badge bg-warning text-dark">Contacted</span>
+                                                    {% else %}
+                                                        <span class="badge bg-success">{{ enquiry.status }}</span>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer border-0">
+                                        <button type="button" class="btn btn-secondary rounded-pill px-4" data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Delete Confirmation Modal -->
+                        <div class="modal fade" id="deleteModal{{ enquiry.id }}" tabindex="-1" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content glass-panel" style="background: #FFFFFF; border: 1px solid var(--border-color);">
+                                    <div class="modal-header border-bottom">
+                                        <h5 class="modal-title text-dark">Delete Enquiry?</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body text-dark">
+                                        Are you sure you want to delete the enquiry from <strong>{{ enquiry.name }}</strong>?<br>
+                                        <span class="text-danger small mt-2 d-block">This action cannot be undone.</span>
+                                    </div>
+                                    <div class="modal-footer border-0">
+                                        <button type="button" class="btn btn-outline-secondary rounded-pill px-4" data-bs-dismiss="modal">Cancel</button>
+                                        <form method="POST" action="{% url 'enquiry_delete' enquiry.id %}">
+                                            {% csrf_token %}
+                                            <button type="submit" class="btn btn-danger rounded-pill px-4">Delete Permanently</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="7" class="text-center py-5 text-muted">
+                        <i class="bi bi-inbox fs-1 d-block mb-2"></i>
+                        No enquiries found.
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- Pagination -->
+    {% if page_obj.has_other_pages %}
+    <nav class="mt-4" aria-label="Page navigation">
+        <ul class="pagination pagination-sm justify-content-end mb-0">
+            {% if page_obj.has_previous %}
+                <li class="page-item"><a class="page-link bg-white text-dark border-light" href="?page={{ page_obj.previous_page_number }}{% if query %}&q={{ query }}{% endif %}">Previous</a></li>
+            {% else %}
+                <li class="page-item disabled"><span class="page-link bg-light text-muted border-light">Previous</span></li>
+            {% endif %}
+            
+            {% for num in page_obj.paginator.page_range %}
+                {% if page_obj.number == num %}
+                    <li class="page-item active"><span class="page-link bg-danger text-white border-danger">{{ num }}</span></li>
+                {% else %}
+                    <li class="page-item"><a class="page-link bg-white text-dark border-light" href="?page={{ num }}{% if query %}&q={{ query }}{% endif %}">{{ num }}</a></li>
+                {% endif %}
+            {% endfor %}
+            
+            {% if page_obj.has_next %}
+                <li class="page-item"><a class="page-link bg-white text-dark border-light" href="?page={{ page_obj.next_page_number }}{% if query %}&q={{ query }}{% endif %}">Next</a></li>
+            {% else %}
+                <li class="page-item disabled"><span class="page-link bg-light text-muted border-light">Next</span></li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+</div>
+{% endblock %}

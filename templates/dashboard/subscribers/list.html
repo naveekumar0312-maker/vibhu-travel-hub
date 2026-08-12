@@ -1,0 +1,110 @@
+{% extends 'dashboard/base_dashboard.html' %}
+
+{% block title %}Newsletter Subscribers{% endblock %}
+{% block page_title %}Manage Subscribers{% endblock %}
+
+{% block content %}
+<div class="glass-card anim-card p-4">
+    <!-- Header & Search -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h5 class="text-dark fw-bold mb-0">Newsletter Subscribers</h5>
+        <div class="d-flex gap-2">
+            <form method="GET" action="{% url 'dashboard_subscribers' %}" class="d-flex gap-2">
+                <input type="text" name="q" value="{{ query }}" class="form-control anim-input form-control-sm glass-input text-dark" placeholder="Search name or email...">
+                
+                <select name="status" class="form-select anim-input form-select-sm glass-input text-dark" style="width: auto;">
+                    <option value="">All Status</option>
+                    <option value="active" {% if status == 'active' %}selected{% endif %}>Active</option>
+                    <option value="inactive" {% if status == 'inactive' %}selected{% endif %}>Inactive</option>
+                </select>
+
+                <button type="submit" class="btn btn-sm btn-danger"><i class="bi bi-search"></i></button>
+                {% if query or status %}
+                    <a href="{% url 'dashboard_subscribers' %}" class="btn btn-sm btn-outline-secondary">Clear</a>
+                {% endif %}
+            </form>
+        </div>
+    </div>
+    
+    <!-- Table -->
+    <div class="table-responsive">
+        <table class="table table-hover custom-table">
+            <thead>
+                <tr>
+                    <th>Subscribed Date</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for sub in subscribers %}
+                <tr>
+                    <td>{{ sub.subscribed_at|date:"M d, Y H:i" }}</td>
+                    <td class="fw-bold text-dark">{{ sub.name }}</td>
+                    <td>
+                        <div class="small">
+                            <i class="bi bi-envelope-fill text-muted"></i> <span class="text-dark">{{ sub.email }}</span>
+                        </div>
+                    </td>
+                    <td>
+                        {% if sub.is_active %}
+                            <span class="badge bg-success">Active</span>
+                        {% else %}
+                            <span class="badge bg-secondary">Inactive</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        <div class="btn-group">
+                            <a href="{% url 'subscriber_detail' sub.id %}" class="btn btn-sm btn-primary rounded-start" title="View"><i class="bi bi-eye-fill"></i></a>
+                            
+                            <!-- Toggle Trigger -->
+                            <a href="{% url 'subscriber_toggle' sub.id %}" class="btn btn-sm {% if sub.is_active %}btn-warning{% else %}btn-success{% endif %}" title="{% if sub.is_active %}Deactivate{% else %}Activate{% endif %}">
+                                <i class="bi {% if sub.is_active %}bi-x-circle-fill{% else %}bi-check-circle-fill{% endif %} text-dark"></i>
+                            </a>
+
+                            <!-- Delete Trigger -->
+                            <button class="btn btn-sm btn-danger rounded-end" data-bs-toggle="modal" data-bs-target="#deleteModal{{ sub.id }}" title="Delete">
+                                <i class="bi bi-trash-fill"></i>
+                            </button>
+                        </div>
+                        
+                        <!-- Delete Confirmation Modal -->
+                        <div class="modal fade" id="deleteModal{{ sub.id }}" tabindex="-1" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content glass-panel" style="background: #FFFFFF; border: 1px solid var(--border-color);">
+                                    <div class="modal-header border-bottom">
+                                        <h5 class="modal-title text-dark">Delete Subscriber?</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body text-dark">
+                                        Are you sure you want to delete the subscriber <strong>{{ sub.email }}</strong>?<br>
+                                        <span class="text-danger small mt-2 d-block">This action cannot be undone.</span>
+                                    </div>
+                                    <div class="modal-footer border-0">
+                                        <button type="button" class="btn btn-outline-secondary rounded-pill px-4" data-bs-dismiss="modal">Cancel</button>
+                                        <form method="POST" action="{% url 'subscriber_delete' sub.id %}">
+                                            {% csrf_token %}
+                                            <button type="submit" class="btn btn-danger rounded-pill px-4">Delete Permanently</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="5" class="text-center py-5 text-muted">
+                        <i class="bi bi-envelope fs-1 d-block mb-2"></i>
+                        No subscribers found.
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

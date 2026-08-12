@@ -1,0 +1,1 @@
+const reveals=document.querySelectorAll(".reveal,.reveal-left,.reveal-right,.reveal-scale"),observer=new IntersectionObserver((e=>{e.forEach((e=>{e.isIntersecting&&e.target.classList.add("active")}))}),{threshold:.15});reveals.forEach((e=>{observer.observe(e)}));

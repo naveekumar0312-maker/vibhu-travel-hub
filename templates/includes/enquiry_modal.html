@@ -1,0 +1,81 @@
+{% load static %}
+
+
+<!-- Enquiry Modal -->
+<div class="modal fade" id="enquiryModal" tabindex="-1" aria-labelledby="enquiryModalLabel" aria-hidden="true" data-bs-backdrop="blur">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            
+            <div class="modal-header">
+                <h5 class="modal-title" id="enquiryModalLabel">Book Your <span>Ride</span></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            
+            <div class="modal-body">
+                <div id="enquiryAlertBox" style="display: none;" class="enquiry-alert"></div>
+                
+                <form id="enquiryForm" method="POST">
+                    {% csrf_token %}
+                    
+                    <input type="hidden" name="state_destination" id="hiddenStateDest" value="">
+                    <input type="hidden" name="tourist_place" id="hiddenTouristPlace" value="">
+                    
+                    <div class="row g-3">
+                        <!-- Full Name -->
+                        <div class="col-md-6">
+                            <label for="enquiryFullName" class="form-label">Full Name *</label>
+                            <input type="text" class="form-control anim-input" id="enquiryFullName" name="full_name" placeholder="Enter your full name" required>
+                        </div>
+                        
+                        <!-- Mobile Number -->
+                        <div class="col-md-6">
+                            <label for="enquiryMobile" class="form-label">Mobile Number *</label>
+                            <input type="tel" class="form-control anim-input" id="enquiryMobile" name="mobile" placeholder="Enter your mobile number" required>
+                        </div>
+                        
+                        <!-- Email Address -->
+                        <div class="col-md-6">
+                            <label for="enquiryEmail" class="form-label">Email Address</label>
+                            <input type="email" class="form-control anim-input" id="enquiryEmail" name="email" placeholder="Enter your email address">
+                        </div>
+                        
+                        <!-- Travel Date -->
+                        <div class="col-md-6">
+                            <label for="enquiryTravelDate" class="form-label">Travel Date *</label>
+                            <input type="date" class="form-control anim-input" id="enquiryTravelDate" name="travel_date" required>
+                        </div>
+                        
+                        <!-- Pickup Location -->
+                        <div class="col-md-6">
+                            <label for="enquiryPickup" class="form-label">Pickup Location *</label>
+                            <input type="text" class="form-control anim-input" id="enquiryPickup" name="pickup_location" placeholder="City or Landmark" required>
+                        </div>
+                        
+                        <!-- Drop Location -->
+                        <div class="col-md-6">
+                            <label for="enquiryDrop" class="form-label">Drop Location *</label>
+                            <input type="text" class="form-control anim-input" id="enquiryDrop" name="drop_location" placeholder="City or Landmark" required>
+                        </div>
+                        
+                        <!-- Message -->
+                        <div class="col-md-12">
+                            <label for="enquiryMessage" class="form-label">Message / Additional Requirements</label>
+                            <textarea class="form-control anim-input" id="enquiryMessage" name="message" rows="3" placeholder="Tell us more about your trip..."></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="modal-footer mt-4 pb-0 pe-0 ps-0 border-0">
+                        <button type="button" class="btn-cancel" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn-submit anim-btn" id="enquiryBtnSubmit">
+                            <span class="btn-text">Submit Enquiry</span>
+                            <div class="spinner-border spinner-border-sm btn-spinner d-none" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+</div>

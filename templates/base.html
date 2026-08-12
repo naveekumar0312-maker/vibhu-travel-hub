@@ -1,0 +1,296 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- ==========================================
+        META TAGS
+    =========================================== -->
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible"
+          content="IE=edge">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="{% block description %}Vibhu Travel Hub offers premium taxi services, bus rentals, tempo travellers, corporate travel, pilgrimage trips and outstation tours in Coimbatore and across Tamil Nadu.{% endblock %}">
+
+    <meta name="keywords"
+          content="{% block keywords %}Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo Traveller Rental, Corporate Travel, Outstation Tours, Pilgrimage Trips, Vibhu Travel Hub{% endblock %}">
+
+    <meta name="author"
+          content="Vibhu Travel Hub">
+
+    <meta name="robots"
+          content="index,follow">
+
+    <meta name="theme-color"
+          content="#000000">
+
+    <!-- ==========================================
+        CANONICAL
+    =========================================== -->
+
+    <link rel="canonical"
+          href="{% block canonical %}https://www.vibhutravelhub.com/{% endblock %}">
+
+    <!-- ==========================================
+        TITLE
+    =========================================== -->
+
+    <title>
+        {% block title %}
+        Vibhu Travel Hub | Best Travel Agency in Coimbatore
+        {% endblock %}
+    </title>
+
+    <!-- ==========================================
+        FAVICON
+    =========================================== -->
+
+    <link rel="icon"
+          type="image/webp"
+          href="{% static 'images/logo/logo.webp' %}">
+
+    <link rel="apple-touch-icon"
+          href="{% static 'images/logo/logo.webp' %}">
+
+    {% block icon %}{% endblock %}
+
+    <!-- ==========================================
+        OPEN GRAPH
+    =========================================== -->
+
+    <meta property="og:type"
+          content="website">
+
+    <meta property="og:site_name"
+          content="Vibhu Travel Hub">
+
+    <meta property="og:title"
+          content="{% block og_title %}Vibhu Travel Hub{% endblock %}">
+
+    <meta property="og:description"
+          content="{% block og_description %}Premium Taxi, Bus Rental, Tempo Traveller & Tour Packages in Coimbatore.{% endblock %}">
+
+    <meta property="og:url"
+          content="{% block og_url %}https://www.vibhutravelhub.com/{% endblock %}">
+
+    <meta property="og:image"
+          content="https://www.vibhutravelhub.com/static/images/logo/og-banner.webp">
+
+    <!-- ==========================================
+        DNS PREFETCH
+    =========================================== -->
+
+    <link rel="dns-prefetch"
+          href="//fonts.googleapis.com">
+
+    <link rel="dns-prefetch"
+          href="//fonts.gstatic.com">
+
+    <link rel="dns-prefetch"
+          href="//cdn.jsdelivr.net">
+
+    <link rel="dns-prefetch"
+          href="//cdnjs.cloudflare.com">
+
+    <!-- ==========================================
+        GLOBAL TYPOGRAPHY
+    =========================================== -->
+    <link rel="stylesheet" href="{% static 'css/typography.css' %}?v=global-1">
+
+    <!-- ==========================================
+        PRELOAD HERO IMAGE
+        (Change this path to your actual hero image)
+    =========================================== -->
+
+    {% block preload %}
+    <!-- Example -->
+    <!--
+    <link rel="preload"
+          as="image"
+          href="{% static 'images/home/hero.webp' %}">
+    -->
+    {% endblock %}
+
+    <!-- ==========================================
+        BOOTSTRAP CSS
+    =========================================== -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- ==========================================
+        PROJECT CSS
+    =========================================== -->
+
+    <link rel="stylesheet" href="{% static 'css/style-min.css' %}?v={{ STATIC_VERSION }}">
+    <link rel="stylesheet" href="{% static 'css/header/header.css' %}?v=light_theme_1">
+    <link rel="stylesheet" href="{% static 'css/header/navbar.css' %}?v={{ STATIC_VERSION }}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}?v=season-bird-theme-2">
+    <link rel="stylesheet" href="{% static 'css/destination.css' %}?v={{ STATIC_VERSION }}">
+    <link rel="stylesheet" href="{% static 'css/modal.css' %}?v={{ STATIC_VERSION }}">
+    <link rel="stylesheet" href="{% static 'css/premium-hero-slider.css' %}?v=responsive-hero-1">
+    <link rel="stylesheet" href="{% static 'css/global-animations.css' %}?v=1.0">
+
+    {% block extra_css %}{% endblock %}
+
+    <style>
+        html, body {
+            margin: 0 !important;
+            padding: 0 !important;
+            max-width: 100vw;
+            overflow-x: hidden;
+        }
+        
+        /* Floating Buttons */
+        .vth-floating-buttons {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            z-index: 1010;
+        }
+        
+        .vth-float-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .vth-float-btn:hover {
+            transform: scale(1.1);
+            color: #fff;
+        }
+        
+        .vth-float-wa {
+            background-color: #25D366;
+        }
+        
+        .vth-float-wa:hover {
+            background-color: #1EBE55;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        }
+        
+        .vth-float-enquiry {
+            background: linear-gradient(135deg, #0d6efd 0%, #0056b3 100%);
+        }
+        
+        .vth-float-enquiry:hover {
+            background: linear-gradient(135deg, #0056b3 0%, #004085 100%);
+            box-shadow: 0 6px 20px rgba(13, 110, 253, 0.4);
+        }
+    </style>
+
+    
+    <meta name="google-site-verification" content="_zCwFqOnZnGMhGv0HUWoKT_BxYdRsI4kqT5lrE6nXh8" />
+
+ {% block schema %}
+        <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Organization",
+  "name":"Vibhu Travel Hub",
+  "url":"https://www.vibhutravelhub.com",
+  "logo":"https://www.vibhutravelhub.com/static/images/logo/logo.webp",
+  "image":"https://www.vibhutravelhub.com/static/images/logo/logo.webp",
+  "email":"mailto:vibhutravelhub66@gmail.com",
+  "telephone":"+91-9655866660",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Joyce Villa Building, 87, Grey Town",
+    "addressLocality": "Coimbatore",
+    "addressRegion": "Tamil Nadu",
+    "postalCode": "641018",
+    "addressCountry": "India"
+  }
+}
+        </script>
+ {% endblock %}
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WKX7DN094J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-WKX7DN094J');
+</script>
+</head>
+
+<body class="{% block body_class %}{% endblock %}">
+
+    <!-- ==========================================
+        PAGE CONTENT
+    =========================================== -->
+
+    <main>
+{% include 'includes/header.html' %}
+        {% block content %}
+        {% endblock %}
+{% include 'includes/footer.html' %}
+{% include 'includes/enquiry_modal.html' %}
+    </main>
+
+    <!-- ==========================================
+        FLOATING BUTTONS
+    =========================================== -->
+    <div class="vth-floating-buttons">
+        <button id="floatingEnquiryBtn" class="vth-float-btn anim-float vth-float-enquiry" aria-label="Quick Enquiry" data-bs-toggle="modal" data-bs-target="#enquiryModal">
+            <i class="bi bi-chat-dots-fill"></i>
+        </button>
+        <a href="https://wa.me/919655866660" target="_blank" class="vth-float-btn anim-float vth-float-wa" aria-label="WhatsApp Us">
+            <i class="bi bi-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- ==========================================
+        BOOTSTRAP JS
+    =========================================== -->
+    
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <script defer src="{% static 'js/main-min.js' %}?v={{ STATIC_VERSION }}"></script>
+    <script defer src="{% static 'js/global-animations.js' %}?v=1.0"></script>
+    <script defer src="{% static 'js/mobile-navbar.js' %}?v={{ STATIC_VERSION }}"></script>
+    <script defer src="{% static 'js/sticky-header.js' %}?v={{ STATIC_VERSION }}"></script>
+    <script defer src="{% static 'js/premium-hero-slider.js' %}?v={{ STATIC_VERSION }}"></script>
+    <script defer src="{% static 'js/enquiry-modal.js' %}?v={{ STATIC_VERSION }}"></script>
+    <script defer src="{% static 'js/footer.js' %}?v={{ STATIC_VERSION }}"></script>
+
+    <!-- ==========================================
+        PAGE JS
+    =========================================== -->
+
+    {% block extra_js %}{% endblock %}
+
+</body>
+
+</html>

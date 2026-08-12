@@ -1,0 +1,287 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Tempo Traveller Rental in Coimbatore | 12, 14, 17 Seater Booking{% endblock %}
+{% block description %}Book AC Tempo Traveller in Coimbatore for outstation trips, family tours and corporate outings. 12, 14, and 17 seater premium luxury tempo travellers available.{% endblock %}
+{% block keywords %}Tempo Traveller Coimbatore, 12 Seater Tempo Traveller, 14 Seater Tempo Traveller, Luxury Tempo Traveller Booking, Coimbatore to Ooty Tempo Traveller{% endblock %}
+{% block canonical %}https://www.vibhutravels.in/services/tempo-traveller/{% endblock %}
+
+{% block og_title %}Tempo Traveller Rental in Coimbatore | 12, 14, 17 Seater Booking{% endblock %}
+{% block og_description %}Book AC Tempo Traveller in Coimbatore for outstation trips, family tours and corporate outings. 12, 14, and 17 seater premium luxury tempo travellers available.{% endblock %}
+{% block og_url %}https://www.vibhutravels.in/services/tempo-traveller/{% endblock %}
+{% block og_image %}https://www.vibhutravels.in{% static 'images/services/tempo-hero.jpg' %}{% endblock %}
+
+{% block schema_markup %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "https://www.vibhutravels.in/"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "Services",
+    "item": "https://www.vibhutravels.in/#fleet"
+  },{
+    "@type": "ListItem",
+    "position": 3,
+    "name": "Tempo Traveller",
+    "item": "https://www.vibhutravels.in/services/tempo-traveller/"
+  }]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Tempo Traveller Rental in Coimbatore",
+  "provider": {
+    "@type": "TravelAgency",
+    "name": "Vibhu Travel Hub"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Coimbatore"
+  },
+  "description": "Premium 12, 14, and 17 seater AC Tempo Traveller rental for family tours and outstation trips.",
+  "image": "https://www.vibhutravels.in{% static 'images/services/tempo-hero.jpg' %}"
+}
+</script>
+{% endblock %}
+
+{% block extra_css %}
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/service.css' %}?v={{ STATIC_VERSION }}">
+{% endblock %}
+
+{% block content %}
+<!-- 1. PREMIUM HERO -->
+<section class="hero-section">
+    <div class="hero-bg-wrapper">
+        <img src="https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=2071&auto=format&fit=crop" alt="Tempo Traveller Rental">
+    </div>
+    <div class="hero-overlay"></div>
+
+    <div class="container position-relative z-3">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="hero-content">
+                   
+                    <h1 class="hero-title" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+                        Tempo Traveller Rental
+                        <span>in Coimbatore.</span>
+                    </h1>
+                    <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
+                        The ultimate comfort for family trips and friend groups. Explore South India's hill stations and tourist spots in our luxury Tempo Travellers.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
+                        <button class="btn-premium anim-btn btn-primary-luxury" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Tempo Traveller">
+                            <i class="bi bi-calendar-check-fill"></i> Check Availability
+                        </button>
+                        <a href="https://wa.me/919655866660" target="_blank" class="btn-premium anim-btn btn-outline-luxury">
+                            <i class="bi bi-whatsapp"></i> Chat on WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="scroll-indicator">
+        <i class="bi bi-chevron-down"></i>
+    </div>
+</section>
+
+<!-- 2. ABOUT SERVICE -->
+<section id="about" class="lux-section bg-white">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6" data-aos="fade-right">
+                <div class="about-img-container position-relative h-100 shadow-lg rounded-4 overflow-hidden" style="min-height: 450px;">
+                    <img src="https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=2071&auto=format&fit=crop" alt="Luxury Tempo Traveller" class="w-100 h-100 object-fit-cover position-absolute top-0 start-0">
+                    
+                    <div class="position-absolute bottom-0 end-0 bg-white p-4 shadow-lg rounded-top-start-4 d-flex align-items-center gap-3" style="z-index: 3;">
+                        <div class="bg-danger text-white rounded-circle d-flex align-items-center justify-content-center shadow-sm" style="width: 50px; height: 50px; font-size: 1.5rem;">
+                            <i class="bi bi-truck-front-fill"></i>
+                        </div>
+                        <div>
+                            <h4 class="fw-bold mb-0 text-dark counter-value" data-target="8000">0</h4>
+                            <p class="text-muted small mb-0 fw-medium">Family Trips</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-left">
+                <div class="h-100 d-flex flex-column justify-content-center py-3 ps-lg-4">
+                    <div class="d-inline-block text-danger fw-bold text-uppercase tracking-wide mb-2 small">About Service</div>
+                    <h2 class="section-title mb-4 fw-bolder text-dark" style="font-size: 2.5rem; letter-spacing: -0.5px;">Luxury Tempo Travellers <span class="text-danger">for Group Travel</span></h2>
+                    <div class="about-content reveal-right text-secondary fs-6 lh-lg">
+                        <p>Traveling with extended family or a group of friends? Hiring a Tempo Traveller is the most economical and fun way to travel together without the hassle of driving multiple cars.</p>
+                        
+                        <p>Our fleet features brand new Force Motors Tempo Travellers available in 12, 14, and 17 seating capacities. Every vehicle is customized for luxury travel, featuring push-back recliner seats, premium upholstery, ample legroom, and a robust dual air-conditioning system to beat the heat.</p>
+                        
+                        <div class="p-4 bg-light rounded-4 border-start border-4 border-danger mt-4 shadow-sm">
+                            <div class="d-flex align-items-start gap-3">
+                                <i class="bi bi-music-note-list text-danger opacity-75" style="font-size: 2rem; line-height: 1;"></i>
+                                <p class="text-dark fw-medium mb-0 fs-6 fst-italic">Make your journey entertaining! All our Tempo Travellers come fitted with LED TVs, high-quality music systems, and mood lighting.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 3. WHY CHOOSE US -->
+<section class="lux-section bg-light">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <span class="text-danger fw-bold text-uppercase tracking-wide">Why Choose Us</span>
+            <h2 class="section-title mt-2">The Vibhu Advantage</h2>
+            <p class="section-subtitle">Experience unparalleled service quality with every ride.</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-person-badge"></i></div>
+                    <h5 class="fw-bold mb-3">Hill Station Experts</h5>
+                    <p class="text-muted mb-0">Drivers with extensive experience driving large vehicles safely on the steep ghat roads of Ooty and Kodaikanal.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-usb-drive"></i></div>
+                    <h5 class="fw-bold mb-3">Modern Amenities</h5>
+                    <p class="text-muted mb-0">USB charging ports at every seat, reading lights, and premium entertainment systems.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-box-seam"></i></div>
+                    <h5 class="fw-bold mb-3">Extra Luggage Carrier</h5>
+                    <p class="text-muted mb-0">Spacious roof carriers and boot space to accommodate all your heavy luggage easily.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-wallet2"></i></div>
+                    <h5 class="fw-bold mb-3">Cost Effective</h5>
+                    <p class="text-muted mb-0">Cheaper than hiring multiple cars, and you get to enjoy the journey together in one vehicle.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-arrow-down-up"></i></div>
+                    <h5 class="fw-bold mb-3">Push-Back Seats</h5>
+                    <p class="text-muted mb-0">Plush 1x1 or 2x1 seating arrangements with deep recline for maximum comfort.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-clock-history"></i></div>
+                    <h5 class="fw-bold mb-3">Punctual Service</h5>
+                    <p class="text-muted mb-0">We value your time. Our vehicles arrive 15 minutes before your scheduled departure.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- 5. POPULAR ROUTES -->
+<section class="lux-section bg-light">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <h2 class="section-title">Popular Tempo Routes</h2>
+            <p class="section-subtitle">Top destinations our customers visit from Coimbatore.</p>
+        </div>
+        
+        <div class="row g-4 justify-content-center">
+            <div class="col-6 col-md-4 col-lg-3 text-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="p-4 bg-white rounded-4 shadow-sm h-100 feature-card">
+                    <i class="bi bi-geo-alt fs-1 text-danger mb-3 d-block"></i>
+                    <h6 class="fw-bold mb-0">Coimbatore → Ooty</h6>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 text-center" data-aos="fade-up" data-aos-delay="200">
+                <div class="p-4 bg-white rounded-4 shadow-sm h-100 feature-card">
+                    <i class="bi bi-geo-alt fs-1 text-danger mb-3 d-block"></i>
+                    <h6 class="fw-bold mb-0">Coimbatore → Kodaikanal</h6>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 text-center" data-aos="fade-up" data-aos-delay="300">
+                <div class="p-4 bg-white rounded-4 shadow-sm h-100 feature-card">
+                    <i class="bi bi-geo-alt fs-1 text-danger mb-3 d-block"></i>
+                    <h6 class="fw-bold mb-0">Coimbatore → Munnar</h6>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 text-center" data-aos="fade-up" data-aos-delay="400">
+                <div class="p-4 bg-white rounded-4 shadow-sm h-100 feature-card">
+                    <i class="bi bi-geo-alt fs-1 text-danger mb-3 d-block"></i>
+                    <h6 class="fw-bold mb-0">Coimbatore → Wayanad</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 6. BOOKING PROCESS TIMELINE -->
+<section class="lux-section bg-white">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <span class="text-danger fw-bold text-uppercase tracking-wide">Simple Steps</span>
+            <h2 class="section-title mt-2">How to Book</h2>
+        </div>
+        
+        <div class="booking-timeline">
+            <!-- Step 1 -->
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-icon"><i class="bi bi-telephone"></i></div>
+                <div class="timeline-content">
+                    <h4 class="fw-bold">1. Send Inquiry</h4>
+                    <p class="text-muted mb-0">Let us know your travel dates and passenger count via call or WhatsApp.</p>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-icon"><i class="bi bi-tags"></i></div>
+                <div class="timeline-content">
+                    <h4 class="fw-bold">2. Select Vehicle</h4>
+                    <p class="text-muted mb-0">Choose between our 12, 14, or 17 seater options based on your group size.</p>
+                </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-icon"><i class="bi bi-check-circle"></i></div>
+                <div class="timeline-content">
+                    <h4 class="fw-bold">3. Confirm Booking</h4>
+                    <p class="text-muted mb-0">Pay a small advance to reserve your Tempo Traveller for the specified dates.</p>
+                </div>
+            </div>
+            <!-- Step 4 -->
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-icon"><i class="bi bi-geo-alt-fill"></i></div>
+                <div class="timeline-content">
+                    <h4 class="fw-bold">4. Enjoy the Trip</h4>
+                    <p class="text-muted mb-0">Our driver will pick you up. Enjoy a seamless group travel experience.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="{% static 'js/service.js' %}?v={{ STATIC_VERSION }}"></script>
+{% endblock %}

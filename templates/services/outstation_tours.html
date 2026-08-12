@@ -1,0 +1,251 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Outstation Cab Service in Coimbatore | One Way & Round Trip{% endblock %}
+{% block description %}Book Outstation Cabs from Coimbatore for one-way drops, round trips, and multi-day tours. Premium sedans, SUVs and Tempo Travellers for outstation travel.{% endblock %}
+{% block keywords %}Outstation Cab Coimbatore, Coimbatore to Ooty Cab, Coimbatore to Chennai Taxi, One Way Cab Coimbatore, Round Trip Taxi Coimbatore{% endblock %}
+{% block canonical %}https://www.vibhutravels.in/services/outstation-tours/{% endblock %}
+
+{% block og_title %}Outstation Cab Service in Coimbatore | One Way & Round Trip{% endblock %}
+{% block og_description %}Book Outstation Cabs from Coimbatore for one-way drops, round trips, and multi-day tours. Premium sedans, SUVs and Tempo Travellers for outstation travel.{% endblock %}
+{% block og_url %}https://www.vibhutravels.in/services/outstation-tours/{% endblock %}
+{% block og_image %}https://www.vibhutravels.in{% static 'images/services/outstation-hero.jpg' %}{% endblock %}
+
+{% block schema_markup %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "https://www.vibhutravels.in/"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "Services",
+    "item": "https://www.vibhutravels.in/#fleet"
+  },{
+    "@type": "ListItem",
+    "position": 3,
+    "name": "Outstation Tours",
+    "item": "https://www.vibhutravels.in/services/outstation-tours/"
+  }]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Outstation Cab Service in Coimbatore",
+  "provider": {
+    "@type": "TravelAgency",
+    "name": "Vibhu Travel Hub"
+  },
+  "areaServed": {
+    "@type": "State",
+    "name": "Tamil Nadu, Kerala, Karnataka"
+  },
+  "description": "Premium outstation cab services for one-way drops and round trip tours from Coimbatore to Ooty, Munnar, Chennai, Bangalore and more.",
+  "image": "https://www.vibhutravels.in{% static 'images/services/outstation-hero.jpg' %}"
+}
+</script>
+{% endblock %}
+
+{% block extra_css %}
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/service.css' %}?v={{ STATIC_VERSION }}">
+{% endblock %}
+
+{% block content %}
+<!-- 1. PREMIUM HERO -->
+<section class="hero-section">
+    <div class="hero-bg-wrapper">
+        <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=2070&auto=format&fit=crop" alt="Outstation Cabs Coimbatore">
+    </div>
+    <div class="hero-overlay"></div>
+
+    <div class="container position-relative z-3">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="hero-content">
+                    
+                    <h1 class="hero-title" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+                        Outstation Cab Service
+                        <span>from Coimbatore.</span>
+                    </h1>
+                    <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
+                        Travel comfortably to any city or hill station across Tamil Nadu, Kerala, and Karnataka with our verified drivers and premium vehicles.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
+                        <button class="btn-premium anim-btn btn-primary-luxury" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Outstation Cab Service">
+                            <i class="bi bi-signpost-split-fill"></i> Plan Your Trip
+                        </button>
+                        <a href="https://wa.me/919655866660" target="_blank" class="btn-premium anim-btn btn-outline-luxury">
+                            <i class="bi bi-whatsapp"></i> Chat on WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="scroll-indicator">
+        <i class="bi bi-chevron-down"></i>
+    </div>
+</section>
+
+<!-- 2. ABOUT SERVICE -->
+<section id="about" class="lux-section bg-white">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6" data-aos="fade-right">
+                <div class="about-img-container position-relative h-100 shadow-lg rounded-4 overflow-hidden" style="min-height: 450px;">
+                    <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=2070&auto=format&fit=crop" alt="Outstation Road Trip" class="w-100 h-100 object-fit-cover position-absolute top-0 start-0">
+                    
+                    <div class="position-absolute bottom-0 end-0 bg-white p-4 shadow-lg rounded-top-start-4 d-flex align-items-center gap-3" style="z-index: 3;">
+                        <div class="bg-danger text-white rounded-circle d-flex align-items-center justify-content-center shadow-sm" style="width: 50px; height: 50px; font-size: 1.5rem;">
+                            <i class="bi bi-map-fill"></i>
+                        </div>
+                        <div>
+                            <h4 class="fw-bold mb-0 text-dark counter-value" data-target="25000">0</h4>
+                            <p class="text-muted small mb-0 fw-medium">Kilometers Driven</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-left">
+                <div class="h-100 d-flex flex-column justify-content-center py-3 ps-lg-4">
+                    <div class="d-inline-block text-danger fw-bold text-uppercase tracking-wide mb-2 small">About Service</div>
+                    <h2 class="section-title mb-4 fw-bolder text-dark" style="font-size: 2.5rem; letter-spacing: -0.5px;">Comfortable Long Drives <span class="text-danger">with Vibhu</span></h2>
+                    <div class="about-content reveal-right text-secondary fs-6 lh-lg">
+                        <p>Going out of town? Forget the hassle of driving long distances or the rigid schedules of public transport. Vibhu Travel Hub offers dedicated outstation cabs customized entirely for your itinerary.</p>
+                        
+                        <p>We provide two distinct services: <strong>Round-Trip Tours</strong> for vacations where the cab stays with you, and <strong>One-Way Drops</strong> for when you just need to get to another city securely. Our fleet ranges from comfortable Sedans for solo travelers to spacious SUVs and Tempo Travellers for larger groups.</p>
+                        
+                        <div class="p-4 bg-light rounded-4 border-start border-4 border-danger mt-4 shadow-sm">
+                            <div class="d-flex align-items-start gap-3">
+                                <i class="bi bi-sign-turn-right-fill text-danger opacity-75" style="font-size: 2rem; line-height: 1;"></i>
+                                <p class="text-dark fw-medium mb-0 fs-6 fst-italic">Our drivers are route-experts across Tamil Nadu, Kerala, and Karnataka, and are fluent in multiple regional languages.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 3. WHY CHOOSE US -->
+<section class="lux-section bg-light">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <span class="text-danger fw-bold text-uppercase tracking-wide">Why Choose Us</span>
+            <h2 class="section-title mt-2">The Vibhu Advantage</h2>
+            <p class="section-subtitle">Experience unparalleled service quality with every outstation ride.</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-wallet-fill"></i></div>
+                    <h5 class="fw-bold mb-3">Transparent Billing</h5>
+                    <p class="text-muted mb-0">Clear per-kilometer rates. No hidden fees or surprise driver charges.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-geo-fill"></i></div>
+                    <h5 class="fw-bold mb-3">Inter-State Permits</h5>
+                    <p class="text-muted mb-0">Our vehicles have all necessary All-India or South India tourist permits ready.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-car-front-fill"></i></div>
+                    <h5 class="fw-bold mb-3">Highway Ready Fleet</h5>
+                    <p class="text-muted mb-0">Well-maintained cars with excellent tires and brakes for safe highway cruising.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-moon-stars-fill"></i></div>
+                    <h5 class="fw-bold mb-3">Night Driving Experts</h5>
+                    <p class="text-muted mb-0">Drivers specially trained and rested for safe overnight journeys.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-map"></i></div>
+                    <h5 class="fw-bold mb-3">Flexible Itinerary</h5>
+                    <p class="text-muted mb-0">Stop anywhere for food, photos, or rest. It's your personal car for the trip.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-shield-lock"></i></div>
+                    <h5 class="fw-bold mb-3">Safe For Women & Families</h5>
+                    <p class="text-muted mb-0">GPS-tracked vehicles with highly verified, polite, and respectful drivers.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<!-- 6. BOOKING PROCESS TIMELINE -->
+<section class="lux-section bg-white">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <span class="text-danger fw-bold text-uppercase tracking-wide">Simple Steps</span>
+            <h2 class="section-title mt-2">How to Book</h2>
+        </div>
+        
+        <div class="booking-timeline">
+            <!-- Step 1 -->
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-icon"><i class="bi bi-map"></i></div>
+                <div class="timeline-content">
+                    <h4 class="fw-bold">1. Plan Your Route</h4>
+                    <p class="text-muted mb-0">Decide your destination, dates, and whether it is a one-way drop or a round trip.</p>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-icon"><i class="bi bi-car-front-fill"></i></div>
+                <div class="timeline-content">
+                    <h4 class="fw-bold">2. Choose Vehicle</h4>
+                    <p class="text-muted mb-0">Select from our Sedans, SUVs, or Tempo Travellers based on passenger count.</p>
+                </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-icon"><i class="bi bi-receipt"></i></div>
+                <div class="timeline-content">
+                    <h4 class="fw-bold">3. Get Transparent Quote</h4>
+                    <p class="text-muted mb-0">Receive a detailed estimate including per-km charges and driver allowance.</p>
+                </div>
+            </div>
+            <!-- Step 4 -->
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-icon"><i class="bi bi-check2-all"></i></div>
+                <div class="timeline-content">
+                    <h4 class="fw-bold">4. Travel with Peace</h4>
+                    <p class="text-muted mb-0">Confirm booking and enjoy a safe highway journey with our professional driver.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="{% static 'js/service.js' %}?v={{ STATIC_VERSION }}"></script>
+{% endblock %}

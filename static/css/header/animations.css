@@ -1,0 +1,24 @@
+/* ==========================================
+   ANIMATIONS (DARK MINIMAL)
+   ========================================== */
+
+/* Navbar Fade Down */
+@keyframes navbarFadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.premium-navbar {
+    animation: navbarFadeDown 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Smooth Slide Down for Mobile Menu */
+.collapsing {
+    transition: height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}

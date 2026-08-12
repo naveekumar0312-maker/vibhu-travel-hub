@@ -1,0 +1,286 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Pilgrimage Tours & Temple Packages from Coimbatore | Vibhu Travel Hub{% endblock %}
+{% block description %}Book exclusive pilgrimage tours from Coimbatore to Navagraha Temples, Arupadai Veedu, Madurai, Rameswaram, and Tirupati. Premium cabs and buses available.{% endblock %}
+{% block keywords %}Pilgrimage Tours Coimbatore, Temple Tours Tamil Nadu, Navagraha Temple Tour, Tirupati Package from Coimbatore, Madurai Rameswaram Tour{% endblock %}
+{% block canonical %}https://www.vibhutravels.in/services/pilgrimage-trips/{% endblock %}
+
+{% block og_title %}Pilgrimage Tours & Temple Packages from Coimbatore | Vibhu Travel Hub{% endblock %}
+{% block og_description %}Book exclusive pilgrimage tours from Coimbatore to Navagraha Temples, Arupadai Veedu, Madurai, Rameswaram, and Tirupati. Premium cabs and buses available.{% endblock %}
+{% block og_url %}https://www.vibhutravels.in/services/pilgrimage-trips/{% endblock %}
+{% block og_image %}https://www.vibhutravels.in{% static 'images/services/pilgrimage-hero.jpg' %}{% endblock %}
+
+{% block schema_markup %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "https://www.vibhutravels.in/"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "Services",
+    "item": "https://www.vibhutravels.in/#fleet"
+  },{
+    "@type": "ListItem",
+    "position": 3,
+    "name": "Pilgrimage Trips",
+    "item": "https://www.vibhutravels.in/services/pilgrimage-trips/"
+  }]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Pilgrimage Tours from Coimbatore",
+  "provider": {
+    "@type": "TravelAgency",
+    "name": "Vibhu Travel Hub"
+  },
+  "areaServed": {
+    "@type": "State",
+    "name": "Tamil Nadu, Andhra Pradesh"
+  },
+  "description": "Exclusive temple tour packages from Coimbatore to Navagraha temples, Tirupati, Madurai, and Rameswaram with expert drivers and comfortable vehicles.",
+  "image": "https://www.vibhutravels.in{% static 'images/services/pilgrimage-hero.jpg' %}"
+}
+</script>
+{% endblock %}
+
+{% block extra_css %}
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/service.css' %}?v={{ STATIC_VERSION }}">
+{% endblock %}
+
+{% block content %}
+<!-- 1. PREMIUM HERO -->
+<section class="hero-section">
+    <div class="hero-bg-wrapper">
+        <img src="https://images.unsplash.com/photo-1600326145359-3a4dc1628d7a?q=80&w=2070&auto=format&fit=crop" alt="Pilgrimage Temple Tours">
+    </div>
+    <div class="hero-overlay"></div>
+
+    <div class="container position-relative z-3">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="hero-content">
+                    <h1 class="hero-title" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+                        Pilgrimage Tours
+                        <span>from Coimbatore.</span>
+                    </h1>
+                    <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
+                        Experience divine journeys to South India's most sacred temples with our comfortable vehicles and courteous, route-expert drivers.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
+                        <button class="btn-premium anim-btn btn-primary-luxury" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Pilgrimage Tours">
+                            <i class="bi bi-calendar-heart-fill"></i> Plan Darshan
+                        </button>
+                        <a href="https://wa.me/919655866660" target="_blank" class="btn-premium anim-btn btn-outline-luxury">
+                            <i class="bi bi-whatsapp"></i> Chat on WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="scroll-indicator">
+        <i class="bi bi-chevron-down"></i>
+    </div>
+</section>
+
+<!-- 2. ABOUT SERVICE -->
+<section id="about" class="lux-section bg-white">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6" data-aos="fade-right">
+                <div class="about-img-container position-relative h-100 shadow-lg rounded-4 overflow-hidden" style="min-height: 450px;">
+                    <img src="https://images.unsplash.com/photo-1600326145359-3a4dc1628d7a?q=80&w=2070&auto=format&fit=crop" alt="Temple Darshan Trips" class="w-100 h-100 object-fit-cover position-absolute top-0 start-0">
+                    
+                    <div class="position-absolute bottom-0 end-0 bg-white p-4 shadow-lg rounded-top-start-4 d-flex align-items-center gap-3" style="z-index: 3;">
+                        <div class="bg-danger text-white rounded-circle d-flex align-items-center justify-content-center shadow-sm" style="width: 50px; height: 50px; font-size: 1.5rem;">
+                            <i class="bi bi-bell-fill"></i>
+                        </div>
+                        <div>
+                            <h4 class="fw-bold mb-0 text-dark counter-value" data-target="10000">0</h4>
+                            <p class="text-muted small mb-0 fw-medium">Devotees Travelled</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-left">
+                <div class="h-100 d-flex flex-column justify-content-center py-3 ps-lg-4">
+                    <div class="d-inline-block text-danger fw-bold text-uppercase tracking-wide mb-2 small">About Service</div>
+                    <h2 class="section-title mb-4 fw-bolder text-dark" style="font-size: 2.5rem; letter-spacing: -0.5px;">Divine Journeys <span class="text-danger">with Care</span></h2>
+                    <div class="about-content reveal-right text-secondary fs-6 lh-lg">
+                        <p>Tamil Nadu is the land of temples, and going on a pilgrimage requires a vehicle and driver that understand the importance, timings, and routing of these sacred sites. At Vibhu Travel Hub, we specialize in organizing seamless pilgrimage tours from Coimbatore.</p>
+                        
+                        <p>Whether you are planning the famous Navagraha temple tour, a visit to the Arupadai Veedu (Six Abodes of Murugan), or a long trip to Tirupati or Rameswaram, our fleet of comfortable AC vehicles ensures your family, especially the elderly, travel in absolute comfort.</p>
+                        
+                        <div class="p-4 bg-light rounded-4 border-start border-4 border-danger mt-4 shadow-sm">
+                            <div class="d-flex align-items-start gap-3">
+                                <i class="bi bi-person-heart text-danger opacity-75" style="font-size: 2rem; line-height: 1;"></i>
+                                <p class="text-dark fw-medium mb-0 fs-6 fst-italic">Our drivers respect local customs, know the temple timings well, and assist elderly passengers with the utmost respect.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 3. WHY CHOOSE US -->
+<section class="lux-section bg-light">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <span class="text-danger fw-bold text-uppercase tracking-wide">Why Choose Us</span>
+            <h2 class="section-title mt-2">The Vibhu Advantage</h2>
+            <p class="section-subtitle">Experience a peaceful and hassle-free spiritual journey.</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-clock-history"></i></div>
+                    <h5 class="fw-bold mb-3">Knowledge of Timings</h5>
+                    <p class="text-muted mb-0">Drivers well-versed with temple opening and closing times for better planning.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-map-fill"></i></div>
+                    <h5 class="fw-bold mb-3">Optimized Routing</h5>
+                    <p class="text-muted mb-0">Efficient routes to cover maximum temples in minimum time safely.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-heart-pulse"></i></div>
+                    <h5 class="fw-bold mb-3">Elderly Care</h5>
+                    <p class="text-muted mb-0">Courteous drivers who assist senior citizens during boarding and resting.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-car-front-fill"></i></div>
+                    <h5 class="fw-bold mb-3">Comfortable Seating</h5>
+                    <p class="text-muted mb-0">Vehicles with plush push-back seats and excellent suspension for long journeys.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-shop"></i></div>
+                    <h5 class="fw-bold mb-3">Food & Rest Stops</h5>
+                    <p class="text-muted mb-0">Knowledge of the best vegetarian restaurants and clean rest stops along the highways.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-check2-all"></i></div>
+                    <h5 class="fw-bold mb-3">Custom Packages</h5>
+                    <p class="text-muted mb-0">Tailor-made itineraries to fit your specific darshan requirements and days.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- 5. POPULAR ROUTES -->
+<section class="lux-section bg-light">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <h2 class="section-title">Popular Pilgrimage Routes</h2>
+            <p class="section-subtitle">Famous temple tour packages from Coimbatore.</p>
+        </div>
+        
+        <div class="row g-4 justify-content-center">
+            <div class="col-6 col-md-4 col-lg-3 text-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="p-4 bg-white rounded-4 shadow-sm h-100 feature-card">
+                    <h6 class="fw-bold mb-1">Coimbatore to</h6>
+                    <h5 class="text-danger fw-bolder">Madurai & Rameswaram</h5>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 text-center" data-aos="fade-up" data-aos-delay="200">
+                <div class="p-4 bg-white rounded-4 shadow-sm h-100 feature-card">
+                    <h6 class="fw-bold mb-1">Coimbatore to</h6>
+                    <h5 class="text-danger fw-bolder">Tirupati Darshan</h5>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 text-center" data-aos="fade-up" data-aos-delay="300">
+                <div class="p-4 bg-white rounded-4 shadow-sm h-100 feature-card">
+                    <h6 class="fw-bold mb-1">Coimbatore to</h6>
+                    <h5 class="text-danger fw-bolder">Navagraha Temples</h5>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 text-center" data-aos="fade-up" data-aos-delay="400">
+                <div class="p-4 bg-white rounded-4 shadow-sm h-100 feature-card">
+                    <h6 class="fw-bold mb-1">Coimbatore to</h6>
+                    <h5 class="text-danger fw-bolder">Arupadai Veedu</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 6. BOOKING PROCESS TIMELINE -->
+<section class="lux-section bg-white">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <span class="text-danger fw-bold text-uppercase tracking-wide">Simple Steps</span>
+            <h2 class="section-title mt-2">How to Plan Your Tour</h2>
+        </div>
+        
+        <div class="booking-timeline">
+            <!-- Step 1 -->
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-icon"><i class="bi bi-calendar3"></i></div>
+                <div class="timeline-content">
+                    <h4 class="fw-bold">1. Share Requirements</h4>
+                    <p class="text-muted mb-0">Tell us the temples you wish to visit and the number of days you have.</p>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-icon"><i class="bi bi-map-fill"></i></div>
+                <div class="timeline-content">
+                    <h4 class="fw-bold">2. Itinerary Planning</h4>
+                    <p class="text-muted mb-0">We will create an optimized route plan considering travel time and temple hours.</p>
+                </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-icon"><i class="bi bi-car-front"></i></div>
+                <div class="timeline-content">
+                    <h4 class="fw-bold">3. Select Vehicle</h4>
+                    <p class="text-muted mb-0">Choose a comfortable vehicle from our fleet and receive a final quote.</p>
+                </div>
+            </div>
+            <!-- Step 4 -->
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-icon"><i class="bi bi-flower1"></i></div>
+                <div class="timeline-content">
+                    <h4 class="fw-bold">4. Begin Journey</h4>
+                    <p class="text-muted mb-0">Start your peaceful and spiritually enriching journey with our expert driver.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="{% static 'js/service.js' %}?v={{ STATIC_VERSION }}"></script>
+{% endblock %}

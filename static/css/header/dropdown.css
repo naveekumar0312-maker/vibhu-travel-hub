@@ -1,0 +1,124 @@
+/* ==========================================
+   PREMIUM TEXT DROPDOWN (DESTINATIONS)
+   ========================================== */
+.premium-dropdown {
+    position: absolute;
+    top: calc(100% + 14px);
+    left: 50%;
+    transform: translate(-50%, -12px) scale(0.96);
+    background: rgba(70, 70, 70, 0.88);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+    padding: 24px 32px;
+    width: 320px;
+    min-height: auto;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 350ms cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+    margin: 0;
+    z-index: 99999;
+}
+
+.nav-item.dropdown:hover .premium-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0) scale(1);
+    pointer-events: auto;
+}
+
+/* Header */
+.mega-dropdown-header {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.mega-header-title {
+    font-size: 19px;
+    font-weight: 700;
+    color: #ffffff;
+    text-align: left;
+    line-height: 1.2;
+}
+.mega-header-underline {
+    width: 45px;
+    height: 3px;
+    background-color: var(--brand-red, #ff2d2d);
+    margin-top: 10px;
+    border-radius: 2px;
+}
+
+/* List */
+.mega-dropdown-list {
+    display: flex;
+    flex-direction: column;
+    max-height: 500px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+/* Custom Luxury Scrollbar */
+.mega-dropdown-list::-webkit-scrollbar {
+    width: 4px;
+}
+.mega-dropdown-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+.mega-dropdown-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+}
+.mega-dropdown-list::-webkit-scrollbar-thumb:hover {
+    background: var(--brand-red, #ff2d2d);
+}
+
+/* Text Item */
+.premium-text-item {
+    display: block;
+    text-align: left;
+    font-size: 15px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 40px;
+    letter-spacing: 0.3px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    background: transparent;
+}
+
+/* Hover Effects */
+.premium-text-item:hover {
+    color: #ffffff;
+    background: transparent;
+    transform: translateX(6px);
+}
+
+@media (max-width: 991px) {
+    .premium-dropdown {
+        position: static;
+        transform: none !important;
+        box-shadow: none;
+        border: none;
+        padding: 10px 0;
+        background: transparent;
+        backdrop-filter: none;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        display: none;
+        width: 100%;
+    }
+    
+    .nav-item.dropdown:hover .premium-dropdown,
+    .nav-item.dropdown.show .premium-dropdown {
+        display: block;
+    }
+
+    .mega-dropdown-grid {
+        grid-template-columns: 1fr;
+    }
+}

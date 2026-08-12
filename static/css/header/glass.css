@@ -1,0 +1,68 @@
+/* ==========================================
+   GLASSMORPHISM TOKENS & UTILITIES
+   ========================================== */
+:root {
+    /* Brand Colors */
+    --brand-red: #E31E24;
+    --brand-red-gradient: linear-gradient(135deg, #FF3131 0%, #C5161B 100%);
+    --brand-green: #25D366;
+    
+    /* Typography */
+    --font-main: 'Poppins', sans-serif;
+    
+    /* Layout */
+    --topbar-height: 42px;
+    --navbar-height: 88px;
+    
+    /* Transitions */
+    --transition-fast: 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+    --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Glass Buttons */
+.btn-glass-red {
+    background: var(--brand-red-gradient);
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 24px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    box-shadow: 0 8px 20px rgba(227, 30, 36, 0.25);
+    transition: var(--transition-smooth);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+
+.btn-glass-red:hover {
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(227, 30, 36, 0.4);
+}
+
+.btn-glass-green {
+    background: rgba(37, 211, 102, 0.15);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(37, 211, 102, 0.3);
+    color: #128C7E;
+    border-radius: 50px;
+    padding: 10px 24px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: var(--transition-smooth);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+
+.btn-glass-green:hover {
+    background: var(--brand-green);
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(37, 211, 102, 0.3);
+    border-color: transparent;
+}

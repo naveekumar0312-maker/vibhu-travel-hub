@@ -1,0 +1,754 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Tamil Nadu Taxi Service | Chennai, Coimbatore, Madurai, Trichy | Vibhu Travel Hub{% endblock %}
+{% block description %}Book reliable cab and taxi services across Tamil Nadu with Vibhu Travel Hub. We offer premium outstation cabs, one-way taxi, and airport transfers in Chennai, Coimbatore, Madurai, and Trichy.{% endblock %}
+{% block keywords %}Tamil Nadu Cab Booking, Tamil Nadu Taxi Service, Chennai Cab, Coimbatore Taxi, Madurai Cab, Trichy Taxi, Outstation Cabs Tamil Nadu, Airport Taxi Tamil Nadu{% endblock %}
+{% block canonical %}https://www.vibhutravels.in/destinations/tamil-nadu/{% endblock %}
+
+{% block og_title %}Tamil Nadu Taxi Service | Chennai, Coimbatore, Madurai, Trichy | Vibhu Travel Hub{% endblock %}
+{% block og_description %}Book reliable cab and taxi services across Tamil Nadu with Vibhu Travel Hub. We offer premium outstation cabs, one-way taxi, and airport transfers in Chennai, Coimbatore, Madurai, and Trichy.{% endblock %}
+{% block og_url %}https://www.vibhutravels.in/destinations/tamil-nadu/{% endblock %}
+{% block og_image %}https://www.vibhutravels.in{% static 'images/destinations/tamil-nadu-hero.jpg' %}{% endblock %}
+
+{% block twitter_title %}Tamil Nadu Taxi Service | Chennai, Coimbatore, Madurai, Trichy | Vibhu Travel Hub{% endblock %}
+{% block twitter_description %}Book reliable cab and taxi services across Tamil Nadu with Vibhu Travel Hub. We offer premium outstation cabs, one-way taxi, and airport transfers in Chennai, Coimbatore, Madurai, and Trichy.{% endblock %}
+{% block twitter_image %}https://www.vibhutravels.in{% static 'images/destinations/tamil-nadu-hero.jpg' %}{% endblock %}
+
+{% block schema_markup %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "https://www.vibhutravels.in/"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "Destinations",
+    "item": "https://www.vibhutravels.in/destinations/"
+  },{
+    "@type": "ListItem",
+    "position": 3,
+    "name": "Tamil Nadu",
+    "item": "https://www.vibhutravels.in/destinations/tamil-nadu/"
+  }]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TouristDestination",
+  "name": "Tamil Nadu",
+  "description": "Explore Tamil Nadu with Vibhu Travel Hub. Discover temples, hill stations, beaches, heritage cities and unforgettable road trips across Tamil Nadu.",
+  "image": "https://www.vibhutravels.in{% static 'images/destinations/tamil-nadu-hero.jpg' %}",
+  "touristType": [
+    "Heritage Tourism",
+    "Pilgrimage",
+    "Nature Tour"
+  ],
+  "includesAttraction": [
+    {"@type": "TouristAttraction", "name": "Marina Beach"},
+    {"@type": "TouristAttraction", "name": "Meenakshi Amman Temple"},
+    {"@type": "TouristAttraction", "name": "Rameswaram"},
+    {"@type": "TouristAttraction", "name": "Adiyogi"},
+    {"@type": "TouristAttraction", "name": "Marudhamalai"},
+    {"@type": "TouristAttraction", "name": "Ooty"},
+    {"@type": "TouristAttraction", "name": "Kodaikanal"},
+    {"@type": "TouristAttraction", "name": "Yercaud"},
+    {"@type": "TouristAttraction", "name": "Mahabalipuram"},
+    {"@type": "TouristAttraction", "name": "Kanyakumari"}
+  ]
+}
+</script>
+{% endblock %}
+
+{% block extra_css %}
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<style>
+:root {
+        --primary-color: #0F172A;
+        --secondary-color: #E11D48;
+        --accent-color: #F8FAFC;
+        --text-main: #334155;
+        --text-light: #64748B;
+        --glass-bg: rgba(255, 255, 255, 0.7);
+        --glass-border: rgba(255, 255, 255, 0.4);
+        --border-radius-lg: 24px;
+        --border-radius-md: 16px;
+        --border-radius-sm: 8px;
+        --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
+        --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.1);
+        --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        
+        --lux-radius: 24px;
+        --lux-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        --lux-shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+    
+body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        color: var(--text-main);
+        background-color: #F8FAFC;
+        overflow-x: hidden;}
+
+    /* 1. PREMIUM HERO */
+    .hero-section {
+        height: 100vh;
+        min-height: 700px;
+        position: relative;
+        padding: 0 !important;
+        margin: 0 !important;
+        display: flex;
+        align-items: center;
+    }
+    .hero-bg-wrapper {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        z-index: 1;
+    }
+    .hero-bg-wrapper img {
+        width: 100%; height: 100%; object-fit: cover;
+    }
+    .hero-overlay {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: linear-gradient(to right, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.4) 100%);
+        z-index: 2;
+    }
+    .hero-content {
+        position: relative;
+        z-index: 3;
+        max-width: 800px;
+        padding: 0 20px;
+    }
+    .hero-title {
+        color: white;
+        font-size: 4.5rem;
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 20px;
+        letter-spacing: -2px;
+    }
+    .hero-title span {
+        color: var(--secondary-color);
+        display: block;
+    }
+    .hero-subtitle {
+        color: rgba(255,255,255,0.9);
+        font-size: 1.2rem;
+        margin-bottom: 40px;
+        max-width: 600px;
+        line-height: 1.6;
+    }
+    .hero-tags {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+    }
+    .hero-tags span {
+        background: rgba(255,255,255,0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.2);
+        color: white;
+        padding: 8px 20px;
+        border-radius: 50px;
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+    .btn-premium {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 14px 32px;
+        border-radius: 50px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: var(--transition-smooth);
+        border: none;
+        cursor: pointer;
+    }
+    .btn-primary-luxury {
+        background: var(--secondary-color);
+        color: white;
+        box-shadow: 0 8px 20px rgba(225, 29, 72, 0.3);
+    }
+    .btn-primary-luxury:hover {
+        background: #BE123C;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 12px 25px rgba(225, 29, 72, 0.4);
+    }
+    .btn-outline-luxury {
+        background: rgba(255,255,255,0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.5);
+        color: white;
+    }
+    .btn-outline-luxury:hover {
+        background: white;
+        color: var(--primary-color);
+    }
+    
+    @media (max-width: 768px) {
+        .hero-title { font-size: 2.8rem; }
+        .hero-tags { display: none; }
+    }
+    
+
+    
+    .scroll-indicator {
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: rgba(255,255,255,0.7);
+        font-size: 2rem;
+        animation: bounce 2s infinite;
+        z-index: 2;
+    }
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+        40% { transform: translateY(-20px) translateX(-50%); }
+        60% { transform: translateY(-10px) translateX(-50%); }
+    }
+
+    /* GENERAL SECTIONS */
+    .lux-section {
+        padding: 100px 0;
+    }
+    .section-title {
+        font-size: 3rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+        letter-spacing: -1px;
+    }
+    .section-subtitle {
+        color: #6c757d;
+        font-size: 1.15rem;
+        max-width: 700px;
+        margin: 0 auto 3rem;
+        line-height: 1.6;
+    }
+
+    /* ABOUT CONTENT */
+    .about-content {
+        font-size: 1.1rem;
+        line-height: 1.9;
+        color: #495057;
+    }
+    .about-content p {
+        margin-bottom: 1.5rem;
+    }
+    .about-img-container {
+        border-radius: var(--lux-radius);
+        overflow: hidden;
+        box-shadow: var(--shadow-soft); border: 1px solid var(--glass-border);
+    }
+    .about-img-container img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    /* CAB SERVICES */
+    .service-card {
+        background: #fff;
+        border-radius: var(--lux-radius);
+        padding: 2rem;
+        box-shadow: var(--shadow-soft); border: 1px solid var(--glass-border);
+        transition: all 0.4s ease;
+        height: 100%;
+        border: 1px solid rgba(0,0,0,0.03);
+    }
+    .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow-hover);
+    }
+    .service-img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: var(--border-radius-md);
+        margin-bottom: 1.5rem;
+    }
+    .service-list {
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0;
+    }
+    .service-list li {
+        margin-bottom: 0.5rem;
+        font-size: 0.95rem;
+        color: #6c757d;
+    }
+    .service-list li i {
+        color: #0d6efd;
+        margin-right: 8px;
+    }
+
+    /* TOURIST PLACES */
+    .place-card {
+        background: #fff;
+        border-radius: var(--lux-radius);
+        overflow: hidden;
+        box-shadow: var(--shadow-soft); border: 1px solid var(--glass-border);
+        transition: all 0.4s ease;
+        height: 100%;
+        border: 1px solid rgba(0,0,0,0.03);
+        display: flex;
+        flex-direction: column;
+    }
+    .place-card:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow-hover);
+    }
+    .place-img-wrapper {
+        position: relative;
+        height: 240px; border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
+        overflow: hidden;
+    }
+    .place-img-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+    .place-card:hover .place-img-wrapper img {
+        transform: scale(1.08);
+    }
+    .place-content {
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+
+
+
+    /* WHY CHOOSE US */
+    .feature-card {
+        background: #fff;
+        border-radius: var(--border-radius-lg);
+        padding: 2rem;
+        text-align: center;
+        box-shadow: var(--shadow-soft); border: 1px solid var(--glass-border);
+        height: 100%;
+        transition: all 0.3s ease;
+    }
+    .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-hover);
+    }
+    .feature-icon {
+        width: 70px;
+        height: 70px;
+        background: rgba(13, 110, 253, 0.1);
+        color: #0d6efd;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        margin: 0 auto 1.5rem;
+    }
+
+    /* CTA */
+    .cta-section {
+        background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+        color: #fff;
+        text-align: center;
+        padding: 100px 20px;
+        border-radius: 40px;
+        margin: 50px 20px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+        .dest-title { font-size: 3rem; }
+        .section-title { font-size: 2.2rem; }
+        .masonry-item:nth-child(3n) { grid-column: span 1; grid-row: span 1; }
+    }
+    
+    .seo-keyword {
+        color: #111111 !important;
+        font-weight: 700;
+    }
+    .btn-book-tour {
+        background-color: #FF1F1F !important;
+        color: #ffffff !important;
+        border: none !important;
+        border-radius: 10px !important;
+        width: 100%;
+        transition: all 0.3s ease;
+        padding: 10px 0;
+        font-weight: 600;
+        display: block;
+        text-align: center;
+    }
+    .btn-book-tour:hover {
+        background-color: #cc1818 !important;
+        box-shadow: 0 8px 15px rgba(255, 31, 31, 0.4) !important;
+        color: #ffffff !important;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- 1. PREMIUM HERO -->
+<section class="hero-section">
+    <div class="hero-bg-wrapper">
+        <img src="{% static 'images/destinations/tamil.jpg' %}" alt="Tamil Nadu">
+    </div>
+    <div class="hero-overlay"></div>
+
+    <div class="container position-relative z-3">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="hero-content">
+                    <h1 class="hero-title" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+                        Explore Tamil Nadu
+                        <span>with Vibhu Travel Hub.</span>
+                    </h1>
+                    <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
+                        Discover temples, hill stations, beaches, heritage cities and unforgettable road trips across Tamil Nadu.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
+                        <button class="btn-premium anim-btn btn-primary-luxury" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Tamil Nadu">
+                            <i class="bi bi-telephone-fill"></i> Call Now
+                        </button>
+                        <a href="https://wa.me/919655866660" target="_blank" class="btn-premium anim-btn btn-outline-luxury">
+                            <i class="bi bi-whatsapp"></i> Chat on WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 2. ABOUT TAMIL NADU -->
+<section id="about" class="lux-section bg-white">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6" data-aos="fade-right">
+                <div class="about-img-container position-relative h-100 shadow-lg rounded-4 overflow-hidden" style="min-height: 450px;">
+                    <img src="{% static 'images/destinations/tn-about.avif' %}" alt="Tamil Nadu Architecture" class="w-100 h-100 object-fit-cover position-absolute top-0 start-0">
+                    
+                    <!-- Unique Floating Badge -->
+                    <div class="position-absolute bottom-0 end-0 bg-white p-4 shadow-lg rounded-top-start-4 d-flex align-items-center gap-3" style="z-index: 3;">
+                        <div class="bg-danger text-white rounded-circle d-flex align-items-center justify-content-center shadow-sm" style="width: 50px; height: 50px; font-size: 1.5rem;">
+                            <i class="bi bi-award-fill"></i>
+                        </div>
+                        <div>
+                            <h4 class="fw-bold mb-0 text-dark">5+ Years</h4>
+                            <p class="text-muted small mb-0 fw-medium">Of Travel Excellence</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-left">
+                <div class="h-100 d-flex flex-column justify-content-center py-3 ps-lg-4">
+                    <div class="d-inline-block text-danger fw-bold text-uppercase tracking-wide mb-2 small">Discover</div>
+                    <h2 class="section-title mb-4 fw-bolder text-dark" style="font-size: 2.5rem; letter-spacing: -0.5px;">About <span class="text-danger">Tamil Nadu</span></h2>
+                    <div class="about-content reveal-right text-secondary fs-6 lh-lg">
+                        <p>Welcome to <strong>Tamil Nadu</strong>, a mesmerising state where ancient history meets modern dynamism. Known as the cultural capital of India, it offers an unparalleled blend of majestic Dravidian-style temples, pristine beaches, and serene hill stations.</p>
+                        
+                        <p>From the towering gopurams of the Great Living Chola Temples and spiritual corridors of Rameswaram, to the misty hills of Ooty and the coastal beauty of Marina Beach, Tamil Nadu is a divine and scenic destination.</p>
+                        
+                        <div class="p-4 bg-light rounded-4 border-start border-4 border-danger mt-4 shadow-sm">
+                            <div class="d-flex align-items-start gap-3">
+                                <i class="bi bi-quote text-danger opacity-50" style="font-size: 2rem; line-height: 1;"></i>
+                                <p class="text-dark fw-medium mb-0 fs-6 fst-italic">Let Vibhu Travel Hub be your trusted partner. Our premium cab rental and luxury transport services ensure your journey across this beautiful state is safe, comfortable, and absolutely unforgettable.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 3. OUR CAB SERVICES -->
+<section class="lux-section bg-light">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <h2 class="section-title">Our Cab Services in Tamil Nadu</h2>
+            <p class="section-subtitle">Premium travel solutions across major cities for your ultimate comfort.</p>
+        </div>
+        
+        <!-- Row 1: Chennai & Coimbatore -->
+        <div class="row g-5 mb-5">
+            <!-- Chennai -->
+            <div class="col-md-6" data-aos="fade-right">
+                <img src="{% static 'images/destinations/chennai.avif' %}" alt="Chennai taxi service and cab booking" class="img-fluid rounded-4 shadow-sm mb-4 w-100" style="height: 300px; object-fit: cover;">
+                <h3 class="fw-bold mb-3">Chennai</h3>
+                <p class="text-secondary lh-lg fs-6 mb-4">Looking for the best <strong>taxi service in Chennai</strong>? Vibhu Travel Hub provides reliable <strong>cab service in Chennai</strong> for all your travel needs. From quick <strong>Chennai airport taxi</strong> transfers to <strong>outstation cabs Chennai</strong> packages, our <strong>one way taxi Chennai</strong> services ensure complete comfort.</p>
+                <button class="btn btn-outline-primary rounded-pill px-4 py-2" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Tamil Nadu" data-city="Chennai">
+                    Book Taxi <i class="bi bi-arrow-right ms-2"></i>
+                </button>
+            </div>
+            
+            <!-- Coimbatore -->
+            <div class="col-md-6" data-aos="fade-left">
+                <img src="{% static 'images/destinations/coimbatore.avif' %}" alt="Coimbatore local taxi service" class="img-fluid rounded-4 shadow-sm mb-4 w-100" style="height: 300px; object-fit: cover;">
+                <h3 class="fw-bold mb-3">Coimbatore</h3>
+                <p class="text-secondary lh-lg fs-6 mb-4">Explore the region with premium <strong>tours and travels Coimbatore</strong> options. Whether you need a simple <strong>drop taxi Coimbatore</strong> or comprehensive <strong>family tour packages from Coimbatore</strong>, we offer comfortable <strong>outstation cabs</strong> and <strong>tempo traveller rental Coimbatore</strong>.</p>
+                <button class="btn btn-outline-primary rounded-pill px-4 py-2" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Tamil Nadu" data-city="Coimbatore">
+                    Book Taxi <i class="bi bi-arrow-right ms-2"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Row 2: Madurai & Trichy -->
+        <div class="row g-5">
+            <!-- Madurai -->
+            <div class="col-md-6" data-aos="fade-right">
+                <img src="{% static 'images/destinations/madurai.avif' %}" alt="Madurai taxi service to Rameshwaram" class="img-fluid rounded-4 shadow-sm mb-4 w-100" style="height: 300px; object-fit: cover;">
+                <h3 class="fw-bold mb-3">Madurai</h3>
+                <p class="text-secondary lh-lg fs-6 mb-4">As a top <strong>travel agency in Madurai</strong>, we provide exceptional <strong>cab service Madurai</strong> for all your needs. Book a <strong>Madurai to Rameshwaram taxi</strong> for your pilgrimage, or use our affordable <strong>car rental Madurai</strong> and <strong>call taxi Madurai</strong> services for local exploration.</p>
+                <button class="btn btn-outline-primary rounded-pill px-4 py-2" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Tamil Nadu" data-city="Madurai">
+                    Book Taxi <i class="bi bi-arrow-right ms-2"></i>
+                </button>
+            </div>
+            
+            <!-- Trichy -->
+            <div class="col-md-6" data-aos="fade-left">
+                <img src="{% static 'images/destinations/trichy.avif' %}" alt="Trichy outstation cab service" class="img-fluid rounded-4 shadow-sm mb-4 w-100" style="height: 300px; object-fit: cover;">
+                <h3 class="fw-bold mb-3">Trichy</h3>
+                <p class="text-secondary lh-lg fs-6 mb-4">Experience smooth travel with our reliable <strong>taxi service Trichy</strong>. From a convenient <strong>drop taxi in Trichy</strong> to <strong>one way taxi Trichy</strong> and outstation cabs, our premium <strong>car rental in Tiruchirappalli</strong> ensures a comfortable and safe journey every time.</p>
+                <button class="btn btn-outline-primary rounded-pill px-4 py-2" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Tamil Nadu" data-city="Trichy">
+                    Book Taxi <i class="bi bi-arrow-right ms-2"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 4. POPULAR TOURIST PLACES -->
+<section class="lux-section bg-white">
+    <div class="container">
+        <div class="text-center" data-aos="fade-up">
+            <h2 class="section-title">Popular Tourist Places</h2>
+            <p class="section-subtitle">Discover the most sought-after destinations in Tamil Nadu.</p>
+        </div>
+        
+        <div class="row g-4 mt-4">
+            <!-- Ooty -->
+            <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up">
+                <div class="card anim-card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
+                    <img src="{% static 'images/destinations/ooty.avif' %}" class="card-img-top" alt="Ooty Tamil Nadu tourist place" style="height: 250px; object-fit: cover;" loading="lazy">
+                    <div class="card-body d-flex flex-column p-4">
+                        <h4 class="fw-bold mb-3 seo-keyword">Ooty</h4>
+                        <p class="text-secondary mb-4 lh-base fs-6">Experience the best of <strong class="seo-keyword">Tamil Nadu tourism</strong> with an unforgettable <strong class="seo-keyword">Ooty trip</strong>, a scenic <strong class="seo-keyword">hill station</strong> famous for cool climates and tea estates.</p>
+                        <button class="btn btn-book-tour mt-auto" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Tamil Nadu" data-place="Ooty">Book Tour</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kodaikanal -->
+            <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up">
+                <div class="card anim-card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
+                    <img src="{% static 'images/destinations/kodai.avif' %}" class="card-img-top" alt="Kodaikanal Tamil Nadu tourist place" style="height: 250px; object-fit: cover;" loading="lazy">
+                    <div class="card-body d-flex flex-column p-4">
+                        <h4 class="fw-bold mb-3 seo-keyword">Kodaikanal</h4>
+                        <p class="text-secondary mb-4 lh-base fs-6">Enjoy a peaceful <strong class="seo-keyword">Kodaikanal trip</strong>, a stunning <strong class="seo-keyword">hill station</strong> offering serene lakes and misty landscapes for perfect <strong class="seo-keyword">Tamil Nadu tourism</strong>.</p>
+                        <button class="btn btn-book-tour mt-auto" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Tamil Nadu" data-place="Kodaikanal">Book Tour</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coimbatore -->
+            <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up">
+                <div class="card anim-card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
+                    <img src="{% static 'images/destinations/adiyogi.jpg' %}" class="card-img-top" alt="Coimbatore Tamil Nadu tourist place" style="height: 250px; object-fit: cover;" loading="lazy">
+                    <div class="card-body d-flex flex-column p-4">
+                        <h4 class="fw-bold mb-3 seo-keyword">Coimbatore</h4>
+                        <p class="text-secondary mb-4 lh-base fs-6">Visit the majestic Adiyogi statue on a scenic <strong class="seo-keyword">Coimbatore trip</strong>, discovering modern amenities and beautiful <strong class="seo-keyword">Tamil Nadu tourism</strong> sites.</p>
+                        <button class="btn btn-book-tour mt-auto" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Tamil Nadu" data-place="Coimbatore">Book Tour</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Madurai -->
+            <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up">
+                <div class="card anim-card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
+                    <img src="{% static 'images/destinations/madurai.avif' %}" class="card-img-top" alt="Madurai Tamil Nadu tourist place" style="height: 250px; object-fit: cover;" loading="lazy">
+                    <div class="card-body d-flex flex-column p-4">
+                        <h4 class="fw-bold mb-3 seo-keyword">Madurai</h4>
+                        <p class="text-secondary mb-4 lh-base fs-6">Discover magnificent temple city heritage on your <strong class="seo-keyword">Madurai trip</strong>, exploring the famous Meenakshi Temple and authentic <strong class="seo-keyword">Tamil Nadu tourism</strong>.</p>
+                        <button class="btn btn-book-tour mt-auto" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Tamil Nadu" data-place="Madurai">Book Tour</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chennai -->
+            <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up">
+                <div class="card anim-card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
+                    <img src="{% static 'images/destinations/chennai.avif' %}" class="card-img-top" alt="Chennai Tamil Nadu tourist place" style="height: 250px; object-fit: cover;" loading="lazy">
+                    <div class="card-body d-flex flex-column p-4">
+                        <h4 class="fw-bold mb-3 seo-keyword">Chennai</h4>
+                        <p class="text-secondary mb-4 lh-base fs-6">Explore vibrant culture and Marina Beach on a <strong class="seo-keyword">Chennai trip</strong>, making it a must-visit destination for <strong class="seo-keyword">Tamil Nadu tourism</strong>.</p>
+                        <button class="btn btn-book-tour mt-auto" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Tamil Nadu" data-place="Chennai">Book Tour</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trichy -->
+            <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up">
+                <div class="card anim-card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
+                    <img src="{% static 'images/destinations/trichy.avif' %}" class="card-img-top" alt="Trichy Tamil Nadu tourist place" style="height: 250px; object-fit: cover;" loading="lazy">
+                    <div class="card-body d-flex flex-column p-4">
+                        <h4 class="fw-bold mb-3 seo-keyword">Trichy</h4>
+                        <p class="text-secondary mb-4 lh-base fs-6">Experience rich history and grand temples with an unforgettable <strong class="seo-keyword">Trichy trip</strong>, a vital part of <strong class="seo-keyword">Tamil Nadu tourism</strong>.</p>
+                        <button class="btn btn-book-tour mt-auto" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Tamil Nadu" data-place="Trichy">Book Tour</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rameswaram -->
+            <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up">
+                <div class="card anim-card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
+                    <img src="{% static 'images/destinations/rameswaram.avif' %}" class="card-img-top" alt="Rameswaram Tamil Nadu tourist place" style="height: 250px; object-fit: cover;" loading="lazy">
+                    <div class="card-body d-flex flex-column p-4">
+                        <h4 class="fw-bold mb-3 seo-keyword">Rameswaram</h4>
+                        <p class="text-secondary mb-4 lh-base fs-6">Embark on a sacred pilgrimage during your <strong class="seo-keyword">Rameswaram trip</strong>, visiting beautiful coastal temples essential to <strong class="seo-keyword">Tamil Nadu tourism</strong>.</p>
+                        <button class="btn btn-book-tour mt-auto" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Tamil Nadu" data-place="Rameswaram">Book Tour</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Thanjavur -->
+            <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up">
+                <div class="card anim-card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
+                    <img src="{% static 'images/destinations/tn-gallery-1.jpg' %}" class="card-img-top" alt="Thanjavur Tamil Nadu tourist place" style="height: 250px; object-fit: cover;" loading="lazy">
+                    <div class="card-body d-flex flex-column p-4">
+                        <h4 class="fw-bold mb-3 seo-keyword">Thanjavur</h4>
+                        <p class="text-secondary mb-4 lh-base fs-6">Immerse yourself in Chola architecture on a <strong class="seo-keyword">Thanjavur trip</strong>, famous for the Brihadeeswarar Temple and deep <strong class="seo-keyword">Tamil Nadu tourism</strong> roots.</p>
+                        <button class="btn btn-book-tour mt-auto" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Tamil Nadu" data-place="Thanjavur">Book Tour</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Yercaud -->
+            <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up">
+                <div class="card anim-card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
+                    <img src="{% static 'images/destinations/yercaurd.jpg' %}" class="card-img-top" alt="Yercaud Tamil Nadu tourist place" style="height: 250px; object-fit: cover;" loading="lazy">
+                    <div class="card-body d-flex flex-column p-4">
+                        <h4 class="fw-bold mb-3 seo-keyword">Yercaud</h4>
+                        <p class="text-secondary mb-4 lh-base fs-6">Relax at this charming hill station during your <strong class="seo-keyword">Yercaud trip</strong>, surrounded by lush coffee estates for quiet <strong class="seo-keyword">Tamil Nadu tourism</strong>.</p>
+                        <button class="btn btn-book-tour mt-auto" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Tamil Nadu" data-place="Yercaud">Book Tour</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Valparai -->
+            <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up">
+                <div class="card anim-card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
+                    <img src="{% static 'images/destinations/yercaurd.jpg' %}" class="card-img-top" alt="Valparai Tamil Nadu tourist place" style="height: 250px; object-fit: cover;" loading="lazy">
+                    <div class="card-body d-flex flex-column p-4">
+                        <h4 class="fw-bold mb-3 seo-keyword">Valparai</h4>
+                        <p class="text-secondary mb-4 lh-base fs-6">Immerse yourself in a nature reserve on a <strong class="seo-keyword">Valparai trip</strong>, famous for its untouched wildlife and beautiful <strong class="seo-keyword">Tamil Nadu tourism</strong> tea gardens.</p>
+                        <button class="btn btn-book-tour mt-auto" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Tamil Nadu" data-place="Valparai">Book Tour</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- 6. WHY CHOOSE US -->
+<section class="lux-section bg-white">
+    <div class="container">
+        <div class="text-center" data-aos="fade-up">
+            <h2 class="section-title">Why Choose Vibhu Travel Hub</h2>
+            <p class="section-subtitle">Experience top-tier service tailored to your needs.</p>
+        </div>
+        
+        <div class="row g-4 mt-2">
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-person-badge"></i></div>
+                    <h5 class="fw-bold mb-2">Professional Drivers</h5>
+                    <p class="text-muted small mb-0">Highly trained and verified drivers for a safe and smooth journey.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-car-front"></i></div>
+                    <h5 class="fw-bold mb-2">Luxury Fleet</h5>
+                    <p class="text-muted small mb-0">Premium and well-maintained vehicles for maximum comfort.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-headset"></i></div>
+                    <h5 class="fw-bold mb-2">24×7 Support</h5>
+                    <p class="text-muted small mb-0">Round-the-clock customer service to assist you at any time.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-tag"></i></div>
+                    <h5 class="fw-bold mb-2">Affordable Pricing</h5>
+                    <p class="text-muted small mb-0">Competitive and transparent rates with no hidden charges.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-geo-alt"></i></div>
+                    <h5 class="fw-bold mb-2">GPS Enabled Vehicles</h5>
+                    <p class="text-muted small mb-0">Real-time tracking for enhanced safety and route optimization.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-shield-check"></i></div>
+                    <h5 class="fw-bold mb-2">Safe Journey</h5>
+                    <p class="text-muted small mb-0">Strict adherence to safety protocols for complete peace of mind.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="700">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-people"></i></div>
+                    <h5 class="fw-bold mb-2">Experienced Drivers</h5>
+                    <p class="text-muted small mb-0">Local experts who know the best routes and destinations.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="800">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-tools"></i></div>
+                    <h5 class="fw-bold mb-2">Well Maintained Vehicles</h5>
+                    <p class="text-muted small mb-0">Regularly serviced cars ensuring a breakdown-free trip.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Include Modal -->
+{% include 'includes/enquiry_modal.html' %}
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        AOS.init({
+            once: true,
+            offset: 50,
+        });
+    });
+</script>
+{% endblock %}

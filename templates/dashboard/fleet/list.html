@@ -1,0 +1,138 @@
+{% extends 'dashboard/base_dashboard.html' %}
+
+{% block title %}Manage Fleet{% endblock %}
+{% block page_title %}Manage Fleet{% endblock %}
+
+{% block content %}
+<div class="glass-card anim-card p-4">
+    <!-- Header & Search -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h5 class="text-dark fw-bold mb-0">Vehicle Fleet</h5>
+        <div class="d-flex gap-2">
+            <form method="GET" action="{% url 'dashboard_fleet' %}" class="d-flex gap-2">
+                <input type="text" name="q" value="{{ query }}" class="form-control anim-input form-control-sm glass-input text-dark" placeholder="Search vehicle name...">
+                <button type="submit" class="btn btn-sm btn-danger"><i class="bi bi-search"></i></button>
+                {% if query %}
+                    <a href="{% url 'dashboard_fleet' %}" class="btn btn-sm btn-outline-secondary">Clear</a>
+                {% endif %}
+            </form>
+            <a href="{% url 'fleet_create' %}" class="btn btn-sm btn-danger"><i class="bi bi-plus-lg"></i> Add Vehicle</a>
+        </div>
+    </div>
+    
+    <!-- Table -->
+    <div class="table-responsive">
+        <table class="table table-hover custom-table">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Vehicle Name</th>
+                    <th>Type / Seats</th>
+                    <th>Badge Text</th>
+                    <th>Order</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for vehicle in page_obj %}
+                <tr>
+                    <td>
+                        {% if vehicle.image %}
+                            <img src="{{ vehicle.image.url }}" alt="{{ vehicle.name }}" class="rounded" style="width: 60px; height: 40px; object-fit: cover;">
+                        {% else %}
+                            <div class="bg-light rounded d-flex justify-content-center align-items-center" style="width: 60px; height: 40px;">
+                                <i class="bi bi-image text-muted"></i>
+                            </div>
+                        {% endif %}
+                    </td>
+                    <td class="fw-bold text-dark">{{ vehicle.name }}</td>
+                    <td>
+                        <div class="small">
+                            <span class="text-dark">{{ vehicle.category }}</span><br>
+                            <span class="text-muted">{{ vehicle.seats }} Seater</span>
+                        </div>
+                    </td>
+                    <td><span class="text-dark">{{ vehicle.badge_text|default:"-" }}</span></td>
+                    <td><span class="text-dark">{{ vehicle.display_order }}</span></td>
+                    <td>
+                        {% if vehicle.is_active %}
+                            <span class="badge bg-success">Active</span>
+                        {% else %}
+                            <span class="badge bg-secondary">Inactive</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        <div class="btn-group">
+                            <a href="{% url 'fleet_edit' vehicle.id %}" class="btn btn-sm btn-primary rounded-start" title="Edit"><i class="bi bi-pencil-square"></i></a>
+                            <!-- Delete Trigger -->
+                            <button class="btn btn-sm btn-danger rounded-end" data-bs-toggle="modal" data-bs-target="#deleteModal{{ vehicle.id }}" title="Delete">
+                                <i class="bi bi-trash-fill"></i>
+                            </button>
+                        </div>
+                        
+                        <!-- Delete Confirmation Modal -->
+                        <div class="modal fade" id="deleteModal{{ vehicle.id }}" tabindex="-1" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content glass-panel" style="background: #FFFFFF; border: 1px solid var(--border-color);">
+                                    <div class="modal-header border-bottom">
+                                        <h5 class="modal-title text-dark">Delete Vehicle?</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body text-dark">
+                                        Are you sure you want to delete the vehicle <strong>{{ vehicle.name }}</strong>?<br>
+                                        <span class="text-danger small mt-2 d-block">This action cannot be undone.</span>
+                                    </div>
+                                    <div class="modal-footer border-0">
+                                        <button type="button" class="btn btn-outline-secondary rounded-pill px-4" data-bs-dismiss="modal">Cancel</button>
+                                        <form method="POST" action="{% url 'fleet_delete' vehicle.id %}">
+                                            {% csrf_token %}
+                                            <button type="submit" class="btn btn-danger rounded-pill px-4">Delete Permanently</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="7" class="text-center py-5 text-muted">
+                        <i class="bi bi-car-front fs-1 d-block mb-2"></i>
+                        No vehicles found in the fleet.
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- Pagination -->
+    {% if page_obj.has_other_pages %}
+    <nav class="mt-4" aria-label="Page navigation">
+        <ul class="pagination pagination-sm justify-content-end mb-0">
+            {% if page_obj.has_previous %}
+                <li class="page-item"><a class="page-link bg-white text-dark border-light" href="?page={{ page_obj.previous_page_number }}{% if query %}&q={{ query }}{% endif %}">Previous</a></li>
+            {% else %}
+                <li class="page-item disabled"><span class="page-link bg-light text-muted border-light">Previous</span></li>
+            {% endif %}
+            
+            {% for num in page_obj.paginator.page_range %}
+                {% if page_obj.number == num %}
+                    <li class="page-item active"><span class="page-link bg-danger text-white border-danger">{{ num }}</span></li>
+                {% else %}
+                    <li class="page-item"><a class="page-link bg-white text-dark border-light" href="?page={{ num }}{% if query %}&q={{ query }}{% endif %}">{{ num }}</a></li>
+                {% endif %}
+            {% endfor %}
+            
+            {% if page_obj.has_next %}
+                <li class="page-item"><a class="page-link bg-white text-dark border-light" href="?page={{ page_obj.next_page_number }}{% if query %}&q={{ query }}{% endif %}">Next</a></li>
+            {% else %}
+                <li class="page-item disabled"><span class="page-link bg-light text-muted border-light">Next</span></li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,89 @@
+/* ==========================================
+   TOP BAR (DARK GLASS)
+   ========================================== */
+.premium-topbar {
+    background: rgba(10, 10, 10, 0.90);
+    display: flex;
+    align-items: center;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.85);
+    position: relative;
+    z-index: 1040;
+    height: 38px;
+    transition: margin-top 0.45s ease;
+}
+
+@media (max-width: 991px) {
+    .premium-topbar { height: 38px; }
+}
+
+@media (max-width: 767px) {
+    .premium-topbar { height: auto; padding: 8px 0; }
+}
+
+.premium-topbar-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0 16px;
+}
+
+@media (min-width: 1200px) {
+    .premium-topbar-inner { padding: 0 32px; }
+}
+
+.topbar-left, .topbar-center, .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    height: 100%;
+}
+
+.topbar-center {
+    flex-grow: 1;
+    justify-content: center;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0 20px;
+}
+
+.topbar-center-content {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.topbar-left a, .topbar-left span, .topbar-center span {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transition-smooth);
+    white-space: nowrap;
+    line-height: 1;
+}
+
+.topbar-right a {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-smooth);
+    line-height: 1;
+}
+
+.topbar-right a:hover,
+.topbar-left a:hover {
+    color: var(--brand-red);
+}
+
+.topbar-left i, .topbar-center i {
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    color: var(--brand-red);
+}

@@ -1,0 +1,88 @@
+{% extends 'dashboard/base_dashboard.html' %}
+
+{% block title %}{% if vehicle %}Edit Vehicle{% else %}Add Vehicle{% endif %}{% endblock %}
+{% block page_title %}{% if vehicle %}Edit Vehicle: {{ vehicle.name }}{% else %}Add New Vehicle{% endif %}{% endblock %}
+
+{% block content %}
+<div class="glass-card anim-card p-4 mx-auto" style="max-width: 900px;">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h5 class="text-dark fw-bold mb-0">{% if vehicle %}Edit Vehicle{% else %}Vehicle Details{% endif %}</h5>
+        <a href="{% url 'dashboard_fleet' %}" class="btn btn-sm btn-outline-secondary"><i class="bi bi-arrow-left"></i> Back to Fleet</a>
+    </div>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <div class="row g-4">
+            <!-- Basic Info -->
+            <div class="col-md-6">
+                <label class="form-label text-muted small fw-bold">Vehicle Name <span class="text-danger">*</span></label>
+                <input type="text" name="name" class="form-control anim-input glass-input text-dark" value="{{ vehicle.name }}" placeholder="e.g. Innova Crysta" required>
+            </div>
+            
+            <div class="col-md-6">
+                <label class="form-label text-muted small fw-bold">Vehicle Type (Category) <span class="text-danger">*</span></label>
+                <input type="text" name="category" class="form-control anim-input glass-input text-dark" value="{{ vehicle.category }}" placeholder="e.g. SUV, Sedan" required>
+            </div>
+            
+            <!-- Capacities and Price -->
+            <div class="col-md-6">
+                <label class="form-label text-muted small fw-bold">Seat Capacity <span class="text-danger">*</span></label>
+                <input type="number" name="seats" class="form-control anim-input glass-input text-dark" value="{{ vehicle.passengers|default_if_none:'' }}" placeholder="e.g. 7" required min="1">
+            </div>
+            
+            <div class="col-md-6">
+                <label class="form-label text-muted small fw-bold">Top Badge Text</label>
+                <input type="text" name="badge_text" class="form-control anim-input glass-input text-dark" value="{{ vehicle.badge_text|default_if_none:'' }}" placeholder="e.g. ₹1800/day or Best Seller">
+            </div>
+            
+            <!-- Description -->
+            <div class="col-12">
+                <label class="form-label text-muted small fw-bold">Short Description</label>
+                <textarea name="short_description" class="form-control anim-input glass-input text-dark" rows="3" placeholder="Brief description of the vehicle's comfort and ideal use case.">{{ vehicle.short_description }}</textarea>
+            </div>
+            
+            <!-- Features -->
+            <div class="col-md-6">
+                <label class="form-label text-muted small fw-bold">Features (Comma separated)</label>
+                <input type="text" name="features" class="form-control anim-input glass-input text-dark" value="{{ vehicle.feature_tags|default_if_none:'' }}" placeholder="e.g. AC, Pushback Seats, WiFi">
+                <div class="form-text">These will be displayed as chips on the vehicle card.</div>
+            </div>
+            
+
+            
+            <!-- Image & Sorting -->
+            <div class="col-md-6">
+                <label class="form-label text-muted small fw-bold">Vehicle Image {% if not vehicle %}<span class="text-danger">*</span>{% endif %}</label>
+                <input type="file" name="image" class="form-control anim-input glass-input text-dark" accept="image/*" {% if not vehicle %}required{% endif %}>
+                {% if vehicle and vehicle.image %}
+                    <div class="mt-2">
+                        <img src="{{ vehicle.image.url }}" alt="{{ vehicle.name }}" class="img-thumbnail rounded" style="max-height: 100px;">
+                    </div>
+                {% endif %}
+            </div>
+            
+            <div class="col-md-3">
+                <label class="form-label text-muted small fw-bold">Sort Order</label>
+                <input type="number" name="display_order" class="form-control anim-input glass-input text-dark" value="{{ vehicle.display_order|default:0 }}">
+            </div>
+            
+            <div class="col-md-3 d-flex align-items-end">
+                <div class="form-check form-switch mb-2">
+                    <input class="form-check-input" type="checkbox" role="switch" id="isActiveSwitch" name="is_active" {% if not vehicle or vehicle.is_active %}checked{% endif %}>
+                    <label class="form-check-label text-dark fw-medium" for="isActiveSwitch">Active</label>
+                </div>
+            </div>
+        </div>
+        
+        <hr class="my-4" style="border-color: var(--border-color);">
+        
+        <div class="d-flex justify-content-end gap-2">
+            <a href="{% url 'dashboard_fleet' %}" class="btn btn-outline-secondary px-4 rounded-pill">Cancel</a>
+            <button type="submit" class="btn btn-danger px-4 rounded-pill">
+                {% if vehicle %}Update Vehicle{% else %}Save Vehicle{% endif %}
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %}

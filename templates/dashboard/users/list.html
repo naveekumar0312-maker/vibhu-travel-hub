@@ -1,0 +1,60 @@
+{% extends 'dashboard/base_dashboard.html' %}
+
+{% block page_title %}Manage Users{% endblock %}
+
+{% block content %}
+<div class="card anim-card shadow-sm border-0 mb-4">
+    <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+        <h5 class="mb-0 text-dark fw-bold">System Users</h5>
+    </div>
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-light text-muted small text-uppercase">
+                    <tr>
+                        <th class="ps-4">User</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Status</th>
+                        <th class="text-end pe-4">Date Joined</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user_obj in users %}
+                    <tr>
+                        <td class="ps-4 fw-semibold text-dark">
+                            <i class="bi bi-person-circle text-muted me-2"></i> {{ user_obj.username }}
+                        </td>
+                        <td>{{ user_obj.email|default:"No email provided" }}</td>
+                        <td>
+                            {% if user_obj.is_superuser %}
+                            <span class="badge bg-danger bg-opacity-10 text-danger rounded-pill">Super Admin</span>
+                            {% elif user_obj.is_staff %}
+                            <span class="badge bg-primary bg-opacity-10 text-primary rounded-pill">Staff</span>
+                            {% else %}
+                            <span class="badge bg-secondary bg-opacity-10 text-secondary rounded-pill">User</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if user_obj.is_active %}
+                            <span class="badge bg-success bg-opacity-10 text-success rounded-pill">Active</span>
+                            {% else %}
+                            <span class="badge bg-secondary bg-opacity-10 text-secondary rounded-pill">Inactive</span>
+                            {% endif %}
+                        </td>
+                        <td class="text-end pe-4 text-muted small">{{ user_obj.date_joined|date:"M d, Y" }}</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="5" class="text-center py-5 text-muted">
+                            <i class="bi bi-people fs-1 d-block mb-3"></i>
+                            <p>No users found.</p>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

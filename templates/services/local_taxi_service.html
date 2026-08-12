@@ -1,0 +1,466 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Taxi Service in Coimbatore | Airport & Outstation Cabs | Vibhu Travel Hub{% endblock %}
+{% block description %}Looking for the best taxi service in Coimbatore? We offer local taxi, airport cabs, one-way drop taxi, and outstation cab booking with reliable drivers.{% endblock %}
+{% block keywords %}taxi service in Coimbatore, cab service in Coimbatore, local taxi service in Coimbatore, taxi booking Coimbatore, cab booking Coimbatore, airport taxi Coimbatore, outstation taxi Coimbatore, one way taxi Coimbatore, drop taxi Coimbatore, car rental Coimbatore, tempo traveller rental Coimbatore{% endblock %}
+{% block canonical %}https://www.vibhutravels.in/services/local-taxi-service/{% endblock %}
+
+{% block og_title %}Taxi Service in Coimbatore | Airport & Outstation Cabs | Vibhu Travel Hub{% endblock %}
+{% block og_description %}Looking for the best taxi service in Coimbatore? We offer local taxi, airport cabs, one-way drop taxi, and outstation cab booking with reliable drivers.{% endblock %}
+{% block og_url %}https://www.vibhutravels.in/services/local-taxi-service/{% endblock %}
+{% block og_image %}https://www.vibhutravels.in{% static 'images/services/taxi-service-hero.jpg' %}{% endblock %}
+
+{% block schema_markup %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "https://www.vibhutravels.in/"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "Services",
+    "item": "https://www.vibhutravels.in/#fleet"
+  },{
+    "@type": "ListItem",
+    "position": 3,
+    "name": "Local Taxi Service",
+    "item": "https://www.vibhutravels.in/services/local-taxi-service/"
+  }]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Local Taxi Service in Coimbatore",
+  "provider": {
+    "@type": "TravelAgency",
+    "name": "Vibhu Travel Hub"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Coimbatore"
+  },
+  "description": "Premium local taxi service in Coimbatore. Airport transfers, railway pickup, corporate cabs, and city tours with professional drivers.",
+  "image": "https://www.vibhutravels.in{% static 'images/services/taxi-service-hero.jpg' %}"
+}
+</script>
+{% endblock %}
+
+{% block extra_css %}
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/service.css' %}?v={{ STATIC_VERSION }}">
+{% endblock %}
+
+{% block content %}
+<!-- 1. PREMIUM HERO -->
+<section class="hero-section">
+    <div class="hero-bg-wrapper">
+        <img src="{% static 'images/services/taxi-service-hero.jpg' %}" alt="Coimbatore Taxi Service">
+    </div>
+    <div class="hero-overlay"></div>
+
+    <div class="container position-relative z-3">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="hero-content">
+
+                    <h1 class="hero-title" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+                        Local Taxi Service
+                        <span>in Coimbatore.</span>
+                    </h1>
+                    <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
+                        Experience the comfort of our premium cabs for city rides, airport transfers, and full-day local sightseeing with professional, verified drivers.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
+                        <button class="btn-premium anim-btn btn-primary-luxury" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Local Taxi Service">
+                            <i class="bi bi-calendar-check-fill"></i> Book Now
+                        </button>
+                        <a href="https://wa.me/919655866660" target="_blank" class="btn-premium anim-btn btn-outline-luxury">
+                            <i class="bi bi-whatsapp"></i> Chat on WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="scroll-indicator">
+        <i class="bi bi-chevron-down"></i>
+    </div>
+</section>
+
+<!-- 2. ABOUT SERVICE -->
+<section id="about" class="lux-section bg-white">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6" data-aos="fade-right">
+                <div class="about-img-container position-relative h-100 shadow-lg rounded-4 overflow-hidden" style="min-height: 450px;">
+                    <img src="{% static 'images/services/taxi-service-hero.jpg' %}" alt="Local taxi service in Coimbatore" class="w-100 h-100 object-fit-cover position-absolute top-0 start-0">
+                    
+                    <div class="position-absolute bottom-0 end-0 bg-white p-4 shadow-lg rounded-top-start-4 d-flex align-items-center gap-3" style="z-index: 3;">
+                        <div class="bg-danger text-white rounded-circle d-flex align-items-center justify-content-center shadow-sm" style="width: 50px; height: 50px; font-size: 1.5rem;">
+                            <i class="bi bi-car-front-fill"></i>
+                        </div>
+                        <div>
+                            <h4 class="fw-bold mb-0 text-dark counter-value" data-target="15000">0</h4>
+                            <p class="text-muted small mb-0 fw-medium">Happy Rides</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-left">
+                <div class="h-100 d-flex flex-column justify-content-center py-3 ps-lg-4">
+                    <div class="d-inline-block text-danger fw-bold text-uppercase tracking-wide mb-2 small">About Service</div>
+                    <h2 class="section-title mb-4 fw-bolder text-dark" style="font-size: 2.5rem; letter-spacing: -0.5px;">Premium Local Cabs <span class="text-danger">in Coimbatore</span></h2>
+                    <div class="about-content reveal-right text-secondary fs-6 lh-lg">
+                        <p>Navigating through the city is now seamless with Vibhu Travel Hub, the most trusted <strong>taxi service in Coimbatore</strong>. Whether you need a quick <strong>airport taxi</strong>, a reliable <strong>railway station pickup</strong>, or an <strong>outstation cab</strong> for a weekend getaway, our <strong>cab booking</strong> platform is designed to offer maximum comfort and reliability.</p>
+                        
+                        <p>We maintain a premium fleet of modern sedans, SUVs, and provide convenient <strong>car rental in Coimbatore</strong>. Through our easy <strong>online taxi booking</strong>, you can instantly reserve a <strong>one-way taxi</strong>, a <strong>drop taxi</strong>, or a <strong>round trip taxi</strong> for <strong>corporate travel</strong> or <strong>family travel</strong>. Our verified drivers are well-versed with the city routes, ensuring you reach your destination on time.</p>
+                        
+                        <div class="p-4 bg-light rounded-4 border-start border-4 border-danger mt-4 shadow-sm">
+                            <div class="d-flex align-items-start gap-3">
+                                <i class="bi bi-shield-check text-danger opacity-75" style="font-size: 2rem; line-height: 1;"></i>
+                                <p class="text-dark fw-medium mb-0 fs-6 fst-italic">Safety is our priority. All our vehicles are GPS-enabled and our drivers undergo strict background verifications.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 3. WHY CHOOSE US -->
+<section class="lux-section bg-light">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <span class="text-danger fw-bold text-uppercase tracking-wide">Why Choose Us</span>
+            <h2 class="section-title mt-2">The Vibhu Advantage</h2>
+            <p class="section-subtitle">Experience unparalleled service quality with every ride.</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-person-badge"></i></div>
+                    <h5 class="fw-bold mb-3">Professional Drivers</h5>
+                    <p class="text-muted mb-0">Highly trained, verified, and courteous chauffeurs for a safe and smooth journey.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-geo-alt"></i></div>
+                    <h5 class="fw-bold mb-3">GPS Enabled</h5>
+                    <p class="text-muted mb-0">All our vehicles are equipped with live GPS tracking for your safety and peace of mind.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-headset"></i></div>
+                    <h5 class="fw-bold mb-3">24/7 Support</h5>
+                    <p class="text-muted mb-0">Round-the-clock customer assistance to handle your bookings and queries instantly.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-tag"></i></div>
+                    <h5 class="fw-bold mb-3">Affordable Pricing</h5>
+                    <p class="text-muted mb-0">Transparent billing with no hidden charges. Premium service at competitive rates.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-car-front"></i></div>
+                    <h5 class="fw-bold mb-3">Luxury Fleet</h5>
+                    <p class="text-muted mb-0">Choose from a wide range of well-maintained sedans, SUVs, and premium cars.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-shield-check"></i></div>
+                    <h5 class="fw-bold mb-3">Safe Journey</h5>
+                    <p class="text-muted mb-0">Strict safety protocols, sanitized vehicles, and careful driving for your family's safety.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<!-- SEO ROUTE SECTIONS -->
+<section class="lux-section bg-white py-5">
+    <div class="container">
+        
+        <!-- Coimbatore to Chennai -->
+        <div class="row mb-5 align-items-center" data-aos="fade-up">
+            <div class="col-lg-5 mb-4 mb-lg-0">
+                <img src="{% static 'images/destinations/chennai.jpg' %}" alt="Chennai taxi service and cab booking" class="img-fluid rounded-4 shadow">
+            </div>
+            <div class="col-lg-7">
+                <h3 class="fw-bold mb-3">Chennai Cab Services</h3>
+                <p class="text-secondary lh-lg mb-3">Looking for reliable travel options to the state capital? We offer the <strong>best taxi service in Chennai</strong>, providing seamless connectivity from Coimbatore and beyond. Whether you need an <strong>outstation cabs Chennai</strong> package, quick <strong>Chennai airport taxi service</strong>, or a simple <strong>one way cab Chennai</strong> for business travel, our fleet is ready. Enjoy safe and comfortable <strong>online taxi booking Chennai</strong> for your next trip, completely hassle-free.</p>
+                <a href="{% url 'tamil_nadu_view' %}" class="btn btn-outline-danger rounded-pill px-4">Explore Chennai Routes <i class="bi bi-arrow-right"></i></a>
+            </div>
+        </div>
+
+        <!-- Coimbatore to Madurai -->
+        <div class="row mb-5 align-items-center flex-lg-row-reverse" data-aos="fade-up">
+            <div class="col-lg-5 mb-4 mb-lg-0">
+                <img src="{% static 'images/destinations/madurai.jpg' %}" alt="Madurai taxi service to Rameshwaram" class="img-fluid rounded-4 shadow">
+            </div>
+            <div class="col-lg-7">
+                <h3 class="fw-bold mb-3">Madurai Taxi Routes</h3>
+                <p class="text-secondary lh-lg mb-3">Plan your pilgrimage or business trip with our dedicated <strong>taxi service Madurai</strong>. We offer affordable <strong>Madurai car rental service</strong> for local exploration. If you are travelling further, book our <strong>Madurai to Rameshwaram taxi</strong> or <strong>Madurai to Rameswaram cab</strong> packages to ensure a smooth spiritual journey. We provide transparent <strong>Madurai to Rameshwaram taxi fare</strong> with no hidden costs for all our <strong>Madurai cabs</strong>.</p>
+                <a href="{% url 'tamil_nadu_view' %}" class="btn btn-outline-danger rounded-pill px-4">Explore Madurai Routes <i class="bi bi-arrow-right"></i></a>
+            </div>
+        </div>
+
+        <!-- Coimbatore to Trichy -->
+        <div class="row align-items-center" data-aos="fade-up">
+            <div class="col-lg-5 mb-4 mb-lg-0">
+                <img src="{% static 'images/destinations/trichy.jpg' %}" alt="Trichy outstation cab service" class="img-fluid rounded-4 shadow">
+            </div>
+            <div class="col-lg-7">
+                <h3 class="fw-bold mb-3">Trichy Cab Services</h3>
+                <p class="text-secondary lh-lg mb-3">For comfortable journeys to the heart of Tamil Nadu, book our reliable <strong>taxi service Trichy</strong>. Need a quick drop? Choose our <strong>drop taxi in Trichy</strong> or <strong>one way taxi Trichy</strong> options. From extensive <strong>outstation taxi Trichy</strong> services to flexible <strong>car rental in Tiruchirappalli</strong>, we ensure you reach your destination safely and on time.</p>
+                <a href="{% url 'tamil_nadu_view' %}" class="btn btn-outline-danger rounded-pill px-4">Explore Trichy Routes <i class="bi bi-arrow-right"></i></a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- 5. SERVICE HIGHLIGHTS -->
+<section class="lux-section bg-light">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <h2 class="section-title">Specialized Taxi Services</h2>
+            <p class="section-subtitle">Tailored cab solutions for all your local transportation needs.</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-6 col-md-4 col-lg-2 text-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="p-4 bg-white rounded-4 shadow-sm h-100 feature-card">
+                    <i class="bi bi-airplane fs-1 text-danger mb-3 d-block"></i>
+                    <h6 class="fw-bold mb-0">Airport Pickup</h6>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
+                <div class="p-4 bg-white rounded-4 shadow-sm h-100 feature-card">
+                    <i class="bi bi-train-front fs-1 text-danger mb-3 d-block"></i>
+                    <h6 class="fw-bold mb-0">Railway Pickup</h6>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2 text-center" data-aos="fade-up" data-aos-delay="300">
+                <div class="p-4 bg-white rounded-4 shadow-sm h-100 feature-card">
+                    <i class="bi bi-briefcase fs-1 text-danger mb-3 d-block"></i>
+                    <h6 class="fw-bold mb-0">Corporate Travel</h6>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2 text-center" data-aos="fade-up" data-aos-delay="400">
+                <div class="p-4 bg-white rounded-4 shadow-sm h-100 feature-card">
+                    <i class="bi bi-hearts fs-1 text-danger mb-3 d-block"></i>
+                    <h6 class="fw-bold mb-0">Wedding Cabs</h6>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2 text-center" data-aos="fade-up" data-aos-delay="500">
+                <div class="p-4 bg-white rounded-4 shadow-sm h-100 feature-card">
+                    <i class="bi bi-buildings fs-1 text-danger mb-3 d-block"></i>
+                    <h6 class="fw-bold mb-0">City Sightseeing</h6>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2 text-center" data-aos="fade-up" data-aos-delay="600">
+                <div class="p-4 bg-white rounded-4 shadow-sm h-100 feature-card">
+                    <i class="bi bi-hospital fs-1 text-danger mb-3 d-block"></i>
+                    <h6 class="fw-bold mb-0">Hospital Visits</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 6. BOOKING PROCESS TIMELINE -->
+<section class="lux-section bg-white">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <span class="text-danger fw-bold text-uppercase tracking-wide">Simple Steps</span>
+            <h2 class="section-title mt-2">How to Book Your Taxi</h2>
+        </div>
+        
+        <div class="booking-timeline">
+            <!-- Step 1 -->
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-icon"><i class="bi bi-telephone"></i></div>
+                <div class="timeline-content">
+                    <h4 class="fw-bold">1. Contact Us</h4>
+                    <p class="text-muted mb-0">Call us or fill out the enquiry form with your pickup and drop location details.</p>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-icon"><i class="bi bi-check-circle"></i></div>
+                <div class="timeline-content">
+                    <h4 class="fw-bold">2. Confirm Booking</h4>
+                    <p class="text-muted mb-0">Select your preferred vehicle and get an instant, transparent quote. Confirm to proceed.</p>
+                </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-icon"><i class="bi bi-car-front"></i></div>
+                <div class="timeline-content">
+                    <h4 class="fw-bold">3. Enjoy Your Ride</h4>
+                    <p class="text-muted mb-0">Our chauffeur will arrive at your location on time. Enjoy a comfortable and safe journey.</p>
+                </div>
+            </div>
+            <!-- Step 4 -->
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-icon"><i class="bi bi-star"></i></div>
+                <div class="timeline-content">
+                    <h4 class="fw-bold">4. Complete & Review</h4>
+                    <p class="text-muted mb-0">Pay seamlessly at the end of your trip and share your valuable feedback with us.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 7. CHENNAI TAXI SERVICES -->
+<section class="lux-section bg-light">
+    <div class="container">
+        <div class="row g-5 align-items-center flex-row-reverse">
+            <div class="col-lg-6" data-aos="fade-left">
+                <img src="{% static 'images/destinations/chennai.avif' %}" alt="Chennai city taxi and cab booking" class="img-fluid rounded-4 shadow-lg w-100" style="height: 400px; object-fit: cover;">
+            </div>
+            <div class="col-lg-6" data-aos="fade-right">
+                <div class="d-inline-block text-danger fw-bold text-uppercase tracking-wide mb-2 small">Outstation Routes</div>
+                <h2 class="section-title mb-4 fw-bolder text-dark">Premium <span class="text-danger">Chennai Taxi Service</span></h2>
+                <div class="about-content reveal-right text-secondary fs-6 lh-lg">
+                    <p>Travel comfortably from Coimbatore to the capital city with our dedicated <strong>taxi service in Chennai</strong>. Whether you need an <strong>outstation taxi in Chennai</strong> or a reliable <strong>one way cab to Chennai</strong>, Vibhu Travel Hub ensures a smooth intercity journey.</p>
+                    <p>Need airport connectivity? We provide the best <strong>Chennai airport taxi service</strong> for timely drop-offs and pick-ups. Skip the hassle and enjoy easy <strong>cab booking in Chennai airport</strong> or reserve your <strong>chennai city taxi</strong> in advance with our trusted platform.</p>
+                </div>
+                <button class="btn btn-primary anim-btn rounded-pill px-4 py-2 mt-3 shadow-sm" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Chennai Route">Book Chennai Cab</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 8. MADURAI TAXI SERVICES -->
+<section class="lux-section bg-white">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6" data-aos="fade-right">
+                <img src="{% static 'images/destinations/madurai.avif' %}" alt="Madurai taxi service and car rental" class="img-fluid rounded-4 shadow-lg w-100" style="height: 400px; object-fit: cover;">
+            </div>
+            <div class="col-lg-6" data-aos="fade-left">
+                <div class="d-inline-block text-danger fw-bold text-uppercase tracking-wide mb-2 small">Spiritual Journeys</div>
+                <h2 class="section-title mb-4 fw-bolder text-dark">Reliable <span class="text-danger">Madurai Cab Service</span></h2>
+                <div class="about-content reveal-right text-secondary fs-6 lh-lg">
+                    <p>Planning a trip to the Temple City? Our <strong>cab service in Madurai</strong> offers seamless travel from Coimbatore. From booking a local <strong>call taxi in Madurai</strong> to outstation travels, our <strong>Madurai car rental service</strong> is tailored for comfort.</p>
+                    <p>For pilgrims heading further south, we offer the most competitive <strong>Madurai to Rameshwaram taxi fare</strong>. Enjoy a peaceful journey by booking a direct <strong>Madurai to Rameshwaram cab</strong> with our highly-rated drivers.</p>
+                </div>
+                <button class="btn btn-primary anim-btn rounded-pill px-4 py-2 mt-3 shadow-sm" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Madurai Route">Book Madurai Taxi</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 9. TRICHY TAXI SERVICES -->
+<section class="lux-section bg-light">
+    <div class="container">
+        <div class="row g-5 align-items-center flex-row-reverse">
+            <div class="col-lg-6" data-aos="fade-left">
+                <img src="{% static 'images/destinations/trichy.avif' %}" alt="Trichy cab service and car hire" class="img-fluid rounded-4 shadow-lg w-100" style="height: 400px; object-fit: cover;">
+            </div>
+            <div class="col-lg-6" data-aos="fade-right">
+                <div class="d-inline-block text-danger fw-bold text-uppercase tracking-wide mb-2 small">Central Tamil Nadu</div>
+                <h2 class="section-title mb-4 fw-bolder text-dark">Top-rated <span class="text-danger">Trichy Cab Service</span></h2>
+                <div class="about-content reveal-right text-secondary fs-6 lh-lg">
+                    <p>Reach Trichy safely and efficiently with our exclusive <strong>taxi service in Trichy</strong>. Whether you require a quick <strong>drop taxi in Trichy</strong> or are looking for comprehensive <strong>car rental in Tiruchirappalli</strong>, we have the perfect vehicle for you.</p>
+                    <p>As a leading provider, our <strong>Trichy cabs</strong> guarantee a relaxing journey from Coimbatore. Secure your <strong>one way taxi in Trichy</strong> today and travel with ultimate peace of mind.</p>
+                </div>
+                <button class="btn btn-primary anim-btn rounded-pill px-4 py-2 mt-3 shadow-sm" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Trichy Route">Book Trichy Taxi</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 10. FREQUENTLY ASKED QUESTIONS -->
+<section class="lux-section bg-white">
+    <div class="container" style="max-width: 800px;">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">Everything you need to know about our cab bookings.</p>
+        </div>
+        
+        <div class="accordion accordion-flush shadow-sm rounded-4 overflow-hidden border" id="faqAccordion" data-aos="fade-up" data-aos-delay="100">
+            <!-- FAQ 1 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button fw-bold text-dark p-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        How can I do an online taxi booking in Coimbatore?
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body text-secondary lh-lg p-4 pt-0">
+                        Making an <strong>online taxi booking in Coimbatore</strong> is incredibly easy with Vibhu Travel Hub. You can use our website's booking form, call our contact number directly, or chat with us on WhatsApp to reserve your <strong>local taxi service in Coimbatore</strong> instantly.
+                    </div>
+                </div>
+            </div>
+            <!-- FAQ 2 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed fw-bold text-dark p-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Do you provide Chennai airport taxi services?
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body text-secondary lh-lg p-4 pt-0">
+                        Yes, we offer premium <strong>Chennai airport taxi</strong> and transfer services. Whether you need an <strong>airport cab in Chennai</strong> for a drop-off or a pick-up to travel to another city, our professional drivers ensure you arrive safely and on time.
+                    </div>
+                </div>
+            </div>
+            <!-- FAQ 3 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed fw-bold text-dark p-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        What is the Madurai to Rameshwaram taxi fare?
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body text-secondary lh-lg p-4 pt-0">
+                        The <strong>Madurai to Rameshwaram taxi charges</strong> depend on the type of vehicle you choose (Sedan, SUV, or Tempo Traveller). However, we pride ourselves on offering the most affordable and transparent <strong>Madurai to Rameshwaram cab cost</strong> with absolutely no hidden fees.
+                    </div>
+                </div>
+            </div>
+            <!-- FAQ 4 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFour">
+                    <button class="accordion-button collapsed fw-bold text-dark p-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        Can I book a one-way drop taxi in Trichy?
+                    </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body text-secondary lh-lg p-4 pt-0">
+                        Absolutely. We specialize in <strong>one way taxi in Trichy</strong> and offer reliable <strong>drop taxi in Trichy</strong> for outstation travels. You only pay for the distance traveled to your destination, making it a highly cost-effective travel choice.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="{% static 'js/service.js' %}?v={{ STATIC_VERSION }}"></script>
+{% endblock %}
