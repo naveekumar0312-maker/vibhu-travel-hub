@@ -1,6 +1,8 @@
 import os
 from io import BytesIO
+# pyrefly: ignore [missing-import]
 from PIL import Image, ImageChops, ImageOps
+# pyrefly: ignore [missing-import]
 from django.core.files.base import ContentFile
 
 def trim_image(im):
@@ -79,7 +81,17 @@ def process_vehicle_image(image_field, target_size=(1200, 800)):
         # Extract filename and ensure it ends with .webp
         original_name = os.path.basename(image_field.name)
         file_name, _ = os.path.splitext(original_name)
-        new_filename = f"{file_name}.webp"
+        
+        # pyrefly: ignore [missing-import]
+        from django.utils.text import slugify
+        import uuid
+        
+        safe_name = slugify(file_name)
+        if not safe_name:
+            safe_name = "vehicle"
+            
+        unique_id = uuid.uuid4().hex[:8]
+        new_filename = f"{safe_name}-{unique_id}.webp"
         
         return ContentFile(buffer.getvalue(), name=new_filename)
         
