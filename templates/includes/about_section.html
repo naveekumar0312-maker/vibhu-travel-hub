@@ -8,7 +8,7 @@
             <!-- Left Image Area -->
             <div class="col-lg-7 order-mobile-1" data-aos="fade-right" data-aos-duration="1000">
                 <div class="premium-image-wrapper">
-                    <img src="{% static 'images/about/hero.webp' %}" alt="Premium Travel Services in South India" loading="lazy">
+                    <img src="{% static 'images/about/hero.jpeg' %}" alt="Premium Travel Services in South India" loading="lazy">
                     
                     <!-- Floating Glass Card -->
                     <div class="premium-glass-card" data-aos="zoom-in" data-aos-delay="300">
@@ -60,7 +60,5 @@
                 <a href="{% if secondary_btn_link %}{{ secondary_btn_link }}{% else %}{% url 'contact' %}{% endif %}" class="premium-btn-secondary">{{ secondary_btn_text|default:"Contact Us" }}</a>
             </div>
         </div>
-
-
     </div>
 </section>

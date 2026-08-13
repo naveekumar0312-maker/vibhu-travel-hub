@@ -1,21 +1,27 @@
 /* ==================== PREMIUM ABOUT SECTION COMPONENT ==================== */
 .premium-about-section {
-    padding: 100px 0;
+    padding: 60px 0;
     background: #ffffff;
     overflow: hidden;
+}
+
+.premium-about-section .row {
+    align-items: center;
 }
 
 /* Image Area */
 .premium-image-wrapper {
     position: relative;
-    border-radius: 30px;
+    height: 540px;
+    max-height: 540px;
+    border-radius: 24px;
     overflow: hidden;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.08);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
 }
 
 .premium-image-wrapper img {
     width: 100%;
-    height: auto;
+    height: 100%;
     object-fit: cover;
     transition: transform 0.6s ease;
     display: block;
@@ -28,13 +34,14 @@
 /* Floating Glass Card */
 .premium-glass-card {
     position: absolute;
-    bottom: 30px;
-    right: -20px;
-    background: rgba(255, 255, 255, 0.7);
+    bottom: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    padding: 20px 25px;
-    border-radius: 15px;
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    padding: 16px 20px;
+    border-radius: 16px;
     box-shadow: 0 15px 35px rgba(0,0,0,0.1);
     z-index: 2;
 }
@@ -42,8 +49,8 @@
 .premium-glass-card-item {
     display: flex;
     align-items: center;
-    gap: 12px;
-    margin-bottom: 12px;
+    gap: 10px;
+    margin-bottom: 8px;
 }
 
 .premium-glass-card-item:last-child {
@@ -52,12 +59,12 @@
 
 .premium-glass-card-item i {
     color: #ff1f1f;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
 }
 
 .premium-glass-card-item span {
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: #000;
 }
 
@@ -66,35 +73,35 @@
     display: inline-block;
     color: #ff1f1f;
     font-weight: 700;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     letter-spacing: 2px;
     text-transform: uppercase;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
-.premium-about-heading {
-    font-size: 2.8rem;
+.premium-about-section .premium-about-heading {
+    font-size: 2.6rem;
     font-weight: 800;
     color: #000;
-    line-height: 1.2;
-    margin-bottom: 25px;
+    line-height: 1.18;
+    margin-bottom: 16px;
 }
 
-.premium-about-desc {
-    font-size: 1.1rem;
-    color: #666;
-    line-height: 1.8;
-    margin-bottom: 35px;
+.premium-about-section .premium-about-desc {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.65;
+    margin-bottom: 24px;
 }
 
 /* Feature List */
 .premium-feature-list {
     list-style: none;
     padding: 0;
-    margin: 0 0 40px 0;
+    margin: 0 0 28px 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 15px 20px;
+    gap: 12px 20px;
 }
 
 .premium-feature-item {
@@ -103,26 +110,26 @@
     gap: 10px;
     font-weight: 600;
     color: #333;
-    font-size: 1.05rem;
+    font-size: 0.98rem;
 }
 
 .premium-feature-item i {
     color: #ff1f1f;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
 /* Buttons */
 .premium-btn-primary {
     background: #ff1f1f;
     color: #fff;
-    padding: 14px 35px;
+    padding: 12px 28px;
     border-radius: 8px;
     font-weight: 600;
     border: none;
     transition: all 0.3s;
     text-decoration: none;
     display: inline-block;
-    margin-right: 15px;
+    margin-right: 12px;
     margin-bottom: 10px;
 }
 
@@ -136,7 +143,7 @@
 .premium-btn-secondary {
     background: #fff;
     color: #000;
-    padding: 12px 35px;
+    padding: 12px 28px;
     border-radius: 8px;
     font-weight: 600;
     border: 2px solid #000;
@@ -188,24 +195,66 @@
 
 /* Responsive Overrides */
 @media (max-width: 991px) {
-    .premium-about-heading {
-        font-size: 2.2rem;
+    .premium-about-section {
+        padding: 40px 0;
+    }
+
+    .premium-image-wrapper {
+        height: 460px;
+        max-height: 460px;
+    }
+
+    .premium-about-section .premium-about-heading {
+        font-size: 2.1rem;
+        margin-bottom: 14px;
+    }
+
+    .premium-about-section .premium-about-desc {
+        font-size: 0.98rem;
+        margin-bottom: 20px;
     }
     
     .premium-glass-card {
+        right: 15px;
+        bottom: 15px;
+        padding: 14px 18px;
+    }
+
+    .order-mobile-1 {
+        order: -1;
+        margin-bottom: 25px;
+    }
+}
+
+@media (max-width: 575px) {
+    .premium-image-wrapper {
+        height: 360px;
+        max-height: 360px;
+        border-radius: 18px;
+    }
+
+    .premium-about-section .premium-about-heading {
+        font-size: 1.75rem;
+    }
+
+    .premium-glass-card {
+        padding: 10px 14px;
         right: 10px;
         bottom: 10px;
     }
-    
-    .premium-btn-primary, .premium-btn-secondary {
-        margin-right: 0;
-        width: 100%;
-        text-align: center;
+
+    .premium-glass-card-item span {
+        font-size: 0.85rem;
     }
-    
-    .order-mobile-1 {
-        order: -1;
-        margin-bottom: 30px;
+
+    .premium-feature-list {
+        gap: 10px;
+        margin-bottom: 22px;
+    }
+
+    .premium-btn-primary, .premium-btn-secondary {
+        padding: 10px 22px;
+        font-size: 0.95rem;
     }
 }
 
@@ -472,7 +521,7 @@
 .premium-cta-section {
     position: relative;
     padding: 100px 0;
-    background: url('../images/about/hero.webp') center/cover no-repeat;
+    background: url('../images/about/hero.jpeg') center/cover no-repeat;
     background-attachment: fixed;
 }
 .premium-cta-section::before {
@@ -499,7 +548,7 @@
     display: flex;
     align-items: center;
     position: relative;
-    background: url('../images/about/hero.webp') center/cover no-repeat;
+    background: url('../images/about/hero.jpeg') center/cover no-repeat;
 }
 .about-hero-overlay {
     position: absolute;
