@@ -134,6 +134,62 @@
         .hero-title { font-size: 2.8rem; }
         .hero-tags { display: none; }
     }
+
+    /* ==========================================
+       ABOUT PAGE SERVICES SECTION
+       ========================================== */
+    .about-services-section {
+        background: #F9FAFB;
+    }
+    .about-service-card {
+        background: #ffffff;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        transition: all 0.3s ease;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .about-service-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    }
+    .about-service-image {
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        object-fit: cover;
+    }
+    .about-service-content {
+        padding: 30px 25px;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+    .about-service-title {
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #111827;
+        margin-bottom: 20px;
+    }
+    .about-service-book {
+        color: #ED1C24;
+        font-weight: 700;
+        text-decoration: none;
+        font-size: 1rem;
+        display: inline-flex;
+        align-items: center;
+        transition: color 0.3s ease;
+        margin-top: auto;
+    }
+    .about-service-book i {
+        transition: transform 0.3s ease;
+        margin-left: 8px;
+    }
+    .about-service-card:hover .about-service-book i {
+        transform: translateX(5px);
+    }
 </style>
 {% endblock %}
 
@@ -253,91 +309,71 @@
     <!-- ==========================================
         SECTION 5: OUR SERVICES
     =========================================== -->
-    <section id="services" class="premium-services-section py-5" style="background: #F8F9FA;">
+    <section id="services" class="about-services-section py-5">
         <div class="container py-4">
             <div class="text-center mb-5">
                 <span class="premium-about-label">OUR SERVICES</span>
                 <h2 class="premium-about-heading">Comprehensive Travel Solutions</h2>
             </div>
             
-            <div class="row g-4">
-                <!-- 1 -->
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="premium-service-card">
-                        <img src="{% static 'images/services/taxi.webp' %}" alt="Taxi Service" loading="lazy">
-                        <div class="psc-content">
-                            <h3>Taxi Service</h3>
-                            <a href="{% url 'local_taxi_service' %}" class="psc-btn">Book Now <i class="bi bi-arrow-right"></i></a>
+            <div class="row g-4 about-services-grid">
+                <!-- 1: Taxi Service -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="about-service-card">
+                        <img src="{% static 'images/services/taxi.webp' %}" class="about-service-image" alt="Taxi Service" loading="lazy">
+                        <div class="about-service-content">
+                            <h3 class="about-service-title">Taxi Service</h3>
+                            <a href="{% url 'local_taxi_service' %}" class="about-service-book">Book Now <i class="bi bi-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
-                <!-- 2 -->
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="premium-service-card">
-                        <img src="{% static 'images/vehicles/tempo_nonac.webp' %}" alt="Tempo Traveller" loading="lazy">
-                        <div class="psc-content">
-                            <h3>Tempo Traveller</h3>
-                            <a href="{% url 'tempo_traveller' %}" class="psc-btn">Book Now <i class="bi bi-arrow-right"></i></a>
+                <!-- 2: Tempo Traveller -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="about-service-card">
+                        <img src="{% static 'images/vehicles/tempo_nonac.webp' %}" class="about-service-image" alt="Tempo Traveller" loading="lazy">
+                        <div class="about-service-content">
+                            <h3 class="about-service-title">Tempo Traveller</h3>
+                            <a href="{% url 'tempo_traveller' %}" class="about-service-book">Book Now <i class="bi bi-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
-                <!-- 3 -->
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="premium-service-card">
-                        <img src="{% static 'images/services/bus.webp' %}" alt="Mini Bus" loading="lazy">
-                        <div class="psc-content">
-                            <h3>Mini Bus</h3>
-                            <a href="{% url 'bus_booking' %}" class="psc-btn">Book Now <i class="bi bi-arrow-right"></i></a>
+                <!-- 3: Luxury Bus -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="about-service-card">
+                        <img src="{% static 'images/services/bus.webp' %}" class="about-service-image" alt="Luxury Bus" loading="lazy">
+                        <div class="about-service-content">
+                            <h3 class="about-service-title">Luxury Bus</h3>
+                            <a href="{% url 'bus_booking' %}" class="about-service-book">Book Now <i class="bi bi-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
-                <!-- 4 -->
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                    <div class="premium-service-card">
-                        <img src="{% static 'images/services/bus.webp' %}" alt="Luxury Bus" loading="lazy">
-                        <div class="psc-content">
-                            <h3>Luxury Bus</h3>
-                            <a href="{% url 'bus_booking' %}" class="psc-btn">Book Now <i class="bi bi-arrow-right"></i></a>
+                <!-- 4: Corporate Travel -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="about-service-card">
+                        <img src="{% static 'images/services/corporate.webp' %}" class="about-service-image" alt="Corporate Travel" loading="lazy">
+                        <div class="about-service-content">
+                            <h3 class="about-service-title">Corporate Travel</h3>
+                            <a href="{% url 'corporate_travel' %}" class="about-service-book">Book Now <i class="bi bi-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
-                <!-- 5 -->
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="premium-service-card">
-                        <img src="{% static 'images/services/corporate.webp' %}" alt="Corporate Travel" loading="lazy">
-                        <div class="psc-content">
-                            <h3>Corporate Travel</h3>
-                            <a href="{% url 'corporate_travel' %}" class="psc-btn">Book Now <i class="bi bi-arrow-right"></i></a>
+                <!-- 5: Pilgrimage Tours -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="about-service-card">
+                        <img src="{% static 'images/services/temple.webp' %}" class="about-service-image" alt="Pilgrimage Tours" loading="lazy">
+                        <div class="about-service-content">
+                            <h3 class="about-service-title">Pilgrimage Tours</h3>
+                            <a href="{% url 'pilgrimage_trips' %}" class="about-service-book">Book Now <i class="bi bi-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
-                <!-- 6 -->
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="premium-service-card">
-                        <img src="{% static 'images/services/temple.webp' %}" alt="Pilgrimage Tours" loading="lazy">
-                        <div class="psc-content">
-                            <h3>Pilgrimage Tours</h3>
-                            <a href="{% url 'pilgrimage_trips' %}" class="psc-btn">Book Now <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- 7 -->
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="premium-service-card">
-                        <img src="{% static 'images/services/outstation.webp' %}" alt="Outstation Tours" loading="lazy">
-                        <div class="psc-content">
-                            <h3>Outstation Tours</h3>
-                            <a href="{% url 'outstation_tours' %}" class="psc-btn">Book Now <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- 8 -->
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                    <div class="premium-service-card">
-                        <img src="{% static 'images/services/taxi.webp' %}" alt="Airport Transfer" loading="lazy">
-                        <div class="psc-content">
-                            <h3>Airport Transfer</h3>
-                            <a href="{% url 'local_taxi_service' %}" class="psc-btn">Book Now <i class="bi bi-arrow-right"></i></a>
+                <!-- 6: Outstation Tours -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="about-service-card">
+                        <img src="{% static 'images/services/outstation.webp' %}" class="about-service-image" alt="Outstation Tours" loading="lazy">
+                        <div class="about-service-content">
+                            <h3 class="about-service-title">Outstation Tours</h3>
+                            <a href="{% url 'outstation_tours' %}" class="about-service-book">Book Now <i class="bi bi-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>

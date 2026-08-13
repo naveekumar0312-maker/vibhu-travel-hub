@@ -45,7 +45,9 @@
             <a href="{% url 'corporate_travel' %}" class="mobile-accordion-link">Corporate Travel</a>
         </div>
 
-
+        <a href="{% url 'blog_list' %}" class="mobile-nav-link {% if 'blog' in request.resolver_match.url_name %}active{% endif %}">
+            <div class="nav-link-inner"><i class="bi bi-journal-text"></i> Blog</div>
+        </a>
 
         <a href="{% url 'contact' %}" class="mobile-nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}">
             <div class="nav-link-inner"><i class="bi bi-envelope"></i> Contact</div>
@@ -172,6 +174,10 @@
                             <a href="{% url 'corporate_travel' %}" class="premium-text-item">Corporate Travel</a>
                         </div>
                     </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link {% if 'blog' in request.resolver_match.url_name %}active{% endif %}" href="{% url 'blog_list' %}">Blog</a>
                 </li>
 
                 <li class="nav-item">

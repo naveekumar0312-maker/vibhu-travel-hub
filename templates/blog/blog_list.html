@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Blog | Vibhu Travel Hub{% endblock %}
+{% block description %}Read our latest blogs, travel guides, and tips for your next journey.{% endblock %}
+
+{% block body_class %}blog-page{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- Premium Blog Hero -->
+<section class="blog-hero">
+    <div class="blog-hero-bg">
+        <img src="{% static 'images/hero-slider/background-4.jpeg' %}" alt="Vibhu Travel Hub Blog">
+    </div>
+    <div class="blog-hero-overlay"></div>
+    <div class="blog-hero-inner container">
+        <div class="row">
+            <div class="col-lg-8" data-aos="fade-up">
+                <span class="blog-eyebrow">Travel Stories</span>
+                <h1 class="blog-hero-title">Explore Our <br><span class="blog-hero-highlight">Travel Stories</span></h1>
+                <p class="blog-hero-description">Discover inspiring destinations, travel guides, useful travel tips and journey ideas from Vibhu Travel Hub.</p>
+                <div class="blog-hero-actions">
+                    <a href="#blog-grid" class="blog-btn-primary">
+                        <i class="bi bi-journal-text"></i> Explore Blogs
+                    </a>
+                    <a href="{% url 'contact' %}" class="blog-btn-outline">
+                        <i class="bi bi-geo-alt"></i> Plan Your Journey
+                    </a>
+                </div>
+                <div class="blog-breadcrumb">
+                    <a href="{% url 'home' %}">Home</a>
+                    <span class="sep">&rsaquo;</span>
+                    <span>Blog</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Blog Intro Section -->
+<section class="blog-intro">
+    <div class="container" data-aos="fade-up">
+        <div class="blog-section-label">Our Journal</div>
+        <h2 class="blog-section-title">Travel Inspiration for Every Journey</h2>
+        <p class="blog-section-description">Explore destination guides, travel tips, road-trip ideas and useful information to help you plan comfortable and memorable journeys across South India.</p>
+    </div>
+</section>
+
+<!-- Blog Grid -->
+<section class="blog-grid-section" id="blog-grid">
+    <div class="container">
+        <div class="blog-grid">
+            {% for post in posts %}
+            <a href="{% url 'blog_detail' post.slug %}" class="blog-card" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|add:1 }}00">
+                <div class="blog-card-image-wrapper">
+                    {% if post.featured_image %}
+                    <img src="{{ post.featured_image.url }}" class="blog-card-image" alt="{{ post.title }}" loading="lazy">
+                    {% else %}
+                    <!-- Fallback for no image -->
+                    <div class="blog-card-image" style="background: var(--blog-border);"></div>
+                    {% endif %}
+                </div>
+                
+                <div class="blog-card-content">
+                    <h2 class="blog-card-title">{{ post.title }}</h2>
+                    <p class="blog-card-description">{{ post.short_description }}</p>
+                    <div class="blog-read-more">
+                        Read More <span>&rarr;</span>
+                    </div>
+                </div>
+            </a>
+            {% empty %}
+            <div class="col-12 text-center py-5 w-100" style="grid-column: 1 / -1;">
+                <i class="bi bi-journal-x display-1 text-muted mb-3 d-block"></i>
+                <h4 class="text-muted">No blog posts found.</h4>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- View All / CTA Section -->
+<section class="blog-cta">
+    <div class="container" data-aos="fade-up">
+        <div class="blog-section-label">Travel With Us</div>
+        <h2 class="blog-section-title">Ready to Plan Your Next Journey?</h2>
+        <p class="blog-section-description">From local travel to South India tours, Vibhu Travel Hub helps you travel comfortably with reliable vehicles and professional service.</p>
+        <div class="blog-cta-actions">
+            <a href="{% url 'home' %}#fleet" class="blog-btn-primary">
+                Book Your Vehicle
+            </a>
+            <a href="{% url 'contact' %}" class="blog-btn-outline" style="color: var(--blog-dark); border-color: var(--blog-border);">
+                Contact Us
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

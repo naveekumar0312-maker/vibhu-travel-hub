@@ -28,6 +28,9 @@ urlpatterns = [
 
     # Website
     path("", include("website.urls")),
+    
+    # Blog
+    path("blog/", include("blog.urls")),
 
     # Dynamic Sitemap
     path(

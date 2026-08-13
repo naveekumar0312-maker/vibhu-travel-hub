@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     # Local App
     "website",
     "dashboard",
+    "blog",
 ]
 
 # ==========================================

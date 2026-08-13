@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ post.title }} | Vibhu Travel Hub{% endblock %}
+{% block description %}{{ post.short_description }}{% endblock %}
+
+{% block og_title %}{{ post.title }}{% endblock %}
+{% block og_description %}{{ post.short_description }}{% endblock %}
+{% block og_url %}{{ request.build_absolute_uri }}{% endblock %}
+{% block canonical %}{{ request.build_absolute_uri }}{% endblock %}
+
+{% block body_class %}blog-detail-page{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+<style>
+    /* Force dark glass background on navbar since this page lacks a hero image */
+    body.blog-detail-page .premium-navbar {
+        background: rgba(20, 20, 20, 0.95) !important;
+        backdrop-filter: blur(18px) !important;
+        -webkit-backdrop-filter: blur(18px) !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.30) !important;
+    }
+    body.blog-detail-page .site-header {
+        position: fixed;
+        background: rgba(20, 20, 20, 0.95);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="blog-detail-container" data-aos="fade-up">
+    <!-- Post Header -->
+    <div class="blog-detail-header">
+        <h1 class="blog-detail-title">{{ post.title }}</h1>
+        <hr class="blog-article-divider mt-4 mb-4">
+    </div>
+
+    <!-- Featured Image -->
+    {% if post.featured_image %}
+    <div class="blog-detail-image-wrapper">
+        <img src="{{ post.featured_image.url }}" alt="{{ post.title }}" class="blog-detail-image">
+    </div>
+    {% endif %}
+
+    <!-- Content -->
+    <article class="blog-article">
+        {{ post.content|safe }}
+    </article>
+</div>
+{% endblock %}

@@ -1,5 +1,5 @@
 # pyrefly: ignore [missing-import]
-from django.urls import path
+from django.urls import path, include
 from .views.auth_views import dashboard_login, dashboard_logout, dashboard_home
 from .views.enquiry_views import enquiry_list, enquiry_delete
 from .views.fleet_views import fleet_list, fleet_create, fleet_edit, fleet_delete
@@ -32,4 +32,7 @@ urlpatterns = [
     
     # Users
     path('dashboard/users/', user_list, name='dashboard_users'),
+    
+    # Blog
+    path('dashboard/blog/', include('blog.dashboard_urls')),
 ]
