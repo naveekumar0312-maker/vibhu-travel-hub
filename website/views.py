@@ -1,8 +1,12 @@
 from urllib.parse import quote
+# pyrefly: ignore [missing-import]
 from django.shortcuts import redirect, render
 from .models import Enquiry, Vehicle, OutstationRoute, NewsletterSubscriber
+# pyrefly: ignore [missing-import]
 from django.http import HttpResponse, JsonResponse
+# pyrefly: ignore [missing-import]
 from django.core.mail import send_mail
+# pyrefly: ignore [missing-import]
 from django.conf import settings
 
 
@@ -105,6 +109,7 @@ def api_submit_enquiry(request):
     if request.method == "POST":
         # Check CSRF by relying on Django's csrf_protect (or just middleware)
         # But if we use AJAX, we might need a JsonResponse.
+        # pyrefly: ignore [missing-import]
         from django.http import JsonResponse
         from .models import Enquiry
         
@@ -218,3 +223,4 @@ def newsletter_subscribe(request):
         return JsonResponse({"status": "success", "message": "You have successfully subscribed to Vibhu Travel Hub. We'll keep you updated with our latest travel offers and updates."})
         
     return JsonResponse({"status": "error", "message": "Invalid request."})
+

@@ -395,33 +395,6 @@ Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo 
         padding: 100px 0;
     }
     
-    /* Filter Bar */
-    .fleet-filter-bar {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-        margin-bottom: 40px;
-    }
-    .fleet-filter-btn {
-        background: #ffffff;
-        border: 1px solid rgba(0,0,0,0.05);
-        color: #4B5563;
-        padding: 8px 24px;
-        border-radius: 50px;
-        font-weight: 600;
-        font-size: 0.95rem;
-        cursor: pointer;
-        transition: all 0.3s;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-    }
-    .fleet-filter-btn.active, .fleet-filter-btn:hover {
-        background: #111827;
-        color: #ffffff;
-        border-color: #111827;
-        box-shadow: 0 8px 20px rgba(17,24,39,0.2);
-    }
-
     /* Grid */
     .premium-fleet-grid {
         display: grid;
@@ -1003,17 +976,6 @@ Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo 
             <p style="color: #6B7280; font-size: 1.1rem; max-width: 600px; margin: 0 auto;">Travel in supreme comfort with our meticulously maintained fleet of modern vehicles.</p>
         </div>
 
-        <!-- Filter Bar -->
-        <div class="fleet-filter-bar" id="fleetFilterBar">
-            <button class="fleet-filter-btn active" data-filter="all">All</button>
-            <button class="fleet-filter-btn" data-filter="Sedan">Sedan</button>
-            <button class="fleet-filter-btn" data-filter="SUV">SUV</button>
-            <button class="fleet-filter-btn" data-filter="Tempo Traveller">Tempo Traveller</button>
-            <button class="fleet-filter-btn" data-filter="Urbania">Urbania</button>
-            <button class="fleet-filter-btn" data-filter="Mini Bus">Mini Bus</button>
-            <button class="fleet-filter-btn" data-filter="Luxury Coach">Luxury Coach</button>
-        </div>
-
         <div class="premium-fleet-grid" id="fleetGrid">
             {% for vehicle in vehicles %}
             <div class="premium-fleet-card anim-card reveal fleet-item" data-category="{{ vehicle.category }}">
@@ -1027,11 +989,7 @@ Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo 
                     </div>
                     {% endif %}
                     <div class="vehicle-price-badge">
-                        {% if vehicle.price %}
-                            {{ vehicle.price }}
-                        {% else %}
-                            Price on Request
-                        {% endif %}
+                        {{ vehicle.display_price }}
                     </div>
                 </div>
                 
@@ -1086,29 +1044,6 @@ Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo 
 <!-- Filter Logic -->
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-    const filterBtns = document.querySelectorAll('.fleet-filter-btn');
-    const fleetItems = document.querySelectorAll('.fleet-item');
-
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Remove active class from all buttons
-            filterBtns.forEach(b => b.classList.remove('active'));
-            // Add active class to clicked button
-            btn.classList.add('active');
-
-            const filterValue = btn.getAttribute('data-filter').toLowerCase();
-
-            fleetItems.forEach(item => {
-                const category = item.getAttribute('data-category').toLowerCase();
-                if (filterValue === 'all' || category.includes(filterValue)) {
-                    item.style.display = 'flex';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        });
-    });
-
     // Handle Pills Truncation
     const pillContainers = document.querySelectorAll('.feature-pill-container');
     pillContainers.forEach(container => {

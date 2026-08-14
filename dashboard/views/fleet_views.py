@@ -38,7 +38,8 @@ def fleet_create(request):
         name = request.POST.get('name')
         category = request.POST.get('category')
         passengers = request.POST.get('seats')
-        badge_text = request.POST.get('badge_text')
+        price_val = request.POST.get('price') or request.POST.get('badge_text')
+        badge_text = request.POST.get('badge_text') or request.POST.get('price')
         short_description = request.POST.get('short_description')
         feature_tags = request.POST.get('features')
         display_order = request.POST.get('display_order') or 0
@@ -62,6 +63,7 @@ def fleet_create(request):
             slug=slug,
             category=category,
             passengers=passengers,
+            price=price_val,
             badge_text=badge_text,
             short_description=short_description,
             feature_tags=feature_tags,
@@ -97,7 +99,9 @@ def fleet_edit(request, vehicle_id):
         vehicle.name = name
         vehicle.category = request.POST.get('category')
         vehicle.passengers = request.POST.get('seats')
-        vehicle.badge_text = request.POST.get('badge_text')
+        price_val = request.POST.get('price') or request.POST.get('badge_text')
+        vehicle.price = price_val
+        vehicle.badge_text = request.POST.get('badge_text') or price_val
         vehicle.short_description = request.POST.get('short_description')
         vehicle.feature_tags = request.POST.get('features')
         vehicle.display_order = request.POST.get('display_order') or 0

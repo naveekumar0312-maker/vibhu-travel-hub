@@ -16,14 +16,22 @@ def get_active_vehicles():
 def get_whatsapp_url(vehicle):
     from urllib.parse import quote
     
-    msg = "Hello Vibhu Travel Hub,\n\nI am interested in booking the following vehicle:\n\n"
-    msg += f"Vehicle: {vehicle.name}\n"
-    if vehicle.model_name:
-        msg += f"Model: {vehicle.model_name}\n\n"
-    else:
-        msg += "\n"
+    vehicle_name = vehicle.name
+    if vehicle.model_name and vehicle.model_name.strip():
+        vehicle_name = f"{vehicle.name} ({vehicle.model_name.strip()})"
         
-    msg += "Please share the availability, rental pricing, and booking details for this vehicle.\n\nThank you."
+    passengers = vehicle.passengers if vehicle.passengers else 4
+
+    msg = (
+        "Hello Vibhu Travel Hub Team,\n\n"
+        "I would like to enquire about booking this vehicle.\n\n"
+        f"Vehicle: {vehicle_name}\n"
+        f"Seating Capacity: {passengers} Passengers\n\n"
+        "Please share the availability, pricing and booking details.\n\n"
+        "Thank you,\n"
+        "Vibhu Travel Hub"
+    )
     
     encoded_msg = quote(msg)
     return f"https://wa.me/919655866660?text={encoded_msg}"
+

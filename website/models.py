@@ -152,6 +152,41 @@ class Vehicle(models.Model):
                 
         return clean_features
 
+    @property
+    def display_price(self):
+        import re
+        raw_val = (self.price or "").strip()
+        if not raw_val and self.badge_text:
+            raw_val = self.badge_text.strip()
+            
+        if not raw_val or raw_val in ['0', '0.0', '0.00']:
+            return "Price on Request"
+            
+        numbers = re.findall(r'\d+', raw_val.replace(',', ''))
+        if numbers:
+            num_str = "".join(numbers)
+            try:
+                num = int(num_str)
+                if num <= 0:
+                    return "Price on Request"
+                s = str(num)
+                if len(s) <= 3:
+                    formatted = s
+                else:
+                    last_three = s[-3:]
+                    other_digits = s[:-3]
+                    res = ""
+                    while len(other_digits) > 2:
+                        res = "," + other_digits[-2:] + res
+                        other_digits = other_digits[:-2]
+                    formatted = other_digits + res + "," + last_three
+                return f"₹{formatted}"
+            except ValueError:
+                pass
+                
+        return "Price on Request"
+
+
 class VehicleGallery(models.Model):
     vehicle = models.ForeignKey(Vehicle, on_delete=models.CASCADE, related_name="gallery")
     image = models.ImageField(upload_to="vehicles/gallery/", validators=[validate_image_size, validate_image_extension])

@@ -39,9 +39,10 @@
             </div>
 
             <div class="col-md-6">
-                <label class="form-label text-muted small fw-bold">Top Badge Text</label>
-                <input type="text" name="badge_text" class="form-control anim-input glass-input text-dark"
-                    value="{{ vehicle.badge_text|default_if_none:'' }}" placeholder="e.g. ₹1800/day or Best Seller">
+                <label class="form-label text-muted small fw-bold">Vehicle Price (₹) / Badge Text</label>
+                <input type="text" name="price" class="form-control anim-input glass-input text-dark"
+                    value="{{ vehicle.price|default:vehicle.badge_text|default_if_none:'' }}" placeholder="e.g. 2500 or ₹1800/day">
+                <input type="hidden" name="badge_text" value="{{ vehicle.badge_text|default:vehicle.price|default_if_none:'' }}">
             </div>
 
             <!-- Description -->

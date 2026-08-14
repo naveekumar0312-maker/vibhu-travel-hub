@@ -53,7 +53,7 @@
                             <span class="text-muted">{{ vehicle.seats }} Seater</span>
                         </div>
                     </td>
-                    <td><span class="text-dark">{{ vehicle.badge_text|default:"-" }}</span></td>
+                    <td><span class="text-dark">{{ vehicle.display_price }}</span></td>
                     <td><span class="text-dark">{{ vehicle.display_order }}</span></td>
                     <td>
                         {% if vehicle.is_active %}
