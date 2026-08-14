@@ -19,15 +19,15 @@
     <div class="blog-hero-overlay"></div>
     <div class="blog-hero-inner container">
         <div class="row">
-            <div class="col-lg-8" data-aos="fade-up">
-                <span class="blog-eyebrow">Travel Stories</span>
-                <h1 class="blog-hero-title">Explore Our <br><span class="blog-hero-highlight">Travel Stories</span></h1>
-                <p class="blog-hero-description">Discover inspiring destinations, travel guides, useful travel tips and journey ideas from Vibhu Travel Hub.</p>
-                <div class="blog-hero-actions">
-                    <a href="#blog-grid" class="blog-btn-primary">
+            <div class="col-lg-8">
+                <span class="blog-eyebrow load-anim">Travel Stories</span>
+                <h1 class="blog-hero-title load-anim load-delay-1">Explore Our <br><span class="blog-hero-highlight">Travel Stories</span></h1>
+                <p class="blog-hero-description load-anim load-delay-2">Discover inspiring destinations, travel guides, useful travel tips and journey ideas from Vibhu Travel Hub.</p>
+                <div class="blog-hero-actions load-anim load-delay-3">
+                    <a href="#blog-grid" class="blog-btn-primary anim-btn">
                         <i class="bi bi-journal-text"></i> Explore Blogs
                     </a>
-                    <a href="{% url 'contact' %}" class="blog-btn-outline">
+                    <a href="{% url 'contact' %}" class="blog-btn-outline anim-btn">
                         <i class="bi bi-geo-alt"></i> Plan Your Journey
                     </a>
                 </div>
@@ -43,7 +43,7 @@
 
 <!-- Blog Intro Section -->
 <section class="blog-intro">
-    <div class="container" data-aos="fade-up">
+    <div class="container reveal" data-aos="fade-up">
         <div class="blog-section-label">Our Journal</div>
         <h2 class="blog-section-title">Travel Inspiration for Every Journey</h2>
         <p class="blog-section-description">Explore destination guides, travel tips, road-trip ideas and useful information to help you plan comfortable and memorable journeys across South India.</p>
@@ -53,9 +53,9 @@
 <!-- Blog Grid -->
 <section class="blog-grid-section" id="blog-grid">
     <div class="container">
-        <div class="blog-grid">
+        <div class="blog-grid stagger-grid">
             {% for post in posts %}
-            <a href="{% url 'blog_detail' post.slug %}" class="blog-card" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|add:1 }}00">
+            <a href="{% url 'blog_detail' post.slug %}" class="blog-card reveal anim-card" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|add:1 }}00">
                 <div class="blog-card-image-wrapper">
                     {% if post.featured_image %}
                     <img src="{{ post.featured_image.url }}" class="blog-card-image" alt="{{ post.title }}" loading="lazy">

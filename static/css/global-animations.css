@@ -3,20 +3,18 @@
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   1. PAGE LOAD ANIMATIONS
+   1. PAGE LOAD & TRANSITION ANIMATIONS
    -------------------------------------------------------------------------- */
-.page-loaded body {
-    /* Optional: Can be used if a full page overlay loader is implemented */
+/* Page load smooth transition indicator */
+body {
+    transition: opacity 0.3s ease;
 }
 
-.fade-in-up-load {
-    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-@keyframes fadeInUp {
+/* Staggered load animation keyframes */
+@keyframes vthFadeInUp {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(30px);
     }
     to {
         opacity: 1;
@@ -24,131 +22,400 @@
     }
 }
 
+@keyframes vthFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes vthSubtleScale {
+    from { transform: scale(1.04); }
+    to { transform: scale(1); }
+}
+
+.load-anim {
+    opacity: 0;
+    will-change: opacity, transform;
+}
+
+.page-loaded .load-anim {
+    animation: vthFadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.page-loaded .load-delay-1 { animation-delay: 0ms; }
+.page-loaded .load-delay-2 { animation-delay: 150ms; }
+.page-loaded .load-delay-3 { animation-delay: 300ms; }
+.page-loaded .load-delay-4 { animation-delay: 450ms; }
+
+/* Hero background slow zoom effect */
+.hero-bg-wrapper img, 
+.hero-section .hero-bg-wrapper img,
+.hero-bg-anim,
+.hero-swiper .swiper-slide img {
+    transition: transform 6s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: scale(1.03);
+}
+
+.page-loaded .hero-bg-wrapper img,
+.hero-swiper .swiper-slide-active img {
+    transform: scale(1);
+}
+
 /* --------------------------------------------------------------------------
    2. SCROLL REVEAL ANIMATIONS (IntersectionObserver)
    -------------------------------------------------------------------------- */
-.reveal, .reveal-left, .reveal-right, .reveal-scale {
+.reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-cta, .stagger-item {
     opacity: 0;
-    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), 
+                transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .reveal {
-    transform: translateY(30px);
+    transform: translateY(35px);
 }
 
 .reveal-left {
-    transform: translateX(-30px);
+    transform: translateX(-35px);
 }
 
 .reveal-right {
-    transform: translateX(30px);
+    transform: translateX(35px);
 }
 
 .reveal-scale {
-    transform: scale(0.95);
+    transform: scale(0.94);
 }
 
-/* Active states added via JS */
-.reveal.active, .reveal-left.active, .reveal-right.active, .reveal-scale.active {
+.reveal-cta {
+    transform: translateY(40px) scale(0.98);
+}
+
+.stagger-item {
+    transform: translateY(30px);
+}
+
+/* Active states applied by IntersectionObserver */
+.reveal.active, 
+.reveal-left.active, 
+.reveal-right.active, 
+.reveal-scale.active,
+.reveal-cta.active,
+.stagger-item.active {
     opacity: 1;
     transform: translate(0) scale(1);
 }
 
-/* Staggering delays for grid items */
-.stagger-1 { transition-delay: 100ms; }
-.stagger-2 { transition-delay: 200ms; }
-.stagger-3 { transition-delay: 300ms; }
-.stagger-4 { transition-delay: 400ms; }
-.stagger-5 { transition-delay: 500ms; }
+/* Staggering delays for grid cards and items */
+.stagger-1, [data-stagger="1"] { transition-delay: 0ms; }
+.stagger-2, [data-stagger="2"] { transition-delay: 80ms; }
+.stagger-3, [data-stagger="3"] { transition-delay: 160ms; }
+.stagger-4, [data-stagger="4"] { transition-delay: 240ms; }
+.stagger-5, [data-stagger="5"] { transition-delay: 320ms; }
+.stagger-6, [data-stagger="6"] { transition-delay: 400ms; }
 
 /* --------------------------------------------------------------------------
-   3. HERO ANIMATIONS
+   3. CARD MICRO-INTERACTIONS
    -------------------------------------------------------------------------- */
-.hero-bg-anim {
-    animation: slowZoom 20s ease infinite alternate;
+.anim-card, 
+.dest-card, 
+.fleet-card, 
+.service-card, 
+.package-card, 
+.blog-card, 
+.gallery-card,
+.testimonial-card,
+.hub-card {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@keyframes slowZoom {
-    0% { transform: scale(1); }
-    100% { transform: scale(1.05); }
+.anim-card:hover, 
+.dest-card:hover, 
+.fleet-card:hover, 
+.service-card:hover, 
+.package-card:hover, 
+.blog-card:hover, 
+.gallery-card:hover,
+.testimonial-card:hover,
+.hub-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Card image zoom effect */
+.card-img-wrapper, 
+.about-img-container, 
+.dest-img-wrapper, 
+.fleet-img-wrapper,
+.service-img-wrapper {
+    overflow: hidden;
+}
+
+.anim-card .card-img-anim, 
+.card-img-wrapper img, 
+.dest-card img, 
+.fleet-card img, 
+.service-card img, 
+.package-card img,
+.blog-card img,
+.gallery-card img {
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.anim-card:hover .card-img-anim,
+.card-img-wrapper:hover img, 
+.dest-card:hover img, 
+.fleet-card:hover img, 
+.service-card:hover img, 
+.package-card:hover img,
+.blog-card:hover img,
+.gallery-card:hover img {
+    transform: scale(1.04);
+}
+
+/* Card icon subtle motion */
+.anim-card:hover i,
+.service-card:hover i,
+.fleet-card:hover i {
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover i {
+    transform: scale(1.08);
 }
 
 /* --------------------------------------------------------------------------
    4. BUTTON MICRO-INTERACTIONS
    -------------------------------------------------------------------------- */
-.anim-btn {
-    transition: all 0.3s ease;
+.anim-btn, 
+.btn-premium, 
+.btn-primary-luxury, 
+.btn-outline-luxury,
+.btn-danger,
+.btn-outline-danger {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                background-color 0.3s ease, 
+                color 0.3s ease, 
+                border-color 0.3s ease;
+    will-change: transform;
 }
 
-.anim-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+.anim-btn:hover, 
+.btn-premium:hover, 
+.btn-primary-luxury:hover, 
+.btn-outline-luxury:hover,
+.btn-danger:hover,
+.btn-outline-danger:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
-.anim-btn:active {
-    transform: translateY(0) scale(0.98);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* --------------------------------------------------------------------------
-   5. CARD ANIMATIONS
-   -------------------------------------------------------------------------- */
-.anim-card {
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.anim-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-}
-
-.anim-card .card-img-wrapper {
-    overflow: hidden;
-}
-
-.anim-card .card-img-anim {
-    transition: transform 0.6s ease;
-}
-
-.anim-card:hover .card-img-anim {
-    transform: scale(1.04);
+.anim-btn:active, 
+.btn-premium:active, 
+.btn-primary-luxury:active, 
+.btn-outline-luxury:active,
+.btn-danger:active,
+.btn-outline-danger:active {
+    transform: translateY(0) scale(0.99);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
 
 /* --------------------------------------------------------------------------
-   6. FLOATING BUTTONS
+   5. NAVBAR & DROPDOWN MICRO-INTERACTIONS
    -------------------------------------------------------------------------- */
-.anim-float {
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+.navbar-nav .nav-link {
+    position: relative;
+    transition: color 0.25s ease;
 }
 
-.anim-float:hover {
-    transform: translateY(-4px) scale(1.05);
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    opacity: 0;
+    height: 2px;
+    background-color: #E31E24;
+    transition: width 0.25s ease, opacity 0.25s ease;
+    border-radius: 2px;
+}
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+    width: calc(100% - 20px);
+    opacity: 1;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: #E31E24 !important;
+}
+
+/* Dropdown menu smooth animation */
+.dropdown-menu {
+    display: block !important;
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, -5px);
+    transition: opacity 0.2s ease, 
+                transform 0.2s ease,
+                visibility 0.2s ease;
+    pointer-events: none;
+}
+
+.dropdown-menu.show,
+.nav-item.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
+    pointer-events: auto;
 }
 
 /* --------------------------------------------------------------------------
-   7. FORM FOCUS EFFECTS
+   6. FAQ ACCORDION TRANSITIONS
    -------------------------------------------------------------------------- */
-.anim-input {
+.accordion-button {
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.accordion-button::after {
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.accordion-collapse {
+    transition: height 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+}
+
+/* --------------------------------------------------------------------------
+   7. FLOATING ACTION BUTTONS & WHATSAPP PULSE
+   -------------------------------------------------------------------------- */
+.anim-float, 
+.vth-float-btn {
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                box-shadow 0.3s ease;
+}
+
+.anim-float:hover, 
+.vth-float-btn:hover {
+    transform: translateY(-4px) scale(1.06);
+}
+
+@keyframes waPulse {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+    70% { box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+.vth-float-wa {
+    animation: waPulse 3s infinite;
+}
+
+.vth-float-wa:hover {
+    animation: none;
+}
+
+/* --------------------------------------------------------------------------
+   8. FORM INPUT FOCUS EFFECTS
+   -------------------------------------------------------------------------- */
+.anim-input, .form-control, .form-select {
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.anim-input:focus {
-    box-shadow: 0 0 0 0.25rem rgba(255, 31, 31, 0.15); /* Vibhu red subtle shadow */
+.anim-input:focus, .form-control:focus, .form-select:focus {
+    box-shadow: 0 0 0 0.25rem rgba(227, 30, 36, 0.15);
+    border-color: #E31E24;
 }
 
 /* --------------------------------------------------------------------------
-   8. FOOTER SOCIAL ICONS
+   9. MOBILE OPTIMIZATIONS & SAFEGUARDS
    -------------------------------------------------------------------------- */
-.anim-icon {
-    transition: transform 0.3s ease, color 0.3s ease;
-}
+@media (max-width: 768px) {
+    .reveal, .reveal-scale, .stagger-item {
+        transform: translateY(20px);
+    }
 
-.anim-icon:hover {
-    transform: translateY(-3px) scale(1.1);
+    .reveal-left {
+        transform: translateX(-15px);
+    }
+
+    .reveal-right {
+        transform: translateX(15px);
+    }
+
+    /* Prevent overflow on small screens */
+    html, body {
+        overflow-x: hidden;
+    }
 }
 
 /* --------------------------------------------------------------------------
-   9. ACCESSIBILITY (Prefers Reduced Motion)
+   9.1 KEY SERVICE HUBS PREMIUM STYLING
+   -------------------------------------------------------------------------- */
+.hub-card {
+    background: #FFFFFF;
+    border: 1px solid #F1F5F9;
+    border-radius: 26px;
+    padding: 32px 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                border-color 0.3s ease;
+    height: 100%;
+}
+
+.hub-card:hover {
+    transform: translateY(-5px);
+    border-color: #CBD5E1;
+    box-shadow: 0 18px 36px rgba(15, 23, 42, 0.08);
+}
+
+.hub-icon-wrapper {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: rgba(227, 30, 36, 0.08);
+    color: #E31E24;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.hub-card:hover .hub-icon-wrapper {
+    transform: translateY(-3px) scale(1.05);
+    background: rgba(227, 30, 36, 0.12);
+}
+
+.hub-card-title {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #0F172A;
+    margin-bottom: 4px;
+    letter-spacing: -0.3px;
+}
+
+.hub-card-subtitle {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #E31E24;
+    margin-bottom: 12px;
+    letter-spacing: -0.2px;
+}
+
+.hub-card-desc {
+    font-size: 0.92rem;
+    color: #64748B;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   10. ACCESSIBILITY (Prefers Reduced Motion)
    -------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
     *, ::before, ::after {
@@ -157,9 +424,17 @@
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
     }
+
+    body {
+        opacity: 1 !important;
+    }
     
-    .reveal, .reveal-left, .reveal-right, .reveal-scale {
+    .reveal, .reveal-left, .reveal-right, .reveal-scale, .stagger-item, .load-anim {
         opacity: 1 !important;
         transform: none !important;
+    }
+
+    .vth-float-wa {
+        animation: none !important;
     }
 }

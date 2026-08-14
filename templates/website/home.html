@@ -601,6 +601,7 @@ booking, outstation cabs, travel agency near me, best travel agency near me
         margin-bottom: 15px;
         display: -webkit-box;
         -webkit-line-clamp: 2;
+        line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
     }
@@ -1011,16 +1012,16 @@ booking, outstation cabs, travel agency near me, best travel agency near me
         <div class="row">
             <div class="col-lg-8">
                 <div class="hero-content">
-                    <h1 class="hero-title">
+                    <h1 class="hero-title load-anim load-delay-1">
                         Experience Luxury Travel
                         <span>Across South India.</span>
                     </h1>
-                    <p class="hero-subtitle">
+                    <p class="hero-subtitle load-anim load-delay-2">
                         Vibhu Travel Hub is a premier travel agency in Tamil Nadu offering cab service, cab booking,
                         outstation cabs, airport transfers, tempo traveller rentals, and luxury bus rentals across South
                         India.
                     </p>
-                    <div class="d-flex flex-wrap gap-3">
+                    <div class="d-flex flex-wrap gap-3 load-anim load-delay-3">
                         <a href="tel:+919655866660" class="btn-premium anim-btn btn-primary-luxury">
                             <i class="bi bi-telephone-fill"></i> Call Now
                         </a>
@@ -1147,8 +1148,7 @@ booking, outstation cabs, travel agency near me, best travel agency near me
                         {% endif %}
                     </div>
 
-                    <p class="premium-fleet-desc" title="{{ vehicle.short_description }}">{{ vehicle.short_description
-                        }}</p>
+                    <p class="premium-fleet-desc" title="{{ vehicle.short_description|default:'Comfortable travel for your journey.' }}">{{ vehicle.short_description|default:"Comfortable travel for your journey." }}</p>
 
                     <div class="premium-passengers">
                         <i class="bi bi-people-fill"></i> {{ vehicle.passengers }} Passengers
@@ -1157,8 +1157,7 @@ booking, outstation cabs, travel agency near me, best travel agency near me
                     {% if vehicle.get_feature_tags_list %}
                     <div class="premium-feature-pills feature-pill-container">
                         {% for tag in vehicle.get_feature_tags_list %}
-                        <span class="premium-feature-pill pill-visible"><i class="bi bi-check-circle"></i> {{ tag
-                            }}</span>
+                        <span class="premium-feature-pill pill-visible"><i class="bi bi-check-circle"></i> {{ tag }}</span>
                         {% endfor %}
                     </div>
                     {% endif %}
@@ -1223,9 +1222,9 @@ booking, outstation cabs, travel agency near me, best travel agency near me
                 uncompromising quality.</p>
         </div>
 
-        <div class="row g-4">
+        <div class="row g-4 stagger-grid">
             <!-- Service 1 -->
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-4 col-md-6 reveal">
                 <div class="glass-card anim-card service-card">
                     <div class="service-icon-wrapper"><i class="bi bi-car-front-fill"></i></div>
                     <h3>Local Cab Service</h3>
@@ -1236,7 +1235,7 @@ booking, outstation cabs, travel agency near me, best travel agency near me
                 </div>
             </div>
             <!-- Service 2 -->
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-4 col-md-6 reveal">
                 <div class="glass-card anim-card service-card">
                     <div class="service-icon-wrapper"><i class="bi bi-bus-front-fill"></i></div>
                     <h3>Luxury Bus Booking</h3>
@@ -1247,7 +1246,7 @@ booking, outstation cabs, travel agency near me, best travel agency near me
                 </div>
             </div>
             <!-- Service 3 -->
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-4 col-md-6 reveal">
                 <div class="glass-card anim-card service-card">
                     <div class="service-icon-wrapper"><i class="bi bi-truck-front-fill"></i></div>
                     <h3>Tempo Traveller</h3>
@@ -1258,7 +1257,7 @@ booking, outstation cabs, travel agency near me, best travel agency near me
                 </div>
             </div>
             <!-- Service 4 -->
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-4 col-md-6 reveal">
                 <div class="glass-card anim-card service-card">
                     <div class="service-icon-wrapper"><i class="bi bi-map-fill"></i></div>
                     <h3>Outstation Tours</h3>
@@ -1269,7 +1268,7 @@ booking, outstation cabs, travel agency near me, best travel agency near me
                 </div>
             </div>
             <!-- Service 5 -->
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-4 col-md-6 reveal">
                 <div class="glass-card anim-card service-card">
                     <div class="service-icon-wrapper"><i class="bi bi-geo-alt-fill"></i></div>
                     <h3>Pilgrimage Trips</h3>
@@ -1280,7 +1279,7 @@ booking, outstation cabs, travel agency near me, best travel agency near me
                 </div>
             </div>
             <!-- Service 6 -->
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-4 col-md-6 reveal">
                 <div class="glass-card anim-card service-card">
                     <div class="service-icon-wrapper"><i class="bi bi-briefcase-fill"></i></div>
                     <h3>Corporate Travel</h3>
@@ -1297,102 +1296,67 @@ booking, outstation cabs, travel agency near me, best travel agency near me
 <!-- ==========================================
     LOCAL TRAVEL HUBS SECTION
 ========================================== -->
-<section id="local-hubs" class="local-hubs-section py-5" style="background: #ffffff;">
+<section id="local-hubs" class="local-hubs-section py-5" style="background: #F8FAFC;">
     <div class="container py-4">
         <div class="section-header reveal text-center mb-5">
             <h2>Key Service <span>Hubs</span></h2>
-            <p>Discover reliable travel services across Coimbatore, Madurai, Trichy, and Chennai with Vibhu Travel Hub.
-            </p>
+            <p>Reliable travel services across Coimbatore, Madurai, Trichy and Chennai with Vibhu Travel Hub.</p>
         </div>
 
         <div class="row g-4">
             <!-- Hub 1: Coimbatore -->
-            <div class="col-lg-3 col-md-6">
-                <div class="glass-card anim-card h-100 p-4 d-flex flex-direction-column">
-                    <div class="fs-1 text-danger mb-3"><i class="bi bi-geo-alt-fill"></i></div>
-                    <h3 class="h5 fw-bold text-dark mb-2">Coimbatore</h3>
-                    <p class="small text-muted mb-3 flex-grow-1">
-                        Looking for a trusted <a href="{% url 'about' %}"
-                            class="text-decoration-none fw-semibold text-dark">travel agency near me</a> or <a
-                            href="{% url 'local_taxi_service' %}"
-                            class="text-decoration-none fw-semibold text-danger">cab booking</a>? Vibhu Travel Hub
-                        offers top-rated <a href="{% url 'local_taxi_service' %}"
-                            class="text-decoration-none text-muted">cab service</a>, <a
-                            href="{% url 'outstation_tours' %}" class="text-decoration-none text-muted">outstation
-                            cabs</a>, <a href="{% url 'tempo_traveller' %}"
-                            class="text-decoration-none text-muted">tempo traveller rental</a>, and <a
-                            href="{% url 'bus_booking' %}" class="text-decoration-none text-muted">bus rentals</a>.
-                    </p>
-                    <div class="mt-auto">
-                        <a href="{% url 'local_taxi_service' %}"
-                            class="btn btn-sm btn-outline-danger w-100 rounded-pill">Coimbatore Cabs <i
-                                class="bi bi-arrow-right"></i></a>
+            <div class="col-lg-3 col-md-6 reveal stagger-1">
+                <div class="hub-card">
+                    <div class="hub-icon-wrapper">
+                        <i class="bi bi-geo-alt-fill"></i>
                     </div>
+                    <h3 class="hub-card-title">Coimbatore</h3>
+                    <div class="hub-card-subtitle">Travel Agency in Coimbatore</div>
+                    <p class="hub-card-desc">
+                        Vibhu Travel Hub provides reliable travel services in Coimbatore for local journeys, outstation travel, customized tours and comfortable transportation solutions.
+                    </p>
                 </div>
             </div>
+
             <!-- Hub 2: Madurai -->
-            <div class="col-lg-3 col-md-6">
-                <div class="glass-card anim-card h-100 p-4 d-flex flex-direction-column">
-                    <div class="fs-1 text-danger mb-3"><i class="bi bi-building"></i></div>
-                    <h3 class="h5 fw-bold text-dark mb-2">Madurai</h3>
-                    <p class="small text-muted mb-3 flex-grow-1">
-                        Explore premier <a href="{% url 'pilgrimage_trips' %}"
-                            class="text-decoration-none fw-semibold text-dark">travel agency in madurai</a> and <a
-                            href="{% url 'local_taxi_service' %}" class="text-decoration-none text-muted">cab service
-                            madurai</a>. We provide reliable <a href="{% url 'outstation_tours' %}"
-                            class="text-decoration-none text-muted">cabs in madurai</a>, <a
-                            href="{% url 'local_taxi_service' %}" class="text-decoration-none text-muted">car rental
-                            madurai</a>, and customized <a href="{% url 'pilgrimage_trips' %}"
-                            class="text-decoration-none text-muted">madurai tour agency</a> services.
-                    </p>
-                    <div class="mt-auto">
-                        <a href="{% url 'pilgrimage_trips' %}"
-                            class="btn btn-sm btn-outline-danger w-100 rounded-pill">Madurai Packages <i
-                                class="bi bi-arrow-right"></i></a>
+            <div class="col-lg-3 col-md-6 reveal stagger-2">
+                <div class="hub-card">
+                    <div class="hub-icon-wrapper">
+                        <i class="bi bi-building"></i>
                     </div>
+                    <h3 class="hub-card-title">Madurai</h3>
+                    <div class="hub-card-subtitle">Travel Agency in Madurai</div>
+                    <p class="hub-card-desc">
+                        Explore dependable travel services in Madurai for sightseeing, outstation journeys, customized tours and convenient transportation solutions with Vibhu Travel Hub.
+                    </p>
                 </div>
             </div>
+
             <!-- Hub 3: Trichy -->
-            <div class="col-lg-3 col-md-6">
-                <div class="glass-card anim-card h-100 p-4 d-flex flex-direction-column">
-                    <div class="fs-1 text-danger mb-3"><i class="bi bi-pin-map-fill"></i></div>
-                    <h3 class="h5 fw-bold text-dark mb-2">Trichy</h3>
-                    <p class="small text-muted mb-3 flex-grow-1">
-                        Planning journeys with <a href="{% url 'corporate_travel' %}"
-                            class="text-decoration-none fw-semibold text-dark">cab service trichy</a> and <a
-                            href="{% url 'outstation_tours' %}" class="text-decoration-none text-muted">car rental
-                            trichy</a>? Book seamless <a href="{% url 'outstation_tours' %}"
-                            class="text-decoration-none text-muted">trichy cabs</a>, <a
-                            href="{% url 'tempo_traveller' %}" class="text-decoration-none text-muted">car hire in
-                            trichy</a>, and corporate travel solutions.
-                    </p>
-                    <div class="mt-auto">
-                        <a href="{% url 'corporate_travel' %}"
-                            class="btn btn-sm btn-outline-danger w-100 rounded-pill">Trichy Services <i
-                                class="bi bi-arrow-right"></i></a>
+            <div class="col-lg-3 col-md-6 reveal stagger-3">
+                <div class="hub-card">
+                    <div class="hub-icon-wrapper">
+                        <i class="bi bi-pin-map-fill"></i>
                     </div>
+                    <h3 class="hub-card-title">Trichy</h3>
+                    <div class="hub-card-subtitle">Travel Agency in Trichy</div>
+                    <p class="hub-card-desc">
+                        Plan comfortable journeys with Vibhu Travel Hub, offering travel services in Trichy for local travel, sightseeing, outstation trips and customized travel requirements.
+                    </p>
                 </div>
             </div>
+
             <!-- Hub 4: Chennai -->
-            <div class="col-lg-3 col-md-6">
-                <div class="glass-card anim-card h-100 p-4 d-flex flex-direction-column">
-                    <div class="fs-1 text-danger mb-3"><i class="bi bi-airplane-engines-fill"></i></div>
-                    <h3 class="h5 fw-bold text-dark mb-2">Chennai</h3>
-                    <p class="small text-muted mb-3 flex-grow-1">
-                        Require a trusted <a href="/destinations/tamil-nadu/"
-                            class="text-decoration-none fw-semibold text-dark">travel agency chennai</a> or <a
-                            href="{% url 'local_taxi_service' %}" class="text-decoration-none text-muted">cab booking
-                            chennai</a>? Enjoy executive <a href="{% url 'local_taxi_service' %}"
-                            class="text-decoration-none text-muted">cab service chennai</a>, <a
-                            href="{% url 'tempo_traveller' %}" class="text-decoration-none text-muted">cabs in
-                            chennai</a>, and <a href="{% url 'outstation_tours' %}"
-                            class="text-decoration-none text-muted">one way cab chennai</a> outstation travel.
-                    </p>
-                    <div class="mt-auto">
-                        <a href="/destinations/tamil-nadu/"
-                            class="btn btn-sm btn-outline-danger w-100 rounded-pill">Chennai Tours <i
-                                class="bi bi-arrow-right"></i></a>
+            <div class="col-lg-3 col-md-6 reveal stagger-4">
+                <div class="hub-card">
+                    <div class="hub-icon-wrapper">
+                        <i class="bi bi-airplane-engines-fill"></i>
                     </div>
+                    <h3 class="hub-card-title">Chennai</h3>
+                    <div class="hub-card-subtitle">Travel Agency in Chennai</div>
+                    <p class="hub-card-desc">
+                        Discover professional travel services in Chennai for city travel, sightseeing, outstation journeys, airport transfers and customized travel requirements.
+                    </p>
                 </div>
             </div>
         </div>
@@ -1409,7 +1373,7 @@ booking, outstation cabs, travel agency near me, best travel agency near me
             <p>Discover breathtaking locations across South India with our curated luxury travel experiences.</p>
         </div>
 
-        <div class="row g-4 justify-content-center">
+        <div class="row g-4 justify-content-center stagger-grid">
             <!-- Destination 1: Tamil Nadu -->
             <div class="col-lg-4 col-md-6">
                 <a href="/destinations/tamil-nadu/" class="dest-card anim-card reveal">
@@ -1482,7 +1446,7 @@ booking, outstation cabs, travel agency near me, best travel agency near me
             <p>We elevate every aspect of your journey, ensuring safety, comfort, and unmatched reliability.</p>
         </div>
 
-        <div class="row g-4">
+        <div class="row g-4 stagger-grid">
             <div class="col-lg-3 col-md-6">
                 <div class="why-card anim-card reveal">
                     <div class="why-icon"><i class="bi bi-person-badge-fill"></i></div>
@@ -1575,34 +1539,34 @@ booking, outstation cabs, travel agency near me, best travel agency near me
 ========================================== -->
 <section class="contact-section" id="contact">
     <div class="container">
-        <div class="section-header reveal">
+        <div class="section-header reveal-cta">
             <h2>Get in <span>Touch</span></h2>
             <p>Ready to experience premium travel? Reach out to our concierge team to plan your next journey.</p>
         </div>
 
-        <div class="row g-4 justify-content-center">
-            <div class="col-lg-3 col-md-6">
+        <div class="row g-4 justify-content-center stagger-grid">
+            <div class="col-lg-3 col-md-6 reveal">
                 <div class="glass-card anim-card contact-box">
                     <div class="contact-icon"><i class="bi bi-telephone-fill"></i></div>
                     <h5>Direct Line</h5>
                     <a href="tel:+919655866660">+91 96558 66660</a>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg-3 col-md-6 reveal">
                 <div class="glass-card anim-card contact-box">
                     <div class="contact-icon"><i class="bi bi-whatsapp"></i></div>
                     <h5>WhatsApp</h5>
                     <a href="https://wa.me/919655866660" target="_blank">Chat with Concierge</a>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg-3 col-md-6 reveal">
                 <div class="glass-card anim-card contact-box">
                     <div class="contact-icon"><i class="bi bi-envelope-fill"></i></div>
                     <h5>Email</h5>
                     <a href="mailto:vibhutravelhub66@gmail.com">vibhutravelhub66@gmail.com</a>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg-3 col-md-6 reveal">
                 <div class="glass-card anim-card contact-box">
                     <div class="contact-icon"><i class="bi bi-geo-alt-fill"></i></div>
                     <h5>Headquarters</h5>

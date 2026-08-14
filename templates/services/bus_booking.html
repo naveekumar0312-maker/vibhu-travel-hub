@@ -62,7 +62,7 @@
 <!-- 1. PREMIUM HERO -->
 <section class="hero-section">
     <div class="hero-bg-wrapper">
-        <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=2069&auto=format&fit=crop" alt="Luxury Bus Rental">
+        <img src="{% static 'images/services/bus.png' %}" alt="Luxury Bus Rental">
     </div>
     <div class="hero-overlay"></div>
 
@@ -70,14 +70,14 @@
         <div class="row">
             <div class="col-lg-8">
                 <div class="hero-content">
-                    <h1 class="hero-title" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+                    <h1 class="hero-title load-anim load-delay-1" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
                         Luxury Bus Rental
                         <span>in Coimbatore.</span>
                     </h1>
-                    <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
+                    <p class="hero-subtitle load-anim load-delay-2" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
                         Comfortable and spacious buses for weddings, corporate outings, school trips, and pilgrimage tours across South India.
                     </p>
-                    <div class="d-flex flex-wrap gap-3" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
+                    <div class="d-flex flex-wrap gap-3 load-anim load-delay-3" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
                         <button class="btn-premium anim-btn btn-primary-luxury" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Luxury Bus Rental">
                             <i class="bi bi-calendar-check-fill"></i> Get a Quote
                         </button>
@@ -101,7 +101,7 @@
         <div class="row g-5 align-items-center">
             <div class="col-lg-6" data-aos="fade-right">
                 <div class="about-img-container position-relative h-100 shadow-lg rounded-4 overflow-hidden" style="min-height: 450px;">
-                    <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=2069&auto=format&fit=crop" alt="Bus Rental Service" class="w-100 h-100 object-fit-cover position-absolute top-0 start-0">
+                    <img src="{% static 'images/services/bus2.webp' %}" alt="Bus Rental Service" class="w-100 h-100 object-fit-cover position-absolute top-0 start-0">
                     
                     <div class="position-absolute bottom-0 end-0 bg-white p-4 shadow-lg rounded-top-start-4 d-flex align-items-center gap-3" style="z-index: 3;">
                         <div class="bg-danger text-white rounded-circle d-flex align-items-center justify-content-center shadow-sm" style="width: 50px; height: 50px; font-size: 1.5rem;">

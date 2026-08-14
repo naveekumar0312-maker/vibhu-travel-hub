@@ -209,7 +209,8 @@
     align-items: center;
 }
 .info-card:hover {
-    transform: translateY(-6px);
+    transform: translateY(-5px);
+    border-color: rgba(255,31,31,0.2);
     box-shadow: var(--vth-shadow-hover);
 }
 .info-icon {
@@ -223,11 +224,12 @@
     justify-content: center;
     font-size: 1.6rem;
     margin-bottom: 1.2rem;
-    transition: var(--vth-transition);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease, color 0.3s ease;
 }
 .info-card:hover .info-icon {
     background: var(--vth-red);
     color: #fff;
+    transform: scale(1.06);
 }
 .info-card h4 {
     font-family: 'Poppins', sans-serif;
@@ -312,7 +314,7 @@
 .btn-submit:hover {
     background: var(--vth-red-dark);
     color: #fff;
-    transform: translateY(-2px);
+    transform: translateY(-2px) scale(1.01);
     box-shadow: 0 10px 28px rgba(255,31,31,0.35);
 }
 
@@ -525,10 +527,10 @@
     <div class="contact-hero-overlay"></div>
     <div class="contact-hero-inner container">
         <div class="row">
-            <div class="col-lg-8 anim-reveal" data-anim="fade-up">
-                <h1>Get in Touch With <span>Vibhu Travel Hub</span></h1>
-                <p>Plan your journey with confidence. Contact Vibhu Travel Hub for premium cab booking, tempo traveller, luxury bus, airport transfer and corporate travel services across South India.</p>
-                <div class="hero-cta-group">
+            <div class="col-lg-8">
+                <h1 class="load-anim load-delay-1">Get in Touch With <span>Vibhu Travel Hub</span></h1>
+                <p class="load-anim load-delay-2">Plan your journey with confidence. Contact Vibhu Travel Hub for premium cab booking, tempo traveller, luxury bus, airport transfer and corporate travel services across South India.</p>
+                <div class="hero-cta-group load-anim load-delay-3">
                     <a href="tel:+919655866660" class="btn-vth-red anim-btn">
                         <i class="bi bi-telephone-fill"></i> Call Now
                     </a>
@@ -552,43 +554,43 @@
 =========================================== -->
 <section class="contact-section" style="background: var(--vth-bg);">
     <div class="container">
-        <div class="text-center mb-5 anim-reveal" data-anim="fade-up">
+        <div class="text-center mb-5 reveal">
             <div class="section-label">Contact Us</div>
             <h2 class="section-heading">We'd Love to Hear From You</h2>
             <p class="section-desc mx-auto">Reach out to us for premium cab booking, tempo traveller, luxury bus and corporate travel services.</p>
         </div>
 
-        <div class="row g-4">
+        <div class="row g-4 stagger-grid">
             <!-- Phone -->
-            <div class="col-lg-3 col-md-6 anim-reveal" data-anim="fade-up">
-                <div class="info-card">
+            <div class="col-lg-3 col-md-6 reveal stagger-1">
+                <div class="info-card anim-card">
                     <div class="info-icon"><i class="bi bi-telephone-fill"></i></div>
                     <h4>Phone</h4>
                     <p>+91 96558 66660</p>
-                    <a href="tel:+919655866660" class="info-btn"><i class="bi bi-telephone"></i> Call Now</a>
+                    <a href="tel:+919655866660" class="info-btn anim-btn"><i class="bi bi-telephone"></i> Call Now</a>
                 </div>
             </div>
             <!-- WhatsApp -->
-            <div class="col-lg-3 col-md-6 anim-reveal" data-anim="fade-up">
-                <div class="info-card">
+            <div class="col-lg-3 col-md-6 reveal stagger-2">
+                <div class="info-card anim-card">
                     <div class="info-icon"><i class="bi bi-whatsapp"></i></div>
                     <h4>WhatsApp</h4>
                     <p>+91 96558 66660</p>
-                    <a href="https://wa.me/919655866660" target="_blank" class="info-btn" style="background:#25D366;"><i class="bi bi-whatsapp"></i> Chat on WhatsApp</a>
+                    <a href="https://wa.me/919655866660" target="_blank" class="info-btn anim-btn" style="background:#25D366;"><i class="bi bi-whatsapp"></i> Chat on WhatsApp</a>
                 </div>
             </div>
             <!-- Email -->
-            <div class="col-lg-3 col-md-6 anim-reveal" data-anim="fade-up">
-                <div class="info-card">
+            <div class="col-lg-3 col-md-6 reveal stagger-3">
+                <div class="info-card anim-card">
                     <div class="info-icon"><i class="bi bi-envelope-fill"></i></div>
                     <h4>Email</h4>
                     <p>vibhutravelhub66@gmail.com</p>
-                    <a href="mailto:vibhutravelhub66@gmail.com" class="info-btn"><i class="bi bi-envelope"></i> Send Email</a>
+                    <a href="mailto:vibhutravelhub66@gmail.com" class="info-btn anim-btn"><i class="bi bi-envelope"></i> Send Email</a>
                 </div>
             </div>
             <!-- Availability -->
-            <div class="col-lg-3 col-md-6 anim-reveal" data-anim="fade-up">
-                <div class="info-card">
+            <div class="col-lg-3 col-md-6 reveal stagger-4">
+                <div class="info-card anim-card">
                     <div class="info-icon"><i class="bi bi-clock-fill"></i></div>
                     <h4>Availability</h4>
                     <p>Mon – Sun<br>24/7 Available</p>
@@ -607,7 +609,7 @@
     <div class="container">
         <div class="row g-5">
             <!-- Form -->
-            <div class="col-lg-8 anim-reveal" data-anim="fade-up">
+            <div class="col-lg-8 reveal">
                 <div class="section-label">Enquiry Form</div>
                 <h2 class="section-heading mb-4">Plan Your Journey</h2>
 
@@ -671,7 +673,7 @@
                             <textarea name="message" class="form-control" rows="3" placeholder="Any specific requirements or trip details..."></textarea>
                         </div>
                         <div class="col-12 mt-3">
-                            <button type="submit" class="btn-submit" id="contactSubmitBtn">
+                            <button type="submit" class="btn-submit anim-btn" id="contactSubmitBtn">
                                 <i class="bi bi-send-fill me-2"></i>Send Enquiry
                             </button>
                         </div>
@@ -680,8 +682,8 @@
             </div>
 
             <!-- WhatsApp Sidebar -->
-            <div class="col-lg-4 anim-reveal" data-anim="fade-up">
-                <div class="wa-sidebar-card">
+            <div class="col-lg-4 reveal">
+                <div class="wa-sidebar-card anim-card">
                     <i class="bi bi-whatsapp" style="font-size: 2.5rem; margin-bottom: 0.5rem; display: block;"></i>
                     <h5>Prefer WhatsApp?</h5>
                     <p>Chat with our travel team instantly.</p>
