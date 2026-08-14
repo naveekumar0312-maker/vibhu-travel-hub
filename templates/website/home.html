@@ -3,15 +3,17 @@
 {% load vehicle_tags %}
 
 {% block title %}
-Best Travel Agency in Coimbatore | Taxi, Bus Rental & Tempo Traveller | Vibhu Travel Hub
+Travel Agency in Tamil Nadu | Cab & Travel Services | Vibhu Travel Hub
 {% endblock %}
 
 {% block description %}
-Vibhu Travel Hub is the best Travel Agency in Coimbatore offering Taxi Service, Bus Rental, Tempo Traveller Rental, Corporate Travel, Airport Transfers, Wedding Transport, Family Tours, School Trips and Outstation Tour Packages across Tamil Nadu.
+Vibhu Travel Hub is a premier travel agency in Tamil Nadu offering cab service, cab booking, outstation cabs, airport
+transfers, tempo traveller, and luxury bus rentals.
 {% endblock %}
 
 {% block keywords %}
-Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo Traveller Rental Coimbatore, Airport Taxi, Corporate Travel, Wedding Transport, School Tour Bus, Family Tour Packages, Outstation Tours, Pilgrimage Tours, Vibhu Travel Hub
+travel agency, best travel agency, travel agency in tamil nadu, travel services, travel companies, cab service, cab
+booking, outstation cabs, travel agency near me, best travel agency near me
 {% endblock %}
 
 {% block body_class %}home-page{% endblock %}
@@ -24,9 +26,12 @@ Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo 
        PREMIUM LUXURY THEME VARIABLES
        ========================================== */
     :root {
-        --primary-color: #0F172A; /* Deep Navy */
-        --secondary-color: #E11D48; /* Elegant Rose/Red */
-        --accent-color: #F8FAFC; /* Soft Light */
+        --primary-color: #0F172A;
+        /* Deep Navy */
+        --secondary-color: #E11D48;
+        /* Elegant Rose/Red */
+        --accent-color: #F8FAFC;
+        /* Soft Light */
         --text-main: #334155;
         --text-light: #64748B;
         --glass-bg: rgba(255, 255, 255, 0.7);
@@ -47,7 +52,12 @@ Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo 
         overflow-x: hidden;
     }
 
-    h1, h2, h3, h4, h5, h6 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
         font-weight: 700;
         color: var(--primary-color);
         letter-spacing: -0.5px;
@@ -63,15 +73,18 @@ Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo 
         text-align: center;
         margin-bottom: 60px;
     }
+
     .section-header h2 {
         font-size: 2.5rem;
         margin-bottom: 15px;
         font-weight: 800;
         letter-spacing: -1px;
     }
+
     .section-header h2 span {
         color: var(--secondary-color);
     }
+
     .section-header p {
         color: var(--text-light);
         font-size: 1.1rem;
@@ -90,6 +103,7 @@ Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo 
         transition: var(--transition-smooth);
         overflow: hidden;
     }
+
     .glass-card:hover {
         box-shadow: var(--shadow-hover);
         transform: translateY(-5px);
@@ -109,23 +123,27 @@ Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo 
         border: none;
         cursor: pointer;
     }
+
     .btn-primary-luxury {
         background: var(--secondary-color);
         color: white;
         box-shadow: 0 8px 20px rgba(225, 29, 72, 0.3);
     }
+
     .btn-primary-luxury:hover {
         background: #BE123C;
         color: white;
         transform: translateY(-2px);
         box-shadow: 0 12px 25px rgba(225, 29, 72, 0.4);
     }
+
     .btn-outline-luxury {
-        background: rgba(255,255,255,0.1);
+        background: rgba(255, 255, 255, 0.1);
         backdrop-filter: blur(10px);
-        border: 1px solid rgba(255,255,255,0.5);
+        border: 1px solid rgba(255, 255, 255, 0.5);
         color: white;
     }
+
     .btn-outline-luxury:hover {
         background: white;
         color: var(--primary-color);
@@ -143,14 +161,19 @@ Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo 
         display: flex;
         align-items: center;
     }
+
     .hero-swiper {
         position: absolute;
-        top: 0; left: 0; width: 100%; height: 100%;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
         z-index: 1;
     }
+
     .hero-swiper img {
-        width: 100%; 
-        height: 100%; 
+        width: 100%;
+        height: 100%;
         object-fit: cover;
         background-position: center center;
         background-repeat: no-repeat;
@@ -159,25 +182,29 @@ Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo 
         -webkit-filter: none !important;
         image-rendering: high-quality;
     }
+
     .hero-overlay {
         position: absolute;
-        top: 0; left: 0; width: 100%; height: 100%;
-        background: linear-gradient(
-            90deg,
-            rgba(3, 8, 20, 0.70) 0%,
-            rgba(3, 8, 20, 0.40) 45%,
-            rgba(3, 8, 20, 0.22) 100%
-        );
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg,
+                rgba(3, 8, 20, 0.70) 0%,
+                rgba(3, 8, 20, 0.40) 45%,
+                rgba(3, 8, 20, 0.22) 100%);
         z-index: 2;
         filter: none !important;
         backdrop-filter: none !important;
     }
+
     .hero-content {
         position: relative;
         z-index: 3;
         max-width: 800px;
         padding: 0 20px;
     }
+
     .hero-title {
         color: white;
         font-size: 4.5rem;
@@ -186,27 +213,31 @@ Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo 
         margin-bottom: 20px;
         letter-spacing: -2px;
     }
+
     .hero-title span {
         color: var(--secondary-color);
         display: block;
     }
+
     .hero-subtitle {
-        color: rgba(255,255,255,0.9);
+        color: rgba(255, 255, 255, 0.9);
         font-size: 1.2rem;
         margin-bottom: 40px;
         max-width: 600px;
         line-height: 1.6;
     }
+
     .hero-tags {
         display: flex;
         gap: 15px;
         margin-bottom: 30px;
         flex-wrap: wrap;
     }
+
     .hero-tags span {
-        background: rgba(255,255,255,0.1);
+        background: rgba(255, 255, 255, 0.1);
         backdrop-filter: blur(10px);
-        border: 1px solid rgba(255,255,255,0.2);
+        border: 1px solid rgba(255, 255, 255, 0.2);
         color: white;
         padding: 8px 20px;
         border-radius: 50px;
@@ -221,16 +252,19 @@ Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo 
         background: white;
         padding: 100px 0;
     }
+
     .about-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 60px;
         align-items: center;
     }
+
     .about-image-wrapper {
         position: relative;
         border-radius: var(--border-radius-lg);
     }
+
     .about-img {
         width: 100%;
         height: auto;
@@ -239,6 +273,7 @@ Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo 
         border-radius: var(--border-radius-lg);
         box-shadow: var(--shadow-soft);
     }
+
     .about-experience-card {
         position: absolute;
         bottom: -20px;
@@ -255,23 +290,28 @@ Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo 
         gap: 15px;
         z-index: 2;
     }
+
     .about-experience-card .icon {
         font-size: 2.5rem;
         color: var(--secondary-color);
     }
+
     .about-experience-card h4 {
         margin: 0;
         font-size: 1.5rem;
     }
+
     .about-experience-card p {
         margin: 0;
         color: var(--text-light);
         font-size: 0.9rem;
     }
+
     .about-content {
         display: flex;
         flex-direction: column;
     }
+
     .about-label {
         color: var(--secondary-color);
         text-transform: uppercase;
@@ -280,6 +320,7 @@ Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo 
         margin-bottom: 15px;
         font-size: 1rem;
     }
+
     .about-heading {
         font-size: 2.5rem;
         font-weight: 800;
@@ -288,97 +329,114 @@ Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo 
         letter-spacing: -1px;
         margin-bottom: 25px;
     }
+
     .about-paragraph {
         font-size: 1.1rem;
         line-height: 1.8;
         color: var(--text-light);
         margin-bottom: 35px;
     }
+
     .about-features-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 20px;
         margin-bottom: 40px;
     }
+
     .about-feature-item {
         display: flex;
         align-items: center;
         gap: 12px;
     }
+
     .about-feature-item i {
         color: #10B981;
         font-size: 1.4rem;
     }
+
     .about-feature-item span {
         font-weight: 700;
         color: var(--primary-color);
         font-size: 1.05rem;
     }
+
     .about-cta-wrapper {
         align-self: flex-start;
     }
-    
+
     @media (max-width: 991px) {
         .about-grid {
             gap: 40px;
         }
+
         .about-heading {
             font-size: 2.2rem;
         }
+
         .about-section {
             padding: 70px 0;
         }
+
         .about-experience-card {
             bottom: -10px;
             right: -10px;
             padding: 20px;
         }
     }
-    
+
     @media (max-width: 767px) {
         .about-grid {
             grid-template-columns: 1fr;
             gap: 40px;
         }
+
         .about-img {
             border-radius: 20px;
             width: 100%;
         }
+
         .about-cta-wrapper {
             width: 100%;
         }
+
         .about-cta-wrapper .btn-premium {
             width: 100%;
             justify-content: center;
         }
+
         .about-experience-card {
             bottom: -15px;
             right: -15px;
             padding: 15px;
         }
     }
-    
+
     @media (max-width: 360px) {
         .about-features-grid {
             grid-template-columns: 1fr;
         }
     }
+
     .stats-container {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 20px;
         margin-top: 60px;
     }
+
     .stat-item {
         text-align: center;
         padding: 30px;
     }
+
     .stat-number {
         font-size: 3rem;
         font-weight: 800;
         color: var(--primary-color);
         margin-bottom: 10px;
     }
+
     .stat-text {
         color: var(--text-light);
         font-weight: 600;
@@ -394,18 +452,20 @@ Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo 
         background: #F8FAFC;
         padding: 100px 0;
     }
-    
+
     /* Grid */
     .premium-fleet-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 30px;
     }
+
     @media (max-width: 992px) {
         .premium-fleet-grid {
             grid-template-columns: repeat(2, 1fr);
         }
     }
+
     @media (max-width: 768px) {
         .premium-fleet-grid {
             grid-template-columns: 1fr;
@@ -422,8 +482,9 @@ Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo 
         display: flex;
         flex-direction: column;
         overflow: hidden;
-        border: 1px solid rgba(0,0,0,0.03);
+        border: 1px solid rgba(0, 0, 0, 0.03);
     }
+
     .premium-fleet-card:hover {
         transform: translateY(-8px);
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
@@ -442,14 +503,17 @@ Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo 
         background: #f8f9fa !important;
         border-radius: 24px 24px 0 0 !important;
     }
-    
+
     @media (max-width: 992px) {
+
         .premium-fleet-image-wrapper,
         .vehicle-card-image {
             height: 220px !important;
         }
     }
+
     @media (max-width: 576px) {
+
         .premium-fleet-image-wrapper,
         .vehicle-card-image {
             height: 200px !important;
@@ -468,12 +532,13 @@ Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo 
         object-fit: cover !important;
         object-position: center center !important;
         transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
-        filter: drop-shadow(0 15px 25px rgba(0,0,0,0.15)) !important;
+        filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.15)) !important;
     }
+
     .premium-fleet-card:hover .premium-fleet-image {
         transform: scale(1.05) !important;
     }
-    
+
     .vehicle-price-badge {
         position: absolute;
         top: 15px;
@@ -487,7 +552,7 @@ Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo 
         z-index: 10;
         box-shadow: 0 4px 10px rgba(227, 30, 36, 0.3);
     }
-    
+
     /* Price Badge (Top Right of Image) - Removed as price is now in body */
     .premium-price-badge {
         display: none !important;
@@ -509,6 +574,7 @@ Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo 
         margin-top: 0;
         margin-bottom: 12px;
     }
+
     .premium-fleet-title {
         font-size: 1.4rem;
         font-weight: 800;
@@ -516,6 +582,7 @@ Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo 
         margin: 0;
         font-family: 'Playfair Display', Georgia, serif;
     }
+
     .premium-fleet-model {
         background: #F3F4F6;
         color: #6B7280;
@@ -548,6 +615,7 @@ Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo 
         gap: 8px;
         margin-bottom: 15px;
     }
+
     .premium-passengers i {
         color: #E31E24;
         font-size: 1.1rem;
@@ -560,6 +628,7 @@ Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo 
         gap: 8px;
         margin-bottom: 25px;
     }
+
     .premium-feature-pill {
         background: transparent;
         color: #4B5563;
@@ -572,9 +641,11 @@ Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo 
         align-items: center;
         gap: 5px;
     }
+
     .premium-feature-pill i {
         display: none;
     }
+
     .pill-hidden {
         display: none !important;
     }
@@ -583,6 +654,7 @@ Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo 
     .premium-fleet-actions {
         margin-top: auto;
     }
+
     .btn-premium-book {
         display: block;
         width: 100%;
@@ -596,6 +668,7 @@ Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo 
         text-decoration: none;
         transition: all 0.3s;
     }
+
     .btn-premium-book:hover {
         background: #E31E24;
         color: #ffffff;
@@ -607,6 +680,7 @@ Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo 
     .services-section {
         background: white;
     }
+
     .service-card {
         padding: 40px 30px;
         text-align: center;
@@ -615,6 +689,7 @@ Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo 
         flex-direction: column;
         align-items: center;
     }
+
     .service-icon-wrapper {
         width: 80px;
         height: 80px;
@@ -628,20 +703,24 @@ Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo 
         margin-bottom: 25px;
         transition: var(--transition-smooth);
     }
+
     .service-card:hover .service-icon-wrapper {
         background: var(--secondary-color);
         color: white;
         transform: scale(1.1);
     }
+
     .service-card h3 {
         font-size: 1.3rem;
         margin-bottom: 15px;
     }
+
     .service-card p {
         color: var(--text-light);
         margin-bottom: 25px;
         flex-grow: 1;
     }
+
     .service-link {
         color: var(--primary-color);
         font-weight: 600;
@@ -651,6 +730,7 @@ Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo 
         gap: 5px;
         transition: var(--transition-smooth);
     }
+
     .service-link:hover {
         color: var(--secondary-color);
         gap: 10px;
@@ -662,6 +742,7 @@ Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo 
     .destinations-section {
         background: #F8FAFC;
     }
+
     .dest-card {
         background: #ffffff;
         border-radius: 20px;
@@ -673,54 +754,72 @@ Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo 
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
         transition: all 0.3s ease;
     }
+
     .dest-card:hover {
         transform: translateY(-5px);
         box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
     }
+
     .dest-image-wrapper {
         position: relative;
         width: 100%;
         height: 300px;
         overflow: hidden;
     }
+
     @media (max-width: 991px) {
-        .dest-image-wrapper { height: 280px; }
+        .dest-image-wrapper {
+            height: 280px;
+        }
     }
+
     @media (max-width: 767px) {
-        .dest-image-wrapper { height: 240px; }
+        .dest-image-wrapper {
+            height: 240px;
+        }
     }
+
     .dest-img {
         width: 100%;
         height: 100%;
         object-fit: cover;
         transition: transform 0.3s ease;
     }
+
     .dest-card:hover .dest-img {
         transform: scale(1.04);
     }
+
     .dest-gradient {
         position: absolute;
-        bottom: 0; left: 0; width: 100%; height: 50%;
-        background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.75));
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 50%;
+        background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.75));
     }
+
     .dest-content {
         padding: 20px;
         flex: 1;
         display: flex;
         flex-direction: column;
     }
+
     .dest-title {
         color: #111827;
         font-size: 1.5rem;
         font-weight: 700;
         margin-bottom: 10px;
     }
+
     .dest-desc {
         color: #4B5563;
         font-size: 0.95rem;
         margin-bottom: 20px;
         flex: 1;
     }
+
     .btn-view-details {
         display: inline-flex;
         align-items: center;
@@ -735,6 +834,7 @@ Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo 
         transition: all 0.3s ease;
         align-self: flex-start;
     }
+
     .btn-view-details:hover {
         background: #d11616;
         color: white;
@@ -748,34 +848,41 @@ Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo 
         background: var(--primary-color);
         color: white;
     }
-    .why-section .section-header h2, .why-section .section-header p {
+
+    .why-section .section-header h2,
+    .why-section .section-header p {
         color: white;
     }
+
     .why-card {
-        background: rgba(255,255,255,0.05);
-        border: 1px solid rgba(255,255,255,0.1);
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
         padding: 40px 30px;
         border-radius: var(--border-radius-md);
         text-align: center;
         transition: var(--transition-smooth);
         height: 100%;
     }
+
     .why-card:hover {
-        background: rgba(255,255,255,0.1);
+        background: rgba(255, 255, 255, 0.1);
         transform: translateY(-10px);
     }
+
     .why-icon {
         font-size: 2.5rem;
         color: var(--secondary-color);
         margin-bottom: 20px;
     }
+
     .why-card h4 {
         color: white;
         font-size: 1.2rem;
         margin-bottom: 15px;
     }
+
     .why-card p {
-        color: rgba(255,255,255,0.7);
+        color: rgba(255, 255, 255, 0.7);
         font-size: 0.9rem;
         margin: 0;
     }
@@ -786,15 +893,18 @@ Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo 
     .reviews-section {
         background: white;
     }
+
     .review-card {
         padding: 40px;
         text-align: center;
     }
+
     .review-stars {
         color: #F59E0B;
         font-size: 1.2rem;
         margin-bottom: 20px;
     }
+
     .review-text {
         font-size: 1.1rem;
         font-style: italic;
@@ -802,6 +912,7 @@ Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo 
         margin-bottom: 30px;
         line-height: 1.8;
     }
+
     .review-author {
         font-weight: 700;
         color: var(--primary-color);
@@ -813,10 +924,12 @@ Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo 
     .contact-section {
         background: #F8FAFC;
     }
+
     .contact-box {
         text-align: center;
         padding: 40px 20px;
     }
+
     .contact-icon {
         width: 60px;
         height: 60px;
@@ -830,30 +943,48 @@ Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo 
         margin: 0 auto 20px;
         box-shadow: var(--shadow-soft);
     }
+
     .contact-box h5 {
         font-size: 1.1rem;
         margin-bottom: 10px;
     }
-    .contact-box a, .contact-box p {
+
+    .contact-box a,
+    .contact-box p {
         color: var(--text-light);
         text-decoration: none;
         font-size: 1rem;
         font-weight: 500;
         transition: var(--transition-smooth);
     }
+
     .contact-box a:hover {
         color: var(--secondary-color);
     }
 
     /* Responsive Adjustments */
     @media (max-width: 991px) {
-        .hero-title { font-size: 3.5rem; }
-        .stats-container { grid-template-columns: repeat(2, 1fr); }
+        .hero-title {
+            font-size: 3.5rem;
+        }
+
+        .stats-container {
+            grid-template-columns: repeat(2, 1fr);
+        }
     }
+
     @media (max-width: 768px) {
-        section { padding: 60px 0; }
-        .hero-title { font-size: 2.8rem; }
-        .hero-tags { display: none; }
+        section {
+            padding: 60px 0;
+        }
+
+        .hero-title {
+            font-size: 2.8rem;
+        }
+
+        .hero-tags {
+            display: none;
+        }
     }
 </style>
 {% endblock %}
@@ -866,9 +997,12 @@ Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo 
 <section class="hero-section">
     <div class="swiper hero-swiper">
         <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="{% static 'images/hero-slider/background-5.jpeg' %}" alt="Vibhu Travel Hub"></div>
-            <div class="swiper-slide"><img src="{% static 'images/hero-slider/background-6.jpeg' %}" alt="Vibhu Travel Hub"></div>
-            <div class="swiper-slide"><img src="{% static 'images/hero-slider/background-4.jpeg' %}" alt="Vibhu Travel Hub"></div>
+            <div class="swiper-slide"><img src="{% static 'images/hero-slider/background-5.jpeg' %}"
+                    alt="Vibhu Travel Hub"></div>
+            <div class="swiper-slide"><img src="{% static 'images/hero-slider/background-6.jpeg' %}"
+                    alt="Vibhu Travel Hub"></div>
+            <div class="swiper-slide"><img src="{% static 'images/hero-slider/background-4.jpeg' %}"
+                    alt="Vibhu Travel Hub"></div>
         </div>
         <div class="hero-overlay"></div>
     </div>
@@ -882,13 +1016,16 @@ Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo 
                         <span>Across South India.</span>
                     </h1>
                     <p class="hero-subtitle">
-                        Vibhu Travel Hub provides premium taxi, tempo traveller, luxury bus, corporate travel, and airport transfer services across Coimbatore with professional drivers.
+                        Vibhu Travel Hub is a premier travel agency in Tamil Nadu offering cab service, cab booking,
+                        outstation cabs, airport transfers, tempo traveller rentals, and luxury bus rentals across South
+                        India.
                     </p>
                     <div class="d-flex flex-wrap gap-3">
                         <a href="tel:+919655866660" class="btn-premium anim-btn btn-primary-luxury">
                             <i class="bi bi-telephone-fill"></i> Call Now
                         </a>
-                        <a href="https://wa.me/919655866660" target="_blank" class="btn-premium anim-btn btn-outline-luxury">
+                        <a href="https://wa.me/919655866660" target="_blank"
+                            class="btn-premium anim-btn btn-outline-luxury">
                             <i class="bi bi-whatsapp"></i> Chat on WhatsApp
                         </a>
                     </div>
@@ -905,20 +1042,24 @@ Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo 
     <div class="container">
         <div class="about-grid">
             <div class="about-image-wrapper reveal-left">
-                <img src="{% static 'images/about/hero-1.webp' %}" alt="About Vibhu Travel Hub" class="about-img">
+                <img src="{% static 'images/about/hero-1.png' %}" alt="Vibhu Travel Hub - Travel Agency in Tamil Nadu"
+                    class="about-img">
                 <div class="about-experience-card">
                     <div class="icon"><i class="bi bi-award-fill"></i></div>
                     <div>
-                        <h4>15+ Years</h4>
+                        <h4>5+ Years</h4>
                         <p>Of Travel Excellence</p>
                     </div>
                 </div>
             </div>
             <div class="about-content reveal-right">
                 <div class="about-label">About Us</div>
-                <h2 class="about-heading">Your Trusted Premium Travel Partner</h2>
+                <h2 class="about-heading">Premium Travel Agency in Tamil Nadu</h2>
                 <p class="about-paragraph">
-                    Vibhu Travel Hub is an exclusive, luxury travel provider dedicated to delivering unparalleled transportation experiences. We combine state-of-the-art vehicles, seasoned professionals, and a commitment to excellence to ensure your journey is as remarkable as the destination itself.
+                    Vibhu Travel Hub is a leading travel agency in Tamil Nadu dedicated to delivering comfortable, safe,
+                    and transparent travel services. From cab booking and outstation cabs to tempo traveller rentals and
+                    luxury bus rentals, we serve corporate and leisure travelers across Chennai, Coimbatore, Madurai,
+                    Trichy, and South India.
                 </p>
                 <div class="about-features-grid">
                     <div class="about-feature-item">
@@ -947,15 +1088,15 @@ Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo 
         <!-- Stats Inside About -->
         <div class="stats-container">
             <div class="glass-card anim-card stat-item">
-                <div class="stat-number">10k+</div>
+                <div class="stat-number">5k+</div>
                 <div class="stat-text">Happy Customers</div>
             </div>
             <div class="glass-card anim-card stat-item">
-                <div class="stat-number">5k+</div>
+                <div class="stat-number">1k+</div>
                 <div class="stat-text">Trips Completed</div>
             </div>
             <div class="glass-card anim-card stat-item">
-                <div class="stat-number">50+</div>
+                <div class="stat-number">10+</div>
                 <div class="stat-text">Luxury Vehicles</div>
             </div>
             <div class="glass-card anim-card stat-item">
@@ -972,19 +1113,23 @@ Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo 
 <section id="fleet" class="premium-fleet-section">
     <div class="container">
         <div class="section-header reveal text-center mb-5">
-            <h2 style="font-size: 2.5rem; font-weight: 800; color: #111827; letter-spacing: -1px;">Our Premium <span style="color: #0EA5E9;">Fleet</span></h2>
-            <p style="color: #6B7280; font-size: 1.1rem; max-width: 600px; margin: 0 auto;">Travel in supreme comfort with our meticulously maintained fleet of modern vehicles.</p>
+            <h2 style="font-size: 2.5rem; font-weight: 800; color: #111827; letter-spacing: -1px;">Our Premium <span
+                    style="color: #0EA5E9;">Fleet</span></h2>
+            <p style="color: #6B7280; font-size: 1.1rem; max-width: 600px; margin: 0 auto;">Travel in supreme comfort
+                with our meticulously maintained fleet of modern vehicles.</p>
         </div>
 
         <div class="premium-fleet-grid" id="fleetGrid">
             {% for vehicle in vehicles %}
             <div class="premium-fleet-card anim-card reveal fleet-item" data-category="{{ vehicle.category }}">
-                
+
                 <div class="premium-fleet-image-wrapper vehicle-card-image">
                     {% if vehicle.image %}
-                    <img src="{{ vehicle.image.url }}" class="premium-fleet-image" alt="{{ vehicle.name }}" loading="lazy">
+                    <img src="{{ vehicle.image.url }}" class="premium-fleet-image" alt="{{ vehicle.name }}"
+                        loading="lazy">
                     {% else %}
-                    <div class="d-flex align-items-center justify-content-center bg-light rounded" style="height: 180px; width: 100%;">
+                    <div class="d-flex align-items-center justify-content-center bg-light rounded"
+                        style="height: 180px; width: 100%;">
                         <i class="bi bi-car-front text-muted fs-1"></i>
                     </div>
                     {% endif %}
@@ -992,7 +1137,7 @@ Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo 
                         {{ vehicle.display_price }}
                     </div>
                 </div>
-                
+
                 <div class="premium-fleet-body">
 
                     <div class="premium-fleet-header">
@@ -1001,9 +1146,10 @@ Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo 
                         <span class="premium-fleet-model">{{ vehicle.model_name }}</span>
                         {% endif %}
                     </div>
-                    
-                    <p class="premium-fleet-desc" title="{{ vehicle.short_description }}">{{ vehicle.short_description }}</p>
-                    
+
+                    <p class="premium-fleet-desc" title="{{ vehicle.short_description }}">{{ vehicle.short_description
+                        }}</p>
+
                     <div class="premium-passengers">
                         <i class="bi bi-people-fill"></i> {{ vehicle.passengers }} Passengers
                     </div>
@@ -1011,21 +1157,23 @@ Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo 
                     {% if vehicle.get_feature_tags_list %}
                     <div class="premium-feature-pills feature-pill-container">
                         {% for tag in vehicle.get_feature_tags_list %}
-                        <span class="premium-feature-pill pill-visible"><i class="bi bi-check-circle"></i> {{ tag }}</span>
+                        <span class="premium-feature-pill pill-visible"><i class="bi bi-check-circle"></i> {{ tag
+                            }}</span>
                         {% endfor %}
                     </div>
                     {% endif %}
-                    
+
                     <div class="premium-fleet-actions">
                         {% if vehicle.whatsapp_enabled %}
-                            {% get_whatsapp_url vehicle as wa_url %}
-                            <a href="{{ wa_url }}" target="_blank" class="btn-premium-book anim-btn">
-                                Book This Vehicle
-                            </a>
+                        {% get_whatsapp_url vehicle as wa_url %}
+                        <a href="{{ wa_url }}" target="_blank" class="btn-premium-book anim-btn">
+                            Book This Vehicle
+                        </a>
                         {% else %}
-                            <a href="#" class="btn-premium-book anim-btn" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-vehicle-name="{{ vehicle.name }}">
-                                Book This Vehicle
-                            </a>
+                        <a href="#" class="btn-premium-book anim-btn" data-bs-toggle="modal"
+                            data-bs-target="#enquiryModal" data-vehicle-name="{{ vehicle.name }}">
+                            Book This Vehicle
+                        </a>
                         {% endif %}
                     </div>
                 </div>
@@ -1043,25 +1191,25 @@ Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo 
 
 <!-- Filter Logic -->
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-    // Handle Pills Truncation
-    const pillContainers = document.querySelectorAll('.feature-pill-container');
-    pillContainers.forEach(container => {
-        const pills = container.querySelectorAll('.premium-feature-pill');
-        if (pills.length > 4) {
-            for (let i = 4; i < pills.length; i++) {
-                pills[i].classList.add('pill-hidden');
-                pills[i].classList.remove('pill-visible');
+    document.addEventListener("DOMContentLoaded", function () {
+        // Handle Pills Truncation
+        const pillContainers = document.querySelectorAll('.feature-pill-container');
+        pillContainers.forEach(container => {
+            const pills = container.querySelectorAll('.premium-feature-pill');
+            if (pills.length > 4) {
+                for (let i = 4; i < pills.length; i++) {
+                    pills[i].classList.add('pill-hidden');
+                    pills[i].classList.remove('pill-visible');
+                }
+                const morePill = document.createElement('span');
+                morePill.className = 'premium-feature-pill';
+                morePill.style.background = '#E5E7EB';
+                morePill.style.fontWeight = '700';
+                morePill.innerHTML = `+${pills.length - 4} More`;
+                container.appendChild(morePill);
             }
-            const morePill = document.createElement('span');
-            morePill.className = 'premium-feature-pill';
-            morePill.style.background = '#E5E7EB';
-            morePill.style.fontWeight = '700';
-            morePill.innerHTML = `+${pills.length - 4} More`;
-            container.appendChild(morePill);
-        }
+        });
     });
-});
 </script>
 
 <!-- ==========================================
@@ -1071,7 +1219,8 @@ document.addEventListener("DOMContentLoaded", function() {
     <div class="container">
         <div class="section-header reveal">
             <h2>Premium <span>Services</span></h2>
-            <p>Comprehensive transport solutions designed for personal, family, business, and group journeys with uncompromising quality.</p>
+            <p>Comprehensive transport solutions designed for personal, family, business, and group journeys with
+                uncompromising quality.</p>
         </div>
 
         <div class="row g-4">
@@ -1079,9 +1228,11 @@ document.addEventListener("DOMContentLoaded", function() {
             <div class="col-lg-4 col-md-6">
                 <div class="glass-card anim-card service-card">
                     <div class="service-icon-wrapper"><i class="bi bi-car-front-fill"></i></div>
-                    <h3>Local Taxi Service</h3>
-                    <p>Fast, comfortable, and reliable premium taxi service for city rides, airport pickups, and daily local travel.</p>
-                    <a href="{% url 'local_taxi_service' %}" class="service-link">View Details <i class="bi bi-arrow-right"></i></a>
+                    <h3>Local Cab Service</h3>
+                    <p>Fast, comfortable, and reliable premium cab service for city rides, airport transfers, and daily
+                        local travel.</p>
+                    <a href="{% url 'local_taxi_service' %}" class="service-link">View Details <i
+                            class="bi bi-arrow-right"></i></a>
                 </div>
             </div>
             <!-- Service 2 -->
@@ -1089,8 +1240,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 <div class="glass-card anim-card service-card">
                     <div class="service-icon-wrapper"><i class="bi bi-bus-front-fill"></i></div>
                     <h3>Luxury Bus Booking</h3>
-                    <p>Premium AC & Non-AC buses for school tours, corporate trips, weddings, and large group events.</p>
-                    <a href="{% url 'bus_booking' %}" class="service-link">View Details <i class="bi bi-arrow-right"></i></a>
+                    <p>Premium AC & Non-AC buses for school tours, corporate trips, weddings, and large group events.
+                    </p>
+                    <a href="{% url 'bus_booking' %}" class="service-link">View Details <i
+                            class="bi bi-arrow-right"></i></a>
                 </div>
             </div>
             <!-- Service 3 -->
@@ -1098,8 +1251,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 <div class="glass-card anim-card service-card">
                     <div class="service-icon-wrapper"><i class="bi bi-truck-front-fill"></i></div>
                     <h3>Tempo Traveller</h3>
-                    <p>Spacious traveller rentals equipped with modern amenities for families, friends, and temple groups.</p>
-                    <a href="{% url 'tempo_traveller' %}" class="service-link">View Details <i class="bi bi-arrow-right"></i></a>
+                    <p>Spacious traveller rentals equipped with modern amenities for families, friends, and temple
+                        groups.</p>
+                    <a href="{% url 'tempo_traveller' %}" class="service-link">View Details <i
+                            class="bi bi-arrow-right"></i></a>
                 </div>
             </div>
             <!-- Service 4 -->
@@ -1107,8 +1262,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 <div class="glass-card anim-card service-card">
                     <div class="service-icon-wrapper"><i class="bi bi-map-fill"></i></div>
                     <h3>Outstation Tours</h3>
-                    <p>Experience seamless outstation travel from Coimbatore to Ooty, Kodaikanal, Kerala, and beyond.</p>
-                    <a href="{% url 'outstation_tours' %}" class="service-link">View Details <i class="bi bi-arrow-right"></i></a>
+                    <p>Experience seamless outstation travel from Coimbatore to Ooty, Kodaikanal, Kerala, and beyond.
+                    </p>
+                    <a href="{% url 'outstation_tours' %}" class="service-link">View Details <i
+                            class="bi bi-arrow-right"></i></a>
                 </div>
             </div>
             <!-- Service 5 -->
@@ -1116,8 +1273,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 <div class="glass-card anim-card service-card">
                     <div class="service-icon-wrapper"><i class="bi bi-geo-alt-fill"></i></div>
                     <h3>Pilgrimage Trips</h3>
-                    <p>Dedicated vehicle booking for sacred routes including Palani, Madurai, Tirupati, and Sabarimala.</p>
-                    <a href="{% url 'pilgrimage_trips' %}" class="service-link">View Details <i class="bi bi-arrow-right"></i></a>
+                    <p>Dedicated vehicle booking for sacred routes including Palani, Madurai, Tirupati, and Sabarimala.
+                    </p>
+                    <a href="{% url 'pilgrimage_trips' %}" class="service-link">View Details <i
+                            class="bi bi-arrow-right"></i></a>
                 </div>
             </div>
             <!-- Service 6 -->
@@ -1125,8 +1284,115 @@ document.addEventListener("DOMContentLoaded", function() {
                 <div class="glass-card anim-card service-card">
                     <div class="service-icon-wrapper"><i class="bi bi-briefcase-fill"></i></div>
                     <h3>Corporate Travel</h3>
-                    <p>Professional executive transport, business trip vehicles, and corporate team outing logistics.</p>
-                    <a href="{% url 'corporate_travel' %}" class="service-link">View Details <i class="bi bi-arrow-right"></i></a>
+                    <p>Professional executive transport, business trip vehicles, and corporate team outing logistics.
+                    </p>
+                    <a href="{% url 'corporate_travel' %}" class="service-link">View Details <i
+                            class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+    LOCAL TRAVEL HUBS SECTION
+========================================== -->
+<section id="local-hubs" class="local-hubs-section py-5" style="background: #ffffff;">
+    <div class="container py-4">
+        <div class="section-header reveal text-center mb-5">
+            <h2>Key Service <span>Hubs</span></h2>
+            <p>Discover reliable travel services across Coimbatore, Madurai, Trichy, and Chennai with Vibhu Travel Hub.
+            </p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Hub 1: Coimbatore -->
+            <div class="col-lg-3 col-md-6">
+                <div class="glass-card anim-card h-100 p-4 d-flex flex-direction-column">
+                    <div class="fs-1 text-danger mb-3"><i class="bi bi-geo-alt-fill"></i></div>
+                    <h3 class="h5 fw-bold text-dark mb-2">Coimbatore</h3>
+                    <p class="small text-muted mb-3 flex-grow-1">
+                        Looking for a trusted <a href="{% url 'about' %}"
+                            class="text-decoration-none fw-semibold text-dark">travel agency near me</a> or <a
+                            href="{% url 'local_taxi_service' %}"
+                            class="text-decoration-none fw-semibold text-danger">cab booking</a>? Vibhu Travel Hub
+                        offers top-rated <a href="{% url 'local_taxi_service' %}"
+                            class="text-decoration-none text-muted">cab service</a>, <a
+                            href="{% url 'outstation_tours' %}" class="text-decoration-none text-muted">outstation
+                            cabs</a>, <a href="{% url 'tempo_traveller' %}"
+                            class="text-decoration-none text-muted">tempo traveller rental</a>, and <a
+                            href="{% url 'bus_booking' %}" class="text-decoration-none text-muted">bus rentals</a>.
+                    </p>
+                    <div class="mt-auto">
+                        <a href="{% url 'local_taxi_service' %}"
+                            class="btn btn-sm btn-outline-danger w-100 rounded-pill">Coimbatore Cabs <i
+                                class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Hub 2: Madurai -->
+            <div class="col-lg-3 col-md-6">
+                <div class="glass-card anim-card h-100 p-4 d-flex flex-direction-column">
+                    <div class="fs-1 text-danger mb-3"><i class="bi bi-building"></i></div>
+                    <h3 class="h5 fw-bold text-dark mb-2">Madurai</h3>
+                    <p class="small text-muted mb-3 flex-grow-1">
+                        Explore premier <a href="{% url 'pilgrimage_trips' %}"
+                            class="text-decoration-none fw-semibold text-dark">travel agency in madurai</a> and <a
+                            href="{% url 'local_taxi_service' %}" class="text-decoration-none text-muted">cab service
+                            madurai</a>. We provide reliable <a href="{% url 'outstation_tours' %}"
+                            class="text-decoration-none text-muted">cabs in madurai</a>, <a
+                            href="{% url 'local_taxi_service' %}" class="text-decoration-none text-muted">car rental
+                            madurai</a>, and customized <a href="{% url 'pilgrimage_trips' %}"
+                            class="text-decoration-none text-muted">madurai tour agency</a> services.
+                    </p>
+                    <div class="mt-auto">
+                        <a href="{% url 'pilgrimage_trips' %}"
+                            class="btn btn-sm btn-outline-danger w-100 rounded-pill">Madurai Packages <i
+                                class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Hub 3: Trichy -->
+            <div class="col-lg-3 col-md-6">
+                <div class="glass-card anim-card h-100 p-4 d-flex flex-direction-column">
+                    <div class="fs-1 text-danger mb-3"><i class="bi bi-pin-map-fill"></i></div>
+                    <h3 class="h5 fw-bold text-dark mb-2">Trichy</h3>
+                    <p class="small text-muted mb-3 flex-grow-1">
+                        Planning journeys with <a href="{% url 'corporate_travel' %}"
+                            class="text-decoration-none fw-semibold text-dark">cab service trichy</a> and <a
+                            href="{% url 'outstation_tours' %}" class="text-decoration-none text-muted">car rental
+                            trichy</a>? Book seamless <a href="{% url 'outstation_tours' %}"
+                            class="text-decoration-none text-muted">trichy cabs</a>, <a
+                            href="{% url 'tempo_traveller' %}" class="text-decoration-none text-muted">car hire in
+                            trichy</a>, and corporate travel solutions.
+                    </p>
+                    <div class="mt-auto">
+                        <a href="{% url 'corporate_travel' %}"
+                            class="btn btn-sm btn-outline-danger w-100 rounded-pill">Trichy Services <i
+                                class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Hub 4: Chennai -->
+            <div class="col-lg-3 col-md-6">
+                <div class="glass-card anim-card h-100 p-4 d-flex flex-direction-column">
+                    <div class="fs-1 text-danger mb-3"><i class="bi bi-airplane-engines-fill"></i></div>
+                    <h3 class="h5 fw-bold text-dark mb-2">Chennai</h3>
+                    <p class="small text-muted mb-3 flex-grow-1">
+                        Require a trusted <a href="/destinations/tamil-nadu/"
+                            class="text-decoration-none fw-semibold text-dark">travel agency chennai</a> or <a
+                            href="{% url 'local_taxi_service' %}" class="text-decoration-none text-muted">cab booking
+                            chennai</a>? Enjoy executive <a href="{% url 'local_taxi_service' %}"
+                            class="text-decoration-none text-muted">cab service chennai</a>, <a
+                            href="{% url 'tempo_traveller' %}" class="text-decoration-none text-muted">cabs in
+                            chennai</a>, and <a href="{% url 'outstation_tours' %}"
+                            class="text-decoration-none text-muted">one way cab chennai</a> outstation travel.
+                    </p>
+                    <div class="mt-auto">
+                        <a href="/destinations/tamil-nadu/"
+                            class="btn btn-sm btn-outline-danger w-100 rounded-pill">Chennai Tours <i
+                                class="bi bi-arrow-right"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1148,49 +1414,57 @@ document.addEventListener("DOMContentLoaded", function() {
             <div class="col-lg-4 col-md-6">
                 <a href="/destinations/tamil-nadu/" class="dest-card anim-card reveal">
                     <div class="dest-image-wrapper">
-                        <img src="{% static 'images/destinations/tamil.jpg' %}" class="dest-img" loading="lazy" alt="Tamil Nadu destination travel - Vibhu Travel Hub">
+                        <img src="{% static 'images/destinations/tamil.jpg' %}" class="dest-img" loading="lazy"
+                            alt="Tamil Nadu destination travel - Vibhu Travel Hub">
                         <div class="dest-gradient"></div>
                     </div>
                     <div class="dest-content">
                         <h3 class="dest-title">Tamil Nadu</h3>
                         <p class="dest-desc">
-                            Experience the breathtaking landscapes, rich culture, and unforgettable heritage of Tamil Nadu with our premium curated tour packages tailored just for you.
+                            Experience rich culture, ancient temples, and hill stations across Chennai, Coimbatore, Madurai, and Trichy with tailored travel agency services and tour packages.
                         </p>
-                        <span class="btn-view-details anim-btn">Explore Destination <i class="bi bi-arrow-right"></i></span>
+                        <span class="btn-view-details anim-btn">Explore Destination <i
+                                class="bi bi-arrow-right"></i></span>
                     </div>
                 </a>
             </div>
-            
+
             <!-- Destination 2: Kerala -->
             <div class="col-lg-4 col-md-6">
                 <a href="/destinations/kerala/" class="dest-card anim-card reveal">
                     <div class="dest-image-wrapper">
-                        <img src="{% static 'images/destinations/kerala.png' %}" class="dest-img" loading="lazy" alt="Kerala destination travel - Vibhu Travel Hub">
+                        <img src="{% static 'images/destinations/kerala.png' %}" class="dest-img" loading="lazy"
+                            alt="Kerala destination travel - Vibhu Travel Hub">
                         <div class="dest-gradient"></div>
                     </div>
                     <div class="dest-content">
                         <h3 class="dest-title">Kerala</h3>
                         <p class="dest-desc">
-                            Experience the breathtaking landscapes, rich culture, and unforgettable heritage of Kerala with our premium curated tour packages tailored just for you.
+                            Experience the breathtaking landscapes, rich culture, and unforgettable heritage of Kerala
+                            with our premium curated tour packages tailored just for you.
                         </p>
-                        <span class="btn-view-details anim-btn">Explore Destination <i class="bi bi-arrow-right"></i></span>
+                        <span class="btn-view-details anim-btn">Explore Destination <i
+                                class="bi bi-arrow-right"></i></span>
                     </div>
                 </a>
             </div>
-            
+
             <!-- Destination 3: Karnataka -->
             <div class="col-lg-4 col-md-6">
                 <a href="/destinations/karnataka/" class="dest-card anim-card reveal">
                     <div class="dest-image-wrapper">
-                        <img src="{% static 'images/destinations/karnataka.jpg' %}" class="dest-img" loading="lazy" alt="Karnataka destination travel - Vibhu Travel Hub">
+                        <img src="{% static 'images/destinations/karnataka.jpg' %}" class="dest-img" loading="lazy"
+                            alt="Karnataka destination travel - Vibhu Travel Hub">
                         <div class="dest-gradient"></div>
                     </div>
                     <div class="dest-content">
                         <h3 class="dest-title">Karnataka</h3>
                         <p class="dest-desc">
-                            Experience the breathtaking landscapes, rich culture, and unforgettable heritage of Karnataka with our premium curated tour packages tailored just for you.
+                            Experience the breathtaking landscapes, rich culture, and unforgettable heritage of
+                            Karnataka with our premium curated tour packages tailored just for you.
                         </p>
-                        <span class="btn-view-details anim-btn">Explore Destination <i class="bi bi-arrow-right"></i></span>
+                        <span class="btn-view-details anim-btn">Explore Destination <i
+                                class="bi bi-arrow-right"></i></span>
                     </div>
                 </a>
             </div>
@@ -1256,27 +1530,37 @@ document.addEventListener("DOMContentLoaded", function() {
                 <div class="swiper-slide">
                     <div class="glass-card anim-card review-card">
                         <div class="review-stars">
-                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                class="bi bi-star-fill"></i>
                         </div>
-                        <p class="review-text">"Impeccable service! The vehicle was pristine, and our driver was incredibly professional. Our family trip from Coimbatore was elevated to a truly luxury experience."</p>
+                        <p class="review-text">"Impeccable service! The vehicle was pristine, and our driver was
+                            incredibly professional. Our family trip from Coimbatore was elevated to a truly luxury
+                            experience."</p>
                         <div class="review-author">- Sarah & Family</div>
                     </div>
                 </div>
                 <div class="swiper-slide">
                     <div class="glass-card anim-card review-card">
                         <div class="review-stars">
-                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                class="bi bi-star-fill"></i>
                         </div>
-                        <p class="review-text">"We booked a Tempo Traveller for our corporate retreat. The punctuality and comfort provided by Vibhu Travel Hub were unmatched. Highly recommended."</p>
+                        <p class="review-text">"We booked a Tempo Traveller for our corporate retreat. The punctuality
+                            and comfort provided by Vibhu Travel Hub were unmatched. Highly recommended."</p>
                         <div class="review-author">- Rajesh Kumar, Corporate Client</div>
                     </div>
                 </div>
                 <div class="swiper-slide">
                     <div class="glass-card anim-card review-card">
                         <div class="review-stars">
-                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                class="bi bi-star-fill"></i>
                         </div>
-                        <p class="review-text">"Excellent coordination for our temple tour. The luxury bus exceeded our expectations, and the staff's hospitality made the long journey feel effortless."</p>
+                        <p class="review-text">"Excellent coordination for our temple tour. The luxury bus exceeded our
+                            expectations, and the staff's hospitality made the long journey feel effortless."</p>
                         <div class="review-author">- Ananya Iyer</div>
                     </div>
                 </div>

@@ -17,10 +17,10 @@
           content="width=device-width, initial-scale=1.0">
 
     <meta name="description"
-          content="{% block description %}Vibhu Travel Hub offers premium taxi services, bus rentals, tempo travellers, corporate travel, pilgrimage trips and outstation tours in Coimbatore and across Tamil Nadu.{% endblock %}">
+          content="{% block description %}Vibhu Travel Hub is a premier travel agency in Tamil Nadu offering cab service, cab booking, outstation cabs, airport transfers, tempo traveller rentals, luxury bus rentals, and tour packages across Coimbatore, Madurai, Trichy, Chennai, and South India.{% endblock %}">
 
     <meta name="keywords"
-          content="{% block keywords %}Travel Agency Coimbatore, Taxi Service Coimbatore, Bus Rental Coimbatore, Tempo Traveller Rental, Corporate Travel, Outstation Tours, Pilgrimage Trips, Vibhu Travel Hub{% endblock %}">
+          content="{% block keywords %}travel agency, travel agency in tamil nadu, cab service, cab booking, outstation cabs, travel services, airport transfers, best travel agency, Vibhu Travel Hub{% endblock %}">
 
     <meta name="author"
           content="Vibhu Travel Hub">
@@ -44,7 +44,7 @@
 
     <title>
         {% block title %}
-        Vibhu Travel Hub | Best Travel Agency in Coimbatore
+        Travel Agency in Tamil Nadu | Cab & Travel Services | Vibhu Travel Hub
         {% endblock %}
     </title>
 
@@ -72,10 +72,10 @@
           content="Vibhu Travel Hub">
 
     <meta property="og:title"
-          content="{% block og_title %}Vibhu Travel Hub{% endblock %}">
+          content="{% block og_title %}Travel Agency in Tamil Nadu | Cab & Travel Services | Vibhu Travel Hub{% endblock %}">
 
     <meta property="og:description"
-          content="{% block og_description %}Premium Taxi, Bus Rental, Tempo Traveller & Tour Packages in Coimbatore.{% endblock %}">
+          content="{% block og_description %}Vibhu Travel Hub offers cab service, cab booking, outstation cabs, airport transfers, Tempo Traveller & Tour Packages across Tamil Nadu.{% endblock %}">
 
     <meta property="og:url"
           content="{% block og_url %}https://www.vibhutravelhub.com/{% endblock %}">
@@ -216,21 +216,51 @@
         <script type="application/ld+json">
 {
   "@context":"https://schema.org",
-  "@type":"Organization",
+  "@type":"TravelAgency",
   "name":"Vibhu Travel Hub",
   "url":"https://www.vibhutravelhub.com",
   "logo":"https://www.vibhutravelhub.com/static/images/logo/logo.webp",
   "image":"https://www.vibhutravelhub.com/static/images/logo/logo.webp",
-  "email":"mailto:vibhutravelhub66@gmail.com",
+  "description":"Vibhu Travel Hub is a premier travel agency offering cab service, cab booking, tempo traveller rentals, luxury bus rentals, and outstation tour packages across Tamil Nadu.",
+  "email":"vibhutravelhub66@gmail.com",
   "telephone":"+91-9655866660",
+  "priceRange":"$$",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Joyce Villa Building, 87, Grey Town",
     "addressLocality": "Coimbatore",
     "addressRegion": "Tamil Nadu",
     "postalCode": "641018",
-    "addressCountry": "India"
-  }
+    "addressCountry": "IN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "11.0014",
+    "longitude": "76.9629"
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "opens": "00:00",
+    "closes": "23:59"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Coimbatore" },
+    { "@type": "City", "name": "Madurai" },
+    { "@type": "City", "name": "Trichy" },
+    { "@type": "City", "name": "Chennai" },
+    { "@type": "AdministrativeArea", "name": "Tamil Nadu" },
+    { "@type": "AdministrativeArea", "name": "Kerala" },
+    { "@type": "AdministrativeArea", "name": "Karnataka" }
+  ]
 }
         </script>
  {% endblock %}

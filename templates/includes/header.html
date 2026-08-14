@@ -6,38 +6,43 @@
 <!-- Mobile Sidebar -->
 <div class="mobile-sidebar" id="mobileSidebar">
     <div class="mobile-sidebar-header">
-        <img src="{% static 'images/logo/logo.webp' %}?v={{ STATIC_VERSION }}" alt="Vibhu Travel Hub" class="brand-logo">
+        <img src="{% static 'images/logo/logo.webp' %}?v={{ STATIC_VERSION }}" alt="Vibhu Travel Hub"
+            class="brand-logo">
         <button class="mobile-sidebar-close" id="closeSidebar"><i class="bi bi-x-lg"></i></button>
     </div>
-    
+
     <div class="mobile-sidebar-nav">
-        <a href="{% url 'home' %}" class="mobile-nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+        <a href="{% url 'home' %}"
+            class="mobile-nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}">
             <div class="nav-link-inner"><i class="bi bi-house-door"></i> Home</div>
         </a>
-        <a href="{% url 'about' %}" class="mobile-nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}">
+        <a href="{% url 'about' %}"
+            class="mobile-nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}">
             <div class="nav-link-inner"><i class="bi bi-info-circle"></i> About</div>
         </a>
         <a href="{% url 'home' %}#fleet" class="mobile-nav-link">
             <div class="nav-link-inner"><i class="bi bi-car-front"></i> Fleet</div>
         </a>
-        
+
         <!-- Destinations Accordion -->
         <a href="#" class="mobile-nav-link mobile-accordion-toggle" data-target="mobileDestinations">
-            <div class="nav-link-inner"><i class="bi bi-geo-alt"></i> Destinations</div> <i class="bi bi-chevron-down chevron"></i>
+            <div class="nav-link-inner"><i class="bi bi-geo-alt"></i> Destinations</div> <i
+                class="bi bi-chevron-down chevron"></i>
         </a>
         <div class="mobile-accordion-content" id="mobileDestinations">
             <a href="/destinations/tamil-nadu/" class="mobile-accordion-link">Tamil Nadu</a>
             <a href="/destinations/kerala/" class="mobile-accordion-link">Kerala</a>
             <a href="/destinations/karnataka/" class="mobile-accordion-link">Karnataka</a>
         </div>
-        
+
 
         <!-- Services Accordion -->
         <a href="#" class="mobile-nav-link mobile-accordion-toggle" data-target="mobileServices">
-            <div class="nav-link-inner"><i class="bi bi-grid"></i> Services</div> <i class="bi bi-chevron-down chevron"></i>
+            <div class="nav-link-inner"><i class="bi bi-grid"></i> Services</div> <i
+                class="bi bi-chevron-down chevron"></i>
         </a>
         <div class="mobile-accordion-content" id="mobileServices">
-            <a href="{% url 'local_taxi_service' %}" class="mobile-accordion-link">Local Taxi Service</a>
+            <a href="{% url 'local_taxi_service' %}" class="mobile-accordion-link">Local Cab Service</a>
             <a href="{% url 'outstation_tours' %}" class="mobile-accordion-link">Outstation Tours</a>
             <a href="{% url 'tempo_traveller' %}" class="mobile-accordion-link">Tempo Traveller</a>
             <a href="{% url 'bus_booking' %}" class="mobile-accordion-link">Luxury Bus Rental</a>
@@ -45,22 +50,25 @@
             <a href="{% url 'corporate_travel' %}" class="mobile-accordion-link">Corporate Travel</a>
         </div>
 
-        <a href="{% url 'blog_list' %}" class="mobile-nav-link {% if 'blog' in request.resolver_match.url_name %}active{% endif %}">
+        <a href="{% url 'blog_list' %}"
+            class="mobile-nav-link {% if 'blog' in request.resolver_match.url_name %}active{% endif %}">
             <div class="nav-link-inner"><i class="bi bi-journal-text"></i> Blog</div>
         </a>
 
-        <a href="{% url 'contact' %}" class="mobile-nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}">
+        <a href="{% url 'contact' %}"
+            class="mobile-nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}">
             <div class="nav-link-inner"><i class="bi bi-envelope"></i> Contact</div>
         </a>
     </div>
-    
+
     <div class="mobile-sidebar-footer">
         <!-- CTA buttons removed as requested -->
-        
+
         <div class="mobile-socials">
             <a href="#" class="social-icon anim-icon"><i class="bi bi-facebook"></i></a>
             <a href="#" class="social-icon anim-icon"><i class="bi bi-instagram"></i></a>
-            <a href="https://wa.me/919655866660" class="social-icon anim-icon whatsapp"><i class="bi bi-whatsapp"></i></a>
+            <a href="https://wa.me/919655866660" class="social-icon anim-icon whatsapp"><i
+                    class="bi bi-whatsapp"></i></a>
         </div>
         <div class="mobile-copyright">
             &copy; 2026 Vibhu Travel Hub
@@ -75,15 +83,17 @@
             <!-- LEFT -->
             <div class="topbar-left">
                 <a href="tel:+919655866660"><i class="bi bi-telephone-fill"></i> +91 96558 66660</a>
-                <a href="mailto:vibhutravelhub66@gmail.com" class="d-none d-md-flex"><i class="bi bi-envelope-fill"></i> vibhutravelhub66@gmail.com</a>
+                <a href="mailto:vibhutravelhub66@gmail.com" class="d-none d-md-flex"><i class="bi bi-envelope-fill"></i>
+                    vibhutravelhub66@gmail.com</a>
             </div>
-            
+
             <!-- CENTER -->
             <div class="topbar-center d-none d-lg-flex">
-                <marquee behavior="scroll" direction="left" scrollamount="4" style="line-height: 1; vertical-align: middle; display: flex; align-items: center;">
+                <marquee behavior="scroll" direction="left" scrollamount="4"
+                    style="line-height: 1; vertical-align: middle; display: flex; align-items: center;">
                     <div class="topbar-center-content">
                         <span><i class="bi bi-clock"></i> Mon–Sun | 24/7 Available</span>
-                        <span><i class="bi bi-car-front-fill"></i> Premium Taxi</span>
+                        <span><i class="bi bi-car-front-fill"></i> Premium Cab Service</span>
                         <span><i class="bi bi-bus-front-fill"></i> Luxury Bus Rental</span>
                         <span><i class="bi bi-truck-front-fill"></i> Tempo Traveller</span>
                         <span><i class="bi bi-globe"></i> Across South India</span>
@@ -103,96 +113,107 @@
     <!-- Main Navbar -->
     <nav class="navbar navbar-expand-lg premium-navbar">
         <div class="container">
-        
-        <!-- LEFT: Logo -->
-        <a class="navbar-brand" href="{% url 'home' %}">
-            <img src="{% static 'images/logo/logo.webp' %}?v={{ STATIC_VERSION }}" alt="Vibhu Travel Hub" class="brand-logo">
-            <div class="brand-text d-none d-sm-block">
-                <h1>Vibhu Travel Hub</h1>
-                <p>Premium Travel Services</p>
-            </div>
-        </a>
 
-        <!-- Custom Mobile Toggle (Hamburger) -->
-        <button class="custom-hamburger" id="mobileHamburger" aria-label="Menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+            <!-- LEFT: Logo -->
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <img src="{% static 'images/logo/logo.webp' %}?v={{ STATIC_VERSION }}" alt="Vibhu Travel Hub"
+                    class="brand-logo">
+                <div class="brand-text d-none d-sm-block">
+                    <h1>Vibhu Travel Hub</h1>
+                    <p>Premium Travel Services</p>
+                </div>
+            </a>
 
-        <!-- CENTER: Navigation Links (Desktop Only) -->
-        <div class="collapse navbar-collapse" id="mainNavbar">
-            <ul class="navbar-nav mx-auto">
-                <li class="nav-item">
-                    <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'home' %}">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}" href="{% url 'about' %}">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'home' %}#fleet">Fleet</a>
-                </li>
-                
-                <!-- Destinations Mega Dropdown -->
-                <li class="nav-item dropdown position-relative">
-                    <a class="nav-link dropdown-toggle {% if 'destination' in request.resolver_match.url_name %}active{% endif %}" href="#" id="destinationsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Destinations <i class="bi bi-chevron-down nav-chevron"></i>
-                    </a>
-                    <div class="dropdown-menu premium-dropdown" aria-labelledby="destinationsDropdown">
-                        <div class="mega-dropdown-header text-center">
-                            <div class="mega-header-title">
-                                Our Destinations
+            <!-- Custom Mobile Toggle (Hamburger) -->
+            <button class="custom-hamburger" id="mobileHamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- CENTER: Navigation Links (Desktop Only) -->
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}"
+                            href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}"
+                            href="{% url 'about' %}">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}#fleet">Fleet</a>
+                    </li>
+
+                    <!-- Destinations Mega Dropdown -->
+                    <li class="nav-item dropdown position-relative">
+                        <a class="nav-link dropdown-toggle {% if 'destination' in request.resolver_match.url_name %}active{% endif %}"
+                            href="#" id="destinationsDropdown" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Destinations <i class="bi bi-chevron-down nav-chevron"></i>
+                        </a>
+                        <div class="dropdown-menu premium-dropdown" aria-labelledby="destinationsDropdown">
+                            <div class="mega-dropdown-header text-center">
+                                <div class="mega-header-title">
+                                    Our Destinations
+                                </div>
+                                <div class="mega-header-underline"></div>
                             </div>
-                            <div class="mega-header-underline"></div>
-                        </div>
-                        <div class="mega-dropdown-list">
-                            <a href="/destinations/tamil-nadu/" class="premium-text-item">Tamil Nadu</a>
-                            <a href="/destinations/kerala/" class="premium-text-item">Kerala</a>
-                            <a href="/destinations/karnataka/" class="premium-text-item">Karnataka</a>
-                        </div>
-                    </div>
-                </li>
-
-                <!-- Services Mega Dropdown -->
-                <li class="nav-item dropdown position-relative">
-                    <a class="nav-link dropdown-toggle {% if 'service' in request.resolver_match.url_name %}active{% endif %}" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Services <i class="bi bi-chevron-down nav-chevron"></i>
-                    </a>
-                    <div class="dropdown-menu premium-dropdown" aria-labelledby="servicesDropdown">
-                        <div class="mega-dropdown-header text-center">
-                            <div class="mega-header-title">
-                                Our Services
+                            <div class="mega-dropdown-list">
+                                <a href="/destinations/tamil-nadu/" class="premium-text-item">Tamil Nadu</a>
+                                <a href="/destinations/kerala/" class="premium-text-item">Kerala</a>
+                                <a href="/destinations/karnataka/" class="premium-text-item">Karnataka</a>
                             </div>
-                            <div class="mega-header-underline"></div>
                         </div>
-                        <div class="mega-dropdown-list">
-                            <a href="{% url 'local_taxi_service' %}" class="premium-text-item">Local Taxi Service</a>
-                            <a href="{% url 'outstation_tours' %}" class="premium-text-item">Outstation Tours</a>
-                            <a href="{% url 'tempo_traveller' %}" class="premium-text-item">Tempo Traveller</a>
-                            <a href="{% url 'bus_booking' %}" class="premium-text-item">Luxury Bus Rental</a>
-                            <a href="{% url 'pilgrimage_trips' %}" class="premium-text-item">Pilgrimage Trips</a>
-                            <a href="{% url 'corporate_travel' %}" class="premium-text-item">Corporate Travel</a>
+                    </li>
+
+                    <!-- Services Mega Dropdown -->
+                    <li class="nav-item dropdown position-relative">
+                        <a class="nav-link dropdown-toggle {% if 'service' in request.resolver_match.url_name %}active{% endif %}"
+                            href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Services <i class="bi bi-chevron-down nav-chevron"></i>
+                        </a>
+                        <div class="dropdown-menu premium-dropdown" aria-labelledby="servicesDropdown">
+                            <div class="mega-dropdown-header text-center">
+                                <div class="mega-header-title">
+                                    Our Services
+                                </div>
+                                <div class="mega-header-underline"></div>
+                            </div>
+                            <div class="mega-dropdown-list">
+                                <a href="{% url 'local_taxi_service' %}" class="premium-text-item">Local Cab Service</a>
+                                <a href="{% url 'outstation_tours' %}" class="premium-text-item">Outstation Tours</a>
+                                <a href="{% url 'tempo_traveller' %}" class="premium-text-item">Tempo Traveller</a>
+                                <a href="{% url 'bus_booking' %}" class="premium-text-item">Luxury Bus Rental</a>
+                                <a href="{% url 'pilgrimage_trips' %}" class="premium-text-item">Pilgrimage Trips</a>
+                                <a href="{% url 'corporate_travel' %}" class="premium-text-item">Corporate Travel</a>
+                            </div>
                         </div>
-                    </div>
-                </li>
+                    </li>
 
-                <li class="nav-item">
-                    <a class="nav-link {% if 'blog' in request.resolver_match.url_name %}active{% endif %}" href="{% url 'blog_list' %}">Blog</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if 'blog' in request.resolver_match.url_name %}active{% endif %}"
+                            href="{% url 'blog_list' %}">Blog</a>
+                    </li>
 
-                <li class="nav-item">
-                    <a class="nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}" href="{% url 'contact' %}">Contact</a>
-                </li>
-            </ul>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}"
+                            href="{% url 'contact' %}">Contact</a>
+                    </li>
+                </ul>
 
-            <!-- RIGHT CTA (ICONS ONLY) -->
-            <div class="d-flex ms-lg-3 mt-3 mt-lg-0 gap-3 topbar-socials align-items-center">
-                <a href="tel:+919655866660" class="btn btn-sm btn-icon-glass"><i class="bi bi-telephone-fill"></i></a>
-                <a href="https://wa.me/919655866660" target="_blank" class="btn btn-sm btn-icon-glass text-success"><i class="bi bi-whatsapp"></i></a>
-                <a href="#" target="_blank" class="btn btn-sm btn-icon-glass"><i class="bi bi-instagram"></i></a>
-                <a href="#" target="_blank" class="btn btn-sm btn-icon-glass"><i class="bi bi-facebook"></i></a>
+                <!-- RIGHT CTA (ICONS ONLY) -->
+                <div class="d-flex ms-lg-3 mt-3 mt-lg-0 gap-3 topbar-socials align-items-center">
+                    <a href="tel:+919655866660" class="btn btn-sm btn-icon-glass"><i
+                            class="bi bi-telephone-fill"></i></a>
+                    <a href="https://wa.me/919655866660" target="_blank"
+                        class="btn btn-sm btn-icon-glass text-success"><i class="bi bi-whatsapp"></i></a>
+                    <a href="#" target="_blank" class="btn btn-sm btn-icon-glass"><i class="bi bi-instagram"></i></a>
+                    <a href="#" target="_blank" class="btn btn-sm btn-icon-glass"><i class="bi bi-facebook"></i></a>
+                </div>
             </div>
         </div>
-    </div>
-</nav>
+    </nav>
 </header>

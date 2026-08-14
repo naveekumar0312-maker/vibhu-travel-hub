@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}About Vibhu Travel Hub | Best Travel Agency in Coimbatore{% endblock %}
+{% block title %}Travel Agency in Tamil Nadu | Cab & Travel Services | Vibhu Travel Hub{% endblock %}
 
-{% block description %}Learn about Vibhu Travel Hub, one of the leading travel agencies in Coimbatore offering Taxi Services, Tempo Traveller, Bus Rental, Corporate Travel, Pilgrimage Tours and South India Tour Packages.{% endblock %}
+{% block description %}Learn about Vibhu Travel Hub, a premier travel agency in Tamil Nadu offering cab service, cab booking, tempo traveller rentals, luxury bus rentals, and tour packages.{% endblock %}
 
-{% block og_title %}About Vibhu Travel Hub | Best Travel Agency in Coimbatore{% endblock %}
-{% block og_description %}Learn about Vibhu Travel Hub, one of the leading travel agencies in Coimbatore offering Taxi Services, Tempo Traveller, Bus Rental, Corporate Travel, Pilgrimage Tours and South India Tour Packages.{% endblock %}
+{% block og_title %}Travel Agency in Tamil Nadu | Cab & Travel Services | Vibhu Travel Hub{% endblock %}
+{% block og_description %}Learn about Vibhu Travel Hub, a premier travel agency in Tamil Nadu offering cab service, cab booking, tempo traveller rentals, luxury bus rentals & tour packages.{% endblock %}
 {% block og_url %}https://www.vibhutravelhub.com/about/{% endblock %}
 
 {% block canonical %}https://www.vibhutravelhub.com/about/{% endblock %}
@@ -218,11 +218,11 @@
                             <span>Across South India.</span>
                         </h1>
                         <p class="hero-subtitle">
-                            Vibhu Travel Hub provides premium taxi, tempo traveller, luxury bus, corporate travel, and airport transfer services across Coimbatore with professional drivers.
+                            Vibhu Travel Hub provides premium cab booking, tempo traveller, luxury bus, corporate travel, and airport transfer services across South India with professional drivers.
                         </p>
                         <div class="d-flex flex-wrap gap-3">
                             <a href="tel:+919655866660" class="btn-premium anim-btn btn-primary-luxury">
-                                <i class="bi bi-telephone-fill"></i> +91 96558 66660
+                                <i class="bi bi-telephone-fill"></i> Call now
                             </a>
                             <a href="https://wa.me/919655866660" target="_blank" class="btn-premium anim-btn btn-outline-luxury">
                                 <i class="bi bi-whatsapp"></i> Chat on WhatsApp
@@ -317,12 +317,12 @@
             </div>
             
             <div class="row g-4 about-services-grid">
-                <!-- 1: Taxi Service -->
+                <!-- 1: Local Cab Service -->
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                     <div class="about-service-card">
-                        <img src="{% static 'images/services/taxi.webp' %}" class="about-service-image" alt="Taxi Service" loading="lazy">
+                        <img src="{% static 'images/services/taxi.webp' %}" class="about-service-image" alt="Local Cab Service" loading="lazy">
                         <div class="about-service-content">
-                            <h3 class="about-service-title">Taxi Service</h3>
+                            <h3 class="about-service-title">Local Cab Service</h3>
                             <a href="{% url 'local_taxi_service' %}" class="about-service-book">Book Now <i class="bi bi-arrow-right"></i></a>
                         </div>
                     </div>
@@ -385,54 +385,63 @@
     <!-- ==========================================
         SECTION 7: WHY CUSTOMERS TRUST US
     =========================================== -->
-    <section class="trust-timeline-section py-5" style="background: #F8F9FA;">
-        <div class="container py-5">
-            <div class="row align-items-center">
-                <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
-                    <div class="premium-image-wrapper">
-                        <img src="{% static 'images/about/hero.webp' %}" alt="Trust Vibhu Travel Hub" loading="lazy" class="img-fluid rounded-4 shadow-lg">
+    <section class="trust-section py-5">
+        <div class="container py-4">
+            <div class="text-center max-w-700 mx-auto mb-5" data-aos="fade-up">
+                <span class="premium-about-label">TRUST & RELIABILITY</span>
+                <h2 class="premium-about-heading">Why Customers Trust Us</h2>
+                <p class="trust-section-desc">We are committed to delivering seamless, reliable, and premium travel experiences across South India with complete transparency and top-tier hospitality.</p>
+            </div>
+            
+            <div class="row g-4 justify-content-center">
+                <!-- 1. Licensed Business -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="trust-card">
+                        <div class="trust-icon-box">
+                            <i class="fa-solid fa-certificate"></i>
+                        </div>
+                        <h3 class="trust-card-title">Licensed Business</h3>
+                        <p class="trust-card-desc">Government approved and certified travel agency in Tamil Nadu.</p>
                     </div>
                 </div>
-                <div class="col-lg-6 ps-lg-5" data-aos="fade-left">
-                    <span class="premium-about-label">TRUST & RELIABILITY</span>
-                    <h2 class="premium-about-heading mb-4">Why Customers Trust Us</h2>
-                    
-                    <div class="premium-timeline">
-                        <div class="pt-item">
-                            <div class="pt-icon"><i class="fa-solid fa-certificate"></i></div>
-                            <div class="pt-content">
-                                <h4>Licensed Business</h4>
-                                <p>Government approved and certified travel agency in Tamil Nadu.</p>
-                            </div>
+                <!-- 2. Verified Drivers -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="trust-card">
+                        <div class="trust-icon-box">
+                            <i class="fa-solid fa-id-card-clip"></i>
                         </div>
-                        <div class="pt-item">
-                            <div class="pt-icon"><i class="fa-solid fa-id-card-clip"></i></div>
-                            <div class="pt-content">
-                                <h4>Verified Drivers</h4>
-                                <p>Background checked, experienced, and highly professional chauffeurs.</p>
-                            </div>
+                        <h3 class="trust-card-title">Verified Drivers</h3>
+                        <p class="trust-card-desc">Background checked, experienced, and highly professional chauffeurs.</p>
+                    </div>
+                </div>
+                <!-- 3. 24×7 Service -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="trust-card">
+                        <div class="trust-icon-box">
+                            <i class="fa-solid fa-clock"></i>
                         </div>
-                        <div class="pt-item">
-                            <div class="pt-icon"><i class="fa-solid fa-clock"></i></div>
-                            <div class="pt-content">
-                                <h4>24×7 Service</h4>
-                                <p>Round the clock travel support and vehicle availability.</p>
-                            </div>
+                        <h3 class="trust-card-title">24×7 Service</h3>
+                        <p class="trust-card-desc">Round the clock travel support and vehicle availability.</p>
+                    </div>
+                </div>
+                <!-- 4. Luxury Fleet -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="trust-card">
+                        <div class="trust-icon-box">
+                            <i class="fa-solid fa-car-rear"></i>
                         </div>
-                        <div class="pt-item">
-                            <div class="pt-icon"><i class="fa-solid fa-star"></i></div>
-                            <div class="pt-content">
-                                <h4>Luxury Fleet</h4>
-                                <p>Immaculately maintained vehicles for absolute comfort.</p>
-                            </div>
+                        <h3 class="trust-card-title">Luxury Fleet</h3>
+                        <p class="trust-card-desc">Immaculately maintained vehicles for absolute comfort.</p>
+                    </div>
+                </div>
+                <!-- 5. Transparent Pricing -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="trust-card">
+                        <div class="trust-icon-box">
+                            <i class="fa-solid fa-indian-rupee-sign"></i>
                         </div>
-                        <div class="pt-item pb-0 border-0">
-                            <div class="pt-icon"><i class="fa-solid fa-indian-rupee-sign"></i></div>
-                            <div class="pt-content">
-                                <h4>Transparent Pricing</h4>
-                                <p>Clear upfront costs with zero hidden charges.</p>
-                            </div>
-                        </div>
+                        <h3 class="trust-card-title">Transparent Pricing</h3>
+                        <p class="trust-card-desc">Clear upfront costs with zero hidden charges.</p>
                     </div>
                 </div>
             </div>
