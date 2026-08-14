@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}Blog | Vibhu Travel Hub{% endblock %}
-{% block description %}Read our latest blogs, travel guides, and tips for your next journey.{% endblock %}
+{% block description %}Read our latest blogs, travel guides, and tips for your next journey across South India.{% endblock %}
 
 {% block body_class %}blog-page{% endblock %}
 
@@ -11,74 +11,136 @@
 {% endblock %}
 
 {% block content %}
-<!-- Premium Blog Hero -->
+<!-- Premium Editorial Blog Hero -->
 <section class="blog-hero">
-    <div class="blog-hero-bg">
-        <img src="{% static 'images/hero-slider/background-4.jpeg' %}" alt="Vibhu Travel Hub Blog">
-    </div>
-    <div class="blog-hero-overlay"></div>
-    <div class="blog-hero-inner container">
-        <div class="row">
+    <div class="blog-hero-pattern"></div>
+    <div class="blog-hero-inner container text-center">
+        <div class="row justify-content-center">
             <div class="col-lg-8">
-                <span class="blog-eyebrow load-anim">Travel Stories</span>
-                <h1 class="blog-hero-title load-anim load-delay-1">Explore Our <br><span class="blog-hero-highlight">Travel Stories</span></h1>
-                <p class="blog-hero-description load-anim load-delay-2">Discover inspiring destinations, travel guides, useful travel tips and journey ideas from Vibhu Travel Hub.</p>
-                <div class="blog-hero-actions load-anim load-delay-3">
-                    <a href="#blog-grid" class="blog-btn-primary anim-btn">
-                        <i class="bi bi-journal-text"></i> Explore Blogs
-                    </a>
-                    <a href="{% url 'contact' %}" class="blog-btn-outline anim-btn">
-                        <i class="bi bi-geo-alt"></i> Plan Your Journey
-                    </a>
-                </div>
-                <div class="blog-breadcrumb">
-                    <a href="{% url 'home' %}">Home</a>
-                    <span class="sep">&rsaquo;</span>
-                    <span>Blog</span>
+                <span class="blog-eyebrow load-anim" style="color: #ED1B3B; font-style: italic; font-family: 'Playfair Display', Georgia, serif; text-transform: lowercase; font-size: 1.3rem; letter-spacing: 0; font-weight: 600;">Live with wanderlust</span>
+                <h1 class="blog-hero-title load-anim load-delay-1" style="font-size: 3.2rem; font-weight: 800; color: #111827; margin-bottom: 0.8rem;">Travel Blog</h1>
+                <p class="blog-hero-description load-anim load-delay-2" style="color: #64748B; font-size: 1.02rem; line-height: 1.7; max-width: 720px; margin: 0 auto 1.5rem;">
+                    We share our experiences, tips and travel stories to inspire and guide our readers in their own wanderlust adventures. From hidden gems to popular destinations, we showcase the beauty and diversity of the world, and promote responsible and sustainable travel.
+                </p>
+                
+                <!-- Search Box inside Hero -->
+                <div class="blog-search-wrapper load-anim load-delay-3 mt-4">
+                    <form action="{% url 'blog_list' %}" method="GET" class="blog-search-form">
+                        <div class="search-input-group">
+                            <i class="bi bi-search search-icon"></i>
+                            <input type="text" name="q" value="{{ search_query }}" placeholder="Search Blog" class="blog-search-input" aria-label="Search Blog">
+                            {% if search_query %}
+                            <a href="{% url 'blog_list' %}" class="search-clear-btn" title="Clear Search"><i class="bi bi-x-circle-fill"></i></a>
+                            {% endif %}
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Blog Intro Section -->
-<section class="blog-intro">
-    <div class="container reveal" data-aos="fade-up">
-        <div class="blog-section-label">Our Journal</div>
-        <h2 class="blog-section-title">Travel Inspiration for Every Journey</h2>
-        <p class="blog-section-description">Explore destination guides, travel tips, road-trip ideas and useful information to help you plan comfortable and memorable journeys across South India.</p>
-    </div>
-</section>
+<!-- Main Blog Section (Two Column Layout matching Reference Screenshot) -->
+<section class="blog-main-section py-5" style="background: #F8FAFC;">
+    <div class="container py-3">
+        <div class="row g-4">
+            
+            <!-- LEFT COLUMN: BLOG POST CARDS -->
+            <div class="col-lg-8">
+                {% if search_query %}
+                <div class="search-results-label mb-4">
+                    <h4 class="fw-bold">Search Results for "<span class="text-danger">{{ search_query }}</span>"</h4>
+                    <p class="text-muted small">Found {{ posts|length }} post(s)</p>
+                </div>
+                {% endif %}
 
-<!-- Blog Grid -->
-<section class="blog-grid-section" id="blog-grid">
-    <div class="container">
-        <div class="blog-grid stagger-grid">
-            {% for post in posts %}
-            <a href="{% url 'blog_detail' post.slug %}" class="blog-card reveal anim-card" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|add:1 }}00">
-                <div class="blog-card-image-wrapper">
-                    {% if post.featured_image %}
-                    <img src="{{ post.featured_image.url }}" class="blog-card-image" alt="{{ post.title }}" loading="lazy">
-                    {% else %}
-                    <!-- Fallback for no image -->
-                    <div class="blog-card-image" style="background: var(--blog-border);"></div>
-                    {% endif %}
-                </div>
-                
-                <div class="blog-card-content">
-                    <h2 class="blog-card-title">{{ post.title }}</h2>
-                    <p class="blog-card-description">{{ post.short_description }}</p>
-                    <div class="blog-read-more">
-                        Read More <span>&rarr;</span>
+                <div class="blog-posts-list stagger-grid">
+                    {% for post in posts %}
+                    <article class="aspire-blog-card reveal anim-card">
+                        <div class="aspire-card-flex">
+                            <a href="{% url 'blog_detail' post.slug %}" class="aspire-card-media">
+                                {% if post.featured_image %}
+                                <img src="{{ post.featured_image.url }}" alt="{{ post.title }}" class="aspire-card-img" loading="lazy">
+                                {% else %}
+                                <div class="aspire-card-img-fallback">
+                                    <i class="bi bi-image text-muted fs-1"></i>
+                                </div>
+                                {% endif %}
+                            </a>
+                            <div class="aspire-card-content">
+                                <h3 class="aspire-card-title">
+                                    <a href="{% url 'blog_detail' post.slug %}">{{ post.title }}</a>
+                                </h3>
+                                <p class="aspire-card-desc">{{ post.short_description|truncatewords:32 }}</p>
+                                <div class="aspire-card-action">
+                                    <a href="{% url 'blog_detail' post.slug %}" class="btn-aspire-orange">Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    {% empty %}
+                    <div class="no-posts-card text-center py-5 glass-card">
+                        <i class="bi bi-journal-x display-3 text-muted mb-3 d-block"></i>
+                        <h4 class="text-muted fw-bold">No travel stories available yet.</h4>
+                        <p class="text-muted small">Check back soon for travel guides and destination insights.</p>
+                        {% if search_query %}
+                        <a href="{% url 'blog_list' %}" class="btn btn-outline-danger rounded-pill px-4 mt-2">View All Posts</a>
+                        {% endif %}
                     </div>
+                    {% endfor %}
                 </div>
-            </a>
-            {% empty %}
-            <div class="col-12 text-center py-5 w-100" style="grid-column: 1 / -1;">
-                <i class="bi bi-journal-x display-1 text-muted mb-3 d-block"></i>
-                <h4 class="text-muted">No blog posts found.</h4>
             </div>
-            {% endfor %}
+
+            <!-- RIGHT COLUMN: SIDEBAR -->
+            <div class="col-lg-4">
+                <aside class="blog-sidebar sticky-sidebar">
+                    
+                    <!-- ABOUT CARD MATCHING SCREENSHOT -->
+                    <div class="sidebar-widget about-widget mb-4 reveal">
+                        <div class="widget-inner text-center p-4">
+                            <img src="{% static 'images/logo/logo.webp' %}" alt="Vibhu Travel Hub" class="sidebar-logo mb-3" style="max-height: 52px; object-fit: contain;">
+                            <p class="widget-desc text-muted small mb-0" style="line-height: 1.6; font-size: 0.92rem;">
+                                We share our travel experiences, tips and stories to inspire and guide our readers in their own wanderlust adventures.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- LATEST POSTS WIDGET MATCHING SCREENSHOT -->
+                    <div class="sidebar-widget recent-posts-widget reveal">
+                        <div class="text-center mb-3">
+                            <h5 class="widget-header-title d-inline-block position-relative pb-1">
+                                Latest Posts
+                                <span class="widget-underline-center"></span>
+                            </h5>
+                        </div>
+                        <div class="recent-posts-list mt-3">
+                            {% for rpost in recent_posts %}
+                            <div class="recent-post-item d-flex align-items-center mb-3 pb-2 border-bottom border-light">
+                                <a href="{% url 'blog_detail' rpost.slug %}" class="recent-post-thumb-link me-3">
+                                    <div class="recent-thumb-wrapper">
+                                        {% if rpost.featured_image %}
+                                        <img src="{{ rpost.featured_image.url }}" alt="{{ rpost.title }}" class="recent-thumb">
+                                        {% else %}
+                                        <div class="recent-thumb-placeholder d-flex align-items-center justify-content-center h-100 bg-light"><i class="bi bi-newspaper text-muted"></i></div>
+                                        {% endif %}
+                                    </div>
+                                </a>
+                                <div class="recent-post-info">
+                                    <h6 class="recent-post-title mb-1">
+                                        <a href="{% url 'blog_detail' rpost.slug %}">{{ rpost.title|truncatewords:6 }}</a>
+                                    </h6>
+                                    <span class="recent-post-date text-muted small"><i class="bi bi-calendar3 me-1"></i>{{ rpost.published_date|date:"F d, Y" }}</span>
+                                </div>
+                            </div>
+                            {% empty %}
+                            <p class="text-muted small text-center">No recent posts available.</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                </aside>
+            </div>
+
         </div>
     </div>
 </section>
@@ -90,11 +152,11 @@
         <h2 class="blog-section-title">Ready to Plan Your Next Journey?</h2>
         <p class="blog-section-description">From local travel to South India tours, Vibhu Travel Hub helps you travel comfortably with reliable vehicles and professional service.</p>
         <div class="blog-cta-actions">
-            <a href="{% url 'home' %}#fleet" class="blog-btn-primary">
-                Book Your Vehicle
+            <a href="{% url 'home' %}#fleet" class="blog-btn-primary anim-btn">
+                <i class="bi bi-car-front-fill me-1"></i> Book Your Vehicle
             </a>
-            <a href="{% url 'contact' %}" class="blog-btn-outline" style="color: var(--blog-dark); border-color: var(--blog-border);">
-                Contact Us
+            <a href="{% url 'contact' %}" class="blog-btn-outline anim-btn">
+                <i class="bi bi-envelope-fill me-1"></i> Contact Us
             </a>
         </div>
     </div>
