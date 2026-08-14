@@ -1,22 +1,14 @@
 env/
 venv/
+.venv/
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
 .env
 *.log
+staticfiles/
 
 media/*
 !media/vehicles/
-*.sqlite3
-
-diff.txt
-fetched.html
-temp.txt
-temp_karnataka.txt
-temp_kerala.txt
-tmp_tamilnadu.html
-cleanup_blogs.py
-clean_socials.py
-test_blog.py
+*.sqlite3
