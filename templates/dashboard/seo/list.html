@@ -1,0 +1,51 @@
+{% extends 'dashboard/base_dashboard.html' %}
+
+{% block title %}Manage City SEO{% endblock %}
+{% block page_title %}Manage City SEO Content{% endblock %}
+
+{% block content %}
+<div class="glass-card anim-card p-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h5 class="text-dark fw-bold mb-0">Location SEO & Keywords Master List</h5>
+    </div>
+    
+    <div class="table-responsive">
+        <table class="table table-hover custom-table">
+            <thead>
+                <tr>
+                    <th>City</th>
+                    <th>Meta Title</th>
+                    <th>Priority A Keywords</th>
+                    <th>Priority C Routes</th>
+                    <th>Updated At</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for city in cities %}
+                <tr>
+                    <td class="fw-bold text-dark fs-6">{{ city.city_name }}</td>
+                    <td class="text-secondary small" style="max-width: 250px;">{{ city.meta_title }}</td>
+                    <td>
+                        <span class="badge bg-primary rounded-pill">{{ city.get_primary_keywords_list|length }} Keywords</span>
+                    </td>
+                    <td>
+                        <span class="badge bg-info text-dark rounded-pill">{{ city.get_route_keywords_list|length }} Routes</span>
+                    </td>
+                    <td class="small text-muted">{{ city.updated_at|date:"d M Y, h:i A" }}</td>
+                    <td>
+                        <a href="{% url 'seo_edit' city.id %}" class="btn btn-sm btn-outline-danger me-1" title="Edit City SEO">
+                            <i class="bi bi-pencil"></i> Edit SEO
+                        </a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="6" class="text-center py-4 text-muted">No City SEO records found.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

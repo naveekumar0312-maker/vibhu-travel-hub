@@ -1,18 +1,18 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Travel Agency in Tamil Nadu | Chennai, Coimbatore, Madurai & Trichy | Vibhu Travel Hub{% endblock %}
-{% block description %}Vibhu Travel Hub is a leading travel agency in Tamil Nadu offering outstation travel services, tour packages, and group travel across Chennai, Coimbatore, Madurai, and Trichy.{% endblock %}
-{% block keywords %}travel agency in tamil nadu, travel agency in coimbatore, travel agency in madurai, travel agency in trichy, travel agency in chennai, best travel agency in coimbatore, best travel agency in madurai, best travel agency in trichy, best travel agency in chennai, top travel agencies in coimbatore, top travel agencies in madurai, top travel agencies in trichy, top travel agencies in chennai, travel services in tiruchirappalli, tourist agency in chennai, travel agents in madurai india, madurai tour agency{% endblock %}
+{% block title %}Innova & Tempo Traveller Rental in Tamil Nadu | Coimbatore, Chennai, Madurai & Trichy | Vibhu Travel Hub{% endblock %}
+{% block description %}Book Innova rental, Innova Crysta rental, Force Urbania rental, Ertiga, 12 to 26 seater Tempo Traveller rental, and luxury bus rental in Coimbatore, Chennai, Madurai, and Trichy with Vibhu Travel Hub.{% endblock %}
+{% block keywords %}Innova rental in Coimbatore, 26 seater Tempo Traveller in Chennai, Innova Crysta rental in Madurai, Force Urbania rental in Trichy, Ertiga rental in Coimbatore, Tempo Traveller rental in Chennai, AC bus rental in Tamil Nadu, sedan car rental in Coimbatore, SUV car rental in Madurai{% endblock %}
 {% block canonical %}https://www.vibhutravels.in/destinations/tamil-nadu/{% endblock %}
 
-{% block og_title %}Travel Agency in Tamil Nadu | Chennai, Coimbatore, Madurai & Trichy | Vibhu Travel Hub{% endblock %}
-{% block og_description %}Vibhu Travel Hub is a leading travel agency in Tamil Nadu offering outstation travel services, tour packages, and group travel across Chennai, Coimbatore, Madurai, and Trichy.{% endblock %}
+{% block og_title %}Innova & Tempo Traveller Rental in Tamil Nadu | Coimbatore, Chennai, Madurai & Trichy{% endblock %}
+{% block og_description %}Book premium Innova Crysta rental, Force Urbania rental, 12 to 26 seater Tempo Traveller, and luxury coach rental in Coimbatore, Chennai, Madurai & Trichy with Vibhu Travel Hub.{% endblock %}
 {% block og_url %}https://www.vibhutravels.in/destinations/tamil-nadu/{% endblock %}
 {% block og_image %}https://www.vibhutravels.in{% static 'images/destinations/tamil-nadu-hero.jpg' %}{% endblock %}
 
-{% block twitter_title %}Travel Agency in Tamil Nadu | Chennai, Coimbatore, Madurai & Trichy | Vibhu Travel Hub{% endblock %}
-{% block twitter_description %}Vibhu Travel Hub is a leading travel agency in Tamil Nadu offering outstation travel services, tour packages, and group travel across Chennai, Coimbatore, Madurai, and Trichy.{% endblock %}
+{% block twitter_title %}Innova & Tempo Traveller Rental in Tamil Nadu | Vibhu Travel Hub{% endblock %}
+{% block twitter_description %}Book Innova Crysta rental, Force Urbania rental, Tempo Traveller rental & luxury bus rental in Coimbatore, Chennai, Madurai & Trichy.{% endblock %}
 {% block twitter_image %}https://www.vibhutravels.in{% static 'images/destinations/tamil-nadu-hero.jpg' %}{% endblock %}
 
 {% block schema_markup %}
@@ -581,25 +581,77 @@
         <div class="row g-5 mb-5">
             <!-- Chennai -->
             <div class="col-md-6" data-aos="fade-right">
-                <img src="{% static 'images/destinations/chennai.avif' %}" alt="Chennai travel agency and outstation travel services"
+                <img src="{% static 'images/destinations/chennai.avif' %}" alt="{% if city_seo.chennai.image_alt_text %}{{ city_seo.chennai.image_alt_text }}{% else %}Tempo Traveller rental in Chennai and Chennai corporate cab service{% endif %}"
                     class="img-fluid rounded-4 shadow-sm mb-4 w-100" style="height: 300px; object-fit: cover;">
-                <h3 class="fw-bold mb-3">Chennai</h3>
-                <p class="text-secondary lh-lg fs-6 mb-4">Looking for a trusted <strong>travel agency in Chennai</strong> or a <strong>tourist agency in Chennai</strong>? As one of the top <strong>travel companies in Chennai</strong>, Vibhu Travel Hub offers premier <strong>travel services in Chennai</strong>. Whether you need a <strong>best travel agency in Chennai</strong> partner for corporate tours, executive <strong>travels and tours in Chennai</strong>, or outstation cabs from top <strong>tour operators in Chennai</strong> and <strong>travel agents in Chennai</strong>, we ensure complete comfort. For travelers evaluating <strong>top travel agencies in Chennai</strong> or seeking a <strong>travel agency near me Chennai</strong>, our <strong>tour and travel agency in Chennai</strong> provides tailored travel solutions.</p>
+                <h3 class="fw-bold mb-3">Chennai Cab & Vehicle Services</h3>
+                {% if city_seo.chennai.seo_content %}
+                    <div class="text-secondary lh-lg fs-6 mb-3">{{ city_seo.chennai.seo_content|safe }}</div>
+                {% else %}
+                    <p class="text-secondary lh-lg fs-6 mb-3">Vibhu Travel Hub is the leading provider of <strong>cab service in Chennai</strong> and <strong>taxi service in Chennai</strong>. Whether you need a <strong>Chennai corporate cab service</strong>, <strong>employee transportation service Chennai</strong>, an executive <strong>Chennai car rental with driver</strong>, or a <strong>Chennai airport taxi</strong> for <strong>Chennai airport group pickup</strong>, our fleet is ready. We provide spacious <strong>Tempo Traveller rental in Chennai</strong>, <strong>Force Urbania rental in Chennai</strong>, <strong>minibus rental in Chennai</strong>, and <strong>tourist bus rental in Chennai</strong> for <strong>Chennai wedding car rental</strong>, <strong>Chennai hourly car rental</strong>, and <strong>Chennai local cab package</strong> needs. Book your <strong>Chennai outstation cab service</strong> or <strong>Chennai one way drop taxi</strong> today.</p>
+                {% endif %}
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                    <span class="badge bg-light text-dark border px-3 py-2">Tempo Traveller rental in Chennai</span>
+                    <span class="badge bg-light text-dark border px-3 py-2">Force Urbania rental in Chennai</span>
+                    <span class="badge bg-light text-dark border px-3 py-2">Chennai corporate cab service</span>
+                    <span class="badge bg-light text-dark border px-3 py-2">Chennai airport taxi</span>
+                </div>
+                <!-- Priority C Popular Routes from Chennai -->
+                <div class="p-3 bg-white rounded-3 border mb-4">
+                    <h6 class="fw-bold mb-2 text-dark"><i class="bi bi-signpost-split text-danger me-2"></i>Popular Outstation Routes from Chennai</h6>
+                    <div class="d-flex flex-wrap gap-2 small text-muted">
+                        <span>• Chennai to Pondicherry cab</span>
+                        <span>• Chennai to Tirupati cab</span>
+                        <span>• Chennai to Bangalore cab</span>
+                        <span>• Chennai to Mahabalipuram cab</span>
+                        <span>• Chennai airport to Pondicherry taxi</span>
+                        <span>• Chennai to Trichy cab</span>
+                        <span>• Chennai to Madurai cab</span>
+                        <span>• Chennai Central railway station cab</span>
+                        <span>• Chennai to Pondicherry Tempo Traveller</span>
+                        <span>• Chennai to Tirupati bus rental</span>
+                    </div>
+                </div>
                 <button class="btn btn-outline-primary rounded-pill px-4 py-2" data-bs-toggle="modal"
                     data-bs-target="#enquiryModal" data-destination="Tamil Nadu" data-city="Chennai">
-                    Book Travel Services <i class="bi bi-arrow-right ms-2"></i>
+                    Book Chennai Services <i class="bi bi-arrow-right ms-2"></i>
                 </button>
             </div>
 
             <!-- Coimbatore -->
             <div class="col-md-6" data-aos="fade-left">
-                <img src="{% static 'images/destinations/coimbatore.avif' %}" alt="Coimbatore travel agency and outstation travel services"
+                <img src="{% static 'images/destinations/coimbatore.avif' %}" alt="{% if city_seo.coimbatore.image_alt_text %}{{ city_seo.coimbatore.image_alt_text }}{% else %}Tempo Traveller rental in Coimbatore and cab service in Coimbatore{% endif %}"
                     class="img-fluid rounded-4 shadow-sm mb-4 w-100" style="height: 300px; object-fit: cover;">
-                <h3 class="fw-bold mb-3">Coimbatore</h3>
-                <p class="text-secondary lh-lg fs-6 mb-4">Searching for the <strong>best travel agency in Coimbatore</strong> or a top <strong>tour and travel agency in Coimbatore</strong>? Vibhu Travel Hub is recognized among leading <strong>travel companies in Coimbatore</strong> and trusted <strong>travel agencies in Coimbatore</strong>. Whether you need a <strong>travel agency near me Coimbatore</strong> for hill station tours, outstation travel from expert <strong>tour operators in Coimbatore</strong> and <strong>travel agents in Coimbatore</strong>, or custom packages, we deliver reliable <strong>travel services in Coimbatore</strong>. When comparing <strong>top travel agencies in Coimbatore</strong> or choosing the <strong>best travel agency near me Coimbatore</strong>, our fleet ensures maximum safety.</p>
+                <h3 class="fw-bold mb-3">Coimbatore Cab & Vehicle Services</h3>
+                {% if city_seo.coimbatore.seo_content %}
+                    <div class="text-secondary lh-lg fs-6 mb-3">{{ city_seo.coimbatore.seo_content|safe }}</div>
+                {% else %}
+                    <p class="text-secondary lh-lg fs-6 mb-3">Searching for trusted <strong>cab service in Coimbatore</strong> or reliable <strong>taxi service in Coimbatore</strong>? Vibhu Travel Hub specializes in <strong>Coimbatore car rental with driver</strong>, <strong>Coimbatore airport taxi</strong>, and <strong>Coimbatore local sightseeing cab</strong> for seamless travel. Reserve a luxury <strong>Tempo Traveller rental in Coimbatore</strong>, <strong>Force Urbania rental in Coimbatore</strong>, <strong>minibus rental in Coimbatore</strong>, or <strong>bus rental in Coimbatore</strong> for <strong>Coimbatore wedding bus rental</strong> and <strong>Coimbatore airport group transfer</strong>. Choose our <strong>Coimbatore outstation cab service</strong>, <strong>Coimbatore one way drop taxi</strong>, <strong>Coimbatore corporate cab service</strong>, or <strong>Coimbatore tour package by car</strong>.</p>
+                {% endif %}
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                    <span class="badge bg-light text-dark border px-3 py-2">Tempo Traveller rental in Coimbatore</span>
+                    <span class="badge bg-light text-dark border px-3 py-2">Force Urbania rental in Coimbatore</span>
+                    <span class="badge bg-light text-dark border px-3 py-2">Coimbatore airport taxi</span>
+                    <span class="badge bg-light text-dark border px-3 py-2">Coimbatore one way drop taxi</span>
+                </div>
+                <!-- Priority C Popular Routes from Coimbatore -->
+                <div class="p-3 bg-white rounded-3 border mb-4">
+                    <h6 class="fw-bold mb-2 text-dark"><i class="bi bi-signpost-split text-danger me-2"></i>Popular Outstation Routes from Coimbatore</h6>
+                    <div class="d-flex flex-wrap gap-2 small text-muted">
+                        <span>• Coimbatore to Ooty cab</span>
+                        <span>• Coimbatore to Wayanad cab</span>
+                        <span>• Coimbatore to Ooty Tempo Traveller</span>
+                        <span>• Coimbatore to Munnar cab</span>
+                        <span>• Coimbatore to Valparai cab</span>
+                        <span>• Coimbatore to Kochi cab</span>
+                        <span>• Coimbatore to Tirupur taxi</span>
+                        <span>• Coimbatore to Bangalore cab</span>
+                        <span>• Coimbatore airport to Ooty taxi</span>
+                        <span>• Coimbatore airport to Isha Yoga Center cab</span>
+                    </div>
+                </div>
                 <button class="btn btn-outline-primary rounded-pill px-4 py-2" data-bs-toggle="modal"
                     data-bs-target="#enquiryModal" data-destination="Tamil Nadu" data-city="Coimbatore">
-                    Book Travel Services <i class="bi bi-arrow-right ms-2"></i>
+                    Book Coimbatore Services <i class="bi bi-arrow-right ms-2"></i>
                 </button>
             </div>
         </div>
@@ -608,25 +660,56 @@
         <div class="row g-5">
             <!-- Madurai -->
             <div class="col-md-6" data-aos="fade-right">
-                <img src="{% static 'images/destinations/madurai.avif' %}" alt="Madurai travel agency and pilgrimage tours"
+                <img src="{% static 'images/destinations/madurai.avif' %}" alt="{% if city_seo.madurai.image_alt_text %}{{ city_seo.madurai.image_alt_text }}{% else %}Madurai pilgrimage tour cab and Tempo Traveller rental in Madurai{% endif %}"
                     class="img-fluid rounded-4 shadow-sm mb-4 w-100" style="height: 300px; object-fit: cover;">
-                <h3 class="fw-bold mb-3">Madurai</h3>
-                <p class="text-secondary lh-lg fs-6 mb-4">As a premier <strong>travel agency in Madurai</strong> and trusted <strong>madurai tour agency</strong>, Vibhu Travel Hub ranks high among leading <strong>travel companies in Madurai</strong> and <strong>travel agents in Madurai India</strong>. Looking for the <strong>best travel agency in Madurai</strong> or a top <strong>tour and travel agency in Madurai</strong> for pilgrimage packages to Rameswaram? Our experienced <strong>tour operators in Madurai</strong> and <strong>travel agents in Madurai</strong> provide specialized <strong>travel services in Madurai</strong>. For visitors evaluating <strong>top travel agencies in Madurai</strong> or seeking a <strong>travel agency near me Madurai</strong>, we guarantee seamless trip planning.</p>
+                <h3 class="fw-bold mb-3">Madurai Cab & Pilgrimage Services</h3>
+                {% if city_seo.madurai.seo_content %}
+                    <div class="text-secondary lh-lg fs-6 mb-3">{{ city_seo.madurai.seo_content|safe }}</div>
+                {% else %}
+                    <p class="text-secondary lh-lg fs-6 mb-3">Vibhu Travel Hub offers the <strong>best cab service in Madurai</strong> and premier <strong>taxi service in Madurai</strong>. Specializing in <strong>Madurai pilgrimage tour cab</strong> services, <strong>Madurai local sightseeing cab</strong>, and <strong>Madurai group tour vehicle</strong> rides, we ensure total peace of mind. Rent a spacious <strong>Tempo Traveller rental in Madurai</strong>, <strong>Urbania rental in Madurai</strong>, <strong>minibus rental in Madurai</strong>, or <strong>bus rental in Madurai</strong> with comfortable <strong>Madurai car rental with driver</strong>. Book <strong>Madurai airport taxi</strong>, <strong>Madurai outstation cab</strong>, <strong>Madurai one way taxi</strong>, and <strong>Madurai wedding car rental</strong>.</p>
+                {% endif %}
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                    <span class="badge bg-light text-dark border px-3 py-2">Madurai pilgrimage tour cab</span>
+                    <span class="badge bg-light text-dark border px-3 py-2">Tempo Traveller rental in Madurai</span>
+                    <span class="badge bg-light text-dark border px-3 py-2">Urbania rental in Madurai</span>
+                    <span class="badge bg-light text-dark border px-3 py-2">Madurai airport taxi</span>
+                </div>
+                <!-- Priority C Popular Routes from Madurai -->
+                <div class="p-3 bg-white rounded-3 border mb-4">
+                    <h6 class="fw-bold mb-2 text-dark"><i class="bi bi-signpost-split text-danger me-2"></i>Popular Outstation Routes from Madurai</h6>
+                    <div class="d-flex flex-wrap gap-2 small text-muted">
+                        <span>• Madurai to Rameswaram cab</span>
+                        <span>• Madurai to Kanyakumari cab</span>
+                        <span>• Madurai to Kodaikanal cab</span>
+                        <span>• Madurai to Palani cab</span>
+                        <span>• Madurai airport to Rameswaram taxi</span>
+                        <span>• Madurai Meenakshi temple tour cab</span>
+                        <span>• Madurai Rameswaram Kanyakumari tour package</span>
+                        <span>• Madurai to Rameswaram Tempo Traveller</span>
+                        <span>• Madurai to Kanyakumari bus rental</span>
+                    </div>
+                </div>
                 <button class="btn btn-outline-primary rounded-pill px-4 py-2" data-bs-toggle="modal"
                     data-bs-target="#enquiryModal" data-destination="Tamil Nadu" data-city="Madurai">
-                    Book Travel Services <i class="bi bi-arrow-right ms-2"></i>
+                    Book Madurai Services <i class="bi bi-arrow-right ms-2"></i>
                 </button>
             </div>
 
             <!-- Trichy -->
             <div class="col-md-6" data-aos="fade-left">
-                <img src="{% static 'images/destinations/trichy.avif' %}" alt="Trichy travel agency outstation services"
+                <img src="{% static 'images/destinations/trichy.avif' %}" alt="Trichy cab service and travel agency outstation services"
                     class="img-fluid rounded-4 shadow-sm mb-4 w-100" style="height: 300px; object-fit: cover;">
-                <h3 class="fw-bold mb-3">Trichy</h3>
-                <p class="text-secondary lh-lg fs-6 mb-4">Planning outstation journeys with a leading <strong>travel agency in Trichy</strong> or searching for a trusted <strong>travel agency in Tiruchirappalli</strong>? Vibhu Travel Hub is one of the top <strong>travel companies in Trichy</strong> and preferred <strong>travel agents in Tiruchirappalli</strong>. From local Srirangam temple visits to outstation tours across Tamil Nadu, our professional <strong>tour operators in Trichy</strong> and <strong>travel agents in Trichy</strong> deliver premier <strong>travel services in Trichy</strong> and <strong>travel services in Tiruchirappalli</strong>. For travelers seeking the <strong>best travel agency in Trichy</strong> or a <strong>travel agency near me Trichy</strong>, we ensure complete reliability.</p>
+                <h3 class="fw-bold mb-3">Trichy Cab & Bus Rentals</h3>
+                <p class="text-secondary lh-lg fs-6 mb-3">Planning travel in Trichy? Book an <strong>Ertiga rental in Trichy</strong>, <strong>Innova rental in Trichy</strong>, or a <strong>12 seater Tempo Traveller in Trichy</strong> for comfortable local and outstation trips. For larger pilgrim parties visiting Srirangam, we offer reliable <strong>minibus rental in Trichy</strong>, <strong>20 seater bus rental in Trichy</strong>, <strong>50 seater bus rental in Trichy</strong>, and <strong>luxury coach rental in Trichy</strong>.</p>
+                <div class="d-flex flex-wrap gap-2 mb-4">
+                    <span class="badge bg-light text-dark border px-3 py-2">Ertiga rental in Trichy</span>
+                    <span class="badge bg-light text-dark border px-3 py-2">12 seater Tempo Traveller in Trichy</span>
+                    <span class="badge bg-light text-dark border px-3 py-2">minibus rental in Trichy</span>
+                    <span class="badge bg-light text-dark border px-3 py-2">50 seater bus rental in Trichy</span>
+                </div>
                 <button class="btn btn-outline-primary rounded-pill px-4 py-2" data-bs-toggle="modal"
                     data-bs-target="#enquiryModal" data-destination="Tamil Nadu" data-city="Trichy">
-                    Book Travel Services <i class="bi bi-arrow-right ms-2"></i>
+                    Book Trichy Rentals <i class="bi bi-arrow-right ms-2"></i>
                 </button>
             </div>
         </div>

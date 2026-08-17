@@ -103,7 +103,33 @@ class EnquiryAdmin(admin.ModelAdmin):
     )
 
 
+from .models import Enquiry, Vehicle, OutstationRoute, CitySEO
+
+
 # ==========================================
+# CITY SEO ADMIN
+# ==========================================
+
+@admin.register(CitySEO)
+class CitySEOAdmin(admin.ModelAdmin):
+    list_display = ("city_name", "slug", "meta_title", "updated_at")
+    search_fields = ("city_name", "meta_title", "primary_keywords", "route_keywords")
+    prepopulated_fields = {"slug": ("city_name",)}
+    fieldsets = (
+        ("City Information", {
+            "fields": ("city_name", "slug")
+        }),
+        ("SEO Meta Data", {
+            "fields": ("meta_title", "meta_description", "image_alt_text")
+        }),
+        ("Approved Keywords", {
+            "fields": ("primary_keywords", "route_keywords")
+        }),
+        ("SEO Content Block", {
+            "fields": ("seo_content",)
+        }),
+    )
+
 
 @admin.register(OutstationRoute)
 class OutstationRouteAdmin(admin.ModelAdmin):

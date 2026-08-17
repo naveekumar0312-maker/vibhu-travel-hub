@@ -1,18 +1,18 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Premium Cab Service in Kerala | Kochi, Trivandrum, Thrissur & Calicut{% endblock %}
-{% block description %}Book premium cab, airport transfer, tempo traveller and luxury bus services in Kerala with Vibhu Travel Hub. Serving Kochi, Trivandrum, Thrissur and Calicut.{% endblock %}
-{% block keywords %}cab service trivandrum, cabs in kochi, cab service thrissur, cab service in kozhikode, Kerala cab service, premium cabs Kerala, Kerala airport transfer{% endblock %}
+{% block title %}Innova & Tempo Traveller Rental in Kerala | Kochi, Trivandrum, Thrissur & Calicut{% endblock %}
+{% block description %}Book Innova rental, Innova Crysta rental, Force Urbania rental, Ertiga, 12 to 26 seater Tempo Traveller rental, and luxury bus rental in Kochi, Trivandrum, Thrissur, and Calicut with Vibhu Travel Hub.{% endblock %}
+{% block keywords %}Innova rental in Kochi, Innova Crysta rental in Kochi, Force Urbania rental in Kochi, 26 seater Tempo Traveller in Kochi, 17 seater Tempo Traveller in Trivandrum, Innova rental in Trivandrum, AC Tempo Traveller in Thrissur, Ertiga rental in Calicut, AC bus rental in Kerala{% endblock %}
 {% block canonical %}https://www.vibhutravels.in/destinations/kerala/{% endblock %}
 
-{% block og_title %}Premium Cab Service in Kerala | Kochi, Trivandrum, Thrissur & Calicut{% endblock %}
-{% block og_description %}Book premium cab, airport transfer, tempo traveller and luxury bus services in Kerala with Vibhu Travel Hub. Serving Kochi, Trivandrum, Thrissur and Calicut.{% endblock %}
+{% block og_title %}Innova & Tempo Traveller Rental in Kerala | Kochi, Trivandrum, Thrissur & Calicut{% endblock %}
+{% block og_description %}Book premium Innova Crysta rental, Force Urbania rental, 12 to 26 seater Tempo Traveller, and luxury coach rental in Kochi, Trivandrum, Thrissur & Calicut with Vibhu Travel Hub.{% endblock %}
 {% block og_url %}https://www.vibhutravels.in/destinations/kerala/{% endblock %}
 {% block og_image %}https://www.vibhutravels.in{% static 'images/destinations/kerala-hero.jpg' %}{% endblock %}
 
-{% block twitter_title %}Premium Cab Service in Kerala | Kochi, Trivandrum, Thrissur & Calicut{% endblock %}
-{% block twitter_description %}Book premium cab, airport transfer, tempo traveller and luxury bus services in Kerala with Vibhu Travel Hub. Serving Kochi, Trivandrum, Thrissur and Calicut.{% endblock %}
+{% block twitter_title %}Innova & Tempo Traveller Rental in Kerala | Vibhu Travel Hub{% endblock %}
+{% block twitter_description %}Book Innova Crysta rental, Force Urbania rental, Tempo Traveller rental & luxury bus rental in Kochi, Trivandrum, Thrissur & Calicut.{% endblock %}
 {% block twitter_image %}https://www.vibhutravels.in{% static 'images/destinations/kerala-hero.jpg' %}{% endblock %}
 
 {% block schema_markup %}
@@ -503,21 +503,53 @@ body {
         <div class="row g-5 mb-5">
             <!-- Trivandrum -->
             <div class="col-md-6" data-aos="fade-right">
-                <img src="{% static 'images/destinations/trivandrum.jpg' %}" alt="Premium cab service in Trivandrum" class="img-fluid rounded-4 shadow-sm mb-4 w-100" style="height: 300px; object-fit: cover;">
-                <h3 class="fw-bold mb-3">Trivandrum</h3>
-                <p class="text-secondary lh-lg fs-6 mb-4">Vibhu Travel Hub provides premium <strong>cab service trivandrum</strong>, including smooth <strong>airport transfer</strong>, reliable <strong>outstation travel</strong>, <strong>tempo traveller rentals</strong>, and specialized corporate transportation across <strong>Thiruvananthapuram</strong>. Experience the <strong>best cab service in Trivandrum</strong>.</p>
+                <img src="{% static 'images/destinations/trivandrum.jpg' %}" alt="Innova rental in Trivandrum and 17 seater Tempo Traveller in Trivandrum" class="img-fluid rounded-4 shadow-sm mb-4 w-100" style="height: 300px; object-fit: cover;">
+                <h3 class="fw-bold mb-3">Trivandrum Vehicle & Cab Rentals</h3>
+                <p class="text-secondary lh-lg fs-6 mb-3">Vibhu Travel Hub provides premium <strong>Innova rental in Trivandrum</strong> and <strong>Innova Crysta rental in Trivandrum</strong> for comfortable city and outstation journeys. Book a spacious <strong>17 seater Tempo Traveller in Trivandrum</strong>, an <strong>AC Tempo Traveller in Trivandrum</strong>, <strong>sedan car rental in Trivandrum</strong>, or a <strong>30 seater bus rental in Trivandrum</strong> for airport transfers and Kovalam tours.</p>
+                <div class="d-flex flex-wrap gap-2 mb-4">
+                    <span class="badge bg-light text-dark border px-3 py-2">Innova rental in Trivandrum</span>
+                    <span class="badge bg-light text-dark border px-3 py-2">17 seater Tempo Traveller in Trivandrum</span>
+                    <span class="badge bg-light text-dark border px-3 py-2">AC Tempo Traveller in Trivandrum</span>
+                    <span class="badge bg-light text-dark border px-3 py-2">30 seater bus rental in Trivandrum</span>
+                </div>
                 <button class="btn btn-outline-primary rounded-pill px-4 py-2" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Kerala" data-city="Trivandrum">
-                    Book Cab <i class="bi bi-arrow-right ms-2"></i>
+                    Book Trivandrum Rentals <i class="bi bi-arrow-right ms-2"></i>
                 </button>
             </div>
             
             <!-- Kochi / Cochin -->
             <div class="col-md-6" data-aos="fade-left">
-                <img src="{% static 'images/destinations/cochin.jpg' %}" alt="Cab service in Kochi Kerala" class="img-fluid rounded-4 shadow-sm mb-4 w-100" style="height: 300px; object-fit: cover;">
-                <h3 class="fw-bold mb-3">Kochi</h3>
-                <p class="text-secondary lh-lg fs-6 mb-4">Vibhu Travel Hub offers reliable <strong>cab service in Kochi and Cochin</strong>. Whether you need swift <strong>Cochin International Airport transfer</strong>, local <strong>cab booking kochi</strong>, outstation cab travel, or premium corporate travel options, our <strong>cochin cab rental</strong> services ensure complete safety and comfort.</p>
+                <img src="{% static 'images/destinations/cochin.jpg' %}" alt="{% if city_seo.kochi.image_alt_text %}{{ city_seo.kochi.image_alt_text }}{% else %}Kerala tour package cab from Kochi and cab service in Cochin{% endif %}" class="img-fluid rounded-4 shadow-sm mb-4 w-100" style="height: 300px; object-fit: cover;">
+                <h3 class="fw-bold mb-3">Kochi & Cochin Cab Services</h3>
+                {% if city_seo.kochi.seo_content %}
+                    <div class="text-secondary lh-lg fs-6 mb-3">{{ city_seo.kochi.seo_content|safe }}</div>
+                {% else %}
+                    <p class="text-secondary lh-lg fs-6 mb-3">Planning your God's Own Country vacation? Vibhu Travel Hub provides premier <strong>cab service in Kochi</strong> and <strong>cab service in Cochin</strong>. Book a <strong>Kerala tour package cab from Kochi</strong>, <strong>Kochi local sightseeing cab</strong>, <strong>Kochi airport cab booking</strong>, or <strong>Cochin airport taxi</strong> for <strong>Cochin airport group transfer</strong>. We offer spacious <strong>Tempo Traveller rental in Kochi</strong>, <strong>Force Urbania rental in Kochi</strong>, <strong>minibus rental in Kochi</strong>, and <strong>tourist bus rental in Kochi</strong> for <strong>Kochi wedding vehicle rental</strong> and <strong>Kochi group tour vehicle</strong>. Enjoy premium <strong>car rental with driver in Kochi</strong>, <strong>Kochi outstation cab service</strong>, <strong>Kochi corporate cab service</strong>, and <strong>Kochi one way taxi</strong> options.</p>
+                {% endif %}
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                    <span class="badge bg-light text-dark border px-3 py-2">cab service in Kochi</span>
+                    <span class="badge bg-light text-dark border px-3 py-2">Kerala tour package cab from Kochi</span>
+                    <span class="badge bg-light text-dark border px-3 py-2">Tempo Traveller rental in Kochi</span>
+                    <span class="badge bg-light text-dark border px-3 py-2">Cochin airport taxi</span>
+                </div>
+                <!-- Priority C Popular Routes from Kochi / Cochin -->
+                <div class="p-3 bg-white rounded-3 border mb-4">
+                    <h6 class="fw-bold mb-2 text-dark"><i class="bi bi-signpost-split text-danger me-2"></i>Popular Outstation Routes from Kochi / Cochin</h6>
+                    <div class="d-flex flex-wrap gap-2 small text-muted">
+                        <span>• Kochi to Munnar cab</span>
+                        <span>• Kochi to Wayanad cab</span>
+                        <span>• Cochin airport to Munnar taxi</span>
+                        <span>• Kochi to Alleppey cab</span>
+                        <span>• Kochi to Thekkady cab</span>
+                        <span>• Kochi to Munnar Tempo Traveller</span>
+                        <span>• Kochi to Alleppey Tempo Traveller</span>
+                        <span>• Kochi to Trivandrum cab</span>
+                        <span>• Kochi to Varkala cab</span>
+                        <span>• Kochi Munnar Thekkady Alleppey tour package</span>
+                    </div>
+                </div>
                 <button class="btn btn-outline-primary rounded-pill px-4 py-2" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Kerala" data-city="Kochi">
-                    Book Cab <i class="bi bi-arrow-right ms-2"></i>
+                    Book Kochi & Cochin Services <i class="bi bi-arrow-right ms-2"></i>
                 </button>
             </div>
         </div>
@@ -526,21 +558,33 @@ body {
         <div class="row g-5">
             <!-- Thrissur -->
             <div class="col-md-6" data-aos="fade-right">
-                <img src="{% static 'images/destinations/Thirissur.jpg' %}" alt="Cab service in Thrissur" class="img-fluid rounded-4 shadow-sm mb-4 w-100" style="height: 300px; object-fit: cover;">
-                <h3 class="fw-bold mb-3">Thrissur</h3>
-                <p class="text-secondary lh-lg fs-6 mb-4">Vibhu Travel Hub provides premium <strong>cab service thrissur</strong> for local travel, exciting outstation journeys, and group transportation. Enjoy our <strong>cabs in Thrissur</strong> and well-maintained <strong>tempo traveller Thrissur</strong> rentals for a memorable experience.</p>
+                <img src="{% static 'images/destinations/Thirissur.jpg' %}" alt="AC Tempo Traveller in Thrissur and bus rental in Thrissur" class="img-fluid rounded-4 shadow-sm mb-4 w-100" style="height: 300px; object-fit: cover;">
+                <h3 class="fw-bold mb-3">Thrissur Cab & Bus Rentals</h3>
+                <p class="text-secondary lh-lg fs-6 mb-3">Vibhu Travel Hub provides premium <strong>Innova rental in Thrissur</strong>, <strong>Ertiga rental in Thrissur</strong>, and <strong>14 seater Tempo Traveller in Thrissur</strong> for local temple visits and outstation tours. For group excursions, we offer comfortable <strong>AC Tempo Traveller in Thrissur</strong>, <strong>40 seater bus rental in Thrissur</strong>, and <strong>non AC bus rental in Thrissur</strong>.</p>
+                <div class="d-flex flex-wrap gap-2 mb-4">
+                    <span class="badge bg-light text-dark border px-3 py-2">Innova rental in Thrissur</span>
+                    <span class="badge bg-light text-dark border px-3 py-2">14 seater Tempo Traveller in Thrissur</span>
+                    <span class="badge bg-light text-dark border px-3 py-2">AC Tempo Traveller in Thrissur</span>
+                    <span class="badge bg-light text-dark border px-3 py-2">40 seater bus rental in Thrissur</span>
+                </div>
                 <button class="btn btn-outline-primary rounded-pill px-4 py-2" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Kerala" data-city="Thrissur">
-                    Book Cab <i class="bi bi-arrow-right ms-2"></i>
+                    Book Thrissur Rentals <i class="bi bi-arrow-right ms-2"></i>
                 </button>
             </div>
             
             <!-- Calicut -->
             <div class="col-md-6" data-aos="fade-left">
-                <img src="{% static 'images/destinations/calicut.jpg' %}" alt="Calicut cab service" class="img-fluid rounded-4 shadow-sm mb-4 w-100" style="height: 300px; object-fit: cover;">
-                <h3 class="fw-bold mb-3">Calicut</h3>
-                <p class="text-secondary lh-lg fs-6 mb-4">Vibhu Travel Hub provides premium <strong>cab service in kozhikode</strong>, including fast <strong>Calicut Airport cabs</strong>, outstation cab services, affordable <strong>tempo traveller Calicut</strong> rentals, and comfortable group transportation designed specifically for your travel requirements.</p>
+                <img src="{% static 'images/destinations/calicut.jpg' %}" alt="Ertiga rental in Calicut and 12 seater Tempo Traveller in Calicut" class="img-fluid rounded-4 shadow-sm mb-4 w-100" style="height: 300px; object-fit: cover;">
+                <h3 class="fw-bold mb-3">Calicut Vehicle & Coach Rentals</h3>
+                <p class="text-secondary lh-lg fs-6 mb-3">Traveling through Kozhikode? Book an <strong>Ertiga rental in Calicut</strong>, <strong>7 seater car rental in Calicut</strong>, or a <strong>12 seater Tempo Traveller in Calicut</strong> for smooth travel to Wayanad and airport pick-ups. We also offer <strong>20 seater bus rental in Calicut</strong>, <strong>AC bus rental in Calicut</strong>, and <strong>luxury coach rental in Calicut</strong>.</p>
+                <div class="d-flex flex-wrap gap-2 mb-4">
+                    <span class="badge bg-light text-dark border px-3 py-2">Ertiga rental in Calicut</span>
+                    <span class="badge bg-light text-dark border px-3 py-2">12 seater Tempo Traveller in Calicut</span>
+                    <span class="badge bg-light text-dark border px-3 py-2">20 seater bus rental in Calicut</span>
+                    <span class="badge bg-light text-dark border px-3 py-2">AC bus rental in Calicut</span>
+                </div>
                 <button class="btn btn-outline-primary rounded-pill px-4 py-2" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Kerala" data-city="Calicut">
-                    Book Cab <i class="bi bi-arrow-right ms-2"></i>
+                    Book Calicut Rentals <i class="bi bi-arrow-right ms-2"></i>
                 </button>
             </div>
         </div>

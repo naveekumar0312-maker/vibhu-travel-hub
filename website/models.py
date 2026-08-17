@@ -250,3 +250,70 @@ class NewsletterSubscriber(models.Model):
     def __str__(self):
         return f"{self.name} ({self.email})"
 
+
+class CitySEO(models.Model):
+    city_name = models.CharField(max_length=100, unique=True, help_text="e.g. Coimbatore, Madurai, Chennai, Bangalore, Kochi")
+    slug = models.SlugField(unique=True, max_length=100)
+    meta_title = models.CharField(max_length=255, blank=True)
+    meta_description = models.TextField(blank=True)
+    primary_keywords = models.TextField(blank=True, help_text="Priority A keywords (comma or newline separated)")
+    route_keywords = models.TextField(blank=True, help_text="Priority C route keywords (comma or newline separated)")
+    airport_keywords = models.TextField(blank=True, help_text="Airport keywords (comma or newline separated)")
+    corporate_keywords = models.TextField(blank=True, help_text="Corporate & B2B keywords (comma or newline separated)")
+    wedding_event_keywords = models.TextField(blank=True, help_text="Wedding & Event keywords (comma or newline separated)")
+    segment_keywords = models.TextField(blank=True, help_text="Tour Segment keywords like School/College/Family/Pilgrimage (comma or newline separated)")
+    seo_content = models.TextField(blank=True, help_text="Custom HTML/Text content block for city page")
+    image_alt_text = models.CharField(max_length=255, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ["city_name"]
+        verbose_name = "City SEO Content"
+        verbose_name_plural = "City SEO Content"
+
+    def __str__(self):
+        return f"City SEO - {self.city_name}"
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.city_name)
+        super().save(*args, **kwargs)
+
+    @property
+    def get_primary_keywords_list(self):
+        if not self.primary_keywords:
+            return []
+        return [k.strip() for k in self.primary_keywords.replace('\n', ',').split(',') if k.strip()]
+
+    @property
+    def get_route_keywords_list(self):
+        if not self.route_keywords:
+            return []
+        return [k.strip() for k in self.route_keywords.replace('\n', ',').split(',') if k.strip()]
+
+    @property
+    def get_airport_keywords_list(self):
+        if not self.airport_keywords:
+            return []
+        return [k.strip() for k in self.airport_keywords.replace('\n', ',').split(',') if k.strip()]
+
+    @property
+    def get_corporate_keywords_list(self):
+        if not self.corporate_keywords:
+            return []
+        return [k.strip() for k in self.corporate_keywords.replace('\n', ',').split(',') if k.strip()]
+
+    @property
+    def get_wedding_keywords_list(self):
+        if not self.wedding_event_keywords:
+            return []
+        return [k.strip() for k in self.wedding_event_keywords.replace('\n', ',').split(',') if k.strip()]
+
+    @property
+    def get_segment_keywords_list(self):
+        if not self.segment_keywords:
+            return []
+        return [k.strip() for k in self.segment_keywords.replace('\n', ',').split(',') if k.strip()]
+
+

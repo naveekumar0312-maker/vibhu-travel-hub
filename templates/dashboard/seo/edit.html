@@ -1,0 +1,78 @@
+{% extends 'dashboard/base_dashboard.html' %}
+
+{% block title %}Edit City SEO - {{ city_seo.city_name }}{% endblock %}
+{% block page_title %}Edit SEO - {{ city_seo.city_name }}{% endblock %}
+
+{% block content %}
+<div class="glass-card anim-card p-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h5 class="text-dark fw-bold mb-0">SEO Settings for {{ city_seo.city_name }}</h5>
+        <a href="{% url 'dashboard_seo' %}" class="btn btn-sm btn-outline-secondary"><i class="bi bi-arrow-left"></i> Back to List</a>
+    </div>
+
+    <form method="POST" action="{% url 'seo_edit' city_seo.id %}">
+        {% csrf_token %}
+        <div class="row g-3">
+            <div class="col-md-6">
+                <label class="form-label fw-semibold text-dark">SEO Meta Title</label>
+                <input type="text" name="meta_title" value="{{ city_seo.meta_title }}" class="form-control anim-input glass-input text-dark" required>
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label fw-semibold text-dark">Image ALT Text</label>
+                <input type="text" name="image_alt_text" value="{{ city_seo.image_alt_text }}" class="form-control anim-input glass-input text-dark">
+            </div>
+
+            <div class="col-12">
+                <label class="form-label fw-semibold text-dark">Meta Description</label>
+                <textarea name="meta_description" rows="3" class="form-control anim-input glass-input text-dark">{{ city_seo.meta_description }}</textarea>
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label fw-semibold text-dark">Primary Cab & Taxi Keywords</label>
+                <div class="form-text small text-muted mb-1">Enter primary cab & taxi keywords (separated by line breaks or commas)</div>
+                <textarea name="primary_keywords" rows="6" class="form-control anim-input glass-input text-dark">{{ city_seo.primary_keywords }}</textarea>
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label fw-semibold text-dark">Secondary Route Keywords (Priority C)</label>
+                <div class="form-text small text-muted mb-1">Enter Priority C outstation routes (separated by line breaks or commas)</div>
+                <textarea name="route_keywords" rows="6" class="form-control anim-input glass-input text-dark">{{ city_seo.route_keywords }}</textarea>
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label fw-semibold text-dark">Airport Transfer Keywords</label>
+                <div class="form-text small text-muted mb-1">Enter airport pickup/drop, transfer, and hotel taxi keywords</div>
+                <textarea name="airport_keywords" rows="5" class="form-control anim-input glass-input text-dark">{{ city_seo.airport_keywords }}</textarea>
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label fw-semibold text-dark">Corporate & B2B Keywords</label>
+                <div class="form-text small text-muted mb-1">Enter corporate cab, employee transport, B2B supplier keywords</div>
+                <textarea name="corporate_keywords" rows="5" class="form-control anim-input glass-input text-dark">{{ city_seo.corporate_keywords }}</textarea>
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label fw-semibold text-dark">Wedding & Event Keywords</label>
+                <div class="form-text small text-muted mb-1">Enter wedding car/bus, event transport keywords</div>
+                <textarea name="wedding_event_keywords" rows="5" class="form-control anim-input glass-input text-dark">{{ city_seo.wedding_event_keywords }}</textarea>
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label fw-semibold text-dark">Tour Segment Keywords</label>
+                <div class="form-text small text-muted mb-1">Enter school/college tour, family tour, pilgrimage keywords</div>
+                <textarea name="segment_keywords" rows="5" class="form-control anim-input glass-input text-dark">{{ city_seo.segment_keywords }}</textarea>
+            </div>
+
+            <div class="col-12">
+                <label class="form-label fw-semibold text-dark">SEO Overview Content Block</label>
+                <textarea name="seo_content" rows="4" class="form-control anim-input glass-input text-dark">{{ city_seo.seo_content }}</textarea>
+            </div>
+
+            <div class="col-12 mt-4 text-end">
+                <button type="submit" class="btn btn-danger px-4 py-2 fw-semibold"><i class="bi bi-check-lg me-1"></i> Save Changes</button>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

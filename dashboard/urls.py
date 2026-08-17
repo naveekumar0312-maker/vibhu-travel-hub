@@ -5,6 +5,7 @@ from .views.enquiry_views import enquiry_list, enquiry_delete
 from .views.fleet_views import fleet_list, fleet_create, fleet_edit, fleet_delete
 from .views.subscriber_views import subscriber_list, subscriber_detail, subscriber_toggle, subscriber_delete
 from .views.user_views import user_list
+from .views.seo_views import seo_list, seo_edit
 
 urlpatterns = [
     # Auth
@@ -23,6 +24,10 @@ urlpatterns = [
     path('dashboard/fleet/add/', fleet_create, name='fleet_create'),
     path('dashboard/fleet/<int:vehicle_id>/edit/', fleet_edit, name='fleet_edit'),
     path('dashboard/fleet/<int:vehicle_id>/delete/', fleet_delete, name='fleet_delete'),
+    
+    # City SEO
+    path('dashboard/seo/', seo_list, name='dashboard_seo'),
+    path('dashboard/seo/<int:city_id>/edit/', seo_edit, name='seo_edit'),
     
     # Subscribers
     path('dashboard/subscribers/', subscriber_list, name='dashboard_subscribers'),

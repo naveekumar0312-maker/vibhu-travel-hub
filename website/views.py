@@ -61,28 +61,34 @@ Trip Details:
     return redirect("home")
 
 def local_taxi_service(request):
-    return render(request, "services/local_taxi_service.html")
+    vehicles = Vehicle.objects.filter(is_active=True).order_by('display_order')
+    return render(request, "services/local_taxi_service.html", {'vehicles': vehicles})
 
 
 def bus_booking(request):
-    return render(request, "services/bus_booking.html")
+    vehicles = Vehicle.objects.filter(is_active=True).order_by('display_order')
+    return render(request, "services/bus_booking.html", {'vehicles': vehicles})
 
 
 def tempo_traveller(request):
-    return render(request, "services/tempo_traveller.html")
+    vehicles = Vehicle.objects.filter(is_active=True).order_by('display_order')
+    return render(request, "services/tempo_traveller.html", {'vehicles': vehicles})
 
 
 def outstation_tours(request):
     routes = OutstationRoute.objects.filter(is_active=True).order_by('display_order')
-    return render(request, "services/outstation_tours.html", {"routes": routes})
+    vehicles = Vehicle.objects.filter(is_active=True).order_by('display_order')
+    return render(request, "services/outstation_tours.html", {"routes": routes, "vehicles": vehicles})
 
 
 def pilgrimage_trips(request):
-    return render(request, "services/pilgrimage_trips.html")
+    vehicles = Vehicle.objects.filter(is_active=True).order_by('display_order')
+    return render(request, "services/pilgrimage_trips.html", {'vehicles': vehicles})
 
 
 def corporate_travel(request):
-    return render(request, "services/corporate_travel.html")
+    vehicles = Vehicle.objects.filter(is_active=True).order_by('display_order')
+    return render(request, "services/corporate_travel.html", {'vehicles': vehicles})
 
 
 
@@ -171,14 +177,37 @@ def api_submit_enquiry(request):
             
     return JsonResponse({'status': 'error', 'message': 'Invalid request method.'}, status=405)
 
+from .models import Enquiry, Vehicle, OutstationRoute, NewsletterSubscriber, CitySEO
+
+
+def get_city_seo_dict():
+    """Helper to return dict of CitySEO by slug"""
+    return {c.slug: c for c in CitySEO.objects.all()}
+
+
 def tamil_nadu_view(request):
-    return render(request, 'destinations/tamilnadu.html')
+    vehicles = Vehicle.objects.filter(is_active=True).order_by('display_order')
+    city_seo = get_city_seo_dict()
+    return render(request, 'destinations/tamilnadu.html', {
+        'vehicles': vehicles,
+        'city_seo': city_seo
+    })
 
 def kerala_view(request):
-    return render(request, 'destinations/kerala.html')
+    vehicles = Vehicle.objects.filter(is_active=True).order_by('display_order')
+    city_seo = get_city_seo_dict()
+    return render(request, 'destinations/kerala.html', {
+        'vehicles': vehicles,
+        'city_seo': city_seo
+    })
 
 def karnataka_view(request):
-    return render(request, 'destinations/karnataka.html')
+    vehicles = Vehicle.objects.filter(is_active=True).order_by('display_order')
+    city_seo = get_city_seo_dict()
+    return render(request, 'destinations/karnataka.html', {
+        'vehicles': vehicles,
+        'city_seo': city_seo
+    })
 
 def newsletter_subscribe(request):
     if request.method == "POST":

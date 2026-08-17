@@ -75,6 +75,12 @@
                 </div>
             </li>
 
+            <li class="nav-item">
+                <a href="{% url 'dashboard_seo' %}" class="nav-link {% if 'dashboard_seo' in request.resolver_match.url_name or 'seo_edit' in request.resolver_match.url_name %}active{% endif %}">
+                    <i class="bi bi-search-heart"></i> City SEO Manager
+                </a>
+            </li>
+
             <li class="nav-section-title mt-4 px-3 text-muted small fw-bold text-uppercase">System</li>
             
             <li class="nav-item">
