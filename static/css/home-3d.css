@@ -1,0 +1,1295 @@
+/* ==========================================================================
+   VIBHU TRAVEL HUB - HOME PAGE LIGHT PREMIUM THEME & 3D MOTION ENGINE
+   Matching Reference Design: "WhatsApp Image 2026-08-19 at 10.29.52 AM.jpeg"
+   ========================================================================== */
+
+:root {
+    --vth-red: #E31E24;
+    --vth-red-hover: #C41432;
+    --vth-dark: #0F172A;
+    --vth-muted: #64748B;
+    --vth-light-bg: #F8FAFC;
+    --vth-border: #E2E8F0;
+    --vth-card-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+    --vth-hover-shadow: 0 20px 40px rgba(15, 23, 42, 0.1);
+    --vth-radius-lg: 24px;
+    --vth-radius-md: 18px;
+    --vth-radius-sm: 12px;
+}
+
+/* Base Body Light Theme */
+body.home-page {
+    background-color: #FFFFFF;
+    color: var(--vth-dark);
+    font-family: 'Poppins', 'Inter', -apple-system, sans-serif;
+    overflow-x: hidden;
+}
+
+/* Section Spacing & Titles */
+.vth-section {
+    padding: 80px 0;
+    position: relative;
+}
+
+.vth-section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.vth-eyebrow {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: var(--vth-red);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    display: inline-block;
+}
+
+.vth-eyebrow-script {
+    font-family: 'Caveat', 'Brush Script MT', cursive;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--vth-red);
+    text-transform: none;
+    letter-spacing: 0;
+    margin-bottom: 4px;
+}
+
+.vth-section-header h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--vth-dark);
+    letter-spacing: -0.8px;
+    margin-bottom: 12px;
+}
+
+.vth-section-header p {
+    color: var(--vth-muted);
+    font-size: 1.05rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* --------------------------------------------------------------------------
+   TOPBAR & NAVBAR OVERRIDES
+   -------------------------------------------------------------------------- */
+.vth-topbar {
+    background-color: transparent !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    font-size: 0.85rem;
+}
+
+.topbar-link {
+    color: var(--vth-dark);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.topbar-link:hover {
+    color: var(--vth-red);
+}
+
+.topbar-socials a {
+    color: var(--vth-muted);
+    font-size: 0.95rem;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.topbar-socials a:hover {
+    color: var(--vth-red);
+    transform: translateY(-2px);
+}
+
+.vth-navbar {
+    padding: 12px 0;
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+.vth-nav-link {
+    font-weight: 600;
+    color: var(--vth-dark);
+    padding: 8px 16px;
+    position: relative;
+    transition: color 0.25s ease;
+}
+
+.vth-nav-link:hover,
+.vth-nav-link:focus,
+.vth-nav-link.active,
+.vth-nav-link.show {
+    color: var(--vth-red) !important;
+}
+
+.vth-nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background-color: var(--vth-red);
+    border-radius: 2px;
+    transition: width 0.25s ease;
+}
+
+.vth-nav-link.active::after,
+.vth-nav-link:hover::after,
+.vth-nav-link:focus::after,
+.vth-nav-link.show::after {
+    width: 24px;
+}
+
+.btn-call-now:hover {
+    background-color: var(--vth-light-bg);
+    border-color: var(--vth-dark) !important;
+}
+
+.btn-book-now:hover {
+    background-color: var(--vth-red-hover) !important;
+}
+
+/* --------------------------------------------------------------------------
+   SECTION 3: HERO SECTION (FULL-BLEED HERO MAP VISUAL BACKDROP)
+   -------------------------------------------------------------------------- */
+.hero-ref-section {
+    position: relative;
+    width: 100%;
+    min-height: 700px;
+    height: 700px;
+    padding-top: 140px; /* Clearance for fixed header logo & links placement */
+    padding-bottom: 40px;
+    background-color: #FFFFFF;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+/* Layer 1: South India Map Backdrop (STAYS FIXED - NO FADE/ZOOM/TRANSFORM ANIMATION) */
+.hero-map-backdrop {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 65%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center right;
+    background-size: cover;
+    z-index: 1;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    animation: none !important;
+    pointer-events: none;
+}
+
+/* Layer 2: White-to-Transparent Gradient Overlay Protecting Left Text Area */
+.hero-gradient-overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        #ffffff 0%,
+        #ffffff 28%,
+        rgba(255, 255, 255, 0.96) 40%,
+        rgba(255, 255, 255, 0.65) 52%,
+        rgba(255, 255, 255, 0) 68%
+    );
+    z-index: 2;
+    pointer-events: none;
+}
+
+.hero-ref-title {
+    font-size: 3.4rem;
+    font-weight: 900;
+    color: var(--vth-dark);
+    line-height: 1.12;
+    letter-spacing: -1.5px;
+    margin-bottom: 18px;
+}
+
+.hero-ref-subtitle {
+    font-size: 1.05rem;
+    color: var(--vth-muted);
+    line-height: 1.6;
+    max-width: 520px;
+    margin-bottom: 28px;
+}
+
+.btn-hero-red {
+    background-color: var(--vth-red);
+    color: #FFFFFF;
+    border-radius: 50px;
+    padding: 14px 32px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    box-shadow: 0 8px 20px rgba(227, 30, 36, 0.28);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-hero-red:hover {
+    background-color: var(--vth-red-hover);
+    color: #FFFFFF;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(227, 30, 36, 0.38);
+}
+
+.btn-hero-outline {
+    background-color: #FFFFFF;
+    color: var(--vth-dark);
+    border: 1.5px solid var(--vth-border);
+    border-radius: 50px;
+    padding: 14px 28px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-hero-outline:hover {
+    background-color: #F8FAFC;
+    color: var(--vth-red);
+    border-color: var(--vth-red);
+    transform: translateY(-2px);
+}
+
+/* Sub-Hero Benefits Cards Row */
+.sub-hero-benefits {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 32px;
+}
+
+.sub-benefit-card {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    border-radius: 16px;
+    padding: 12px 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 6px 20px rgba(15, 23, 42, 0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sub-benefit-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+}
+
+.sub-benefit-icon {
+    width: 38px;
+    height: 38px;
+    background: rgba(227, 30, 36, 0.08);
+    color: var(--vth-red);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.sub-benefit-text {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--vth-dark);
+    line-height: 1.25;
+}
+
+/* --------------------------------------------------------------------------
+   HERO FOREGROUND PAGE-LOAD REVEAL ANIMATIONS
+   -------------------------------------------------------------------------- */
+
+/* Base Stacking Context & Fallback (Ensures content is ALWAYS 100% visible if JS is disabled) */
+.hero-ref-section .container {
+    position: relative;
+    z-index: 10;
+}
+
+.hero-eyebrow,
+.hero-title,
+.hero-description,
+.hero-actions,
+.hero-btn-primary,
+.hero-btn-secondary,
+.hero-features,
+.sub-benefit-card {
+    position: relative;
+    z-index: 11;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Master Pure CSS Keyframe */
+@keyframes heroContentReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Initial Hidden State once Animation Script Initializes */
+.vth-hero-active .hero-eyebrow,
+.vth-hero-active .hero-title,
+.vth-hero-active .hero-description,
+.vth-hero-active .hero-btn-primary,
+.vth-hero-active .hero-btn-secondary,
+.vth-hero-active .sub-benefit-card {
+    opacity: 0;
+    transform: translateY(20px);
+    will-change: opacity, transform;
+}
+
+/* Active Staggered Animations (Triggers Smoothly on Initial Open & Refresh) */
+.vth-hero-active .hero-eyebrow {
+    animation: heroContentReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.05s forwards;
+}
+
+.vth-hero-active .hero-title {
+    animation: heroContentReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards;
+}
+
+.vth-hero-active .hero-description {
+    animation: heroContentReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.25s forwards;
+}
+
+.vth-hero-active .hero-btn-primary {
+    animation: heroContentReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.35s forwards;
+}
+
+.vth-hero-active .hero-btn-secondary {
+    animation: heroContentReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.40s forwards;
+}
+
+.vth-hero-active .sub-hero-benefits .sub-benefit-card:nth-child(1) {
+    animation: heroContentReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.48s forwards;
+}
+
+.vth-hero-active .sub-hero-benefits .sub-benefit-card:nth-child(2) {
+    animation: heroContentReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.54s forwards;
+}
+
+.vth-hero-active .sub-hero-benefits .sub-benefit-card:nth-child(3) {
+    animation: heroContentReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.60s forwards;
+}
+
+.vth-hero-active .sub-hero-benefits .sub-benefit-card:nth-child(4) {
+    animation: heroContentReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.66s forwards;
+}
+
+/* Mobile Overrides (<= 768px) */
+@media (max-width: 768px) {
+    @keyframes heroContentReveal {
+        0% {
+            opacity: 0;
+            transform: translateY(14px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+/* Accessibility: Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+    .hero-eyebrow,
+    .hero-title,
+    .hero-description,
+    .hero-btn-primary,
+    .hero-btn-secondary,
+    .sub-benefit-card {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+    }
+}
+
+/* Responsive Overrides for Hero Section */
+@media (min-width: 768px) and (max-width: 991px) {
+    .hero-ref-section {
+        min-height: 580px;
+        height: 580px;
+        padding-top: 110px;
+        padding-bottom: 30px;
+    }
+
+    .hero-map-backdrop {
+        top: 0;
+        width: 65%;
+        height: 100%;
+        background-position: center right;
+    }
+
+    .hero-gradient-overlay {
+        width: 65%;
+        background: linear-gradient(
+            90deg,
+            #FFFFFF 0%,
+            #FFFFFF 45%,
+            rgba(255, 255, 255, 0.85) 75%,
+            rgba(255, 255, 255, 0) 100%
+        );
+    }
+
+    .hero-ref-title {
+        font-size: 2.5rem;
+    }
+
+    .sub-hero-benefits {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-ref-section {
+        position: relative;
+        min-height: auto;
+        height: auto;
+        padding: 0 0 36px 0;
+        background-color: #FFFFFF;
+        overflow: hidden;
+        display: block;
+    }
+
+    /* Mobile Hero Map Backdrop: Large, Dominant Full-Width Atmospheric Visual */
+    .hero-map-backdrop {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 380px; /* Dominant, large atmospheric visual height */
+        background-repeat: no-repeat;
+        background-position: center 25%;
+        background-size: cover;
+        z-index: 1;
+        pointer-events: none;
+        /* Soft cloud mask fade around top/bottom edges */
+        -webkit-mask-image: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.95) 0%,
+            rgba(0, 0, 0, 1) 40%,
+            rgba(0, 0, 0, 0.8) 70%,
+            rgba(0, 0, 0, 0) 100%
+        );
+        mask-image: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.95) 0%,
+            rgba(0, 0, 0, 1) 40%,
+            rgba(0, 0, 0, 0.8) 70%,
+            rgba(0, 0, 0, 0) 100%
+        );
+    }
+
+    /* Soft White Cloud Gradient Overlay across map visual transition */
+    .hero-gradient-overlay {
+        display: block;
+        position: absolute;
+        top: 160px;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 220px;
+        background: linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.5) 40%,
+            rgba(255, 255, 255, 0.92) 80%,
+            #FFFFFF 100%
+        );
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    /* Mobile Hero Content: Natural seamless flow over white backdrop (NO Card / Border-Radius / Box Shadow) */
+    .hero-ref-section .container {
+        position: relative;
+        z-index: 5;
+        padding-top: 260px; /* Allows large map visual to showcase at top */
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .hero-ref-section .col-lg-6 {
+        background: transparent;
+        border-radius: 0;
+        padding: 0;
+        box-shadow: none;
+    }
+
+    .vth-eyebrow-script {
+        font-size: 1.5rem;
+        margin-bottom: 6px;
+    }
+
+    .hero-ref-title {
+        font-size: 2.2rem;
+        line-height: 1.15;
+        letter-spacing: -0.5px;
+        margin-bottom: 14px;
+        color: var(--vth-dark);
+    }
+
+    .hero-ref-subtitle {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: var(--vth-muted);
+        margin-bottom: 22px;
+        max-width: 100%;
+    }
+
+    .btn-hero-red,
+    .btn-hero-outline {
+        padding: 13px 26px;
+        font-size: 0.92rem;
+    }
+
+    .sub-hero-benefits {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        margin-top: 28px;
+    }
+
+    .sub-benefit-card {
+        background: rgba(255, 255, 255, 0.96);
+        border: 1px solid rgba(226, 232, 240, 0.9);
+        padding: 10px;
+        border-radius: 14px;
+        gap: 10px;
+        box-shadow: 0 4px 15px rgba(15, 23, 42, 0.03);
+    }
+
+    .sub-benefit-icon {
+        width: 34px;
+        height: 34px;
+        font-size: 1rem;
+        border-radius: 10px;
+    }
+
+    .sub-benefit-text {
+        font-size: 0.74rem;
+        line-height: 1.25;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   SECTION 4 & 5: TRUST / SERVICE HIGHLIGHTS STRIP
+   -------------------------------------------------------------------------- */
+.trust-strip-container {
+    background: #FFFFFF;
+    border: 1px solid var(--vth-border);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+}
+
+.trust-strip-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+}
+
+.trust-strip-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px;
+}
+
+.trust-strip-icon {
+    width: 42px;
+    height: 42px;
+    background: rgba(227, 30, 36, 0.08);
+    color: var(--vth-red);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.trust-strip-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--vth-dark);
+    line-height: 1.2;
+    margin-bottom: 2px;
+}
+
+.trust-strip-desc {
+    font-size: 0.76rem;
+    color: var(--vth-muted);
+    line-height: 1.3;
+}
+
+/* --------------------------------------------------------------------------
+   SECTION 6: TOP DESTINATIONS CARDS
+   -------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------
+   SECTION 6: TOP DESTINATIONS CARDS (EXACT REFERENCE MATCH)
+   -------------------------------------------------------------------------- */
+.dest-view-all-pill {
+    background-color: #FFFFFF;
+    color: #1E293B;
+    border: 1px solid #E2E8F0;
+    padding: 9px 20px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.dest-view-all-pill:hover {
+    background-color: #F8FAFC;
+    color: #E31E24;
+    border-color: #CBD5E1;
+}
+
+.dest-arrow-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    color: #334155;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.dest-arrow-btn:hover {
+    background-color: #F1F5F9;
+    border-color: #CBD5E1;
+    color: #E31E24;
+}
+
+.dest-card-ref {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 370px;
+    border-radius: 20px;
+    overflow: hidden;
+    text-decoration: none;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dest-card-ref:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.16);
+}
+
+.dest-card-img-wrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: block;
+    background-color: #0F172A;
+}
+
+.dest-card-img-wrap img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block !important;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1;
+}
+
+.dest-card-ref:hover .dest-card-img-wrap img {
+    transform: scale(1.06);
+}
+
+.dest-card-overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.92) 0%,
+        rgba(0, 0, 0, 0.65) 40%,
+        rgba(0, 0, 0, 0.15) 75%,
+        rgba(0, 0, 0, 0) 100%
+    );
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    z-index: 2;
+}
+
+.dest-card-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-bottom: 4px;
+    line-height: 1.15;
+    letter-spacing: -0.3px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.dest-card-sub {
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.88);
+    font-weight: 500;
+    margin-bottom: 12px;
+    line-height: 1.35;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.btn-explore-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: gap 0.25s ease;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.dest-card-ref:hover .btn-explore-link {
+    gap: 10px;
+    color: #FFFFFF;
+}
+
+/* --------------------------------------------------------------------------
+   SECTION 7: PREMIUM FULL-WIDTH FLEET 360° SHOWCASE EXPERIENCE
+   -------------------------------------------------------------------------- */
+.vth-section-dark {
+    background: #0B0F19 !important;
+    background: radial-gradient(circle at 50% 30%, rgba(227, 30, 36, 0.14) 0%, rgba(15, 23, 42, 0.96) 65%, #0B0F19 100%) !important;
+    color: #FFFFFF;
+    position: relative;
+    overflow: hidden;
+}
+
+.fleet-fullwidth-container {
+    max-width: 1560px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Vehicle Tabs Selector */
+.fleet-tabs-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+}
+
+.fleet-tab-btn {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #CBD5E1;
+    font-size: 0.92rem;
+    font-weight: 600;
+    padding: 10px 22px;
+    border-radius: 50px;
+    cursor: pointer;
+    backdrop-filter: blur(12px);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fleet-tab-btn:hover {
+    background: rgba(255, 255, 255, 0.14);
+    color: #FFFFFF;
+    border-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+}
+
+.fleet-tab-btn.active {
+    background: linear-gradient(135deg, #E31E24 0%, #B91C1C 100%);
+    border-color: #E31E24;
+    color: #FFFFFF;
+    box-shadow: 0 8px 24px rgba(227, 30, 36, 0.45);
+    transform: translateY(-2px);
+}
+
+/* Hero 360° Stage (80-90% Width Showcase) */
+.fleet-hero-stage-wrapper {
+    width: 88%;
+    max-width: 1320px;
+    margin: 0 auto;
+    position: relative;
+    background: radial-gradient(ellipse at 50% 55%, rgba(255, 255, 255, 0.04) 0%, rgba(15, 23, 42, 0.5) 60%, rgba(11, 15, 25, 0) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 32px;
+    padding: 45px 25px 25px 25px;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(16px);
+}
+
+.fleet-hero-stage {
+    position: relative;
+    min-height: 440px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+#fleet-hero-360-canvas {
+    max-height: 520px;
+    width: 100%;
+    object-fit: contain;
+    cursor: grab;
+    filter: drop-shadow(0 25px 40px rgba(0, 0, 0, 0.7));
+}
+
+#fleet-hero-360-canvas:active {
+    cursor: grabbing;
+}
+
+.fleet-hero-main-img {
+    max-height: 520px;
+    width: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 25px 40px rgba(0, 0, 0, 0.7));
+}
+
+/* Ground Podium Shadow & Spotlight Glow */
+.fleet-hero-shadow-platform {
+    position: relative;
+    width: 75%;
+    max-width: 720px;
+    height: 56px;
+    margin: -35px auto 0 auto;
+    z-index: 1;
+}
+
+.fleet-hero-ellipse-shadow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0) 80%);
+    border-radius: 50%;
+    filter: blur(8px);
+}
+
+.fleet-hero-red-glow {
+    position: absolute;
+    inset: -12px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at center, rgba(227, 30, 36, 0.35) 0%, rgba(227, 30, 36, 0.08) 55%, rgba(227, 30, 36, 0) 80%);
+    animation: fleetRedPulse 2.4s ease-in-out infinite;
+    pointer-events: none;
+}
+
+/* 360 Interactive Badge */
+.fleet-360-hero-badge {
+    position: absolute;
+    top: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(15, 23, 42, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #FFFFFF;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 6px 20px;
+    border-radius: 50px;
+    backdrop-filter: blur(12px);
+    z-index: 10;
+    pointer-events: none;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* Hero Stage Arrows */
+.fleet-hero-nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    cursor: pointer;
+    z-index: 10;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fleet-hero-nav-prev {
+    left: -26px;
+}
+
+.fleet-hero-nav-next {
+    right: -26px;
+}
+
+.fleet-hero-nav-arrow:hover {
+    background: #E31E24;
+    border-color: #E31E24;
+    color: #FFFFFF;
+    box-shadow: 0 0 25px rgba(227, 30, 36, 0.6);
+    transform: translateY(-50%) scale(1.08);
+}
+
+/* Vehicle Details Section below Stage */
+.fleet-hero-details-container {
+    max-width: 1100px;
+    margin: 32px auto 0 auto;
+    padding: 0 10px;
+}
+
+.fleet-hero-title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    letter-spacing: -0.5px;
+}
+
+.fleet-hero-category {
+    color: #94A3B8;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.fleet-spec-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.fleet-spec-pill {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 8px 16px;
+    color: #E2E8F0;
+    font-size: 0.88rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    backdrop-filter: blur(8px);
+}
+
+.fleet-spec-pill i {
+    color: #E31E24;
+}
+
+/* Mobile Responsive Specs */
+@media (max-width: 991px) {
+    .fleet-hero-stage-wrapper {
+        width: 94%;
+        padding: 35px 15px 20px 15px;
+    }
+    .fleet-hero-stage {
+        min-height: 360px;
+    }
+    #fleet-hero-360-canvas,
+    .fleet-hero-main-img {
+        max-height: 380px;
+    }
+    .fleet-hero-nav-prev {
+        left: 5px;
+    }
+    .fleet-hero-nav-next {
+        right: 5px;
+    }
+}
+
+@media (max-width: 768px) {
+    .fleet-hero-stage-wrapper {
+        width: 95%;
+        border-radius: 20px;
+        padding: 30px 10px 15px 10px;
+    }
+    .fleet-hero-stage {
+        min-height: 280px;
+    }
+    #fleet-hero-360-canvas,
+    .fleet-hero-main-img {
+        max-height: 300px;
+    }
+    .fleet-hero-title {
+        font-size: 1.55rem;
+    }
+    .fleet-tabs-wrapper {
+        gap: 8px;
+    }
+    .fleet-tab-btn {
+        padding: 8px 16px;
+        font-size: 0.84rem;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   SECTION 8: POPULAR TOURIST PLACES
+   -------------------------------------------------------------------------- */
+.place-card-ref {
+    background: #FFFFFF;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--vth-border);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+}
+
+.place-card-ref:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+}
+
+.place-card-img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+}
+
+.place-card-body {
+    padding: 14px;
+}
+
+.place-name {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--vth-dark);
+    margin-bottom: 2px;
+}
+
+.place-state {
+    font-size: 0.8rem;
+    color: var(--vth-muted);
+}
+
+/* --------------------------------------------------------------------------
+   SECTION 9: WHY CHOOSE VIBHU TRAVEL HUB (ORBIT GRAPHIC)
+   -------------------------------------------------------------------------- */
+.why-orbit-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 280px;
+}
+
+.why-orbit-ring {
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    border: 2px dashed rgba(227, 30, 36, 0.3);
+    border-radius: 50%;
+    animation: orbitRotate 35s linear infinite;
+}
+
+@keyframes orbitRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.why-orbit-center {
+    width: 110px;
+    height: 110px;
+    background: #FFFFFF;
+    border-radius: 50%;
+    box-shadow: 0 10px 30px rgba(227, 30, 36, 0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    border: 3px solid rgba(227, 30, 36, 0.2);
+}
+
+.why-orbit-center img {
+    height: 54px;
+    width: auto;
+}
+
+.why-point-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 30px;
+}
+
+.why-point-icon {
+    width: 44px;
+    height: 44px;
+    background: rgba(227, 30, 36, 0.08);
+    color: var(--vth-red);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+}
+
+.why-point-title {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--vth-dark);
+    margin-bottom: 2px;
+}
+
+.why-point-desc {
+    font-size: 0.85rem;
+    color: var(--vth-muted);
+    line-height: 1.4;
+}
+
+/* --------------------------------------------------------------------------
+   SECTION 10: BOOK YOUR TRIP FORM STRIP
+   -------------------------------------------------------------------------- */
+.book-strip-card {
+    background: #FFFFFF;
+    border: 1px solid var(--vth-border);
+    border-radius: 20px;
+    padding: 30px 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.book-strip-input {
+    background: var(--vth-light-bg);
+    border: 1px solid var(--vth-border);
+    border-radius: 12px;
+    padding: 12px 16px;
+    font-size: 0.9rem;
+    color: var(--vth-dark);
+    font-weight: 500;
+    outline: none;
+    width: 100%;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.book-strip-input:focus {
+    border-color: var(--vth-red);
+    background: #FFFFFF;
+    box-shadow: 0 0 0 3px rgba(227, 30, 36, 0.12);
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE OVERRIDES
+   -------------------------------------------------------------------------- */
+@media (max-width: 991px) {
+    .hero-ref-title { font-size: 2.7rem; }
+    .trust-strip-grid { grid-template-columns: repeat(3, 1fr); }
+    .sub-hero-benefits { grid-template-columns: repeat(2, 1fr); }
+    .fleet-showcase-container { padding: 24px; }
+}
+
+@media (max-width: 768px) {
+    .hero-ref-title { font-size: 2.1rem; }
+    .trust-strip-grid { grid-template-columns: repeat(2, 1fr); }
+    .sub-hero-benefits { grid-template-columns: 1fr 1fr; gap: 8px; }
+    .sub-benefit-card { padding: 10px 8px; }
+    .sub-benefit-icon { width: 30px; height: 30px; font-size: 0.9rem; }
+    .sub-benefit-text { font-size: 0.72rem; }
+    .book-strip-card { padding: 20px; }
+    .why-orbit-container { display: none; }
+}
+
+@media (max-width: 480px) {
+    .trust-strip-grid { grid-template-columns: 1fr; }
+    .sub-hero-benefits { grid-template-columns: 1fr; }
+}
+
+/* --------------------------------------------------------------------------
+   REFERENCE FLEET SHOWCASE STYLING
+   -------------------------------------------------------------------------- */
+.fleet-ref-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    color: #1E293B;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.fleet-ref-prev {
+    left: 0;
+}
+
+.fleet-ref-next {
+    right: 0;
+}
+
+.fleet-ref-arrow:hover {
+    background: #E31E24;
+    color: #FFFFFF;
+    border-color: #E31E24;
+    transform: translateY(-50%) scale(1.08);
+}
+
+.fleet-ref-img {
+    max-height: 320px;
+    width: auto;
+    object-fit: contain;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.12));
+}
+
+.fleet-ref-podium-shadow {
+    width: 80%;
+    height: 18px;
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.14) 0%, rgba(0, 0, 0, 0) 75%);
+    border-radius: 50%;
+}
+

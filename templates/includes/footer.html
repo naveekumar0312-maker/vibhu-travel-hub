@@ -1,192 +1,99 @@
 {% load static %}
 
-<footer class="premium-footer" aria-label="Site Footer">
-    <!-- Dark Forest Background Overlay -->
-    <div class="footer-bg-overlay"></div>
-
-    <!-- NEWSLETTER SECTION -->
-    <div class="footer-newsletter footer-reveal-item">
-        <h2 class="newsletter-title">Get the Latest News</h2>
-        <form id="newsletter-form" class="newsletter-form">
-            {% csrf_token %}
-            <input type="text" id="newsletter-name" placeholder="Full Name *" class="newsletter-input" minlength="2" required>
-            <input type="email" id="newsletter-email" placeholder="Email Address *" class="newsletter-input" required>
-            <button type="submit" class="newsletter-submit" aria-label="Subscribe">
-                <i class="bi bi-send-fill"></i>
-            </button>
-        </form>
-        <div id="newsletter-message" class="newsletter-inline-msg" style="display: none;"></div>
-    </div>
-
-    <!-- MAIN FOOTER CONTAINER (3 COLUMNS) -->
-    <section class="sf-container">
-        
-        <!-- 1. COMPANY INFO -->
-        <div class="sf-col sf-logo-col footer-reveal-item delay-1">
-            <div class="sf-company-title">
-                <img src="{% static 'images/logo/logo.webp' %}" alt="Vibhu Travel Hub Logo" loading="lazy" class="sf-logo"> 
-                <span>Vibhu Travel Hub</span>
+<footer class="vth-light-footer bg-white border-top py-5 text-dark" aria-label="Site Footer">
+    <div class="container">
+        <div class="row g-4 justify-content-between pb-4">
+            
+            <!-- Column 1: Brand Info (LEFT -> CENTER) -->
+            <div class="col-lg-3 col-md-6 reveal-left">
+                <div class="d-flex align-items-center gap-2 mb-3">
+                    <img src="{% static 'images/logo/logo.webp' %}" alt="Vibhu Travel Hub Logo" loading="lazy" style="height: 48px; width: auto;">
+                    <div>
+                        <h4 class="fw-bold text-dark mb-0 lh-1" style="font-size: 1.2rem; letter-spacing: -0.5px;">VIBHU TRAVEL HUB</h4>
+                        <span class="text-danger fw-bold small text-uppercase" style="font-size: 0.65rem; letter-spacing: 1px;">PREMIUM TRAVEL SERVICES</span>
+                    </div>
+                </div>
+                <p class="text-muted small mb-3" style="line-height: 1.6;">
+                    Your trusted travel partner across South India. Experience comfort, safety & luxury with our premium cabs, tempo travellers, and buses.
+                </p>
+                <div class="d-flex gap-2">
+                    <a href="https://wa.me/919655866660" target="_blank" class="btn btn-sm btn-light rounded-circle shadow-sm text-success"><i class="bi bi-whatsapp"></i></a>
+                    <a href="#" target="_blank" class="btn btn-sm btn-light rounded-circle shadow-sm text-danger"><i class="bi bi-instagram"></i></a>
+                    <a href="#" target="_blank" class="btn btn-sm btn-light rounded-circle shadow-sm text-primary"><i class="bi bi-facebook"></i></a>
+                    <a href="#" target="_blank" class="btn btn-sm btn-light rounded-circle shadow-sm text-primary"><i class="bi bi-linkedin"></i></a>
+                    <a href="#" target="_blank" class="btn btn-sm btn-light rounded-circle shadow-sm text-danger"><i class="bi bi-youtube"></i></a>
+                </div>
             </div>
-            <p class="sf-about-text">
-                A travel website offering unique, customized holiday experiences tailored to every traveler's dreams.
-            </p>
-            <div class="sf-socials" aria-label="Social Media Links">
-                <a href="#" class="sf-social-link" aria-label="Follow us on Facebook" target="_blank" rel="noopener noreferrer">
-                    <i class="bi bi-facebook"></i>
-                </a>
-                <a href="https://www.instagram.com/vibhu_travelhub?igsh=bGo1eGQzODhpNWxu" class="sf-social-link" aria-label="Follow us on Instagram" target="_blank" rel="noopener noreferrer">
-                    <i class="bi bi-instagram"></i>
-                </a>
+
+            <!-- Column 2: Quick Links (BOTTOM -> TOP) -->
+            <div class="col-lg-2 col-md-6 reveal-up">
+                <h5 class="fw-bold text-dark mb-3" style="font-size: 1rem;">Quick Links</h5>
+                <ul class="list-unstyled d-flex flex-column gap-2 small text-muted">
+                    <li><a href="{% url 'home' %}" class="text-muted text-decoration-none hover-danger">Home</a></li>
+                    <li><a href="{% url 'about' %}" class="text-muted text-decoration-none hover-danger">About</a></li>
+                    <li><a href="{% url 'home' %}#fleet" class="text-muted text-decoration-none hover-danger">Fleet</a></li>
+                    <li><a href="{% url 'home' %}#destinations" class="text-muted text-decoration-none hover-danger">Destinations</a></li>
+                    <li><a href="{% url 'home' %}#services" class="text-muted text-decoration-none hover-danger">Services</a></li>
+                    <li><a href="{% url 'contact' %}" class="text-muted text-decoration-none hover-danger">Contact</a></li>
+                </ul>
             </div>
+
+            <!-- Column 3: Our Services (BOTTOM -> TOP) -->
+            <div class="col-lg-2 col-md-6 reveal-up">
+                <h5 class="fw-bold text-dark mb-3" style="font-size: 1rem;">Our Services</h5>
+                <ul class="list-unstyled d-flex flex-column gap-2 small text-muted">
+                    <li><a href="{% url 'local_taxi_service' %}" class="text-muted text-decoration-none hover-danger">Local Cab Service</a></li>
+                    <li><a href="{% url 'outstation_tours' %}" class="text-muted text-decoration-none hover-danger">Outstation Tours</a></li>
+                    <li><a href="{% url 'tempo_traveller' %}" class="text-muted text-decoration-none hover-danger">Tempo Traveller</a></li>
+                    <li><a href="{% url 'bus_booking' %}" class="text-muted text-decoration-none hover-danger">Luxury Bus Rental</a></li>
+                    <li><a href="{% url 'pilgrimage_trips' %}" class="text-muted text-decoration-none hover-danger">Pilgrimage Trips</a></li>
+                    <li><a href="{% url 'corporate_travel' %}" class="text-muted text-decoration-none hover-danger">Corporate Travel</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 4: Destinations (BOTTOM -> TOP) -->
+            <div class="col-lg-2 col-md-6 reveal-up">
+                <h5 class="fw-bold text-dark mb-3" style="font-size: 1rem;">Destinations</h5>
+                <ul class="list-unstyled d-flex flex-column gap-2 small text-muted">
+                    <li><a href="/destinations/tamil-nadu/" class="text-muted text-decoration-none hover-danger">Tamil Nadu</a></li>
+                    <li><a href="/destinations/kerala/" class="text-muted text-decoration-none hover-danger">Kerala</a></li>
+                    <li><a href="/destinations/karnataka/" class="text-muted text-decoration-none hover-danger">Karnataka</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 5: Contact Info (RIGHT -> CENTER) -->
+            <div class="col-lg-3 col-md-6 reveal-right">
+                <h5 class="fw-bold text-dark mb-3" style="font-size: 1rem;">Contact Info</h5>
+                <ul class="list-unstyled d-flex flex-column gap-2 small text-muted">
+                    <li class="d-flex align-items-center gap-2">
+                        <i class="bi bi-telephone-fill text-danger"></i>
+                        <a href="tel:+919655866660" class="text-muted text-decoration-none">+91 96558 66660</a>
+                    </li>
+                    <li class="d-flex align-items-center gap-2">
+                        <i class="bi bi-envelope-fill text-danger"></i>
+                        <a href="mailto:vibhutravelhub66@gmail.com" class="text-muted text-decoration-none">vibhutravelhub66@gmail.com</a>
+                    </li>
+                    <li class="d-flex align-items-start gap-2">
+                        <i class="bi bi-geo-alt-fill text-danger mt-1"></i>
+                        <span>87, Grey Town, Coimbatore, Tamil Nadu – 641018</span>
+                    </li>
+                    <li class="d-flex align-items-center gap-2 text-dark fw-medium mt-1">
+                        <i class="bi bi-clock-history text-danger"></i>
+                        <span>Mon–Sun | 24/7 Available</span>
+                    </li>
+                </ul>
+            </div>
+
         </div>
 
-        <!-- 2. QUICK LINKS -->
-        <nav class="sf-col footer-reveal-item delay-2" aria-label="Footer Quick Links">
-            <h3 class="sf-heading">Links</h3>
-            <ul class="sf-links">
-                <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'home' %}#about">About Us</a></li>
-                <li><a href="{% url 'home' %}#fleet">Services</a></li>
-                <li><a href="#">Visa</a></li>
-                <li><a href="{% url 'home' %}#destinations">Packages</a></li>
-                <li><a href="{% url 'home' %}#contact">Contact</a></li>
-            </ul>
-        </nav>
-
-        <!-- 4. VEHICLE RENTALS SEO LINKS -->
-        <nav class="sf-col footer-reveal-item delay-3" aria-label="Footer SEO Vehicle Links">
-            <h3 class="sf-heading">Popular Cab Rentals</h3>
-            <ul class="sf-links">
-                <li><a href="{% url 'local_taxi_service' %}">cab service in Coimbatore</a></li>
-                <li><a href="{% url 'local_taxi_service' %}">best cab service in Madurai</a></li>
-                <li><a href="{% url 'tempo_traveller' %}">Tempo Traveller rental in Chennai</a></li>
-                <li><a href="{% url 'tempo_traveller' %}">luxury Tempo Traveller Bangalore</a></li>
-                <li><a href="{% url 'local_taxi_service' %}">Kerala tour package cab from Kochi</a></li>
-                <li><a href="{% url 'tempo_traveller' %}">Force Urbania rental in Coimbatore</a></li>
-            </ul>
-        </nav>
-
-        <!-- 3. REACH US -->
-        <address class="sf-col sf-contact-col footer-reveal-item delay-3" aria-label="Contact Information">
-            <h3 class="sf-heading">Reach Us</h3>
-            <ul class="sf-contact-list">
-                
-                <li class="sf-contact-item">
-                    <div class="sf-contact-icon">
-                        <i class="bi bi-geo-alt"></i>
-                    </div>
-                    <div class="sf-contact-content">
-                        <span class="sf-contact-value sf-address">
-                            HO: Vibhu Travel Hub<br>
-                            Joyce Villa Building,<br>
-                            87, Grey Town,<br>
-                            Coimbatore 641018
-                        </span>
-                    </div>
-                </li>
-
-                <li class="sf-contact-item">
-                    <div class="sf-contact-icon">
-                        <i class="bi bi-envelope"></i>
-                    </div>
-                    <div class="sf-contact-content">
-                        <a href="mailto:vibhutravelhub66@gmail.com" class="sf-contact-value">vibhutravelhub66@gmail.com</a>
-                    </div>
-                </li>
-
-                <li class="sf-contact-item">
-                    <div class="sf-contact-icon">
-                        <i class="bi bi-telephone"></i>
-                    </div>
-                    <div class="sf-contact-content">
-                        <a href="tel:+919655866660" class="sf-contact-value">+91 96558 66660</a>
-                    </div>
-                </li>
-
-            </ul>
-        </address>
-
-    </section>
-
-    <!-- BOTTOM COPYRIGHT BAR -->
-    <div class="sf-bottom-bar footer-reveal-item delay-4">
-        <div class="sf-bottom-inner">
-            <p class="sf-copyright">
-                &copy; 2026 Vibhu Travel Hub, Created by <span>Vibhu Travel Hub</span>
-            </p>
+        <!-- Bottom Copyright Bar -->
+        <div class="border-top pt-4 d-flex flex-column flex-md-row align-items-center justify-content-between small text-muted gap-2">
+            <p class="mb-0">&copy; 2026 Vibhu Travel Hub. All Rights Reserved.</p>
+            <div class="d-flex gap-3">
+                <a href="#" class="text-muted text-decoration-none">Privacy Policy</a>
+                <span>|</span>
+                <a href="#" class="text-muted text-decoration-none">Terms & Conditions</a>
+            </div>
         </div>
     </div>
 </footer>
-
-<!-- AJAX Script for Newsletter -->
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    const form = document.getElementById("newsletter-form");
-    const msgDiv = document.getElementById("newsletter-message");
-
-    if (form) {
-        form.addEventListener("submit", function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById("newsletter-name").value.trim();
-            const email = document.getElementById("newsletter-email").value.trim();
-            const csrfToken = form.querySelector('[name=csrfmiddlewaretoken]').value;
-            const submitBtn = form.querySelector('.newsletter-submit');
-            const originalBtnText = submitBtn.innerHTML;
-
-            // Reset message
-            msgDiv.style.display = "none";
-            msgDiv.className = "newsletter-inline-msg";
-            msgDiv.innerHTML = "";
-            
-            submitBtn.innerHTML = "<span class='spinner-border spinner-border-sm' role='status' aria-hidden='true'></span>";
-            submitBtn.disabled = true;
-
-            fetch("{% url 'newsletter_subscribe' %}", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/x-www-form-urlencoded",
-                    "X-CSRFToken": csrfToken
-                },
-                body: new URLSearchParams({
-                    "name": name,
-                    "email": email
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                submitBtn.innerHTML = originalBtnText;
-                submitBtn.disabled = false;
-                
-                msgDiv.style.display = "flex";
-                
-                if (data.status === "success") {
-                    msgDiv.classList.add("success");
-                    msgDiv.innerHTML = `<i class="bi bi-check-circle-fill me-2"></i> Subscription successful — Thank you, ${name}!`;
-                    form.reset();
-                } else {
-                    msgDiv.classList.add("error");
-                    msgDiv.innerHTML = `<i class="bi bi-exclamation-triangle-fill me-2"></i> ${data.message}`;
-                }
-                
-                // Hide after 4 seconds
-                setTimeout(() => {
-                    msgDiv.style.display = "none";
-                }, 4000);
-            })
-            .catch(error => {
-                submitBtn.innerHTML = originalBtnText;
-                submitBtn.disabled = false;
-                
-                msgDiv.style.display = "flex";
-                msgDiv.classList.add("error");
-                msgDiv.innerHTML = `<i class="bi bi-exclamation-triangle-fill me-2"></i> Something went wrong. Please try again.`;
-                
-                setTimeout(() => {
-                    msgDiv.style.display = "none";
-                }, 4000);
-            });
-        });
-    }
-});
-</script>

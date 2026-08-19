@@ -1,0 +1,482 @@
+/* ==========================================================================
+   GLOBAL ANIMATION SYSTEM - VIBHU TRAVEL HUB
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. GLOBAL CSS ANIMATION VARIABLES
+   -------------------------------------------------------------------------- */
+:root {
+    /* Timing Durations */
+    --anim-fast: 180ms;
+    --anim-normal: 350ms;
+    --anim-slow: 700ms;
+
+    /* Easing Curves */
+    --anim-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    --anim-ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+    --anim-ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --anim-ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --------------------------------------------------------------------------
+   2. PAGE LOAD & TRANSITION FOUNDATION
+   -------------------------------------------------------------------------- */
+body {
+    transition: opacity var(--anim-normal) var(--anim-ease-out);
+}
+
+@keyframes vthFadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes vthFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.load-anim {
+    opacity: 0;
+    will-change: opacity, transform;
+}
+
+.page-loaded .load-anim {
+    animation: vthFadeInUp var(--anim-slow) var(--anim-ease-smooth) forwards;
+}
+
+.page-loaded .load-delay-1 { animation-delay: 0ms; }
+.page-loaded .load-delay-2 { animation-delay: 120ms; }
+.page-loaded .load-delay-3 { animation-delay: 240ms; }
+.page-loaded .load-delay-4 { animation-delay: 360ms; }
+
+/* --------------------------------------------------------------------------
+   3. MULTI-DIRECTIONAL SCROLL REVEAL ENGINE
+   -------------------------------------------------------------------------- */
+.reveal,
+.reveal-up,
+.reveal-down,
+.reveal-left,
+.reveal-right,
+.reveal-scale,
+.reveal-zoom,
+.reveal-fade,
+.stagger-item,
+.footer-reveal-item,
+[data-reveal],
+[data-aos] {
+    opacity: 0;
+    will-change: opacity, transform;
+    transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Initial Un-revealed Positional Shifts (Desktop) */
+.reveal,
+.reveal-up,
+[data-reveal="up"],
+[data-aos="fade-up"] {
+    transform: translateY(80px);
+}
+
+.reveal-down,
+[data-reveal="down"],
+[data-aos="fade-down"] {
+    transform: translateY(-70px);
+}
+
+.reveal-left,
+[data-reveal="left"],
+[data-aos="fade-left"] {
+    transform: translateX(-100px);
+}
+
+.reveal-right,
+[data-reveal="right"],
+[data-aos="fade-right"] {
+    transform: translateX(100px);
+}
+
+.reveal-scale,
+.reveal-zoom,
+[data-reveal="scale"],
+[data-reveal="zoom"],
+[data-aos="zoom-in"] {
+    transform: scale(0.88);
+}
+
+.reveal-fade,
+[data-reveal="fade"],
+[data-aos="fade"] {
+    transform: translateY(0);
+}
+
+/* Image Reveal Effect (Overflow Hidden Container + Scaled Image) */
+.img-reveal {
+    overflow: hidden;
+}
+
+.img-reveal img {
+    opacity: 0;
+    transform: scale(1.08);
+    transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+}
+
+.img-reveal.active img,
+.img-reveal.is-visible img {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+}
+
+/* Active Triggered States & Descendant Visibility Fallbacks */
+.reveal.active,
+.reveal-up.active,
+.reveal-down.active,
+.reveal-left.active,
+.reveal-right.active,
+.reveal-scale.active,
+.reveal-zoom.active,
+.reveal-fade.active,
+.stagger-item.active,
+.footer-reveal-item.is-visible,
+[data-reveal].active,
+[data-reveal].is-visible,
+[data-aos].active,
+[data-aos].aos-animate {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translate(0, 0) scale(1) !important;
+    filter: none !important;
+}
+
+/* Fallback: All children of active reveal containers MUST be fully visible */
+.active .reveal,
+.active .reveal-up,
+.active .reveal-down,
+.active .reveal-left,
+.active .reveal-right,
+.active .reveal-scale,
+.active .reveal-zoom,
+.active .reveal-fade,
+.active .stagger-item,
+.active .dest-card-ref,
+.active .place-card-ref,
+.active .anim-card,
+.active *,
+.is-visible *,
+.aos-animate * {
+    opacity: 1 !important;
+    visibility: visible !important;
+    filter: none !important;
+}
+
+/* Section-level guaranteed visibility overrides */
+#destinations,
+#destinations *,
+#fleet,
+#fleet * {
+    visibility: visible;
+}
+
+#destinations .reveal.active,
+#destinations .reveal.active *,
+.dest-card-ref.active,
+.dest-card-ref.active * {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+}
+
+/* Stagger Delays */
+.stagger-1, [data-stagger="1"], .delay-1 { transition-delay: 0ms; }
+.stagger-2, [data-stagger="2"], .delay-2 { transition-delay: 90ms; }
+.stagger-3, [data-stagger="3"], .delay-3 { transition-delay: 180ms; }
+.stagger-4, [data-stagger="4"], .delay-4 { transition-delay: 270ms; }
+.stagger-5, [data-stagger="5"] { transition-delay: 360ms; }
+.stagger-6, [data-stagger="6"] { transition-delay: 450ms; }
+
+/* --------------------------------------------------------------------------
+   4. GLOBAL HOVER & CARD INTERACTION FOUNDATION
+   -------------------------------------------------------------------------- */
+/* Destination Card Hover (Aspire Holidays Inspired Smoothness) */
+.dest-card-ref,
+.dest-card {
+    position: relative;
+    display: block;
+    border-radius: 20px;
+    overflow: hidden;
+    text-decoration: none;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, box-shadow;
+}
+
+.dest-card-ref:hover,
+.dest-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.16);
+}
+
+.dest-card-ref img,
+.dest-card img {
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
+}
+
+.dest-card-ref:hover img,
+.dest-card:hover img {
+    transform: scale(1.05);
+}
+
+.dest-card-ref .bi-arrow-right,
+.dest-card-ref .bi-chevron-right,
+.dest-card .bi-arrow-right {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dest-card-ref:hover .bi-arrow-right,
+.dest-card-ref:hover .bi-chevron-right,
+.dest-card:hover .bi-arrow-right {
+    transform: translateX(4px);
+}
+
+/* Fleet Card Hover */
+.hero-mini-card,
+.fleet-card,
+.service-card,
+.place-card {
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, box-shadow;
+}
+
+.hero-mini-card:hover,
+.fleet-card:hover,
+.service-card:hover,
+.place-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 35px rgba(15, 23, 42, 0.12) !important;
+}
+
+/* Generic Hover Lift */
+.hover-lift,
+.anim-card,
+.package-card,
+.blog-card,
+.testimonial-card,
+.hub-card {
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
+}
+
+.hover-lift:hover,
+.anim-card:hover,
+.package-card:hover,
+.blog-card:hover,
+.testimonial-card:hover,
+.hub-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 35px rgba(15, 23, 42, 0.10) !important;
+}
+
+/* Hover Scale */
+.hover-scale {
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
+}
+
+.hover-scale:hover {
+    transform: scale(1.03);
+}
+
+/* Button Micro-Interactions (Icon Slide Right) */
+.btn,
+.hover-btn,
+.anim-btn,
+.btn-premium,
+.btn-primary-luxury,
+.btn-outline-luxury {
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                background-color 0.2s ease,
+                color 0.2s ease,
+                border-color 0.2s ease;
+    will-change: transform;
+}
+
+.btn:hover,
+.hover-btn:hover,
+.anim-btn:hover,
+.btn-premium:hover,
+.btn-primary-luxury:hover,
+.btn-outline-luxury:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.btn i,
+.btn .bi-arrow-right,
+.btn .bi-compass,
+.btn .bi-chevron-right {
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    display: inline-block;
+}
+
+.btn:hover i.bi-arrow-right,
+.btn:hover i.bi-chevron-right,
+.btn:hover i.bi-compass,
+.btn:hover i.bi-arrow-right-short {
+    transform: translateX(4px);
+}
+
+/* Dropdown Menu Entrance Animation */
+.dropdown-menu {
+    display: block !important;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                visibility 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+}
+
+.dropdown-menu.show,
+.dropdown:hover > .dropdown-menu {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+    pointer-events: auto;
+}
+
+/* --------------------------------------------------------------------------
+   5. 3D FOUNDATION
+   -------------------------------------------------------------------------- */
+.perspective-sm { perspective: 600px; }
+.perspective-md { perspective: 1000px; }
+.perspective-lg { perspective: 1400px; }
+
+.preserve-3d {
+    transform-style: preserve-3d;
+}
+
+.card-3d {
+    perspective: 1000px;
+}
+
+.card-3d-inner {
+    transition: transform var(--anim-normal) var(--anim-ease-smooth);
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+.hover-tilt {
+    transition: transform var(--anim-fast) var(--anim-ease-out);
+    will-change: transform;
+}
+
+.depth-1 { transform: translateZ(15px); }
+.depth-2 { transform: translateZ(30px); }
+.depth-3 { transform: translateZ(45px); }
+
+/* --------------------------------------------------------------------------
+   6. FLOATING BUTTONS & MICRO KEYFRAMES
+   -------------------------------------------------------------------------- */
+.anim-float,
+.vth-float-btn {
+    transition: transform var(--anim-normal) var(--anim-ease-bounce),
+                box-shadow var(--anim-normal) ease;
+}
+
+.anim-float:hover,
+.vth-float-btn:hover {
+    transform: translateY(-4px) scale(1.06);
+}
+
+@keyframes waPulse {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+    70% { box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+.vth-float-wa {
+    animation: waPulse 3s infinite;
+}
+
+.vth-float-wa:hover {
+    animation: none;
+}
+
+/* --------------------------------------------------------------------------
+   7. MOBILE RESPONSIVENESS & OVERFLOW SAFEGUARDS
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    .reveal,
+    .reveal-up,
+    .reveal-down,
+    .reveal-scale,
+    .stagger-item,
+    [data-aos="fade-up"],
+    [data-aos="fade-down"] {
+        transform: translateY(16px);
+    }
+
+    .reveal-left,
+    [data-aos="fade-left"] {
+        transform: translateX(-16px);
+    }
+
+    .reveal-right,
+    [data-aos="fade-right"] {
+        transform: translateX(16px);
+    }
+
+    .card-3d-inner,
+    .hover-tilt {
+        transform: none !important;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   8. ACCESSIBILITY (Prefers Reduced Motion)
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    body {
+        opacity: 1 !important;
+    }
+
+    .reveal,
+    .reveal-up,
+    .reveal-down,
+    .reveal-left,
+    .reveal-right,
+    .reveal-scale,
+    .reveal-fade,
+    .stagger-item,
+    .load-anim,
+    .footer-reveal-item,
+    [data-aos] {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .vth-float-wa {
+        animation: none !important;
+    }
+}

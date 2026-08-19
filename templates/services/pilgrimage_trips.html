@@ -54,7 +54,6 @@
 {% endblock %}
 
 {% block extra_css %}
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <link rel="stylesheet" href="{% static 'css/service.css' %}?v={{ STATIC_VERSION }}">
 {% endblock %}
 
@@ -108,7 +107,7 @@
                             <i class="bi bi-bell-fill"></i>
                         </div>
                         <div>
-                            <h4 class="fw-bold mb-0 text-dark counter-value" data-target="10000">0</h4>
+                            <h4 class="fw-bold mb-0 text-dark counter-value" data-target="500">0</h4>
                             <p class="text-muted small mb-0 fw-medium">Devotees Travelled</p>
                         </div>
                     </div>
@@ -281,6 +280,5 @@
 {% endblock %}
 
 {% block extra_js %}
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="{% static 'js/service.js' %}?v={{ STATIC_VERSION }}"></script>
 {% endblock %}

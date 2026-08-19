@@ -1,490 +1,442 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Travel Agency in Tamil Nadu | Cab & Travel Services | Vibhu Travel Hub{% endblock %}
+{% block title %}About Us | Vibhu Travel Hub — Premium Travel Services{% endblock %}
 
-{% block description %}Learn about Vibhu Travel Hub, a premier travel agency in Tamil Nadu offering cab service, cab booking, tempo traveller rentals, luxury bus rentals, and tour packages.{% endblock %}
+{% block description %}Learn about Vibhu Travel Hub, one of the most trusted travel partners across South India offering cab service, tempo traveller rentals, luxury bus rentals, and tour packages across Tamil Nadu, Kerala, and Karnataka.{% endblock %}
 
-{% block og_title %}Travel Agency in Tamil Nadu | Cab & Travel Services | Vibhu Travel Hub{% endblock %}
-{% block og_description %}Learn about Vibhu Travel Hub, a premier travel agency in Tamil Nadu offering cab service, cab booking, tempo traveller rentals, luxury bus rentals & tour packages.{% endblock %}
+{% block og_title %}About Us | Vibhu Travel Hub — Premium Travel Services{% endblock %}
+{% block og_description %}Learn about Vibhu Travel Hub, one of the most trusted travel partners across South India offering cab service, tempo traveller rentals, luxury bus rentals, and tour packages.{% endblock %}
 {% block og_url %}https://www.vibhutravelhub.com/about/{% endblock %}
-
 {% block canonical %}https://www.vibhutravelhub.com/about/{% endblock %}
 
 {% block extra_css %}
-<!-- AOS CSS for scroll animations -->
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-<!-- Swiper CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-<!-- About Us Specific CSS -->
+<!-- Google Fonts for Cursive Script -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{% static 'css/premium-about.css' %}?v={{ STATIC_VERSION }}">
-<link rel="stylesheet" href="{% static 'css/about.css' %}?v={{ STATIC_VERSION }}">
-<link rel="stylesheet" href="{% static 'css/fleet.css' %}?v={{ STATIC_VERSION }}">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
 
 <style>
-    /* Buttons */
-    .btn-premium {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        padding: 14px 32px;
-        border-radius: 50px;
-        font-weight: 600;
-        text-decoration: none;
-        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        border: none;
-        cursor: pointer;
-    }
-    .btn-primary-luxury {
-        background: #E11D48;
-        color: white;
-        box-shadow: 0 8px 20px rgba(225, 29, 72, 0.3);
-    }
-    .btn-primary-luxury:hover {
-        background: #BE123C;
-        color: white;
-        transform: translateY(-2px);
-        box-shadow: 0 12px 25px rgba(225, 29, 72, 0.4);
-    }
-    .btn-outline-luxury {
-        background: rgba(255,255,255,0.1);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255,255,255,0.5);
-        color: white;
-    }
-    .btn-outline-luxury:hover {
-        background: white;
-        color: #0F172A;
+    .vth-script-eyebrow {
+        font-family: 'Caveat', cursive, sans-serif;
+        color: #E31E24;
+        font-size: 1.8rem;
+        line-height: 1;
+        display: block;
+        margin-bottom: 0.3rem;
     }
 
-    /* ==========================================
-       HERO SECTION
-       ========================================== */
-    .hero-section {
-        height: 100vh;
-        min-height: 700px;
+    /* Hero Banner */
+    .about-hero-section {
+        background: url("{% static 'images/destinations/tn-gallery-3.jpg' %}") no-repeat center right / cover;
         position: relative;
-        padding: 0 !important;
-        margin: 0 !important;
+        min-height: 340px;
         display: flex;
         align-items: center;
+        width: 100%;
+        overflow: hidden;
     }
-    .hero-swiper {
+
+    .about-hero-overlay {
         position: absolute;
         top: 0; left: 0; width: 100%; height: 100%;
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.88) 42%, rgba(255, 255, 255, 0.45) 75%, rgba(255, 255, 255, 0.15) 100%);
         z-index: 1;
     }
-    .hero-swiper img {
-        width: 100%; height: 100%; object-fit: cover;
-    }
-    .hero-overlay {
-        position: absolute;
-        top: 0; left: 0; width: 100%; height: 100%;
-        background: linear-gradient(to right, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.4) 100%);
-        z-index: 2;
-    }
-    .hero-content {
-        position: relative;
-        z-index: 3;
-        max-width: 800px;
-        padding: 0 20px;
-    }
-    .hero-title {
-        color: white;
-        font-size: 4.5rem;
-        font-weight: 800;
-        line-height: 1.1;
-        margin-bottom: 20px;
-        letter-spacing: -2px;
-    }
-    .hero-title span {
-        color: #E11D48;
-        display: block;
-    }
-    .hero-subtitle {
-        color: rgba(255,255,255,0.9);
-        font-size: 1.2rem;
-        margin-bottom: 40px;
-        max-width: 600px;
-        line-height: 1.6;
-    }
-    .hero-tags {
-        display: flex;
-        gap: 15px;
-        margin-bottom: 30px;
-        flex-wrap: wrap;
-    }
-    .hero-tags span {
-        background: rgba(255,255,255,0.1);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255,255,255,0.2);
-        color: white;
-        padding: 8px 20px;
-        border-radius: 50px;
-        font-size: 0.9rem;
-        font-weight: 500;
-    }
-    
-    @media (max-width: 991px) {
-        .hero-title { font-size: 3.5rem; }
-    }
-    @media (max-width: 768px) {
-        .hero-title { font-size: 2.8rem; }
-        .hero-tags { display: none; }
-    }
 
-    /* ==========================================
-       ABOUT PAGE SERVICES SECTION
-       ========================================== */
-    .about-services-section {
-        background: #F9FAFB;
-    }
-    .about-service-card {
-        background: #ffffff;
-        border-radius: 24px;
-        overflow: hidden;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-        transition: all 0.3s ease;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-    }
-    .about-service-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-    }
-    .about-service-image {
-        width: 100%;
-        aspect-ratio: 16 / 10;
+    /* Story Composition Images */
+    .story-img-main {
+        border-radius: 20px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+        width: 86%;
+        height: 380px;
         object-fit: cover;
     }
-    .about-service-content {
-        padding: 30px 25px;
+
+    .story-img-inset {
+        position: absolute;
+        bottom: -20px;
+        right: 0;
+        width: 48%;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 16px;
+        border: 4px solid #FFFFFF;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    .story-badge-exp {
+        position: absolute;
+        bottom: 20px;
+        left: -10px;
+        background: #E31E24;
+        color: #FFFFFF;
+        padding: 16px 22px;
+        border-radius: 16px;
+        box-shadow: 0 12px 30px rgba(227, 30, 36, 0.35);
+        z-index: 3;
+    }
+
+    /* Value & Stat Cards */
+    .about-card-hover {
+        background: #FFFFFF;
+        border: 1px solid #E2E8F0;
+        border-radius: 18px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+        transition: all 0.3s ease;
+    }
+
+    .about-card-hover:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+        border-color: rgba(227, 30, 36, 0.2);
+    }
+
+    /* Coverage Row Item */
+    .coverage-state-card {
+        background: #FFFFFF;
+        border: 1px solid #E2E8F0;
+        border-radius: 14px;
+        padding: 14px 20px;
         display: flex;
-        flex-direction: column;
-        flex-grow: 1;
-    }
-    .about-service-title {
-        font-family: 'Poppins', sans-serif;
-        font-size: 1.25rem;
-        font-weight: 700;
-        color: #111827;
-        margin-bottom: 20px;
-    }
-    .about-service-book {
-        color: #ED1C24;
-        font-weight: 700;
-        text-decoration: none;
-        font-size: 1rem;
-        display: inline-flex;
         align-items: center;
-        transition: color 0.3s ease;
-        margin-top: auto;
+        justify-content: space-between;
+        text-decoration: none;
+        color: #0F172A;
+        font-weight: 700;
+        transition: all 0.25s ease;
     }
-    .about-service-book i {
-        transition: transform 0.3s ease;
-        margin-left: 8px;
+
+    .coverage-state-card:hover {
+        border-color: #E31E24;
+        color: #E31E24;
+        box-shadow: 0 4px 15px rgba(227, 30, 36, 0.1);
+        transform: translateX(4px);
     }
-    .about-service-card:hover .about-service-book i {
-        transform: translateX(5px);
+
+    /* Icon Box */
+    .about-icon-box {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+        background: rgba(227, 30, 36, 0.08);
+        color: #E31E24;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.4rem;
+        margin-bottom: 16px;
+    }
+
+    /* Entrance Animations */
+    @keyframes fadeInUpSlow {
+        from { opacity: 0; transform: translateY(25px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .anim-fade-up {
+        animation: fadeInUpSlow 700ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .anim-fade-up { animation: none !important; opacity: 1 !important; transform: none !important; }
     }
 </style>
 {% endblock %}
 
 {% block content %}
-<div class="about-page-wrapper">
 
-    <!-- ==========================================
-        HERO SECTION
-    =========================================== -->
-    <section class="hero-section">
-        <div class="swiper hero-swiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="{% static 'images/hero-slider/background-4.jpeg' %}" alt="Vibhu Travel Hub"></div>
-                <div class="swiper-slide"><img src="{% static 'images/hero-slider/background-5.jpeg' %}" alt="Vibhu Travel Hub"></div>
-                <div class="swiper-slide"><img src="{% static 'images/hero-slider/background-6.jpeg' %}" alt="Vibhu Travel Hub"></div>
-            </div>
-            <div class="hero-overlay"></div>
-        </div>
-
-        <div class="container position-relative z-3">
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="hero-content">
-                        <h1 class="hero-title load-anim load-delay-1">
-                            Experience Luxury Travel
-                            <span>Across South India.</span>
-                        </h1>
-                        <p class="hero-subtitle load-anim load-delay-2">
-                            Vibhu Travel Hub provides premium cab booking, tempo traveller, luxury bus, corporate travel, and airport transfer services across South India with professional drivers.
-                        </p>
-                        <div class="d-flex flex-wrap gap-3 load-anim load-delay-3">
-                            <a href="tel:+919655866660" class="btn-premium anim-btn btn-primary-luxury">
-                                <i class="bi bi-telephone-fill"></i> Call now
-                            </a>
-                            <a href="https://wa.me/919655866660" target="_blank" class="btn-premium anim-btn btn-outline-luxury">
-                                <i class="bi bi-whatsapp"></i> Chat on WhatsApp
-                            </a>
-                        </div>
-                    </div>
+<!-- ==========================================
+    SECTION 1 — ABOUT HERO BANNER (REFERENCE MATCH)
+========================================== -->
+<section class="about-hero-section py-5">
+    <div class="about-hero-overlay"></div>
+    <div class="container position-relative z-2">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-10 anim-fade-up">
+                <span class="vth-script-eyebrow">Know More About Us</span>
+                <h1 class="fw-extrabold text-dark mb-3" style="font-size: 3.2rem; letter-spacing: -1.2px; line-height: 1.15;">About Us</h1>
+                <p class="text-secondary mb-4" style="font-size: 1.05rem; line-height: 1.65; max-width: 520px; color: #475569;">
+                    We are one of the most trusted travel partners across South India. Our mission is to provide safe, comfortable and memorable journeys for every traveller.
+                </p>
+                <div class="d-flex align-items-center gap-2 text-muted small fw-medium">
+                    <a href="{% url 'home' %}" class="text-decoration-none text-muted">Home</a>
+                    <i class="bi bi-chevron-right" style="font-size: 0.75rem;"></i>
+                    <span class="text-danger fw-bold">About Us</span>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- ==========================================
-        SECTION 2: WHO WE ARE
-    =========================================== -->
-    {% include 'includes/about_section.html' with about_label="WHO WE ARE" about_heading="Creating Memorable Journeys with Comfort, Safety & Luxury" primary_btn_text="Book Now" secondary_btn_text="Explore Fleet" secondary_btn_link="#fleet" %}
+<!-- ==========================================
+    SECTION 2 — OUR STORY SECTION
+========================================== -->
+<section class="py-5 bg-white overflow-hidden">
+    <div class="container py-lg-4">
+        <div class="row align-items-center g-5">
+            <!-- Left Column: Image Composition with Inset & Badge -->
+            <div class="col-lg-6 reveal-left">
+                <div class="position-relative pe-lg-4">
+                    <!-- Main Image (Tempo Traveller in South India) -->
+                    <img src="{% static 'images/vehicles/traveller.webp' %}" alt="Vibhu Travel Hub Fleet" class="story-img-main img-fluid">
+                    
+                    <!-- Small Inset Image (Scenic Road) -->
+                    <img src="{% static 'images/destinations/munnar.jpg' %}" alt="Scenic Road Journey" class="story-img-inset img-fluid d-none d-sm-block">
 
-    <!-- ==========================================
-        SECTION 3: OUR NUMBERS
-    =========================================== -->
-    {% include 'includes/stats_section.html' %}
-
-    <!-- ==========================================
-        SECTION 4: WHY CHOOSE VIBHU
-    =========================================== -->
-    <section class="why-choose-section text-center py-5" style="background: #ffffff;">
-        <div class="container py-4">
-            <span class="premium-about-label">WHY CHOOSE US</span>
-            <h2 class="premium-about-heading mb-5">Experience the Vibhu Difference</h2>
-            
-            <div class="row g-4 justify-content-center">
-                <!-- Icon Cards -->
-                <div class="col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="100">
-                    <div class="premium-icon-card">
-                        <div class="pic-icon"><i class="fa-solid fa-user-tie"></i></div>
-                        <h4 class="pic-title">Professional Drivers</h4>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="200">
-                    <div class="premium-icon-card">
-                        <div class="pic-icon"><i class="fa-solid fa-location-crosshairs"></i></div>
-                        <h4 class="pic-title">GPS Enabled Vehicles</h4>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="300">
-                    <div class="premium-icon-card">
-                        <div class="pic-icon"><i class="fa-solid fa-car"></i></div>
-                        <h4 class="pic-title">Luxury Fleet</h4>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="400">
-                    <div class="premium-icon-card">
-                        <div class="pic-icon"><i class="fa-solid fa-shield-halved"></i></div>
-                        <h4 class="pic-title">Safe Journey</h4>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="100">
-                    <div class="premium-icon-card">
-                        <div class="pic-icon"><i class="fa-solid fa-tag"></i></div>
-                        <h4 class="pic-title">Affordable Price</h4>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="200">
-                    <div class="premium-icon-card">
-                        <div class="pic-icon"><i class="fa-solid fa-headset"></i></div>
-                        <h4 class="pic-title">24×7 Support</h4>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="300">
-                    <div class="premium-icon-card">
-                        <div class="pic-icon"><i class="fa-solid fa-plane-departure"></i></div>
-                        <h4 class="pic-title">Airport Pickup</h4>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="400">
-                    <div class="premium-icon-card">
-                        <div class="pic-icon"><i class="fa-solid fa-map-location-dot"></i></div>
-                        <h4 class="pic-title">Customized Tours</h4>
+                    <!-- Experience Red Floating Badge -->
+                    <div class="story-badge-exp d-flex align-items-center gap-3">
+                        <i class="bi bi-award-fill fs-2"></i>
+                        <div>
+                            <div class="fw-extrabold fs-3 lh-1">5+</div>
+                            <div class="small text-white-50 fw-medium">Years of Experience</div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- ==========================================
-        SECTION 5: OUR SERVICES
-    =========================================== -->
-    <section id="services" class="about-services-section py-5">
-        <div class="container py-4">
-            <div class="text-center mb-5">
-                <span class="premium-about-label">OUR SERVICES</span>
-                <h2 class="premium-about-heading">Comprehensive Travel Solutions</h2>
-            </div>
-            
-            <div class="row g-4 about-services-grid">
-                <!-- 1: Local Cab Service -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="about-service-card">
-                        <img src="{% static 'images/services/taxi.webp' %}" class="about-service-image" alt="Local Cab Service" loading="lazy">
-                        <div class="about-service-content">
-                            <h3 class="about-service-title">Local Cab Service</h3>
-                            <a href="{% url 'local_taxi_service' %}" class="about-service-book">Book Now <i class="bi bi-arrow-right"></i></a>
+            <!-- Right Column: Content & 2-Column Feature List -->
+            <div class="col-lg-6 reveal-right">
+                <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block mb-1" style="color: #E31E24; font-size: 0.8rem; letter-spacing: 1.5px;">OUR STORY</span>
+                <h2 class="fw-extrabold text-dark mb-3" style="font-size: 2.4rem; letter-spacing: -0.6px; line-height: 1.2;">Your Journey.<br>Our Responsibility.</h2>
+                <p class="text-secondary mb-4" style="font-size: 1rem; line-height: 1.65; color: #475569;">
+                    Vibhu Travel Hub started with a simple goal — to redefine travel experiences across South India. With a focus on safety, punctuality and customer satisfaction, we have become a preferred choice for thousands of happy travellers.
+                </p>
+
+                <!-- 2-Column Feature Grid (6 Points) -->
+                <div class="row g-3">
+                    <div class="col-sm-6">
+                        <div class="d-flex align-items-start gap-2.5">
+                            <i class="bi bi-check-circle-fill text-danger fs-5 mt-0.5"></i>
+                            <div>
+                                <h6 class="fw-bold text-dark mb-0" style="font-size: 0.92rem;">Professional Drivers</h6>
+                                <span class="text-muted small">Experienced & verified drivers</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- 2: Tempo Traveller -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="about-service-card">
-                        <img src="{% static 'images/vehicles/tempo_nonac.webp' %}" class="about-service-image" alt="Tempo Traveller" loading="lazy">
-                        <div class="about-service-content">
-                            <h3 class="about-service-title">Tempo Traveller</h3>
-                            <a href="{% url 'tempo_traveller' %}" class="about-service-book">Book Now <i class="bi bi-arrow-right"></i></a>
+                    <div class="col-sm-6">
+                        <div class="d-flex align-items-start gap-2.5">
+                            <i class="bi bi-check-circle-fill text-danger fs-5 mt-0.5"></i>
+                            <div>
+                                <h6 class="fw-bold text-dark mb-0" style="font-size: 0.92rem;">Customer Satisfaction</h6>
+                                <span class="text-muted small">Our travellers are our pride</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- 3: Luxury Bus -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="about-service-card">
-                        <img src="{% static 'images/services/bus.webp' %}" class="about-service-image" alt="Luxury Bus" loading="lazy">
-                        <div class="about-service-content">
-                            <h3 class="about-service-title">Luxury Bus</h3>
-                            <a href="{% url 'bus_booking' %}" class="about-service-book">Book Now <i class="bi bi-arrow-right"></i></a>
+                    <div class="col-sm-6">
+                        <div class="d-flex align-items-start gap-2.5">
+                            <i class="bi bi-check-circle-fill text-danger fs-5 mt-0.5"></i>
+                            <div>
+                                <h6 class="fw-bold text-dark mb-0" style="font-size: 0.92rem;">Well Maintained Fleet</h6>
+                                <span class="text-muted small">Regularly serviced vehicles</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- 4: Corporate Travel -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="about-service-card">
-                        <img src="{% static 'images/services/corporate.webp' %}" class="about-service-image" alt="Corporate Travel" loading="lazy">
-                        <div class="about-service-content">
-                            <h3 class="about-service-title">Corporate Travel</h3>
-                            <a href="{% url 'corporate_travel' %}" class="about-service-book">Book Now <i class="bi bi-arrow-right"></i></a>
+                    <div class="col-sm-6">
+                        <div class="d-flex align-items-start gap-2.5">
+                            <i class="bi bi-check-circle-fill text-danger fs-5 mt-0.5"></i>
+                            <div>
+                                <h6 class="fw-bold text-dark mb-0" style="font-size: 0.92rem;">24/7 Support</h6>
+                                <span class="text-muted small">Always available for you</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- 5: Pilgrimage Tours -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="about-service-card">
-                        <img src="{% static 'images/services/temple.webp' %}" class="about-service-image" alt="Pilgrimage Tours" loading="lazy">
-                        <div class="about-service-content">
-                            <h3 class="about-service-title">Pilgrimage Tours</h3>
-                            <a href="{% url 'pilgrimage_trips' %}" class="about-service-book">Book Now <i class="bi bi-arrow-right"></i></a>
+                    <div class="col-sm-6">
+                        <div class="d-flex align-items-start gap-2.5">
+                            <i class="bi bi-check-circle-fill text-danger fs-5 mt-0.5"></i>
+                            <div>
+                                <h6 class="fw-bold text-dark mb-0" style="font-size: 0.92rem;">Transparent Pricing</h6>
+                                <span class="text-muted small">No hidden charges</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- 6: Outstation Tours -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="about-service-card">
-                        <img src="{% static 'images/services/outstation.webp' %}" class="about-service-image" alt="Outstation Tours" loading="lazy">
-                        <div class="about-service-content">
-                            <h3 class="about-service-title">Outstation Tours</h3>
-                            <a href="{% url 'outstation_tours' %}" class="about-service-book">Book Now <i class="bi bi-arrow-right"></i></a>
+                    <div class="col-sm-6">
+                        <div class="d-flex align-items-start gap-2.5">
+                            <i class="bi bi-check-circle-fill text-danger fs-5 mt-0.5"></i>
+                            <div>
+                                <h6 class="fw-bold text-dark mb-0" style="font-size: 0.92rem;">Safe & Secure Journey</h6>
+                                <span class="text-muted small">Your safety is our top priority</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-
-    <!-- ==========================================
-        SECTION 7: WHY CUSTOMERS TRUST US
-    =========================================== -->
-    <section class="trust-section py-5">
-        <div class="container py-4">
-            <div class="text-center max-w-700 mx-auto mb-5" data-aos="fade-up">
-                <span class="premium-about-label">TRUST & RELIABILITY</span>
-                <h2 class="premium-about-heading">Why Customers Trust Us</h2>
-                <p class="trust-section-desc">We are committed to delivering seamless, reliable, and premium travel experiences across South India with complete transparency and top-tier hospitality.</p>
-            </div>
-            
-            <div class="row g-4 justify-content-center">
-                <!-- 1. Licensed Business -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="trust-card">
-                        <div class="trust-icon-box">
-                            <i class="fa-solid fa-certificate"></i>
-                        </div>
-                        <h3 class="trust-card-title">Licensed Business</h3>
-                        <p class="trust-card-desc">Government approved and certified travel agency in Tamil Nadu.</p>
+<!-- ==========================================
+    SECTION 3 — STATISTICS / TRUST BAR
+========================================== -->
+<section class="py-4" style="background-color: #F8FAFC;">
+    <div class="container">
+        <div class="p-4 p-lg-5 rounded-4 bg-white border border-light-subtle shadow-sm reveal-up">
+            <div class="row g-4 text-center">
+                <div class="col-lg-3 col-6 border-end border-light-subtle-sm">
+                    <div class="d-flex flex-column align-items-center">
+                        <i class="bi bi-people-fill text-danger fs-2 mb-2"></i>
+                        <h3 class="fw-extrabold text-dark mb-0" style="font-size: 2.2rem; letter-spacing: -0.5px;">1K+</h3>
+                        <span class="text-muted small fw-medium">Happy Customers</span>
                     </div>
                 </div>
-                <!-- 2. Verified Drivers -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="trust-card">
-                        <div class="trust-icon-box">
-                            <i class="fa-solid fa-id-card-clip"></i>
-                        </div>
-                        <h3 class="trust-card-title">Verified Drivers</h3>
-                        <p class="trust-card-desc">Background checked, experienced, and highly professional chauffeurs.</p>
+                <div class="col-lg-3 col-6 border-end border-light-subtle-sm">
+                    <div class="d-flex flex-column align-items-center">
+                        <i class="bi bi-car-front-fill text-danger fs-2 mb-2"></i>
+                        <h3 class="fw-extrabold text-dark mb-0" style="font-size: 2.2rem; letter-spacing: -0.5px;">10+</h3>
+                        <span class="text-muted small fw-medium">Premium Vehicles</span>
                     </div>
                 </div>
-                <!-- 3. 24×7 Service -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="trust-card">
-                        <div class="trust-icon-box">
-                            <i class="fa-solid fa-clock"></i>
-                        </div>
-                        <h3 class="trust-card-title">24×7 Service</h3>
-                        <p class="trust-card-desc">Round the clock travel support and vehicle availability.</p>
+                <div class="col-lg-3 col-6 border-end border-light-subtle-sm">
+                    <div class="d-flex flex-column align-items-center">
+                        <i class="bi bi-geo-alt-fill text-danger fs-2 mb-2"></i>
+                        <h3 class="fw-extrabold text-dark mb-0" style="font-size: 2.2rem; letter-spacing: -0.5px;">2+</h3>
+                        <span class="text-muted small fw-medium">Destinations Covered</span>
                     </div>
                 </div>
-                <!-- 4. Luxury Fleet -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                    <div class="trust-card">
-                        <div class="trust-icon-box">
-                            <i class="fa-solid fa-car-rear"></i>
-                        </div>
-                        <h3 class="trust-card-title">Luxury Fleet</h3>
-                        <p class="trust-card-desc">Immaculately maintained vehicles for absolute comfort.</p>
-                    </div>
-                </div>
-                <!-- 5. Transparent Pricing -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-                    <div class="trust-card">
-                        <div class="trust-icon-box">
-                            <i class="fa-solid fa-indian-rupee-sign"></i>
-                        </div>
-                        <h3 class="trust-card-title">Transparent Pricing</h3>
-                        <p class="trust-card-desc">Clear upfront costs with zero hidden charges.</p>
+                <div class="col-lg-3 col-6">
+                    <div class="d-flex flex-column align-items-center">
+                        <i class="bi bi-shield-check text-danger fs-2 mb-2"></i>
+                        <h3 class="fw-extrabold text-dark mb-0" style="font-size: 2.2rem; letter-spacing: -0.5px;">5+</h3>
+                        <span class="text-muted small fw-medium">Years of Experience</span>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
+<!-- ==========================================
+    SECTION 4 — OUR VALUES SECTION
+========================================== -->
+<section class="py-5 bg-white border-top">
+    <div class="container py-lg-4 text-center">
+        <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block mb-1" style="color: #E31E24; font-size: 0.8rem; letter-spacing: 1.5px;">OUR VALUES</span>
+        <h2 class="fw-extrabold text-dark mb-5" style="font-size: 2.3rem; letter-spacing: -0.5px;">Committed to Excellence</h2>
 
+        <div class="row g-4 reveal-up text-start">
+            <!-- Card 1: Safety First -->
+            <div class="col-lg-3 col-md-6">
+                <div class="about-card-hover p-4 h-100">
+                    <div class="about-icon-box">
+                        <i class="bi bi-shield-fill-check"></i>
+                    </div>
+                    <h5 class="fw-bold text-dark mb-2" style="font-size: 1.1rem;">Safety First</h5>
+                    <p class="text-muted small mb-0">We follow strict safety standards to ensure a secure journey.</p>
+                </div>
+            </div>
 
+            <!-- Card 2: Integrity -->
+            <div class="col-lg-3 col-md-6">
+                <div class="about-card-hover p-4 h-100">
+                    <div class="about-icon-box">
+                        <i class="bi bi-person-heart"></i>
+                    </div>
+                    <h5 class="fw-bold text-dark mb-2" style="font-size: 1.1rem;">Integrity</h5>
+                    <p class="text-muted small mb-0">Honest pricing, transparent processes and reliable services.</p>
+                </div>
+            </div>
 
-</div>
-{% endblock %}
+            <!-- Card 3: Quality Service -->
+            <div class="col-lg-3 col-md-6">
+                <div class="about-card-hover p-4 h-100">
+                    <div class="about-icon-box">
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+                    <h5 class="fw-bold text-dark mb-2" style="font-size: 1.1rem;">Quality Service</h5>
+                    <p class="text-muted small mb-0">From booking to destination, we provide the best travel experience.</p>
+                </div>
+            </div>
 
-{% block extra_js %}
-<!-- AOS JS -->
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<!-- GLightbox JS -->
-<script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
-<!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        AOS.init({ once: true });
-        
-        const lightbox = GLightbox({
-            selector: '.glightbox',
-            touchNavigation: true,
-            loop: true,
-            zoomable: true
-        });
+            <!-- Card 4: Customer First -->
+            <div class="col-lg-3 col-md-6">
+                <div class="about-card-hover p-4 h-100">
+                    <div class="about-icon-box">
+                        <i class="bi bi-heart-fill"></i>
+                    </div>
+                    <h5 class="fw-bold text-dark mb-2" style="font-size: 1.1rem;">Customer First</h5>
+                    <p class="text-muted small mb-0">Our customer's happiness drives everything we do.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-        // Initialize Hero Swiper with Fade Effect
-        var heroSwiper = new Swiper('.hero-swiper', {
-            effect: 'fade',
-            fadeEffect: { crossFade: true },
-            loop: true,
-            autoplay: {
-                delay: 5000,
-                disableOnInteraction: false,
-            },
-            speed: 1500,
-        });
-    });
-</script>
-<!-- About Us specific JS -->
-<script src="{% static 'js/about.js' %}?v={{ STATIC_VERSION }}"></script>
+<!-- ==========================================
+    SECTION 5 — OUR COVERAGE — SOUTH INDIA
+========================================== -->
+<section class="py-5" style="background-color: #F8FAFC;">
+    <div class="container py-lg-4">
+        <div class="row align-items-center g-5">
+            <!-- Left Column: Text & 3 State Cards -->
+            <div class="col-lg-5 reveal-left">
+                <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block mb-1" style="color: #E31E24; font-size: 0.8rem; letter-spacing: 1.5px;">OUR COVERAGE</span>
+                <h2 class="fw-extrabold text-dark mb-3" style="font-size: 2.3rem; letter-spacing: -0.5px;">Across South India</h2>
+                <p class="text-secondary mb-4" style="font-size: 1rem; line-height: 1.65; color: #475569;">
+                    We provide cab services and travel packages across Tamil Nadu, Kerala and Karnataka with a wide range of destinations.
+                </p>
+
+                <div class="d-flex flex-column gap-3">
+                    <a href="/destinations/tamil-nadu/" class="coverage-state-card shadow-sm">
+                        <div class="d-flex align-items-center gap-3">
+                            <i class="bi bi-geo-alt-fill text-danger fs-5"></i>
+                            <span>Tamil Nadu</span>
+                        </div>
+                        <i class="bi bi-chevron-right text-muted"></i>
+                    </a>
+                    <a href="/destinations/kerala/" class="coverage-state-card shadow-sm">
+                        <div class="d-flex align-items-center gap-3">
+                            <i class="bi bi-geo-alt-fill text-danger fs-5"></i>
+                            <span>Kerala</span>
+                        </div>
+                        <i class="bi bi-chevron-right text-muted"></i>
+                    </a>
+                    <a href="/destinations/karnataka/" class="coverage-state-card shadow-sm">
+                        <div class="d-flex align-items-center gap-3">
+                            <i class="bi bi-geo-alt-fill text-danger fs-5"></i>
+                            <span>Karnataka</span>
+                        </div>
+                        <i class="bi bi-chevron-right text-muted"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Column: South India Coverage Map Visual -->
+            <div class="col-lg-7 reveal-right">
+                <div class="p-4 rounded-4 bg-white border border-light-subtle shadow-sm text-center">
+                    <img src="{% static 'images/destinations/shess.png' %}" alt="South India Coverage Map" class="img-fluid rounded-3" style="max-height: 420px; object-fit: contain;">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+    SECTION 6 — FINAL CTA SECTION
+========================================== -->
+<section class="py-5 bg-white border-top">
+    <div class="container">
+        <div class="p-4 p-md-5 rounded-4 bg-white border border-light-subtle shadow-sm reveal-up">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-3 col-md-4 text-center">
+                    <img src="{% static 'images/vehicles/innova.webp' %}" alt="Ready to Travel" class="img-fluid rounded-3" style="max-height: 160px; object-fit: contain;">
+                </div>
+                <div class="col-lg-6 col-md-8 text-start">
+                    <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block mb-1" style="color: #E31E24; font-size: 0.75rem; letter-spacing: 1px;">READY TO TRAVEL?</span>
+                    <h3 class="fw-extrabold text-dark mb-2" style="font-size: 1.8rem; letter-spacing: -0.5px;">Let's Start Your Journey Today!</h3>
+                    <p class="text-muted small mb-0">Book your ride now and experience premium travel with Vibhu Travel Hub.</p>
+                </div>
+                <div class="col-lg-3 col-md-12 d-flex flex-column flex-sm-row flex-lg-column gap-2 justify-content-center">
+                    <a href="#" class="btn btn-danger rounded-pill px-4 py-2.5 fw-bold text-white shadow-sm border-0 text-center" style="background-color: #E31E24; font-size: 0.95rem;" data-bs-toggle="modal" data-bs-target="#enquiryModal">
+                        Book Your Trip
+                    </a>
+                    <a href="{% url 'contact' %}" class="btn btn-outline-dark rounded-pill px-4 py-2.5 fw-bold text-center" style="font-size: 0.95rem;">
+                        Contact Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 {% endblock %}

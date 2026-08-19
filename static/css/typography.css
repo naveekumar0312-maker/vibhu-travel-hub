@@ -1,63 +1,49 @@
 /* ==========================================================
-   GLOBAL TYPOGRAPHY - VIBHU TRAVEL HUB
+   GLOBAL TYPOGRAPHY SYSTEM - VIBHU TRAVEL HUB
+   Inspired by Aspire Holidays Premium Travel Typography
    ========================================================== */
 
-/* Google Fonts - Poppins */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+/* Google Fonts Imports with display=swap */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 :root {
-    /* Font Family */
-    --font-primary: 'Poppins', sans-serif;
+    /* Font Families */
+    --font-primary: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-display: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+    --font-cursive: 'Caveat', cursive, sans-serif;
 
     /* Base Font Sizing & Typography Details */
-    --base-line-height: 1.8;
-    --base-word-spacing: 0.05em;
+    --base-line-height: 1.65;
+    --base-word-spacing: 0.01em;
 
-    /* ==========================================
-       MOBILE TYPOGRAPHY (Default - up to 767px)
-       ========================================== */
-    --fs-hero-title: 32px;
-    --fs-section-heading: 28px;
-    --fs-card-heading: 20px;
-    --fs-sub-heading: 18px;
-    --fs-paragraph: 15px;
-    --fs-button: 15px;
-    --fs-nav: 16px;
+    /* Mobile Typography Defaults */
+    --fs-hero-title: clamp(2.2rem, 7vw, 3rem);
+    --fs-section-heading: clamp(1.8rem, 5vw, 2.5rem);
+    --fs-card-heading: clamp(1.2rem, 3.5vw, 1.45rem);
+    --fs-sub-heading: clamp(1.05rem, 3vw, 1.25rem);
+    --fs-paragraph: clamp(0.95rem, 2vw, 1.05rem);
+    --fs-button: clamp(0.9rem, 1.8vw, 0.95rem);
+    --fs-nav: clamp(0.9rem, 1.8vw, 0.95rem);
 }
 
-/* ==========================================
-   TABLET TYPOGRAPHY (768px - 991px)
-   ========================================== */
+/* Tablet Typography (768px - 991px) */
 @media (min-width: 768px) {
     :root {
-        --fs-hero-title: 40px;
-        --fs-section-heading: 36px;
+        --fs-hero-title: clamp(3rem, 5vw, 3.8rem);
+        --fs-section-heading: clamp(2.2rem, 3.8vw, 2.8rem);
     }
 }
 
-/* ==========================================
-   LAPTOP TYPOGRAPHY (992px - 1199px)
-   ========================================== */
-@media (min-width: 992px) {
-    :root {
-        --fs-hero-title: 48px;
-        --fs-card-heading: 22px; /* Smooth scale */
-        --fs-sub-heading: 19px; /* Smooth scale */
-    }
-}
-
-/* ==========================================
-   DESKTOP TYPOGRAPHY (1200px+)
-   ========================================== */
+/* Desktop Typography (1200px+) */
 @media (min-width: 1200px) {
     :root {
-        --fs-hero-title: 56px;
-        --fs-section-heading: 42px;
-        --fs-card-heading: 24px;
-        --fs-sub-heading: 20px;
-        --fs-paragraph: 16px;
-        --fs-button: 16px;
-        --fs-nav: 16px;
+        --fs-hero-title: clamp(3.4rem, 4.8vw, 4.2rem);
+        --fs-section-heading: clamp(2.3rem, 3.5vw, 3.2rem);
+        --fs-card-heading: 1.45rem;
+        --fs-sub-heading: 1.25rem;
+        --fs-paragraph: 1.05rem;
+        --fs-button: 0.95rem;
+        --fs-nav: 0.95rem;
     }
 }
 
@@ -77,44 +63,72 @@ body, button, input, textarea, select {
     font-weight: 400;
     line-height: var(--base-line-height);
     word-spacing: var(--base-word-spacing);
-    color: #334155; /* Default body text color, can be overridden */
+    color: #334155;
 }
 
 /* Headings Base Reset */
 h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-primary) !important;
-    color: #0f172a; /* Default heading color */
-    line-height: 1.3;
+    font-family: var(--font-display) !important;
+    color: #0F172A;
+    line-height: 1.12;
     margin-top: 0;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
 }
 
 /* Hero Title */
-.hero-title, h1 {
+.hero-main-title,
+.hero-title,
+h1 {
+    font-family: var(--font-display) !important;
     font-size: var(--fs-hero-title);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+}
+
+/* Section Eyebrow Labels */
+.vth-eyebrow,
+.section-eyebrow {
+    font-family: var(--font-primary);
+    font-size: clamp(0.75rem, 1.2vw, 0.85rem);
     font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
 }
 
 /* Section Heading */
-.section-heading, h2 {
+.section-heading,
+h2 {
+    font-family: var(--font-display) !important;
     font-size: var(--fs-section-heading);
-    font-weight: 700;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
 }
 
 /* Card Heading */
-.card-heading, h3 {
+.card-heading,
+.dest-card-overlay h3,
+h3 {
+    font-family: var(--font-display) !important;
     font-size: var(--fs-card-heading);
-    font-weight: 600;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
 }
 
 /* Sub Heading */
-.sub-heading, h4 {
+.sub-heading,
+h4, h5, h6 {
+    font-family: var(--font-primary) !important;
     font-size: var(--fs-sub-heading);
-    font-weight: 500;
+    font-weight: 600;
+    line-height: 1.35;
 }
 
 /* Paragraphs */
 p {
+    font-family: var(--font-primary);
     font-size: var(--fs-paragraph);
     font-weight: 400;
     line-height: var(--base-line-height);
@@ -124,13 +138,14 @@ p {
 button, .btn {
     font-family: var(--font-primary) !important;
     font-size: var(--fs-button);
-    font-weight: 600;
-    letter-spacing: 0.3px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
 }
 
 /* Navigation Links */
-nav a, .nav-link {
+nav a, .nav-link, .vth-nav-link {
     font-family: var(--font-primary) !important;
     font-size: var(--fs-nav);
-    font-weight: 500;
+    font-weight: 600;
+    letter-spacing: 0.01em;
 }

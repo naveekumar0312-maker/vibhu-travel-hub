@@ -1,0 +1,400 @@
+/* ==========================================================
+   VIBHU TRAVEL HUB — REFINED EDITORIAL WHITE DRY-BRUSH CARD SYSTEM
+   Subtle Hand-Painted White Edge + 70% Clean Photo + Unaffected Text
+   ========================================================== */
+
+/* ----------------------------------------------------------
+   1. MASTER CARD CONTAINERS & Z-INDEX LAYERING
+   ---------------------------------------------------------- */
+.artistic-card-wrapper,
+.cab-service-card,
+.service-card,
+.premium-service-card,
+.dest-mini-card,
+.place-card-ref,
+.destination-card {
+    background: #FFFFFF !important;
+    border-radius: 16px !important;
+    border: 1px solid rgba(226, 232, 240, 0.95) !important;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05), 0 2px 8px rgba(0, 0, 0, 0.02) !important;
+    padding: 14px 14px 18px 14px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    position: relative !important;
+    overflow: hidden !important;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        border-color 0.4s ease !important;
+}
+
+.artistic-card-wrapper:hover,
+.cab-service-card:hover,
+.service-card:hover,
+.premium-service-card:hover,
+.dest-mini-card:hover,
+.place-card-ref:hover,
+.destination-card:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 20px 45px rgba(227, 30, 36, 0.14), 0 12px 25px rgba(15, 23, 42, 0.08) !important;
+    border-color: rgba(227, 30, 36, 0.35) !important;
+}
+
+/* Ensure Text Content Container is ALWAYS 100% clean and readable */
+.cab-service-card .p-4,
+.service-card .p-4,
+.dest-mini-card .p-3,
+.place-card-ref .p-3,
+.artistic-card-wrapper .p-3,
+.artistic-card-wrapper .p-4,
+.destination-content {
+    position: relative !important;
+    z-index: 10 !important;
+    background: #FFFFFF !important;
+    margin-top: 0 !important;
+    padding-left: 2px !important;
+    padding-right: 2px !important;
+}
+
+/* ----------------------------------------------------------
+   2. REUSABLE IMAGE CONTAINERS WITH DRY-BRUSH SILHOUETTE
+   ---------------------------------------------------------- */
+.cut-edge-image,
+.img-reveal,
+.artistic-img-container,
+.service-gallery-image,
+.service-img-container,
+.destination-image-wrapper,
+.fleet-ref-image-wrapper {
+    position: relative !important;
+    width: 100% !important;
+    background: transparent !important;
+    margin-bottom: 14px !important;
+    border-radius: 0 !important;
+    overflow: hidden !important;
+    z-index: 1 !important;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.08)) !important;
+    /* Dry-Brush Contour Mask Variation 1 (Default) */
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 380' preserveAspectRatio='none'%3E%3Cpath d='M20 12 Q50 6, 120 14 Q180 4, 250 12 Q320 6, 390 14 Q450 6, 480 15 Q494 8, 488 28 Q496 70, 486 120 Q495 170, 486 220 Q496 270, 484 320 Q492 358, 475 366 Q420 376, 350 366 Q280 378, 210 364 Q140 376, 70 362 Q30 374, 18 355 Q6 310, 14 240 Q4 180, 12 120 Q6 60, 20 12 Z' fill='%23000'/%3E%3C/svg%3E") !important;
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 380' preserveAspectRatio='none'%3E%3Cpath d='M20 12 Q50 6, 120 14 Q180 4, 250 12 Q320 6, 390 14 Q450 6, 480 15 Q494 8, 488 28 Q496 70, 486 120 Q495 170, 486 220 Q496 270, 484 320 Q492 358, 475 366 Q420 376, 350 366 Q280 378, 210 364 Q140 376, 70 362 Q30 374, 18 355 Q6 310, 14 240 Q4 180, 12 120 Q6 60, 20 12 Z' fill='%23000'/%3E%3C/svg%3E") !important;
+    -webkit-mask-size: 100% 100% !important;
+    mask-size: 100% 100% !important;
+    -webkit-mask-repeat: no-repeat !important;
+    mask-repeat: no-repeat !important;
+}
+
+/* ----------------------------------------------------------
+   3. WHITE DRY-BRUSH BRISTLE BORDER OVERLAY (::after)
+   ---------------------------------------------------------- */
+.cut-edge-image::after,
+.img-reveal::after,
+.artistic-img-container::after,
+.service-gallery-image::after,
+.service-img-container::after,
+.destination-image-wrapper::after {
+    content: '' !important;
+    position: absolute !important;
+    inset: 0 !important;
+    pointer-events: none !important;
+    z-index: 5 !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 380' preserveAspectRatio='none'%3E%3Cpath d='M10 12 L490 10 M20 18 L480 14 M30 6 L220 10 M280 8 L470 12' stroke='white' stroke-width='6' stroke-linecap='round' opacity='0.9' stroke-dasharray='22 10 35 6 15 18'/%3E%3Cpath d='M12 10 L12 370 M18 20 L16 360 M6 30 L10 210 M8 250 L12 360' stroke='white' stroke-width='6' stroke-linecap='round' opacity='0.9' stroke-dasharray='25 8 35 5 12 16'/%3E%3Cpath d='M488 10 L488 370 M482 20 L484 360 M494 30 L490 210 M492 250 L488 360' stroke='white' stroke-width='6' stroke-linecap='round' opacity='0.9' stroke-dasharray='20 11 30 8 16 14'/%3E%3Cpath d='M10 368 L490 368 M20 362 L480 364 M30 374 L220 370 M280 372 L470 366' stroke='white' stroke-width='6' stroke-linecap='round' opacity='0.9' stroke-dasharray='24 8 32 7 18 12'/%3E%3C/svg%3E") !important;
+    background-size: 100% 100% !important;
+    background-repeat: no-repeat !important;
+}
+
+/* ----------------------------------------------------------
+   4. ORGANIC ASYMMETRICAL DRY-BRUSH VARIATIONS
+   ---------------------------------------------------------- */
+/* Variation 2 */
+.stagger-grid>div:nth-child(2n) .img-reveal,
+.stagger-grid>div:nth-child(2n) .artistic-img-container,
+.row>div:nth-child(2n) .img-reveal,
+.row>div:nth-child(2n) .service-gallery-image,
+.col-lg-4:nth-child(2n) .destination-image-wrapper,
+.col-lg-4:nth-child(2n) .cut-edge-image {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 380' preserveAspectRatio='none'%3E%3Cpath d='M15 18 Q60 8, 130 16 Q200 6, 270 14 Q340 8, 410 18 Q465 10, 482 22 Q495 16, 487 40 Q480 95, 492 150 Q478 205, 490 260 Q482 315, 486 348 Q490 370, 460 368 Q390 378, 320 366 Q250 378, 180 365 Q110 376, 50 364 Q20 372, 14 345 Q4 285, 12 220 Q6 155, 14 90 Q6 45, 15 18 Z' fill='%23000'/%3E%3C/svg%3E") !important;
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 380' preserveAspectRatio='none'%3E%3Cpath d='M15 18 Q60 8, 130 16 Q200 6, 270 14 Q340 8, 410 18 Q465 10, 482 22 Q495 16, 487 40 Q480 95, 492 150 Q478 205, 490 260 Q482 315, 486 348 Q490 370, 460 368 Q390 378, 320 366 Q250 378, 180 365 Q110 376, 50 364 Q20 372, 14 345 Q4 285, 12 220 Q6 155, 14 90 Q6 45, 15 18 Z' fill='%23000'/%3E%3C/svg%3E") !important;
+}
+
+/* Variation 3 */
+.stagger-grid>div:nth-child(3n) .img-reveal,
+.stagger-grid>div:nth-child(3n) .artistic-img-container,
+.row>div:nth-child(3n) .img-reveal,
+.row>div:nth-child(3n) .service-gallery-image,
+.col-lg-4:nth-child(3n) .destination-image-wrapper,
+.col-lg-4:nth-child(3n) .cut-edge-image {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 380' preserveAspectRatio='none'%3E%3Cpath d='M25 10 Q70 18, 140 8 Q210 18, 280 10 Q350 16, 420 8 Q470 15, 485 18 Q496 22, 488 50 Q495 105, 485 160 Q494 215, 484 270 Q492 325, 482 355 Q488 372, 455 368 Q385 362, 315 374 Q245 360, 175 372 Q105 360, 40 370 Q16 362, 10 335 Q16 275, 8 210 Q16 145, 8 80 Q16 35, 25 10 Z' fill='%23000'/%3E%3C/svg%3E") !important;
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 380' preserveAspectRatio='none'%3E%3Cpath d='M25 10 Q70 18, 140 8 Q210 18, 280 10 Q350 16, 420 8 Q470 15, 485 18 Q496 22, 488 50 Q495 105, 485 160 Q494 215, 484 270 Q492 325, 482 355 Q488 372, 455 368 Q385 362, 315 374 Q245 360, 175 372 Q105 360, 40 370 Q16 362, 10 335 Q16 275, 8 210 Q16 145, 8 80 Q16 35, 25 10 Z' fill='%23000'/%3E%3C/svg%3E") !important;
+}
+
+/* ----------------------------------------------------------
+   5. IMAGE STYLING & HOVER ZOOM ANIMATION (1.05x)
+   ---------------------------------------------------------- */
+.cut-edge-image img,
+.img-reveal img,
+.artistic-img-container img,
+.service-gallery-image img,
+.service-img-container img,
+.cab-service-card img,
+.service-card img,
+.premium-service-card img,
+.dest-mini-card img,
+.place-card-ref img {
+    width: 100% !important;
+    height: 200px !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    aspect-ratio: 4 / 3 !important;
+    display: block !important;
+    border-radius: 0 !important;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.destination-image-wrapper {
+    aspect-ratio: 4 / 5 !important;
+}
+
+.destination-image-wrapper img,
+.destination-image {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block !important;
+    border-radius: 0 !important;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Mini Cards Height Adjustment */
+.dest-mini-card img,
+.place-card-ref img {
+    height: 155px !important;
+}
+
+/* Hover Scaling on Image (1.05x) */
+.artistic-card-wrapper:hover img,
+.cab-service-card:hover img,
+.service-card:hover img,
+.premium-service-card:hover img,
+.dest-mini-card:hover img,
+.place-card-ref:hover img,
+.service-gallery-image:hover img,
+.destination-card:hover .destination-image {
+    transform: scale(1.05) !important;
+}
+
+/* ----------------------------------------------------------
+   6. RED CATEGORY ICON OVERLAY (TOP-RIGHT OVERLAP)
+   ---------------------------------------------------------- */
+.cab-service-card .cab-icon-badge,
+.dest-mini-card .cab-icon-badge,
+.artistic-card-wrapper .cab-icon-badge {
+    position: absolute !important;
+    top: 10px !important;
+    right: 10px !important;
+    z-index: 15 !important;
+    width: 46px !important;
+    height: 46px !important;
+    border-radius: 50% !important;
+    background: #E31E24 !important;
+    color: #FFFFFF !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 1.15rem !important;
+    box-shadow: 0 6px 16px rgba(227, 30, 36, 0.35) !important;
+    border: 2px solid #FFFFFF !important;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.cab-service-card:hover .cab-icon-badge,
+.dest-mini-card:hover .cab-icon-badge,
+.artistic-card-wrapper:hover .cab-icon-badge {
+    transform: scale(1.08) rotate(6deg) !important;
+}
+
+/* ----------------------------------------------------------
+   7. GALLERY TILES WITH DRY-BRUSH MASK & OVERLAY
+   ---------------------------------------------------------- */
+.gallery-tile {
+    position: relative !important;
+    width: 100% !important;
+    aspect-ratio: 1 / 1 !important;
+    border-radius: 0 !important;
+    overflow: hidden !important;
+    background: transparent !important;
+    padding: 0 !important;
+    box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08) !important;
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300' preserveAspectRatio='none'%3E%3Cpath d='M15 12 Q50 6, 120 14 Q180 4, 240 12 Q285 8, 290 20 Q296 60, 288 120 Q295 180, 286 240 Q294 280, 280 290 Q220 296, 150 288 Q80 296, 20 286 Q6 240, 14 180 Q4 120, 12 60 Q6 20, 15 12 Z' fill='%23000'/%3E%3C/svg%3E") !important;
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300' preserveAspectRatio='none'%3E%3Cpath d='M15 12 Q50 6, 120 14 Q180 4, 240 12 Q285 8, 290 20 Q296 60, 288 120 Q295 180, 286 240 Q294 280, 280 290 Q220 296, 150 288 Q80 296, 20 286 Q6 240, 14 180 Q4 120, 12 60 Q6 20, 15 12 Z' fill='%23000'/%3E%3C/svg%3E") !important;
+    -webkit-mask-size: 100% 100% !important;
+    mask-size: 100% 100% !important;
+    -webkit-mask-repeat: no-repeat !important;
+    mask-repeat: no-repeat !important;
+}
+
+.gallery-tile::after {
+    content: '' !important;
+    position: absolute !important;
+    inset: 0 !important;
+    pointer-events: none !important;
+    z-index: 5 !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300' preserveAspectRatio='none'%3E%3Cpath d='M10 10 L290 10 M20 16 L280 14' stroke='white' stroke-width='5' opacity='0.9' stroke-dasharray='15 8 25 5'/%3E%3Cpath d='M10 10 L10 290 M16 20 L14 280' stroke='white' stroke-width='5' opacity='0.9' stroke-dasharray='20 6 30 4'/%3E%3Cpath d='M290 10 L290 290 M284 20 L286 280' stroke='white' stroke-width='5' opacity='0.9' stroke-dasharray='18 7 28 6'/%3E%3Cpath d='M10 290 L290 290 M20 284 L280 286' stroke='white' stroke-width='5' opacity='0.9' stroke-dasharray='22 5 26 8'/%3E%3C/svg%3E") !important;
+    background-size: 100% 100% !important;
+    background-repeat: no-repeat !important;
+}
+
+.gallery-tile:hover {
+    transform: translateY(-5px) scale(1.03) !important;
+    box-shadow: 0 16px 35px rgba(227, 30, 36, 0.2) !important;
+    z-index: 8 !important;
+}
+
+.gallery-tile img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block !important;
+    border-radius: 0 !important;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.gallery-tile:hover img {
+    transform: scale(1.04) !important;
+}
+
+/* ----------------------------------------------------------
+   8. PREMIUM VERTICAL DESTINATION CARD SPECIFICS
+   ---------------------------------------------------------- */
+.destination-card {
+    background: #FFFFFF !important;
+    border-radius: 14px !important;
+    border: 1px solid #E5E7EB !important;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06) !important;
+    padding: 18px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    position: relative !important;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        border-color 0.4s ease !important;
+    overflow: hidden !important;
+}
+
+.destination-content {
+    display: flex !important;
+    flex-direction: column !important;
+    flex-grow: 1 !important;
+}
+
+.destination-label {
+    color: #E31E24 !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.5px !important;
+    text-transform: uppercase !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    margin-bottom: 2px !important;
+}
+
+.destination-title {
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    color: #111827 !important;
+    margin-top: 4px !important;
+    margin-bottom: 4px !important;
+    line-height: 1.25 !important;
+}
+
+.destination-subtitle {
+    font-size: 15px !important;
+    color: #6B7280 !important;
+    line-height: 1.5 !important;
+    margin-bottom: 14px !important;
+}
+
+.destination-divider {
+    border-top: 1px solid #E5E7EB !important;
+    margin-bottom: 14px !important;
+    width: 100% !important;
+}
+
+.destination-description {
+    font-size: 14px !important;
+    color: #4B5563 !important;
+    line-height: 1.6 !important;
+    margin-bottom: 20px !important;
+    flex-grow: 1 !important;
+}
+
+.destination-button {
+    background-color: #E31E24 !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 12px 20px !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    text-decoration: none !important;
+    transition: background-color 0.3s ease, transform 0.3s ease !important;
+    width: 100% !important;
+}
+
+.destination-button:hover {
+    background-color: #CC1217 !important;
+    color: #FFFFFF !important;
+    transform: translateY(-2px) !important;
+}
+
+/* ----------------------------------------------------------
+   9. RESPONSIVE MOBILE OPTIMIZATION
+   ---------------------------------------------------------- */
+@media (max-width: 767.98px) {
+
+    .artistic-card-wrapper,
+    .cab-service-card,
+    .service-card,
+    .premium-service-card,
+    .dest-mini-card,
+    .place-card-ref,
+    .destination-card {
+        padding: 14px !important;
+        border-radius: 14px !important;
+    }
+
+    .img-reveal img,
+    .artistic-img-container img,
+    .service-gallery-image img,
+    .service-img-container img,
+    .cab-service-card img,
+    .service-card img {
+        height: 160px !important;
+    }
+
+    .dest-mini-card img,
+    .place-card-ref img {
+        height: 130px !important;
+    }
+
+    .destination-image-wrapper {
+        aspect-ratio: 4 / 3 !important;
+    }
+
+    .destination-title {
+        font-size: 20px !important;
+    }
+
+    .destination-subtitle {
+        font-size: 14px !important;
+    }
+}

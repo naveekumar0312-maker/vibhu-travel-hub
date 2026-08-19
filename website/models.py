@@ -111,11 +111,33 @@ class Vehicle(models.Model):
     # Features
     feature_tags = models.CharField(max_length=255, blank=True, help_text="Comma separated (e.g. GPS, Fast Charging, Luxury Seats)")
     
+    # Official Tariff & Fare Structure Fields
+    day_rent = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True, help_text="Day Rent Up To 400 KM (₹)")
+    per_km_rate = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True, help_text="Per KM Rate Up To 400 KM (₹)")
+    flat_per_km_above_400 = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True, help_text="Flat Per KM Above 400 KM (₹)")
+    driver_pay_above_400 = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True, help_text="Driver Pay Above 400 KM (₹)")
+    kerala_permit = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True, help_text="Kerala Permit Cost (₹)")
+    karnataka_permit = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True, help_text="Karnataka Permit Cost (₹)")
+    above_400_applicable = models.BooleanField(default=True, verbose_name="Above 400 KM Applicable")
+    
     is_featured = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     whatsapp_enabled = models.BooleanField(default=True)
     display_order = models.IntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    # Dynamic Features & Specifications for Premium Fleet Showcase
+    left_features = models.TextField(
+        blank=True,
+        default="Luxury Vehicles\nWell Maintained\nAC & Comfort\nLuggage Space\nDriver Included",
+        help_text="Enter left feature card items (one per line)"
+    )
+    right_specifications = models.TextField(
+        blank=True,
+        default="12–17 Seater\nPremium Interiors\nAC & Comfortable Seats\nLuggage Space\nDriver & Fuel Included",
+        help_text="Enter right specifications list items (one per line)"
+    )
 
     class Meta:
         ordering = ["display_order", "name"]
@@ -136,6 +158,19 @@ class Vehicle(models.Model):
                 self.image = process_vehicle_image(self.image)
                 
         super().save(*args, **kwargs)
+
+    @property
+    def left_features_list(self):
+        if not self.left_features:
+            return ["Luxury Vehicles", "Well Maintained", "AC & Comfort", "Luggage Space", "Driver Included"]
+        return [f.strip() for f in self.left_features.split('\n') if f.strip()]
+
+    @property
+    def right_specifications_list(self):
+        if not self.right_specifications:
+            spec = f"{self.passengers} Seater" if self.passengers else "12–17 Seater"
+            return [spec, "Premium Interiors", "AC & Comfortable Seats", "Luggage Space", "Driver & Fuel Included"]
+        return [s.strip() for s in self.right_specifications.split('\n') if s.strip()]
 
     @property
     def get_feature_tags_list(self):
@@ -185,6 +220,8 @@ class Vehicle(models.Model):
                 pass
                 
         return "Price on Request"
+
+
 
 
 class VehicleGallery(models.Model):

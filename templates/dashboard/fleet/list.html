@@ -27,8 +27,10 @@
                 <tr>
                     <th>Image</th>
                     <th>Vehicle Name</th>
-                    <th>Type / Seats</th>
-                    <th>Badge Text</th>
+                    <th>Type / Specs</th>
+                    <th>Day Rent (≤400KM)</th>
+                    <th>Per KM Rate</th>
+                    <th>Above 400 KM Tariff</th>
                     <th>Order</th>
                     <th>Status</th>
                     <th>Actions</th>
@@ -46,14 +48,24 @@
                             </div>
                         {% endif %}
                     </td>
-                    <td class="fw-bold text-dark">{{ vehicle.name }}</td>
+                    <td class="fw-bold text-dark">
+                        {{ vehicle.name }}
+                    </td>
                     <td>
                         <div class="small">
-                            <span class="text-dark">{{ vehicle.category }}</span><br>
-                            <span class="text-muted">{{ vehicle.seats }} Seater</span>
+                            <span class="text-dark fw-bold">{{ vehicle.category }}</span><br>
+                            <span class="text-muted">{{ vehicle.passengers }} Seater | {{ vehicle.ac_type }}</span>
                         </div>
                     </td>
-                    <td><span class="text-dark">{{ vehicle.display_price }}</span></td>
+                    <td><span class="fw-bold text-dark">{% if vehicle.day_rent %}₹{{ vehicle.day_rent|floatformat:0 }}{% else %}{{ vehicle.display_price }}{% endif %}</span></td>
+                    <td><span class="fw-bold text-danger">{% if vehicle.per_km_rate %}₹{{ vehicle.per_km_rate|floatformat:0 }}/km{% else %}—{% endif %}</span></td>
+                    <td>
+                        {% if vehicle.above_400_applicable %}
+                            <span class="badge bg-light text-dark border">₹{{ vehicle.flat_per_km_above_400|floatformat:0|default:"—" }}/km + ₹{{ vehicle.driver_pay_above_400|floatformat:0|default:"500" }} Driver</span>
+                        {% else %}
+                            <span class="badge bg-warning text-dark">Not Applicable</span>
+                        {% endif %}
+                    </td>
                     <td><span class="text-dark">{{ vehicle.display_order }}</span></td>
                     <td>
                         {% if vehicle.is_active %}

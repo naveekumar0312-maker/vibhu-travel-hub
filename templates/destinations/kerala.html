@@ -1,19 +1,19 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Innova & Tempo Traveller Rental in Kerala | Kochi, Trivandrum, Thrissur & Calicut{% endblock %}
-{% block description %}Book Innova rental, Innova Crysta rental, Force Urbania rental, Ertiga, 12 to 26 seater Tempo Traveller rental, and luxury bus rental in Kochi, Trivandrum, Thrissur, and Calicut with Vibhu Travel Hub.{% endblock %}
-{% block keywords %}Innova rental in Kochi, Innova Crysta rental in Kochi, Force Urbania rental in Kochi, 26 seater Tempo Traveller in Kochi, 17 seater Tempo Traveller in Trivandrum, Innova rental in Trivandrum, AC Tempo Traveller in Thrissur, Ertiga rental in Calicut, AC bus rental in Kerala{% endblock %}
+{% block title %}Kerala Travel Packages, Backwater Cabs & Outstation Rentals | Vibhu Travel Hub{% endblock %}
+{% block description %}Explore God's Own Country with Vibhu Travel Hub. Premium cab services, outstation taxi rentals, Tempo Traveller & luxury bus rentals in Kochi, Trivandrum, Munnar, Alleppey, Wayanad, and Varkala.{% endblock %}
+{% block keywords %}Kerala tourism, cab service in Kochi, taxi service in Trivandrum, Munnar cab rental, Alleppey houseboat cabs, Tempo Traveller Kerala, Wayanad tour package, Varkala taxi{% endblock %}
 {% block canonical %}https://www.vibhutravels.in/destinations/kerala/{% endblock %}
 
-{% block og_title %}Innova & Tempo Traveller Rental in Kerala | Kochi, Trivandrum, Thrissur & Calicut{% endblock %}
-{% block og_description %}Book premium Innova Crysta rental, Force Urbania rental, 12 to 26 seater Tempo Traveller, and luxury coach rental in Kochi, Trivandrum, Thrissur & Calicut with Vibhu Travel Hub.{% endblock %}
+{% block og_title %}Kerala Travel Packages & Cab Services | Vibhu Travel Hub{% endblock %}
+{% block og_description %}Book luxury cabs, Tempo Travellers, and tour packages across Kerala with Vibhu Travel Hub.{% endblock %}
 {% block og_url %}https://www.vibhutravels.in/destinations/kerala/{% endblock %}
-{% block og_image %}https://www.vibhutravels.in{% static 'images/destinations/kerala-hero.jpg' %}{% endblock %}
+{% block og_image %}https://www.vibhutravels.in{% static 'images/destinations/kerala.jpg' %}{% endblock %}
 
-{% block twitter_title %}Innova & Tempo Traveller Rental in Kerala | Vibhu Travel Hub{% endblock %}
-{% block twitter_description %}Book Innova Crysta rental, Force Urbania rental, Tempo Traveller rental & luxury bus rental in Kochi, Trivandrum, Thrissur & Calicut.{% endblock %}
-{% block twitter_image %}https://www.vibhutravels.in{% static 'images/destinations/kerala-hero.jpg' %}{% endblock %}
+{% block twitter_title %}Kerala Travel Packages & Cab Services | Vibhu Travel Hub{% endblock %}
+{% block twitter_description %}Book luxury cabs, Tempo Travellers, and tour packages across Kerala with Vibhu Travel Hub.{% endblock %}
+{% block twitter_image %}https://www.vibhutravels.in{% static 'images/destinations/kerala.jpg' %}{% endblock %}
 
 {% block schema_markup %}
 <script type="application/ld+json">
@@ -43,404 +43,251 @@
   "@context": "https://schema.org",
   "@type": "TouristDestination",
   "name": "Kerala",
-  "description": "Explore God's Own Country with Vibhu Travel Hub. Discover backwaters, beaches, tea gardens, wildlife and Ayurveda across Kerala.",
-  "image": "https://www.vibhutravels.in{% static 'images/destinations/kerala-hero.jpg' %}",
-  "touristType": [
-    "Nature Tour",
-    "Honeymoon",
-    "Family Trip"
-  ],
+  "description": "Explore God's Own Country with Vibhu Travel Hub. Discover backwaters, hill stations, beaches, wildlife and pristine greenery.",
+  "image": "https://www.vibhutravels.in{% static 'images/destinations/kerala.jpg' %}",
+  "touristType": ["Nature Tour", "Honeymoon", "Family Trip"],
   "includesAttraction": [
-    {"@type": "TouristAttraction", "name": "Kovalam"},
-    {"@type": "TouristAttraction", "name": "Sree Padmanabhaswamy Temple"},
+    {"@type": "TouristAttraction", "name": "Munnar"},
+    {"@type": "TouristAttraction", "name": "Alleppey"},
     {"@type": "TouristAttraction", "name": "Fort Kochi"},
-    {"@type": "TouristAttraction", "name": "Vadakkunnathan Temple"},
-    {"@type": "TouristAttraction", "name": "Kozhikode Beach"},
-    {"@type": "TouristAttraction", "name": "Athirappilly"}
+    {"@type": "TouristAttraction", "name": "Wayanad"},
+    {"@type": "TouristAttraction", "name": "Thekkady"},
+    {"@type": "TouristAttraction", "name": "Varkala Cliff"},
+    {"@type": "TouristAttraction", "name": "Kovalam"}
   ]
 }
 </script>
 {% endblock %}
 
 {% block extra_css %}
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <style>
-:root {
-        --primary-color: #0F172A;
-        --secondary-color: #E11D48;
-        --accent-color: #F8FAFC;
-        --text-main: #334155;
-        --text-light: #64748B;
-        --glass-bg: rgba(255, 255, 255, 0.7);
-        --glass-border: rgba(255, 255, 255, 0.4);
-        --border-radius-lg: 24px;
-        --border-radius-md: 16px;
-        --border-radius-sm: 8px;
-        --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
-        --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.1);
-        --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        
-        --lux-radius: 24px;
-        --lux-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-        --lux-shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.1);
-    }
-    
-body {
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        color: var(--text-main);
-        background-color: #F8FAFC;
-        overflow-x: hidden;}
-
-    /* 1. PREMIUM HERO */
-    .hero-section {
-        height: 100vh;
-        min-height: 700px;
+    /* Destination Specific Micro Styling */
+    .vth-hero-tn {
         position: relative;
-        padding: 0 !important;
-        margin: 0 !important;
+        min-height: 520px;
         display: flex;
         align-items: center;
+        overflow: hidden;
     }
-    .hero-bg-wrapper {
+
+    .vth-hero-tn-bg {
         position: absolute;
-        top: 0; left: 0; width: 100%; height: 100%;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
         z-index: 1;
     }
-    .hero-bg-wrapper img {
-        width: 100%; height: 100%; object-fit: cover;
-    }
-    .hero-overlay {
+
+    .vth-hero-tn-overlay {
         position: absolute;
-        top: 0; left: 0; width: 100%; height: 100%;
-        background: linear-gradient(to right, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.4) 100%);
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, rgba(4, 24, 48, 0.88) 0%, rgba(4, 24, 48, 0.65) 45%, rgba(4, 24, 48, 0.2) 100%);
         z-index: 2;
     }
-    .hero-content {
-        position: relative;
-        z-index: 3;
-        max-width: 800px;
-        padding: 0 20px;
-    }
-    .hero-title {
-        color: white;
-        font-size: 4.5rem;
-        font-weight: 800;
-        line-height: 1.1;
-        margin-bottom: 20px;
-        letter-spacing: -2px;
-    }
-    .hero-title span {
-        color: var(--secondary-color);
-        display: block;
-    }
-    .hero-subtitle {
-        color: rgba(255,255,255,0.9);
-        font-size: 1.2rem;
-        margin-bottom: 40px;
-        max-width: 600px;
-        line-height: 1.6;
-    }
-    .hero-tags {
+
+    /* Cab Service Card Styling */
+    .cab-service-card {
+        background: #FFFFFF;
+        border: 1px solid #E2E8F0;
+        border-radius: 1rem;
+        overflow: hidden;
+        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        height: 100%;
         display: flex;
-        gap: 15px;
-        margin-bottom: 30px;
-        flex-wrap: wrap;
+        flex-direction: column;
     }
-    .hero-tags span {
-        background: rgba(255,255,255,0.1);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255,255,255,0.2);
-        color: white;
-        padding: 8px 20px;
-        border-radius: 50px;
-        font-size: 0.9rem;
-        font-weight: 500;
+
+    .cab-service-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08);
     }
-    .btn-premium {
-        display: inline-flex;
+
+    .cab-icon-badge {
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        background: #FFFFFF;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+        color: #E31E24;
+        display: flex;
         align-items: center;
         justify-content: center;
-        gap: 10px;
-        padding: 14px 32px;
+        font-size: 1.25rem;
+        margin-top: -23px;
+        margin-left: 20px;
+        position: relative;
+        z-index: 3;
+    }
+
+    /* Route Chips Styling */
+    .route-chip {
+        background: #F8FAFC;
+        border: 1px solid #E2E8F0;
+        color: #1E293B;
+        padding: 6px 14px;
         border-radius: 50px;
-        font-weight: 600;
+        font-size: 0.82rem;
+        font-weight: 500;
         text-decoration: none;
-        transition: var(--transition-smooth);
-        border: none;
-        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        transition: all 0.25s ease;
     }
-    .btn-primary-luxury {
-        background: var(--secondary-color);
-        color: white;
-        box-shadow: 0 8px 20px rgba(225, 29, 72, 0.3);
-    }
-    .btn-primary-luxury:hover {
-        background: #BE123C;
-        color: white;
+
+    .route-chip:hover {
+        background: #FFFFFF;
+        border-color: #E31E24;
+        color: #E31E24;
         transform: translateY(-2px);
-        box-shadow: 0 12px 25px rgba(225, 29, 72, 0.4);
-    }
-    .btn-outline-luxury {
-        background: rgba(255,255,255,0.1);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255,255,255,0.5);
-        color: white;
-    }
-    .btn-outline-luxury:hover {
-        background: white;
-        color: var(--primary-color);
-    }
-    
-    @media (max-width: 768px) {
-        .hero-title { font-size: 2.8rem; }
-        .hero-tags { display: none; }
-    }
-    
-
-    
-    .scroll-indicator {
-        position: absolute;
-        bottom: 40px;
-        left: 50%;
-        transform: translateX(-50%);
-        color: rgba(255,255,255,0.7);
-        font-size: 2rem;
-        animation: bounce 2s infinite;
-        z-index: 2;
-    }
-    @keyframes bounce {
-        0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
-        40% { transform: translateY(-20px) translateX(-50%); }
-        60% { transform: translateY(-10px) translateX(-50%); }
+        box-shadow: 0 4px 12px rgba(227, 30, 36, 0.12);
     }
 
-    /* GENERAL SECTIONS */
-    .lux-section {
-        padding: 100px 0;
-    }
-    .section-title {
-        font-size: 3rem;
-        font-weight: 800;
-        margin-bottom: 1rem;
-        letter-spacing: -1px;
-    }
-    .section-subtitle {
-        color: #6c757d;
-        font-size: 1.15rem;
-        max-width: 600px;
-        margin: 0 auto 3rem auto;
-        line-height: 1.6;
-    }
-
-    /* 2. ABOUT KERALA */
-    .about-image {
-        border-radius: var(--lux-radius);
+    /* Popular Destination Mini Card */
+    .dest-mini-card {
+        background: #FFFFFF;
+        border: 1px solid #E2E8F0;
+        border-radius: 1rem;
         overflow: hidden;
-        box-shadow: var(--shadow-soft); border: 1px solid var(--glass-border);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        height: 100%;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dest-mini-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+    }
+
+    .dest-mini-card img {
+        height: 150px;
+        width: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .dest-mini-card:hover img {
+        transform: scale(1.06);
+    }
+
+    /* Gallery Grid Tiles */
+    .gallery-tile {
+        height: 130px;
+        border-radius: 0.85rem;
+        overflow: hidden;
         position: relative;
     }
-    .about-image img {
+
+    .gallery-tile img {
         width: 100%;
         height: 100%;
         object-fit: cover;
         transition: transform 0.5s ease;
     }
-    .about-image:hover img {
-        transform: scale(1.03);
-    }
-    .about-content {
-        padding: 2rem;
-    }
-    .about-list {
-        list-style: none;
-        padding: 0;
-    }
-    .about-list li {
-        margin-bottom: 15px;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        font-size: 1.1rem;
-        color: #4a5568;
-    }
-    .about-list i {
-        color: #dc3545; /* Red Accent */
-        font-size: 1.2rem;
-    }
 
-    /* 3. CAB SERVICES & 4. TOURIST PLACES (Same Card Style) */
-    .place-card {
-        background: #fff;
-        border-radius: var(--lux-radius);
-        padding: 20px;
-        box-shadow: var(--shadow-soft); border: 1px solid var(--glass-border);
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        transition: all 0.4s ease;
-        border: 1px solid rgba(0,0,0,0.03);
-    }
-    .place-card:hover {
-        transform: translateY(-10px);
-        box-shadow: var(--shadow-hover);
-    }
-    .place-img-wrapper {
-        border-radius: calc(var(--lux-radius) - 8px);
-        overflow: hidden;
-        margin-bottom: 20px;
-        aspect-ratio: 4/3;
-    }
-    .place-img-wrapper img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.7s ease;
-    }
-    .place-card:hover .place-img-wrapper img {
+    .gallery-tile:hover img {
         transform: scale(1.08);
-    }
-    .place-content {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .service-list {
-        list-style: none;
-        padding: 0;
-        margin-bottom: 20px;
-    }
-    .service-list li {
-        margin-bottom: 8px;
-        color: #6c757d;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-    .service-list i {
-        color: #dc3545;
-        font-size: 0.9rem;
-    }
-
-
-    /* 6. WHY CHOOSE US */
-    .feature-card {
-        background: #fff;
-        padding: 30px 20px;
-        border-radius: var(--lux-radius);
-        box-shadow: var(--shadow-soft); border: 1px solid var(--glass-border);
-        text-align: center;
-        height: 100%;
-        transition: all 0.3s ease;
-    }
-    .feature-card:hover {
-        transform: translateY(-8px);
-        box-shadow: var(--shadow-hover);
-    }
-    .feature-icon {
-        width: 70px;
-        height: 70px;
-        background: rgba(220, 53, 69, 0.05); /* Soft Red */
-        color: #dc3545;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 30px;
-        margin: 0 auto 20px auto;
-        transition: all 0.3s ease;
-    }
-    .feature-card:hover .feature-icon {
-        background: #dc3545;
-        color: #fff;
-    }
-
-    /* 7. CUSTOMER REVIEWS */
-    .review-card {
-        background: var(--glass-bg);
-        backdrop-filter: var(--glass-blur);
-        border: 1px solid rgba(0,0,0,0.05);
-        border-radius: var(--lux-radius);
-        padding: 40px;
-        box-shadow: var(--shadow-soft); border: 1px solid var(--glass-border);
-        height: 100%;
-    }
-    .review-stars {
-        color: #ffc107;
-        margin-bottom: 20px;
-        font-size: 1.2rem;
-    }
-    .review-text {
-        font-size: 1.1rem;
-        line-height: 1.7;
-        color: #495057;
-        font-style: italic;
-        margin-bottom: 20px;
-    }
-
-    /* 8. CTA SECTION */
-    .cta-section {
-        background: linear-gradient(135deg, #111 0%, #333 100%);
-        color: white;
-        border-radius: var(--lux-radius);
-        padding: 80px 40px;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-        box-shadow: var(--shadow-hover);
-    }
-    
-    .seo-keyword {
-        color: #111111 !important;
-        font-weight: 700;
-    }
-    .btn-book-tour {
-        background-color: #FF1F1F !important;
-        color: #ffffff !important;
-        border: none !important;
-        border-radius: 10px !important;
-        width: 100%;
-        transition: all 0.3s ease;
-        padding: 10px 0;
-        font-weight: 600;
-        display: block;
-        text-align: center;
-    }
-    .btn-book-tour:hover {
-        background-color: #cc1818 !important;
-        box-shadow: 0 8px 15px rgba(255, 31, 31, 0.4) !important;
-        color: #ffffff !important;
     }
 </style>
 {% endblock %}
 
 {% block content %}
+<!-- ==========================================
+    1. HERO SECTION (Matching Master Template)
+========================================== -->
+<section class="vth-hero-tn py-5">
+    <img src="{% static 'images/destinations/kerala.jpg' %}" alt="Kerala Destinations" class="vth-hero-tn-bg">
+    <div class="vth-hero-tn-overlay"></div>
 
-<!-- 1. PREMIUM HERO -->
-<section class="hero-section">
-    <div class="hero-bg-wrapper">
-        <img src="{% static 'images/destinations/kerala.png' %}" alt="Premium cab service in Kerala">
+    <div class="container position-relative z-3 my-auto">
+        <div class="row align-items-center">
+            <div class="col-lg-7 col-md-10">
+                <span class="vth-hero-script reveal-down d-block mb-1" style="color: #FF5A5F; font-size: 1.8rem;">Explore</span>
+                <h1 class="hero-main-title text-white mb-3 reveal-left" style="font-size: 3.6rem; font-weight: 800; line-height: 1.1; letter-spacing: -1.2px;">
+                    Kerala
+                </h1>
+                <p class="text-white-50 mb-4 reveal-left" style="font-size: 1.08rem; line-height: 1.65; color: rgba(255, 255, 255, 0.9) !important; max-width: 620px;">
+                    God's Own Country — Kerala is known for its beautiful backwaters, hill stations, beaches, wildlife and rich cultural heritage. Travel across Kerala with Vibhu Travel Hub for a comfortable and memorable journey.
+                </p>
+                <div class="d-flex align-items-center gap-3 flex-wrap reveal-up">
+                    <button class="btn btn-danger rounded-pill px-4 py-2.5 fw-bold text-white shadow-sm border-0 d-inline-flex align-items-center gap-2" style="background-color: #E31E24; font-size: 0.95rem;" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Kerala">
+                        Book Your Trip <i class="bi bi-arrow-right"></i>
+                    </button>
+                    <a href="#popular-destinations" class="btn btn-light rounded-pill px-4 py-2.5 fw-bold d-inline-flex align-items-center gap-2" style="font-size: 0.95rem; color: #1F2937; background: #FFFFFF; border: 1px solid rgba(255, 255, 255, 0.9);">
+                        Explore Places <i class="bi bi-compass"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="hero-overlay"></div>
+</section>
 
-    <div class="container position-relative z-3">
-        <div class="row">
-            <div class="col-lg-8" data-aos="fade-up" data-aos-duration="1200">
-                <div class="hero-content">
-                    <h1 class="hero-title">
-                        Explore God's Own Country
-                        <span>with Vibhu Travel Hub.</span>
-                    </h1>
-                    <p class="hero-subtitle">
-                        Premium Cab Services, Temple Tours, Hill Stations, Backwaters & Family Trips Across Kerala.
-                    </p>
-                    <div class="d-flex flex-wrap gap-3">
-                        <button class="btn-premium anim-btn btn-primary-luxury" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Kerala">
-                            <i class="bi bi-telephone-fill"></i> Call Now
-                        </button>
-                        <a href="https://wa.me/919655866660" target="_blank" class="btn-premium anim-btn btn-outline-luxury">
-                            <i class="bi bi-whatsapp"></i> Chat on WhatsApp
-                        </a>
+<!-- ==========================================
+    2. SERVICE HIGHLIGHTS STRIP (Matching Master Template)
+========================================== -->
+<section class="py-3 bg-white border-bottom">
+    <div class="container">
+        <div class="p-3.5 rounded-4 bg-white border border-light-subtle shadow-sm reveal-up">
+            <div class="row g-3 text-start align-items-center">
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="d-flex align-items-center gap-2.5">
+                        <i class="bi bi-shield-check text-danger fs-3"></i>
+                        <div>
+                            <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">Safe & Secure</h6>
+                            <span class="text-muted d-block" style="font-size: 0.75rem;">Your safety is our priority</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="d-flex align-items-center gap-2.5">
+                        <i class="bi bi-person-check text-danger fs-3"></i>
+                        <div>
+                            <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">Professional Drivers</h6>
+                            <span class="text-muted d-block" style="font-size: 0.75rem;">Experienced & verified</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="d-flex align-items-center gap-2.5">
+                        <i class="bi bi-car-front text-danger fs-3"></i>
+                        <div>
+                            <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">Luxury Fleet</h6>
+                            <span class="text-muted d-block" style="font-size: 0.75rem;">Well maintained vehicles</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="d-flex align-items-center gap-2.5">
+                        <i class="bi bi-clock-history text-danger fs-3"></i>
+                        <div>
+                            <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">24/7 Support</h6>
+                            <span class="text-muted d-block" style="font-size: 0.75rem;">Always available for you</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="d-flex align-items-center gap-2.5">
+                        <i class="bi bi-receipt text-danger fs-3"></i>
+                        <div>
+                            <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">Best Price</h6>
+                            <span class="text-muted d-block" style="font-size: 0.75rem;">Affordable & transparent</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="d-flex align-items-center gap-2.5">
+                        <i class="bi bi-airplane text-danger fs-3"></i>
+                        <div>
+                            <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">Airport Transfer</h6>
+                            <span class="text-muted d-block" style="font-size: 0.75rem;">On-time pickup & drop</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -448,40 +295,452 @@ body {
     </div>
 </section>
 
-
-<!-- 2. ABOUT KERALA -->
-<section id="about" class="lux-section bg-white">
+<!-- ==========================================
+    3. CAB SERVICES SECTION (Matching Master Template)
+========================================== -->
+<section id="cab-services" class="vth-section py-5 bg-white">
     <div class="container">
-        <div class="row g-5 align-items-center">
-            <div class="col-lg-6" data-aos="fade-right">
-                <div class="about-img-container position-relative h-100 shadow-lg rounded-4 overflow-hidden" style="min-height: 450px;">
-                    <img src="{% static 'images/destinations/kerala-abouts.jpg' %}" alt="Kerala Tourism and cab services" class="w-100 h-100 object-fit-cover position-absolute top-0 start-0">
-                    
-                    <!-- Unique Floating Badge -->
-                    <div class="position-absolute bottom-0 end-0 bg-white p-4 shadow-lg rounded-top-start-4 d-flex align-items-center gap-3" style="z-index: 3;">
-                        <div class="bg-danger text-white rounded-circle d-flex align-items-center justify-content-center shadow-sm" style="width: 50px; height: 50px; font-size: 1.5rem;">
-                            <i class="bi bi-award-fill"></i>
-                        </div>
-                        <div>
-                            <h4 class="fw-bold mb-0 text-dark">5+ Years</h4>
-                            <p class="text-muted small mb-0 fw-medium">Of Travel Excellence</p>
-                        </div>
+        <div class="d-flex align-items-end justify-content-between mb-4">
+            <div class="reveal-left">
+                <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block mb-1" style="color: #E31E24; font-size: 0.75rem; letter-spacing: 1.2px;">OUR CAB SERVICES</span>
+                <h2 class="fw-extrabold text-dark mb-0" style="font-size: 2.2rem; letter-spacing: -0.5px;">Premium Cab Services Across Kerala</h2>
+            </div>
+            <div class="d-flex align-items-center gap-2 reveal-right">
+                <a href="{% url 'local_taxi_service' %}" class="text-decoration-none text-dark fw-bold small">View All Services <i class="bi bi-chevron-right ms-1"></i></a>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <!-- Kochi Cab Service -->
+            <div class="col-lg-3 col-md-6 reveal-left">
+                <div class="cab-service-card">
+                    <div class="img-reveal">
+                        <img src="{% static 'images/destinations/cochin.jpg' %}" alt="Kochi Cab Service" class="img-fluid w-100" style="height: 180px; object-fit: cover;">
+                    </div>
+                    <div class="cab-icon-badge">
+                        <i class="bi bi-building-fill"></i>
+                    </div>
+                    <div class="p-4 pt-2 d-flex flex-column flex-grow-1">
+                        <h5 class="fw-bold text-dark mb-3" style="font-size: 1.1rem;">Kochi Cab Service</h5>
+                        <ul class="list-unstyled d-flex flex-column gap-2 text-muted small mb-4">
+                            <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Airport Transfer</span></li>
+                            <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Local City Rides</span></li>
+                            <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Outstation Trips</span></li>
+                            <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Corporate Travel</span></li>
+                        </ul>
+                        <button class="btn p-0 border-0 text-danger fw-bold small text-start mt-auto d-inline-flex align-items-center gap-1" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Kerala" data-city="Kochi">
+                            Book Now <i class="bi bi-arrow-right"></i>
+                        </button>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6" data-aos="fade-left">
-                <div class="h-100 d-flex flex-column justify-content-center py-3 ps-lg-4">
-                    <div class="d-inline-block text-danger fw-bold text-uppercase tracking-wide mb-2 small">Discover</div>
-                    <h2 class="section-title mb-4 fw-bolder text-dark" style="font-size: 2.5rem; letter-spacing: -0.5px;">About <span class="text-danger">Kerala</span></h2>
-                    <div class="about-content reveal-right text-secondary fs-6 lh-lg">
-                        <p>Welcome to <strong>Kerala</strong>, renowned as God's Own Country, offering a unique blend of serene backwaters, pristine beaches, lush tea gardens, rich wildlife, and authentic Ayurveda.</p>
-                        
-                        <p>From the peaceful houseboats of Alleppey to the misty hills of Munnar, Kerala offers a truly magical experience for nature lovers and peace seekers.</p>
-                        
-                        <div class="p-4 bg-light rounded-4 border-start border-4 border-danger mt-4 shadow-sm">
-                            <div class="d-flex align-items-start gap-3">
-                                <i class="bi bi-quote text-danger opacity-50" style="font-size: 2rem; line-height: 1;"></i>
-                                <p class="text-dark fw-medium mb-0 fs-6 fst-italic">Let Vibhu Travel Hub be your trusted partner. Our premium cab rental and luxury transport services ensure your journey across this beautiful state is safe, comfortable, and absolutely unforgettable.</p>
+
+            <!-- Thiruvananthapuram Cab Service -->
+            <div class="col-lg-3 col-md-6 reveal-up">
+                <div class="cab-service-card">
+                    <div class="img-reveal">
+                        <img src="{% static 'images/destinations/trivandrum.jpg' %}" alt="Trivandrum Cab Service" class="img-fluid w-100" style="height: 180px; object-fit: cover;">
+                    </div>
+                    <div class="cab-icon-badge">
+                        <i class="bi bi-car-front-fill"></i>
+                    </div>
+                    <div class="p-4 pt-2 d-flex flex-column flex-grow-1">
+                        <h5 class="fw-bold text-dark mb-3" style="font-size: 1.1rem;">Thiruvananthapuram Cab</h5>
+                        <ul class="list-unstyled d-flex flex-column gap-2 text-muted small mb-4">
+                            <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Airport Transfer</span></li>
+                            <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Local City Rides</span></li>
+                            <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Outstation Trips</span></li>
+                            <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Corporate Travel</span></li>
+                        </ul>
+                        <button class="btn p-0 border-0 text-danger fw-bold small text-start mt-auto d-inline-flex align-items-center gap-1" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Kerala" data-city="Trivandrum">
+                            Book Now <i class="bi bi-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Munnar Cab Service -->
+            <div class="col-lg-3 col-md-6 reveal-up">
+                <div class="cab-service-card">
+                    <div class="img-reveal">
+                        <img src="{% static 'images/destinations/munnar.jpg' %}" alt="Munnar Cab Service" class="img-fluid w-100" style="height: 180px; object-fit: cover;">
+                    </div>
+                    <div class="cab-icon-badge">
+                        <i class="bi bi-tree-fill"></i>
+                    </div>
+                    <div class="p-4 pt-2 d-flex flex-column flex-grow-1">
+                        <h5 class="fw-bold text-dark mb-3" style="font-size: 1.1rem;">Munnar Cab Service</h5>
+                        <ul class="list-unstyled d-flex flex-column gap-2 text-muted small mb-4">
+                            <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Airport Transfer</span></li>
+                            <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Local City Rides</span></li>
+                            <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Outstation Trips</span></li>
+                            <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Corporate Travel</span></li>
+                        </ul>
+                        <button class="btn p-0 border-0 text-danger fw-bold small text-start mt-auto d-inline-flex align-items-center gap-1" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Kerala" data-city="Munnar">
+                            Book Now <i class="bi bi-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alleppey Cab Service -->
+            <div class="col-lg-3 col-md-6 reveal-right">
+                <div class="cab-service-card">
+                    <div class="img-reveal">
+                        <img src="{% static 'images/destinations/alapuzha.jpg' %}" alt="Alleppey Cab Service" class="img-fluid w-100" style="height: 180px; object-fit: cover;">
+                    </div>
+                    <div class="cab-icon-badge">
+                        <i class="bi bi-water"></i>
+                    </div>
+                    <div class="p-4 pt-2 d-flex flex-column flex-grow-1">
+                        <h5 class="fw-bold text-dark mb-3" style="font-size: 1.1rem;">Alleppey Cab Service</h5>
+                        <ul class="list-unstyled d-flex flex-column gap-2 text-muted small mb-4">
+                            <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Airport Transfer</span></li>
+                            <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Local City Rides</span></li>
+                            <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Outstation Trips</span></li>
+                            <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Corporate Travel</span></li>
+                        </ul>
+                        <button class="btn p-0 border-0 text-danger fw-bold small text-start mt-auto d-inline-flex align-items-center gap-1" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Kerala" data-city="Alleppey">
+                            Book Now <i class="bi bi-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+    4. POPULAR DESTINATIONS (Matching Master Template)
+========================================== -->
+<section id="popular-destinations" class="vth-section py-5" style="background-color: #F8FAFC;">
+    <div class="container">
+        <div class="d-flex align-items-end justify-content-between mb-4">
+            <div class="reveal-down">
+                <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block mb-1" style="color: #E31E24; font-size: 0.75rem; letter-spacing: 1.2px;">POPULAR DESTINATIONS</span>
+                <h2 class="fw-extrabold text-dark mb-0" style="font-size: 2.2rem; letter-spacing: -0.5px;">Must Visit Places in Kerala</h2>
+            </div>
+            <div class="d-flex align-items-center gap-2 reveal-right">
+                <a href="#cab-services" class="text-decoration-none text-dark fw-bold small">View All Places <i class="bi bi-chevron-right ms-1"></i></a>
+            </div>
+        </div>
+
+        <div class="row g-3 stagger-grid">
+            <!-- 1. Munnar -->
+            <div class="col-lg-3 col-md-4 col-6 reveal-up">
+                <div class="dest-mini-card">
+                    <div class="img-reveal">
+                        <img src="{% static 'images/destinations/munnar.jpg' %}" alt="Munnar Hill Station">
+                    </div>
+                    <div class="p-3">
+                        <h6 class="fw-bold text-dark mb-0" style="font-size: 0.98rem;">Munnar</h6>
+                        <span class="text-muted small">Hill Station</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Alleppey -->
+            <div class="col-lg-3 col-md-4 col-6 reveal-up">
+                <div class="dest-mini-card">
+                    <div class="img-reveal">
+                        <img src="{% static 'images/destinations/alapuzha.jpg' %}" alt="Alleppey Backwaters">
+                    </div>
+                    <div class="p-3">
+                        <h6 class="fw-bold text-dark mb-0" style="font-size: 0.98rem;">Alleppey</h6>
+                        <span class="text-muted small">Backwaters</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Kochi -->
+            <div class="col-lg-3 col-md-4 col-6 reveal-up">
+                <div class="dest-mini-card">
+                    <div class="img-reveal">
+                        <img src="{% static 'images/destinations/cochin.jpg' %}" alt="Kochi Port City">
+                    </div>
+                    <div class="p-3">
+                        <h6 class="fw-bold text-dark mb-0" style="font-size: 0.98rem;">Kochi</h6>
+                        <span class="text-muted small">Port City & Culture</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Wayanad -->
+            <div class="col-lg-3 col-md-4 col-6 reveal-up">
+                <div class="dest-mini-card">
+                    <div class="img-reveal">
+                        <img src="{% static 'images/destinations/wayanad.jpg' %}" alt="Wayanad Nature">
+                    </div>
+                    <div class="p-3">
+                        <h6 class="fw-bold text-dark mb-0" style="font-size: 0.98rem;">Wayanad</h6>
+                        <span class="text-muted small">Nature & Wildlife</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Thekkady -->
+            <div class="col-lg-3 col-md-4 col-6 reveal-up">
+                <div class="dest-mini-card">
+                    <div class="img-reveal">
+                        <img src="{% static 'images/destinations/thekkady.jpg' %}" alt="Thekkady Spice Plantations">
+                    </div>
+                    <div class="p-3">
+                        <h6 class="fw-bold text-dark mb-0" style="font-size: 0.98rem;">Thekkady</h6>
+                        <span class="text-muted small">Spice & Wildlife</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. Varkala -->
+            <div class="col-lg-3 col-md-4 col-6 reveal-up">
+                <div class="dest-mini-card">
+                    <div class="img-reveal">
+                        <img src="{% static 'images/destinations/varkala.avif' %}" alt="Varkala Cliff Beach">
+                    </div>
+                    <div class="p-3">
+                        <h6 class="fw-bold text-dark mb-0" style="font-size: 0.98rem;">Varkala</h6>
+                        <span class="text-muted small">Cliff Beach</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. Kovalam -->
+            <div class="col-lg-3 col-md-4 col-6 reveal-up">
+                <div class="dest-mini-card">
+                    <div class="img-reveal">
+                        <img src="{% static 'images/destinations/kovalam.jpg' %}" alt="Kovalam Beach Resort">
+                    </div>
+                    <div class="p-3">
+                        <h6 class="fw-bold text-dark mb-0" style="font-size: 0.98rem;">Kovalam</h6>
+                        <span class="text-muted small">Beach Resort</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8. Kumarakom -->
+            <div class="col-lg-3 col-md-4 col-6 reveal-up">
+                <div class="dest-mini-card">
+                    <div class="img-reveal">
+                        <img src="{% static 'images/destinations/kerala-abouts.jpg' %}" alt="Kumarakom Backwaters">
+                    </div>
+                    <div class="p-3">
+                        <h6 class="fw-bold text-dark mb-0" style="font-size: 0.98rem;">Kumarakom</h6>
+                        <span class="text-muted small">Backwater Sanctuary</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+    5. POPULAR OUTSTATION ROUTES (Kerala SEO Integration)
+========================================== -->
+<section id="outstation-routes" class="vth-section py-5 bg-white border-top border-bottom">
+    <div class="container">
+        <div class="text-start mb-4">
+            <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block mb-1 reveal-down" style="color: #E31E24; font-size: 0.75rem; letter-spacing: 1.2px;">POPULAR OUTSTATION ROUTES</span>
+            <h2 class="fw-extrabold text-dark mb-1 reveal-left" style="font-size: 2.2rem; letter-spacing: -0.5px;">Popular Outstation Routes from Kerala</h2>
+            <p class="text-muted small mb-0 reveal-left">Explore top cab routes, tempo traveller rentals & outstation travel options across Kerala.</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Left Card: Kochi Outstation Routes -->
+            <div class="col-lg-6 col-md-12 reveal-left">
+                <div class="p-4 p-md-4.5 rounded-4 bg-light border border-light-subtle shadow-sm h-100 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="d-flex align-items-center gap-2 mb-3">
+                            <i class="bi bi-geo-alt-fill text-danger fs-4"></i>
+                            <h4 class="fw-bold text-dark mb-0" style="font-size: 1.25rem;">Popular Outstation Routes from Kochi</h4>
+                        </div>
+                        <p class="text-muted small mb-3" style="line-height: 1.6;">
+                            Vibhu Travel Hub offers 24/7 cab service in Kochi, airport transfers, and outstation cabs to Kerala's top hill stations, backwater destinations, and coastal resorts.
+                        </p>
+
+                        <div class="d-flex flex-wrap gap-2 mb-4">
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Munnar"><i class="bi bi-signpost text-danger"></i> Kochi to Munnar Cab</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Alleppey"><i class="bi bi-signpost text-danger"></i> Kochi to Alleppey Cab</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Thekkady"><i class="bi bi-signpost text-danger"></i> Kochi to Thekkady Cab</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Wayanad"><i class="bi bi-signpost text-danger"></i> Kochi to Wayanad Cab</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Trivandrum"><i class="bi bi-signpost text-danger"></i> Kochi to Trivandrum Cab</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Kozhikode"><i class="bi bi-signpost text-danger"></i> Kochi to Kozhikode Cab</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Kumarakom"><i class="bi bi-signpost text-danger"></i> Kochi to Kumarakom Cab</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Munnar Alleppey"><i class="bi bi-signpost text-danger"></i> Munnar to Alleppey Cab</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Munnar Thekkady"><i class="bi bi-signpost text-danger"></i> Munnar to Thekkady Cab</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Varkala"><i class="bi bi-signpost text-danger"></i> Alleppey to Varkala Cab</a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <button class="btn btn-outline-danger rounded-pill px-4 py-2 fw-bold small" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Kerala" data-city="Kochi">
+                            Book Kochi Services <i class="bi bi-arrow-right ms-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Card: Trivandrum & Calicut Outstation Routes -->
+            <div class="col-lg-6 col-md-12 reveal-right">
+                <div class="p-4 p-md-4.5 rounded-4 bg-light border border-light-subtle shadow-sm h-100 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="d-flex align-items-center gap-2 mb-3">
+                            <i class="bi bi-geo-alt-fill text-danger fs-4"></i>
+                            <h4 class="fw-bold text-dark mb-0" style="font-size: 1.25rem;">Popular Outstation Routes across Kerala</h4>
+                        </div>
+                        <p class="text-muted small mb-3" style="line-height: 1.6;">
+                            Vibhu Travel Hub provides seamless outstation taxi rentals, airport taxis, and Tempo Travellers connecting Kerala with Tamil Nadu, Karnataka & interstate destinations.
+                        </p>
+
+                        <div class="d-flex flex-wrap gap-2 mb-4">
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Kanyakumari"><i class="bi bi-signpost text-danger"></i> Trivandrum to Kanyakumari Cab</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Varkala"><i class="bi bi-signpost text-danger"></i> Trivandrum to Varkala Cab</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Alleppey"><i class="bi bi-signpost text-danger"></i> Trivandrum to Alleppey Cab</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Kovalam Taxi"><i class="bi bi-airplane text-danger"></i> Trivandrum Airport to Kovalam Taxi</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Wayanad"><i class="bi bi-signpost text-danger"></i> Kozhikode to Wayanad Cab</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Airport Munnar"><i class="bi bi-airplane text-danger"></i> Kochi Airport to Munnar Taxi</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Airport Alleppey"><i class="bi bi-airplane text-danger"></i> Kochi Airport to Alleppey Taxi</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Bangalore"><i class="bi bi-signpost text-danger"></i> Kochi to Bangalore Outstation Cab</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Coimbatore"><i class="bi bi-signpost text-danger"></i> Kochi to Coimbatore Cab</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Chennai"><i class="bi bi-signpost text-danger"></i> Kochi to Chennai Cab</a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <button class="btn btn-outline-danger rounded-pill px-4 py-2 fw-bold small" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Kerala" data-city="Trivandrum">
+                            Book Kerala Services <i class="bi bi-arrow-right ms-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+    6. GALLERY & WHY CHOOSE US (Matching Master Template Split Row)
+========================================== -->
+<section class="vth-section py-5 bg-white">
+    <div class="container">
+        <div class="row g-5">
+            <!-- Left Column: Gallery -->
+            <div class="col-lg-6 col-md-12 reveal-left">
+                <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block mb-1" style="color: #E31E24; font-size: 0.75rem; letter-spacing: 1.2px;">GALLERY</span>
+                <h2 class="fw-extrabold text-dark mb-4" style="font-size: 2rem; letter-spacing: -0.5px;">Beautiful Kerala</h2>
+
+                <div class="row g-2.5">
+                    <div class="col-4">
+                        <div class="gallery-tile">
+                            <img src="{% static 'images/destinations/munnar.jpg' %}" alt="Munnar Tea Plantations">
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="gallery-tile">
+                            <img src="{% static 'images/destinations/alapuzha.jpg' %}" alt="Alleppey Backwater Houseboat">
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="gallery-tile">
+                            <img src="{% static 'images/destinations/kovalam.jpg' %}" alt="Kovalam Lighthouse Beach">
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="gallery-tile">
+                            <img src="{% static 'images/destinations/varkala.avif' %}" alt="Varkala Cliff & Coast">
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="gallery-tile">
+                            <img src="{% static 'images/destinations/vagamon.jpg' %}" alt="Vagamon Green Meadows">
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="gallery-tile">
+                            <img src="{% static 'images/destinations/athira.jpg' %}" alt="Athirappilly Waterfalls">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-3.5">
+                    <a href="#popular-destinations" class="text-danger text-decoration-none fw-bold small d-inline-flex align-items-center gap-1">
+                        View Full Gallery <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Column: Why Choose Vibhu Travel Hub -->
+            <div class="col-lg-6 col-md-12 reveal-right">
+                <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block mb-1" style="color: #E31E24; font-size: 0.75rem; letter-spacing: 1.2px;">WHY CHOOSE VIBHU TRAVEL HUB?</span>
+                <h2 class="fw-extrabold text-dark mb-4" style="font-size: 2rem; letter-spacing: -0.5px;">Your Journey, Our Responsibility</h2>
+
+                <div class="row g-4">
+                    <div class="col-6">
+                        <div class="d-flex align-items-start gap-3">
+                            <div class="rounded-circle p-2.5 text-danger border border-danger-subtle bg-danger-subtle d-flex align-items-center justify-content-center" style="width: 44px; height: 44px; min-width: 44px;">
+                                <i class="bi bi-person-badge-fill fs-5"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem;">Professional Drivers</h6>
+                                <p class="text-muted small mb-0" style="font-size: 0.8rem; line-height: 1.45;">Experienced & verified drivers</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="d-flex align-items-start gap-3">
+                            <div class="rounded-circle p-2.5 text-danger border border-danger-subtle bg-danger-subtle d-flex align-items-center justify-content-center" style="width: 44px; height: 44px; min-width: 44px;">
+                                <i class="bi bi-car-front-fill fs-5"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem;">Luxury Fleet</h6>
+                                <p class="text-muted small mb-0" style="font-size: 0.8rem; line-height: 1.45;">Well maintained premium vehicles</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="d-flex align-items-start gap-3">
+                            <div class="rounded-circle p-2.5 text-danger border border-danger-subtle bg-danger-subtle d-flex align-items-center justify-content-center" style="width: 44px; height: 44px; min-width: 44px;">
+                                <i class="bi bi-shield-lock-fill fs-5"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem;">Safe & Secure</h6>
+                                <p class="text-muted small mb-0" style="font-size: 0.8rem; line-height: 1.45;">Your safety is our top priority</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="d-flex align-items-start gap-3">
+                            <div class="rounded-circle p-2.5 text-danger border border-danger-subtle bg-danger-subtle d-flex align-items-center justify-content-center" style="width: 44px; height: 44px; min-width: 44px;">
+                                <i class="bi bi-headset fs-5"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem;">24/7 Support</h6>
+                                <p class="text-muted small mb-0" style="font-size: 0.8rem; line-height: 1.45;">Always available for you</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="d-flex align-items-start gap-3">
+                            <div class="rounded-circle p-2.5 text-danger border border-danger-subtle bg-danger-subtle d-flex align-items-center justify-content-center" style="width: 44px; height: 44px; min-width: 44px;">
+                                <i class="bi bi-currency-rupee fs-5"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem;">Affordable Pricing</h6>
+                                <p class="text-muted small mb-0" style="font-size: 0.8rem; line-height: 1.45;">Best price guarantee with no hidden charges</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="d-flex align-items-start gap-3">
+                            <div class="rounded-circle p-2.5 text-danger border border-danger-subtle bg-danger-subtle d-flex align-items-center justify-content-center" style="width: 44px; height: 44px; min-width: 44px;">
+                                <i class="bi bi-clock-check-fill fs-5"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem;">On-Time Service</h6>
+                                <p class="text-muted small mb-0" style="font-size: 0.8rem; line-height: 1.45;">Punctual & reliable travel service</p>
                             </div>
                         </div>
                     </div>
@@ -491,317 +750,56 @@ body {
     </div>
 </section>
 
-<!-- 3. OUR CAB SERVICES -->
-<section class="lux-section bg-light">
+<!-- ==========================================
+    7. BOOKING ENQUIRY SECTION (Matching Master Template)
+========================================== -->
+<section class="py-5" style="background-color: #F8FAFC;">
     <div class="container">
-        <div class="text-center mb-5" data-aos="fade-up">
-            <h2 class="section-title">Our Cab Services in Kerala</h2>
-            <p class="section-subtitle">Premium travel solutions across major Kerala cities for your ultimate comfort.</p>
-        </div>
-        
-        <!-- Row 1: Trivandrum & Kochi -->
-        <div class="row g-5 mb-5">
-            <!-- Trivandrum -->
-            <div class="col-md-6" data-aos="fade-right">
-                <img src="{% static 'images/destinations/trivandrum.jpg' %}" alt="Innova rental in Trivandrum and 17 seater Tempo Traveller in Trivandrum" class="img-fluid rounded-4 shadow-sm mb-4 w-100" style="height: 300px; object-fit: cover;">
-                <h3 class="fw-bold mb-3">Trivandrum Vehicle & Cab Rentals</h3>
-                <p class="text-secondary lh-lg fs-6 mb-3">Vibhu Travel Hub provides premium <strong>Innova rental in Trivandrum</strong> and <strong>Innova Crysta rental in Trivandrum</strong> for comfortable city and outstation journeys. Book a spacious <strong>17 seater Tempo Traveller in Trivandrum</strong>, an <strong>AC Tempo Traveller in Trivandrum</strong>, <strong>sedan car rental in Trivandrum</strong>, or a <strong>30 seater bus rental in Trivandrum</strong> for airport transfers and Kovalam tours.</p>
-                <div class="d-flex flex-wrap gap-2 mb-4">
-                    <span class="badge bg-light text-dark border px-3 py-2">Innova rental in Trivandrum</span>
-                    <span class="badge bg-light text-dark border px-3 py-2">17 seater Tempo Traveller in Trivandrum</span>
-                    <span class="badge bg-light text-dark border px-3 py-2">AC Tempo Traveller in Trivandrum</span>
-                    <span class="badge bg-light text-dark border px-3 py-2">30 seater bus rental in Trivandrum</span>
+        <div class="p-4 p-md-5 rounded-4 bg-white border border-light-subtle shadow-sm reveal-zoom">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-4 col-md-12 reveal-left">
+                    <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block mb-1" style="font-size: 0.75rem; letter-spacing: 1px;">PLAN YOUR JOURNEY</span>
+                    <h3 class="fw-extrabold text-dark mb-1" style="font-size: 1.8rem; letter-spacing: -0.5px;">Book Your Trip Now!</h3>
+                    <p class="text-muted small mb-0">Fill in the details and our team will contact you shortly.</p>
                 </div>
-                <button class="btn btn-outline-primary rounded-pill px-4 py-2" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Kerala" data-city="Trivandrum">
-                    Book Trivandrum Rentals <i class="bi bi-arrow-right ms-2"></i>
-                </button>
-            </div>
-            
-            <!-- Kochi / Cochin -->
-            <div class="col-md-6" data-aos="fade-left">
-                <img src="{% static 'images/destinations/cochin.jpg' %}" alt="{% if city_seo.kochi.image_alt_text %}{{ city_seo.kochi.image_alt_text }}{% else %}Kerala tour package cab from Kochi and cab service in Cochin{% endif %}" class="img-fluid rounded-4 shadow-sm mb-4 w-100" style="height: 300px; object-fit: cover;">
-                <h3 class="fw-bold mb-3">Kochi & Cochin Cab Services</h3>
-                {% if city_seo.kochi.seo_content %}
-                    <div class="text-secondary lh-lg fs-6 mb-3">{{ city_seo.kochi.seo_content|safe }}</div>
-                {% else %}
-                    <p class="text-secondary lh-lg fs-6 mb-3">Planning your God's Own Country vacation? Vibhu Travel Hub provides premier <strong>cab service in Kochi</strong> and <strong>cab service in Cochin</strong>. Book a <strong>Kerala tour package cab from Kochi</strong>, <strong>Kochi local sightseeing cab</strong>, <strong>Kochi airport cab booking</strong>, or <strong>Cochin airport taxi</strong> for <strong>Cochin airport group transfer</strong>. We offer spacious <strong>Tempo Traveller rental in Kochi</strong>, <strong>Force Urbania rental in Kochi</strong>, <strong>minibus rental in Kochi</strong>, and <strong>tourist bus rental in Kochi</strong> for <strong>Kochi wedding vehicle rental</strong> and <strong>Kochi group tour vehicle</strong>. Enjoy premium <strong>car rental with driver in Kochi</strong>, <strong>Kochi outstation cab service</strong>, <strong>Kochi corporate cab service</strong>, and <strong>Kochi one way taxi</strong> options.</p>
-                {% endif %}
-                <div class="d-flex flex-wrap gap-2 mb-3">
-                    <span class="badge bg-light text-dark border px-3 py-2">cab service in Kochi</span>
-                    <span class="badge bg-light text-dark border px-3 py-2">Kerala tour package cab from Kochi</span>
-                    <span class="badge bg-light text-dark border px-3 py-2">Tempo Traveller rental in Kochi</span>
-                    <span class="badge bg-light text-dark border px-3 py-2">Cochin airport taxi</span>
-                </div>
-                <!-- Priority C Popular Routes from Kochi / Cochin -->
-                <div class="p-3 bg-white rounded-3 border mb-4">
-                    <h6 class="fw-bold mb-2 text-dark"><i class="bi bi-signpost-split text-danger me-2"></i>Popular Outstation Routes from Kochi / Cochin</h6>
-                    <div class="d-flex flex-wrap gap-2 small text-muted">
-                        <span>• Kochi to Munnar cab</span>
-                        <span>• Kochi to Wayanad cab</span>
-                        <span>• Cochin airport to Munnar taxi</span>
-                        <span>• Kochi to Alleppey cab</span>
-                        <span>• Kochi to Thekkady cab</span>
-                        <span>• Kochi to Munnar Tempo Traveller</span>
-                        <span>• Kochi to Alleppey Tempo Traveller</span>
-                        <span>• Kochi to Trivandrum cab</span>
-                        <span>• Kochi to Varkala cab</span>
-                        <span>• Kochi Munnar Thekkady Alleppey tour package</span>
-                    </div>
-                </div>
-                <button class="btn btn-outline-primary rounded-pill px-4 py-2" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Kerala" data-city="Kochi">
-                    Book Kochi & Cochin Services <i class="bi bi-arrow-right ms-2"></i>
-                </button>
-            </div>
-        </div>
-        
-        <!-- Row 2: Thrissur & Calicut -->
-        <div class="row g-5">
-            <!-- Thrissur -->
-            <div class="col-md-6" data-aos="fade-right">
-                <img src="{% static 'images/destinations/Thirissur.jpg' %}" alt="AC Tempo Traveller in Thrissur and bus rental in Thrissur" class="img-fluid rounded-4 shadow-sm mb-4 w-100" style="height: 300px; object-fit: cover;">
-                <h3 class="fw-bold mb-3">Thrissur Cab & Bus Rentals</h3>
-                <p class="text-secondary lh-lg fs-6 mb-3">Vibhu Travel Hub provides premium <strong>Innova rental in Thrissur</strong>, <strong>Ertiga rental in Thrissur</strong>, and <strong>14 seater Tempo Traveller in Thrissur</strong> for local temple visits and outstation tours. For group excursions, we offer comfortable <strong>AC Tempo Traveller in Thrissur</strong>, <strong>40 seater bus rental in Thrissur</strong>, and <strong>non AC bus rental in Thrissur</strong>.</p>
-                <div class="d-flex flex-wrap gap-2 mb-4">
-                    <span class="badge bg-light text-dark border px-3 py-2">Innova rental in Thrissur</span>
-                    <span class="badge bg-light text-dark border px-3 py-2">14 seater Tempo Traveller in Thrissur</span>
-                    <span class="badge bg-light text-dark border px-3 py-2">AC Tempo Traveller in Thrissur</span>
-                    <span class="badge bg-light text-dark border px-3 py-2">40 seater bus rental in Thrissur</span>
-                </div>
-                <button class="btn btn-outline-primary rounded-pill px-4 py-2" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Kerala" data-city="Thrissur">
-                    Book Thrissur Rentals <i class="bi bi-arrow-right ms-2"></i>
-                </button>
-            </div>
-            
-            <!-- Calicut -->
-            <div class="col-md-6" data-aos="fade-left">
-                <img src="{% static 'images/destinations/calicut.jpg' %}" alt="Ertiga rental in Calicut and 12 seater Tempo Traveller in Calicut" class="img-fluid rounded-4 shadow-sm mb-4 w-100" style="height: 300px; object-fit: cover;">
-                <h3 class="fw-bold mb-3">Calicut Vehicle & Coach Rentals</h3>
-                <p class="text-secondary lh-lg fs-6 mb-3">Traveling through Kozhikode? Book an <strong>Ertiga rental in Calicut</strong>, <strong>7 seater car rental in Calicut</strong>, or a <strong>12 seater Tempo Traveller in Calicut</strong> for smooth travel to Wayanad and airport pick-ups. We also offer <strong>20 seater bus rental in Calicut</strong>, <strong>AC bus rental in Calicut</strong>, and <strong>luxury coach rental in Calicut</strong>.</p>
-                <div class="d-flex flex-wrap gap-2 mb-4">
-                    <span class="badge bg-light text-dark border px-3 py-2">Ertiga rental in Calicut</span>
-                    <span class="badge bg-light text-dark border px-3 py-2">12 seater Tempo Traveller in Calicut</span>
-                    <span class="badge bg-light text-dark border px-3 py-2">20 seater bus rental in Calicut</span>
-                    <span class="badge bg-light text-dark border px-3 py-2">AC bus rental in Calicut</span>
-                </div>
-                <button class="btn btn-outline-primary rounded-pill px-4 py-2" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Kerala" data-city="Calicut">
-                    Book Calicut Rentals <i class="bi bi-arrow-right ms-2"></i>
-                </button>
-            </div>
-        </div>
-    </div>
-</section>
 
-<!-- 4. POPULAR TOURIST PLACES -->
-<section class="lux-section bg-white">
-    <div class="container">
-        <div class="text-center" data-aos="fade-up">
-            <h2 class="section-title">Popular Tourist Places in Kerala</h2>
-            <p class="section-subtitle">Explore the most breathtaking locations and iconic attractions across God's Own Country.</p>
-        </div>
-
-        <div class="row g-4 mt-4">
-            <!-- Kovalam -->
-            <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up">
-                <div class="card anim-card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
-                    <img src="{% static 'images/destinations/kovalam.jpg' %}" class="card-img-top" alt="Kovalam Kerala tourist place" style="height: 250px; object-fit: cover;" loading="lazy">
-                    <div class="card-body d-flex flex-column p-4">
-                        <h4 class="fw-bold mb-3 seo-keyword">Kovalam</h4>
-                        <p class="text-secondary mb-4 lh-base fs-6">Relax at pristine beaches with our affordable <strong class="seo-keyword">cab service in Trivandrum</strong>. Kovalam is a peaceful seaside getaway ideal for family holidays and weekend trips.</p>
-                        <button class="btn btn-book-tour mt-auto" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Kerala" data-place="Kovalam">Book Tour</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Sree Padmanabhaswamy Temple -->
-            <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up">
-                <div class="card anim-card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
-                    <img src="{% static 'images/destinations/trivandrum.jpg' %}" class="card-img-top" alt="Sree Padmanabhaswamy Temple Trivandrum" style="height: 250px; object-fit: cover;" loading="lazy">
-                    <div class="card-body d-flex flex-column p-4">
-                        <h4 class="fw-bold mb-3 seo-keyword">Sree Padmanabhaswamy Temple</h4>
-                        <p class="text-secondary mb-4 lh-base fs-6">Experience profound spirituality at this historic temple with our reliable <strong class="seo-keyword">trivandrum cabs</strong>. A must-visit pilgrimage destination in Thiruvananthapuram.</p>
-                        <button class="btn btn-book-tour mt-auto" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Kerala" data-place="Sree Padmanabhaswamy Temple">Book Tour</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Varkala -->
-            <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up">
-                <div class="card anim-card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
-                    <img src="{% static 'images/destinations/varkala.avif' %}" class="card-img-top" alt="Varkala Kerala tourist place" style="height: 250px; object-fit: cover;" loading="lazy">
-                    <div class="card-body d-flex flex-column p-4">
-                        <h4 class="fw-bold mb-3 seo-keyword">Varkala</h4>
-                        <p class="text-secondary mb-4 lh-base fs-6">Explore stunning cliff views with our budget packages. We provide the <strong class="seo-keyword">best cab service in Trivandrum</strong> for a truly peaceful beachside holiday.</p>
-                        <button class="btn btn-book-tour mt-auto" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Kerala" data-place="Varkala">Book Tour</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Fort Kochi -->
-            <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up">
-                <div class="card anim-card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
-                    <img src="{% static 'images/destinations/cochin.jpg' %}" class="card-img-top" alt="Fort Kochi Kerala tourist place" style="height: 250px; object-fit: cover;" loading="lazy">
-                    <div class="card-body d-flex flex-column p-4">
-                        <h4 class="fw-bold mb-3 seo-keyword">Fort Kochi</h4>
-                        <p class="text-secondary mb-4 lh-base fs-6">Explore the historic harbor and Fort Kochi with our premium <strong class="seo-keyword">cab service in Kochi</strong>, perfect for urban travel in Kerala.</p>
-                        <button class="btn btn-book-tour mt-auto" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Kerala" data-place="Fort Kochi">Book Tour</button>
-                    </div>
-                </div>
-            </div>
-
-          
-            
-
-            <!-- Marine Drive -->
-            <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up">
-                <div class="card anim-card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
-                    <img src="{% static 'images/destinations/marina.webp' %}" class="card-img-top" alt="Marine Drive Kochi tourist place" style="height: 250px; object-fit: cover;" loading="lazy">
-                    <div class="card-body d-flex flex-column p-4">
-                        <h4 class="fw-bold mb-3 seo-keyword">Marine Drive</h4>
-                        <p class="text-secondary mb-4 lh-base fs-6">Enjoy a scenic evening walk along Marine Drive. Reach there easily with our affordable <strong class="seo-keyword">cab service kochi</strong> for a memorable experience.</p>
-                        <button class="btn btn-book-tour mt-auto" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Kerala" data-place="Marine Drive">Book Tour</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Vadakkunnathan Temple -->
-            <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up">
-                <div class="card anim-card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
-                    <img src="{% static 'images/destinations/Thirissur.jpg' %}" class="card-img-top" alt="Vadakkunnathan Temple Thrissur tourist place" style="height: 250px; object-fit: cover;" loading="lazy">
-                    <div class="card-body d-flex flex-column p-4">
-                        <h4 class="fw-bold mb-3 seo-keyword">Vadakkunnathan Temple</h4>
-                        <p class="text-secondary mb-4 lh-base fs-6">Visit this ancient Hindu temple dedicated to Lord Shiva seamlessly via our reliable <strong class="seo-keyword">cab service thrissur</strong>. A magnificent example of Kerala architecture.</p>
-                        <button class="btn btn-book-tour mt-auto" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Kerala" data-place="Vadakkunnathan Temple">Book Tour</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Athirappilly -->
-            <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up">
-                <div class="card anim-card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
-                    <img src="{% static 'images/destinations/athira.jpg' %}" class="card-img-top" alt="Athirappilly Waterfalls Kerala tourist place" style="height: 250px; object-fit: cover;" loading="lazy">
-                    <div class="card-body d-flex flex-column p-4">
-                        <h4 class="fw-bold mb-3 seo-keyword">Athirappilly</h4>
-                        <p class="text-secondary mb-4 lh-base fs-6">Witness the grandeur of the Niagara of India on an <strong class="seo-keyword">Athirappilly trip</strong>. Reliable <strong class="seo-keyword">outstation cabs thrissur</strong> services for a memorable day tour.</p>
-                        <button class="btn btn-book-tour mt-auto" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Kerala" data-place="Athirappilly">Book Tour</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Ponmudi -->
-            
-
-            <!-- Kozhikode Beach -->
-            <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up">
-                <div class="card anim-card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
-                    <img src="{% static 'images/destinations/calicut.jpg' %}" class="card-img-top" alt="Kozhikode Beach Kerala tourist place" style="height: 250px; object-fit: cover;" loading="lazy">
-                    <div class="card-body d-flex flex-column p-4">
-                        <h4 class="fw-bold mb-3 seo-keyword">Kozhikode Beach</h4>
-                        <p class="text-secondary mb-4 lh-base fs-6">A prime location to watch stunning sunsets. Reach here effortlessly with the best <strong class="seo-keyword">cab service in kozhikode</strong> from Vibhu Travel Hub.</p>
-                        <button class="btn btn-book-tour mt-auto" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Kerala" data-place="Kozhikode Beach">Book Tour</button>
-                    </div>
-                </div>
-            </div>
-
-            
-
-            <!-- Thrissur Zoo -->
-            <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up">
-                <div class="card anim-card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
-                    <img src="{% static 'images/destinations/thirussur.jfif' %}" class="card-img-top" alt="Thrissur Zoo Kerala tourist place" style="height: 250px; object-fit: cover;" loading="lazy">
-                    <div class="card-body d-flex flex-column p-4">
-                        <h4 class="fw-bold mb-3 seo-keyword">Thrissur Zoo</h4>
-                        <p class="text-secondary mb-4 lh-base fs-6">A great destination for families and kids, easily accessible with our affordable <strong class="seo-keyword">cabs in thrissur</strong>. Enjoy wildlife and nature together.</p>
-                        <button class="btn btn-book-tour mt-auto" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Kerala" data-place="Thrissur Zoo">Book Tour</button>
-                    </div>
+                <div class="col-lg-8 col-md-12 reveal-right">
+                    <form action="#" method="GET" class="row g-3 align-items-end" onsubmit="event.preventDefault(); bootstrap.Modal.getOrCreateInstance(document.getElementById('enquiryModal')).show();">
+                        <div class="col-md-4">
+                            <label class="form-label small fw-bold text-dark mb-1">Your Name</label>
+                            <input type="text" class="form-control rounded-3 py-2 text-dark bg-light border-0" placeholder="Enter your name" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label small fw-bold text-dark mb-1">Phone Number</label>
+                            <input type="tel" class="form-control rounded-3 py-2 text-dark bg-light border-0" placeholder="Enter your phone" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label small fw-bold text-dark mb-1">Pickup Location</label>
+                            <input type="text" class="form-control rounded-3 py-2 text-dark bg-light border-0" placeholder="Enter pickup location" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label small fw-bold text-dark mb-1">Drop Location</label>
+                            <input type="text" class="form-control rounded-3 py-2 text-dark bg-light border-0" placeholder="Enter drop location" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label small fw-bold text-dark mb-1">Travel Date</label>
+                            <input type="date" class="form-control rounded-3 py-2 text-dark bg-light border-0" required>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn btn-danger w-100 rounded-3 py-2 fw-bold text-white shadow-sm border-0" style="background-color: #E31E24; font-size: 0.95rem;">
+                                Submit Enquiry
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-
-<!-- 6. WHY CHOOSE VIBHU -->
-<section class="lux-section bg-light">
-    <div class="container">
-        <div class="text-center" data-aos="fade-up">
-            <h2 class="section-title">Why Choose Vibhu Travel Hub</h2>
-            <p class="section-subtitle">Experience the ultimate comfort and reliability for your Kerala journey.</p>
-        </div>
-
-        <div class="row g-4 mt-2">
-            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="bi bi-person-badge"></i></div>
-                    <h5 class="fw-bold mb-2">Professional Drivers</h5>
-                    <p class="text-muted small mb-0">Highly trained and verified drivers for a safe and smooth journey.</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="bi bi-car-front"></i></div>
-                    <h5 class="fw-bold mb-2">Luxury Fleet</h5>
-                    <p class="text-muted small mb-0">Premium and well-maintained vehicles for maximum comfort.</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="bi bi-headset"></i></div>
-                    <h5 class="fw-bold mb-2">24×7 Support</h5>
-                    <p class="text-muted small mb-0">Round-the-clock customer service to assist you at any time.</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="bi bi-tag"></i></div>
-                    <h5 class="fw-bold mb-2">Affordable Pricing</h5>
-                    <p class="text-muted small mb-0">Competitive and transparent rates with no hidden charges.</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="500">
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="bi bi-people"></i></div>
-                    <h5 class="fw-bold mb-2">Safe Family Trips</h5>
-                    <p class="text-muted small mb-0">Specialized family-friendly cabs for secure and happy travels.</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="600">
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="bi bi-airplane"></i></div>
-                    <h5 class="fw-bold mb-2">Airport Transfers</h5>
-                    <p class="text-muted small mb-0">Punctual pickup and drop services directly to and from airports.</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="700">
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="bi bi-briefcase"></i></div>
-                    <h5 class="fw-bold mb-2">Corporate Travel</h5>
-                    <p class="text-muted small mb-0">Seamless transportation solutions for your professional needs.</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="800">
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="bi bi-shield-check"></i></div>
-                    <h5 class="fw-bold mb-2">Transparent Pricing</h5>
-                    <p class="text-muted small mb-0">No surprise costs, ensuring you only pay what you agreed on.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Include Modal -->
 {% include 'includes/enquiry_modal.html' %}
-
 {% endblock %}
 
 {% block extra_js %}
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        AOS.init({
-            once: true,
-            offset: 50,
-        });
-    });
-</script>
+<script src="{% static 'js/destination.js' %}?v={{ STATIC_VERSION }}"></script>
 {% endblock %}

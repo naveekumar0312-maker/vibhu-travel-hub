@@ -1,18 +1,19 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Innova & Tempo Traveller Rental in Karnataka | Bangalore, Mysore, Coorg & Chikmagalur{% endblock %}
-{% block description %}Book Innova rental, Innova Crysta rental, Force Urbania rental, Ertiga, 12 to 26 seater Tempo Traveller rental, and luxury bus rental in Bangalore, Mysore, Coorg, and Chikmagalur with Vibhu Travel Hub.{% endblock %}
-{% block keywords %}Innova rental in Bangalore, Innova Crysta rental in Bangalore, Force Urbania rental in Bangalore, 26 seater Tempo Traveller in Bangalore, Innova rental in Mysore, 17 seater Tempo Traveller in Mysore, Ertiga rental in Coorg, 14 seater Tempo Traveller in Chikmagalur, AC bus rental in Karnataka{% endblock %}
+{% block title %}Karnataka Travel Packages, Cab Services & Outstation Rentals | Vibhu Travel Hub{% endblock %}
+{% block description %}Discover Incredible Karnataka with Vibhu Travel Hub. Premium cab services, outstation taxi rentals, Tempo Traveller & luxury bus rentals in Bangalore, Mysore, Coorg, Chikmagalur, Hampi, and Gokarna.{% endblock %}
+{% block keywords %}Karnataka tourism, cab service in Bangalore, taxi service in Mysore, Coorg cab rental, Chikmagalur cabs, Hampi tour taxi, Tempo Traveller Bangalore, Gokarna taxi{% endblock %}
 {% block canonical %}https://www.vibhutravels.in/destinations/karnataka/{% endblock %}
 
-{% block og_title %}Innova & Tempo Traveller Rental in Karnataka | Bangalore, Mysore, Coorg & Chikmagalur{% endblock %}
-{% block og_description %}Book premium Innova Crysta rental, Force Urbania rental, 12 to 26 seater Tempo Traveller, and luxury coach rental in Bangalore, Mysore, Coorg & Chikmagalur with Vibhu Travel Hub.{% endblock %}
+{% block og_title %}Karnataka Travel Packages & Cab Services | Vibhu Travel Hub{% endblock %}
+{% block og_description %}Book luxury cabs, Tempo Travellers, and tour packages across Karnataka with Vibhu Travel Hub.{% endblock %}
 {% block og_url %}https://www.vibhutravels.in/destinations/karnataka/{% endblock %}
-{% block og_image %}https://www.vibhutravels.in{% static 'images/destinations/karnataka-hero.jpg' %}{% endblock %}
+{% block og_image %}https://www.vibhutravels.in{% static 'images/destinations/karnataka.jpg' %}{% endblock %}
 
-{% block twitter_title %}Innova & Tempo Traveller Rental in Karnataka | Vibhu Travel Hub{% endblock %}
-{% block twitter_description %}Book Innova Crysta rental, Force Urbania rental, Tempo Traveller rental & luxury bus rental in Bangalore, Mysore, Coorg & Chikmagalur.{% endblock %}
+{% block twitter_title %}Karnataka Travel Packages & Cab Services | Vibhu Travel Hub{% endblock %}
+{% block twitter_description %}Book luxury cabs, Tempo Travellers, and tour packages across Karnataka with Vibhu Travel Hub.{% endblock %}
+{% block twitter_image %}https://www.vibhutravels.in{% static 'images/destinations/karnataka.jpg' %}{% endblock %}
 
 {% block schema_markup %}
 <script type="application/ld+json">
@@ -42,401 +43,251 @@
   "@context": "https://schema.org",
   "@type": "TouristDestination",
   "name": "Karnataka",
-  "description": "Discover Incredible Karnataka with Vibhu Travel Hub. Explore hill stations, coffee plantations, palaces, waterfalls, wildlife and modern cities.",
-  "image": "https://www.vibhutravels.in{% static 'images/destinations/karnataka-hero.jpg' %}",
-  "touristType": [
-    "Heritage Tourism",
-    "Nature Tour",
-    "Family Trip"
-  ],
+  "description": "Discover Karnataka with Vibhu Travel Hub. Explore hill stations, coffee plantations, palaces, waterfalls, wildlife and modern cities.",
+  "image": "https://www.vibhutravels.in{% static 'images/destinations/karnataka.jpg' %}",
+  "touristType": ["Heritage Tourism", "Nature Tour", "Family Trip"],
   "includesAttraction": [
     {"@type": "TouristAttraction", "name": "Coorg"},
     {"@type": "TouristAttraction", "name": "Mysore Palace"},
-    {"@type": "TouristAttraction", "name": "Hampi"},
-    {"@type": "TouristAttraction", "name": "Jog Falls"},
+    {"@type": "TouristAttraction", "name": "Bangalore"},
     {"@type": "TouristAttraction", "name": "Chikmagalur"},
+    {"@type": "TouristAttraction", "name": "Hampi"},
     {"@type": "TouristAttraction", "name": "Gokarna"},
-    {"@type": "TouristAttraction", "name": "Badami"},
-    {"@type": "TouristAttraction", "name": "Udupi"}
+    {"@type": "TouristAttraction", "name": "Kabini"}
   ]
 }
 </script>
 {% endblock %}
 
 {% block extra_css %}
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <style>
-:root {
-        --primary-color: #0F172A;
-        --secondary-color: #E11D48;
-        --accent-color: #F8FAFC;
-        --text-main: #334155;
-        --text-light: #64748B;
-        --glass-bg: rgba(255, 255, 255, 0.7);
-        --glass-border: rgba(255, 255, 255, 0.4);
-        --border-radius-lg: 24px;
-        --border-radius-md: 16px;
-        --border-radius-sm: 8px;
-        --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
-        --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.1);
-        --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        
-        --lux-radius: 24px;
-        --lux-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-        --lux-shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.1);
-    }
-    
-body {
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        color: var(--text-main);
-        background-color: #F8FAFC;
-        overflow-x: hidden;}
-
-    /* 1. PREMIUM HERO */
-    .hero-section {
-        height: 100vh;
-        min-height: 700px;
+    /* Destination Specific Micro Styling */
+    .vth-hero-tn {
         position: relative;
-        padding: 0 !important;
-        margin: 0 !important;
+        min-height: 520px;
         display: flex;
         align-items: center;
+        overflow: hidden;
     }
-    .hero-bg-wrapper {
+
+    .vth-hero-tn-bg {
         position: absolute;
-        top: 0; left: 0; width: 100%; height: 100%;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
         z-index: 1;
     }
-    .hero-bg-wrapper img {
-        width: 100%; height: 100%; object-fit: cover;
-    }
-    .hero-overlay {
+
+    .vth-hero-tn-overlay {
         position: absolute;
-        top: 0; left: 0; width: 100%; height: 100%;
-        background: linear-gradient(to right, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.4) 100%);
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, rgba(4, 24, 48, 0.88) 0%, rgba(4, 24, 48, 0.65) 45%, rgba(4, 24, 48, 0.2) 100%);
         z-index: 2;
     }
-    .hero-content {
-        position: relative;
-        z-index: 3;
-        max-width: 800px;
-        padding: 0 20px;
-    }
-    .hero-title {
-        color: white;
-        font-size: 4.5rem;
-        font-weight: 800;
-        line-height: 1.1;
-        margin-bottom: 20px;
-        letter-spacing: -2px;
-    }
-    .hero-title span {
-        color: var(--secondary-color);
-        display: block;
-    }
-    .hero-subtitle {
-        color: rgba(255,255,255,0.9);
-        font-size: 1.2rem;
-        margin-bottom: 40px;
-        max-width: 600px;
-        line-height: 1.6;
-    }
-    .hero-tags {
+
+    /* Cab Service Card Styling */
+    .cab-service-card {
+        background: #FFFFFF;
+        border: 1px solid #E2E8F0;
+        border-radius: 1rem;
+        overflow: hidden;
+        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        height: 100%;
         display: flex;
-        gap: 15px;
-        margin-bottom: 30px;
-        flex-wrap: wrap;
+        flex-direction: column;
     }
-    .hero-tags span {
-        background: rgba(255,255,255,0.1);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255,255,255,0.2);
-        color: white;
-        padding: 8px 20px;
-        border-radius: 50px;
-        font-size: 0.9rem;
-        font-weight: 500;
+
+    .cab-service-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08);
     }
-    .btn-premium {
-        display: inline-flex;
+
+    .cab-icon-badge {
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        background: #FFFFFF;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+        color: #E31E24;
+        display: flex;
         align-items: center;
         justify-content: center;
-        gap: 10px;
-        padding: 14px 32px;
+        font-size: 1.25rem;
+        margin-top: -23px;
+        margin-left: 20px;
+        position: relative;
+        z-index: 3;
+    }
+
+    /* Route Chips Styling */
+    .route-chip {
+        background: #F8FAFC;
+        border: 1px solid #E2E8F0;
+        color: #1E293B;
+        padding: 6px 14px;
         border-radius: 50px;
-        font-weight: 600;
+        font-size: 0.82rem;
+        font-weight: 500;
         text-decoration: none;
-        transition: var(--transition-smooth);
-        border: none;
-        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        transition: all 0.25s ease;
     }
-    .btn-primary-luxury {
-        background: var(--secondary-color);
-        color: white;
-        box-shadow: 0 8px 20px rgba(225, 29, 72, 0.3);
-    }
-    .btn-primary-luxury:hover {
-        background: #BE123C;
-        color: white;
+
+    .route-chip:hover {
+        background: #FFFFFF;
+        border-color: #E31E24;
+        color: #E31E24;
         transform: translateY(-2px);
-        box-shadow: 0 12px 25px rgba(225, 29, 72, 0.4);
-    }
-    .btn-outline-luxury {
-        background: rgba(255,255,255,0.1);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255,255,255,0.5);
-        color: white;
-    }
-    .btn-outline-luxury:hover {
-        background: white;
-        color: var(--primary-color);
-    }
-    
-    @media (max-width: 768px) {
-        .hero-title { font-size: 2.8rem; }
-        .hero-tags { display: none; }
-    }
-    
-
-    
-    .scroll-indicator {
-        position: absolute;
-        bottom: 40px;
-        left: 50%;
-        transform: translateX(-50%);
-        color: rgba(255,255,255,0.7);
-        font-size: 2rem;
-        animation: bounce 2s infinite;
-        z-index: 2;
-    }
-    @keyframes bounce {
-        0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
-        40% { transform: translateY(-20px) translateX(-50%); }
-        60% { transform: translateY(-10px) translateX(-50%); }
+        box-shadow: 0 4px 12px rgba(227, 30, 36, 0.12);
     }
 
-    /* GENERAL SECTIONS */
-    .lux-section {
-        padding: 100px 0;
-    }
-    .section-title {
-        font-size: 3rem;
-        font-weight: 800;
-        margin-bottom: 1rem;
-        letter-spacing: -1px;
-    }
-    .section-subtitle {
-        color: #6c757d;
-        font-size: 1.15rem;
-        max-width: 600px;
-        margin: 0 auto 3rem auto;
-        line-height: 1.6;
-    }
-
-    /* 2. ABOUT KARNATAKA */
-    .about-image {
-        border-radius: var(--lux-radius);
+    /* Popular Destination Mini Card */
+    .dest-mini-card {
+        background: #FFFFFF;
+        border: 1px solid #E2E8F0;
+        border-radius: 1rem;
         overflow: hidden;
-        box-shadow: var(--shadow-soft); border: 1px solid var(--glass-border);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        height: 100%;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dest-mini-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+    }
+
+    .dest-mini-card img {
+        height: 150px;
+        width: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .dest-mini-card:hover img {
+        transform: scale(1.06);
+    }
+
+    /* Gallery Grid Tiles */
+    .gallery-tile {
+        height: 130px;
+        border-radius: 0.85rem;
+        overflow: hidden;
         position: relative;
     }
-    .about-image img {
+
+    .gallery-tile img {
         width: 100%;
         height: 100%;
         object-fit: cover;
         transition: transform 0.5s ease;
     }
-    .about-image:hover img {
-        transform: scale(1.03);
-    }
-    .about-content {
-        padding: 2rem;
-    }
-    .about-list {
-        list-style: none;
-        padding: 0;
-    }
-    .about-list li {
-        margin-bottom: 15px;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        font-size: 1.1rem;
-        color: #4a5568;
-    }
-    .about-list i {
-        color: #dc3545; /* Red Accent */
-        font-size: 1.2rem;
-    }
 
-    /* 3. CAB SERVICES & 4. TOURIST PLACES (Same Card Style) */
-    .place-card {
-        background: #fff;
-        border-radius: var(--lux-radius);
-        padding: 20px;
-        box-shadow: var(--shadow-soft); border: 1px solid var(--glass-border);
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        transition: all 0.4s ease;
-        border: 1px solid rgba(0,0,0,0.03);
-    }
-    .place-card:hover {
-        transform: translateY(-10px);
-        box-shadow: var(--shadow-hover);
-    }
-    .place-img-wrapper {
-        border-radius: calc(var(--lux-radius) - 8px);
-        overflow: hidden;
-        margin-bottom: 20px;
-        aspect-ratio: 4/3;
-    }
-    .place-img-wrapper img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.7s ease;
-    }
-    .place-card:hover .place-img-wrapper img {
+    .gallery-tile:hover img {
         transform: scale(1.08);
-    }
-    .place-content {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .service-list {
-        list-style: none;
-        padding: 0;
-        margin-bottom: 20px;
-    }
-    .service-list li {
-        margin-bottom: 8px;
-        color: #6c757d;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-    .service-list i {
-        color: #dc3545;
-        font-size: 0.9rem;
-    }
-
-
-    /* 6. WHY CHOOSE US */
-    .feature-card {
-        background: #fff;
-        padding: 30px 20px;
-        border-radius: var(--lux-radius);
-        box-shadow: var(--shadow-soft); border: 1px solid var(--glass-border);
-        text-align: center;
-        height: 100%;
-        transition: all 0.3s ease;
-    }
-    .feature-card:hover {
-        transform: translateY(-8px);
-        box-shadow: var(--shadow-hover);
-    }
-    .feature-icon {
-        width: 70px;
-        height: 70px;
-        background: rgba(220, 53, 69, 0.05); /* Soft Red */
-        color: #dc3545;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 30px;
-        margin: 0 auto 20px auto;
-        transition: all 0.3s ease;
-    }
-    .feature-card:hover .feature-icon {
-        background: #dc3545;
-        color: #fff;
-    }
-
-    /* 7. CUSTOMER REVIEWS */
-    .review-card {
-        background: var(--glass-bg);
-        backdrop-filter: var(--glass-blur);
-        border: 1px solid rgba(0,0,0,0.05);
-        border-radius: var(--lux-radius);
-        padding: 40px;
-        box-shadow: var(--shadow-soft); border: 1px solid var(--glass-border);
-        height: 100%;
-    }
-    .review-stars {
-        color: #ffc107;
-        margin-bottom: 20px;
-        font-size: 1.2rem;
-    }
-    .review-text {
-        font-size: 1.1rem;
-        line-height: 1.7;
-        color: #495057;
-        font-style: italic;
-        margin-bottom: 20px;
-    }
-
-    /* 8. CTA SECTION */
-    .cta-section {
-        background: linear-gradient(135deg, #111 0%, #333 100%);
-        color: white;
-        border-radius: var(--lux-radius);
-        padding: 80px 40px;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-        box-shadow: var(--shadow-hover);
-    }
-    
-    .seo-keyword {
-        color: #111111 !important;
-        font-weight: 700;
-    }
-    .btn-book-tour {
-        background-color: #FF1F1F !important;
-        color: #ffffff !important;
-        border: none !important;
-        border-radius: 10px !important;
-        width: 100%;
-        transition: all 0.3s ease;
-        padding: 10px 0;
-        font-weight: 600;
-        display: block;
-        text-align: center;
     }
 </style>
 {% endblock %}
 
 {% block content %}
-<!-- 1. HERO SECTION -->
-<section class="hero-section">
-    <div class="hero-bg-wrapper">
-        <img src="{% static 'images/destinations/karnataka.jpg' %}" alt="Karnataka Travel Agency">
+<!-- ==========================================
+    1. HERO SECTION (Matching Master Template)
+========================================== -->
+<section class="vth-hero-tn py-5">
+    <img src="{% static 'images/destinations/karnataka.jpg' %}" alt="Karnataka Destinations" class="vth-hero-tn-bg">
+    <div class="vth-hero-tn-overlay"></div>
+
+    <div class="container position-relative z-3 my-auto">
+        <div class="row align-items-center">
+            <div class="col-lg-7 col-md-10">
+                <span class="vth-hero-script reveal-down d-block mb-1" style="color: #FF5A5F; font-size: 1.8rem;">Explore</span>
+                <h1 class="hero-main-title text-white mb-3 reveal-left" style="font-size: 3.6rem; font-weight: 800; line-height: 1.1; letter-spacing: -1.2px;">
+                    Karnataka
+                </h1>
+                <p class="text-white-50 mb-4 reveal-left" style="font-size: 1.08rem; line-height: 1.65; color: rgba(255, 255, 255, 0.9) !important; max-width: 620px;">
+                    Discover Karnataka with its historic cities, misty hill stations, waterfalls, wildlife and beautiful landscapes. Travel across Karnataka with Vibhu Travel Hub for a comfortable and premium journey.
+                </p>
+                <div class="d-flex align-items-center gap-3 flex-wrap reveal-up">
+                    <button class="btn btn-danger rounded-pill px-4 py-2.5 fw-bold text-white shadow-sm border-0 d-inline-flex align-items-center gap-2" style="background-color: #E31E24; font-size: 0.95rem;" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Karnataka">
+                        Book Your Trip <i class="bi bi-arrow-right"></i>
+                    </button>
+                    <a href="#popular-destinations" class="btn btn-light rounded-pill px-4 py-2.5 fw-bold d-inline-flex align-items-center gap-2" style="font-size: 0.95rem; color: #1F2937; background: #FFFFFF; border: 1px solid rgba(255, 255, 255, 0.9);">
+                        Explore Places <i class="bi bi-compass"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="hero-overlay"></div>
+</section>
 
-    <div class="container position-relative z-3">
-        <div class="row">
-            <div class="col-lg-8">
-                <div class="hero-content">
-
-                    <h1 class="hero-title" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
-                        Explore Karnataka
-                        <span>In Luxury & Comfort.</span>
-                    </h1>
-                    <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
-                        Discover majestic palaces, misty hill stations, and ancient ruins with Vibhu Travel Hub's premium car rental, tempo traveller, and tour packages.
-                    </p>
-                    <div class="d-flex flex-wrap gap-3" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
-                        <button class="btn-premium anim-btn btn-primary-luxury" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Karnataka">
-                            <i class="bi bi-calendar-check-fill"></i> Book Tour
-                        </button>
-                        <a href="https://wa.me/919655866660" target="_blank" class="btn-premium anim-btn btn-outline-luxury">
-                            <i class="bi bi-whatsapp"></i> Chat on WhatsApp
-                        </a>
+<!-- ==========================================
+    2. SERVICE HIGHLIGHTS STRIP (Matching Master Template)
+========================================== -->
+<section class="py-3 bg-white border-bottom">
+    <div class="container">
+        <div class="p-3.5 rounded-4 bg-white border border-light-subtle shadow-sm reveal-up">
+            <div class="row g-3 text-start align-items-center">
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="d-flex align-items-center gap-2.5">
+                        <i class="bi bi-shield-check text-danger fs-3"></i>
+                        <div>
+                            <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">Safe & Secure</h6>
+                            <span class="text-muted d-block" style="font-size: 0.75rem;">Your safety is our priority</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="d-flex align-items-center gap-2.5">
+                        <i class="bi bi-person-check text-danger fs-3"></i>
+                        <div>
+                            <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">Professional Drivers</h6>
+                            <span class="text-muted d-block" style="font-size: 0.75rem;">Experienced & verified</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="d-flex align-items-center gap-2.5">
+                        <i class="bi bi-car-front text-danger fs-3"></i>
+                        <div>
+                            <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">Luxury Fleet</h6>
+                            <span class="text-muted d-block" style="font-size: 0.75rem;">Well maintained vehicles</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="d-flex align-items-center gap-2.5">
+                        <i class="bi bi-clock-history text-danger fs-3"></i>
+                        <div>
+                            <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">24/7 Support</h6>
+                            <span class="text-muted d-block" style="font-size: 0.75rem;">Always available for you</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="d-flex align-items-center gap-2.5">
+                        <i class="bi bi-receipt text-danger fs-3"></i>
+                        <div>
+                            <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">Best Price</h6>
+                            <span class="text-muted d-block" style="font-size: 0.75rem;">Affordable & transparent</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="d-flex align-items-center gap-2.5">
+                        <i class="bi bi-airplane text-danger fs-3"></i>
+                        <div>
+                            <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">Airport Transfer</h6>
+                            <span class="text-muted d-block" style="font-size: 0.75rem;">On-time pickup & drop</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -444,39 +295,452 @@ body {
     </div>
 </section>
 
-<!-- 2. ABOUT DESTINATION -->
-<section id="about" class="lux-section bg-white">
+<!-- ==========================================
+    3. CAB SERVICES SECTION (Matching Master Template)
+========================================== -->
+<section id="cab-services" class="vth-section py-5 bg-white">
     <div class="container">
-        <div class="row g-5 align-items-center">
-            <div class="col-lg-6" data-aos="fade-right">
-                <div class="about-img-container position-relative h-100 shadow-lg rounded-4 overflow-hidden" style="min-height: 450px;">
-                    <img src="{% static 'images/destinations/karnataka-1.png' %}" alt="Karnataka Tourism and cab services" class="w-100 h-100 object-fit-cover position-absolute top-0 start-0">
-                    
-                    <!-- Unique Floating Badge -->
-                    <div class="position-absolute bottom-0 end-0 bg-white p-4 shadow-lg rounded-top-start-4 d-flex align-items-center gap-3" style="z-index: 3;">
-                        <div class="bg-danger text-white rounded-circle d-flex align-items-center justify-content-center shadow-sm" style="width: 50px; height: 50px; font-size: 1.5rem;">
-                            <i class="bi bi-award-fill"></i>
-                        </div>
-                        <div>
-                            <h4 class="fw-bold mb-0 text-dark">5+ Years</h4>
-                            <p class="text-muted small mb-0 fw-medium">Of Travel Excellence</p>
-                        </div>
+        <div class="d-flex align-items-end justify-content-between mb-4">
+            <div class="reveal-left">
+                <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block mb-1" style="color: #E31E24; font-size: 0.75rem; letter-spacing: 1.2px;">OUR CAB SERVICES</span>
+                <h2 class="fw-extrabold text-dark mb-0" style="font-size: 2.2rem; letter-spacing: -0.5px;">Premium Cab Services Across Karnataka</h2>
+            </div>
+            <div class="d-flex align-items-center gap-2 reveal-right">
+                <a href="{% url 'local_taxi_service' %}" class="text-decoration-none text-dark fw-bold small">View All Services <i class="bi bi-chevron-right ms-1"></i></a>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <!-- Bangalore Cab Service -->
+            <div class="col-lg-3 col-md-6 reveal-left">
+                <div class="cab-service-card">
+                    <div class="img-reveal">
+                        <img src="{% static 'images/destinations/bangalore.jpg' %}" alt="Bangalore Cab Service" class="img-fluid w-100" style="height: 180px; object-fit: cover;">
+                    </div>
+                    <div class="cab-icon-badge">
+                        <i class="bi bi-building-fill"></i>
+                    </div>
+                    <div class="p-4 pt-2 d-flex flex-column flex-grow-1">
+                        <h5 class="fw-bold text-dark mb-3" style="font-size: 1.1rem;">Bangalore Cab Service</h5>
+                        <ul class="list-unstyled d-flex flex-column gap-2 text-muted small mb-4">
+                            <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Airport Transfer</span></li>
+                            <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Local City Rides</span></li>
+                            <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Outstation Trips</span></li>
+                            <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Corporate Travel</span></li>
+                        </ul>
+                        <button class="btn p-0 border-0 text-danger fw-bold small text-start mt-auto d-inline-flex align-items-center gap-1" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Karnataka" data-city="Bangalore">
+                            Book Now <i class="bi bi-arrow-right"></i>
+                        </button>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6" data-aos="fade-left">
-                <div class="h-100 d-flex flex-column justify-content-center py-3 ps-lg-4">
-                    <div class="d-inline-block text-danger fw-bold text-uppercase tracking-wide mb-2 small">Discover</div>
-                    <h2 class="section-title mb-4 fw-bolder text-dark" style="font-size: 2.5rem; letter-spacing: -0.5px;">About <span class="text-danger">Karnataka</span></h2>
-                    <div class="about-content reveal-right text-secondary fs-6 lh-lg">
-                        <p>Welcome to <strong>Karnataka</strong>, one of India's most diverse travel destinations. Famous for its lush hill stations, aromatic coffee plantations, grand palaces, stunning waterfalls, exotic wildlife, and fast-paced modern cities.</p>
-                        
-                        <p>From the grandeur of Mysore Palace to the tranquil hills of Coorg and Chikmagalur, Karnataka promises a journey full of vibrant culture and natural beauty.</p>
-                        
-                        <div class="p-4 bg-light rounded-4 border-start border-4 border-danger mt-4 shadow-sm">
-                            <div class="d-flex align-items-start gap-3">
-                                <i class="bi bi-quote text-danger opacity-50" style="font-size: 2rem; line-height: 1;"></i>
-                                <p class="text-dark fw-medium mb-0 fs-6 fst-italic">Let Vibhu Travel Hub be your trusted partner. Our premium cab rental and luxury transport services ensure your journey across this beautiful state is safe, comfortable, and absolutely unforgettable.</p>
+
+            <!-- Mysore Cab Service -->
+            <div class="col-lg-3 col-md-6 reveal-up">
+                <div class="cab-service-card">
+                    <div class="img-reveal">
+                        <img src="{% static 'images/destinations/mysore.jpg' %}" alt="Mysore Cab Service" class="img-fluid w-100" style="height: 180px; object-fit: cover;">
+                    </div>
+                    <div class="cab-icon-badge">
+                        <i class="bi bi-bank"></i>
+                    </div>
+                    <div class="p-4 pt-2 d-flex flex-column flex-grow-1">
+                        <h5 class="fw-bold text-dark mb-3" style="font-size: 1.1rem;">Mysore Cab Service</h5>
+                        <ul class="list-unstyled d-flex flex-column gap-2 text-muted small mb-4">
+                            <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Airport Transfer</span></li>
+                            <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Local City Rides</span></li>
+                            <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Outstation Trips</span></li>
+                            <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Corporate Travel</span></li>
+                        </ul>
+                        <button class="btn p-0 border-0 text-danger fw-bold small text-start mt-auto d-inline-flex align-items-center gap-1" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Karnataka" data-city="Mysore">
+                            Book Now <i class="bi bi-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coorg Cab Service -->
+            <div class="col-lg-3 col-md-6 reveal-up">
+                <div class="cab-service-card">
+                    <div class="img-reveal">
+                        <img src="{% static 'images/destinations/coorg.jpg' %}" alt="Coorg Cab Service" class="img-fluid w-100" style="height: 180px; object-fit: cover;">
+                    </div>
+                    <div class="cab-icon-badge">
+                        <i class="bi bi-tree-fill"></i>
+                    </div>
+                    <div class="p-4 pt-2 d-flex flex-column flex-grow-1">
+                        <h5 class="fw-bold text-dark mb-3" style="font-size: 1.1rem;">Coorg Cab Service</h5>
+                        <ul class="list-unstyled d-flex flex-column gap-2 text-muted small mb-4">
+                            <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Airport Transfer</span></li>
+                            <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Local City Rides</span></li>
+                            <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Outstation Trips</span></li>
+                            <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Corporate Travel</span></li>
+                        </ul>
+                        <button class="btn p-0 border-0 text-danger fw-bold small text-start mt-auto d-inline-flex align-items-center gap-1" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Karnataka" data-city="Coorg">
+                            Book Now <i class="bi bi-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mangalore Cab Service -->
+            <div class="col-lg-3 col-md-6 reveal-right">
+                <div class="cab-service-card">
+                    <div class="img-reveal">
+                        <img src="{% static 'images/destinations/gokarnas.png' %}" alt="Mangalore Cab Service" class="img-fluid w-100" style="height: 180px; object-fit: cover;">
+                    </div>
+                    <div class="cab-icon-badge">
+                        <i class="bi bi-water"></i>
+                    </div>
+                    <div class="p-4 pt-2 d-flex flex-column flex-grow-1">
+                        <h5 class="fw-bold text-dark mb-3" style="font-size: 1.1rem;">Mangalore Cab Service</h5>
+                        <ul class="list-unstyled d-flex flex-column gap-2 text-muted small mb-4">
+                            <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Airport Transfer</span></li>
+                            <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Local City Rides</span></li>
+                            <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Outstation Trips</span></li>
+                            <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Corporate Travel</span></li>
+                        </ul>
+                        <button class="btn p-0 border-0 text-danger fw-bold small text-start mt-auto d-inline-flex align-items-center gap-1" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Karnataka" data-city="Mangalore">
+                            Book Now <i class="bi bi-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+    4. POPULAR DESTINATIONS (Matching Master Template)
+========================================== -->
+<section id="popular-destinations" class="vth-section py-5" style="background-color: #F8FAFC;">
+    <div class="container">
+        <div class="d-flex align-items-end justify-content-between mb-4">
+            <div class="reveal-down">
+                <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block mb-1" style="color: #E31E24; font-size: 0.75rem; letter-spacing: 1.2px;">POPULAR DESTINATIONS</span>
+                <h2 class="fw-extrabold text-dark mb-0" style="font-size: 2.2rem; letter-spacing: -0.5px;">Must Visit Places in Karnataka</h2>
+            </div>
+            <div class="d-flex align-items-center gap-2 reveal-right">
+                <a href="#cab-services" class="text-decoration-none text-dark fw-bold small">View All Places <i class="bi bi-chevron-right ms-1"></i></a>
+            </div>
+        </div>
+
+        <div class="row g-3 stagger-grid">
+            <!-- 1. Coorg -->
+            <div class="col-lg-3 col-md-4 col-6 reveal-up">
+                <div class="dest-mini-card">
+                    <div class="img-reveal">
+                        <img src="{% static 'images/destinations/coorg.jpg' %}" alt="Coorg Hill Station">
+                    </div>
+                    <div class="p-3">
+                        <h6 class="fw-bold text-dark mb-0" style="font-size: 0.98rem;">Coorg</h6>
+                        <span class="text-muted small">Hill Station</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Mysore -->
+            <div class="col-lg-3 col-md-4 col-6 reveal-up">
+                <div class="dest-mini-card">
+                    <div class="img-reveal">
+                        <img src="{% static 'images/destinations/mysore.jpg' %}" alt="Mysore Palace">
+                    </div>
+                    <div class="p-3">
+                        <h6 class="fw-bold text-dark mb-0" style="font-size: 0.98rem;">Mysore</h6>
+                        <span class="text-muted small">Heritage & Palaces</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Bangalore -->
+            <div class="col-lg-3 col-md-4 col-6 reveal-up">
+                <div class="dest-mini-card">
+                    <div class="img-reveal">
+                        <img src="{% static 'images/destinations/bangalore.jpg' %}" alt="Bangalore Garden City">
+                    </div>
+                    <div class="p-3">
+                        <h6 class="fw-bold text-dark mb-0" style="font-size: 0.98rem;">Bangalore</h6>
+                        <span class="text-muted small">Garden City & IT Hub</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Chikmagalur -->
+            <div class="col-lg-3 col-md-4 col-6 reveal-up">
+                <div class="dest-mini-card">
+                    <div class="img-reveal">
+                        <img src="{% static 'images/destinations/chik.jpg' %}" alt="Chikmagalur Coffee Hills">
+                    </div>
+                    <div class="p-3">
+                        <h6 class="fw-bold text-dark mb-0" style="font-size: 0.98rem;">Chikmagalur</h6>
+                        <span class="text-muted small">Coffee Hill Station</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Hampi -->
+            <div class="col-lg-3 col-md-4 col-6 reveal-up">
+                <div class="dest-mini-card">
+                    <div class="img-reveal">
+                        <img src="{% static 'images/destinations/Hampis.jpg' %}" alt="Hampi UNESCO World Heritage">
+                    </div>
+                    <div class="p-3">
+                        <h6 class="fw-bold text-dark mb-0" style="font-size: 0.98rem;">Hampi</h6>
+                        <span class="text-muted small">UNESCO Heritage</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. Gokarna -->
+            <div class="col-lg-3 col-md-4 col-6 reveal-up">
+                <div class="dest-mini-card">
+                    <div class="img-reveal">
+                        <img src="{% static 'images/destinations/gokarnas.png' %}" alt="Gokarna Beach">
+                    </div>
+                    <div class="p-3">
+                        <h6 class="fw-bold text-dark mb-0" style="font-size: 0.98rem;">Gokarna</h6>
+                        <span class="text-muted small">Beach & Pilgrimage</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. Kabini -->
+            <div class="col-lg-3 col-md-4 col-6 reveal-up">
+                <div class="dest-mini-card">
+                    <div class="img-reveal">
+                        <img src="{% static 'images/destinations/kabinis.png' %}" alt="Kabini Wildlife Sanctuary">
+                    </div>
+                    <div class="p-3">
+                        <h6 class="fw-bold text-dark mb-0" style="font-size: 0.98rem;">Kabini</h6>
+                        <span class="text-muted small">Wildlife & River Sanctuary</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8. Badami -->
+            <div class="col-lg-3 col-md-4 col-6 reveal-up">
+                <div class="dest-mini-card">
+                    <div class="img-reveal">
+                        <img src="{% static 'images/destinations/karnataka-1.png' %}" alt="Badami Heritage Caves">
+                    </div>
+                    <div class="p-3">
+                        <h6 class="fw-bold text-dark mb-0" style="font-size: 0.98rem;">Badami</h6>
+                        <span class="text-muted small">Cave Temples & Heritage</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+    5. POPULAR OUTSTATION ROUTES (Karnataka SEO Integration)
+========================================== -->
+<section id="outstation-routes" class="vth-section py-5 bg-white border-top border-bottom">
+    <div class="container">
+        <div class="text-start mb-4">
+            <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block mb-1 reveal-down" style="color: #E31E24; font-size: 0.75rem; letter-spacing: 1.2px;">POPULAR OUTSTATION ROUTES</span>
+            <h2 class="fw-extrabold text-dark mb-1 reveal-left" style="font-size: 2.2rem; letter-spacing: -0.5px;">Popular Outstation Routes from Karnataka</h2>
+            <p class="text-muted small mb-0 reveal-left">Explore top cab routes, tempo traveller rentals & outstation travel options across Karnataka.</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Left Card: Bangalore Outstation Routes -->
+            <div class="col-lg-6 col-md-12 reveal-left">
+                <div class="p-4 p-md-4.5 rounded-4 bg-light border border-light-subtle shadow-sm h-100 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="d-flex align-items-center gap-2 mb-3">
+                            <i class="bi bi-geo-alt-fill text-danger fs-4"></i>
+                            <h4 class="fw-bold text-dark mb-0" style="font-size: 1.25rem;">Popular Outstation Routes from Bangalore</h4>
+                        </div>
+                        <p class="text-muted small mb-3" style="line-height: 1.6;">
+                            Vibhu Travel Hub offers 24/7 cab service in Bangalore, airport pickup/drop, and outstation cabs to Mysore, Coorg, Chikmagalur, Hampi, and major South Indian cities.
+                        </p>
+
+                        <div class="d-flex flex-wrap gap-2 mb-4">
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Mysore"><i class="bi bi-signpost text-danger"></i> Bangalore to Mysore Cab</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Coorg"><i class="bi bi-signpost text-danger"></i> Bangalore to Coorg Cab</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Chikmagalur"><i class="bi bi-signpost text-danger"></i> Bangalore to Chikmagalur Cab</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Mangalore"><i class="bi bi-signpost text-danger"></i> Bangalore to Mangalore Cab</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Hampi"><i class="bi bi-signpost text-danger"></i> Bangalore to Hampi Cab</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Gokarna"><i class="bi bi-signpost text-danger"></i> Bangalore to Gokarna Cab</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Airport City"><i class="bi bi-airplane text-danger"></i> Bangalore Airport to City Taxi</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Chennai"><i class="bi bi-signpost text-danger"></i> Bangalore to Chennai Cab</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Coimbatore"><i class="bi bi-signpost text-danger"></i> Bangalore to Coimbatore Cab</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Ooty"><i class="bi bi-signpost text-danger"></i> Bangalore to Ooty Cab</a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <button class="btn btn-outline-danger rounded-pill px-4 py-2 fw-bold small" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Karnataka" data-city="Bangalore">
+                            Book Bangalore Services <i class="bi bi-arrow-right ms-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Card: Mysore & Heritage Outstation Routes -->
+            <div class="col-lg-6 col-md-12 reveal-right">
+                <div class="p-4 p-md-4.5 rounded-4 bg-light border border-light-subtle shadow-sm h-100 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="d-flex align-items-center gap-2 mb-3">
+                            <i class="bi bi-geo-alt-fill text-danger fs-4"></i>
+                            <h4 class="fw-bold text-dark mb-0" style="font-size: 1.25rem;">Popular Outstation Routes from Mysore</h4>
+                        </div>
+                        <p class="text-muted small mb-3" style="line-height: 1.6;">
+                            Vibhu Travel Hub provides seamless outstation taxi rentals, Tempo Travellers, and luxury tour coaches for palace tours, hill station getaways, and wildlife safaris.
+                        </p>
+
+                        <div class="d-flex flex-wrap gap-2 mb-4">
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Coorg"><i class="bi bi-signpost text-danger"></i> Mysore to Coorg Cab</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Ooty"><i class="bi bi-signpost text-danger"></i> Mysore to Ooty Cab</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Wayanad"><i class="bi bi-signpost text-danger"></i> Mysore to Wayanad Cab</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Bandipur"><i class="bi bi-signpost text-danger"></i> Mysore to Bandipur Cab</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Bangalore"><i class="bi bi-signpost text-danger"></i> Mysore to Bangalore Cab</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Kabini"><i class="bi bi-signpost text-danger"></i> Mysore to Kabini Cab</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Nandi Hills"><i class="bi bi-signpost text-danger"></i> Bangalore to Nandi Hills Taxi</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Airport Mysore"><i class="bi bi-airplane text-danger"></i> Bangalore Airport to Mysore Taxi</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Pondicherry"><i class="bi bi-signpost text-danger"></i> Bangalore to Pondicherry Cab</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Tirupati"><i class="bi bi-signpost text-danger"></i> Bangalore to Tirupati Cab</a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <button class="btn btn-outline-danger rounded-pill px-4 py-2 fw-bold small" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Karnataka" data-city="Mysore">
+                            Book Mysore Services <i class="bi bi-arrow-right ms-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+    6. GALLERY & WHY CHOOSE US (Matching Master Template Split Row)
+========================================== -->
+<section class="vth-section py-5 bg-white">
+    <div class="container">
+        <div class="row g-5">
+            <!-- Left Column: Gallery -->
+            <div class="col-lg-6 col-md-12 reveal-left">
+                <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block mb-1" style="color: #E31E24; font-size: 0.75rem; letter-spacing: 1.2px;">GALLERY</span>
+                <h2 class="fw-extrabold text-dark mb-4" style="font-size: 2rem; letter-spacing: -0.5px;">Beautiful Karnataka</h2>
+
+                <div class="row g-2.5">
+                    <div class="col-4">
+                        <div class="gallery-tile">
+                            <img src="{% static 'images/destinations/coorg.jpg' %}" alt="Coorg Coffee Plantations">
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="gallery-tile">
+                            <img src="{% static 'images/destinations/mysore.jpg' %}" alt="Mysore Palace Illumination">
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="gallery-tile">
+                            <img src="{% static 'images/destinations/Hampis.jpg' %}" alt="Hampi Heritage Chariot">
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="gallery-tile">
+                            <img src="{% static 'images/destinations/chik.jpg' %}" alt="Chikmagalur Misty Mountains">
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="gallery-tile">
+                            <img src="{% static 'images/destinations/gokarnas.png' %}" alt="Gokarna Om Beach">
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="gallery-tile">
+                            <img src="{% static 'images/destinations/kabinis.png' %}" alt="Kabini Forest Sanctuary">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-3.5">
+                    <a href="#popular-destinations" class="text-danger text-decoration-none fw-bold small d-inline-flex align-items-center gap-1">
+                        View Full Gallery <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Column: Why Choose Vibhu Travel Hub -->
+            <div class="col-lg-6 col-md-12 reveal-right">
+                <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block mb-1" style="color: #E31E24; font-size: 0.75rem; letter-spacing: 1.2px;">WHY CHOOSE VIBHU TRAVEL HUB?</span>
+                <h2 class="fw-extrabold text-dark mb-4" style="font-size: 2rem; letter-spacing: -0.5px;">Your Journey, Our Responsibility</h2>
+
+                <div class="row g-4">
+                    <div class="col-6">
+                        <div class="d-flex align-items-start gap-3">
+                            <div class="rounded-circle p-2.5 text-danger border border-danger-subtle bg-danger-subtle d-flex align-items-center justify-content-center" style="width: 44px; height: 44px; min-width: 44px;">
+                                <i class="bi bi-person-badge-fill fs-5"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem;">Professional Drivers</h6>
+                                <p class="text-muted small mb-0" style="font-size: 0.8rem; line-height: 1.45;">Experienced & verified drivers</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="d-flex align-items-start gap-3">
+                            <div class="rounded-circle p-2.5 text-danger border border-danger-subtle bg-danger-subtle d-flex align-items-center justify-content-center" style="width: 44px; height: 44px; min-width: 44px;">
+                                <i class="bi bi-car-front-fill fs-5"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem;">Luxury Fleet</h6>
+                                <p class="text-muted small mb-0" style="font-size: 0.8rem; line-height: 1.45;">Well maintained premium vehicles</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="d-flex align-items-start gap-3">
+                            <div class="rounded-circle p-2.5 text-danger border border-danger-subtle bg-danger-subtle d-flex align-items-center justify-content-center" style="width: 44px; height: 44px; min-width: 44px;">
+                                <i class="bi bi-shield-lock-fill fs-5"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem;">Safe & Secure</h6>
+                                <p class="text-muted small mb-0" style="font-size: 0.8rem; line-height: 1.45;">Your safety is our top priority</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="d-flex align-items-start gap-3">
+                            <div class="rounded-circle p-2.5 text-danger border border-danger-subtle bg-danger-subtle d-flex align-items-center justify-content-center" style="width: 44px; height: 44px; min-width: 44px;">
+                                <i class="bi bi-headset fs-5"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem;">24/7 Support</h6>
+                                <p class="text-muted small mb-0" style="font-size: 0.8rem; line-height: 1.45;">Always available for you</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="d-flex align-items-start gap-3">
+                            <div class="rounded-circle p-2.5 text-danger border border-danger-subtle bg-danger-subtle d-flex align-items-center justify-content-center" style="width: 44px; height: 44px; min-width: 44px;">
+                                <i class="bi bi-currency-rupee fs-5"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem;">Affordable Pricing</h6>
+                                <p class="text-muted small mb-0" style="font-size: 0.8rem; line-height: 1.45;">Best price guarantee with no hidden charges</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="d-flex align-items-start gap-3">
+                            <div class="rounded-circle p-2.5 text-danger border border-danger-subtle bg-danger-subtle d-flex align-items-center justify-content-center" style="width: 44px; height: 44px; min-width: 44px;">
+                                <i class="bi bi-clock-check-fill fs-5"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem;">On-Time Service</h6>
+                                <p class="text-muted small mb-0" style="font-size: 0.8rem; line-height: 1.45;">Punctual & reliable travel service</p>
                             </div>
                         </div>
                     </div>
@@ -486,381 +750,56 @@ body {
     </div>
 </section>
 
-<!-- 3. OUR CAB SERVICES -->
-<section class="lux-section bg-light">
+<!-- ==========================================
+    7. BOOKING ENQUIRY SECTION (Matching Master Template)
+========================================== -->
+<section class="py-5" style="background-color: #F8FAFC;">
     <div class="container">
-        <div class="text-center mb-5" data-aos="fade-up">
-            <h2 class="section-title">Our Cab Services in Karnataka</h2>
-            <p class="section-subtitle">Premium travel solutions across major Karnataka cities for your ultimate comfort.</p>
-        </div>
-
-        <!-- Row 1: Coorg & Chikmagalur -->
-        <div class="row g-5 mb-5">
-            <!-- Coorg -->
-            <div class="col-md-6" data-aos="fade-right">
-                <img src="{% static 'images/destinations/coorg.jpg' %}" alt="Innova Crysta rental in Coorg and 12 seater Tempo Traveller in Coorg" class="img-fluid rounded-4 shadow-sm mb-4 w-100" style="height: 300px; object-fit: cover;">
-                <h3 class="fw-bold mb-3">Coorg Vehicle & Cab Rentals</h3>
-                <p class="text-secondary lh-lg fs-6 mb-3">Exploring the Scotland of India? Vibhu Travel Hub provides comfortable <strong>Innova Crysta rental in Coorg</strong>, <strong>SUV car rental in Coorg</strong>, and <strong>Ertiga rental in Coorg</strong> for coffee estate drives and hill tours. For group travel, hire an <strong>AC Tempo Traveller in Coorg</strong> or a <strong>12 seater Tempo Traveller in Coorg</strong> with experienced hill drivers.</p>
-                <div class="d-flex flex-wrap gap-2 mb-4">
-                    <span class="badge bg-light text-dark border px-3 py-2">Innova Crysta rental in Coorg</span>
-                    <span class="badge bg-light text-dark border px-3 py-2">12 seater Tempo Traveller in Coorg</span>
-                    <span class="badge bg-light text-dark border px-3 py-2">SUV car rental in Coorg</span>
-                    <span class="badge bg-light text-dark border px-3 py-2">AC Tempo Traveller in Coorg</span>
+        <div class="p-4 p-md-5 rounded-4 bg-white border border-light-subtle shadow-sm reveal-zoom">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-4 col-md-12 reveal-left">
+                    <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block mb-1" style="font-size: 0.75rem; letter-spacing: 1px;">PLAN YOUR JOURNEY</span>
+                    <h3 class="fw-extrabold text-dark mb-1" style="font-size: 1.8rem; letter-spacing: -0.5px;">Book Your Trip Now!</h3>
+                    <p class="text-muted small mb-0">Fill in the details and our team will contact you shortly.</p>
                 </div>
-                <button class="btn btn-outline-primary rounded-pill px-4 py-2" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Karnataka" data-city="Coorg">
-                    Book Coorg Rentals <i class="bi bi-arrow-right ms-2"></i>
-                </button>
-            </div>
-            
-            <!-- Chikmagalur -->
-            <div class="col-md-6" data-aos="fade-left">
-                <img src="{% static 'images/destinations/chik.jpg' %}" alt="Ertiga rental in Chikmagalur and 14 seater Tempo Traveller in Chikmagalur" class="img-fluid rounded-4 shadow-sm mb-4 w-100" style="height: 300px; object-fit: cover;">
-                <h3 class="fw-bold mb-3">Chikmagalur Vehicle Rentals</h3>
-                <p class="text-secondary lh-lg fs-6 mb-3">Planning a coffee county trip? Book an <strong>Ertiga rental in Chikmagalur</strong>, <strong>7 seater car rental in Chikmagalur</strong>, or an <strong>Innova rental in Chikmagalur</strong>. For corporate retreats and trekking groups, we offer <strong>14 seater Tempo Traveller in Chikmagalur</strong>, <strong>minibus rental in Chikmagalur</strong>, and <strong>luxury coach rental in Chikmagalur</strong>.</p>
-                <div class="d-flex flex-wrap gap-2 mb-4">
-                    <span class="badge bg-light text-dark border px-3 py-2">Ertiga rental in Chikmagalur</span>
-                    <span class="badge bg-light text-dark border px-3 py-2">14 seater Tempo Traveller in Chikmagalur</span>
-                    <span class="badge bg-light text-dark border px-3 py-2">Innova rental in Chikmagalur</span>
-                    <span class="badge bg-light text-dark border px-3 py-2">minibus rental in Chikmagalur</span>
-                </div>
-                <button class="btn btn-outline-primary rounded-pill px-4 py-2" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Karnataka" data-city="Chikmagalur">
-                    Book Chikmagalur Rentals <i class="bi bi-arrow-right ms-2"></i>
-                </button>
-            </div>
-        </div>
-        
-        <!-- Row 2: Mysore & Bangalore -->
-        <div class="row g-5">
-            <!-- Mysore -->
-            <div class="col-md-6" data-aos="fade-right">
-                <img src="{% static 'images/destinations/mysore.jpg' %}" alt="Innova rental in Mysore and 17 seater Tempo Traveller in Mysore" class="img-fluid rounded-4 shadow-sm mb-4 w-100" style="height: 300px; object-fit: cover;">
-                <h3 class="fw-bold mb-3">Mysore Vehicle & Bus Rentals</h3>
-                <p class="text-secondary lh-lg fs-6 mb-3">Vibhu Travel Hub offers <strong>Innova rental in Mysore</strong> and <strong>Innova Crysta rental in Mysore</strong> for heritage palace visits and outstation tours. Reserve a <strong>17 seater Tempo Traveller in Mysore</strong>, <strong>20 seater bus rental in Mysore</strong>, <strong>35 seater bus rental in Mysore</strong>, or <strong>non AC bus rental in Mysore</strong> for family events and sightseeing.</p>
-                <div class="d-flex flex-wrap gap-2 mb-4">
-                    <span class="badge bg-light text-dark border px-3 py-2">Innova rental in Mysore</span>
-                    <span class="badge bg-light text-dark border px-3 py-2">17 seater Tempo Traveller in Mysore</span>
-                    <span class="badge bg-light text-dark border px-3 py-2">35 seater bus rental in Mysore</span>
-                    <span class="badge bg-light text-dark border px-3 py-2">Innova Crysta rental in Mysore</span>
-                </div>
-                <button class="btn btn-outline-primary rounded-pill px-4 py-2" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Karnataka" data-city="Mysore">
-                    Book Mysore Rentals <i class="bi bi-arrow-right ms-2"></i>
-                </button>
-            </div>
-            
-            <!-- Bangalore / Bengaluru -->
-            <div class="col-md-6" data-aos="fade-left">
-                <img src="{% static 'images/destinations/bangalore.jpg' %}" alt="{% if city_seo.bangalore.image_alt_text %}{{ city_seo.bangalore.image_alt_text }}{% else %}luxury Tempo Traveller Bangalore and cab service in Bangalore Bengaluru{% endif %}" class="img-fluid rounded-4 shadow-sm mb-4 w-100" style="height: 300px; object-fit: cover;">
-                <h3 class="fw-bold mb-3">Bangalore & Bengaluru Cab Services</h3>
-                {% if city_seo.bangalore.seo_content %}
-                    <div class="text-secondary lh-lg fs-6 mb-3">{{ city_seo.bangalore.seo_content|safe }}</div>
-                {% else %}
-                    <p class="text-secondary lh-lg fs-6 mb-3">Vibhu Travel Hub is the preferred choice for <strong>cab service in Bangalore</strong> and reliable <strong>taxi service in Bangalore</strong>. Whether you need a <strong>Bangalore airport cab</strong>, <strong>Bengaluru airport taxi</strong>, <strong>corporate cab service Bangalore</strong>, or <strong>employee transport service Bangalore</strong>, we guarantee total comfort. Reserve a premium <strong>luxury Tempo Traveller Bangalore</strong>, <strong>Tempo Traveller rental in Bangalore</strong>, <strong>Force Urbania rental in Bangalore</strong>, <strong>minibus rental in Bangalore</strong>, or <strong>bus rental in Bangalore</strong> for <strong>wedding bus rental Bangalore</strong>, <strong>Bangalore local sightseeing cab</strong>, and <strong>Bangalore group tour vehicle rental</strong>. Enjoy comfortable <strong>car rental with driver in Bangalore</strong>, <strong>outstation cab service in Bangalore</strong>, and <strong>Bangalore one way taxi</strong> packages.</p>
-                {% endif %}
-                <div class="d-flex flex-wrap gap-2 mb-3">
-                    <span class="badge bg-light text-dark border px-3 py-2">cab service in Bangalore</span>
-                    <span class="badge bg-light text-dark border px-3 py-2">luxury Tempo Traveller Bangalore</span>
-                    <span class="badge bg-light text-dark border px-3 py-2">Force Urbania rental in Bangalore</span>
-                    <span class="badge bg-light text-dark border px-3 py-2">Bengaluru airport taxi</span>
-                </div>
-                <!-- Priority C Popular Routes from Bangalore / Bengaluru -->
-                <div class="p-3 bg-white rounded-3 border mb-4">
-                    <h6 class="fw-bold mb-2 text-dark"><i class="bi bi-signpost-split text-danger me-2"></i>Popular Outstation Routes from Bangalore / Bengaluru</h6>
-                    <div class="d-flex flex-wrap gap-2 small text-muted">
-                        <span>• Bangalore to Mysore cab</span>
-                        <span>• Bangalore to Coorg cab</span>
-                        <span>• Bangalore to Ooty cab</span>
-                        <span>• Bangalore to Wayanad cab</span>
-                        <span>• Bangalore to Chikmagalur cab</span>
-                        <span>• Bangalore to Nandi Hills cab</span>
-                        <span>• Bangalore airport to Mysore cab</span>
-                        <span>• Bangalore to Tirupati cab</span>
-                        <span>• Bangalore to Mysore Tempo Traveller</span>
-                        <span>• Bangalore to Coorg Tempo Traveller</span>
-                    </div>
-                </div>
-                <button class="btn btn-outline-primary rounded-pill px-4 py-2" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Karnataka" data-city="Bangalore">
-                    Book Bangalore & Bengaluru Services <i class="bi bi-arrow-right ms-2"></i>
-                </button>
-            </div>
-        </div>
-    </div>
-</section>
 
-<!-- 4. POPULAR TOURIST PLACES -->
-<section class="lux-section bg-white">
-    <div class="container">
-        <div class="text-center" data-aos="fade-up">
-            <h2 class="section-title">Top Tourist Attractions in Karnataka</h2>
-            <p class="section-subtitle">Explore the most breathtaking locations and iconic attractions across the state.</p>
-        </div>
-
-        <div class="row g-4 mt-2">
-           
-
-            <!-- Place 5: Hampi -->
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-                <div class="card anim-card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
-                    <img src="{% static 'images/destinations/Hampis.jpg' %}" class="card-img-top" alt="Hampi Heritage Tour" style="height: 200px; object-fit: cover;">
-                    <div class="card-body d-flex flex-column p-4">
-                        <h4 class="fw-bold mb-3 seo-keyword">Hampi</h4>
-                        <p class="text-secondary mb-4 lh-base fs-6">Explore the historic UNESCO World Heritage Site with our budget <strong class="seo-keyword">Hampi tour packages</strong>. We provide reliable and cheap cabs for all your sightseeing needs.</p>
-                        <button class="btn btn-book-tour mt-auto" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Karnataka" data-place="Hampi">Book Tour</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Place 6: Gokarna -->
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-                <div class="card anim-card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
-                    <img src="{% static 'images/destinations/gokarnas.png' %}" class="card-img-top" alt="Gokarna Beach Trip" style="height: 200px; object-fit: cover;">
-                    <div class="card-body d-flex flex-column p-4">
-                        <h4 class="fw-bold mb-3 seo-keyword">Gokarna</h4>
-                        <p class="text-secondary mb-4 lh-base fs-6">Relax on peaceful beaches with our low-cost <strong class="seo-keyword">Gokarna holiday packages</strong>. We offer budget cab services for seamless coastal travel and temple tours.</p>
-                        <button class="btn btn-book-tour mt-auto" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Karnataka" data-place="Gokarna">Book Tour</button>
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- Place 8: Kabini -->
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="800">
-                <div class="card anim-card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
-                    <img src="{% static 'images/destinations/kabinis.png' %}" class="card-img-top" alt="Kabini Safari Trips" style="height: 200px; object-fit: cover;">
-                    <div class="card-body d-flex flex-column p-4">
-                        <h4 class="fw-bold mb-3 seo-keyword">Kabini</h4>
-                        <p class="text-secondary mb-4 lh-base fs-6">Immerse yourself in wildlife safari experiences with our premium <strong class="seo-keyword">Kabini tour packages</strong>. We provide secure rides to national parks and river resorts.</p>
-                        <button class="btn btn-book-tour mt-auto" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Karnataka" data-place="Kabini">Book Tour</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Place 9: Sakleshpur -->
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="900">
-                <div class="card anim-card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
-                    <img src="{% static 'images/destinations/shess.png' %}" class="card-img-top" alt="Sakleshpur Tour Packages" style="height: 200px; object-fit: cover;">
-                    <div class="card-body d-flex flex-column p-4">
-                        <h4 class="fw-bold mb-3 seo-keyword">Sakleshpur</h4>
-                        <p class="text-secondary mb-4 lh-base fs-6">Trek through lush green hills and discover hidden waterfalls with <strong class="seo-keyword">Sakleshpur sightseeing cabs</strong>. An ideal destination for eco-tourism and nature trails.</p>
-                        <button class="btn btn-book-tour mt-auto" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Karnataka" data-place="Sakleshpur">Book Tour</button>
-                    </div>
+                <div class="col-lg-8 col-md-12 reveal-right">
+                    <form action="#" method="GET" class="row g-3 align-items-end" onsubmit="event.preventDefault(); bootstrap.Modal.getOrCreateInstance(document.getElementById('enquiryModal')).show();">
+                        <div class="col-md-4">
+                            <label class="form-label small fw-bold text-dark mb-1">Your Name</label>
+                            <input type="text" class="form-control rounded-3 py-2 text-dark bg-light border-0" placeholder="Enter your name" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label small fw-bold text-dark mb-1">Phone Number</label>
+                            <input type="tel" class="form-control rounded-3 py-2 text-dark bg-light border-0" placeholder="Enter your phone" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label small fw-bold text-dark mb-1">Pickup Location</label>
+                            <input type="text" class="form-control rounded-3 py-2 text-dark bg-light border-0" placeholder="Enter pickup location" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label small fw-bold text-dark mb-1">Drop Location</label>
+                            <input type="text" class="form-control rounded-3 py-2 text-dark bg-light border-0" placeholder="Enter drop location" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label small fw-bold text-dark mb-1">Travel Date</label>
+                            <input type="date" class="form-control rounded-3 py-2 text-dark bg-light border-0" required>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn btn-danger w-100 rounded-3 py-2 fw-bold text-white shadow-sm border-0" style="background-color: #E31E24; font-size: 0.95rem;">
+                                Submit Enquiry
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-
-<!-- 6. WHY CHOOSE VIBHU -->
-<section class="lux-section">
-    <div class="container">
-        <div class="text-center" data-aos="fade-up">
-            <h2 class="section-title">Why Choose Vibhu Travel Hub</h2>
-            <p class="section-subtitle">Experience the ultimate comfort and reliability for your Karnataka journey.</p>
-        </div>
-
-        <div class="row g-4 mt-2">
-            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="bi bi-person-badge"></i></div>
-                    <h5 class="fw-bold mb-2">Professional Drivers</h5>
-                    <p class="text-muted small mb-0">Highly trained and verified drivers for a safe and smooth journey.</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="bi bi-car-front"></i></div>
-                    <h5 class="fw-bold mb-2">Luxury Fleet</h5>
-                    <p class="text-muted small mb-0">Premium and well-maintained vehicles for maximum comfort.</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="bi bi-headset"></i></div>
-                    <h5 class="fw-bold mb-2">24×7 Customer Support</h5>
-                    <p class="text-muted small mb-0">Round-the-clock customer service to assist you at any time.</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="bi bi-airplane"></i></div>
-                    <h5 class="fw-bold mb-2">Airport Transfers</h5>
-                    <p class="text-muted small mb-0">Punctual pickup and drop services directly to and from airports.</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="500">
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="bi bi-people"></i></div>
-                    <h5 class="fw-bold mb-2">Safe Family Trips</h5>
-                    <p class="text-muted small mb-0">Specialized family-friendly cabs for secure and happy travels.</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="600">
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="bi bi-briefcase"></i></div>
-                    <h5 class="fw-bold mb-2">Corporate Travel</h5>
-                    <p class="text-muted small mb-0">Seamless transportation solutions for your professional needs.</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="700">
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="bi bi-tag"></i></div>
-                    <h5 class="fw-bold mb-2">Affordable Pricing</h5>
-                    <p class="text-muted small mb-0">Competitive and transparent rates with no hidden charges.</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="800">
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="bi bi-shield-check"></i></div>
-                    <h5 class="fw-bold mb-2">Transparent Billing</h5>
-                    <p class="text-muted small mb-0">No surprise costs, ensuring you only pay what you agreed on.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-
-<!-- Include Modal -->
 {% include 'includes/enquiry_modal.html' %}
-
 {% endblock %}
 
 {% block extra_js %}
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        AOS.init({
-            once: true,
-            offset: 50,
-        });
-    });
-</script>
-{% endblock %}<div class="row g-4 mt-4">
-            <!-- Mysore -->
-            <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up">
-                <article class="tourist-place-card">
-                    <div class="tourist-place-image">
-                        <img src="{% static 'images/destinations/mysore-palace.jpg' %}" alt="Mysore Karnataka tourist place" loading="lazy">
-                    </div>
-                    <div class="tourist-place-content">
-                        <h3>Mysore</h3>
-                        <p>Experience grand royal history on a <strong>Mysore trip</strong>, exploring the spectacular heritage city palace for classic <strong>Karnataka tourism</strong>.</p>
-                        <a href="#" class="tourist-place-btn" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Karnataka" data-place="Mysore">
-                            Explore Destination <i class="bi bi-arrow-right"></i>
-                        </a>
-                    </div>
-                </article>
-            </div>
-
-            <!-- Coorg -->
-            <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up">
-                <article class="tourist-place-card">
-                    <div class="tourist-place-image">
-                        <img src="{% static 'images/destinations/coorg-tourist.jpg' %}" alt="Coorg Karnataka tourist place" loading="lazy">
-                    </div>
-                    <div class="tourist-place-content">
-                        <h3>Coorg</h3>
-                        <p>Relax at a beautiful hill station on a <strong>Coorg trip</strong>, famous for misty coffee plantations and refreshing <strong>Karnataka tourism</strong> getaways.</p>
-                        <a href="#" class="tourist-place-btn" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Karnataka" data-place="Coorg">
-                            Explore Destination <i class="bi bi-arrow-right"></i>
-                        </a>
-                    </div>
-                </article>
-            </div>
-
-            <!-- Chikmagalur -->
-            <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up">
-                <article class="tourist-place-card">
-                    <div class="tourist-place-image">
-                        <img src="{% static 'images/destinations/chikmagalur-tourist.jpg' %}" alt="Chikmagalur Karnataka tourist place" loading="lazy">
-                    </div>
-                    <div class="tourist-place-content">
-                        <h3>Chikmagalur</h3>
-                        <p>Wander through lush coffee estates on a <strong>Chikmagalur trip</strong>, nestled in the Western Ghats for perfect <strong>Karnataka tourism</strong>.</p>
-                        <a href="#" class="tourist-place-btn" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Karnataka" data-place="Chikmagalur">
-                            Explore Destination <i class="bi bi-arrow-right"></i>
-                        </a>
-                    </div>
-                </article>
-            </div>
-
-            <!-- Hampi -->
-            <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up">
-                <article class="tourist-place-card">
-                    <div class="tourist-place-image">
-                        <img src="{% static 'images/destinations/mahabalipuram.jpg' %}" alt="Hampi Karnataka tourist place" loading="lazy">
-                    </div>
-                    <div class="tourist-place-content">
-                        <h3>Hampi</h3>
-                        <p>Explore magnificent <strong>UNESCO ruins</strong> on a fascinating <strong>Hampi trip</strong>, discovering architectural marvels unique to <strong>Karnataka tourism</strong>.</p>
-                        <a href="#" class="tourist-place-btn" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Karnataka" data-place="Hampi">
-                            Explore Destination <i class="bi bi-arrow-right"></i>
-                        </a>
-                    </div>
-                </article>
-            </div>
-
-            <!-- Gokarna -->
-            <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up">
-                <article class="tourist-place-card">
-                    <div class="tourist-place-image">
-                        <img src="{% static 'images/destinations/gokarna.jpg' %}" alt="Gokarna Karnataka tourist place" loading="lazy">
-                    </div>
-                    <div class="tourist-place-content">
-                        <h3>Gokarna</h3>
-                        <p>Enjoy pristine beaches and sacred coastal temples on a <strong>Gokarna trip</strong>, offering a serene and spiritual <strong>Karnataka tourism</strong> escape.</p>
-                        <a href="#" class="tourist-place-btn" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Karnataka" data-place="Gokarna">
-                            Explore Destination <i class="bi bi-arrow-right"></i>
-                        </a>
-                    </div>
-                </article>
-            </div>
-
-            <!-- Bangalore -->
-            <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up">
-                <article class="tourist-place-card">
-                    <div class="tourist-place-image">
-                        <img src="{% static 'images/destinations/chennai.avif' %}" alt="Bangalore Karnataka tourist place" loading="lazy">
-                    </div>
-                    <div class="tourist-place-content">
-                        <h3>Bangalore</h3>
-                        <p>Experience the vibrant garden city on a <strong>Bangalore trip</strong>, blending modern urban life with beautiful <strong>Karnataka tourism</strong> parks.</p>
-                        <a href="#" class="tourist-place-btn" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Karnataka" data-place="Bangalore">
-                            Explore Destination <i class="bi bi-arrow-right"></i>
-                        </a>
-                    </div>
-                </article>
-            </div>
-
-            <!-- Udupi -->
-            <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up">
-                <article class="tourist-place-card">
-                    <div class="tourist-place-image">
-                        <img src="{% static 'images/destinations/udupi.jpg' %}" alt="Udupi Karnataka tourist place" loading="lazy">
-                    </div>
-                    <div class="tourist-place-content">
-                        <h3>Udupi</h3>
-                        <p>Taste authentic coastal cuisine and visit famous temples on an exciting <strong>Udupi trip</strong>, highlighting diverse <strong>Karnataka tourism</strong>.</p>
-                        <a href="#" class="tourist-place-btn" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Karnataka" data-place="Udupi">
-                            Explore Destination <i class="bi bi-arrow-right"></i>
-                        </a>
-                    </div>
-                </article>
-            </div>
-
-            <!-- Sakleshpur -->
-            <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up">
-                <article class="tourist-place-card">
-                    <div class="tourist-place-image">
-                        <img src="{% static 'images/destinations/sakleshpur.jpg' %}" alt="Sakleshpur Karnataka tourist place" loading="lazy">
-                    </div>
-                    <div class="tourist-place-content">
-                        <h3>Sakleshpur</h3>
-                        <p>Trek through lush green landscapes on an adventurous <strong>Sakleshpur trip</strong>, finding peace in this quiet <strong>Karnataka tourism</strong> destination.</p>
-                        <a href="#" class="tourist-place-btn" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Karnataka" data-place="Sakleshpur">
-                            Explore Destination <i class="bi bi-arrow-right"></i>
-                        </a>
-                    </div>
-                </article>
-            </div>
+<script src="{% static 'js/destination.js' %}?v={{ STATIC_VERSION }}"></script>
+{% endblock %}

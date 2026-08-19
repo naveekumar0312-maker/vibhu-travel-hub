@@ -126,6 +126,7 @@
 
 .mobile-nav-link:hover {
     background: #F8F9FA;
+    color: #E31E24;
     transform: translateY(-2px); /* Hover Lift */
 }
 
