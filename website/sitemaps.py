@@ -1,4 +1,6 @@
+# pyrefly: ignore [missing-import]
 from django.contrib.sitemaps import Sitemap
+# pyrefly: ignore [missing-import]
 from django.urls import reverse
 
 

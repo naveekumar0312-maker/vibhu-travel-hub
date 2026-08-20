@@ -441,5 +441,172 @@ body {
 }
 @media (max-width: 991px) {
     .route-img-col { min-height: 250px; }
-    .route-details-col { border-end: none !important; border-bottom: 1px solid #dee2e6; }
+    .route-details-col { border-right: none !important; border-inline-end: none !important; border-bottom: 1px solid #dee2e6; }
 }
+
+/* ==========================================================
+   REFERENCE CARD DESIGN (Aspire-Style Clean Travel Cards)
+   ========================================================== */
+
+.vth-service-card,
+.feature-card,
+.service-feature-card,
+.cab-service-card,
+.why-card-item,
+.about-card-hover,
+.vth-ref-card {
+    background: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 20px !important;
+    padding: 36px 28px !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    height: 100% !important;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03) !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.vth-service-card:hover,
+.feature-card:hover,
+.service-feature-card:hover,
+.cab-service-card:hover,
+.why-card-item:hover,
+.about-card-hover:hover,
+.vth-ref-card:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08) !important;
+    border-color: rgba(227, 30, 36, 0.3) !important;
+}
+
+/* Card Icon / Image Header */
+.vth-card-icon-wrapper,
+.feature-icon,
+.why-icon-box,
+.about-icon-box {
+    width: 72px !important;
+    height: 72px !important;
+    min-width: 72px !important;
+    border-radius: 20px !important;
+    background: rgba(227, 30, 36, 0.06) !important;
+    color: #E31E24 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 2.2rem !important;
+    margin-top: 0 !important;
+    margin-bottom: 24px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    transition: transform 0.35s ease, background-color 0.35s ease !important;
+    box-shadow: none !important;
+}
+
+.vth-service-card:hover .vth-card-icon-wrapper,
+.vth-service-card:hover .feature-icon,
+.feature-card:hover .feature-icon,
+.service-feature-card:hover .vth-card-icon-wrapper,
+.why-card-item:hover .why-icon-box,
+.about-card-hover:hover .about-icon-box,
+.vth-ref-card:hover .vth-card-icon-wrapper {
+    transform: scale(1.08) !important;
+    background: rgba(227, 30, 36, 0.12) !important;
+}
+
+/* Card Image Header (if card uses image instead of icon) */
+.vth-card-img-header {
+    width: 100% !important;
+    height: 180px !important;
+    object-fit: cover !important;
+    border-radius: 14px !important;
+    margin-bottom: 24px !important;
+    transition: transform 0.35s ease !important;
+}
+
+.vth-service-card:hover .vth-card-img-header,
+.vth-ref-card:hover .vth-card-img-header {
+    transform: scale(1.04) !important;
+}
+
+/* Card Title */
+.vth-service-card h3,
+.vth-service-card h4,
+.vth-service-card h5,
+.feature-card h5,
+.service-feature-card h5,
+.cab-service-card h5,
+.why-card-item h5,
+.about-card-hover h5,
+.vth-ref-card h3,
+.vth-ref-card h4,
+.vth-ref-card h5 {
+    color: #0F172A !important;
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+    margin-top: 0 !important;
+    margin-bottom: 14px !important;
+    text-align: center !important;
+    letter-spacing: -0.3px !important;
+}
+
+/* Card Description */
+.vth-service-card p,
+.feature-card p,
+.service-feature-card p,
+.cab-service-card p,
+.why-card-item p,
+.about-card-hover p,
+.vth-ref-card p {
+    color: #64748B !important;
+    font-size: 0.95rem !important;
+    line-height: 1.65 !important;
+    text-align: center !important;
+    margin-bottom: 0 !important;
+}
+
+/* Card Action / Link */
+.vth-card-action {
+    margin-top: auto !important;
+    padding-top: 22px !important;
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Directional Staggered Scroll Animations */
+.vth-card-anim-left,
+.vth-card-anim-up,
+.vth-card-anim-right,
+.vth-card-anim-down {
+    opacity: 0;
+    transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.vth-card-anim-left { transform: translateX(-35px); }
+.vth-card-anim-right { transform: translateX(35px); }
+.vth-card-anim-up { transform: translateY(35px); }
+.vth-card-anim-down { transform: translateY(-35px); }
+
+.vth-card-anim-left.vth-animated,
+.vth-card-anim-right.vth-animated,
+.vth-card-anim-up.vth-animated,
+.vth-card-anim-down.vth-animated {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .vth-card-anim-left, .vth-card-anim-right, .vth-card-anim-up, .vth-card-anim-down {
+        transition: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+

@@ -33,4 +33,22 @@ document.addEventListener('DOMContentLoaded', () => {
             window.openVehicleWhatsApp(vName, vCap);
         }
     });
+
+    // Global Card & Directional Scroll Animations Observer
+    const animCards = document.querySelectorAll('.vth-card-anim-left, .vth-card-anim-right, .vth-card-anim-up, .vth-card-anim-down, .vth-anim-left, .vth-anim-right, .vth-anim-up, .vth-anim-down');
+    if (animCards.length > 0) {
+        if ('IntersectionObserver' in window) {
+            const cardObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('vth-animated');
+                        cardObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            animCards.forEach(el => cardObserver.observe(el));
+        } else {
+            animCards.forEach(el => el.classList.add('vth-animated'));
+        }
+    }
 });

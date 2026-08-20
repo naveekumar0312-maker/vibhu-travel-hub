@@ -1,4 +1,5 @@
 import json
+# pyrefly: ignore [missing-import]
 from django.urls import reverse
 
 def generate_keywords(base_name, location_name=""):

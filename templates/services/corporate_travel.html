@@ -2,12 +2,15 @@
 {% load static %}
 
 {% block title %}Corporate Vehicle Rental & Executive Transport | Chennai, Coimbatore & Bangalore{% endblock %}
-{% block description %}Book Innova Crysta rental, Force Urbania rental, 26 seater Tempo Traveller rental, and luxury coach rental for corporate events & employee transport in Chennai, Coimbatore, Madurai & Bangalore.{% endblock %}
-{% block keywords %}Innova Crysta rental in Coimbatore, Force Urbania rental in Chennai, 26 seater Tempo Traveller in Bangalore, 50 seater bus rental in Chennai, luxury car rental in Coimbatore, AC bus rental in Chennai{% endblock %}
+{% block description %}Book Innova Crysta rental, Force Urbania rental, 26 seater Tempo Traveller rental, and luxury
+coach rental for corporate events & employee transport in Chennai, Coimbatore, Madurai & Bangalore.{% endblock %}
+{% block keywords %}Innova Crysta rental in Coimbatore, Force Urbania rental in Chennai, 26 seater Tempo Traveller in
+Bangalore, 50 seater bus rental in Chennai, luxury car rental in Coimbatore, AC bus rental in Chennai{% endblock %}
 {% block canonical %}https://www.vibhutravels.in/services/corporate-travel/{% endblock %}
 
 {% block og_title %}Corporate Vehicle Rental & Luxury Transport Services | Vibhu Travel Hub{% endblock %}
-{% block og_description %}Book premium Innova Crysta, Force Urbania, Tempo Traveller & luxury bus rentals for executive meetings and corporate trips across South India.{% endblock %}
+{% block og_description %}Book premium Innova Crysta, Force Urbania, Tempo Traveller & luxury bus rentals for executive
+meetings and corporate trips across South India.{% endblock %}
 {% block og_url %}https://www.vibhutravels.in/services/corporate-travel/{% endblock %}
 {% block og_image %}https://www.vibhutravels.in{% static 'images/services/corporate-hero.jpg' %}{% endblock %}
 
@@ -55,78 +58,154 @@
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/service.css' %}?v={{ STATIC_VERSION }}">
+<!-- Google Fonts for Cursive Script -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+    .vth-script-eyebrow {
+        font-family: 'Caveat', cursive, sans-serif;
+        color: #E31E24;
+        font-size: 1.8rem;
+        line-height: 1;
+        display: block;
+        margin-bottom: 0.3rem;
+    }
+
+    .about-hero-section {
+        position: relative;
+        min-height: 420px;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        overflow: hidden;
+        background: #F8FAFC;
+    }
+
+    .about-hero-bg {
+        position: absolute;
+        top: 0; right: 0; width: 55%; height: 100%;
+        object-fit: cover;
+        z-index: 1;
+    }
+
+    .about-hero-overlay {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.92) 45%, rgba(255, 255, 255, 0.6) 75%, rgba(255, 255, 255, 0.2) 100%);
+        z-index: 2;
+    }
+
+    .story-img-main {
+        border-radius: 20px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+        width: 100%;
+        height: 380px;
+        object-fit: cover;
+    }
+
+    .story-badge-exp {
+        position: absolute;
+        bottom: 20px;
+        left: -10px;
+        background: #E31E24;
+        color: #FFFFFF;
+        padding: 16px 22px;
+        border-radius: 16px;
+        box-shadow: 0 12px 30px rgba(227, 30, 36, 0.35);
+        z-index: 3;
+    }
+
+    /* Directional Animations */
+    .vth-anim-left, .vth-anim-right, .vth-anim-up, .vth-anim-down {
+        opacity: 0;
+        transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        will-change: opacity, transform;
+    }
+    .vth-anim-left { transform: translateX(-40px); }
+    .vth-anim-right { transform: translateX(40px); }
+    .vth-anim-up { transform: translateY(40px); }
+    .vth-anim-down { transform: translateY(-40px); }
+
+    .vth-anim-left.vth-animated,
+    .vth-anim-right.vth-animated,
+    .vth-anim-up.vth-animated,
+    .vth-anim-down.vth-animated {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+
+    @media (max-width: 768px) {
+        .about-hero-bg { width: 100%; opacity: 0.25; }
+        .about-hero-section { min-height: 360px; }
+        .story-badge-exp { left: 10px; bottom: 10px; padding: 12px 18px; }
+    }
+</style>
 {% endblock %}
 
 {% block content %}
-<!-- 1. PREMIUM HERO -->
-<section class="hero-section">
-    <div class="hero-bg-wrapper">
-        <img src="{% static 'images/services/corporate.png' %}" alt="Corporate Travel Services">
-    </div>
-    <div class="hero-overlay"></div>
+<!-- 1. HERO SECTION (ABOUT.HTML STYLE) -->
+<section class="about-hero-section py-5">
+    <img src="{% static 'images/services/corporate.png' %}" alt="Corporate Travel Services" class="about-hero-bg vth-anim-right">
+    <div class="about-hero-overlay"></div>
 
-    <div class="container position-relative z-3">
-        <div class="row">
-            <div class="col-lg-8">
-                <div class="hero-content">
-                    <h1 class="hero-title load-anim load-delay-1" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
-                        Corporate Travel
-                        <span>Management.</span>
-                    </h1>
-                    <p class="hero-subtitle load-anim load-delay-2" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
-                        Streamline your company's transportation with our professional fleet. Reliable executive cabs, airport transfers, and staff commuting solutions.
-                    </p>
-                    <div class="d-flex flex-wrap gap-3 load-anim load-delay-3" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
-                        <button class="btn-premium anim-btn btn-primary-luxury" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Corporate Tie-up">
-                            <i class="bi bi-envelope-fill"></i> Contact Sales
-                        </button>
-                        <a href="https://wa.me/919655866660" target="_blank" class="btn-premium anim-btn btn-outline-luxury">
-                            <i class="bi bi-whatsapp"></i> Chat on WhatsApp
-                        </a>
-                    </div>
+    <div class="container position-relative z-3 my-auto">
+        <div class="row align-items-center">
+            <div class="col-lg-7 col-md-10">
+                <span class="vth-script-eyebrow vth-anim-left">Vibhu Travel Hub</span>
+                <h1 class="fw-extrabold text-dark mb-3 vth-anim-left" style="font-size: 3.2rem; letter-spacing: -1.2px; line-height: 1.15;">
+                    Corporate Travel <span class="text-danger">Management.</span>
+                </h1>
+                <p class="text-secondary mb-4 vth-anim-up" style="font-size: 1.05rem; line-height: 1.65; max-width: 540px; color: #475569;">
+                    Streamline your company's transportation with our professional fleet. Reliable executive cabs, airport transfers, and staff commuting solutions.
+                </p>
+                <div class="d-flex flex-wrap gap-3 vth-anim-down">
+                    <button class="btn btn-danger rounded-pill px-4 py-2.5 fw-bold text-white shadow-sm border-0 d-inline-flex align-items-center gap-2" style="background-color: #E31E24;" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Corporate Tie-up">
+                        <i class="bi bi-envelope-fill"></i> Contact Sales
+                    </button>
+                    <a href="https://wa.me/919655866660" target="_blank" class="btn btn-outline-dark rounded-pill px-4 py-2.5 fw-bold d-inline-flex align-items-center gap-2">
+                        <i class="bi bi-whatsapp"></i> Chat on WhatsApp
+                    </a>
                 </div>
             </div>
         </div>
     </div>
-    
-    <div class="scroll-indicator">
-        <i class="bi bi-chevron-down"></i>
-    </div>
 </section>
 
-<!-- 2. ABOUT SERVICE -->
-<section id="about" class="lux-section bg-white">
-    <div class="container">
-        <div class="row g-5 align-items-center">
-            <div class="col-lg-6" data-aos="fade-right">
-                <div class="about-img-container position-relative h-100 shadow-lg rounded-4 overflow-hidden" style="min-height: 450px;">
-                    <img src="{% static 'images/services/corporate2.webp' %}" alt="Corporate Fleet Services" class="w-100 h-100 object-fit-cover position-absolute top-0 start-0">
+<!-- 2. ABOUT SECTION (ABOUT.HTML STYLE) -->
+<section id="about" class="py-5 bg-white overflow-hidden">
+    <div class="container py-lg-3">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6 vth-anim-left">
+                <div class="position-relative pe-lg-3">
+                    <img src="{% static 'images/services/corporate2.webp' %}" alt="Corporate Fleet Services" class="story-img-main img-fluid">
                     
-                    <div class="position-absolute bottom-0 end-0 bg-white p-4 shadow-lg rounded-top-start-4 d-flex align-items-center gap-3" style="z-index: 3;">
-                        <div class="bg-danger text-white rounded-circle d-flex align-items-center justify-content-center shadow-sm" style="width: 50px; height: 50px; font-size: 1.5rem;">
+                    <div class="story-badge-exp d-flex align-items-center gap-3">
+                        <div class="bg-white text-danger rounded-circle d-flex align-items-center justify-content-center shadow-sm" style="width: 48px; height: 48px; font-size: 1.4rem;">
                             <i class="bi bi-building"></i>
                         </div>
                         <div>
-                            <h4 class="fw-bold mb-0 text-dark counter-value" data-target="50">0</h4>
-                            <p class="text-muted small mb-0 fw-medium">Corporate Clients</p>
+                            <div class="fw-extrabold fs-4 lh-1 text-white">50+</div>
+                            <div class="small text-white-50 fw-medium">Corporate Clients</div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6" data-aos="fade-left">
-                <div class="h-100 d-flex flex-column justify-content-center py-3 ps-lg-4">
-                    <div class="d-inline-block text-danger fw-bold text-uppercase tracking-wide mb-2 small">About Service</div>
-                    <h2 class="section-title mb-4 fw-bolder text-dark" style="font-size: 2.5rem; letter-spacing: -0.5px;">Corporate Travel <span class="text-danger">& Transport </span></h2>
-                    <div class="about-content reveal-right text-secondary fs-6 lh-lg">
-                        <p>Vibhu Travel Hub is the leading <strong>B2B cab supplier</strong> and trusted <strong>travel agent vehicle supplier</strong> across South India. We provide dedicated <strong>corporate cab service in Coimbatore</strong>, <strong>corporate cab service in Chennai</strong>, <strong>corporate cab service in Bangalore</strong>, <strong>corporate cab service in Kochi</strong>, and <strong>corporate cab service in Madurai</strong> with uncompromised punctuality and safety.</p>
-                        
-                        <p>Our solutions range from executive <strong>monthly cab rental in Coimbatore</strong> and <strong>monthly cab rental in Chennai</strong> for senior management to customized <strong>employee transportation service in Chennai</strong>, <strong>employee transportation service in Bangalore</strong>, and <strong>employee transportation service in Coimbatore</strong>. For large corporate events, we offer <strong>corporate bus rental in Coimbatore</strong>, <strong>corporate bus rental in Chennai</strong>, and <strong>corporate bus rental in Bangalore</strong> with dedicated account managers and clear GST invoicing.</p>
-                        
-                        <div class="p-4 bg-light rounded-4 border-start border-4 border-danger mt-4 shadow-sm">
-                            <div class="d-flex align-items-start gap-3">
-                                <i class="bi bi-award-fill text-danger opacity-75" style="font-size: 2rem; line-height: 1;"></i>
-                                <p class="text-dark fw-medium mb-0 fs-6 fst-italic">Our corporate drivers are uniformed, highly trained in executive etiquette, GPS tracking, and strictly adhere to corporate safety protocols.</p>
-                            </div>
+            <div class="col-lg-6 vth-anim-right">
+                <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block mb-1" style="color: #E31E24; font-size: 0.8rem; letter-spacing: 1.5px;">ABOUT SERVICE</span>
+                <h2 class="fw-extrabold text-dark mb-3 vth-anim-right" style="font-size: 2.4rem; letter-spacing: -0.6px; line-height: 1.2;">
+                    Corporate Travel <span class="text-danger">& Transport</span>
+                </h2>
+                <div class="about-content text-secondary fs-6 lh-lg vth-anim-up" style="color: #475569;">
+                    <p>Vibhu Travel Hub is the leading <strong>B2B cab supplier</strong> and trusted <strong>travel agent vehicle supplier</strong> across South India. We provide dedicated <strong>corporate cab service in Coimbatore</strong>, <strong>corporate cab service in Chennai</strong>, <strong>corporate cab service in Bangalore</strong>, <strong>corporate cab service in Kochi</strong>, and <strong>corporate cab service in Madurai</strong> with uncompromised punctuality and safety.</p>
+
+                    <p>Our solutions range from executive <strong>monthly cab rental in Coimbatore</strong> and <strong>monthly cab rental in Chennai</strong> for senior management to customized <strong>employee transportation service in Chennai</strong>, <strong>employee transportation service in Bangalore</strong>, and <strong>employee transportation service in Coimbatore</strong>. For large corporate events, we offer <strong>corporate bus rental in Coimbatore</strong>, <strong>corporate bus rental in Chennai</strong>, and <strong>corporate bus rental in Bangalore</strong> with dedicated account managers and clear GST invoicing.</p>
+
+                    <div class="p-4 bg-light rounded-4 border-start border-4 border-danger mt-4 shadow-sm">
+                        <div class="d-flex align-items-start gap-3">
+                            <i class="bi bi-award-fill text-danger opacity-75" style="font-size: 2rem; line-height: 1;"></i>
+                            <p class="text-dark fw-medium mb-0 fs-6 fst-italic">Our corporate drivers are uniformed, highly trained in executive etiquette, GPS tracking, and strictly adhere to corporate safety protocols.</p>
                         </div>
                     </div>
                 </div>
@@ -135,52 +214,71 @@
     </div>
 </section>
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const animEls = document.querySelectorAll('.vth-anim-left, .vth-anim-right, .vth-anim-up, .vth-anim-down');
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('vth-animated');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        animEls.forEach(el => observer.observe(el));
+    } else {
+        animEls.forEach(el => el.classList.add('vth-animated'));
+    }
+});
+</script>
+
 <!-- 3. WHY CHOOSE US -->
-<section class="lux-section bg-light">
-    <div class="container">
-        <div class="text-center mb-5" data-aos="fade-up">
+<section class="lux-section bg-light py-5">
+    <div class="container py-lg-3">
+        <div class="text-center mb-5 vth-card-anim-up">
             <span class="text-danger fw-bold text-uppercase tracking-wide">Why Choose Us</span>
             <h2 class="section-title mt-2">The Vibhu Advantage</h2>
             <p class="section-subtitle">Why businesses trust us for their transportation.</p>
         </div>
-        
+
         <div class="row g-4">
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-lg-4 col-md-6 vth-card-anim-left">
                 <div class="feature-card">
                     <div class="feature-icon"><i class="bi bi-clock-fill"></i></div>
                     <h5 class="fw-bold mb-3">Punctuality Assured</h5>
                     <p class="text-muted mb-0">We value corporate time. Our vehicles arrive exactly when and where they are supposed to.</p>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="col-lg-4 col-md-6 vth-card-anim-up">
                 <div class="feature-card">
                     <div class="feature-icon"><i class="bi bi-receipt-cutoff"></i></div>
                     <h5 class="fw-bold mb-3">Monthly Billing</h5>
                     <p class="text-muted mb-0">Hassle-free B2B invoicing with consolidated monthly bills and detailed usage reports.</p>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="col-lg-4 col-md-6 vth-card-anim-right">
                 <div class="feature-card">
                     <div class="feature-icon"><i class="bi bi-person-bounding-box"></i></div>
                     <h5 class="fw-bold mb-3">Uniformed Chauffeurs</h5>
                     <p class="text-muted mb-0">Professional, polite drivers trained specifically in corporate hospitality and etiquette.</p>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="col-lg-4 col-md-6 vth-card-anim-left">
                 <div class="feature-card">
                     <div class="feature-icon"><i class="bi bi-car-front-fill"></i></div>
                     <h5 class="fw-bold mb-3">Executive Fleet</h5>
                     <p class="text-muted mb-0">Impeccably clean, well-maintained premium vehicles perfect for VIP and guest transfers.</p>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+            <div class="col-lg-4 col-md-6 vth-card-anim-up">
                 <div class="feature-card">
                     <div class="feature-icon"><i class="bi bi-shield-check"></i></div>
                     <h5 class="fw-bold mb-3">Compliance Ready</h5>
                     <p class="text-muted mb-0">All vehicles are fully insured and compliant with commercial transport regulations.</p>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+            <div class="col-lg-4 col-md-6 vth-card-anim-right">
                 <div class="feature-card">
                     <div class="feature-icon"><i class="bi bi-headset"></i></div>
                     <h5 class="fw-bold mb-3">Dedicated Support</h5>
@@ -199,7 +297,7 @@
             <h2 class="section-title mt-2">Corporate Services</h2>
             <p class="section-subtitle">Tailored transportation solutions for every corporate need.</p>
         </div>
-        
+
         <div class="row g-4 justify-content-center">
             <div class="col-6 col-md-4 col-lg-3 text-center" data-aos="fade-up" data-aos-delay="100">
                 <div class="p-4 bg-light rounded-4 shadow-sm h-100 feature-card">
@@ -236,14 +334,15 @@
             <span class="text-danger fw-bold text-uppercase tracking-wide">Onboarding</span>
             <h2 class="section-title mt-2">How to Partner With Us</h2>
         </div>
-        
+
         <div class="booking-timeline">
             <!-- Step 1 -->
             <div class="timeline-item" data-aos="fade-up">
                 <div class="timeline-icon"><i class="bi bi-telephone"></i></div>
                 <div class="timeline-content">
                     <h4 class="fw-bold">1. Initial Consultation</h4>
-                    <p class="text-muted mb-0">Reach out to our B2B sales team to discuss your company's transportation requirements and volume.</p>
+                    <p class="text-muted mb-0">Reach out to our B2B sales team to discuss your company's transportation
+                        requirements and volume.</p>
                 </div>
             </div>
             <!-- Step 2 -->
@@ -251,7 +350,8 @@
                 <div class="timeline-icon"><i class="bi bi-file-earmark-text"></i></div>
                 <div class="timeline-content">
                     <h4 class="fw-bold">2. Custom Proposal</h4>
-                    <p class="text-muted mb-0">We will provide a tailored tariff plan, SLA, and contract covering all your required routes and vehicle types.</p>
+                    <p class="text-muted mb-0">We will provide a tailored tariff plan, SLA, and contract covering all
+                        your required routes and vehicle types.</p>
                 </div>
             </div>
             <!-- Step 3 -->
@@ -259,7 +359,8 @@
                 <div class="timeline-icon"><i class="bi bi-pen"></i></div>
                 <div class="timeline-content">
                     <h4 class="fw-bold">3. Agreement Setup</h4>
-                    <p class="text-muted mb-0">Sign the corporate agreement and get introduced to your dedicated account manager for direct bookings.</p>
+                    <p class="text-muted mb-0">Sign the corporate agreement and get introduced to your dedicated account
+                        manager for direct bookings.</p>
                 </div>
             </div>
             <!-- Step 4 -->
@@ -267,7 +368,8 @@
                 <div class="timeline-icon"><i class="bi bi-car-front-fill"></i></div>
                 <div class="timeline-content">
                     <h4 class="fw-bold">4. Start Services</h4>
-                    <p class="text-muted mb-0">Begin requesting cabs or buses on-demand or schedule daily rosters. Pay via monthly invoice.</p>
+                    <p class="text-muted mb-0">Begin requesting cabs or buses on-demand or schedule daily rosters. Pay
+                        via monthly invoice.</p>
                 </div>
             </div>
         </div>
