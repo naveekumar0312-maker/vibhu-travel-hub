@@ -4,6 +4,116 @@
 {% block page_title %}Manage Fleet{% endblock %}
 
 {% block content %}
+<style>
+    .modal-backdrop.show {
+        background-color: rgba(15, 23, 42, 0.45) !important;
+        backdrop-filter: blur(3px) !important;
+        -webkit-backdrop-filter: blur(3px) !important;
+        opacity: 1 !important;
+    }
+
+    .vth-delete-modal-dialog {
+        max-width: 460px;
+        width: calc(100vw - 32px);
+        margin: 1.75rem auto;
+    }
+
+    .vth-delete-modal-content {
+        background: #ffffff !important;
+        border-radius: 16px !important;
+        border: 1px solid rgba(15, 23, 42, 0.06) !important;
+        box-shadow: 0 25px 60px rgba(15, 23, 42, 0.20) !important;
+        padding: 28px 30px !important;
+        overflow: hidden;
+    }
+
+    .vth-delete-modal-dialog.modal-dialog-centered {
+        display: flex;
+        align-items: center;
+        min-height: calc(100% - 3.5rem);
+    }
+
+    .vth-delete-icon-box {
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+        border-radius: 50%;
+        background: #fef2f2;
+        color: #dc2626;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.25rem;
+    }
+
+    .vth-modal-close-btn {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: transparent;
+        border: none;
+        color: #6b7280;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1rem;
+        transition: background 0.2s ease, color 0.2s ease;
+        padding: 0;
+        cursor: pointer;
+    }
+
+    .vth-modal-close-btn:hover {
+        background: #f3f4f6;
+        color: #111827;
+    }
+
+    .vth-btn-cancel {
+        height: 44px;
+        padding: 0 22px;
+        border-radius: 10px;
+        background: #ffffff;
+        color: #374151;
+        border: 1px solid #d1d5db;
+        font-weight: 600;
+        font-size: 0.92rem;
+        transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .vth-btn-cancel:hover {
+        background: #f9fafb;
+        border-color: #9ca3af;
+        color: #111827;
+    }
+
+    .vth-btn-delete {
+        height: 44px;
+        padding: 0 24px;
+        border-radius: 10px;
+        background: #dc2626;
+        color: #ffffff;
+        border: none;
+        font-weight: 600;
+        font-size: 0.92rem;
+        transition: background 0.2s ease;
+    }
+
+    .vth-btn-delete:hover {
+        background: #b91c1c;
+        color: #ffffff;
+    }
+
+    .modal.fade .vth-delete-modal-content {
+        opacity: 0;
+        transform: translateY(8px) scale(0.98);
+        transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+    }
+
+    .modal.show .vth-delete-modal-content {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+</style>
+
 <div class="glass-card anim-card p-4">
     <!-- Header & Search -->
     <div class="d-flex justify-content-between align-items-center mb-4">
@@ -82,35 +192,11 @@
                                 <i class="bi bi-trash-fill"></i>
                             </button>
                         </div>
-                        
-                        <!-- Delete Confirmation Modal -->
-                        <div class="modal fade" id="deleteModal{{ vehicle.id }}" tabindex="-1" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content glass-panel" style="background: #FFFFFF; border: 1px solid var(--border-color);">
-                                    <div class="modal-header border-bottom">
-                                        <h5 class="modal-title text-dark">Delete Vehicle?</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body text-dark">
-                                        Are you sure you want to delete the vehicle <strong>{{ vehicle.name }}</strong>?<br>
-                                        <span class="text-danger small mt-2 d-block">This action cannot be undone.</span>
-                                    </div>
-                                    <div class="modal-footer border-0">
-                                        <button type="button" class="btn btn-outline-secondary rounded-pill px-4" data-bs-dismiss="modal">Cancel</button>
-                                        <form method="POST" action="{% url 'fleet_delete' vehicle.id %}">
-                                            {% csrf_token %}
-                                            <button type="submit" class="btn btn-danger rounded-pill px-4">Delete Permanently</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
                     </td>
                 </tr>
                 {% empty %}
                 <tr>
-                    <td colspan="7" class="text-center py-5 text-muted">
+                    <td colspan="9" class="text-center py-5 text-muted">
                         <i class="bi bi-car-front fs-1 d-block mb-2"></i>
                         No vehicles found in the fleet.
                     </td>
@@ -147,4 +233,44 @@
     </nav>
     {% endif %}
 </div>
+
+<!-- Render Modals Outside Stacking Context of glass-card -->
+{% for vehicle in page_obj %}
+<!-- Delete Confirmation Modal for {{ vehicle.name }} -->
+<div class="modal fade" id="deleteModal{{ vehicle.id }}" tabindex="-1" aria-hidden="true" data-bs-backdrop="true">
+    <div class="modal-dialog modal-dialog-centered vth-delete-modal-dialog">
+        <div class="modal-content vth-delete-modal-content">
+            <!-- Header -->
+            <div class="d-flex align-items-center justify-content-between mb-3">
+                <div class="d-flex align-items-center gap-3">
+                    <div class="vth-delete-icon-box">
+                        <i class="bi bi-exclamation-triangle-fill"></i>
+                    </div>
+                    <h5 class="fw-bold mb-0" style="font-size: 22px; color: #111827;">Delete Vehicle?</h5>
+                </div>
+                <button type="button" class="vth-modal-close-btn" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+
+            <!-- Body Message -->
+            <div class="mb-4 text-start">
+                <p class="mb-2" style="font-size: 0.95rem; color: #4b5563; line-height: 1.5;">
+                    Are you sure you want to delete the vehicle <strong class="text-dark">{{ vehicle.name }}</strong>?
+                </p>
+                <span class="fw-medium d-block" style="font-size: 14px; color: #dc2626;">This action cannot be undone.</span>
+            </div>
+
+            <!-- Footer Buttons -->
+            <div class="d-flex align-items-center justify-content-end gap-2">
+                <button type="button" class="btn vth-btn-cancel" data-bs-dismiss="modal">Cancel</button>
+                <form method="POST" action="{% url 'fleet_delete' vehicle.id %}" class="m-0">
+                    {% csrf_token %}
+                    <button type="submit" class="btn vth-btn-delete">Delete Permanently</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
 {% endblock %}

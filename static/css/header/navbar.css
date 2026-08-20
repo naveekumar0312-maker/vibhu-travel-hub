@@ -123,3 +123,30 @@ body {
     transform: rotate(180deg);
     color: #E31E24;
 }
+
+/* CTA Buttons */
+.btn-call-now {
+    background-color: #FFFFFF !important;
+    color: #0F172A !important;
+    border: 1px solid #CBD5E1 !important;
+    transition: all 0.25s ease !important;
+}
+
+.btn-call-now:hover {
+    background-color: #F8FAFC !important;
+    border-color: #94A3B8 !important;
+    color: #E31E24 !important;
+}
+
+.btn-book-now {
+    background-color: #E31E24 !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    transition: all 0.25s ease !important;
+}
+
+.btn-book-now:hover {
+    background-color: #CC1217 !important;
+    color: #FFFFFF !important;
+    transform: translateY(-1px);
+}

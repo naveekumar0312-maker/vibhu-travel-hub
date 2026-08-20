@@ -143,14 +143,25 @@
         display: none;
     }
 
-    /* Luxury Banner */
+    /* Luxury Banner - Light Theme */
     .luxury-booking-banner {
-        background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+        background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%);
         border-radius: 1.5rem;
         position: relative;
         overflow: hidden;
-        box-shadow: 0 20px 40px rgba(15, 23, 42, 0.25);
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 15px 35px rgba(15, 23, 42, 0.08);
+        border: 1px solid #E2E8F0;
+    }
+
+    .luxury-booking-banner::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(227, 30, 36, 0.05) 0%, rgba(227, 30, 36, 0) 60%);
+        pointer-events: none;
     }
 
     @media (max-width: 768px) {
@@ -439,23 +450,23 @@
     </div>
 </section>
 
-<!-- 6. CONTACT CTA BANNER (MATCHING HOME & ABOUT) -->
+<!-- 6. CONTACT CTA BANNER (LIGHT THEME) -->
 <section class="py-5 bg-white border-top">
     <div class="container">
         <div class="p-4 p-md-5 luxury-booking-banner text-center text-md-start vth-card-anim-up">
             <div class="row align-items-center g-4 position-relative z-2">
                 <div class="col-lg-8">
                     <span class="vth-script-eyebrow text-danger" style="font-size: 1.8rem;">Start Planning</span>
-                    <h2 class="fw-extrabold text-white mb-2" style="font-size: 2.2rem; letter-spacing: -0.5px;">Ready to Start Your Journey?</h2>
-                    <p class="text-white-50 mb-0 fs-6" style="max-width: 560px;">Tell us where you want to go. We'll help you plan the journey with our premium vehicles and experienced chauffeurs.</p>
+                    <h2 class="fw-extrabold text-dark mb-2" style="font-size: 2.2rem; letter-spacing: -0.5px;">Ready to Start Your Journey?</h2>
+                    <p class="text-secondary mb-0 fs-6" style="max-width: 560px;">Tell us where you want to go. We'll help you plan the journey with our premium vehicles and experienced chauffeurs.</p>
                 </div>
                 <div class="col-lg-4 text-center text-md-end">
                     <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-md-end">
                         <button class="btn btn-danger rounded-pill px-4 py-2.5 fw-bold text-white shadow-sm border-0 d-inline-flex align-items-center gap-2" style="background-color: #E31E24;" data-bs-toggle="modal" data-bs-target="#enquiryModal">
                             <i class="bi bi-calendar-check-fill"></i> Book Your Trip
                         </button>
-                        <a href="https://wa.me/919655866660" target="_blank" class="btn btn-outline-light rounded-pill px-4 py-2.5 fw-bold d-inline-flex align-items-center gap-2">
-                            <i class="bi bi-whatsapp"></i> WhatsApp Us
+                        <a href="https://wa.me/919655866660" target="_blank" class="btn btn-outline-dark rounded-pill px-4 py-2.5 fw-bold d-inline-flex align-items-center gap-2">
+                            <i class="bi bi-whatsapp text-success"></i> WhatsApp Us
                         </a>
                     </div>
                 </div>

@@ -8,7 +8,7 @@ from django.core.paginator import Paginator
 from django.db.models import Q
 # pyrefly: ignore [missing-import]
 from django.utils.text import slugify
-from dashboard.utils import admin_required
+import os
 from dashboard.utils import admin_required
 from website.models import Vehicle
 
@@ -92,9 +92,19 @@ def fleet_create(request):
             above_400_applicable=above_400_applicable
         )
         
+        # Handle Main Image & Video
+        vehicle_video = request.FILES.get('vehicle_video')
+        if vehicle_video:
+            ext = os.path.splitext(vehicle_video.name)[1].lower() if hasattr(vehicle_video, 'name') else ''
+            if ext not in ['.mp4', '.webm']:
+                messages.error(request, 'Please upload a valid MP4 or WebM video.')
+            else:
+                vehicle.vehicle_video = vehicle_video
+
         if image:
             vehicle.image = image
-            vehicle.save()
+
+        vehicle.save()
 
         messages.success(request, f'Vehicle "{name}" created successfully!')
         return redirect('dashboard_fleet')
@@ -143,6 +153,18 @@ def fleet_edit(request, vehicle_id):
         # Handle Main Image update
         if 'image' in request.FILES:
             vehicle.image = request.FILES['image']
+
+        # Handle Vehicle Video update / removal
+        if 'vehicle_video' in request.FILES:
+            vfile = request.FILES['vehicle_video']
+            ext = os.path.splitext(vfile.name)[1].lower() if hasattr(vfile, 'name') else ''
+            if ext not in ['.mp4', '.webm']:
+                messages.error(request, 'Please upload a valid MP4 or WebM video.')
+                context = {'vehicle': vehicle}
+                return render(request, 'dashboard/fleet/form.html', context)
+            vehicle.vehicle_video = vfile
+        elif request.POST.get('clear_vehicle_video') == 'on':
+            vehicle.vehicle_video = None
 
         vehicle.save()
 

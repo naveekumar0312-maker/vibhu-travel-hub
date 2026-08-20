@@ -102,51 +102,7 @@ body.home-page {
     transform: translateY(-2px);
 }
 
-.vth-navbar {
-    padding: 12px 0;
-    background-color: transparent !important;
-    box-shadow: none !important;
-}
-
-.vth-nav-link {
-    font-weight: 600;
-    color: var(--vth-dark);
-    padding: 8px 16px;
-    position: relative;
-    transition: color 0.25s ease;
-}
-
-.vth-nav-link:hover,
-.vth-nav-link:focus,
-.vth-nav-link.active,
-.vth-nav-link.show {
-    color: var(--vth-red) !important;
-}
-
-.vth-nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 3px;
-    background-color: var(--vth-red);
-    border-radius: 2px;
-    transition: width 0.25s ease;
-}
-
-.vth-nav-link.active::after,
-.vth-nav-link:hover::after,
-.vth-nav-link:focus::after,
-.vth-nav-link.show::after {
-    width: 24px;
-}
-
-.btn-call-now:hover {
-    background-color: var(--vth-light-bg);
-    border-color: var(--vth-dark) !important;
-}
+/* Navbar styles delegated to master static/css/header/navbar.css */
 
 .btn-book-now:hover {
     background-color: var(--vth-red-hover) !important;

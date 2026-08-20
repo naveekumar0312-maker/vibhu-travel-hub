@@ -27,9 +27,9 @@
             <i class="bi bi-chevron-down chevron"></i>
         </a>
         <div class="mobile-accordion-content" id="mobileDestinations">
-            <a href="/destinations/tamil-nadu/" class="mobile-accordion-link">Tamil Nadu</a>
-            <a href="/destinations/kerala/" class="mobile-accordion-link">Kerala</a>
-            <a href="/destinations/karnataka/" class="mobile-accordion-link">Karnataka</a>
+            <a href="{% url 'tamil_nadu_view' %}" class="mobile-accordion-link">Tamil Nadu</a>
+            <a href="{% url 'kerala_view' %}" class="mobile-accordion-link">Kerala</a>
+            <a href="{% url 'karnataka_view' %}" class="mobile-accordion-link">Karnataka</a>
         </div>
 
         <!-- Services Accordion -->
@@ -142,9 +142,9 @@
                             Destinations <i class="bi bi-chevron-down nav-chevron small ms-1"></i>
                         </a>
                         <ul class="dropdown-menu border-0 shadow-lg rounded-3 py-2" aria-labelledby="destinationsDropdown">
-                            <li><a href="/destinations/tamil-nadu/" class="dropdown-item py-2 px-3">Tamil Nadu</a></li>
-                            <li><a href="/destinations/kerala/" class="dropdown-item py-2 px-3">Kerala</a></li>
-                            <li><a href="/destinations/karnataka/" class="dropdown-item py-2 px-3">Karnataka</a></li>
+                            <li><a href="{% url 'tamil_nadu_view' %}" class="dropdown-item py-2 px-3">Tamil Nadu</a></li>
+                            <li><a href="{% url 'kerala_view' %}" class="dropdown-item py-2 px-3">Kerala</a></li>
+                            <li><a href="{% url 'karnataka_view' %}" class="dropdown-item py-2 px-3">Karnataka</a></li>
                         </ul>
                     </li>
 
@@ -161,6 +161,10 @@
                             <li><a href="{% url 'pilgrimage_trips' %}" class="dropdown-item py-2 px-3">Pilgrimage Trips</a></li>
                             <li><a href="{% url 'corporate_travel' %}" class="dropdown-item py-2 px-3">Corporate Travel</a></li>
                         </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link vth-nav-link {% if 'blog' in request.resolver_match.url_name %}active{% endif %}" href="{% url 'blog_list' %}">Blog</a>
                     </li>
 
                     <li class="nav-item">

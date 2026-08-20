@@ -234,110 +234,195 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
             <!-- Priority C Master Route Directory -->
+            <style>
+                .vth-route-card {
+                    background: #FFFFFF !important;
+                    border: 1px solid #E2E8F0 !important;
+                    border-radius: 16px !important;
+                    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.03) !important;
+                    padding: 24px 28px !important;
+                    height: 100% !important;
+                    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease !important;
+                }
+
+                .vth-route-card:hover {
+                    border-color: rgba(227, 30, 36, 0.25) !important;
+                    box-shadow: 0 12px 32px rgba(15, 23, 42, 0.06) !important;
+                    transform: translateY(-3px) !important;
+                }
+
+                .vth-route-header-title {
+                    font-size: 1.15rem !important;
+                    font-weight: 700 !important;
+                    color: #111827 !important;
+                    display: flex !important;
+                    align-items: center !important;
+                    gap: 8px !important;
+                    margin-bottom: 0 !important;
+                }
+
+                .vth-route-header-title i {
+                    color: #E31E24 !important;
+                    font-size: 1.25rem !important;
+                }
+
+                .vth-route-divider {
+                    height: 1px !important;
+                    background: #F1F5F9 !important;
+                    margin: 14px 0 16px 0 !important;
+                }
+
+                .vth-route-list {
+                    list-style: none !important;
+                    padding: 0 !important;
+                    margin: 0 !important;
+                    display: flex !important;
+                    flex-direction: column !important;
+                    gap: 4px !important;
+                }
+
+                .vth-route-item {
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: space-between !important;
+                    padding: 7px 0 !important;
+                    color: #475569 !important;
+                    font-size: 0.92rem !important;
+                    font-weight: 500 !important;
+                    border-bottom: 1px dashed #F1F5F9 !important;
+                    transition: color 0.25s ease, padding-left 0.25s ease !important;
+                }
+
+                .vth-route-item:last-child {
+                    border-bottom: none !important;
+                }
+
+                .vth-route-arrow {
+                    font-size: 0.85rem !important;
+                    color: #E31E24 !important;
+                    opacity: 0.7 !important;
+                    transition: transform 0.25s ease, opacity 0.25s ease !important;
+                }
+
+                .vth-route-item:hover {
+                    color: #111827 !important;
+                }
+
+                .vth-route-item:hover .vth-route-arrow {
+                    opacity: 1 !important;
+                    transform: translateX(4px) !important;
+                }
+
+                .vth-accent-bar {
+                    width: 44px !important;
+                    height: 3px !important;
+                    background-color: #E31E24 !important;
+                    border-radius: 2px !important;
+                    margin: 10px auto 0 !important;
+                }
+            </style>
+
             <div class="row g-4 mt-5">
-                <div class="col-12 text-center" data-aos="fade-up">
-                    <h3 class="fw-bold mb-2 text-dark">Popular Outstation Cab Routes Across South India</h3>
-                    <p class="text-muted">Explore top outstation cab packages connecting key cities and tourist
-                        destinations</p>
+                <div class="col-12 text-center mb-2" data-aos="fade-up">
+                    <h3 class="fw-bold mb-2 text-dark" style="font-size: 1.8rem; letter-spacing: -0.3px;">Popular Outstation Cab Routes Across South India</h3>
+                    <p class="text-muted mb-0" style="font-size: 0.98rem; max-width: 680px; margin: 0 auto;">Explore top outstation cab packages connecting key cities and tourist destinations</p>
+                    <div class="vth-accent-bar"></div>
                 </div>
 
                 <!-- Hub 1: Coimbatore Routes -->
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="p-4 bg-light rounded-4 border h-100">
-                        <h5 class="fw-bold text-dark"><i class="bi bi-geo-alt-fill text-danger me-2"></i>From Coimbatore
-                        </h5>
-                        <ul class="list-unstyled text-secondary small mb-0 lh-lg">
-                            <li><i class="bi bi-arrow-right-short text-danger"></i> Coimbatore to Ooty cab</li>
-                            <li><i class="bi bi-arrow-right-short text-danger"></i> Coimbatore to Wayanad cab</li>
-                            <li><i class="bi bi-arrow-right-short text-danger"></i> Coimbatore to Ooty Tempo Traveller
-                            </li>
-                            <li><i class="bi bi-arrow-right-short text-danger"></i> Coimbatore to Pollachi cab</li>
-                            <li><i class="bi bi-arrow-right-short text-danger"></i> Coimbatore to Munnar cab</li>
-                            <li><i class="bi bi-arrow-right-short text-danger"></i> Coimbatore to Valparai cab</li>
-                            <li><i class="bi bi-arrow-right-short text-danger"></i> Coimbatore to Kochi cab</li>
-                            <li><i class="bi bi-arrow-right-short text-danger"></i> Coimbatore to Bangalore cab</li>
-                            <li><i class="bi bi-arrow-right-short text-danger"></i> Coimbatore airport to Ooty taxi</li>
-                            <li><i class="bi bi-arrow-right-short text-danger"></i> Coimbatore airport to Isha Yoga
-                                Center cab</li>
+                    <div class="vth-route-card">
+                        <div class="vth-route-header-title">
+                            <i class="bi bi-geo-alt-fill"></i>
+                            <span>From Coimbatore</span>
+                        </div>
+                        <div class="vth-route-divider"></div>
+                        <ul class="vth-route-list">
+                            <li class="vth-route-item"><span>Coimbatore to Ooty cab</span><i class="bi bi-arrow-right vth-route-arrow"></i></li>
+                            <li class="vth-route-item"><span>Coimbatore to Wayanad cab</span><i class="bi bi-arrow-right vth-route-arrow"></i></li>
+                            <li class="vth-route-item"><span>Coimbatore to Ooty Tempo Traveller</span><i class="bi bi-arrow-right vth-route-arrow"></i></li>
+                            <li class="vth-route-item"><span>Coimbatore to Pollachi cab</span><i class="bi bi-arrow-right vth-route-arrow"></i></li>
+                            <li class="vth-route-item"><span>Coimbatore to Munnar cab</span><i class="bi bi-arrow-right vth-route-arrow"></i></li>
+                            <li class="vth-route-item"><span>Coimbatore to Valparai cab</span><i class="bi bi-arrow-right vth-route-arrow"></i></li>
+                            <li class="vth-route-item"><span>Coimbatore to Kochi cab</span><i class="bi bi-arrow-right vth-route-arrow"></i></li>
+                            <li class="vth-route-item"><span>Coimbatore to Bangalore cab</span><i class="bi bi-arrow-right vth-route-arrow"></i></li>
+                            <li class="vth-route-item"><span>Coimbatore airport to Ooty taxi</span><i class="bi bi-arrow-right vth-route-arrow"></i></li>
+                            <li class="vth-route-item"><span>Coimbatore airport to Isha Yoga Center cab</span><i class="bi bi-arrow-right vth-route-arrow"></i></li>
                         </ul>
                     </div>
                 </div>
 
                 <!-- Hub 2: Madurai Routes -->
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="p-4 bg-light rounded-4 border h-100">
-                        <h5 class="fw-bold text-dark"><i class="bi bi-building text-danger me-2"></i>From Madurai</h5>
-                        <ul class="list-unstyled text-secondary small mb-0 lh-lg">
-                            <li><i class="bi bi-arrow-right-short text-danger"></i> Madurai to Rameswaram cab</li>
-                            <li><i class="bi bi-arrow-right-short text-danger"></i> Madurai to Tirunelveli cab</li>
-                            <li><i class="bi bi-arrow-right-short text-danger"></i> Madurai to Kanyakumari cab</li>
-                            <li><i class="bi bi-arrow-right-short text-danger"></i> Madurai to Kodaikanal cab</li>
-                            <li><i class="bi bi-arrow-right-short text-danger"></i> Madurai to Palani cab</li>
-                            <li><i class="bi bi-arrow-right-short text-danger"></i> Madurai to Munnar cab</li>
-                            <li><i class="bi bi-arrow-right-short text-danger"></i> Madurai airport to Rameswaram taxi
-                            </li>
-                            <li><i class="bi bi-arrow-right-short text-danger"></i> Madurai Meenakshi temple tour cab
-                            </li>
-                            <li><i class="bi bi-arrow-right-short text-danger"></i> Madurai Rameswaram Kanyakumari tour
-                                package</li>
-                            <li><i class="bi bi-arrow-right-short text-danger"></i> Madurai to Rameswaram Tempo
-                                Traveller</li>
+                    <div class="vth-route-card">
+                        <div class="vth-route-header-title">
+                            <i class="bi bi-building"></i>
+                            <span>From Madurai</span>
+                        </div>
+                        <div class="vth-route-divider"></div>
+                        <ul class="vth-route-list">
+                            <li class="vth-route-item"><span>Madurai to Rameswaram cab</span><i class="bi bi-arrow-right vth-route-arrow"></i></li>
+                            <li class="vth-route-item"><span>Madurai to Tirunelveli cab</span><i class="bi bi-arrow-right vth-route-arrow"></i></li>
+                            <li class="vth-route-item"><span>Madurai to Kanyakumari cab</span><i class="bi bi-arrow-right vth-route-arrow"></i></li>
+                            <li class="vth-route-item"><span>Madurai to Kodaikanal cab</span><i class="bi bi-arrow-right vth-route-arrow"></i></li>
+                            <li class="vth-route-item"><span>Madurai to Palani cab</span><i class="bi bi-arrow-right vth-route-arrow"></i></li>
+                            <li class="vth-route-item"><span>Madurai to Munnar cab</span><i class="bi bi-arrow-right vth-route-arrow"></i></li>
+                            <li class="vth-route-item"><span>Madurai airport to Rameswaram taxi</span><i class="bi bi-arrow-right vth-route-arrow"></i></li>
+                            <li class="vth-route-item"><span>Madurai Meenakshi temple tour cab</span><i class="bi bi-arrow-right vth-route-arrow"></i></li>
+                            <li class="vth-route-item"><span>Madurai Rameswaram Kanyakumari tour package</span><i class="bi bi-arrow-right vth-route-arrow"></i></li>
+                            <li class="vth-route-item"><span>Madurai to Rameswaram Tempo Traveller</span><i class="bi bi-arrow-right vth-route-arrow"></i></li>
                         </ul>
                     </div>
                 </div>
 
                 <!-- Hub 3: Chennai Routes -->
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="p-4 bg-light rounded-4 border h-100">
-                        <h5 class="fw-bold text-dark"><i class="bi bi-airplane-engines text-danger me-2"></i>From
-                            Chennai</h5>
-                        <ul class="list-unstyled text-secondary small mb-0 lh-lg">
-                            <li><i class="bi bi-arrow-right-short text-danger"></i> Chennai to Pondicherry cab</li>
-                            <li><i class="bi bi-arrow-right-short text-danger"></i> Chennai to Tirupati cab</li>
-                            <li><i class="bi bi-arrow-right-short text-danger"></i> Chennai to Bangalore cab</li>
-                            <li><i class="bi bi-arrow-right-short text-danger"></i> Chennai to Rameswaram cab</li>
-                            <li><i class="bi bi-arrow-right-short text-danger"></i> Chennai to Mahabalipuram cab</li>
-                            <li><i class="bi bi-arrow-right-short text-danger"></i> Chennai to Kodaikanal cab</li>
-                            <li><i class="bi bi-arrow-right-short text-danger"></i> Chennai airport to Pondicherry taxi
-                            </li>
-                            <li><i class="bi bi-arrow-right-short text-danger"></i> Chennai airport to Tirupati cab</li>
-                            <li><i class="bi bi-arrow-right-short text-danger"></i> Chennai Central railway station cab
-                            </li>
-                            <li><i class="bi bi-arrow-right-short text-danger"></i> Chennai to Pondicherry Tempo
-                                Traveller</li>
+                    <div class="vth-route-card">
+                        <div class="vth-route-header-title">
+                            <i class="bi bi-airplane-fill"></i>
+                            <span>From Chennai</span>
+                        </div>
+                        <div class="vth-route-divider"></div>
+                        <ul class="vth-route-list">
+                            <li class="vth-route-item"><span>Chennai to Pondicherry cab</span><i class="bi bi-arrow-right vth-route-arrow"></i></li>
+                            <li class="vth-route-item"><span>Chennai to Tirupati cab</span><i class="bi bi-arrow-right vth-route-arrow"></i></li>
+                            <li class="vth-route-item"><span>Chennai to Bangalore cab</span><i class="bi bi-arrow-right vth-route-arrow"></i></li>
+                            <li class="vth-route-item"><span>Chennai to Rameswaram cab</span><i class="bi bi-arrow-right vth-route-arrow"></i></li>
+                            <li class="vth-route-item"><span>Chennai to Mahabalipuram cab</span><i class="bi bi-arrow-right vth-route-arrow"></i></li>
+                            <li class="vth-route-item"><span>Chennai to Kodaikanal cab</span><i class="bi bi-arrow-right vth-route-arrow"></i></li>
+                            <li class="vth-route-item"><span>Chennai airport to Pondicherry taxi</span><i class="bi bi-arrow-right vth-route-arrow"></i></li>
+                            <li class="vth-route-item"><span>Chennai airport to Tirupati cab</span><i class="bi bi-arrow-right vth-route-arrow"></i></li>
+                            <li class="vth-route-item"><span>Chennai Central railway station cab</span><i class="bi bi-arrow-right vth-route-arrow"></i></li>
+                            <li class="vth-route-item"><span>Chennai to Pondicherry Tempo Traveller</span><i class="bi bi-arrow-right vth-route-arrow"></i></li>
                         </ul>
                     </div>
                 </div>
 
                 <!-- Hub 4: Bangalore / Bengaluru Routes -->
                 <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                    <div class="p-4 bg-light rounded-4 border h-100">
-                        <h5 class="fw-bold text-dark"><i class="bi bi-bank text-danger me-2"></i>From Bangalore /
-                            Bengaluru</h5>
-                        <div class="row">
-                            <div class="col-6">
-                                <ul class="list-unstyled text-secondary small mb-0 lh-lg">
-                                    <li><i class="bi bi-arrow-right-short text-danger"></i> Bangalore to Mysore cab</li>
-                                    <li><i class="bi bi-arrow-right-short text-danger"></i> Bangalore to Coorg cab</li>
-                                    <li><i class="bi bi-arrow-right-short text-danger"></i> Bangalore to Ooty cab</li>
-                                    <li><i class="bi bi-arrow-right-short text-danger"></i> Bangalore to Nandi Hills cab
-                                    </li>
-                                    <li><i class="bi bi-arrow-right-short text-danger"></i> Bangalore to Wayanad cab
-                                    </li>
+                    <div class="vth-route-card">
+                        <div class="vth-route-header-title">
+                            <i class="bi bi-buildings-fill"></i>
+                            <span>From Bangalore / Bengaluru</span>
+                        </div>
+                        <div class="vth-route-divider"></div>
+                        <div class="row g-3">
+                            <div class="col-sm-6">
+                                <ul class="vth-route-list">
+                                    <li class="vth-route-item"><span>Bangalore to Mysore cab</span><i class="bi bi-arrow-right vth-route-arrow"></i></li>
+                                    <li class="vth-route-item"><span>Bangalore to Coorg cab</span><i class="bi bi-arrow-right vth-route-arrow"></i></li>
+                                    <li class="vth-route-item"><span>Bangalore to Ooty cab</span><i class="bi bi-arrow-right vth-route-arrow"></i></li>
+                                    <li class="vth-route-item"><span>Bangalore to Nandi Hills cab</span><i class="bi bi-arrow-right vth-route-arrow"></i></li>
+                                    <li class="vth-route-item"><span>Bangalore to Wayanad cab</span><i class="bi bi-arrow-right vth-route-arrow"></i></li>
                                 </ul>
                             </div>
-                            <div class="col-6">
-                                <ul class="list-unstyled text-secondary small mb-0 lh-lg">
-                                    <li><i class="bi bi-arrow-right-short text-danger"></i> Bangalore to Chikmagalur cab
-                                    </li>
-                                    <li><i class="bi bi-arrow-right-short text-danger"></i> Bangalore airport to Mysore
-                                        cab</li>
-                                    <li><i class="bi bi-arrow-right-short text-danger"></i> Bangalore airport to Coorg
-                                        taxi</li>
-                                    <li><i class="bi bi-arrow-right-short text-danger"></i> Bangalore to Mysore Tempo
-                                        Traveller</li>
-                                    <li><i class="bi bi-arrow-right-short text-danger"></i> Bangalore to Coorg Tempo
-                                        Traveller</li>
+                            <div class="col-sm-6">
+                                <ul class="vth-route-list">
+                                    <li class="vth-route-item"><span>Bangalore to Chikmagalur cab</span><i class="bi bi-arrow-right vth-route-arrow"></i></li>
+                                    <li class="vth-route-item"><span>Bangalore airport to Mysore cab</span><i class="bi bi-arrow-right vth-route-arrow"></i></li>
+                                    <li class="vth-route-item"><span>Bangalore airport to Coorg taxi</span><i class="bi bi-arrow-right vth-route-arrow"></i></li>
+                                    <li class="vth-route-item"><span>Bangalore to Mysore Tempo Traveller</span><i class="bi bi-arrow-right vth-route-arrow"></i></li>
+                                    <li class="vth-route-item"><span>Bangalore to Coorg Tempo Traveller</span><i class="bi bi-arrow-right vth-route-arrow"></i></li>
                                 </ul>
                             </div>
                         </div>
@@ -346,32 +431,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 <!-- Hub 5: Kochi / Cochin Routes -->
                 <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="500">
-                    <div class="p-4 bg-light rounded-4 border h-100">
-                        <h5 class="fw-bold text-dark"><i class="bi bi-water text-danger me-2"></i>From Kochi / Cochin
-                        </h5>
-                        <div class="row">
-                            <div class="col-6">
-                                <ul class="list-unstyled text-secondary small mb-0 lh-lg">
-                                    <li><i class="bi bi-arrow-right-short text-danger"></i> Kochi to Munnar cab</li>
-                                    <li><i class="bi bi-arrow-right-short text-danger"></i> Kochi to Wayanad cab</li>
-                                    <li><i class="bi bi-arrow-right-short text-danger"></i> Cochin airport to Munnar
-                                        taxi</li>
-                                    <li><i class="bi bi-arrow-right-short text-danger"></i> Kochi to Alleppey cab</li>
-                                    <li><i class="bi bi-arrow-right-short text-danger"></i> Kochi to Thekkady cab</li>
+                    <div class="vth-route-card">
+                        <div class="vth-route-header-title">
+                            <i class="bi bi-water"></i>
+                            <span>From Kochi / Cochin</span>
+                        </div>
+                        <div class="vth-route-divider"></div>
+                        <div class="row g-3">
+                            <div class="col-sm-6">
+                                <ul class="vth-route-list">
+                                    <li class="vth-route-item"><span>Kochi to Munnar cab</span><i class="bi bi-arrow-right vth-route-arrow"></i></li>
+                                    <li class="vth-route-item"><span>Kochi to Wayanad cab</span><i class="bi bi-arrow-right vth-route-arrow"></i></li>
+                                    <li class="vth-route-item"><span>Cochin airport to Munnar taxi</span><i class="bi bi-arrow-right vth-route-arrow"></i></li>
+                                    <li class="vth-route-item"><span>Kochi to Alleppey cab</span><i class="bi bi-arrow-right vth-route-arrow"></i></li>
+                                    <li class="vth-route-item"><span>Kochi to Thekkady cab</span><i class="bi bi-arrow-right vth-route-arrow"></i></li>
                                 </ul>
                             </div>
-                            <div class="col-6">
-                                <ul class="list-unstyled text-secondary small mb-0 lh-lg">
-                                    <li><i class="bi bi-arrow-right-short text-danger"></i> Kochi to Munnar Tempo
-                                        Traveller</li>
-                                    <li><i class="bi bi-arrow-right-short text-danger"></i> Kochi to Alleppey Tempo
-                                        Traveller</li>
-                                    <li><i class="bi bi-arrow-right-short text-danger"></i> Cochin airport group
-                                        transfer</li>
-                                    <li><i class="bi bi-arrow-right-short text-danger"></i> Kerala tour cab from Kochi
-                                    </li>
-                                    <li><i class="bi bi-arrow-right-short text-danger"></i> Kochi Munnar Thekkady
-                                        Alleppey package</li>
+                            <div class="col-sm-6">
+                                <ul class="vth-route-list">
+                                    <li class="vth-route-item"><span>Kochi to Munnar Tempo Traveller</span><i class="bi bi-arrow-right vth-route-arrow"></i></li>
+                                    <li class="vth-route-item"><span>Kochi to Alleppey Tempo Traveller</span><i class="bi bi-arrow-right vth-route-arrow"></i></li>
+                                    <li class="vth-route-item"><span>Cochin airport group transfer</span><i class="bi bi-arrow-right vth-route-arrow"></i></li>
+                                    <li class="vth-route-item"><span>Kerala tour cab from Kochi</span><i class="bi bi-arrow-right vth-route-arrow"></i></li>
+                                    <li class="vth-route-item"><span>Kochi Munnar Thekkady Alleppey package</span><i class="bi bi-arrow-right vth-route-arrow"></i></li>
                                 </ul>
                             </div>
                         </div>

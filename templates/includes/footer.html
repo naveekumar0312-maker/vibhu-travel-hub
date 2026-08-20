@@ -34,6 +34,7 @@
                     <li><a href="{% url 'home' %}#fleet" class="text-muted text-decoration-none hover-danger">Fleet</a></li>
                     <li><a href="{% url 'home' %}#destinations" class="text-muted text-decoration-none hover-danger">Destinations</a></li>
                     <li><a href="{% url 'home' %}#services" class="text-muted text-decoration-none hover-danger">Services</a></li>
+                    <li><a href="{% url 'blog_list' %}" class="text-muted text-decoration-none hover-danger">Blog</a></li>
                     <li><a href="{% url 'contact' %}" class="text-muted text-decoration-none hover-danger">Contact</a></li>
                 </ul>
             </div>
@@ -55,9 +56,9 @@
             <div class="col-lg-2 col-md-6 reveal-up">
                 <h5 class="fw-bold text-dark mb-3" style="font-size: 1rem;">Destinations</h5>
                 <ul class="list-unstyled d-flex flex-column gap-2 small text-muted">
-                    <li><a href="/destinations/tamil-nadu/" class="text-muted text-decoration-none hover-danger">Tamil Nadu</a></li>
-                    <li><a href="/destinations/kerala/" class="text-muted text-decoration-none hover-danger">Kerala</a></li>
-                    <li><a href="/destinations/karnataka/" class="text-muted text-decoration-none hover-danger">Karnataka</a></li>
+                    <li><a href="{% url 'tamil_nadu_view' %}" class="text-muted text-decoration-none hover-danger">Tamil Nadu</a></li>
+                    <li><a href="{% url 'kerala_view' %}" class="text-muted text-decoration-none hover-danger">Kerala</a></li>
+                    <li><a href="{% url 'karnataka_view' %}" class="text-muted text-decoration-none hover-danger">Karnataka</a></li>
                 </ul>
             </div>
 

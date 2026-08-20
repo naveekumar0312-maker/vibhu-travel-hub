@@ -21,6 +21,12 @@ def validate_image_extension(value):
     if not ext.lower() in valid_extensions:
         raise ValidationError('Unsupported file extension. Only JPG, JPEG, PNG, WEBP are allowed.')
 
+def validate_video_extension(value):
+    ext = os.path.splitext(value.name)[1].lower()
+    valid_extensions = ['.mp4', '.webm']
+    if ext not in valid_extensions:
+        raise ValidationError('Please upload a valid MP4 or WebM video.')
+
 
 class Enquiry(models.Model):
 
@@ -93,6 +99,14 @@ class Vehicle(models.Model):
     badge_text = models.CharField(max_length=50, blank=True, null=True, help_text="e.g. Best Seller")
     
     image = models.ImageField(upload_to="vehicles/", validators=[validate_image_size, validate_image_extension])
+    vehicle_video = models.FileField(
+        upload_to="vehicles/videos/",
+        blank=True,
+        null=True,
+        validators=[validate_video_extension],
+        verbose_name="Vehicle Video",
+        help_text="Upload optional vehicle video (.mp4 or .webm)"
+    )
     short_description = models.TextField(blank=True, help_text="Maximum 2 lines")
     
     # Specs
@@ -158,6 +172,21 @@ class Vehicle(models.Model):
                 self.image = process_vehicle_image(self.image)
                 
         super().save(*args, **kwargs)
+
+    @property
+    def get_video_url(self):
+        if self.vehicle_video:
+            return self.vehicle_video.url
+        import os
+        # pyrefly: ignore [missing-import]
+        from django.conf import settings
+        if self.slug:
+            for ext in ['mp4', 'webm']:
+                rel_path = f"video/{self.slug}.{ext}"
+                full_path = os.path.join(settings.BASE_DIR, 'static', rel_path)
+                if os.path.exists(full_path):
+                    return f"/static/{rel_path}"
+        return None
 
     @property
     def left_features_list(self):

@@ -2,9 +2,6 @@
    PREMIUM BOOKING MODAL
    ========================================== */
 
-#enquiryModal {
-}
-
 /* Dark Overlay with blur */
 .modal-backdrop.show {
     opacity: 0.8;

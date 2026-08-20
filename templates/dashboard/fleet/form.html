@@ -101,7 +101,7 @@
                     value="{{ vehicle.karnataka_permit|default_if_none:'' }}" placeholder="e.g. 1500">
             </div>
 
-            <!-- Main Image & Sorting -->
+            <!-- Main Image & Video Upload -->
             <div class="col-md-6">
                 <label class="form-label text-muted small fw-bold">Main Vehicle Image {% if not vehicle %}<span class="text-danger">*</span>{% endif %}</label>
                 <input type="file" name="image" class="form-control anim-input glass-input text-dark" accept="image/*"
@@ -114,13 +114,28 @@
                 {% endif %}
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-6">
+                <label class="form-label text-muted small fw-bold">Vehicle Video (Optional .mp4 or .webm)</label>
+                <input type="file" name="vehicle_video" class="form-control anim-input glass-input text-dark" accept="video/mp4,video/webm">
+                {% if vehicle and vehicle.vehicle_video %}
+                <div class="mt-2 p-2 bg-light rounded text-center position-relative">
+                    <video src="{{ vehicle.vehicle_video.url }}" controls class="img-fluid rounded" style="max-height: 100px;"></video>
+                    <div class="small text-muted mt-1 fw-bold">{{ vehicle.vehicle_video.name }}</div>
+                    <div class="form-check text-start mt-2">
+                        <input class="form-check-input" type="checkbox" name="clear_vehicle_video" id="clearVehicleVideo">
+                        <label class="form-check-label text-danger small fw-bold" for="clearVehicleVideo">Remove Current Video</label>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+
+            <div class="col-md-6">
                 <label class="form-label text-muted small fw-bold">Display Order</label>
                 <input type="number" name="display_order" class="form-control anim-input glass-input text-dark"
                     value="{{ vehicle.display_order|default:0 }}">
             </div>
 
-            <div class="col-md-3 d-flex align-items-end">
+            <div class="col-md-6 d-flex align-items-end">
                 <div class="form-check form-switch mb-2">
                     <input class="form-check-input" type="checkbox" role="switch" id="isActiveSwitch" name="is_active"
                         {% if not vehicle or vehicle.is_active %}checked{% endif %}>
