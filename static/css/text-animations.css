@@ -1,0 +1,209 @@
+/* ==========================================================================
+   GLOBAL PREMIUM TEXT ANIMATION SYSTEM - VIBHU TRAVEL HUB
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. HERO HEADING - CHAR SPLIT & FADE UP
+   -------------------------------------------------------------------------- */
+.hero-main-title .vth-char,
+.hero-title .vth-char,
+.text-split .vth-char {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(32px);
+    will-change: opacity, transform;
+    transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.is-visible .hero-main-title .vth-char,
+.is-visible .hero-title .vth-char,
+.is-visible.text-split .vth-char,
+.page-loaded .hero-main-title .vth-char,
+.page-loaded .hero-title .vth-char {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* --------------------------------------------------------------------------
+   2. HERO SUBTITLE - BLUR IN & WORD STAGGER
+   -------------------------------------------------------------------------- */
+.text-blur .vth-word,
+.hero-desc-anim .vth-word {
+    display: inline-block;
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateY(15px);
+    will-change: opacity, filter, transform;
+    transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+                filter 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.is-visible .text-blur .vth-word,
+.is-visible.hero-desc-anim .vth-word,
+.page-loaded .hero-desc-anim .vth-word {
+    opacity: 1 !important;
+    filter: blur(0) !important;
+    transform: translateY(0) !important;
+}
+
+/* --------------------------------------------------------------------------
+   3. DESTINATION TITLE - CLIP PATH REVEAL
+   -------------------------------------------------------------------------- */
+.text-clip,
+.destination-title-clip {
+    clip-path: inset(0 100% 0 0);
+    opacity: 0;
+    transition: clip-path 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: clip-path, opacity;
+}
+
+.is-visible .text-clip,
+.is-visible.text-clip,
+.is-visible .destination-title-clip {
+    clip-path: inset(0 0% 0 0) !important;
+    opacity: 1 !important;
+}
+
+/* --------------------------------------------------------------------------
+   4. ABOUT HEADING - LINE REVEAL
+   -------------------------------------------------------------------------- */
+.text-line-reveal .vth-line,
+#about-state h2,
+#about-preview h2 {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+}
+
+.is-visible .text-line-reveal .vth-line,
+.is-visible.text-line-reveal .vth-line,
+#about-state.is-visible h2,
+#about-preview.is-visible h2 {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* --------------------------------------------------------------------------
+   5. DESTINATION CARD TEXT - WORD REVEAL & HOVER SLIDE
+   -------------------------------------------------------------------------- */
+.destination-title,
+.place-card-link h6,
+.dest-card-title {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+}
+
+.destination-card-link:hover .destination-title,
+.place-card-link:hover h6,
+.dest-mini-card:hover h6 {
+    transform: translateX(4px);
+    color: #E31E24 !important;
+}
+
+/* --------------------------------------------------------------------------
+   6. CTA TEXT SHINE & HOVER FILL
+   -------------------------------------------------------------------------- */
+.btn-shine,
+.btn-danger,
+.btn-outline-danger,
+.fleet-view-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-shine::before,
+.btn-danger::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.75s ease;
+    pointer-events: none;
+}
+
+.btn-shine:hover::before,
+.btn-danger:hover::before {
+    left: 140%;
+}
+
+/* --------------------------------------------------------------------------
+   7. SECTION HEADINGS - MASKED REVEAL & STAGGER
+   -------------------------------------------------------------------------- */
+.text-mask,
+.section-title-mask {
+    clip-path: inset(100% 0 0 0);
+    opacity: 0;
+    transition: clip-path 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: clip-path, opacity;
+}
+
+.is-visible .text-mask,
+.is-visible.text-mask,
+.is-visible .section-title-mask {
+    clip-path: inset(0 0 0 0) !important;
+    opacity: 1 !important;
+}
+
+/* --------------------------------------------------------------------------
+   8. SPECIAL DESTINATION NAME - GRADIENT FLOW & TEXT GLOW
+   -------------------------------------------------------------------------- */
+@keyframes vthGradientFlow {
+    0% { background-position: 0% center; }
+    50% { background-position: 100% center; }
+    100% { background-position: 0% center; }
+}
+
+.text-gradient-flow,
+.special-dest-title {
+    background: linear-gradient(90deg, #E31E24 0%, #FF5A5F 50%, #E31E24 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: vthGradientFlow 4.5s linear infinite;
+    display: inline-block;
+}
+
+/* --------------------------------------------------------------------------
+   9. MOBILE OPTIMIZATIONS (SMALLER DISPLACEMENTS, ZERO OVERFLOW)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    .hero-main-title .vth-char,
+    .hero-title .vth-char {
+        transform: translateY(20px);
+    }
+
+    .destination-card-link:hover .destination-title,
+    .place-card-link:hover h6 {
+        transform: none !important;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   10. ACCESSIBILITY (PREFERS REDUCED MOTION)
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    .hero-main-title .vth-char,
+    .hero-title .vth-char,
+    .text-split .vth-char,
+    .text-blur .vth-word,
+    .text-clip,
+    .text-line-reveal .vth-line,
+    .text-mask,
+    .special-dest-title {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+        clip-path: none !important;
+        animation: none !important;
+        transition: none !important;
+    }
+}

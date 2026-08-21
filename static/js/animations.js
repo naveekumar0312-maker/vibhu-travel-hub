@@ -1,58 +1,52 @@
 /**
- * GLOBAL ANIMATION SYSTEM - VIBHU TRAVEL HUB
- * Lightweight Vanilla JS Animation Engine using IntersectionObserver
+ * GLOBAL PREMIUM MOTION & ANIMATION ENGINE - VIBHU TRAVEL HUB
+ * Includes IntersectionObserver Reveal, Section Timelines, Parallax & Desktop 3D Tilt Engine
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. REDUCED MOTION PREFERENCE CHECK
+    // 1. Reduced Motion & Device Check
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isMobile = window.innerWidth <= 768;
 
-    // 2. PAGE LOAD TRANSITION TRIGGER
+    // 2. Add Page Loaded Body Class
     requestAnimationFrame(() => {
         document.body.classList.add('page-loaded');
     });
 
-    const loadElements = document.querySelectorAll('.load-anim');
-    loadElements.forEach((el, index) => {
-        if (!el.style.animationDelay) {
-            el.style.animationDelay = `${(index + 1) * 120}ms`;
-        }
-    });
-
-    // 3. AUTOMATIC GRID CHILD STAGGERING (Must run before IntersectionObserver target collection)
+    // 3. Grid Item Auto-Staggering
     const staggerContainers = document.querySelectorAll('.stagger-grid, [data-stagger-container]');
     staggerContainers.forEach(container => {
-        const children = container.querySelectorAll('.reveal, .reveal-scale, .stagger-item, .anim-card, .dest-card-ref, .place-card-ref, .col-lg-4, .col-md-6, .col-lg-3, .col-lg-2');
+        const children = container.querySelectorAll('.reveal, .reveal-up, .reveal-scale, .stagger-item, .vth-fleet-card, .service-card-item, .destination-card, .place-card-ref, .col-lg-4, .col-md-6, .col-lg-3, .col-lg-2');
         children.forEach((child, index) => {
             if (!child.classList.contains('stagger-item') && !child.classList.contains('reveal')) {
                 child.classList.add('stagger-item');
             }
-            child.style.transitionDelay = `${(index % 6) * 90}ms`;
+            child.style.transitionDelay = `${(index % 6) * 100}ms`;
         });
     });
 
-    // 4. SCROLL REVEAL ENGINE (INTERSECTION OBSERVER)
-    const revealSelector = '.reveal, .reveal-up, .reveal-down, .reveal-left, .reveal-right, .reveal-scale, .reveal-zoom, .reveal-fade, .scale-reveal, .fade-reveal, .img-reveal, .stagger-item, .footer-reveal-item, .dest-card-ref, .place-card-ref, [data-reveal], [data-aos]';
+    // 4. Section Timeline Sequential Reveal Engine
+    const revealSelector = '.reveal, .reveal-up, .reveal-down, .reveal-left, .reveal-right, .reveal-scale, .reveal-fade, .stagger-item, .dest-card-ref, .place-card-ref, [data-reveal]';
     const revealElements = document.querySelectorAll(revealSelector);
-
-    const childSelector = '.reveal, .reveal-up, .reveal-down, .reveal-left, .reveal-right, .reveal-scale, .reveal-zoom, .reveal-fade, .scale-reveal, .fade-reveal, .img-reveal, .stagger-item, .dest-card-ref, .place-card-ref, [data-reveal]';
 
     if (!prefersReducedMotion && 'IntersectionObserver' in window) {
         const revealOptions = {
             root: null,
-            rootMargin: '0px 0px -50px 0px',
-            threshold: 0.15
+            rootMargin: '0px 0px -40px 0px',
+            threshold: 0.08
         };
 
         const revealObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const target = entry.target;
-                    target.classList.add('active', 'aos-animate', 'is-visible');
+                    target.classList.add('active', 'is-visible');
                     
-                    const children = target.querySelectorAll(childSelector);
-                    children.forEach(child => {
-                        child.classList.add('active', 'aos-animate', 'is-visible');
+                    const children = target.querySelectorAll(revealSelector);
+                    children.forEach((child, idx) => {
+                        setTimeout(() => {
+                            child.classList.add('active', 'is-visible');
+                        }, idx * 60);
                     });
 
                     observer.unobserve(target);
@@ -62,47 +56,105 @@ document.addEventListener('DOMContentLoaded', () => {
 
         revealElements.forEach(el => {
             const rect = el.getBoundingClientRect();
-            if (rect.top < window.innerHeight + 100 && rect.bottom > -100) {
-                el.classList.add('active', 'aos-animate', 'is-visible');
-                const children = el.querySelectorAll(childSelector);
-                children.forEach(child => {
-                    child.classList.add('active', 'aos-animate', 'is-visible');
-                });
+            if (rect.top < window.innerHeight + 80 && rect.bottom > -80) {
+                el.classList.add('active', 'is-visible');
+                const children = el.querySelectorAll(revealSelector);
+                children.forEach(child => child.classList.add('active', 'is-visible'));
             } else {
                 revealObserver.observe(el);
             }
         });
 
-        // Fast Scroll & Initial Check Safeguard
+        // Fast Scroll Safety Check
         let scrollTimeout;
         window.addEventListener('scroll', () => {
             if (!scrollTimeout) {
                 scrollTimeout = setTimeout(() => {
                     scrollTimeout = null;
                     revealElements.forEach(el => {
-                        if (!el.classList.contains('active')) {
+                        if (!el.classList.contains('is-visible')) {
                             const rect = el.getBoundingClientRect();
-                            if (rect.top < window.innerHeight + 100 && rect.bottom > -100) {
-                                el.classList.add('active', 'aos-animate', 'is-visible');
-                                const children = el.querySelectorAll(childSelector);
-                                children.forEach(child => {
-                                    child.classList.add('active', 'aos-animate', 'is-visible');
-                                });
+                            if (rect.top < window.innerHeight + 80 && rect.bottom > -80) {
+                                el.classList.add('active', 'is-visible');
                             }
                         }
                     });
-                }, 80);
+                }, 100);
             }
         }, { passive: true });
     } else {
-        // Fallback: Make everything immediately visible
-        revealElements.forEach(el => {
-            el.classList.add('active', 'aos-animate', 'is-visible');
+        revealElements.forEach(el => el.classList.add('active', 'is-visible'));
+    }
+
+    // 5. Scroll Scrubbing & Parallax Engine (GPU Accelerated)
+    if (!prefersReducedMotion && !isMobile) {
+        const heroBg = document.querySelector('.vth-hero-bg-img');
+        const parallaxBgs = document.querySelectorAll('.parallax-bg');
+        let ticking = false;
+
+        const updateScrollPhysics = () => {
+            const currentScroll = window.scrollY;
+            
+            // Hero Parallax (subtle 0.12x rate)
+            if (heroBg && currentScroll < 800) {
+                const translateY = (currentScroll * 0.12).toFixed(1);
+                heroBg.style.transform = `translate3d(0, ${translateY}px, 0)`;
+            }
+
+            // General Parallax Elements
+            parallaxBgs.forEach(bg => {
+                const rect = bg.parentElement ? bg.parentElement.getBoundingClientRect() : bg.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    const offset = ((window.innerHeight - rect.top) * 0.05).toFixed(1);
+                    bg.style.transform = `translate3d(0, ${offset}px, 0)`;
+                }
+            });
+
+            ticking = false;
+        };
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(updateScrollPhysics);
+                ticking = true;
+            }
+        }, { passive: true });
+    }
+
+    // 6. Desktop Subtle 3D Card Tilt Engine (±2.5deg max) for non-content cards
+    if (!prefersReducedMotion && !isMobile) {
+        const tiltCardSelector = '.vth-fleet-card, .hero-mini-card, .package-card, .blog-card';
+        const tiltCards = document.querySelectorAll(tiltCardSelector);
+
+        tiltCards.forEach(card => {
+            let frameId = null;
+
+            card.addEventListener('mousemove', (e) => {
+                if (frameId) cancelAnimationFrame(frameId);
+
+                frameId = requestAnimationFrame(() => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+
+                    const rotateX = (((y - centerY) / centerY) * -2.5).toFixed(2); // ±2.5deg max
+                    const rotateY = (((x - centerX) / centerX) * 2.5).toFixed(2);  // ±2.5deg max
+
+                    card.style.transform = `perspective(1000px) translateY(-7px) scale(1.015) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                });
+            });
+
+            card.addEventListener('mouseleave', () => {
+                if (frameId) cancelAnimationFrame(frameId);
+                card.style.transform = '';
+            });
         });
     }
 
-    // 5. UNIFIED COUNTER ANIMATION ENGINE
-    const statNumbers = document.querySelectorAll('.stat-number, .counter-value, .counter-number, .stat-number span');
+    // 7. Stats Counter Engine
+    const statNumbers = document.querySelectorAll('.stat-number, .counter-value, .counter-number');
     if (statNumbers.length > 0 && 'IntersectionObserver' in window && !prefersReducedMotion) {
         const statsObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
@@ -113,9 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     if (!targetVal && rawText) {
                         const numericMatch = rawText.replace(/,/g, '').match(/(\d+)/);
-                        if (numericMatch) {
-                            targetVal = numericMatch[1];
-                        }
+                        if (numericMatch) targetVal = numericMatch[1];
                     }
 
                     if (targetVal) {
@@ -144,27 +194,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { threshold: 0.2 });
 
         statNumbers.forEach(el => statsObserver.observe(el));
-    }
-
-    // 6. 3D HOVER TILT FOUNDATION LISTENER
-    const tiltCards = document.querySelectorAll('.hover-tilt, .card-3d');
-    if (!prefersReducedMotion && window.innerWidth > 768) {
-        tiltCards.forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                const rotateX = ((y - centerY) / centerY) * -6; // max 6 deg
-                const rotateY = ((x - centerX) / centerX) * 6;  // max 6 deg
-
-                card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-4px)`;
-            });
-
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
-            });
-        });
     }
 });

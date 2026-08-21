@@ -1,0 +1,85 @@
+/* ==========================================================
+   GLOBAL RESPONSIVE STYLESHEET - VIBHU TRAVEL HUB
+   ========================================================== */
+
+/* 1. Global Viewport & Box Model Safeguards */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* 2. Responsive Media Elements */
+img, video, iframe, canvas, svg {
+    max-width: 100%;
+    height: auto;
+}
+
+/* 3. Text Wrapping & Hyphenation Safeguards */
+h1, h2, h3, h4, h5, h6, 
+.hero-main-title, .section-title, .card-title, 
+p, span, a, li, blockquote {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+/* 4. Table Responsiveness */
+.table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* 5. Touch Target & Button Responsiveness */
+button, .btn {
+    touch-action: manipulation;
+}
+
+/* 6. Responsive Breakpoints & Container Spacing */
+@media (max-width: 767.98px) {
+    .container, .container-fluid {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+    
+    /* Ensure modal containers fit mobile viewports */
+    .modal-dialog {
+        margin: 0.5rem !important;
+        max-width: calc(100% - 1rem) !important;
+    }
+}
+
+@media (max-width: 575.98px) {
+    /* Stack action buttons naturally on small screens */
+    .btn-stack-mobile {
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 10px !important;
+    }
+    .btn-stack-mobile .btn,
+    .btn-stack-mobile a.btn {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+}
+
+/* 7. Floating Action Buttons (WhatsApp / Call) */
+.whatsapp-float, .floating-whatsapp, .vth-floating-btn {
+    position: fixed;
+    z-index: 1040;
+    max-width: calc(100vw - 32px);
+}
+
+@media (max-width: 575.98px) {
+    .whatsapp-float, .floating-whatsapp, .vth-floating-btn {
+        bottom: 16px !important;
+        right: 16px !important;
+    }
+}

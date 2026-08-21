@@ -44,11 +44,6 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{% url 'dashboard_subscribers' %}" class="nav-link {% if request.resolver_match.url_name == 'dashboard_subscribers' %}active{% endif %}">
-                    <i class="bi bi-envelope-paper-fill"></i> Subscribers
-                </a>
-            </li>
-            <li class="nav-item">
                 <a href="{% url 'dashboard_fleet' %}" class="nav-link {% if request.resolver_match.url_name == 'dashboard_fleet' %}active{% endif %}">
                     <i class="bi bi-car-front-fill"></i> Fleet
                 </a>
@@ -71,6 +66,7 @@
                             <a href="{% url 'dashboard_blog_create' %}" class="nav-link {% if request.resolver_match.url_name == 'dashboard_blog_create' %}active{% endif %}">
                                 <i class="bi bi-plus-circle"></i> Add Blog
                             </a>
+                        </li>
                     </ul>
                 </div>
             </li>
@@ -78,6 +74,12 @@
             <li class="nav-item">
                 <a href="{% url 'dashboard_seo' %}" class="nav-link {% if 'dashboard_seo' in request.resolver_match.url_name or 'seo_edit' in request.resolver_match.url_name %}active{% endif %}">
                     <i class="bi bi-search-heart"></i> City SEO Manager
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="{% url 'dashboard_subscribers' %}" class="nav-link {% if 'dashboard_subscribers' in request.resolver_match.url_name or 'subscriber' in request.resolver_match.url_name %}active{% endif %}">
+                    <i class="bi bi-envelope-paper-fill"></i> Subscribers
                 </a>
             </li>
 

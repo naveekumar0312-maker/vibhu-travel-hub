@@ -84,34 +84,37 @@
 </script>
 {% endblock %}
 
-{% block content %}
-<!-- 1. BREADCRUMBS -->
-<nav aria-label="breadcrumb" class="bg-light py-3 border-bottom">
-    <div class="container">
-        <ol class="breadcrumb mb-0 small reveal-down">
-            <li class="breadcrumb-item"><a href="{% url 'home' %}" class="text-decoration-none text-danger fw-semibold"><i class="bi bi-house-door-fill"></i> Home</a></li>
-            <li class="breadcrumb-item"><a href="{% url 'home' %}#services" class="text-decoration-none text-secondary">Services</a></li>
-            <li class="breadcrumb-item active text-dark fw-bold" aria-current="page">Airport Transfer</li>
-        </ol>
-    </div>
-</nav>
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/service.css' %}?v={{ STATIC_VERSION }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+{% endblock %}
 
-<!-- 2. HERO SECTION -->
-<section class="py-5 bg-dark text-white position-relative overflow-hidden" style="background: linear-gradient(135deg, #111827 0%, #1F2937 100%);">
-    <div class="container py-4 position-relative z-2">
+{% block content %}
+<!-- ==========================================
+    1. HERO SECTION (EXACT MATCH FOR TAMIL NADU MASTER REFERENCE)
+========================================== -->
+<section class="vth-hero-tn py-5">
+    <img src="{% static 'images/services/taxi-service-hero.jpg' %}" alt="Airport Taxi & Transfer Services" class="vth-hero-tn-bg">
+    <div class="vth-hero-tn-overlay"></div>
+
+    <div class="container position-relative z-3 my-auto">
         <div class="row align-items-center">
-            <div class="col-lg-8 reveal-left">
-                <span class="badge bg-danger rounded-pill px-3 py-2 text-uppercase mb-3 fw-bold tracking-wider float">24/7 On-Time Transfers</span>
-                <h1 class="display-4 fw-extrabold mb-3 text-white">Airport Taxi & Transfer Services</h1>
-                <p class="lead text-light opacity-90 mb-4" style="max-width: 680px; line-height: 1.6;">
-                    Hassle-free airport pickups and drops across Coimbatore, Chennai, Cochin, and Bangalore. Professional driver greeting, flight monitoring, and transparent rates.
+            <div class="col-lg-7 col-md-10">
+                <span class="vth-hero-script reveal-down d-block mb-1" style="color: #FF5A5F; font-size: 1.8rem; font-family: 'Caveat', cursive, sans-serif;">24/7 AIRPORT TRANSFERS</span>
+                <h1 class="hero-main-title text-white mb-3 reveal-left" style="font-size: 3.6rem; font-weight: 800; line-height: 1.1; letter-spacing: -1.2px;">
+                    Airport Taxi & Transfer Services
+                </h1>
+                <p class="text-white-50 mb-4 reveal-left" style="font-size: 1.08rem; line-height: 1.65; color: rgba(255, 255, 255, 0.9) !important; max-width: 620px;">
+                    Reliable 24/7 airport pickup and drop taxi services in Coimbatore (CJB), Chennai (MAA), Cochin (COK), and Bangalore (BLR) with flight tracking and zero wait fees.
                 </p>
-                <div class="d-flex flex-wrap gap-3">
-                    <button class="btn btn-danger rounded-pill px-4 py-2.5 fw-bold text-white shadow-sm d-inline-flex align-items-center gap-2" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Airport Transfer Booking">
-                        <i class="bi bi-airplane-fill wobble"></i> Book Airport Transfer
+                <div class="d-flex align-items-center gap-3 flex-wrap reveal-up">
+                    <button class="btn btn-danger rounded-pill px-4 py-2.5 fw-bold text-white shadow-sm border-0 d-inline-flex align-items-center gap-2" style="background-color: #E31E24; font-size: 0.95rem;" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Airport Taxi & Transfer Services">
+                        Book Airport Transfer <i class="bi bi-arrow-right"></i>
                     </button>
-                    <a href="https://wa.me/919655866660?text=Hi%20Vibhu%20Travel%20Hub,%20I%20need%20an%20airport%20taxi%20transfer" target="_blank" class="btn btn-outline-light rounded-pill px-4 py-2.5 fw-bold d-inline-flex align-items-center gap-2">
-                        <i class="bi bi-whatsapp"></i> Instant WhatsApp Quote
+                    <a href="#about" class="btn btn-light rounded-pill px-4 py-2.5 fw-bold d-inline-flex align-items-center gap-2" style="font-size: 0.95rem; color: #1F2937; background: #FFFFFF; border: 1px solid rgba(255, 255, 255, 0.9);">
+                        Explore Service <i class="bi bi-compass"></i>
                     </a>
                 </div>
             </div>
@@ -119,7 +122,72 @@
     </div>
 </section>
 
-<!-- 3. SERVICE FEATURES -->
+<!-- ==========================================
+    2. SERVICE HIGHLIGHTS STRIP (EXACT MATCH FOR TAMIL NADU MASTER REFERENCE)
+========================================== -->
+<section class="py-3 bg-white border-bottom">
+    <div class="container">
+        <div class="p-3.5 rounded-4 bg-white border border-light-subtle shadow-sm reveal-up">
+            <div class="row g-3 text-start align-items-center">
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="d-flex align-items-center gap-2.5">
+                        <i class="bi bi-shield-check text-danger fs-3"></i>
+                        <div>
+                            <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">Safe & Secure</h6>
+                            <span class="text-muted d-block" style="font-size: 0.75rem;">Your safety is our priority</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="d-flex align-items-center gap-2.5">
+                        <i class="bi bi-person-check text-danger fs-3"></i>
+                        <div>
+                            <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">Professional Drivers</h6>
+                            <span class="text-muted d-block" style="font-size: 0.75rem;">Experienced & verified</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="d-flex align-items-center gap-2.5">
+                        <i class="bi bi-car-front text-danger fs-3"></i>
+                        <div>
+                            <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">Luxury Fleet</h6>
+                            <span class="text-muted d-block" style="font-size: 0.75rem;">Well maintained vehicles</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="d-flex align-items-center gap-2.5">
+                        <i class="bi bi-clock-history text-danger fs-3"></i>
+                        <div>
+                            <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">24/7 Support</h6>
+                            <span class="text-muted d-block" style="font-size: 0.75rem;">Always available for you</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="d-flex align-items-center gap-2.5">
+                        <i class="bi bi-receipt text-danger fs-3"></i>
+                        <div>
+                            <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">Best Price</h6>
+                            <span class="text-muted d-block" style="font-size: 0.75rem;">Affordable & transparent</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="d-flex align-items-center gap-2.5">
+                        <i class="bi bi-airplane text-danger fs-3"></i>
+                        <div>
+                            <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">Airport Transfer</h6>
+                            <span class="text-muted d-block" style="font-size: 0.75rem;">On-time pickup & drop</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="py-5 bg-white">
     <div class="container">
         <div class="text-center mb-5 reveal-up">

@@ -6,13 +6,13 @@
 
 :root {
     --bg-light: #F8F9FA;
-    --bg-panel: rgba(255, 255, 255, 0.85);
+    --bg-panel: #FFFFFF;
     --border-color: #E5E7EB;
     --primary-red: #FF1F1F;
     --primary-hover: #E53935;
     --text-main: #1A1A1A;
     --text-muted: #6B7280;
-    --glass-blur: blur(20px);
+    --glass-blur: none;
 }
 
 body.login-bg, body.dashboard-bg {
@@ -33,7 +33,9 @@ body.login-bg {
 /* Glassmorphism Panels */
 .glass-panel, .glass-card {
     background: var(--bg-panel);
-    backdrop-filter: var(--glass-blur);
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    filter: none !important;
     border: 1px solid var(--border-color);
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
     border-radius: 16px;
@@ -143,39 +145,57 @@ body.login-bg {
 }
 
 .nav-item {
-    margin-bottom: 5px;
+    margin-bottom: 3px;
+}
+
+.sidebar-nav .nav-section-title {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #94A3B8 !important;
+    margin-top: 1.25rem;
+    margin-bottom: 0.35rem;
+    padding-left: 12px;
 }
 
 .sidebar-nav .nav-link {
-    color: var(--text-muted);
-    border-radius: 12px;
-    padding: 12px 20px;
+    color: #475569;
+    border-radius: 10px;
+    padding: 10px 14px;
     display: flex;
     align-items: center;
-    font-size: 15px;
+    font-size: 14.5px;
     font-weight: 500;
     transition: all 0.2s ease;
 }
 
 .sidebar-nav .nav-link i {
-    font-size: 18px;
-    margin-right: 15px;
+    font-size: 17px;
+    margin-right: 12px;
     transition: all 0.2s ease;
-    color: var(--text-muted);
+    color: #64748B;
+    width: 20px;
+    text-align: center;
 }
 
 .sidebar-nav .nav-link:hover {
-    background: #F3F4F6;
-    color: var(--text-main);
+    background: #F8FAFC;
+    color: #0F172A;
+}
+
+.sidebar-nav .nav-link:hover i {
+    color: var(--primary-red);
 }
 
 .sidebar-nav .nav-link.active {
-    background: rgba(255, 31, 31, 0.08);
-    color: var(--primary-red);
+    background: rgba(227, 30, 36, 0.08);
+    color: #E31E24;
+    font-weight: 700;
 }
 
 .sidebar-nav .nav-link.active i {
-    color: var(--primary-red);
+    color: #E31E24;
 }
 
 /* Main Content */
@@ -290,5 +310,248 @@ body.login-bg {
     
     .main-content {
         margin-left: 0;
+    }
+}
+
+/* ==========================================
+   SCOPED ADMIN ENQUIRY DETAILS MODAL
+   ========================================== */
+
+/* Subtle Dark Translucent Overlay (NO BLUR, 100% SHARP BACKGROUND) */
+.modal-backdrop,
+.modal-backdrop.show {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-color: rgba(15, 23, 42, 0.42) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    filter: none !important;
+    opacity: 1 !important;
+}
+
+/* Ensure body, dashboard, sidebar, main content and modals remain 100% sharp */
+body.dashboard-bg,
+body.dashboard-bg *,
+body.dashboard-bg .main-content,
+body.dashboard-bg .sidebar,
+body.dashboard-bg .glass-card,
+body.dashboard-bg .glass-panel,
+body.modal-open,
+body.enquiry-modal-open {
+    filter: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+body.modal-open,
+body.enquiry-modal-open {
+    overflow: hidden !important;
+}
+
+/* Scoped Modal Dialog Sizing (Desktop) */
+.enquiry-details-modal .enquiry-modal-dialog {
+    max-width: 860px;
+    width: min(920px, calc(100vw - 48px));
+    margin: 2rem auto;
+    z-index: 9999;
+}
+
+/* Scoped Modal Content Card */
+.enquiry-details-modal .enquiry-modal-content {
+    background: #FFFFFF !important;
+    border: 1px solid rgba(15, 23, 42, 0.08) !important;
+    border-radius: 18px !important;
+    box-shadow: 0 25px 60px rgba(15, 23, 42, 0.20) !important;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 0 !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+/* Scoped Header */
+.enquiry-details-modal .enquiry-modal-header {
+    border-bottom: 1px solid #F1F5F9;
+    padding: 20px 28px;
+    background: #FFFFFF;
+    flex-shrink: 0;
+}
+
+.enquiry-details-modal .enquiry-modal-icon-badge {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #FEE2E2;
+    color: #E31E24;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.enquiry-details-modal .enquiry-modal-title {
+    font-family: var(--font-display, 'Outfit', sans-serif);
+    font-weight: 800;
+    font-size: 1.3rem;
+    line-height: 1.2;
+    color: #0F172A;
+    margin: 0;
+}
+
+.enquiry-details-modal .enquiry-modal-subtitle {
+    font-size: 0.8rem;
+    color: #64748B;
+    display: block;
+    margin-top: 2px;
+}
+
+.enquiry-details-modal .enquiry-modal-close {
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    margin: 0;
+    border-radius: 50%;
+    background-color: #F1F5F9;
+    opacity: 0.8;
+    transition: all 0.25s ease;
+    cursor: pointer;
+}
+
+.enquiry-details-modal .enquiry-modal-close:hover {
+    opacity: 1;
+    background-color: #FEE2E2;
+    color: #E31E24;
+    transform: rotate(90deg);
+}
+
+/* Scoped Body & Field Cards */
+.enquiry-details-modal .enquiry-modal-body {
+    padding: 24px 28px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.enquiry-details-modal .enquiry-field-card {
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    padding: 14px 16px;
+    height: 100%;
+    transition: border-color 0.2s ease;
+}
+
+.enquiry-details-modal .enquiry-field-card:hover {
+    border-color: #CBD5E1;
+}
+
+.enquiry-details-modal .enquiry-field-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #64748B;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 4px;
+    display: block;
+}
+
+.enquiry-details-modal .enquiry-field-value {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #0F172A;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+.enquiry-details-modal .enquiry-message-box {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 0.93rem;
+    color: #1E293B;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+/* Scoped Footer */
+.enquiry-details-modal .enquiry-modal-footer {
+    border-top: 1px solid #F1F5F9;
+    padding: 14px 28px 20px;
+    display: flex;
+    justify-content: flex-end;
+    background: #FFFFFF;
+    flex-shrink: 0;
+}
+
+/* Animations */
+.enquiry-details-modal.fade .enquiry-modal-dialog {
+    transform: scale(0.97) translateY(-8px);
+    opacity: 0;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+}
+
+.enquiry-details-modal.show .enquiry-modal-dialog {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 991.98px) {
+    .enquiry-details-modal .enquiry-modal-dialog {
+        max-width: 720px;
+        width: calc(100% - 32px);
+        margin: 1.5rem auto;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .enquiry-details-modal .enquiry-modal-dialog {
+        width: calc(100% - 24px);
+        margin: 12px auto;
+        min-height: calc(100% - 24px);
+        display: flex;
+        align-items: center;
+    }
+
+    .enquiry-details-modal .enquiry-modal-content {
+        border-radius: 16px !important;
+        max-height: 90vh;
+    }
+
+    .enquiry-details-modal .enquiry-modal-header {
+        padding: 16px 20px;
+    }
+
+    .enquiry-details-modal .enquiry-modal-title {
+        font-size: 1.15rem;
+    }
+
+    .enquiry-details-modal .enquiry-modal-body {
+        padding: 16px 20px;
+    }
+
+    .enquiry-details-modal .enquiry-modal-footer {
+        padding: 12px 20px 16px;
+    }
+}
+
+@media (max-width: 375px) {
+    .enquiry-details-modal .enquiry-modal-dialog {
+        width: calc(100% - 16px);
+        margin: 8px auto;
+    }
+
+    .enquiry-details-modal .enquiry-modal-header,
+    .enquiry-details-modal .enquiry-modal-body,
+    .enquiry-details-modal .enquiry-modal-footer {
+        padding: 12px 14px;
     }
 }

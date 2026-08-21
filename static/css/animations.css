@@ -1,62 +1,235 @@
 /* ==========================================================================
-   GLOBAL ANIMATION SYSTEM - VIBHU TRAVEL HUB
+   GLOBAL PREMIUM MOTION & ANIMATION SYSTEM - VIBHU TRAVEL HUB
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   1. GLOBAL CSS ANIMATION VARIABLES
+   1. GLOBAL CSS ANIMATION VARIABLES & SPRING EASING
    -------------------------------------------------------------------------- */
 :root {
     /* Timing Durations */
     --anim-fast: 180ms;
     --anim-normal: 350ms;
-    --anim-slow: 700ms;
+    --anim-slow: 750ms;
 
     /* Easing Curves */
     --anim-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
     --anim-ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-    --anim-ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
     --anim-ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+    --anim-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --anim-spring-subtle: cubic-bezier(0.25, 1.3, 0.5, 1);
 }
 
 /* --------------------------------------------------------------------------
-   2. PAGE LOAD & TRANSITION FOUNDATION
+   2. KEYFRAME DEFINITIONS FOR PREMIUM FLOAT, PULSE & MORPH
    -------------------------------------------------------------------------- */
-body {
-    transition: opacity var(--anim-normal) var(--anim-ease-out);
-}
 
-@keyframes vthFadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(24px);
+/* Text Float / Eyebrow Motion */
+@keyframes premiumTextFloat {
+    0%, 100% {
+        transform: translateY(0px);
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    50% {
+        transform: translateY(-3px);
     }
 }
 
-@keyframes vthFadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+/* Card Vertical Float (Stable, No 3D Rotation) */
+@keyframes premiumCardFloat {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-4px);
+    }
 }
 
-.load-anim {
-    opacity: 0;
-    will-change: opacity, transform;
+/* Image Cinematic Float */
+@keyframes premiumImageFloat {
+    0%, 100% {
+        transform: translateY(0px) scale(1);
+    }
+    50% {
+        transform: translateY(-4px) scale(1.01);
+    }
 }
 
-.page-loaded .load-anim {
-    animation: vthFadeInUp var(--anim-slow) var(--anim-ease-smooth) forwards;
+/* Icon Micro Float */
+@keyframes premiumIconFloat {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-3px);
+    }
 }
 
-.page-loaded .load-delay-1 { animation-delay: 0ms; }
-.page-loaded .load-delay-2 { animation-delay: 120ms; }
-.page-loaded .load-delay-3 { animation-delay: 240ms; }
-.page-loaded .load-delay-4 { animation-delay: 360ms; }
+/* Subtle Pulse Glow */
+@keyframes luxuryPulseGlow {
+    0%, 100% {
+        box-shadow: 0 4px 15px rgba(227, 30, 36, 0.15);
+    }
+    50% {
+        box-shadow: 0 8px 25px rgba(227, 30, 36, 0.35);
+    }
+}
 
 /* --------------------------------------------------------------------------
-   3. MULTI-DIRECTIONAL SCROLL REVEAL ENGINE
+   3. GLOBAL FLOAT & CONTINUOUS MOTION CLASSES
+   -------------------------------------------------------------------------- */
+
+/* Text Float Targets */
+.float-text,
+.vth-eyebrow,
+.vth-hero-script,
+.section-title,
+.vth-section-title,
+.float-title {
+    animation: premiumTextFloat 4.5s ease-in-out infinite;
+    display: inline-block;
+}
+
+/* Card Float Targets (NO 3D ROTATION) */
+.float-card,
+.vth-fleet-card,
+.service-card-item,
+.destination-card,
+.place-card-ref,
+.hero-mini-card,
+.package-card,
+.blog-card,
+.testimonial-card,
+.hub-card {
+    animation: premiumCardFloat 5s ease-in-out infinite;
+    will-change: transform;
+}
+
+/* Staggered Card Animation Delays */
+.stagger-grid > *:nth-child(1) .vth-fleet-card,
+.stagger-grid > *:nth-child(1) .service-card-item,
+.stagger-grid > *:nth-child(1) .destination-card,
+.stagger-grid > *:nth-child(1) .place-card-ref,
+.stagger-grid > *:nth-child(1) .hero-mini-card,
+.stagger-card:nth-child(1),
+.col-lg-4:nth-child(1) .service-card-item,
+.col-lg-4:nth-child(1) .vth-fleet-card,
+.col-lg-4:nth-child(1) .destination-card {
+    animation-delay: 0s;
+}
+
+.stagger-grid > *:nth-child(2) .vth-fleet-card,
+.stagger-grid > *:nth-child(2) .service-card-item,
+.stagger-grid > *:nth-child(2) .destination-card,
+.stagger-grid > *:nth-child(2) .place-card-ref,
+.stagger-grid > *:nth-child(2) .hero-mini-card,
+.stagger-card:nth-child(2),
+.col-lg-4:nth-child(2) .service-card-item,
+.col-lg-4:nth-child(2) .vth-fleet-card,
+.col-lg-4:nth-child(2) .destination-card {
+    animation-delay: 0.35s;
+}
+
+.stagger-grid > *:nth-child(3) .vth-fleet-card,
+.stagger-grid > *:nth-child(3) .service-card-item,
+.stagger-grid > *:nth-child(3) .destination-card,
+.stagger-grid > *:nth-child(3) .place-card-ref,
+.stagger-grid > *:nth-child(3) .hero-mini-card,
+.stagger-card:nth-child(3),
+.col-lg-4:nth-child(3) .service-card-item,
+.col-lg-4:nth-child(3) .vth-fleet-card,
+.col-lg-4:nth-child(3) .destination-card {
+    animation-delay: 0.7s;
+}
+
+.stagger-grid > *:nth-child(4) .vth-fleet-card,
+.stagger-grid > *:nth-child(4) .service-card-item,
+.stagger-grid > *:nth-child(4) .destination-card,
+.stagger-grid > *:nth-child(4) .place-card-ref,
+.stagger-grid > *:nth-child(4) .hero-mini-card,
+.stagger-card:nth-child(4) {
+    animation-delay: 1.05s;
+}
+
+.stagger-grid > *:nth-child(5) .vth-fleet-card,
+.stagger-grid > *:nth-child(5) .service-card-item,
+.stagger-grid > *:nth-child(5) .destination-card,
+.stagger-grid > *:nth-child(5) .place-card-ref,
+.stagger-card:nth-child(5) {
+    animation-delay: 1.4s;
+}
+
+.stagger-grid > *:nth-child(6) .vth-fleet-card,
+.stagger-grid > *:nth-child(6) .service-card-item,
+.stagger-grid > *:nth-child(6) .destination-card,
+.stagger-grid > *:nth-child(6) .place-card-ref,
+.stagger-card:nth-child(6) {
+    animation-delay: 1.75s;
+}
+
+/* Image Float Targets */
+.float-image,
+.destination-image,
+.place-card-img,
+.about-hero-img {
+    animation: premiumImageFloat 6s ease-in-out infinite;
+}
+
+/* Icon Float Targets */
+.float-icon,
+.mini-icon-box,
+.vth-icon-float,
+i.text-danger,
+.bi-people-fill {
+    animation: premiumIconFloat 3.8s ease-in-out infinite;
+    display: inline-block;
+}
+
+/* --------------------------------------------------------------------------
+   4. SPRING INTERACTION SYSTEM & BUTTON INTERACTIVE STATES
+   -------------------------------------------------------------------------- */
+.btn,
+.fleet-view-btn,
+.destination-button,
+.btn-danger,
+.btn-outline-danger,
+.btn-light,
+.btn-outline-dark,
+.btn-success,
+.hero-mini-card {
+    transition: transform 0.32s var(--anim-spring-subtle),
+                box-shadow 0.32s var(--anim-ease-out),
+                background-color 0.25s ease,
+                color 0.25s ease,
+                border-color 0.25s ease !important;
+    will-change: transform;
+}
+
+.btn:hover,
+.fleet-view-btn:hover,
+.destination-button:hover {
+    transform: translateY(-3px) scale(1.02) !important;
+}
+
+.btn:active,
+.fleet-view-btn:active,
+.destination-button:active {
+    transform: translateY(0px) scale(0.98) !important;
+}
+
+.btn i,
+.destination-button i {
+    transition: transform 0.25s var(--anim-ease-smooth);
+    display: inline-block;
+}
+
+.btn:hover i.bi-arrow-right,
+.btn:hover i.bi-chevron-right,
+.btn:hover i.bi-compass,
+.destination-button:hover i {
+    transform: translateX(4px);
+}
+
+/* --------------------------------------------------------------------------
+   5. MULTI-DIRECTIONAL SCROLL REVEAL & SEQUENTIAL TIMELINE ENGINE
    -------------------------------------------------------------------------- */
 .reveal,
 .reveal-up,
@@ -64,112 +237,48 @@ body {
 .reveal-left,
 .reveal-right,
 .reveal-scale,
-.reveal-zoom,
 .reveal-fade,
-.scale-reveal,
-.fade-reveal,
 .stagger-item,
-.footer-reveal-item,
-[data-reveal],
-[data-aos] {
+[data-reveal] {
     opacity: 0;
     will-change: opacity, transform;
     transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
                 transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Initial Un-revealed Positional Shifts (Desktop) */
+/* Base Offsets */
 .reveal,
 .reveal-up,
-[data-reveal="up"],
-[data-aos="fade-up"] {
-    transform: translateY(60px);
+[data-reveal="up"] {
+    transform: translateY(32px);
 }
 
 .reveal-down,
-[data-reveal="down"],
-[data-aos="fade-down"] {
-    transform: translateY(-60px);
+[data-reveal="down"] {
+    transform: translateY(-32px);
 }
 
 .reveal-left,
-[data-reveal="left"],
-[data-aos="fade-left"] {
-    transform: translateX(-80px);
+[data-reveal="left"] {
+    transform: translateX(-35px);
 }
 
 .reveal-right,
-[data-reveal="right"],
-[data-aos="fade-right"] {
-    transform: translateX(80px);
+[data-reveal="right"] {
+    transform: translateX(35px);
 }
 
 .reveal-scale,
-.reveal-zoom,
-.scale-reveal,
-[data-reveal="scale"],
-[data-reveal="zoom"],
-[data-aos="zoom-in"] {
-    transform: scale(0.94);
+[data-reveal="scale"] {
+    transform: scale(0.95);
 }
 
 .reveal-fade,
-.fade-reveal,
-[data-reveal="fade"],
-[data-aos="fade"] {
+[data-reveal="fade"] {
     transform: translateY(0);
 }
 
-/* Stagger Delay Utility Classes */
-.reveal-delay-1 { transition-delay: 100ms !important; }
-.reveal-delay-2 { transition-delay: 200ms !important; }
-.reveal-delay-3 { transition-delay: 300ms !important; }
-.reveal-delay-4 { transition-delay: 400ms !important; }
-.reveal-delay-5 { transition-delay: 500ms !important; }
-
-/* Continuous Movement Classes: Float & Wobble */
-@keyframes vthFloat {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0); }
-}
-
-.float {
-    animation: vthFloat 5s ease-in-out infinite;
-}
-
-@keyframes vthWobble {
-    0%, 100% { transform: rotate(0deg); }
-    25% { transform: rotate(-2deg); }
-    50% { transform: rotate(2deg); }
-    75% { transform: rotate(-1deg); }
-}
-
-.wobble {
-    animation: vthWobble 4s ease-in-out infinite;
-    display: inline-block;
-}
-
-/* Image Reveal Effect (Overflow Hidden Container + Scaled Image) */
-.img-reveal {
-    overflow: hidden;
-}
-
-.img-reveal img {
-    opacity: 0;
-    transform: scale(1.08);
-    transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1),
-                transform 1s cubic-bezier(0.22, 1, 0.36, 1);
-    will-change: opacity, transform;
-}
-
-.img-reveal.active img,
-.img-reveal.is-visible img {
-    opacity: 1 !important;
-    transform: scale(1) !important;
-}
-
-/* Active Triggered States & Descendant Visibility Fallbacks */
+/* Active Triggered States */
 .reveal.active,
 .reveal.is-visible,
 .reveal-up.active,
@@ -182,330 +291,132 @@ body {
 .reveal-right.is-visible,
 .reveal-scale.active,
 .reveal-scale.is-visible,
-.scale-reveal.active,
-.scale-reveal.is-visible,
-.reveal-zoom.active,
-.reveal-zoom.is-visible,
 .reveal-fade.active,
 .reveal-fade.is-visible,
-.fade-reveal.active,
-.fade-reveal.is-visible,
 .stagger-item.active,
 .stagger-item.is-visible,
-.footer-reveal-item.is-visible,
 [data-reveal].active,
-[data-reveal].is-visible,
-[data-aos].active,
-[data-aos].aos-animate {
+[data-reveal].is-visible {
     opacity: 1 !important;
     visibility: visible !important;
     transform: translate(0, 0) scale(1) !important;
-    filter: none !important;
 }
 
-/* Fallback: All children of active reveal containers MUST be fully visible */
-.active .reveal,
-.active .reveal-up,
-.active .reveal-down,
-.active .reveal-left,
-.active .reveal-right,
-.active .reveal-scale,
-.active .reveal-zoom,
-.active .reveal-fade,
-.active .stagger-item,
-.active .dest-card-ref,
-.active .place-card-ref,
-.active .anim-card,
-.active *,
+/* Guarantee visibility for children inside visible containers */
 .is-visible *,
-.aos-animate * {
-    opacity: 1 !important;
-    visibility: visible !important;
-    filter: none !important;
-}
-
-/* Section-level guaranteed visibility overrides */
-#destinations,
-#destinations *,
-#fleet,
-#fleet * {
+.active * {
     visibility: visible;
 }
 
-#destinations .reveal.active,
-#destinations .reveal.active *,
-.dest-card-ref.active,
-.dest-card-ref.active * {
-    opacity: 1 !important;
-    transform: none !important;
-    filter: none !important;
-}
-
-/* Stagger Delays */
-.stagger-1, [data-stagger="1"], .delay-1 { transition-delay: 0ms; }
-.stagger-2, [data-stagger="2"], .delay-2 { transition-delay: 90ms; }
-.stagger-3, [data-stagger="3"], .delay-3 { transition-delay: 180ms; }
-.stagger-4, [data-stagger="4"], .delay-4 { transition-delay: 270ms; }
-.stagger-5, [data-stagger="5"] { transition-delay: 360ms; }
-.stagger-6, [data-stagger="6"] { transition-delay: 450ms; }
-
 /* --------------------------------------------------------------------------
-   4. GLOBAL HOVER & CARD INTERACTION FOUNDATION
+   6. FAQ ACCORDION SMOOTH TRANSITION
    -------------------------------------------------------------------------- */
-/* Destination Card Hover (Aspire Holidays Inspired Smoothness) */
-.dest-card-ref,
-.dest-card {
-    position: relative;
-    display: block;
-    border-radius: 20px;
-    overflow: hidden;
-    text-decoration: none;
-    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-                box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    will-change: transform, box-shadow;
+.home-faq-accordion .accordion-button {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
-.dest-card-ref:hover,
-.dest-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.16);
+.home-faq-accordion .accordion-button::after {
+    transition: transform 0.3s var(--anim-spring-subtle) !important;
 }
 
-.dest-card-ref img,
-.dest-card img {
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    will-change: transform;
-}
-
-.dest-card-ref:hover img,
-.dest-card:hover img {
-    transform: scale(1.05);
-}
-
-.dest-card-ref .bi-arrow-right,
-.dest-card-ref .bi-chevron-right,
-.dest-card .bi-arrow-right {
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.dest-card-ref:hover .bi-arrow-right,
-.dest-card-ref:hover .bi-chevron-right,
-.dest-card:hover .bi-arrow-right {
-    transform: translateX(4px);
-}
-
-/* Fleet Card Hover */
-.hero-mini-card,
-.fleet-card,
-.service-card,
-.place-card {
-    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-                box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    will-change: transform, box-shadow;
-}
-
-.hero-mini-card:hover,
-.fleet-card:hover,
-.service-card:hover,
-.place-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 16px 35px rgba(15, 23, 42, 0.12) !important;
-}
-
-/* Generic Hover Lift */
-.hover-lift,
-.anim-card,
-.package-card,
-.blog-card,
-.testimonial-card,
-.hub-card {
-    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-                box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    will-change: transform;
-}
-
-.hover-lift:hover,
-.anim-card:hover,
-.package-card:hover,
-.blog-card:hover,
-.testimonial-card:hover,
-.hub-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 16px 35px rgba(15, 23, 42, 0.10) !important;
-}
-
-/* Hover Scale */
-.hover-scale {
-    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    will-change: transform;
-}
-
-.hover-scale:hover {
-    transform: scale(1.03);
-}
-
-/* Button Micro-Interactions (Icon Slide Right) */
-.btn,
-.hover-btn,
-.anim-btn,
-.btn-premium,
-.btn-primary-luxury,
-.btn-outline-luxury {
-    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-                box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-                background-color 0.2s ease,
-                color 0.2s ease,
-                border-color 0.2s ease;
-    will-change: transform;
-}
-
-.btn:hover,
-.hover-btn:hover,
-.anim-btn:hover,
-.btn-premium:hover,
-.btn-primary-luxury:hover,
-.btn-outline-luxury:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-}
-
-.btn i,
-.btn .bi-arrow-right,
-.btn .bi-compass,
-.btn .bi-chevron-right {
-    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-    display: inline-block;
-}
-
-.btn:hover i.bi-arrow-right,
-.btn:hover i.bi-chevron-right,
-.btn:hover i.bi-compass,
-.btn:hover i.bi-arrow-right-short {
-    transform: translateX(4px);
-}
-
-/* Dropdown Menu Entrance Animation */
-.dropdown-menu {
-    display: block !important;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(8px);
-    transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-                visibility 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-    pointer-events: none;
-}
-
-.dropdown-menu.show,
-.dropdown:hover > .dropdown-menu {
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: translateY(0) !important;
-    pointer-events: auto;
+.home-faq-accordion .accordion-collapse {
+    transition: height 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease !important;
 }
 
 /* --------------------------------------------------------------------------
-   5. 3D FOUNDATION
+   7. PARALLAX & VELOCITY-DRIVEN SCROLL ENGINE
    -------------------------------------------------------------------------- */
-.perspective-sm { perspective: 600px; }
-.perspective-md { perspective: 1000px; }
-.perspective-lg { perspective: 1400px; }
-
-.preserve-3d {
-    transform-style: preserve-3d;
-}
-
-.card-3d {
-    perspective: 1000px;
-}
-
-.card-3d-inner {
-    transition: transform var(--anim-normal) var(--anim-ease-smooth);
-    transform-style: preserve-3d;
+.vth-hero-bg-img,
+.parallax-bg {
     will-change: transform;
-}
-
-.hover-tilt {
-    transition: transform var(--anim-fast) var(--anim-ease-out);
-    will-change: transform;
-}
-
-.depth-1 { transform: translateZ(15px); }
-.depth-2 { transform: translateZ(30px); }
-.depth-3 { transform: translateZ(45px); }
-
-/* --------------------------------------------------------------------------
-   6. FLOATING BUTTONS & MICRO KEYFRAMES
-   -------------------------------------------------------------------------- */
-.anim-float,
-.vth-float-btn {
-    transition: transform var(--anim-normal) var(--anim-ease-bounce),
-                box-shadow var(--anim-normal) ease;
-}
-
-.anim-float:hover,
-.vth-float-btn:hover {
-    transform: translateY(-4px) scale(1.06);
-}
-
-@keyframes waPulse {
-    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
-    70% { box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-}
-
-.vth-float-wa {
-    animation: waPulse 3s infinite;
-}
-
-.vth-float-wa:hover {
-    animation: none;
+    transition: transform 0.1s linear;
 }
 
 /* --------------------------------------------------------------------------
-   7. MOBILE RESPONSIVENESS & OVERFLOW SAFEGUARDS
+   8. MOBILE RESPONSIVENESS & TOUCH OPTIMIZATIONS
    -------------------------------------------------------------------------- */
 @media (max-width: 768px) {
-    .reveal,
-    .reveal-up,
-    .reveal-down,
-    .reveal-scale,
-    .stagger-item,
-    [data-aos="fade-up"],
-    [data-aos="fade-down"] {
-        transform: translateY(16px);
+    @keyframes premiumTextFloat {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-2px); }
+    }
+
+    @keyframes premiumCardFloat {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-2.5px); }
+    }
+
+    @keyframes premiumImageFloat {
+        0%, 100% { transform: translateY(0px) scale(1); }
+        50% { transform: translateY(-2px) scale(1); }
+    }
+
+    @keyframes premiumIconFloat {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-1.5px); }
     }
 
     .reveal-left,
-    [data-aos="fade-left"] {
-        transform: translateX(-16px);
-    }
-
     .reveal-right,
-    [data-aos="fade-right"] {
-        transform: translateX(16px);
+    [data-reveal="left"],
+    [data-reveal="right"] {
+        transform: translateY(18px) !important;
     }
 
-    .card-3d-inner,
-    .hover-tilt {
-        transform: none !important;
+    .reveal,
+    .reveal-up,
+    .reveal-down,
+    [data-reveal="up"],
+    [data-reveal="down"] {
+        transform: translateY(16px);
+    }
+
+    /* Mobile Touch Swipe Snap for Card Grids */
+    .touch-swipe-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 16px;
+        padding-bottom: 12px;
+    }
+
+    .touch-swipe-grid > * {
+        scroll-snap-align: center;
+        flex: 0 0 85%;
     }
 }
 
 /* --------------------------------------------------------------------------
-   8. ACCESSIBILITY (Prefers Reduced Motion)
+   9. ACCESSIBILITY (PREFERS REDUCED MOTION)
    -------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
-    *, ::before, ::after {
+    *,
+    *::before,
+    *::after {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
     }
 
-    body {
-        opacity: 1 !important;
+    .float-text,
+    .vth-eyebrow,
+    .vth-hero-script,
+    .float-title,
+    .float-card,
+    .vth-fleet-card,
+    .service-card-item,
+    .destination-card,
+    .place-card-ref,
+    .hero-mini-card,
+    .float-image,
+    .destination-image,
+    .place-card-img,
+    .float-icon,
+    .mini-icon-box {
+        animation: none !important;
+        transform: none !important;
     }
 
     .reveal,
@@ -516,14 +427,8 @@ body {
     .reveal-scale,
     .reveal-fade,
     .stagger-item,
-    .load-anim,
-    .footer-reveal-item,
-    [data-aos] {
+    [data-reveal] {
         opacity: 1 !important;
         transform: none !important;
-    }
-
-    .vth-float-wa {
-        animation: none !important;
     }
 }

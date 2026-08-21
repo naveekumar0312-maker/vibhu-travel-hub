@@ -71,69 +71,136 @@
                         </div>
                         
                         <!-- View Modal -->
-                        <div class="modal fade" id="viewModal{{ enquiry.id }}" tabindex="-1" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered modal-lg">
-                                <div class="modal-content glass-panel" style="background: #FFFFFF; border: 1px solid var(--border-color);">
-                                    <div class="modal-header border-bottom">
-                                        <h5 class="modal-title text-dark fw-bold"><i class="bi bi-info-circle me-2"></i>Enquiry Details</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <div class="modal fade enquiry-details-modal" id="viewModal{{ enquiry.id }}" tabindex="-1" aria-labelledby="viewModalLabel{{ enquiry.id }}" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered enquiry-modal-dialog">
+                                <div class="modal-content enquiry-modal-content">
+                                    <div class="modal-header enquiry-modal-header">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="enquiry-modal-icon-badge">
+                                                <i class="bi bi-info-circle-fill"></i>
+                                            </div>
+                                            <div>
+                                                <h5 class="modal-title enquiry-modal-title" id="viewModalLabel{{ enquiry.id }}">Enquiry Details</h5>
+                                                <span class="enquiry-modal-subtitle">Submitted on {{ enquiry.created_at|date:"M d, Y" }} at {{ enquiry.created_at|date:"H:i" }}</span>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn-close enquiry-modal-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
-                                    <div class="modal-body text-dark">
+                                    <div class="modal-body enquiry-modal-body">
                                         <div class="row g-3">
-                                            <div class="col-md-6">
-                                                <small class="text-muted text-uppercase fw-bold">Customer Name</small>
-                                                <div class="fs-6">{{ enquiry.name }}</div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <small class="text-muted text-uppercase fw-bold">Submitted Date</small>
-                                                <div class="fs-6">{{ enquiry.created_at|date:"M d, Y H:i" }}</div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <small class="text-muted text-uppercase fw-bold">Mobile Number</small>
-                                                <div class="fs-6">{{ enquiry.phone }}</div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <small class="text-muted text-uppercase fw-bold">Email Address</small>
-                                                <div class="fs-6">{{ enquiry.email|default:"Not specified" }}</div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <small class="text-muted text-uppercase fw-bold">Travel Date</small>
-                                                <div class="fs-6">{{ enquiry.travel_date|date:"M d, Y" }}</div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <small class="text-muted text-uppercase fw-bold">Vehicle</small>
-                                                <div class="fs-6">Not specified</div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <small class="text-muted text-uppercase fw-bold">Pickup Location</small>
-                                                <div class="fs-6">{{ enquiry.pickup }}</div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <small class="text-muted text-uppercase fw-bold">Drop Location</small>
-                                                <div class="fs-6">{{ enquiry.drop|default:enquiry.destination|default:"Not specified" }}</div>
-                                            </div>
-                                            <div class="col-12 mt-3">
-                                                <small class="text-muted text-uppercase fw-bold">Message / Additional Requirements</small>
-                                                <div class="p-3 bg-light rounded border mt-1">
-                                                    {{ enquiry.message|default:"No additional message." }}
+                                            <!-- Customer Name -->
+                                            <div class="col-md-6 col-12">
+                                                <div class="enquiry-field-card">
+                                                    <span class="enquiry-field-label">CUSTOMER NAME</span>
+                                                    <div class="enquiry-field-value text-dark fw-bold">{{ enquiry.name }}</div>
                                                 </div>
                                             </div>
-                                            <div class="col-12 mt-3">
-                                                <small class="text-muted text-uppercase fw-bold">Status</small>
-                                                <div>
-                                                    {% if enquiry.status == 'New' %}
-                                                        <span class="badge bg-danger">New</span>
-                                                    {% elif enquiry.status == 'Contacted' %}
-                                                        <span class="badge bg-warning text-dark">Contacted</span>
-                                                    {% else %}
-                                                        <span class="badge bg-success">{{ enquiry.status }}</span>
-                                                    {% endif %}
+
+                                            <!-- Submitted Date -->
+                                            <div class="col-md-6 col-12">
+                                                <div class="enquiry-field-card">
+                                                    <span class="enquiry-field-label">SUBMITTED DATE</span>
+                                                    <div class="enquiry-field-value text-dark">{{ enquiry.created_at|date:"M d, Y H:i" }}</div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Mobile Number -->
+                                            <div class="col-md-6 col-12">
+                                                <div class="enquiry-field-card">
+                                                    <span class="enquiry-field-label">MOBILE NUMBER</span>
+                                                    <div class="enquiry-field-value">
+                                                        <a href="tel:{{ enquiry.phone }}" class="text-decoration-none text-dark fw-semibold">
+                                                            <i class="bi bi-telephone-fill text-danger me-1"></i> {{ enquiry.phone }}
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Email Address -->
+                                            <div class="col-md-6 col-12">
+                                                <div class="enquiry-field-card">
+                                                    <span class="enquiry-field-label">EMAIL ADDRESS</span>
+                                                    <div class="enquiry-field-value">
+                                                        {% if enquiry.email %}
+                                                            <a href="mailto:{{ enquiry.email }}" class="text-decoration-none text-dark">
+                                                                <i class="bi bi-envelope-fill text-danger me-1"></i> {{ enquiry.email }}
+                                                            </a>
+                                                        {% else %}
+                                                            <span class="text-muted">Not specified</span>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Travel Date -->
+                                            <div class="col-md-6 col-12">
+                                                <div class="enquiry-field-card">
+                                                    <span class="enquiry-field-label">TRAVEL DATE</span>
+                                                    <div class="enquiry-field-value text-dark fw-medium">
+                                                        <i class="bi bi-calendar-event text-danger me-1"></i> {{ enquiry.travel_date|date:"M d, Y"|default:"Not specified" }}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Vehicle -->
+                                            <div class="col-md-6 col-12">
+                                                <div class="enquiry-field-card">
+                                                    <span class="enquiry-field-label">VEHICLE</span>
+                                                    <div class="enquiry-field-value">
+                                                        <span class="badge bg-light text-dark border px-2.5 py-1">{{ enquiry.tourist_place|default:enquiry.destination|default:"Not specified" }}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Pickup Location -->
+                                            <div class="col-md-6 col-12">
+                                                <div class="enquiry-field-card">
+                                                    <span class="enquiry-field-label">PICKUP LOCATION</span>
+                                                    <div class="enquiry-field-value text-dark">
+                                                        <i class="bi bi-geo-alt-fill text-danger me-1"></i> {{ enquiry.pickup|default:"Not specified" }}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Drop Location -->
+                                            <div class="col-md-6 col-12">
+                                                <div class="enquiry-field-card">
+                                                    <span class="enquiry-field-label">DROP LOCATION</span>
+                                                    <div class="enquiry-field-value text-dark">
+                                                        <i class="bi bi-pin-map-fill text-danger me-1"></i> {{ enquiry.drop|default:enquiry.destination|default:"Not specified" }}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Message -->
+                                            <div class="col-12">
+                                                <div class="enquiry-field-card enquiry-message-card">
+                                                    <span class="enquiry-field-label">MESSAGE / ADDITIONAL REQUIREMENTS</span>
+                                                    <div class="enquiry-message-box mt-1">
+                                                        {{ enquiry.message|default:"No additional message provided." }}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Status -->
+                                            <div class="col-12">
+                                                <div class="d-flex align-items-center justify-content-between pt-1">
+                                                    <div>
+                                                        <span class="enquiry-field-label d-block mb-1">CURRENT STATUS</span>
+                                                        {% if enquiry.status == 'New' %}
+                                                            <span class="badge bg-danger-subtle text-danger border border-danger-subtle px-3 py-1.5 rounded-pill fw-bold">New</span>
+                                                        {% elif enquiry.status == 'Contacted' %}
+                                                            <span class="badge bg-warning-subtle text-dark border border-warning-subtle px-3 py-1.5 rounded-pill fw-bold">Contacted</span>
+                                                        {% else %}
+                                                            <span class="badge bg-success-subtle text-success border border-success-subtle px-3 py-1.5 rounded-pill fw-bold">{{ enquiry.status }}</span>
+                                                        {% endif %}
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="modal-footer border-0">
-                                        <button type="button" class="btn btn-secondary rounded-pill px-4" data-bs-dismiss="modal">Close</button>
+                                    <div class="modal-footer enquiry-modal-footer">
+                                        <button type="button" class="btn btn-outline-secondary rounded-3 px-4" data-bs-dismiss="modal">Close</button>
                                     </div>
                                 </div>
                             </div>

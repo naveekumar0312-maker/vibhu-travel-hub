@@ -23,39 +23,37 @@ def contact(request):
     return render(request, "website/contact.html")
 
 def send_enquiry(request):
-
     if request.method == "POST":
-
         travel_date = request.POST.get("travel_date")
+        pickup = request.POST.get("pickup", "")
+        drop = request.POST.get("drop", "")
+        destination = request.POST.get("destination", "")
+        msg = request.POST.get("message", "") or request.POST.get("trip_details", "")
 
         enquiry = Enquiry.objects.create(
-            name=request.POST.get("name"),
-            phone=request.POST.get("phone"),
+            name=request.POST.get("name", ""),
+            phone=request.POST.get("phone", ""),
             email=request.POST.get("email", ""),
-            vehicle=request.POST.get("vehicle"),
-            pickup=request.POST.get("pickup"),
-            destination=request.POST.get("destination"),
+            pickup=pickup,
+            drop=drop,
+            destination=destination,
             travel_date=travel_date,
-            members=int(request.POST.get("members", 1)),
-            trip_details=request.POST.get("trip_details"),
+            message=msg,
         )
 
-        message = f""" *Vibhu Travel Hub*
+        message_text = f""" *Vibhu Travel Hub*
 
 Name: {enquiry.name}
 Phone: {enquiry.phone}
-Vehicle: {enquiry.vehicle}
 Pickup: {enquiry.pickup}
 Destination: {enquiry.destination}
 Travel Date: {enquiry.travel_date}
-Members: {enquiry.members}
 
-Trip Details:
-{enquiry.trip_details}
+Message:
+{enquiry.message}
 """
 
-        whatsapp = f"https://wa.me/919655866660?text={quote(message)}"
-
+        whatsapp = f"https://wa.me/919655866660?text={quote(message_text)}"
         return redirect(whatsapp)
 
     return redirect("home")
@@ -240,10 +238,9 @@ def city_detail_view(request, state_slug, city_slug):
 def tourist_place_detail_view(request, state_slug, city_slug, place_slug):
     place_data = TOURIST_PLACES_SEO_DATA.get(place_slug)
     if not place_data:
-        place_data = get_place_seo_data(place_slug)
-        place_data = dict(place_data)
-        place_data['state_slug'] = state_slug
-        place_data['city_slug'] = city_slug
+        raise Http404("Tourist place page not found")
+    if place_data.get('state_slug') != state_slug or place_data.get('city_slug') != city_slug:
+        raise Http404("Tourist place location mismatch")
     vehicles = Vehicle.objects.filter(is_active=True).order_by('display_order')
     return render(request, 'destinations/tourist_place_detail.html', {
         'place_data': place_data,

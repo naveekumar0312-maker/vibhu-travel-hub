@@ -22,15 +22,15 @@
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Vibhu Travel Hub">
-<meta property="og:title" content="{% block og_title %}{% endblock %}">
-<meta property="og:description" content="{% block og_description %}{% endblock %}">
+<meta property="og:title" content="{% block og_title %}{{ seo_title|default:"Luxury Travel Services in South India | Vibhu Travel Hub" }}{% endblock %}">
+<meta property="og:description" content="{% block og_description %}{{ seo_description|default:"Vibhu Travel Hub is a premier travel agency offering cab service, outstation cabs, airport transfers, tempo traveller rentals, luxury bus rentals, and tour packages across South India." }}{% endblock %}">
 <meta property="og:url" content="{% block og_url %}https://vibhutravelhub.com{{ request.path }}{% endblock %}">
 <meta property="og:image" content="{% block og_image %}https://vibhutravelhub.com{% static 'images/logo/og-banner.webp' %}{% endblock %}">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{% block twitter_title %}{% endblock %}">
-<meta name="twitter:description" content="{% block twitter_description %}{% endblock %}">
+<meta name="twitter:title" content="{% block twitter_title %}{{ seo_title|default:"Luxury Travel Services in South India | Vibhu Travel Hub" }}{% endblock %}">
+<meta name="twitter:description" content="{% block twitter_description %}{{ seo_description|default:"Vibhu Travel Hub is a premier travel agency offering cab service, outstation cabs, airport transfers, tempo traveller rentals, luxury bus rentals, and tour packages across South India." }}{% endblock %}">
 <meta name="twitter:image" content="{% block twitter_image %}https://vibhutravelhub.com{% static 'images/logo/og-banner.webp' %}{% endblock %}">
 
 <!-- Google Site Verification -->

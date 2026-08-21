@@ -1,6 +1,5 @@
 /* ==========================================================
-   VIBHU TRAVEL HUB — CLEAN RECTANGULAR CARD & IMAGE SYSTEM
-   Clean Rectangular Images + Subtle Border Radius + 1.05x Hover Zoom
+   VIBHU TRAVEL HUB — PREMIUM ARTISTIC CARD ANIMATION SYSTEM
    ========================================================== */
 
 /* ----------------------------------------------------------
@@ -12,90 +11,75 @@
 .premium-service-card,
 .dest-mini-card,
 .place-card-ref,
-.destination-card {
+.vth-fleet-card,
+.service-card-item,
+.hero-mini-card,
+.package-card,
+.blog-card,
+.testimonial-card,
+.hub-card {
     background: #FFFFFF !important;
     border-radius: 16px !important;
     border: 1px solid rgba(226, 232, 240, 0.95) !important;
     box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05), 0 2px 8px rgba(0, 0, 0, 0.02) !important;
-    padding: 14px 14px 18px 14px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    height: 100% !important;
     position: relative !important;
     overflow: hidden !important;
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
         box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
         border-color 0.4s ease !important;
+    will-change: transform, box-shadow;
 }
 
+/* Primary Hover Interaction: Card Lift (-7px) + Scale (1.015x) + Brand Soft Glow */
 .artistic-card-wrapper:hover,
 .cab-service-card:hover,
 .service-card:hover,
 .premium-service-card:hover,
 .dest-mini-card:hover,
 .place-card-ref:hover,
-.destination-card:hover {
-    transform: translateY(-5px) !important;
+.vth-fleet-card:hover,
+.service-card-item:hover,
+.hero-mini-card:hover,
+.package-card:hover,
+.blog-card:hover,
+.testimonial-card:hover,
+.hub-card:hover {
+    transform: translateY(-7px) scale(1.015) !important;
     box-shadow: 0 20px 45px rgba(227, 30, 36, 0.14), 0 12px 25px rgba(15, 23, 42, 0.08) !important;
     border-color: rgba(227, 30, 36, 0.35) !important;
 }
 
-/* Ensure Text Content Container is ALWAYS 100% clean and readable */
+/* Text Content Container Cleanliness */
 .cab-service-card .p-4,
 .service-card .p-4,
 .dest-mini-card .p-3,
 .place-card-ref .p-3,
 .artistic-card-wrapper .p-3,
-.artistic-card-wrapper .p-4,
-.destination-content {
+.artistic-card-wrapper .p-4 {
     position: relative !important;
     z-index: 10 !important;
     background: #FFFFFF !important;
-    margin-top: 0 !important;
-    padding-left: 2px !important;
-    padding-right: 2px !important;
-    text-align: center !important;
-    align-items: center !important;
 }
 
 /* ----------------------------------------------------------
-   2. REUSABLE CLEAN RECTANGULAR IMAGE CONTAINERS (NO BRUSH/PAINT MASKS)
+   2. REUSABLE CLEAN RECTANGULAR IMAGE CONTAINERS
    ---------------------------------------------------------- */
 .cut-edge-image,
 .img-reveal,
 .artistic-img-container,
 .service-gallery-image,
 .service-img-container,
-.destination-image-wrapper,
-.fleet-ref-image-wrapper {
+.fleet-card-media {
     position: relative !important;
     width: 100% !important;
     background: transparent !important;
-    margin-bottom: 14px !important;
     border-radius: 12px !important;
     overflow: hidden !important;
     z-index: 1 !important;
-    filter: none !important;
-    -webkit-mask-image: none !important;
-    mask-image: none !important;
-    clip-path: none !important;
-}
-
-/* Disable decorative brush stroke pseudo-element overlays */
-.cut-edge-image::after,
-.img-reveal::after,
-.artistic-img-container::after,
-.service-gallery-image::after,
-.service-img-container::after,
-.destination-image-wrapper::after,
-.gallery-tile::after {
-    display: none !important;
-    content: none !important;
-    background: none !important;
 }
 
 /* ----------------------------------------------------------
-   3. CLEAN IMAGE STYLING & HOVER ZOOM ANIMATION (1.05x)
+   3. INNER IMAGE HOVER ZOOM (1.04x)
    ---------------------------------------------------------- */
 .cut-edge-image img,
 .img-reveal img,
@@ -106,41 +90,13 @@
 .service-card img,
 .premium-service-card img,
 .dest-mini-card img,
-.place-card-ref img {
-    width: 100% !important;
-    height: 200px !important;
-    object-fit: cover !important;
-    object-position: center !important;
-    aspect-ratio: 4 / 3 !important;
-    display: block !important;
-    border-radius: 12px !important;
+.place-card-ref img,
+.fleet-card-media img,
+.fleet-card-media video {
     transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    will-change: transform;
 }
 
-.destination-image-wrapper {
-    aspect-ratio: 4 / 4 !important;
-    border-radius: 12px !important;
-}
-
-.destination-image-wrapper img,
-.destination-image {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    object-position: center !important;
-    display: block !important;
-    border-radius: 12px !important;
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
-
-/* Mini Cards Height Adjustment */
-.dest-mini-card img,
-.place-card-ref img {
-    height: 155px !important;
-    border-radius: 12px !important;
-}
-
-/* Hover Scaling on Image (1.05x) */
 .artistic-card-wrapper:hover img,
 .cab-service-card:hover img,
 .service-card:hover img,
@@ -148,8 +104,9 @@
 .dest-mini-card:hover img,
 .place-card-ref:hover img,
 .service-gallery-image:hover img,
-.destination-card:hover .destination-image {
-    transform: scale(1.05) !important;
+.vth-fleet-card:hover .fleet-card-media img,
+.vth-fleet-card:hover .fleet-card-media video {
+    transform: scale(1.04) !important;
 }
 
 /* ----------------------------------------------------------
@@ -162,8 +119,8 @@
     top: 10px !important;
     right: 10px !important;
     z-index: 15 !important;
-    width: 46px !important;
-    height: 46px !important;
+    width: 44px !important;
+    height: 44px !important;
     border-radius: 50% !important;
     background: #E31E24 !important;
     color: #FFFFFF !important;
@@ -173,158 +130,190 @@
     font-size: 1.15rem !important;
     box-shadow: 0 6px 16px rgba(227, 30, 36, 0.35) !important;
     border: 2px solid #FFFFFF !important;
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
 }
 
 .cab-service-card:hover .cab-icon-badge,
 .dest-mini-card:hover .cab-icon-badge,
 .artistic-card-wrapper:hover .cab-icon-badge {
-    transform: scale(1.08) rotate(6deg) !important;
+    transform: scale(1.08) !important;
 }
 
 /* ----------------------------------------------------------
-   5. GALLERY TILES WITH CLEAN RECTANGULAR BORDERS
+   5. ORIGINAL VIBHU TRAVEL HUB DESTINATION CARD SYSTEM
    ---------------------------------------------------------- */
-.gallery-tile {
+.destination-card-link {
+    text-decoration: none !important;
+    display: block !important;
+    height: 100% !important;
+    color: inherit !important;
+}
+
+.destination-card {
+    background: #FFFFFF !important;
+    border-radius: 20px !important;
+    border: 1px solid #E2E8F0 !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    position: relative !important;
+    padding: 0 !important;
+    text-align: left !important;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+        border-color 0.35s ease !important;
+    will-change: transform, box-shadow;
+}
+
+.destination-card-link:hover .destination-card,
+.destination-card:hover {
+    transform: translateY(-6px) !important;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.09) !important;
+    border-color: rgba(227, 30, 36, 0.25) !important;
+}
+
+/* Destination Image Wrapper at TOP */
+.destination-image-wrapper {
     position: relative !important;
     width: 100% !important;
-    aspect-ratio: 1 / 1 !important;
-    border-radius: 12px !important;
+    height: 220px !important;
     overflow: hidden !important;
-    background: transparent !important;
-    padding: 0 !important;
-    box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08) !important;
-    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
-        box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1) !important;
-    -webkit-mask-image: none !important;
-    mask-image: none !important;
-    clip-path: none !important;
+    margin-bottom: 0 !important;
+    border-radius: 20px 20px 0 0 !important;
+    aspect-ratio: auto !important;
 }
 
-.gallery-tile:hover {
-    transform: translateY(-5px) scale(1.03) !important;
-    box-shadow: 0 16px 35px rgba(227, 30, 36, 0.2) !important;
-    z-index: 8 !important;
-}
-
-.gallery-tile img {
+.destination-image-wrapper img,
+.destination-image {
     width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;
     object-position: center !important;
     display: block !important;
-    border-radius: 12px !important;
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    border-radius: 20px 20px 0 0 !important;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
-.gallery-tile:hover img {
-    transform: scale(1.04) !important;
+.destination-card-link:hover .destination-image,
+.destination-card:hover .destination-image {
+    transform: scale(1.03) !important;
 }
 
-/* ----------------------------------------------------------
-   6. PREMIUM VERTICAL DESTINATION CARD SPECIFICS (CENTERED)
-   ---------------------------------------------------------- */
-.destination-card {
-    background: #FFFFFF !important;
-    border-radius: 16px !important;
-    border: 1px solid #E5E7EB !important;
-    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05) !important;
-    padding: 18px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    height: 100% !important;
-    position: relative !important;
-    text-align: center !important;
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-        box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-        border-color 0.4s ease !important;
-    overflow: hidden !important;
-}
-
+/* Card Content Below Image */
 .destination-content {
+    padding: 20px 24px 24px 24px !important;
     display: flex !important;
     flex-direction: column !important;
     flex-grow: 1 !important;
-    align-items: center !important;
-    text-align: center !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+    background: #FFFFFF !important;
 }
 
+/* Location / Brand Label */
 .destination-label {
-    color: #E31E24 !important;
-    font-size: 12px !important;
-    font-weight: 600 !important;
+    color: #334155 !important;
+    font-size: 0.78rem !important;
+    font-weight: 700 !important;
     letter-spacing: 0.5px !important;
     text-transform: uppercase !important;
     display: inline-flex !important;
     align-items: center !important;
-    justify-content: center !important;
-    gap: 4px !important;
-    margin-bottom: 4px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-}
-
-.destination-title {
-    font-size: 24px !important;
-    font-weight: 700 !important;
-    color: #111827 !important;
-    margin-top: 4px !important;
+    gap: 6px !important;
     margin-bottom: 6px !important;
-    line-height: 1.25 !important;
-    text-align: center !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    text-align: left !important;
 }
 
+.destination-label i {
+    color: #0F172A !important;
+    font-size: 0.85rem !important;
+}
+
+/* Destination Title */
+.destination-title {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 1.85rem !important;
+    font-weight: 800 !important;
+    color: #0F172A !important;
+    margin-top: 2px !important;
+    margin-bottom: 4px !important;
+    line-height: 1.2 !important;
+    text-align: left !important;
+}
+
+/* Tagline Subtitle */
 .destination-subtitle {
-    font-size: 14px !important;
-    color: #6B7280 !important;
-    line-height: 1.5 !important;
-    margin-bottom: 12px !important;
-    text-align: center !important;
-}
-
-.destination-divider {
-    border-top: 1px solid #E5E7EB !important;
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+    color: #475569 !important;
+    line-height: 1.4 !important;
     margin-bottom: 14px !important;
-    width: 100% !important;
+    text-align: left !important;
 }
 
+/* Hide line divider if present */
+.destination-divider {
+    display: none !important;
+}
+
+/* Description Paragraph */
 .destination-description {
-    font-size: 14px !important;
-    color: #4B5563 !important;
+    font-size: 0.92rem !important;
+    color: #64748B !important;
     line-height: 1.6 !important;
     margin-bottom: 20px !important;
     flex-grow: 1 !important;
-    text-align: center !important;
+    text-align: left !important;
 }
 
+/* Original Red CTA Button */
 .destination-button {
     background-color: #E31E24 !important;
     color: #FFFFFF !important;
     border: none !important;
-    border-radius: 8px !important;
-    padding: 10px 24px !important;
+    border-radius: 50px !important;
+    padding: 10px 22px !important;
     font-weight: 700 !important;
-    font-size: 14px !important;
+    font-size: 0.88rem !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 6px !important;
+    gap: 8px !important;
     text-decoration: none !important;
-    transition: background-color 0.3s ease, transform 0.3s ease !important;
+    transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease !important;
     width: auto !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
     margin-top: auto !important;
+    align-self: flex-start !important;
 }
 
+.destination-card-link:hover .destination-button,
+.destination-card:hover .destination-button,
 .destination-button:hover {
     background-color: #CC1217 !important;
     color: #FFFFFF !important;
     transform: translateY(-2px) !important;
+    box-shadow: 0 6px 18px rgba(227, 30, 36, 0.28) !important;
+}
+
+.destination-button i {
+    font-size: 0.9rem !important;
+    transition: transform 0.25s ease !important;
+}
+
+.destination-card-link:hover .destination-button i,
+.destination-card:hover .destination-button i,
+.destination-button:hover i {
+    transform: translateX(4px) !important;
 }
 
 /* ----------------------------------------------------------
-   9. RESPONSIVE MOBILE OPTIMIZATION
+   6. RESPONSIVE MOBILE OPTIMIZATION
    ---------------------------------------------------------- */
 @media (max-width: 767.98px) {
 
@@ -334,34 +323,45 @@
     .premium-service-card,
     .dest-mini-card,
     .place-card-ref,
-    .destination-card {
-        padding: 14px !important;
+    .destination-card,
+    .vth-fleet-card,
+    .service-card-item {
         border-radius: 14px !important;
     }
 
-    .img-reveal img,
-    .artistic-img-container img,
-    .service-gallery-image img,
-    .service-img-container img,
-    .cab-service-card img,
-    .service-card img {
-        height: 160px !important;
-    }
-
-    .dest-mini-card img,
-    .place-card-ref img {
-        height: 130px !important;
-    }
-
     .destination-image-wrapper {
-        aspect-ratio: 4 / 3 !important;
+        height: 190px !important;
+    }
+
+    .destination-content {
+        padding: 18px 20px 20px 20px !important;
     }
 
     .destination-title {
-        font-size: 20px !important;
+        font-size: 1.6rem !important;
     }
+}
 
-    .destination-subtitle {
-        font-size: 14px !important;
+/* ----------------------------------------------------------
+   7. ACCESSIBILITY (PREFERS REDUCED MOTION)
+   ---------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+
+    .artistic-card-wrapper,
+    .cab-service-card,
+    .service-card,
+    .premium-service-card,
+    .dest-mini-card,
+    .place-card-ref,
+    .destination-card,
+    .vth-fleet-card,
+    .service-card-item,
+    .hero-mini-card,
+    .package-card,
+    .blog-card,
+    .testimonial-card,
+    .hub-card {
+        transition: none !important;
+        transform: none !important;
     }
 }

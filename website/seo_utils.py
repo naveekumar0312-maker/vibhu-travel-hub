@@ -339,6 +339,600 @@ STATES_SEO_DATA = {
 }
 
 TOURIST_PLACES_SEO_DATA = {
+    "marina-beach": {
+        "state_slug": "tamil-nadu",
+        "city_slug": "chennai",
+        "place_name": "Marina Beach",
+        "slug": "marina-beach",
+        "h1": "Marina Beach – Travel Guide",
+        "title": "Marina Beach Travel Guide & Tourist Places | Vibhu Travel Hub",
+        "description": "Explore Marina Beach Chennai with our complete travel guide covering coastline views, lighthouse, beach promenade, travel tips, and FAQs.",
+        "tagline": "World's Second Longest Natural Urban Beach",
+        "about_paragraphs": [
+            "Marina Beach in Chennai is India's longest natural urban beach stretching 13 km along the Bay of Bengal.",
+            "Stroll along the lively promenade, admire historical statues of Tamil icons, visit the Chennai Lighthouse, and enjoy local beach delicacies.",
+            "Vibhu Travel Hub offers 24/7 cab services to Marina Beach from Chennai airport, Central railway station, and all major hotels."
+        ],
+        "why_visit": [
+            {"title": "Popular Attractions", "icon": "bi-geo-alt-fill", "desc": "Explore top sightseeing spots in Marina Beach."},
+            {"title": "Scenic Landscapes", "icon": "bi-tree-fill", "desc": "Enjoy pristine natural beauty and photo spots."},
+            {"title": "Cultural Heritage", "icon": "bi-bank", "desc": "Discover rich local history and traditions."}
+        ],
+        "how_to_reach": "Marina Beach is well connected by road with regular transfers available from Chennai.",
+        "attractions": [
+            {"name": "Marina Beach Main Viewpoint", "desc": "Primary attraction offering great views and local culture."},
+            {"name": "Marina Beach Heritage Spot", "desc": "Historic monument and scenic walk."}
+        ],
+        "experiences": [
+            {"title": "Sightseeing Tour", "image": "ooty.avif", "desc": "Comfortable tour with Vibhu Travel Hub cabs."}
+        ],
+        "best_time_guide": {
+            "peak": "October to March — Pleasant weather for travel.",
+            "shoulder": "April to June — Great for vacation trips.",
+            "off": "July to September — Lush monsoon season."
+        },
+        "things_to_do": [
+            {"title": "Explore Local Sights", "icon": "bi-compass", "desc": "Visit popular places."},
+            {"title": "Photograph Scenery", "icon": "bi-camera", "desc": "Capture scenic memories."}
+        ],
+        "travel_guide_info": {
+            "airports": "Nearest major regional airport",
+            "railways": "Nearest central railway station",
+            "road": "Connected via main national highways",
+            "duration": "1 to 2 Days recommended",
+            "ideal_for": "Families, Couples, Nature Lovers",
+            "popular_routes": "Highway route connecting regional hubs"
+        },
+        "travel_tips": [
+            "Start early morning for comfortable sightseeing.",
+            "Carry comfortable footwear and water bottle.",
+            "Book cab transfers in advance for smooth travel."
+        ],
+        "faqs": [
+            {"q": "What is Marina Beach famous for?", "a": "Marina Beach is famous for its unique attractions, scenic beauty, and cultural heritage."},
+            {"q": "How to reach Marina Beach?", "a": "Marina Beach is easily accessible via cab from Chennai with Vibhu Travel Hub."}
+        ]
+    },
+    "rameswaram": {
+        "state_slug": "tamil-nadu",
+        "city_slug": "madurai",
+        "place_name": "Rameswaram",
+        "slug": "rameswaram",
+        "h1": "Rameswaram – Travel Guide",
+        "title": "Rameswaram Travel Guide & Tourist Places | Vibhu Travel Hub",
+        "description": "Explore Rameswaram with our travel guide covering Ramanathaswamy Temple, Pamban Bridge, Dhanushkodi, travel tips, and FAQs.",
+        "tagline": "Sacred Island Shrine & Historic Pamban Bridge",
+        "about_paragraphs": [
+            "Rameswaram is a holy island town in Tamil Nadu renowned for the Ramanathaswamy Temple featuring the world's longest temple corridor.",
+            "Cross the monumental Pamban Bridge over the sea, visit Dhanushkodi ghost town, and bathe in the 22 sacred teerthams.",
+            "Vibhu Travel Hub provides comfortable outstation cabs from Madurai, Trichy, and Chennai to Rameswaram."
+        ],
+        "why_visit": [
+            {"title": "Popular Attractions", "icon": "bi-geo-alt-fill", "desc": "Explore top sightseeing spots in Rameswaram."},
+            {"title": "Scenic Landscapes", "icon": "bi-tree-fill", "desc": "Enjoy pristine natural beauty and photo spots."},
+            {"title": "Cultural Heritage", "icon": "bi-bank", "desc": "Discover rich local history and traditions."}
+        ],
+        "how_to_reach": "Rameswaram is well connected by road with regular transfers available from Madurai.",
+        "attractions": [
+            {"name": "Rameswaram Main Viewpoint", "desc": "Primary attraction offering great views and local culture."},
+            {"name": "Rameswaram Heritage Spot", "desc": "Historic monument and scenic walk."}
+        ],
+        "experiences": [
+            {"title": "Sightseeing Tour", "image": "ooty.avif", "desc": "Comfortable tour with Vibhu Travel Hub cabs."}
+        ],
+        "best_time_guide": {
+            "peak": "October to March — Pleasant weather for travel.",
+            "shoulder": "April to June — Great for vacation trips.",
+            "off": "July to September — Lush monsoon season."
+        },
+        "things_to_do": [
+            {"title": "Explore Local Sights", "icon": "bi-compass", "desc": "Visit popular places."},
+            {"title": "Photograph Scenery", "icon": "bi-camera", "desc": "Capture scenic memories."}
+        ],
+        "travel_guide_info": {
+            "airports": "Nearest major regional airport",
+            "railways": "Nearest central railway station",
+            "road": "Connected via main national highways",
+            "duration": "1 to 2 Days recommended",
+            "ideal_for": "Families, Couples, Nature Lovers",
+            "popular_routes": "Highway route connecting regional hubs"
+        },
+        "travel_tips": [
+            "Start early morning for comfortable sightseeing.",
+            "Carry comfortable footwear and water bottle.",
+            "Book cab transfers in advance for smooth travel."
+        ],
+        "faqs": [
+            {"q": "What is Rameswaram famous for?", "a": "Rameswaram is famous for its unique attractions, scenic beauty, and cultural heritage."},
+            {"q": "How to reach Rameswaram?", "a": "Rameswaram is easily accessible via cab from Madurai with Vibhu Travel Hub."}
+        ]
+    },
+    "kanyakumari": {
+        "state_slug": "tamil-nadu",
+        "city_slug": "madurai",
+        "place_name": "Kanyakumari",
+        "slug": "kanyakumari",
+        "h1": "Kanyakumari – Travel Guide",
+        "title": "Kanyakumari Travel Guide & Tourist Places | Vibhu Travel Hub",
+        "description": "Explore Kanyakumari with our travel guide covering Vivekanda Rock Memorial, Thiruvalluvar Statue, ocean sunset, travel tips, and FAQs.",
+        "tagline": "Southernmost Tip Where Three Oceans Meet",
+        "about_paragraphs": [
+            "Kanyakumari is the southernmost tip of mainland India, famous for the confluence of the Arabian Sea, Bay of Bengal, and Indian Ocean.",
+            "Visit Vivekananda Rock Memorial via ferry, marvel at the 133ft Thiruvalluvar Statue, and watch simultaneous sunrises and sunsets.",
+            "Vibhu Travel Hub arranges round-trip cabs from Madurai, Trivandrum, and Rameshwaram to Kanyakumari."
+        ],
+        "why_visit": [
+            {"title": "Popular Attractions", "icon": "bi-geo-alt-fill", "desc": "Explore top sightseeing spots in Kanyakumari."},
+            {"title": "Scenic Landscapes", "icon": "bi-tree-fill", "desc": "Enjoy pristine natural beauty and photo spots."},
+            {"title": "Cultural Heritage", "icon": "bi-bank", "desc": "Discover rich local history and traditions."}
+        ],
+        "how_to_reach": "Kanyakumari is well connected by road with regular transfers available from Madurai.",
+        "attractions": [
+            {"name": "Kanyakumari Main Viewpoint", "desc": "Primary attraction offering great views and local culture."},
+            {"name": "Kanyakumari Heritage Spot", "desc": "Historic monument and scenic walk."}
+        ],
+        "experiences": [
+            {"title": "Sightseeing Tour", "image": "ooty.avif", "desc": "Comfortable tour with Vibhu Travel Hub cabs."}
+        ],
+        "best_time_guide": {
+            "peak": "October to March — Pleasant weather for travel.",
+            "shoulder": "April to June — Great for vacation trips.",
+            "off": "July to September — Lush monsoon season."
+        },
+        "things_to_do": [
+            {"title": "Explore Local Sights", "icon": "bi-compass", "desc": "Visit popular places."},
+            {"title": "Photograph Scenery", "icon": "bi-camera", "desc": "Capture scenic memories."}
+        ],
+        "travel_guide_info": {
+            "airports": "Nearest major regional airport",
+            "railways": "Nearest central railway station",
+            "road": "Connected via main national highways",
+            "duration": "1 to 2 Days recommended",
+            "ideal_for": "Families, Couples, Nature Lovers",
+            "popular_routes": "Highway route connecting regional hubs"
+        },
+        "travel_tips": [
+            "Start early morning for comfortable sightseeing.",
+            "Carry comfortable footwear and water bottle.",
+            "Book cab transfers in advance for smooth travel."
+        ],
+        "faqs": [
+            {"q": "What is Kanyakumari famous for?", "a": "Kanyakumari is famous for its unique attractions, scenic beauty, and cultural heritage."},
+            {"q": "How to reach Kanyakumari?", "a": "Kanyakumari is easily accessible via cab from Madurai with Vibhu Travel Hub."}
+        ]
+    },
+    "mahabalipuram": {
+        "state_slug": "tamil-nadu",
+        "city_slug": "chennai",
+        "place_name": "Mahabalipuram",
+        "slug": "mahabalipuram",
+        "h1": "Mahabalipuram – Travel Guide",
+        "title": "Mahabalipuram Travel Guide & Tourist Places | Vibhu Travel Hub",
+        "description": "Explore Mahabalipuram with our travel guide covering Shore Temple, Pancha Rathas, Arjuna's Penance, travel tips, and FAQs.",
+        "tagline": "7th-Century Pallava UNESCO World Heritage Site",
+        "about_paragraphs": [
+            "Mahabalipuram (Mamallapuram) is a coastal UNESCO World Heritage town renowned for 7th-century Pallava rock-cut architecture.",
+            "Marvel at the ocean-side Shore Temple, monolithic Pancha Rathas, giant Krishna's Butterball, and intricate stone carvings.",
+            "Vibhu Travel Hub provides scenic East Coast Road (ECR) cab trips from Chennai to Mahabalipuram."
+        ],
+        "why_visit": [
+            {"title": "Popular Attractions", "icon": "bi-geo-alt-fill", "desc": "Explore top sightseeing spots in Mahabalipuram."},
+            {"title": "Scenic Landscapes", "icon": "bi-tree-fill", "desc": "Enjoy pristine natural beauty and photo spots."},
+            {"title": "Cultural Heritage", "icon": "bi-bank", "desc": "Discover rich local history and traditions."}
+        ],
+        "how_to_reach": "Mahabalipuram is well connected by road with regular transfers available from Chennai.",
+        "attractions": [
+            {"name": "Mahabalipuram Main Viewpoint", "desc": "Primary attraction offering great views and local culture."},
+            {"name": "Mahabalipuram Heritage Spot", "desc": "Historic monument and scenic walk."}
+        ],
+        "experiences": [
+            {"title": "Sightseeing Tour", "image": "ooty.avif", "desc": "Comfortable tour with Vibhu Travel Hub cabs."}
+        ],
+        "best_time_guide": {
+            "peak": "October to March — Pleasant weather for travel.",
+            "shoulder": "April to June — Great for vacation trips.",
+            "off": "July to September — Lush monsoon season."
+        },
+        "things_to_do": [
+            {"title": "Explore Local Sights", "icon": "bi-compass", "desc": "Visit popular places."},
+            {"title": "Photograph Scenery", "icon": "bi-camera", "desc": "Capture scenic memories."}
+        ],
+        "travel_guide_info": {
+            "airports": "Nearest major regional airport",
+            "railways": "Nearest central railway station",
+            "road": "Connected via main national highways",
+            "duration": "1 to 2 Days recommended",
+            "ideal_for": "Families, Couples, Nature Lovers",
+            "popular_routes": "Highway route connecting regional hubs"
+        },
+        "travel_tips": [
+            "Start early morning for comfortable sightseeing.",
+            "Carry comfortable footwear and water bottle.",
+            "Book cab transfers in advance for smooth travel."
+        ],
+        "faqs": [
+            {"q": "What is Mahabalipuram famous for?", "a": "Mahabalipuram is famous for its unique attractions, scenic beauty, and cultural heritage."},
+            {"q": "How to reach Mahabalipuram?", "a": "Mahabalipuram is easily accessible via cab from Chennai with Vibhu Travel Hub."}
+        ]
+    },
+    "wayanad": {
+        "state_slug": "kerala",
+        "city_slug": "calicut",
+        "place_name": "Wayanad",
+        "slug": "wayanad",
+        "h1": "Wayanad – Travel Guide",
+        "title": "Wayanad Travel Guide & Tourist Places | Vibhu Travel Hub",
+        "description": "Explore Wayanad with our travel guide covering Edakkal Caves, Chembra Peak, Banasura Sagar Dam, travel tips, and FAQs.",
+        "tagline": "High Ranges & Ancient Cave Heritage",
+        "about_paragraphs": [
+            "Wayanad is a green high-altitude district in Kerala famous for tea plantations, spice gardens, and ancient Neolithic rock engravings at Edakkal Caves.",
+            "Trek to heart-shaped Chembra Lake, boat at Banasura Sagar earth dam, and spot wild elephants in Wayanad Wildlife Sanctuary.",
+            "Vibhu Travel Hub provides hill station cab rentals from Calicut (Kozhikode) airport and railway station to Wayanad."
+        ],
+        "why_visit": [
+            {"title": "Popular Attractions", "icon": "bi-geo-alt-fill", "desc": "Explore top sightseeing spots in Wayanad."},
+            {"title": "Scenic Landscapes", "icon": "bi-tree-fill", "desc": "Enjoy pristine natural beauty and photo spots."},
+            {"title": "Cultural Heritage", "icon": "bi-bank", "desc": "Discover rich local history and traditions."}
+        ],
+        "how_to_reach": "Wayanad is well connected by road with regular transfers available from Calicut.",
+        "attractions": [
+            {"name": "Wayanad Main Viewpoint", "desc": "Primary attraction offering great views and local culture."},
+            {"name": "Wayanad Heritage Spot", "desc": "Historic monument and scenic walk."}
+        ],
+        "experiences": [
+            {"title": "Sightseeing Tour", "image": "ooty.avif", "desc": "Comfortable tour with Vibhu Travel Hub cabs."}
+        ],
+        "best_time_guide": {
+            "peak": "October to March — Pleasant weather for travel.",
+            "shoulder": "April to June — Great for vacation trips.",
+            "off": "July to September — Lush monsoon season."
+        },
+        "things_to_do": [
+            {"title": "Explore Local Sights", "icon": "bi-compass", "desc": "Visit popular places."},
+            {"title": "Photograph Scenery", "icon": "bi-camera", "desc": "Capture scenic memories."}
+        ],
+        "travel_guide_info": {
+            "airports": "Nearest major regional airport",
+            "railways": "Nearest central railway station",
+            "road": "Connected via main national highways",
+            "duration": "1 to 2 Days recommended",
+            "ideal_for": "Families, Couples, Nature Lovers",
+            "popular_routes": "Highway route connecting regional hubs"
+        },
+        "travel_tips": [
+            "Start early morning for comfortable sightseeing.",
+            "Carry comfortable footwear and water bottle.",
+            "Book cab transfers in advance for smooth travel."
+        ],
+        "faqs": [
+            {"q": "What is Wayanad famous for?", "a": "Wayanad is famous for its unique attractions, scenic beauty, and cultural heritage."},
+            {"q": "How to reach Wayanad?", "a": "Wayanad is easily accessible via cab from Calicut with Vibhu Travel Hub."}
+        ]
+    },
+    "thekkady": {
+        "state_slug": "kerala",
+        "city_slug": "cochin",
+        "place_name": "Thekkady",
+        "slug": "thekkady",
+        "h1": "Thekkady – Travel Guide",
+        "title": "Thekkady Travel Guide & Tourist Places | Vibhu Travel Hub",
+        "description": "Explore Thekkady with our travel guide covering Periyar Wildlife Sanctuary, spice estate walks, boat safaris, travel tips, and FAQs.",
+        "tagline": "Periyar Jungle Wildlife & Organic Spice Estates",
+        "about_paragraphs": [
+            "Thekkady is Kerala's premier wildlife destination, home to the dense evergreen forests of Periyar Tiger Reserve.",
+            "Enjoy boat safaris on Periyar Lake, spot wild elephants, walk through aromatic cardamom and pepper plantations, and watch Kathakali performances.",
+            "Vibhu Travel Hub offers outstation cabs connecting Cochin, Munnar, and Alleppey to Thekkady."
+        ],
+        "why_visit": [
+            {"title": "Popular Attractions", "icon": "bi-geo-alt-fill", "desc": "Explore top sightseeing spots in Thekkady."},
+            {"title": "Scenic Landscapes", "icon": "bi-tree-fill", "desc": "Enjoy pristine natural beauty and photo spots."},
+            {"title": "Cultural Heritage", "icon": "bi-bank", "desc": "Discover rich local history and traditions."}
+        ],
+        "how_to_reach": "Thekkady is well connected by road with regular transfers available from Cochin.",
+        "attractions": [
+            {"name": "Thekkady Main Viewpoint", "desc": "Primary attraction offering great views and local culture."},
+            {"name": "Thekkady Heritage Spot", "desc": "Historic monument and scenic walk."}
+        ],
+        "experiences": [
+            {"title": "Sightseeing Tour", "image": "ooty.avif", "desc": "Comfortable tour with Vibhu Travel Hub cabs."}
+        ],
+        "best_time_guide": {
+            "peak": "October to March — Pleasant weather for travel.",
+            "shoulder": "April to June — Great for vacation trips.",
+            "off": "July to September — Lush monsoon season."
+        },
+        "things_to_do": [
+            {"title": "Explore Local Sights", "icon": "bi-compass", "desc": "Visit popular places."},
+            {"title": "Photograph Scenery", "icon": "bi-camera", "desc": "Capture scenic memories."}
+        ],
+        "travel_guide_info": {
+            "airports": "Nearest major regional airport",
+            "railways": "Nearest central railway station",
+            "road": "Connected via main national highways",
+            "duration": "1 to 2 Days recommended",
+            "ideal_for": "Families, Couples, Nature Lovers",
+            "popular_routes": "Highway route connecting regional hubs"
+        },
+        "travel_tips": [
+            "Start early morning for comfortable sightseeing.",
+            "Carry comfortable footwear and water bottle.",
+            "Book cab transfers in advance for smooth travel."
+        ],
+        "faqs": [
+            {"q": "What is Thekkady famous for?", "a": "Thekkady is famous for its unique attractions, scenic beauty, and cultural heritage."},
+            {"q": "How to reach Thekkady?", "a": "Thekkady is easily accessible via cab from Cochin with Vibhu Travel Hub."}
+        ]
+    },
+    "varkala": {
+        "state_slug": "kerala",
+        "city_slug": "trivandrum",
+        "place_name": "Varkala",
+        "slug": "varkala",
+        "h1": "Varkala – Travel Guide",
+        "title": "Varkala Travel Guide & Tourist Places | Vibhu Travel Hub",
+        "description": "Explore Varkala with our travel guide covering red cliff beaches, Janardhanaswamy Temple, cliff cafes, travel tips, and FAQs.",
+        "tagline": "Red Laterite Cliffs Overlooking the Arabian Sea",
+        "about_paragraphs": [
+            "Varkala is a unique coastal town in Kerala famous for dramatic red laterite cliffs bordering the Arabian Sea.",
+            "Relax on Papanasam Beach, dine at cliff-top cafes, visit 2000-year-old Janardhanaswamy Temple, and enjoy Ayurvedic massages.",
+            "Vibhu Travel Hub provides direct airport cabs from Trivandrum (TRV) to Varkala cliff resorts."
+        ],
+        "why_visit": [
+            {"title": "Popular Attractions", "icon": "bi-geo-alt-fill", "desc": "Explore top sightseeing spots in Varkala."},
+            {"title": "Scenic Landscapes", "icon": "bi-tree-fill", "desc": "Enjoy pristine natural beauty and photo spots."},
+            {"title": "Cultural Heritage", "icon": "bi-bank", "desc": "Discover rich local history and traditions."}
+        ],
+        "how_to_reach": "Varkala is well connected by road with regular transfers available from Trivandrum.",
+        "attractions": [
+            {"name": "Varkala Main Viewpoint", "desc": "Primary attraction offering great views and local culture."},
+            {"name": "Varkala Heritage Spot", "desc": "Historic monument and scenic walk."}
+        ],
+        "experiences": [
+            {"title": "Sightseeing Tour", "image": "ooty.avif", "desc": "Comfortable tour with Vibhu Travel Hub cabs."}
+        ],
+        "best_time_guide": {
+            "peak": "October to March — Pleasant weather for travel.",
+            "shoulder": "April to June — Great for vacation trips.",
+            "off": "July to September — Lush monsoon season."
+        },
+        "things_to_do": [
+            {"title": "Explore Local Sights", "icon": "bi-compass", "desc": "Visit popular places."},
+            {"title": "Photograph Scenery", "icon": "bi-camera", "desc": "Capture scenic memories."}
+        ],
+        "travel_guide_info": {
+            "airports": "Nearest major regional airport",
+            "railways": "Nearest central railway station",
+            "road": "Connected via main national highways",
+            "duration": "1 to 2 Days recommended",
+            "ideal_for": "Families, Couples, Nature Lovers",
+            "popular_routes": "Highway route connecting regional hubs"
+        },
+        "travel_tips": [
+            "Start early morning for comfortable sightseeing.",
+            "Carry comfortable footwear and water bottle.",
+            "Book cab transfers in advance for smooth travel."
+        ],
+        "faqs": [
+            {"q": "What is Varkala famous for?", "a": "Varkala is famous for its unique attractions, scenic beauty, and cultural heritage."},
+            {"q": "How to reach Varkala?", "a": "Varkala is easily accessible via cab from Trivandrum with Vibhu Travel Hub."}
+        ]
+    },
+    "kovalam": {
+        "state_slug": "kerala",
+        "city_slug": "trivandrum",
+        "place_name": "Kovalam",
+        "slug": "kovalam",
+        "h1": "Kovalam – Travel Guide",
+        "title": "Kovalam Travel Guide & Tourist Places | Vibhu Travel Hub",
+        "description": "Explore Kovalam with our travel guide covering Lighthouse Beach, Hawah Beach, Samudra Beach, water sports, travel tips, and FAQs.",
+        "tagline": "World-Famous Crescent Beaches & Red-White Lighthouse",
+        "about_paragraphs": [
+            "Kovalam is an internationally acclaimed beach destination featuring three crescent-shaped beaches separated by rocky outcroppings.",
+            "Climb the iconic 35-meter Vizhinjam Lighthouse, enjoy beachside dining, try catamaran boat rides, and relax under palm trees.",
+            "Vibhu Travel Hub offers 24/7 cab services from Trivandrum city and airport to Kovalam."
+        ],
+        "why_visit": [
+            {"title": "Popular Attractions", "icon": "bi-geo-alt-fill", "desc": "Explore top sightseeing spots in Kovalam."},
+            {"title": "Scenic Landscapes", "icon": "bi-tree-fill", "desc": "Enjoy pristine natural beauty and photo spots."},
+            {"title": "Cultural Heritage", "icon": "bi-bank", "desc": "Discover rich local history and traditions."}
+        ],
+        "how_to_reach": "Kovalam is well connected by road with regular transfers available from Trivandrum.",
+        "attractions": [
+            {"name": "Kovalam Main Viewpoint", "desc": "Primary attraction offering great views and local culture."},
+            {"name": "Kovalam Heritage Spot", "desc": "Historic monument and scenic walk."}
+        ],
+        "experiences": [
+            {"title": "Sightseeing Tour", "image": "ooty.avif", "desc": "Comfortable tour with Vibhu Travel Hub cabs."}
+        ],
+        "best_time_guide": {
+            "peak": "October to March — Pleasant weather for travel.",
+            "shoulder": "April to June — Great for vacation trips.",
+            "off": "July to September — Lush monsoon season."
+        },
+        "things_to_do": [
+            {"title": "Explore Local Sights", "icon": "bi-compass", "desc": "Visit popular places."},
+            {"title": "Photograph Scenery", "icon": "bi-camera", "desc": "Capture scenic memories."}
+        ],
+        "travel_guide_info": {
+            "airports": "Nearest major regional airport",
+            "railways": "Nearest central railway station",
+            "road": "Connected via main national highways",
+            "duration": "1 to 2 Days recommended",
+            "ideal_for": "Families, Couples, Nature Lovers",
+            "popular_routes": "Highway route connecting regional hubs"
+        },
+        "travel_tips": [
+            "Start early morning for comfortable sightseeing.",
+            "Carry comfortable footwear and water bottle.",
+            "Book cab transfers in advance for smooth travel."
+        ],
+        "faqs": [
+            {"q": "What is Kovalam famous for?", "a": "Kovalam is famous for its unique attractions, scenic beauty, and cultural heritage."},
+            {"q": "How to reach Kovalam?", "a": "Kovalam is easily accessible via cab from Trivandrum with Vibhu Travel Hub."}
+        ]
+    },
+    "fort-kochi": {
+        "state_slug": "kerala",
+        "city_slug": "cochin",
+        "place_name": "Fort Kochi",
+        "slug": "fort-kochi",
+        "h1": "Fort Kochi – Travel Guide",
+        "title": "Fort Kochi Travel Guide & Tourist Places | Vibhu Travel Hub",
+        "description": "Explore Fort Kochi with our travel guide covering Chinese fishing nets, St. Francis Church, Dutch Palace, travel tips, and FAQs.",
+        "tagline": "Colonial Heritage Quarter & Chinese Fishing Nets",
+        "about_paragraphs": [
+            "Fort Kochi is a historic seaside neighborhood in Cochin reflecting Portuguese, Dutch, and British colonial influences.",
+            "Photograph iconic wooden Chinese fishing nets, visit St. Francis Church where Vasco da Gama was buried, and explore Jew Town in Mattancherry.",
+            "Vibhu Travel Hub provides local city cabs and airport transfer services throughout Kochi and Fort Kochi."
+        ],
+        "why_visit": [
+            {"title": "Popular Attractions", "icon": "bi-geo-alt-fill", "desc": "Explore top sightseeing spots in Fort Kochi."},
+            {"title": "Scenic Landscapes", "icon": "bi-tree-fill", "desc": "Enjoy pristine natural beauty and photo spots."},
+            {"title": "Cultural Heritage", "icon": "bi-bank", "desc": "Discover rich local history and traditions."}
+        ],
+        "how_to_reach": "Fort Kochi is well connected by road with regular transfers available from Cochin.",
+        "attractions": [
+            {"name": "Fort Kochi Main Viewpoint", "desc": "Primary attraction offering great views and local culture."},
+            {"name": "Fort Kochi Heritage Spot", "desc": "Historic monument and scenic walk."}
+        ],
+        "experiences": [
+            {"title": "Sightseeing Tour", "image": "ooty.avif", "desc": "Comfortable tour with Vibhu Travel Hub cabs."}
+        ],
+        "best_time_guide": {
+            "peak": "October to March — Pleasant weather for travel.",
+            "shoulder": "April to June — Great for vacation trips.",
+            "off": "July to September — Lush monsoon season."
+        },
+        "things_to_do": [
+            {"title": "Explore Local Sights", "icon": "bi-compass", "desc": "Visit popular places."},
+            {"title": "Photograph Scenery", "icon": "bi-camera", "desc": "Capture scenic memories."}
+        ],
+        "travel_guide_info": {
+            "airports": "Nearest major regional airport",
+            "railways": "Nearest central railway station",
+            "road": "Connected via main national highways",
+            "duration": "1 to 2 Days recommended",
+            "ideal_for": "Families, Couples, Nature Lovers",
+            "popular_routes": "Highway route connecting regional hubs"
+        },
+        "travel_tips": [
+            "Start early morning for comfortable sightseeing.",
+            "Carry comfortable footwear and water bottle.",
+            "Book cab transfers in advance for smooth travel."
+        ],
+        "faqs": [
+            {"q": "What is Fort Kochi famous for?", "a": "Fort Kochi is famous for its unique attractions, scenic beauty, and cultural heritage."},
+            {"q": "How to reach Fort Kochi?", "a": "Fort Kochi is easily accessible via cab from Cochin with Vibhu Travel Hub."}
+        ]
+    },
+    "gokarna": {
+        "state_slug": "karnataka",
+        "city_slug": "bangalore",
+        "place_name": "Gokarna",
+        "slug": "gokarna",
+        "h1": "Gokarna – Travel Guide",
+        "title": "Gokarna Travel Guide & Tourist Places | Vibhu Travel Hub",
+        "description": "Explore Gokarna with our travel guide covering Om Beach, Mahabaleshwar Temple, Kudle Beach, cliff trekking, travel tips, and FAQs.",
+        "tagline": "Sacred Temple Town & Unspoiled Cliff Beaches",
+        "about_paragraphs": [
+            "Gokarna is a peaceful coastal town in Karnataka celebrated for its sacred Mahabaleshwar Shiva Temple and pristine beaches.",
+            "Trek along scenic coastal cliffs connecting Kudle Beach, Om Beach, Half Moon Beach, and Paradise Beach.",
+            "Vibhu Travel Hub provides comfortable outstation cabs connecting Bangalore, Hubli, and Goa to Gokarna."
+        ],
+        "why_visit": [
+            {"title": "Popular Attractions", "icon": "bi-geo-alt-fill", "desc": "Explore top sightseeing spots in Gokarna."},
+            {"title": "Scenic Landscapes", "icon": "bi-tree-fill", "desc": "Enjoy pristine natural beauty and photo spots."},
+            {"title": "Cultural Heritage", "icon": "bi-bank", "desc": "Discover rich local history and traditions."}
+        ],
+        "how_to_reach": "Gokarna is well connected by road with regular transfers available from Bangalore.",
+        "attractions": [
+            {"name": "Gokarna Main Viewpoint", "desc": "Primary attraction offering great views and local culture."},
+            {"name": "Gokarna Heritage Spot", "desc": "Historic monument and scenic walk."}
+        ],
+        "experiences": [
+            {"title": "Sightseeing Tour", "image": "ooty.avif", "desc": "Comfortable tour with Vibhu Travel Hub cabs."}
+        ],
+        "best_time_guide": {
+            "peak": "October to March — Pleasant weather for travel.",
+            "shoulder": "April to June — Great for vacation trips.",
+            "off": "July to September — Lush monsoon season."
+        },
+        "things_to_do": [
+            {"title": "Explore Local Sights", "icon": "bi-compass", "desc": "Visit popular places."},
+            {"title": "Photograph Scenery", "icon": "bi-camera", "desc": "Capture scenic memories."}
+        ],
+        "travel_guide_info": {
+            "airports": "Nearest major regional airport",
+            "railways": "Nearest central railway station",
+            "road": "Connected via main national highways",
+            "duration": "1 to 2 Days recommended",
+            "ideal_for": "Families, Couples, Nature Lovers",
+            "popular_routes": "Highway route connecting regional hubs"
+        },
+        "travel_tips": [
+            "Start early morning for comfortable sightseeing.",
+            "Carry comfortable footwear and water bottle.",
+            "Book cab transfers in advance for smooth travel."
+        ],
+        "faqs": [
+            {"q": "What is Gokarna famous for?", "a": "Gokarna is famous for its unique attractions, scenic beauty, and cultural heritage."},
+            {"q": "How to reach Gokarna?", "a": "Gokarna is easily accessible via cab from Bangalore with Vibhu Travel Hub."}
+        ]
+    },
+    "kabini": {
+        "state_slug": "karnataka",
+        "city_slug": "mysore",
+        "place_name": "Kabini",
+        "slug": "kabini",
+        "h1": "Kabini – Travel Guide",
+        "title": "Kabini Travel Guide & Tourist Places | Vibhu Travel Hub",
+        "description": "Explore Kabini with our travel guide covering Nagarhole Tiger Reserve, jungle boat safaris, wildlife, travel tips, and FAQs.",
+        "tagline": "Premier Wildlife Sanctuary & Jungle River Safaris",
+        "about_paragraphs": [
+            "Kabini is one of South India's finest wildlife habitats located along the banks of the Kabini River in Nagarhole National Park.",
+            "Experience boat and jeep safaris, spot wild Asian elephants, leopards, tigers, and rare black panthers.",
+            "Vibhu Travel Hub offers private cab transfers from Mysore and Bangalore to Kabini jungle lodges."
+        ],
+        "why_visit": [
+            {"title": "Popular Attractions", "icon": "bi-geo-alt-fill", "desc": "Explore top sightseeing spots in Kabini."},
+            {"title": "Scenic Landscapes", "icon": "bi-tree-fill", "desc": "Enjoy pristine natural beauty and photo spots."},
+            {"title": "Cultural Heritage", "icon": "bi-bank", "desc": "Discover rich local history and traditions."}
+        ],
+        "how_to_reach": "Kabini is well connected by road with regular transfers available from Mysore.",
+        "attractions": [
+            {"name": "Kabini Main Viewpoint", "desc": "Primary attraction offering great views and local culture."},
+            {"name": "Kabini Heritage Spot", "desc": "Historic monument and scenic walk."}
+        ],
+        "experiences": [
+            {"title": "Sightseeing Tour", "image": "ooty.avif", "desc": "Comfortable tour with Vibhu Travel Hub cabs."}
+        ],
+        "best_time_guide": {
+            "peak": "October to March — Pleasant weather for travel.",
+            "shoulder": "April to June — Great for vacation trips.",
+            "off": "July to September — Lush monsoon season."
+        },
+        "things_to_do": [
+            {"title": "Explore Local Sights", "icon": "bi-compass", "desc": "Visit popular places."},
+            {"title": "Photograph Scenery", "icon": "bi-camera", "desc": "Capture scenic memories."}
+        ],
+        "travel_guide_info": {
+            "airports": "Nearest major regional airport",
+            "railways": "Nearest central railway station",
+            "road": "Connected via main national highways",
+            "duration": "1 to 2 Days recommended",
+            "ideal_for": "Families, Couples, Nature Lovers",
+            "popular_routes": "Highway route connecting regional hubs"
+        },
+        "travel_tips": [
+            "Start early morning for comfortable sightseeing.",
+            "Carry comfortable footwear and water bottle.",
+            "Book cab transfers in advance for smooth travel."
+        ],
+        "faqs": [
+            {"q": "What is Kabini famous for?", "a": "Kabini is famous for its unique attractions, scenic beauty, and cultural heritage."},
+            {"q": "How to reach Kabini?", "a": "Kabini is easily accessible via cab from Mysore with Vibhu Travel Hub."}
+        ]
+    },
     "ooty": {
         "state_slug": "tamil-nadu",
         "city_slug": "coimbatore",

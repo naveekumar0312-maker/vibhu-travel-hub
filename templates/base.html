@@ -14,6 +14,10 @@
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#000000">
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/webp" href="{% static 'images/logo/logo.webp' %}">
+    <link rel="shortcut icon" href="{% static 'images/logo/logo.webp' %}">
+
     <!-- Canonical URL (Dynamic HTTPS Production Domain) -->
     <link rel="canonical" href="https://vibhutravelhub.com{{ request.path }}">
 
@@ -278,6 +282,7 @@
     <script defer src="{% static 'js/main-min.js' %}?v={{ STATIC_VERSION }}"></script>
     <script defer src="{% static 'js/animations.js' %}?v={{ STATIC_VERSION }}"></script>
     <script defer src="{% static 'js/global-animations.js' %}?v={{ STATIC_VERSION }}"></script>
+    <script defer src="{% static 'js/text-animations.js' %}?v={{ STATIC_VERSION }}"></script>
     <script defer src="{% static 'js/mobile-navbar.js' %}?v={{ STATIC_VERSION }}"></script>
     <script defer src="{% static 'js/sticky-header.js' %}?v={{ STATIC_VERSION }}"></script>
     <script defer src="{% static 'js/premium-hero-slider.js' %}?v={{ STATIC_VERSION }}"></script>

@@ -38,6 +38,11 @@
   },{
     "@type": "ListItem",
     "position": 3,
+    "name": "{{ place_data.city_slug|title }}",
+    "item": "https://vibhutravelhub.com/destinations/{{ place_data.state_slug }}/{{ place_data.city_slug }}/"
+  },{
+    "@type": "ListItem",
+    "position": 4,
     "name": "{{ place_data.place_name }}",
     "item": "https://vibhutravelhub.com/destinations/{{ place_data.state_slug }}/{{ place_data.city_slug }}/place/{{ place_data.slug }}/"
   }]
@@ -78,27 +83,27 @@
     </div>
 </nav>
 
-<!-- 2. HERO SECTION -->
-<section class="py-5 bg-dark text-white position-relative overflow-hidden" style="background: linear-gradient(135deg, #091E3A 0%, #1A4275 100%);">
-    <div class="container py-4 position-relative z-2">
+<!-- 2. HERO SECTION (Clean Editorial Style) -->
+<section class="py-5 bg-white text-dark position-relative overflow-hidden border-bottom">
+    <div class="container py-3 position-relative z-2">
         <div class="row align-items-center">
             <div class="col-lg-8 reveal-left">
-                <span class="badge bg-danger rounded-pill px-3 py-2 text-uppercase mb-3 fw-bold tracking-wider float">Explore Destination</span>
-                <h1 class="display-4 fw-extrabold mb-3 text-white">{{ place_data.h1 }}</h1>
-                <p class="lead text-light opacity-90 mb-4" style="max-width: 720px; line-height: 1.6;">
+                <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block mb-2" style="color: #E31E24; font-size: 0.82rem; letter-spacing: 1.2px;">EXPLORE DESTINATION</span>
+                <h1 class="hero-main-title text-dark fw-extrabold mb-3" style="font-size: 3.2rem; line-height: 1.15; letter-spacing: -1px; color: #0F172A;">{{ place_data.h1 }}</h1>
+                <p class="hero-desc-anim lead text-secondary mb-4" style="max-width: 720px; line-height: 1.65; color: #475569 !important; font-size: 1.1rem;">
                     {{ place_data.tagline|default:place_data.description }}
                 </p>
-                <div class="d-flex flex-wrap gap-3">
-                    <a href="#about-destination" class="btn btn-danger rounded-pill px-4 py-2.5 fw-bold text-white shadow-sm d-inline-flex align-items-center gap-2">
-                        <i class="bi bi-compass wobble"></i> Explore {{ place_data.place_name }}
+                <div class="d-flex flex-wrap gap-3 reveal-up">
+                    <a href="#about-destination" class="btn btn-danger rounded-pill px-4 py-2.5 fw-bold text-white shadow-sm d-inline-flex align-items-center gap-2" style="background-color: #E31E24; border: none;">
+                        <i class="bi bi-compass"></i> Explore {{ place_data.place_name }}
                     </a>
-                    <button class="btn btn-outline-light rounded-pill px-4 py-2.5 fw-bold d-inline-flex align-items-center gap-2" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="{{ place_data.place_name }} Tour">
-                        <i class="bi bi-calendar-check"></i> Book Your Trip
+                    <button class="btn btn-outline-dark rounded-pill px-4 py-2.5 fw-bold d-inline-flex align-items-center gap-2" style="border: 1px solid #CBD5E1; color: #1E293B; background: #FFFFFF;" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="{{ place_data.place_name }} Tour">
+                        <i class="bi bi-calendar-check text-danger"></i> Book Your Trip
                     </button>
-                    <a href="tel:+919655866660" class="btn btn-outline-light rounded-pill px-4 py-2.5 fw-bold d-inline-flex align-items-center gap-2">
-                        <i class="bi bi-telephone-fill"></i> Call Now
+                    <a href="tel:+919655866660" class="btn btn-outline-dark rounded-pill px-4 py-2.5 fw-bold d-inline-flex align-items-center gap-2" style="border: 1px solid #CBD5E1; color: #1E293B; background: #FFFFFF;">
+                        <i class="bi bi-telephone-fill text-danger"></i> Call Now
                     </a>
-                    <a href="https://wa.me/919655866660?text=Hi%20Vibhu%20Travel%20Hub,%20I%20want%20to%20plan%20a%20trip%20to%20{{ place_data.place_name }}" target="_blank" class="btn btn-success rounded-pill px-4 py-2.5 fw-bold d-inline-flex align-items-center gap-2">
+                    <a href="https://wa.me/919655866660?text=Hi%20Vibhu%20Travel%20Hub,%20I%20want%20to%20plan%20a%20trip%20to%20{{ place_data.place_name }}" target="_blank" class="btn btn-success rounded-pill px-4 py-2.5 fw-bold d-inline-flex align-items-center gap-2" style="background-color: #25D366; border: none;">
                         <i class="bi bi-whatsapp"></i> WhatsApp
                     </a>
                 </div>

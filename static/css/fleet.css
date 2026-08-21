@@ -94,13 +94,13 @@
     position: absolute;
     top: 20px;
     right: 20px;
-    background: linear-gradient(90deg, #0d6efd 0%, #0052cc 100%);
+    background: #FF1F1F;
     color: #ffffff;
     padding: 6px 16px;
     border-radius: 50px;
     font-size: 14px;
     font-weight: 700;
-    box-shadow: 0 4px 10px rgba(13, 110, 253, 0.3);
+    box-shadow: 0 4px 10px rgba(255, 31, 31, 0.3);
     z-index: 10;
 }
 
@@ -168,7 +168,7 @@
 }
 
 .vth-fleet-passenger i {
-    color: #0d6efd; /* Blue icon */
+    color: #FF1F1F; /* Red icon */
     font-size: 18px;
     margin-right: 8px;
 }
@@ -204,8 +204,8 @@
     padding: 12px;
     border-radius: 50px;
     background: #ffffff;
-    border: 2px solid #0d6efd;
-    color: #0d6efd;
+    border: 1.5px solid #FF1F1F;
+    color: #FF1F1F;
     font-weight: 600;
     font-size: 15px;
     text-align: center;
@@ -215,6 +215,6 @@
 }
 
 .vth-fleet-btn:hover {
-    background: #0d6efd;
+    background: #FF1F1F;
     color: #ffffff;
 }

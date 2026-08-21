@@ -610,3 +610,260 @@ body {
     }
 }
 
+
+
+
+/* ==========================================================
+   MOBILE HERO & RESPONSIVE FIXES (Below 768px)
+   ========================================================== */
+@media (max-width: 767.98px) {
+    
+    .about-hero-overlay {
+        display: none !important;
+    }
+    .about-hero-section .container {
+        order: 1 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        box-sizing: border-box !important;
+    }
+    
+    .vth-script-eyebrow {
+        font-size: 1.5rem !important;
+    }
+    .about-hero-section h1 {
+        font-size: clamp(2rem, 7.5vw, 2.7rem) !important;
+        letter-spacing: -0.6px !important;
+        line-height: 1.2 !important;
+        word-break: break-word !important;
+        margin-bottom: 0.75rem !important;
+    }
+    .about-hero-section p {
+        font-size: 1rem !important;
+        line-height: 1.6 !important;
+        max-width: 100% !important;
+        margin-bottom: 1.25rem !important;
+    }
+    .about-hero-section .d-flex.flex-wrap {
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 12px !important;
+    }
+    .about-hero-section .d-flex.flex-wrap .btn,
+    .about-hero-section .d-flex.flex-wrap a {
+        width: 100% !important;
+        justify-content: center !important;
+        padding: 12px 20px !important;
+        font-size: 0.95rem !important;
+        min-height: 46px !important;
+    }
+    .story-img-main {
+        height: 250px !important;
+    }
+    .story-badge-exp {
+        left: 10px !important;
+        bottom: 10px !important;
+        padding: 10px 16px !important;
+    }
+}
+
+/* ==========================================================
+   CINEMATIC HERO STYLING (MATCHING DESTINATION HERO REFERENCE)
+   ========================================================== */
+.vth-hero-tn {
+    position: relative;
+    min-height: 520px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: #0F172A;
+}
+
+.vth-hero-tn-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 1;
+}
+
+.vth-hero-tn-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(4, 24, 48, 0.92) 0%, rgba(4, 24, 48, 0.72) 45%, rgba(4, 24, 48, 0.25) 100%);
+    z-index: 2;
+}
+
+@media (max-width: 767.98px) {
+    .vth-hero-tn {
+        min-height: 440px !important;
+        padding-top: 3.5rem !important;
+        padding-bottom: 3.5rem !important;
+    }
+    .vth-hero-tn .hero-main-title {
+        font-size: clamp(2.1rem, 7.5vw, 2.7rem) !important;
+        line-height: 1.15 !important;
+    }
+    .vth-hero-tn p {
+        font-size: 1rem !important;
+        line-height: 1.6 !important;
+    }
+}
+
+/* ==========================================================
+   CINEMATIC FULL-WIDTH HERO SECTION (SERVICE PAGES)
+   ========================================================== */
+.service-hero {
+    position: relative;
+    width: 100%;
+    min-height: 560px;
+    overflow: hidden;
+    background: #0F172A;
+    display: flex;
+    align-items: center;
+}
+
+.service-hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.service-hero-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block !important;
+}
+
+.service-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background: linear-gradient(
+        90deg,
+        rgba(8, 22, 42, 0.94) 0%,
+        rgba(8, 22, 42, 0.76) 45%,
+        rgba(8, 22, 42, 0.35) 75%,
+        rgba(8, 22, 42, 0.15) 100%
+    );
+}
+
+.service-hero-content {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    padding: 60px 0;
+}
+
+@media (max-width: 767.98px) {
+    .service-hero {
+        min-height: 480px !important;
+        padding: 40px 0 !important;
+    }
+    .service-hero-overlay {
+        background: linear-gradient(
+            180deg,
+            rgba(8, 22, 42, 0.90) 0%,
+            rgba(8, 22, 42, 0.78) 60%,
+            rgba(8, 22, 42, 0.65) 100%
+        ) !important;
+    }
+    .service-hero-content h1 {
+        font-size: clamp(2.1rem, 7.5vw, 2.7rem) !important;
+        line-height: 1.15 !important;
+    }
+}
+
+
+/* ==========================================================
+   MASTER HERO STYLING (EXACT MATCH FOR TAMIL NADU REFERENCE)
+   ========================================================== */
+.vth-hero-tn {
+    position: relative;
+    min-height: 520px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: #0F172A;
+}
+
+.vth-hero-tn-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 1;
+}
+
+.vth-hero-tn-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(4, 24, 48, 0.88) 0%, rgba(4, 24, 48, 0.65) 45%, rgba(4, 24, 48, 0.2) 100%);
+    z-index: 2;
+}
+
+@media (max-width: 767.98px) {
+    .vth-hero-tn {
+        min-height: 440px;
+        padding-top: 3.5rem;
+        padding-bottom: 3.5rem;
+    }
+    .vth-hero-tn-overlay {
+        background: linear-gradient(180deg, rgba(4, 24, 48, 0.92) 0%, rgba(4, 24, 48, 0.80) 60%, rgba(4, 24, 48, 0.65) 100%);
+    }
+    .vth-hero-tn .hero-main-title {
+        font-size: clamp(2.1rem, 7.5vw, 2.7rem);
+        line-height: 1.15;
+    }
+    .vth-hero-tn p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .vth-hero-tn {
+        min-height: 380px;
+        padding-top: 2.5rem;
+        padding-bottom: 2.5rem;
+    }
+    .vth-hero-tn .hero-main-title {
+        font-size: clamp(1.75rem, 6.5vw, 2.2rem) !important;
+    }
+    .vth-hero-tn .d-flex.flex-wrap {
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 10px !important;
+    }
+    .vth-hero-tn .d-flex.flex-wrap .btn,
+    .vth-hero-tn .d-flex.flex-wrap a.btn {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+}

@@ -2,11 +2,60 @@
 {% load static %}
 {% load vehicle_tags %}
 
-{% block title %}Luxury Travel Services in South India | Vibhu Travel Hub{% endblock %}
+{% block title %}Vibhu Travel Hub | Luxury Travel & Cab Services Across South India{% endblock %}
 
-{% block description %}Vibhu Travel Hub is a premier travel agency offering cab service, outstation cabs, airport transfers, tempo traveller rentals, luxury bus rentals, and tour packages across South India.{% endblock %}
+{% block description %}Vibhu Travel Hub offers premium cab rentals, tempo travellers, luxury buses and customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %}
 
-{% block keywords %}travel agency, best travel agency, travel agency in tamil nadu, cab service coimbatore, tempo traveller rental coimbatore, luxury bus rental, outstation cabs{% endblock %}
+{% block keywords %}Vibhu Travel Hub, cab service South India, luxury travel South India, cab rental Tamil Nadu, Kerala travel, Karnataka travel, tempo traveller rental{% endblock %}
+
+{% block og_title %}Vibhu Travel Hub | Luxury Travel & Cab Services Across South India{% endblock %}
+{% block og_description %}Vibhu Travel Hub offers premium cab rentals, tempo travellers, luxury buses and customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %}
+
+{% block twitter_title %}Vibhu Travel Hub | Luxury Travel & Cab Services Across South India{% endblock %}
+{% block twitter_description %}Vibhu Travel Hub offers premium cab rentals, tempo travellers, luxury buses and customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %}
+
+{% block schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TravelAgency",
+  "name": "Vibhu Travel Hub",
+  "url": "https://vibhutravelhub.com",
+  "logo": "https://vibhutravelhub.com/static/images/logo/logo.webp",
+  "image": "https://vibhutravelhub.com/static/images/logo/og-banner.webp",
+  "description": "Vibhu Travel Hub is a premier travel agency offering cab service, outstation cabs, tempo traveller rentals, luxury bus rentals, and tour packages across South India.",
+  "email": "vibhutravelhub66@gmail.com",
+  "telephone": "+91-9655866660",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Joyce Villa Building, 87, Grey Town",
+    "addressLocality": "Coimbatore",
+    "addressRegion": "Tamil Nadu",
+    "postalCode": "641018",
+    "addressCountry": "IN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "11.0014",
+    "longitude": "76.9629"
+  },
+  "areaServed": [
+    { "@type": "AdministrativeArea", "name": "Tamil Nadu" },
+    { "@type": "AdministrativeArea", "name": "Kerala" },
+    { "@type": "AdministrativeArea", "name": "Karnataka" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Vibhu Travel Hub",
+  "url": "https://vibhutravelhub.com"
+}
+</script>
+{% endblock %}
 
 {% block body_class %}home-page{% endblock %}
 
@@ -67,257 +116,100 @@
         letter-spacing: -0.5px;
     }
 
-    /* --------------------------------------------------------------------------
-       HERO ENTRANCE ANIMATION SYSTEM (CINEMATIC SEQUENTIAL REVEAL)
-       -------------------------------------------------------------------------- */
+    /* Hero Entrance System */
     @keyframes heroBgEntrance {
-        0% {
-            opacity: 0.8;
-            transform: scale(1.02);
-        }
-
-        100% {
-            opacity: 1;
-            transform: scale(1);
-        }
+        0% { opacity: 0.8; transform: scale(1.02); }
+        100% { opacity: 1; transform: scale(1); }
     }
 
     @keyframes heroLabelEntrance {
-        0% {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        100% {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        0% { opacity: 0; transform: translateY(20px); }
+        100% { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes heroHeadingEntrance {
-        0% {
-            opacity: 0;
-            transform: translateY(35px);
-            filter: blur(8px);
-        }
-
-        100% {
-            opacity: 1;
-            transform: translateY(0);
-            filter: blur(0);
-        }
+        0% { opacity: 0; transform: translateY(35px); filter: blur(8px); }
+        100% { opacity: 1; transform: translateY(0); filter: blur(0); }
     }
 
     @keyframes heroDescEntrance {
-        0% {
-            opacity: 0;
-            transform: translateY(25px);
-        }
-
-        100% {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        0% { opacity: 0; transform: translateY(20px); }
+        100% { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes heroBtnEntrance {
-        0% {
-            opacity: 0;
-            transform: translateY(20px) scale(0.97);
-        }
-
-        100% {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-        }
+        0% { opacity: 0; transform: translateY(20px); }
+        100% { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes heroCardEntrance {
-        0% {
-            opacity: 0;
-            transform: translateY(25px) scale(0.98);
-        }
-
-        100% {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-        }
+        0% { opacity: 0; transform: translateY(30px); }
+        100% { opacity: 1; transform: translateY(0); }
     }
 
     .vth-hero-section {
-        position: relative;
-        overflow: hidden;
-        background-color: #041830;
-        width: 100%;
-        min-height: calc(100vh - 80px);
         min-height: 640px;
-        max-height: 800px;
+        animation: heroBgEntrance 1200ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
     .vth-hero-bg-img {
         object-fit: cover;
-        object-position: 58% 48%;
-        width: 100%;
-        height: 100%;
-        z-index: 0;
-        pointer-events: none;
-        animation: heroBgEntrance 1200ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        object-position: 52% 48%;
+        transition: object-position 0.3s ease;
     }
 
-    @media (min-width: 1400px) {
-        .vth-hero-section {
-            min-height: 680px;
-            max-height: 780px;
-        }
-
-        .vth-hero-bg-img {
-            object-position: 56% 48%;
-        }
+    @media (max-width: 1400px) {
+        .vth-hero-bg-img { object-position: 56% 48%; }
     }
-
     @media (max-width: 1199px) {
-        .vth-hero-section {
-            min-height: 600px;
-        }
-
-        .vth-hero-bg-img {
-            object-position: 60% 48%;
-        }
+        .vth-hero-section { min-height: 600px; }
+        .vth-hero-bg-img { object-position: 60% 48%; }
     }
-
     @media (max-width: 991px) {
-        .vth-hero-section {
-            min-height: 560px;
-        }
-
-        .vth-hero-bg-img {
-            object-position: 64% 50%;
-        }
+        .vth-hero-section { min-height: 560px; }
+        .vth-hero-bg-img { object-position: 64% 50%; }
     }
-
     @media (max-width: 767px) {
-        .vth-hero-section {
-            min-height: 520px;
-        }
-
-        .vth-hero-bg-img {
-            object-position: 68% 50%;
-        }
+        .vth-hero-section { min-height: 520px; }
+        .vth-hero-bg-img { object-position: 68% 50%; }
     }
-
     @media (max-width: 575px) {
-        .vth-hero-section {
-            min-height: 480px;
-        }
-
-        .vth-hero-bg-img {
-            object-position: 72% 50%;
-        }
+        .vth-hero-section { min-height: 480px; }
+        .vth-hero-bg-img { object-position: 72% 50%; }
     }
 
-    .hero-label-anim {
-        opacity: 0;
-        animation: heroLabelEntrance 600ms cubic-bezier(0.22, 1, 0.36, 1) 0ms forwards;
-    }
-
-    .hero-heading-anim {
-        opacity: 0;
-        animation: heroHeadingEntrance 800ms cubic-bezier(0.22, 1, 0.36, 1) 200ms forwards;
-    }
-
-    .hero-desc-anim {
-        opacity: 0;
-        animation: heroDescEntrance 650ms cubic-bezier(0.22, 1, 0.36, 1) 450ms forwards;
-    }
-
-    .hero-buttons-anim {
-        opacity: 0;
-        animation: heroBtnEntrance 600ms cubic-bezier(0.22, 1, 0.36, 1) 650ms forwards;
-    }
-
-    .hero-card-anim-1 {
-        opacity: 0;
-        animation: heroCardEntrance 600ms cubic-bezier(0.22, 1, 0.36, 1) 850ms forwards;
-    }
-
-    .hero-card-anim-2 {
-        opacity: 0;
-        animation: heroCardEntrance 600ms cubic-bezier(0.22, 1, 0.36, 1) 950ms forwards;
-    }
-
-    .hero-card-anim-3 {
-        opacity: 0;
-        animation: heroCardEntrance 600ms cubic-bezier(0.22, 1, 0.36, 1) 1050ms forwards;
-    }
-
-    .hero-card-anim-4 {
-        opacity: 0;
-        animation: heroCardEntrance 600ms cubic-bezier(0.22, 1, 0.36, 1) 1150ms forwards;
-    }
+    .hero-label-anim { opacity: 0; animation: heroLabelEntrance 600ms cubic-bezier(0.22, 1, 0.36, 1) 0ms forwards; }
+    .hero-heading-anim { opacity: 0; animation: heroHeadingEntrance 800ms cubic-bezier(0.22, 1, 0.36, 1) 200ms forwards; }
+    .hero-desc-anim { opacity: 0; animation: heroDescEntrance 650ms cubic-bezier(0.22, 1, 0.36, 1) 450ms forwards; }
+    .hero-buttons-anim { opacity: 0; animation: heroBtnEntrance 600ms cubic-bezier(0.22, 1, 0.36, 1) 650ms forwards; }
+    .hero-card-anim-1 { opacity: 0; animation: heroCardEntrance 600ms cubic-bezier(0.22, 1, 0.36, 1) 850ms forwards; }
+    .hero-card-anim-2 { opacity: 0; animation: heroCardEntrance 600ms cubic-bezier(0.22, 1, 0.36, 1) 950ms forwards; }
+    .hero-card-anim-3 { opacity: 0; animation: heroCardEntrance 600ms cubic-bezier(0.22, 1, 0.36, 1) 1050ms forwards; }
+    .hero-card-anim-4 { opacity: 0; animation: heroCardEntrance 600ms cubic-bezier(0.22, 1, 0.36, 1) 1150ms forwards; }
 
     @media (prefers-reduced-motion: reduce) {
-
-        .vth-hero-section,
-        .vth-hero-bg-img,
-        .hero-label-anim,
-        .hero-heading-anim,
-        .hero-desc-anim,
-        .hero-buttons-anim,
-        .hero-card-anim-1,
-        .hero-card-anim-2,
-        .hero-card-anim-3,
-        .hero-card-anim-4 {
-            animation: none !important;
-            opacity: 1 !important;
-            transform: none !important;
-            filter: none !important;
+        .vth-hero-section, .vth-hero-bg-img, .hero-label-anim, .hero-heading-anim, .hero-desc-anim, .hero-buttons-anim, .hero-card-anim-1, .hero-card-anim-2, .hero-card-anim-3, .hero-card-anim-4 {
+            animation: none !important; opacity: 1 !important; transform: none !important; filter: none !important;
         }
     }
 
-    /* Service Card & Destination Card Hover Enhancements */
-    .service-card-item {
-        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .service-card-item:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12) !important;
-    }
-    .service-card-item:hover .service-card-img {
-        transform: scale(1.06);
-    }
-    .service-card-item:hover .btn-outline-danger i {
-        transform: translateX(4px);
-        transition: transform 0.25s ease;
-    }
-    .destination-card-link {
-        text-decoration: none;
-        color: inherit;
-        display: block;
-    }
-    .place-card-link {
-        text-decoration: none;
-        color: inherit;
-        display: block;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .place-card-link:hover .place-card-ref {
-        transform: translateY(-4px);
-        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1) !important;
-    }
-    .place-card-link:hover .place-card-img {
-        transform: scale(1.08);
-        transition: transform 0.5s ease;
-    }
+    .service-card-item { transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
+    .service-card-item:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12) !important; }
+    .service-card-item:hover .service-card-img { transform: scale(1.06); }
+    .service-card-item:hover .btn-outline-danger i { transform: translateX(4px); transition: transform 0.25s ease; }
+    .destination-card-link { text-decoration: none; color: inherit; display: block; }
+    .place-card-link { text-decoration: none; color: inherit; display: block; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .place-card-link:hover .place-card-ref { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1) !important; }
+    .place-card-link:hover .place-card-img { transform: scale(1.08); transition: transform 0.5s ease; }
 </style>
 {% endblock %}
 
 {% block content %}
 
 <!-- ==========================================
-    SECTION 1 — HERO SECTION (FULL-WIDTH OCEAN 3D ISLAND HERO)
+    SECTION 1 — HOME / HERO SECTION
 ========================================== -->
-<section
-    class="vth-hero-section position-relative overflow-hidden d-flex flex-column justify-content-between py-4 py-lg-5">
+<section id="home" class="vth-hero-section position-relative overflow-hidden d-flex flex-column justify-content-between py-4 py-lg-5">
     <!-- Responsive Hero Image Backdrop Layer -->
     <img src="{% static 'images/hero-slider/hero-sea.png' %}" alt="South India Travel Destinations"
         class="vth-hero-bg-img position-absolute top-0 start-0 w-100 h-100">
@@ -329,18 +221,16 @@
 
     <div class="container position-relative z-2 my-auto">
         <div class="row align-items-center" style="min-height: 420px;">
-            <!-- Left Column: Content (max-width: 550px) -->
+            <!-- Left Column: Content -->
             <div class="col-lg-6 col-md-10" style="max-width: 550px;">
-                <span class="vth-hero-script hero-label-anim" style="color: #FF5A5F; font-size: 2rem;">Explore South
-                    India</span>
+                <span class="vth-hero-script hero-label-anim" style="color: #FF5A5F; font-size: 2rem;">Explore South India</span>
                 <h1 class="hero-main-title hero-heading-anim text-white mb-3"
                     style="font-size: 3.5rem; font-weight: 800; line-height: 1.12; letter-spacing: -1.2px; text-shadow: 0 2px 10px rgba(0,0,0,0.3);">
                     Luxury Travel<br>Across South India
                 </h1>
                 <p class="text-white-50 hero-desc-anim mb-4"
                     style="font-size: 1.08rem; line-height: 1.65; color: rgba(255, 255, 255, 0.88) !important; text-shadow: 0 1px 4px rgba(0,0,0,0.4);">
-                    Premium cabs, tempo travellers & luxury buses for unforgettable journeys across Tamil Nadu, Kerala &
-                    Karnataka.
+                    Premium cabs, tempo travellers & luxury buses for unforgettable journeys across Tamil Nadu, Kerala & Karnataka.
                 </p>
                 <div class="d-flex align-items-center gap-3 flex-wrap mb-4 mb-lg-5 hero-buttons-anim">
                     <a href="#"
@@ -358,57 +248,49 @@
             </div>
         </div>
 
-        <!-- 4 Hero Feature Cards (Positioned at bottom of Hero) -->
+        <!-- 4 Hero Feature Cards -->
         <div class="row g-3 mt-3">
             <div class="col-lg-3 col-6">
-                <div
-                    class="hero-mini-card hero-card-anim-1 p-3 rounded-4 bg-white border border-light-subtle shadow d-flex align-items-center gap-3">
+                <div class="hero-mini-card hero-card-anim-1 p-3 rounded-4 bg-white border border-light-subtle shadow d-flex align-items-center gap-3">
                     <div class="mini-icon-box rounded-circle p-2.5 text-danger d-flex align-items-center justify-content-center"
                         style="background: rgba(227, 30, 36, 0.08); width: 44px; height: 44px; flex-shrink: 0;">
                         <i class="bi bi-tag-fill fs-5"></i>
                     </div>
                     <div>
-                        <h6 class="mb-0 fw-bold text-dark lh-sm" style="font-size: 0.88rem;">Best Price<br><span
-                                class="text-muted fw-normal" style="font-size: 0.78rem;">Guaranteed</span></h6>
+                        <h6 class="mb-0 fw-bold text-dark lh-sm" style="font-size: 0.88rem;">Best Price<br><span class="text-muted fw-normal" style="font-size: 0.78rem;">Guaranteed</span></h6>
                     </div>
                 </div>
             </div>
             <div class="col-lg-3 col-6">
-                <div
-                    class="hero-mini-card hero-card-anim-2 p-3 rounded-4 bg-white border border-light-subtle shadow d-flex align-items-center gap-3">
+                <div class="hero-mini-card hero-card-anim-2 p-3 rounded-4 bg-white border border-light-subtle shadow d-flex align-items-center gap-3">
                     <div class="mini-icon-box rounded-circle p-2.5 text-danger d-flex align-items-center justify-content-center"
                         style="background: rgba(227, 30, 36, 0.08); width: 44px; height: 44px; flex-shrink: 0;">
                         <i class="bi bi-person-badge-fill fs-5"></i>
                     </div>
                     <div>
-                        <h6 class="mb-0 fw-bold text-dark lh-sm" style="font-size: 0.88rem;">Professional<br><span
-                                class="text-muted fw-normal" style="font-size: 0.78rem;">Drivers</span></h6>
+                        <h6 class="mb-0 fw-bold text-dark lh-sm" style="font-size: 0.88rem;">Professional<br><span class="text-muted fw-normal" style="font-size: 0.78rem;">Drivers</span></h6>
                     </div>
                 </div>
             </div>
             <div class="col-lg-3 col-6">
-                <div
-                    class="hero-mini-card hero-card-anim-3 p-3 rounded-4 bg-white border border-light-subtle shadow d-flex align-items-center gap-3">
+                <div class="hero-mini-card hero-card-anim-3 p-3 rounded-4 bg-white border border-light-subtle shadow d-flex align-items-center gap-3">
                     <div class="mini-icon-box rounded-circle p-2.5 text-danger d-flex align-items-center justify-content-center"
                         style="background: rgba(227, 30, 36, 0.08); width: 44px; height: 44px; flex-shrink: 0;">
                         <i class="bi bi-car-front-fill fs-5"></i>
                     </div>
                     <div>
-                        <h6 class="mb-0 fw-bold text-dark lh-sm" style="font-size: 0.88rem;">Luxury & Comfort<br><span
-                                class="text-muted fw-normal" style="font-size: 0.78rem;">Vehicles</span></h6>
+                        <h6 class="mb-0 fw-bold text-dark lh-sm" style="font-size: 0.88rem;">Luxury & Comfort<br><span class="text-muted fw-normal" style="font-size: 0.78rem;">Vehicles</span></h6>
                     </div>
                 </div>
             </div>
             <div class="col-lg-3 col-6">
-                <div
-                    class="hero-mini-card hero-card-anim-4 p-3 rounded-4 bg-white border border-light-subtle shadow d-flex align-items-center gap-3">
+                <div class="hero-mini-card hero-card-anim-4 p-3 rounded-4 bg-white border border-light-subtle shadow d-flex align-items-center gap-3">
                     <div class="mini-icon-box rounded-circle p-2.5 text-danger d-flex align-items-center justify-content-center"
                         style="background: rgba(227, 30, 36, 0.08); width: 44px; height: 44px; flex-shrink: 0;">
                         <i class="bi bi-headset fs-5"></i>
                     </div>
                     <div>
-                        <h6 class="mb-0 fw-bold text-dark lh-sm" style="font-size: 0.88rem;">24/7 Customer<br><span
-                                class="text-muted fw-normal" style="font-size: 0.78rem;">Support</span></h6>
+                        <h6 class="mb-0 fw-bold text-dark lh-sm" style="font-size: 0.88rem;">24/7 Customer<br><span class="text-muted fw-normal" style="font-size: 0.78rem;">Support</span></h6>
                     </div>
                 </div>
             </div>
@@ -416,9 +298,7 @@
     </div>
 </section>
 
-<!-- ==========================================
-    SECTION 2 — TRUST / SERVICE BENEFITS STRIP
-========================================== -->
+<!-- Trust Benefits Strip -->
 <section class="py-4 bg-light border-top border-bottom">
     <div class="container">
         <div class="row g-3 text-start align-items-center">
@@ -481,9 +361,9 @@
 </section>
 
 <!-- ==========================================
-    SECTION — ABOUT PREVIEW (DISCOVER VIBHU TRAVEL HUB)
+    SECTION 2 — ABOUT SECTION
 ========================================== -->
-<section id="about-preview" class="vth-section py-5 bg-white border-top">
+<section id="about" class="vth-section py-5 bg-white border-top">
     <div class="container">
         <div class="row align-items-center g-4">
             <div class="col-lg-6 reveal-left">
@@ -537,7 +417,308 @@
 </section>
 
 <!-- ==========================================
-    SECTION 3 — TOP DESTINATIONS
+    SECTION 3 — FLEET SECTION
+========================================== -->
+<section id="fleet" class="vth-section py-5 bg-light border-top border-bottom">
+    <style>
+        .vth-fleet-card {
+            background: #FFFFFF;
+            border-radius: 20px;
+            border: 1px solid #EAEAEA;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .vth-fleet-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.09) !important;
+        }
+
+        .fleet-card-media {
+            position: relative;
+            width: 100%;
+            height: 220px;
+            background-color: #F4F6F9;
+            overflow: hidden;
+        }
+
+        .fleet-card-media video,
+        .fleet-card-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .vth-fleet-card:hover .fleet-card-media video,
+        .vth-fleet-card:hover .fleet-card-media img {
+            transform: scale(1.03);
+        }
+
+        .fleet-price-badge {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            z-index: 5;
+            background: #FF1F1F;
+            color: #FFFFFF;
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 50px;
+            box-shadow: 0 4px 12px rgba(255, 31, 31, 0.25);
+            letter-spacing: 0.2px;
+        }
+
+        .fleet-card-title {
+            font-family: 'Outfit', 'Playfair Display', Georgia, serif;
+            font-weight: 800;
+            font-size: 1.45rem;
+            color: #1A1A1A;
+            margin-bottom: 0;
+            line-height: 1.25;
+        }
+
+        .fleet-model-pill {
+            background-color: #F1F4F9;
+            color: #64748B;
+            font-size: 0.76rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 6px;
+            border: 1px solid #E2E8F0;
+            white-space: nowrap;
+        }
+
+        .fleet-chip {
+            background-color: #F8FAFC;
+            color: #475569;
+            font-size: 0.78rem;
+            font-weight: 500;
+            padding: 5px 12px;
+            border-radius: 8px;
+            border: 1px solid #E2E8F0;
+        }
+
+        .fleet-view-btn {
+            border: 1.5px solid #FF1F1F;
+            color: #FF1F1F;
+            background: #FFFFFF;
+            font-weight: 700;
+            font-size: 0.92rem;
+            border-radius: 50px;
+            padding: 10px 20px;
+            transition: all 0.25s ease;
+            width: 100%;
+        }
+
+        .fleet-view-btn:hover {
+            background: #FF1F1F;
+            color: #FFFFFF;
+            box-shadow: 0 8px 20px rgba(255, 31, 31, 0.25);
+        }
+    </style>
+
+    <div class="container">
+        <!-- Subtitle & Header -->
+        <div class="text-center mb-5 reveal-down">
+            <span class="vth-eyebrow text-uppercase fw-bold d-block mb-1"
+                style="color: #E31E24; font-size: 0.8rem; letter-spacing: 1.5px;">OUR VEHICLES</span>
+            <h2 class="fw-extrabold text-dark mb-2" style="font-size: 2.3rem; letter-spacing: -0.5px;">Travel in Comfort</h2>
+            <p class="text-muted mx-auto mb-0" style="max-width: 680px; font-size: 0.98rem; line-height: 1.6;">
+                Travel in comfort with our well-maintained fleet of vehicles, perfect for any group size
+            </p>
+        </div>
+
+        <!-- 3 Cards Per Row Responsive Grid -->
+        <div class="row g-4 justify-content-center">
+            {% for vehicle in vehicles %}
+            <div class="col-lg-4 col-md-6 col-12 reveal-up d-flex align-items-stretch">
+                <div class="vth-fleet-card w-100">
+                    <!-- Top Media Area -->
+                    <div class="fleet-card-media">
+                        <!-- Price Badge -->
+                        <div class="fleet-price-badge">
+                            {% if vehicle.price %}{{ vehicle.price }}{% elif vehicle.day_rent %}₹{{ vehicle.day_rent|floatformat:0 }}/day{% else %}₹1,800/day{% endif %}
+                        </div>
+
+                        <!-- Video or Image Player -->
+                        {% if vehicle.get_video_url %}
+                            <video autoplay muted loop playsinline preload="auto">
+                                <source src="{{ vehicle.get_video_url }}" type="video/mp4">
+                                {% if vehicle.image %}<img src="{{ vehicle.image.url }}" alt="{{ vehicle.name }}">{% endif %}
+                            </video>
+                        {% else %}
+                            <img src="{% if vehicle.image %}{{ vehicle.image.url }}{% else %}{% static 'images/vehicles/traveller.webp' %}{% endif %}" alt="{{ vehicle.name }}">
+                        {% endif %}
+                    </div>
+
+                    <!-- Card Body Content -->
+                    <div class="p-4 d-flex flex-column flex-grow-1 justify-content-between">
+                        <div>
+                            <!-- Title & Model Pill -->
+                            <div class="d-flex align-items-center justify-content-between gap-2 mb-2">
+                                <h3 class="fleet-card-title">{{ vehicle.name }}</h3>
+                                {% if vehicle.model_name or vehicle.category %}
+                                <span class="fleet-model-pill">{{ vehicle.model_name|default:vehicle.category }}</span>
+                                {% endif %}
+                            </div>
+
+                            <!-- Short Description -->
+                            <p class="text-muted small mb-3" style="font-size: 0.88rem; line-height: 1.55;">
+                                {{ vehicle.short_description|default:"Perfect for couples and small families. Experience comfort and elegance with our well-maintained fleet." }}
+                            </p>
+
+                            <!-- Capacity Row -->
+                            <div class="d-flex align-items-center gap-2 text-dark fw-semibold small mb-3" style="font-size: 0.88rem;">
+                                <i class="bi bi-people-fill" style="color: #FF1F1F;"></i>
+                                <span>{{ vehicle.passengers }} Passengers</span>
+                            </div>
+
+                            <!-- Feature Tags / Chips -->
+                            <div class="d-flex flex-wrap gap-2 mb-4">
+                                {% if vehicle.feature_tags %}
+                                    {% for tag in vehicle.feature_tags.split %}
+                                        <span class="fleet-chip">{{ tag }}</span>
+                                    {% endfor %}
+                                {% else %}
+                                    {% if vehicle.has_music %}
+                                        <span class="fleet-chip">AC & Music System</span>
+                                    {% endif %}
+                                    {% if vehicle.has_driver %}
+                                        <span class="fleet-chip">Professional Driver</span>
+                                    {% endif %}
+                                    <span class="fleet-chip">Clean Interiors</span>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <!-- CTA Button -->
+                        <div>
+                            <button type="button" 
+                                class="fleet-view-btn d-flex align-items-center justify-content-center gap-2 fleet-details-trigger" 
+                                data-bs-toggle="modal" 
+                                data-bs-target="#vehicleDetailsModal" 
+                                data-vehicle-index="{{ forloop.counter0 }}">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <!-- Static Reference Cards if DB is Empty -->
+            <div class="col-lg-4 col-md-6 col-12 reveal-up d-flex align-items-stretch">
+                <div class="vth-fleet-card w-100">
+                    <div class="fleet-card-media">
+                        <div class="fleet-price-badge">₹1,800/day</div>
+                        <img src="{% static 'images/vehicles/sedan.webp' %}" alt="Sedan">
+                    </div>
+                    <div class="p-4 d-flex flex-column flex-grow-1 justify-content-between">
+                        <div>
+                            <div class="d-flex align-items-center justify-content-between gap-2 mb-2">
+                                <h3 class="fleet-card-title">Sedan</h3>
+                                <span class="fleet-model-pill">Etios / Dzire</span>
+                            </div>
+                            <p class="text-muted small mb-3" style="font-size: 0.88rem; line-height: 1.55;">
+                                Perfect for couples and small families. Experience comfort and elegance with our well-maintained fleet.
+                            </p>
+                            <div class="d-flex align-items-center gap-2 text-dark fw-semibold small mb-3">
+                                <i class="bi bi-people-fill" style="color: #FF1F1F;"></i>
+                                <span>2-4 Passengers</span>
+                            </div>
+                            <div class="d-flex flex-wrap gap-2 mb-4">
+                                <span class="fleet-chip">AC & Music System</span>
+                                <span class="fleet-chip">Professional Driver</span>
+                                <span class="fleet-chip">Clean Interiors</span>
+                            </div>
+                        </div>
+                        <div>
+                            <button type="button" class="fleet-view-btn" data-bs-toggle="modal" data-bs-target="#vehicleDetailsModal" data-vehicle-index="0">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12 reveal-up d-flex align-items-stretch">
+                <div class="vth-fleet-card w-100">
+                    <div class="fleet-card-media">
+                        <div class="fleet-price-badge">₹2,500/day</div>
+                        <img src="{% static 'images/vehicles/suv.png' %}" alt="SUV">
+                    </div>
+                    <div class="p-4 d-flex flex-column flex-grow-1 justify-content-between">
+                        <div>
+                            <div class="d-flex align-items-center justify-content-between gap-2 mb-2">
+                                <h3 class="fleet-card-title">SUV</h3>
+                                <span class="fleet-model-pill">Ertiga / Innova</span>
+                            </div>
+                            <p class="text-muted small mb-3" style="font-size: 0.88rem; line-height: 1.55;">
+                                Spacious and versatile for families and small groups with ample luggage space and comfort.
+                            </p>
+                            <div class="d-flex align-items-center gap-2 text-dark fw-semibold small mb-3">
+                                <i class="bi bi-people-fill" style="color: #FF1F1F;"></i>
+                                <span>5-7 Passengers</span>
+                            </div>
+                            <div class="d-flex flex-wrap gap-2 mb-4">
+                                <span class="fleet-chip">Extra Luggage Space</span>
+                                <span class="fleet-chip">Hill Station Ready</span>
+                                <span class="fleet-chip">Comfortable Seating</span>
+                            </div>
+                        </div>
+                        <div>
+                            <button type="button" class="fleet-view-btn" data-bs-toggle="modal" data-bs-target="#vehicleDetailsModal" data-vehicle-index="1">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12 reveal-up d-flex align-items-stretch">
+                <div class="vth-fleet-card w-100">
+                    <div class="fleet-card-media">
+                        <div class="fleet-price-badge">₹3,800/day</div>
+                        <img src="{% static 'images/vehicles/traveller.webp' %}" alt="Tempo Traveller">
+                    </div>
+                    <div class="p-4 d-flex flex-column flex-grow-1 justify-content-between">
+                        <div>
+                            <div class="d-flex align-items-center justify-content-between gap-2 mb-2">
+                                <h3 class="fleet-card-title">Tempo Traveller</h3>
+                                <span class="fleet-model-pill">Force Traveller</span>
+                            </div>
+                            <p class="text-muted small mb-3" style="font-size: 0.88rem; line-height: 1.55;">
+                                Perfect for medium groups and extended tours with premium amenities and modern facilities.
+                            </p>
+                            <div class="d-flex align-items-center gap-2 text-dark fw-semibold small mb-3">
+                                <i class="bi bi-people-fill" style="color: #FF1F1F;"></i>
+                                <span>9-14 Passengers</span>
+                            </div>
+                            <div class="d-flex flex-wrap gap-2 mb-4">
+                                <span class="fleet-chip">Reclining Seats</span>
+                                <span class="fleet-chip">Entertainment System</span>
+                                <span class="fleet-chip">Ample Legroom</span>
+                            </div>
+                        </div>
+                        <div>
+                            <button type="button" class="fleet-view-btn" data-bs-toggle="modal" data-bs-target="#vehicleDetailsModal" data-vehicle-index="2">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+    SECTION 4 — DESTINATION SECTION
 ========================================== -->
 <section id="destinations" class="vth-section py-5 bg-white">
     <div class="container">
@@ -545,23 +726,20 @@
             <div class="reveal-left">
                 <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block reveal-down"
                     style="color: #E31E24; font-size: 0.75rem; letter-spacing: 1.2px;">EXPLORE SOUTH INDIA</span>
-                <h2 class="fw-extrabold text-dark mb-0" style="font-size: 2.3rem; letter-spacing: -0.5px;">Top
-                    Destinations</h2>
+                <h2 class="fw-extrabold text-dark mb-0" style="font-size: 2.3rem; letter-spacing: -0.5px;">Top Destinations</h2>
             </div>
             <div class="d-flex align-items-center gap-3 reveal-right">
-                <a href="{% url 'tamil_nadu_view' %}" class="text-decoration-none text-dark fw-bold small">View All
-                    Destinations <i class="bi bi-chevron-right ms-1"></i></a>
+                <a href="{% url 'tamil_nadu_view' %}" class="text-decoration-none text-dark fw-bold small">View All Destinations <i class="bi bi-chevron-right ms-1"></i></a>
             </div>
         </div>
 
         <div class="row g-4">
-            <!-- Tamil Nadu (LEFT -> CENTER) -->
+            <!-- Tamil Nadu -->
             <div class="col-lg-4 col-md-6 reveal-left">
                 <a href="{% url 'tamil_nadu_view' %}" class="destination-card-link">
                     <div class="destination-card">
                         <div class="destination-image-wrapper">
-                            <img src="{% static 'images/destinations/tamil2.jpeg' %}" alt="Tamil Nadu"
-                                class="destination-image">
+                            <img src="{% static 'images/destinations/tamil2.jpeg' %}" alt="Tamil Nadu" class="destination-image">
                         </div>
                         <div class="destination-content">
                             <div class="destination-label">
@@ -571,8 +749,7 @@
                             <p class="destination-subtitle">Temples, Beaches &amp; Heritage Cities</p>
                             <div class="destination-divider"></div>
                             <p class="destination-description">
-                                Explore the rich cultural heritage, magnificent temples, pristine beaches and vibrant cities
-                                of Tamil Nadu.
+                                Explore the rich cultural heritage, magnificent temples, pristine beaches and vibrant cities of Tamil Nadu.
                             </p>
                             <span class="destination-button">
                                 View Packages <i class="bi bi-arrow-right"></i>
@@ -582,12 +759,12 @@
                 </a>
             </div>
 
-            <!-- Kerala (BOTTOM -> TOP) -->
+            <!-- Kerala -->
             <div class="col-lg-4 col-md-6 reveal-up">
                 <a href="{% url 'kerala_view' %}" class="destination-card-link">
                     <div class="destination-card">
                         <div class="destination-image-wrapper">
-                            <img src="{% static 'images/destinations/kerala.jpg' %}" alt="Kerala" class="destination-image">
+                            <img src="{% static 'images/destinations/kerala2.png' %}" alt="Kerala" class="destination-image">
                         </div>
                         <div class="destination-content">
                             <div class="destination-label">
@@ -597,8 +774,7 @@
                             <p class="destination-subtitle">Backwaters, Beaches &amp; Nature</p>
                             <div class="destination-divider"></div>
                             <p class="destination-description">
-                                Discover tranquil backwaters, lush green tea plantations, palm-fringed beaches and serene
-                                hill stations of Kerala.
+                                Discover tranquil backwaters, lush green tea plantations, palm-fringed beaches and serene hill stations of Kerala.
                             </p>
                             <span class="destination-button">
                                 View Packages <i class="bi bi-arrow-right"></i>
@@ -608,13 +784,12 @@
                 </a>
             </div>
 
-            <!-- Karnataka (RIGHT -> CENTER) -->
+            <!-- Karnataka -->
             <div class="col-lg-4 col-md-6 reveal-right">
                 <a href="{% url 'karnataka_view' %}" class="destination-card-link">
                     <div class="destination-card">
                         <div class="destination-image-wrapper">
-                            <img src="{% static 'images/destinations/karnataka.jpg' %}" alt="Karnataka"
-                                class="destination-image">
+                            <img src="{% static 'images/destinations/karnataka2.png' %}" alt="Karnataka" class="destination-image">
                         </div>
                         <div class="destination-content">
                             <div class="destination-label">
@@ -624,8 +799,7 @@
                             <p class="destination-subtitle">Hill Stations, Heritage &amp; Modern Cities</p>
                             <div class="destination-divider"></div>
                             <p class="destination-description">
-                                Experience historic palaces, royal heritage sites, misty coffee estates, waterfalls and tech
-                                hubs of Karnataka.
+                                Experience historic palaces, royal heritage sites, misty coffee estates, waterfalls and tech hubs of Karnataka.
                             </p>
                             <span class="destination-button">
                                 View Packages <i class="bi bi-arrow-right"></i>
@@ -639,7 +813,7 @@
 </section>
 
 <!-- ==========================================
-    SECTION — EXPLORE OUR SERVICES
+    SECTION 5 — SERVICE SECTION
 ========================================== -->
 <section id="services" class="vth-section py-5 style-services-section" style="background-color: #F8FAFC;">
     <div class="container">
@@ -697,7 +871,7 @@
             <div class="col-lg-4 col-md-6 reveal-up">
                 <div class="service-card-item rounded-4 bg-white overflow-hidden border border-light-subtle shadow-sm h-100 d-flex flex-column">
                     <div class="service-card-img-wrapper position-relative overflow-hidden" style="height: 200px;">
-                        <img src="{% static 'images/services/tempo-hero.jpg' %}" alt="Tempo Traveller" class="service-card-img w-100 h-100" style="object-fit: cover; transition: transform 0.5s ease;">
+                        <img src="{% static 'images/services/tempo-hero.png' %}" alt="Tempo Traveller" class="service-card-img w-100 h-100" style="object-fit: cover; transition: transform 0.5s ease;">
                         <span class="badge position-absolute top-0 start-0 m-3 px-3 py-1.5 rounded-pill text-white fw-bold" style="background-color: #E31E24; font-size: 0.72rem;">Group Travel</span>
                     </div>
                     <div class="p-4 d-flex flex-column flex-grow-1">
@@ -773,137 +947,18 @@
 </section>
 
 <!-- ==========================================
-    SECTION 4 — OUR PREMIUM FLEET (STATIC SHOWCASE WITH PRICE)
+    SECTION 6 — MUST VISIT PLACES
 ========================================== -->
-<section id="fleet" class="vth-section py-5 bg-white border-top border-bottom">
-    <div class="container">
-        <!-- Section Header (Top Left) -->
-        <div class="mb-4 reveal-down">
-            <span class="vth-eyebrow text-uppercase fw-bold d-block mb-1"
-                style="color: #E31E24; font-size: 0.8rem; letter-spacing: 1.5px;">TRAVEL IN COMFORT</span>
-            <h2 class="fw-extrabold text-dark mb-0" style="font-size: 2.3rem; letter-spacing: -0.5px;">Our Premium Fleet
-            </h2>
-        </div>
-
-        <!-- 3-Part Horizontal Showcase Layout -->
-        <div class="row align-items-center g-4">
-
-            <!-- LEFT: Compact Feature Card (LEFT -> CENTER) -->
-            <div class="col-lg-3 col-md-12 order-3 order-lg-1 reveal-left">
-                <div
-                    class="p-4 rounded-4 bg-light border border-light-subtle shadow-sm h-100 d-flex flex-column justify-content-center">
-                    <h6 class="fw-bold text-dark mb-3" style="font-size: 0.95rem;">Why Choose Our Fleet</h6>
-                    <ul class="list-unstyled d-flex flex-column gap-3 mb-0">
-                        <li class="d-flex align-items-center gap-3 text-dark fw-bold" style="font-size: 0.9rem;">
-                            <i class="bi bi-car-front-fill text-danger fs-5"></i> Luxury Vehicles
-                        </li>
-                        <li class="d-flex align-items-center gap-3 text-dark fw-bold" style="font-size: 0.9rem;">
-                            <i class="bi bi-gear-fill text-danger fs-5"></i> Well Maintained
-                        </li>
-                        <li class="d-flex align-items-center gap-3 text-dark fw-bold" style="font-size: 0.9rem;">
-                            <i class="bi bi-snow text-danger fs-5"></i> AC & Comfort
-                        </li>
-                        <li class="d-flex align-items-center gap-3 text-dark fw-bold" style="font-size: 0.9rem;">
-                            <i class="bi bi-suitcase-lg-fill text-danger fs-5"></i> Luggage Space
-                        </li>
-                        <li class="d-flex align-items-center gap-3 text-dark fw-bold" style="font-size: 0.9rem;">
-                            <i class="bi bi-person-fill-check text-danger fs-5"></i> Driver Included
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- CENTER: Vehicle Stage (ZOOM REVEAL) -->
-            <div class="col-lg-6 col-md-12 text-center order-1 order-lg-2 position-relative px-lg-4 reveal-zoom">
-                <div class="fleet-showcase-stage position-relative py-3">
-                    <!-- Left Nav Arrow -->
-                    <button id="fleet-ref-prev" class="fleet-ref-arrow fleet-ref-prev shadow-sm"
-                        aria-label="Previous Vehicle">
-                        <i class="bi bi-chevron-left"></i>
-                    </button>
-
-                    <!-- Main Static Vehicle Image / Video Player -->
-                    <div class="fleet-ref-image-wrapper mx-auto position-relative text-center"
-                        style="max-width: 520px; min-height: 280px; display: flex; align-items: center; justify-content: center;">
-                        <video id="fleet-ref-video" class="img-fluid fleet-ref-img d-none vehicle-video" autoplay muted loop playsinline preload="metadata" style="max-height: 320px; width: 100%; height: 100%; object-fit: contain; display: block;"></video>
-                        <img id="fleet-ref-image" src="{% static 'images/vehicles/traveller.webp' %}"
-                            alt="Vehicle Showcase" class="img-fluid fleet-ref-img">
-                    </div>
-
-                    <!-- Ground Shadow Platform -->
-                    <div class="fleet-ref-podium-shadow mx-auto mt-2"></div>
-
-                    <!-- Right Nav Arrow -->
-                    <button id="fleet-ref-next" class="fleet-ref-arrow fleet-ref-next shadow-sm"
-                        aria-label="Next Vehicle">
-                        <i class="bi bi-chevron-right"></i>
-                    </button>
-                </div>
-            </div>
-
-            <!-- RIGHT: Vehicle Details & Price Panel (RIGHT -> CENTER) -->
-            <div class="col-lg-3 col-md-12 order-2 order-lg-3 text-start ps-lg-3 reveal-right">
-                <div class="d-flex flex-column h-100 justify-content-center">
-                    <!-- 1. Vehicle Title -->
-                    <h3 id="fleet-ref-title" class="fw-extrabold text-dark mb-3"
-                        style="font-size: 1.5rem; letter-spacing: -0.4px;">Luxury Tempo Traveller</h3>
-
-                    <!-- 2. Vehicle Features / Specs List -->
-                    <ul id="fleet-ref-specs" class="list-unstyled d-flex flex-column gap-2 text-muted small mb-4">
-                        <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger"></i>
-                            <span>12–17 Seater</span></li>
-                        <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger"></i>
-                            <span>Premium Interiors</span></li>
-                        <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger"></i>
-                            <span>AC & Comfortable Seats</span></li>
-                        <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger"></i>
-                            <span>Luggage Space</span></li>
-                        <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger"></i>
-                            <span>Driver & Fuel Included</span></li>
-                    </ul>
-
-                    <!-- 3. Starting From -->
-                    <span class="text-muted d-block small fw-medium mb-1">Starting From</span>
-
-                    <!-- 4. Price (PROMINENT RED) -->
-                    <div id="fleet-ref-price" class="fleet-price-highlight mb-3">₹4,500 / Day</div>
-
-                    <!-- 5. ACTION BUTTONS -->
-                    <div class="d-flex gap-2">
-                        <a href="#" id="fleet-ref-book-btn"
-                            class="btn btn-danger rounded-pill px-3 py-2.5 fw-bold text-white shadow-sm border-0 flex-grow-1 text-center"
-                            style="background-color: #E31E24; font-size: 0.9rem;"
-                            data-vehicle-name="Luxury Tempo Traveller" data-vehicle-capacity="12–17 Seater">
-                            Book Now
-                        </a>
-                        <button type="button" id="fleet-ref-details-btn"
-                            class="btn btn-outline-dark rounded-pill px-3 py-2.5 fw-bold flex-grow-1 text-center"
-                            style="font-size: 0.9rem;" data-bs-toggle="modal" data-bs-target="#vehicleDetailsModal">
-                            View Details
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<!-- ==========================================
-    SECTION 5 — POPULAR TOURIST PLACES
-========================================== -->
-<section class="vth-section py-5" style="background-color: #F8FAFC;">
+<section id="must-visit-places" class="vth-section py-5" style="background-color: #F8FAFC;">
     <div class="container">
         <div class="d-flex flex-column flex-md-row align-items-md-end justify-content-between mb-4">
             <div class="reveal-down">
                 <span class="vth-eyebrow text-danger fw-bold text-uppercase"
                     style="color: #E31E24; font-size: 0.75rem; letter-spacing: 1.2px;">MUST VISIT PLACES</span>
-                <h2 class="fw-extrabold text-dark mb-0" style="font-size: 2.3rem; letter-spacing: -0.5px;">Popular
-                    Tourist Places</h2>
+                <h2 class="fw-extrabold text-dark mb-0" style="font-size: 2.3rem; letter-spacing: -0.5px;">Popular Tourist Places</h2>
             </div>
             <div class="mt-3 mt-md-0 reveal-right">
-                <a href="{% url 'tamil_nadu_view' %}" class="text-decoration-none text-dark fw-bold small">View All Places
-                    <i class="bi bi-chevron-right ms-1"></i></a>
+                <a href="{% url 'tamil_nadu_view' %}" class="text-decoration-none text-dark fw-bold small">View All Places <i class="bi bi-chevron-right ms-1"></i></a>
             </div>
         </div>
 
@@ -1008,9 +1063,9 @@
 </section>
 
 <!-- ==========================================
-    SECTION 7 — HORIZONTAL BOOK YOUR TRIP CARD (LUXURY BANNER)
+    SECTION 7 — PLAN YOUR JOURNEY TODAY
 ========================================== -->
-<section class="py-5 bg-white">
+<section id="plan-journey" class="py-5 bg-white">
     <style>
         .luxury-booking-banner {
             background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%);
@@ -1037,8 +1092,7 @@
             <div class="row align-items-center g-4 position-relative z-2">
                 <div class="col-lg-5 col-md-12 reveal-left">
                     <span class="badge rounded-pill px-3 py-1.5 mb-2 fw-bold text-uppercase"
-                        style="background: rgba(227, 30, 36, 0.08); color: #E31E24; border: 1px solid rgba(227, 30, 36, 0.2); font-size: 0.72rem; letter-spacing: 1.2px;">PLAN
-                        YOUR JOURNEY TODAY</span>
+                        style="background: rgba(227, 30, 36, 0.08); color: #E31E24; border: 1px solid rgba(227, 30, 36, 0.2); font-size: 0.72rem; letter-spacing: 1.2px;">PLAN YOUR JOURNEY TODAY</span>
                     <h3 class="fw-extrabold text-dark mb-2" style="font-size: 2.1rem; letter-spacing: -0.5px;">Plan Your Journey Today</h3>
                     <p class="text-muted small mb-4" style="font-size: 0.92rem;">Start your unforgettable journey across South India with Vibhu Travel Hub.</p>
                     <div class="d-flex flex-wrap gap-2">
@@ -1086,9 +1140,140 @@
     </div>
 </section>
 
+<!-- ==========================================
+    SECTION 8 — FAQ SECTION
+========================================== -->
+<section id="faq" class="vth-section py-5 bg-light border-top border-bottom">
+    <style>
+        .home-faq-accordion .accordion-item {
+            border: 1px solid #E2E8F0 !important;
+            border-radius: 14px !important;
+            overflow: hidden;
+            margin-bottom: 12px;
+            background: #FFFFFF;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        .home-faq-accordion .accordion-item:hover {
+            border-color: #CBD5E1 !important;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+        }
+        .home-faq-accordion .accordion-button {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #0F172A;
+            background: #FFFFFF;
+            padding: 18px 24px;
+            box-shadow: none !important;
+        }
+        .home-faq-accordion .accordion-button:not(.collapsed) {
+            color: #E31E24;
+            background: #FFF5F5;
+            border-bottom: 1px solid #FEE2E2;
+        }
+        .home-faq-accordion .accordion-button::after {
+            background-size: 1.1rem;
+            transition: transform 0.25s ease;
+        }
+        .home-faq-accordion .accordion-body {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #475569;
+            padding: 20px 24px;
+            background: #FFFFFF;
+        }
+    </style>
+    <div class="container">
+        <div class="text-center mb-5 reveal-down">
+            <span class="vth-eyebrow text-uppercase fw-bold d-block mb-1"
+                style="color: #E31E24; font-size: 0.8rem; letter-spacing: 1.5px;">FREQUENTLY ASKED QUESTIONS</span>
+            <h2 class="fw-extrabold text-dark mb-2" style="font-size: 2.3rem; letter-spacing: -0.5px;">Have Questions? We Have Answers</h2>
+            <p class="text-muted mx-auto mb-0" style="max-width: 680px; font-size: 0.98rem; line-height: 1.6;">
+                Find quick answers to common questions about booking cabs, tempo travellers, pricing, drivers, and outstation trips with Vibhu Travel Hub.
+            </p>
+        </div>
 
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="accordion home-faq-accordion" id="homeFaqAccordion">
+                    
+                    <!-- FAQ 1 -->
+                    <div class="accordion-item reveal-up">
+                        <h3 class="accordion-header" id="headingFaqOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaqOne" aria-expanded="true" aria-controls="collapseFaqOne">
+                                How do I book a cab or tempo traveller with Vibhu Travel Hub?
+                            </button>
+                        </h3>
+                        <div id="collapseFaqOne" class="accordion-collapse collapse show" aria-labelledby="headingFaqOne" data-bs-parent="#homeFaqAccordion">
+                            <div class="accordion-body">
+                                Booking is simple! You can click the <strong>"Book Your Trip"</strong> button to send an instant booking request via our online enquiry modal, call us directly at <strong>+91 96558 66660</strong>, or chat with our 24/7 team on WhatsApp.
+                            </div>
+                        </div>
+                    </div>
 
-<!-- JSON Data Payload & Static Vehicle Switching Script -->
+                    <!-- FAQ 2 -->
+                    <div class="accordion-item reveal-up">
+                        <h3 class="accordion-header" id="headingFaqTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaqTwo" aria-expanded="false" aria-controls="collapseFaqTwo">
+                                Are driver charges, fuel, and taxes included in the pricing?
+                            </button>
+                        </h3>
+                        <div id="collapseFaqTwo" class="accordion-collapse collapse" aria-labelledby="headingFaqTwo" data-bs-parent="#homeFaqAccordion">
+                            <div class="accordion-body">
+                                Yes, our standard daily tariffs include vehicle rental, fuel charges, and driver pay. Interstate permit fees, toll gate charges, and parking fees are calculated at actuals based on your specific travel itinerary.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 3 -->
+                    <div class="accordion-item reveal-up">
+                        <h3 class="accordion-header" id="headingFaqThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaqThree" aria-expanded="false" aria-controls="collapseFaqThree">
+                                What vehicle options are available in your fleet?
+                            </button>
+                        </h3>
+                        <div id="collapseFaqThree" class="accordion-collapse collapse" aria-labelledby="headingFaqThree" data-bs-parent="#homeFaqAccordion">
+                            <div class="accordion-body">
+                                Our fleet includes comfortable Sedans (Etios, Dzire), SUVs (Ertiga, Innova, Innova Crysta), Tempo Travellers (12 to 26 Seater, Force Urbania), and Luxury AC Buses (20 to 54 Seater) for group tours and corporate events.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 4 -->
+                    <div class="accordion-item reveal-up">
+                        <h3 class="accordion-header" id="headingFaqFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaqFour" aria-expanded="false" aria-controls="collapseFaqFour">
+                                Do you provide outstation one-way drop and round-trip services?
+                            </button>
+                        </h3>
+                        <div id="collapseFaqFour" class="accordion-collapse collapse" aria-labelledby="headingFaqFour" data-bs-parent="#homeFaqAccordion">
+                            <div class="accordion-body">
+                                Yes! We provide both one-way drop taxi services and round-trip outstation tour packages from Coimbatore to all major destinations across Tamil Nadu, Kerala, and Karnataka.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 5 -->
+                    <div class="accordion-item reveal-up">
+                        <h3 class="accordion-header" id="headingFaqFive">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaqFive" aria-expanded="false" aria-controls="collapseFaqFive">
+                                Are your drivers verified and experienced for hill station driving?
+                            </button>
+                        </h3>
+                        <div id="collapseFaqFive" class="accordion-collapse collapse" aria-labelledby="headingFaqFive" data-bs-parent="#homeFaqAccordion">
+                            <div class="accordion-body">
+                                Absolutely. All Vibhu Travel Hub drivers are background-checked, courteous, professional, and highly experienced in navigating Western Ghats hill roads including Ooty, Kodaikanal, Munnar, and Wayanad safely.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- JSON Data Payload & Fleet Modal Handler Script -->
 <script id="fleet-data-json" type="application/json">
 [
     {% for vehicle in vehicles %}
@@ -1126,60 +1311,7 @@
             console.error('Error parsing fleet JSON:', e);
         }
 
-        const defaultPriceMap = {
-            'sedan': '₹12 / KM',
-            'ertiga': '₹16 / KM',
-            'innova': '₹20 / KM',
-            'innova crysta': '₹20 / KM',
-            'tempo traveller': '₹4,500 / Day',
-            'urbania': '₹7,000 / Day'
-        };
-
-        function getVehiclePrice(v) {
-            if (v.day_rent && v.per_km_rate) {
-                return `₹${Number(v.day_rent).toLocaleString('en-IN')} + ₹${v.per_km_rate}/km`;
-            }
-            if (v.price && v.price.trim() !== '' && v.price.trim() !== 'Price on Request') {
-                return v.price;
-            }
-            const key = (v.name || '').toLowerCase();
-            for (const [k, p] of Object.entries(defaultPriceMap)) {
-                if (key.includes(k)) return p;
-            }
-            return 'Price on Request';
-        }
-
-        if (!fleetData || fleetData.length === 0) return;
-
-        let currentIndex = 0;
-
-        const imgEl = document.getElementById('fleet-ref-image');
-        const videoEl = document.getElementById('fleet-ref-video');
-        const titleEl = document.getElementById('fleet-ref-title');
-        const specsEl = document.getElementById('fleet-ref-specs');
-        const priceEl = document.getElementById('fleet-ref-price');
-        const bookBtnEl = document.getElementById('fleet-ref-book-btn');
-        const detailsBtnEl = document.getElementById('fleet-ref-details-btn');
-        const prevBtn = document.getElementById('fleet-ref-prev');
-        const nextBtn = document.getElementById('fleet-ref-next');
-
-        let videoObserver = null;
-        if (videoEl && 'IntersectionObserver' in window) {
-            videoObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        if (videoEl.src && !videoEl.classList.contains('d-none')) {
-                            videoEl.play().catch(() => {});
-                        }
-                    } else {
-                        if (videoEl.src && !videoEl.classList.contains('d-none')) {
-                            videoEl.pause();
-                        }
-                    }
-                });
-            }, { threshold: 0.2 });
-            videoObserver.observe(videoEl);
-        }
+        window.fleetData = fleetData;
 
         function populateModal(v) {
             if (!v) return;
@@ -1216,7 +1348,7 @@
                 if (mDriverPay) mDriverPay.textContent = v.driver_pay_above_400 ? `₹${v.driver_pay_above_400}` : '—';
             } else {
                 if (mAbove400Content) mAbove400Content.classList.add('d-none');
-                if (mAbove400NotApp) mAbove400NotApp.classList.remove('d-none');
+                if (mAbove400NotApp) mAbove400NotApp.remove ? mAbove400NotApp.classList.remove('d-none') : null;
             }
 
             if (mKerala) mKerala.textContent = v.kerala_permit ? `₹${Number(v.kerala_permit).toLocaleString('en-IN')}` : 'N/A';
@@ -1224,128 +1356,26 @@
 
             if (mBookBtn) {
                 mBookBtn.onclick = function () {
-                    window.openVehicleWhatsApp(v.name, v.capacity);
+                    if (window.openVehicleWhatsApp) {
+                        window.openVehicleWhatsApp(v.name, v.capacity);
+                    }
                 };
             }
         }
 
-        function renderVehicle(index) {
-            const v = fleetData[index];
-            if (!v) return;
+        window.populateModal = populateModal;
 
-            if (imgEl) {
-                imgEl.style.opacity = '0';
-                imgEl.style.transform = 'scale(0.96)';
-            }
-
-            setTimeout(() => {
-                if (titleEl) titleEl.textContent = v.name;
-
-                const formattedPrice = getVehiclePrice(v);
-                if (priceEl) priceEl.textContent = formattedPrice;
-
-                if (bookBtnEl) {
-                    bookBtnEl.setAttribute('data-vehicle-name', v.name || '');
-                    bookBtnEl.setAttribute('data-vehicle-capacity', v.capacity ? (v.capacity.toString().toLowerCase().includes('seater') ? v.capacity : `${v.capacity} Seater`) : '');
-                }
-
-                if (specsEl) {
-                    specsEl.innerHTML = '';
-                    const specs = [];
-                    if (v.capacity) specs.push(`${v.capacity} Seater Capacity`);
-                    if (v.ac_type) specs.push(`${v.ac_type} Cabin`);
-                    if (v.category) specs.push(`${v.category} Luxury Class`);
-                    if (v.left_features && v.left_features.length > 0) {
-                        v.left_features.forEach(f => specs.push(f));
+        document.addEventListener('DOMContentLoaded', function () {
+            const triggers = document.querySelectorAll('.fleet-details-trigger');
+            triggers.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    const idx = parseInt(this.getAttribute('data-vehicle-index'), 10);
+                    if (fleetData && fleetData[idx]) {
+                        populateModal(fleetData[idx]);
                     }
-                    if (v.right_specifications && v.right_specifications.length > 0) {
-                        v.right_specifications.forEach(s => specs.push(s));
-                    }
-
-                    const displaySpecs = specs.length > 0 ? specs.slice(0, 5) : [
-                        'Premium Interiors',
-                        'AC & Comfortable Seats',
-                        'Luggage Space',
-                        'Driver & Fuel Included'
-                    ];
-
-                    displaySpecs.forEach(item => {
-                        const li = document.createElement('li');
-                        li.className = 'd-flex align-items-center gap-2';
-                        li.innerHTML = `<i class="bi bi-check-circle-fill text-danger"></i> <span>${item}</span>`;
-                        specsEl.appendChild(li);
-                    });
-                }
-
-                if (v.video_url && videoEl) {
-                    if (imgEl) imgEl.classList.add('d-none');
-                    videoEl.classList.remove('d-none');
-                    videoEl.style.opacity = '1';
-
-                    if (v.image_url) {
-                        videoEl.setAttribute('poster', v.image_url);
-                    }
-
-                    const currentSrc = videoEl.getAttribute('src');
-                    if (currentSrc !== v.video_url) {
-                        videoEl.src = v.video_url;
-                        videoEl.load();
-                    }
-                    
-                    const playPromise = videoEl.play();
-                    if (playPromise !== undefined) {
-                        playPromise.catch(() => {});
-                    }
-
-                    videoEl.onerror = function() {
-                        videoEl.classList.add('d-none');
-                        if (imgEl) {
-                            imgEl.src = v.image_url;
-                            imgEl.alt = v.name;
-                            imgEl.classList.remove('d-none');
-                            imgEl.style.opacity = '1';
-                            imgEl.style.transform = 'scale(1)';
-                        }
-                    };
-                } else {
-                    if (videoEl) {
-                        videoEl.pause();
-                        videoEl.classList.add('d-none');
-                    }
-                    if (imgEl) {
-                        imgEl.src = v.image_url;
-                        imgEl.alt = v.name;
-                        imgEl.classList.remove('d-none');
-                        imgEl.style.opacity = '1';
-                        imgEl.style.transform = 'scale(1)';
-                    }
-                }
-
-                populateModal(v);
-            }, 180);
-        }
-
-        if (prevBtn) {
-            prevBtn.addEventListener('click', () => {
-                currentIndex = (currentIndex - 1 + fleetData.length) % fleetData.length;
-                renderVehicle(currentIndex);
+                });
             });
-        }
-
-        if (nextBtn) {
-            nextBtn.addEventListener('click', () => {
-                currentIndex = (currentIndex + 1) % fleetData.length;
-                renderVehicle(currentIndex);
-            });
-        }
-
-        if (detailsBtnEl) {
-            detailsBtnEl.addEventListener('click', () => {
-                populateModal(fleetData[currentIndex]);
-            });
-        }
-
-        renderVehicle(0);
+        });
     })();
 </script>
 
@@ -1370,8 +1400,7 @@
                                 style="max-height: 180px; object-fit: contain;">
                         </div>
                         <div class="d-flex justify-content-center gap-2 flex-wrap">
-                            <span id="vModalCapacityBadge" class="badge bg-danger rounded-pill px-3 py-2">12
-                                Seater</span>
+                            <span id="vModalCapacityBadge" class="badge bg-danger rounded-pill px-3 py-2">12 Seater</span>
                             <span id="vModalAcBadge" class="badge bg-secondary rounded-pill px-3 py-2">AC</span>
                             <span id="vModalCategoryBadge" class="badge bg-dark rounded-pill px-3 py-2">SUV</span>
                         </div>
@@ -1381,8 +1410,7 @@
                     <div class="col-md-7">
                         <!-- Up to 400 KM Box -->
                         <div class="p-3 bg-white rounded-3 border mb-3">
-                            <h6 class="fw-bold text-danger mb-2" style="font-size: 0.85rem; letter-spacing: 0.5px;">UP
-                                TO 400 KM / DAY TARIFF</h6>
+                            <h6 class="fw-bold text-danger mb-2" style="font-size: 0.85rem; letter-spacing: 0.5px;">UP TO 400 KM / DAY TARIFF</h6>
                             <div class="d-flex justify-content-between align-items-center mb-1">
                                 <span class="text-muted small">Day Rent:</span>
                                 <span id="vModalDayRent" class="fw-bold text-dark fs-6">₹1,800</span>
@@ -1395,8 +1423,7 @@
 
                         <!-- Above 400 KM Box -->
                         <div class="p-3 bg-white rounded-3 border mb-3">
-                            <h6 class="fw-bold text-danger mb-2" style="font-size: 0.85rem; letter-spacing: 0.5px;">
-                                ABOVE 400 KM / DAY TARIFF</h6>
+                            <h6 class="fw-bold text-danger mb-2" style="font-size: 0.85rem; letter-spacing: 0.5px;">ABOVE 400 KM / DAY TARIFF</h6>
                             <div id="vModalAbove400Content">
                                 <div class="d-flex justify-content-between align-items-center mb-1">
                                     <span class="text-muted small">Flat Per KM:</span>
@@ -1414,43 +1441,33 @@
 
                         <!-- Interstate Permits -->
                         <div class="p-3 bg-white rounded-3 border">
-                            <h6 class="fw-bold text-dark mb-2" style="font-size: 0.85rem; letter-spacing: 0.5px;">
-                                INTERSTATE PERMIT COSTS</h6>
+                            <h6 class="fw-bold text-dark mb-2" style="font-size: 0.85rem; letter-spacing: 0.5px;">INTERSTATE PERMIT COSTS</h6>
                             <div class="d-flex justify-content-between align-items-center mb-1">
-                                <span class="text-muted small"><i class="bi bi-geo-alt-fill text-danger me-1"></i>Kerala
-                                    Permit:</span>
+                                <span class="text-muted small"><i class="bi bi-geo-alt-fill text-danger me-1"></i>Kerala Permit:</span>
                                 <span id="vModalKeralaPermit" class="fw-bold text-dark small">₹700</span>
                             </div>
                             <div class="d-flex justify-content-between align-items-center">
-                                <span class="text-muted small"><i
-                                        class="bi bi-geo-alt-fill text-danger me-1"></i>Karnataka Permit:</span>
+                                <span class="text-muted small"><i class="bi bi-geo-alt-fill text-danger me-1"></i>Karnataka Permit:</span>
                                 <span id="vModalKarnatakaPermit" class="fw-bold text-dark small">₹1,500</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Section 12: Important Booking Notes -->
+                <!-- Important Booking Notes -->
                 <div class="mt-4 p-3 bg-white rounded-3 border border-warning-subtle">
-                    <h6 class="fw-bold text-dark mb-2" style="font-size: 0.85rem;"><i
-                            class="bi bi-info-circle-fill text-warning me-1"></i> Important Booking Information & Notes
-                    </h6>
+                    <h6 class="fw-bold text-dark mb-2" style="font-size: 0.85rem;"><i class="bi bi-info-circle-fill text-warning me-1"></i> Important Booking Information & Notes</h6>
                     <ul class="text-muted mb-0 ps-3" style="font-size: 0.78rem; line-height: 1.55;">
-                        <li>Toll and parking are payable separately at actuals unless specifically included in the
-                            confirmed quotation.</li>
-                        <li>Travel between 10:00 PM and 6:00 AM attracts a Night Driving Charge equal to 50% of the
-                            applicable Day Rent (stationary night halts do not attract night charges).</li>
-                        <li>Final rates depend on route, operating hours, vehicle availability and verified
-                            garage-to-garage kilometres.</li>
+                        <li>Toll and parking are payable separately at actuals unless specifically included in the confirmed quotation.</li>
+                        <li>Travel between 10:00 PM and 6:00 AM attracts a Night Driving Charge equal to 50% of the applicable Day Rent.</li>
+                        <li>Final rates depend on route, operating hours, vehicle availability and verified garage-to-garage kilometres.</li>
                         <li>Booking is confirmed only after itinerary approval and advance payment.</li>
                     </ul>
                 </div>
             </div>
             <div class="modal-footer bg-white border-top-0 px-4 py-3 d-flex justify-content-between">
-                <button type="button" class="btn btn-outline-secondary rounded-pill px-4"
-                    data-bs-dismiss="modal">Close</button>
-                <button type="button" id="vModalBookBtn" class="btn btn-danger rounded-pill px-4 fw-bold"
-                    style="background-color: #E31E24;">
+                <button type="button" class="btn btn-outline-secondary rounded-pill px-4" data-bs-dismiss="modal">Close</button>
+                <button type="button" id="vModalBookBtn" class="btn btn-danger rounded-pill px-4 fw-bold" style="background-color: #E31E24;">
                     Book on WhatsApp <i class="bi bi-whatsapp ms-1"></i>
                 </button>
             </div>

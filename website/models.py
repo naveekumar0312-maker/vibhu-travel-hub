@@ -86,8 +86,9 @@ class Enquiry(models.Model):
         verbose_name_plural = "Travel Enquiries"
 
     def __str__(self):
-
-        return f"{self.name} | {self.vehicle} | {self.destination}"
+        if self.destination:
+            return f"{self.name} | {self.destination}"
+        return f"{self.name}"
 
 class Vehicle(models.Model):
     name = models.CharField(max_length=100)

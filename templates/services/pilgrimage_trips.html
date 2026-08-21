@@ -23,8 +23,9 @@
     "name": "Vibhu Travel Hub",
     "url": "https://vibhutravelhub.com"
   },
-  "areaServed": "South India",
-  "description": "Sacred temple tours and pilgrimage vehicle rentals with Vibhu Travel Hub."
+  "areaServed": ["Tamil Nadu", "Kerala", "Karnataka"],
+  "description": "Customized temple tour packages and pilgrimage cab services for Rameswaram, Madurai, Palani, Sabarimala, and Chidambaram.",
+  "image": "https://vibhutravelhub.com/static/images/services/pilgrimage-hero.jpg"
 }
 </script>
 <script type="application/ld+json">
@@ -49,18 +50,6 @@
   }]
 }
 </script>
-  "provider": {
-    "@type": "TravelAgency",
-    "name": "Vibhu Travel Hub"
-  },
-  "areaServed": {
-    "@type": "State",
-    "name": "Tamil Nadu, Andhra Pradesh"
-  },
-  "description": "Exclusive temple tour packages from Coimbatore to Navagraha temples, Tirupati, Madurai, and Rameswaram with expert drivers and comfortable vehicles.",
-  "image": "https://www.vibhutravels.in{% static 'images/services/pilgrimage-hero.jpg' %}"
-}
-</script>
 {% endblock %}
 
 {% block extra_css %}
@@ -78,30 +67,6 @@
         line-height: 1;
         display: block;
         margin-bottom: 0.3rem;
-    }
-
-    .about-hero-section {
-        position: relative;
-        min-height: 420px;
-        display: flex;
-        align-items: center;
-        width: 100%;
-        overflow: hidden;
-        background: #F8FAFC;
-    }
-
-    .about-hero-bg {
-        position: absolute;
-        top: 0; right: 0; width: 55%; height: 100%;
-        object-fit: cover;
-        z-index: 1;
-    }
-
-    .about-hero-overlay {
-        position: absolute;
-        top: 0; left: 0; width: 100%; height: 100%;
-        background: linear-gradient(90deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.92) 45%, rgba(255, 255, 255, 0.6) 75%, rgba(255, 255, 255, 0.2) 100%);
-        z-index: 2;
     }
 
     .story-img-main {
@@ -143,34 +108,43 @@
         transform: translate(0, 0);
     }
 
-    @media (max-width: 768px) {
-        .about-hero-bg { width: 100%; opacity: 0.25; }
-        .about-hero-section { min-height: 360px; }
-        .story-badge-exp { left: 10px; bottom: 10px; padding: 12px 18px; }
+    @media (max-width: 767.98px) {
+        .story-img-main {
+            height: 250px !important;
+        }
+        .story-badge-exp {
+            left: 10px !important;
+            bottom: 10px !important;
+            padding: 10px 16px !important;
+        }
     }
 </style>
 {% endblock %}
 
 {% block content %}
-<!-- 1. HERO SECTION (ABOUT.HTML STYLE) -->
-<section class="about-hero-section py-5">
-    <img src="{% static 'images/services/temple.png' %}" alt="Pilgrimage Temple Tours" class="about-hero-bg vth-anim-right">
-    <div class="about-hero-overlay"></div>
+<!-- ==========================================
+    1. HERO SECTION (EXACT MATCH FOR TAMIL NADU MASTER REFERENCE)
+========================================== -->
+<section class="vth-hero-tn py-5">
+    <img src="{% static 'images/services/pilgrimage-hero.jpg' %}" alt="Pilgrimage Tour Packages & Temple Taxis" class="vth-hero-tn-bg">
+    <div class="vth-hero-tn-overlay"></div>
 
     <div class="container position-relative z-3 my-auto">
         <div class="row align-items-center">
             <div class="col-lg-7 col-md-10">
-                <span class="vth-script-eyebrow vth-anim-left">Vibhu Travel Hub</span>
-                <h1 class="fw-extrabold text-dark mb-3 vth-anim-left" style="font-size: 3.2rem; letter-spacing: -1.2px; line-height: 1.15;">Pilgrimage Tour Packages & Temple Taxi Services</h1>
-                <p class="text-secondary mb-4 vth-anim-up" style="font-size: 1.05rem; line-height: 1.65; max-width: 540px; color: #475569;">
-                    Experience divine journeys to South India's most sacred temples with our comfortable vehicles and courteous, route-expert drivers.
+                <span class="vth-hero-script reveal-down d-block mb-1" style="color: #FF5A5F; font-size: 1.8rem; font-family: 'Caveat', cursive, sans-serif;">DIVINE PILGRIMAGE TOURS</span>
+                <h1 class="hero-main-title text-white mb-3 reveal-left" style="font-size: 3.6rem; font-weight: 800; line-height: 1.1; letter-spacing: -1.2px;">
+                    Pilgrimage Tour Packages & Temple Taxis
+                </h1>
+                <p class="text-white-50 mb-4 reveal-left" style="font-size: 1.08rem; line-height: 1.65; color: rgba(255, 255, 255, 0.9) !important; max-width: 620px;">
+                    Divine temple tour packages to Rameswaram, Madurai Meenakshi, Palani, Sabarimala, Chidambaram and Tirupati with respectful, experienced drivers.
                 </p>
-                <div class="d-flex flex-wrap gap-3 vth-anim-down">
-                    <button class="btn btn-danger rounded-pill px-4 py-2.5 fw-bold text-white shadow-sm border-0 d-inline-flex align-items-center gap-2" style="background-color: #E31E24;" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Pilgrimage Tours">
-                        <i class="bi bi-calendar-heart-fill"></i> Plan Darshan
+                <div class="d-flex align-items-center gap-3 flex-wrap reveal-up">
+                    <button class="btn btn-danger rounded-pill px-4 py-2.5 fw-bold text-white shadow-sm border-0 d-inline-flex align-items-center gap-2" style="background-color: #E31E24; font-size: 0.95rem;" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Pilgrimage Tour Packages & Temple Taxis">
+                        Get a Quote <i class="bi bi-arrow-right"></i>
                     </button>
-                    <a href="https://wa.me/919655866660" target="_blank" class="btn btn-outline-dark rounded-pill px-4 py-2.5 fw-bold d-inline-flex align-items-center gap-2">
-                        <i class="bi bi-whatsapp"></i> Chat on WhatsApp
+                    <a href="#about" class="btn btn-light rounded-pill px-4 py-2.5 fw-bold d-inline-flex align-items-center gap-2" style="font-size: 0.95rem; color: #1F2937; background: #FFFFFF; border: 1px solid rgba(255, 255, 255, 0.9);">
+                        Explore Service <i class="bi bi-compass"></i>
                     </a>
                 </div>
             </div>
@@ -178,7 +152,72 @@
     </div>
 </section>
 
-<!-- 2. ABOUT SECTION (ABOUT.HTML STYLE) -->
+<!-- ==========================================
+    2. SERVICE HIGHLIGHTS STRIP (EXACT MATCH FOR TAMIL NADU MASTER REFERENCE)
+========================================== -->
+<section class="py-3 bg-white border-bottom">
+    <div class="container">
+        <div class="p-3.5 rounded-4 bg-white border border-light-subtle shadow-sm reveal-up">
+            <div class="row g-3 text-start align-items-center">
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="d-flex align-items-center gap-2.5">
+                        <i class="bi bi-shield-check text-danger fs-3"></i>
+                        <div>
+                            <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">Safe & Secure</h6>
+                            <span class="text-muted d-block" style="font-size: 0.75rem;">Your safety is our priority</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="d-flex align-items-center gap-2.5">
+                        <i class="bi bi-person-check text-danger fs-3"></i>
+                        <div>
+                            <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">Professional Drivers</h6>
+                            <span class="text-muted d-block" style="font-size: 0.75rem;">Experienced & verified</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="d-flex align-items-center gap-2.5">
+                        <i class="bi bi-car-front text-danger fs-3"></i>
+                        <div>
+                            <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">Luxury Fleet</h6>
+                            <span class="text-muted d-block" style="font-size: 0.75rem;">Well maintained vehicles</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="d-flex align-items-center gap-2.5">
+                        <i class="bi bi-clock-history text-danger fs-3"></i>
+                        <div>
+                            <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">24/7 Support</h6>
+                            <span class="text-muted d-block" style="font-size: 0.75rem;">Always available for you</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="d-flex align-items-center gap-2.5">
+                        <i class="bi bi-receipt text-danger fs-3"></i>
+                        <div>
+                            <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">Best Price</h6>
+                            <span class="text-muted d-block" style="font-size: 0.75rem;">Affordable & transparent</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="d-flex align-items-center gap-2.5">
+                        <i class="bi bi-airplane text-danger fs-3"></i>
+                        <div>
+                            <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">Airport Transfer</h6>
+                            <span class="text-muted d-block" style="font-size: 0.75rem;">On-time pickup & drop</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section id="about" class="py-5 bg-white overflow-hidden">
     <div class="container py-lg-3">
         <div class="row align-items-center g-5">
