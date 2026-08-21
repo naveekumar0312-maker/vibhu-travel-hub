@@ -209,18 +209,28 @@
     <div class="container position-relative z-3 my-auto">
         <div class="row align-items-center">
             <div class="col-lg-7 col-md-10">
-                <span class="vth-hero-script reveal-down d-block mb-1" style="color: #FF5A5F; font-size: 1.8rem;">Explore</span>
-                <h1 class="hero-main-title text-white mb-3 reveal-left" style="font-size: 3.6rem; font-weight: 800; line-height: 1.1; letter-spacing: -1.2px;">
+                <span class="vth-hero-script reveal-down d-block mb-1"
+                    style="color: #FF5A5F; font-size: 1.8rem;">Explore</span>
+                <h1 class="hero-main-title text-white mb-3 reveal-left"
+                    style="font-size: 3.6rem; font-weight: 800; line-height: 1.1; letter-spacing: -1.2px;">
                     Kerala
                 </h1>
-                <p class="text-white-50 mb-4 reveal-left" style="font-size: 1.08rem; line-height: 1.65; color: rgba(255, 255, 255, 0.9) !important; max-width: 620px;">
-                    God's Own Country — Kerala is known for its beautiful backwaters, hill stations, beaches, wildlife and rich cultural heritage. Travel across Kerala with Vibhu Travel Hub for a comfortable and memorable journey.
+                <p class="text-white-50 mb-4 reveal-left"
+                    style="font-size: 1.08rem; line-height: 1.65; color: rgba(255, 255, 255, 0.9) !important; max-width: 620px;">
+                    God's Own Country — Kerala is known for its beautiful backwaters, hill stations, beaches, wildlife
+                    and rich cultural heritage. Travel across Kerala with Vibhu Travel Hub for a comfortable and
+                    memorable journey.
                 </p>
                 <div class="d-flex align-items-center gap-3 flex-wrap reveal-up">
-                    <button class="btn btn-danger rounded-pill px-4 py-2.5 fw-bold text-white shadow-sm border-0 d-inline-flex align-items-center gap-2" style="background-color: #E31E24; font-size: 0.95rem;" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Kerala">
+                    <button
+                        class="btn btn-danger rounded-pill px-4 py-2.5 fw-bold text-white shadow-sm border-0 d-inline-flex align-items-center gap-2"
+                        style="background-color: #E31E24; font-size: 0.95rem;" data-bs-toggle="modal"
+                        data-bs-target="#enquiryModal" data-destination="Kerala">
                         Book Your Trip <i class="bi bi-arrow-right"></i>
                     </button>
-                    <a href="#popular-destinations" class="btn btn-light rounded-pill px-4 py-2.5 fw-bold d-inline-flex align-items-center gap-2" style="font-size: 0.95rem; color: #1F2937; background: #FFFFFF; border: 1px solid rgba(255, 255, 255, 0.9);">
+                    <a href="#popular-destinations"
+                        class="btn btn-light rounded-pill px-4 py-2.5 fw-bold d-inline-flex align-items-center gap-2"
+                        style="font-size: 0.95rem; color: #1F2937; background: #FFFFFF; border: 1px solid rgba(255, 255, 255, 0.9);">
                         Explore Places <i class="bi bi-compass"></i>
                     </a>
                 </div>
@@ -241,7 +251,8 @@
                         <i class="bi bi-shield-check text-danger fs-3"></i>
                         <div>
                             <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">Safe & Secure</h6>
-                            <span class="text-muted d-block" style="font-size: 0.75rem;">Your safety is our priority</span>
+                            <span class="text-muted d-block" style="font-size: 0.75rem;">Your safety is our
+                                priority</span>
                         </div>
                     </div>
                 </div>
@@ -296,113 +307,254 @@
 </section>
 
 <!-- ==========================================
+    ABOUT KERALA SECTION (Left Image + Right Content)
+========================================== -->
+<section id="about-state" class="vth-section py-5 bg-white border-bottom">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <!-- Left Column: Large Destination Image (~45%) -->
+            <div class="col-lg-5 col-md-12 reveal-left">
+                <div class="position-relative rounded-4 overflow-hidden shadow-lg" style="height: 520px;">
+                    <img src="{% static 'images/destinations/kerala-abouts.jpg' %}" alt="About Kerala Backwaters & Hill Stations" class="img-fluid w-100 h-100 hover-scale" style="object-fit: cover; transition: transform 0.6s ease;">
+                    <div class="position-absolute bottom-0 start-0 w-100 p-4" style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);">
+                        <span class="badge bg-danger rounded-pill px-3 py-1.5 text-white fw-bold mb-1">God's Own Country</span>
+                        <h4 class="text-white fw-bold mb-0">Backwaters, Hills & Beaches</h4>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Content (~55%) -->
+            <div class="col-lg-7 col-md-12 reveal-right">
+                <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block mb-1" style="color: #E31E24; font-size: 0.75rem; letter-spacing: 1.2px;">DISCOVER GOD'S OWN COUNTRY</span>
+                <h2 class="fw-extrabold text-dark mb-3" style="font-size: 2.2rem; letter-spacing: -0.5px;">About Kerala</h2>
+                <p class="lead text-secondary fw-semibold mb-3" style="font-size: 1.08rem; line-height: 1.6;">
+                    Kerala is a beautiful blend of tranquil backwaters, mist-covered hills, tropical beaches and rich cultural traditions, offering travellers an experience that combines relaxation, nature and discovery.
+                </p>
+                <div class="about-text-content text-secondary small-text mb-4" style="font-size: 0.98rem; line-height: 1.75;">
+                    <p class="mb-3">
+                        Stretching along the Malabar Coast of the Arabian Sea, Kerala features palm-shaded backwater lagoons, spice-scented mountain peaks, and lush wildlife reserves. From the historic commercial port of <a href="{% url 'city_detail' state_slug='kerala' city_slug='cochin' %}" class="text-danger text-decoration-none fw-bold">Cochin</a> to the royal capital of <a href="{% url 'city_detail' state_slug='kerala' city_slug='trivandrum' %}" class="text-danger text-decoration-none fw-bold">Trivandrum</a>, Kerala travel creates memories for family vacations, honeymoons, and Ayurvedic retreats.
+                    </p>
+                    <p class="mb-3">
+                        The crowning glory among Kerala tourist places is its world-renowned backwaters. Cruising on Kettuvallam houseboats in Alleppey and Kumarakom, exploring tea plantations in Munnar, spotting wildlife in Thekkady, or relaxing on red cliff beaches in Varkala and Kovalam showcase the state's natural variety. Cultural capital <a href="{% url 'city_detail' state_slug='kerala' city_slug='thrissur' %}" class="text-danger text-decoration-none fw-bold">Thrissur</a> and spice hub <a href="{% url 'city_detail' state_slug='kerala' city_slug='calicut' %}" class="text-danger text-decoration-none fw-bold">Calicut</a> complete the rich cultural mosaic.
+                    </p>
+                    <p class="mb-0">
+                        Navigating places to visit in Kerala is effortless with Vibhu Travel Hub. We specialize in custom tour packages, outstation cabs, airport transfers at Cochin (COK) and Trivandrum (TRV), and Tempo Travellers across all major Kerala travel destinations.
+                    </p>
+                </div>
+
+                <!-- Highlights Row -->
+                <div class="row g-3 pt-3 border-top">
+                    <div class="col-4">
+                        <div class="d-flex align-items-center gap-2">
+                            <div class="rounded-circle bg-danger-subtle text-danger p-2 d-flex align-items-center justify-content-center" style="width: 36px; height: 36px; min-width: 36px;">
+                                <i class="bi bi-water fs-6"></i>
+                            </div>
+                            <span class="fw-bold text-dark small" style="font-size: 0.85rem;">Backwater Experiences</span>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="d-flex align-items-center gap-2">
+                            <div class="rounded-circle bg-danger-subtle text-danger p-2 d-flex align-items-center justify-content-center" style="width: 36px; height: 36px; min-width: 36px;">
+                                <i class="bi bi-tree-fill fs-6"></i>
+                            </div>
+                            <span class="fw-bold text-dark small" style="font-size: 0.85rem;">Hill Station Escapes</span>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="d-flex align-items-center gap-2">
+                            <div class="rounded-circle bg-danger-subtle text-danger p-2 d-flex align-items-center justify-content-center" style="width: 36px; height: 36px; min-width: 36px;">
+                                <i class="bi bi-umbrella-fill fs-6"></i>
+                            </div>
+                            <span class="fw-bold text-dark small" style="font-size: 0.85rem;">Coastal Getaways</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
     3. CAB SERVICES SECTION (Matching Master Template)
 ========================================== -->
 <section id="cab-services" class="vth-section py-5 bg-white">
     <div class="container">
         <div class="d-flex align-items-end justify-content-between mb-4">
             <div class="reveal-left">
-                <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block mb-1" style="color: #E31E24; font-size: 0.75rem; letter-spacing: 1.2px;">OUR CAB SERVICES</span>
-                <h2 class="fw-extrabold text-dark mb-0" style="font-size: 2.2rem; letter-spacing: -0.5px;">Premium Cab Services Across Kerala</h2>
+                <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block mb-1"
+                    style="color: #E31E24; font-size: 0.75rem; letter-spacing: 1.2px;">OUR CAB SERVICES</span>
+                <h2 class="fw-extrabold text-dark mb-0" style="font-size: 2.2rem; letter-spacing: -0.5px;">Premium Cab
+                    Services Across Kerala</h2>
             </div>
             <div class="d-flex align-items-center gap-2 reveal-right">
-                <a href="{% url 'local_taxi_service' %}" class="text-decoration-none text-dark fw-bold small">View All Services <i class="bi bi-chevron-right ms-1"></i></a>
+                <a href="{% url 'local_taxi_service' %}" class="text-decoration-none text-dark fw-bold small">View All
+                    Services <i class="bi bi-chevron-right ms-1"></i></a>
             </div>
         </div>
 
         <div class="row g-4">
-            <!-- Kochi Cab Service -->
+            <!-- Cochin City Card -->
             <div class="col-lg-3 col-md-6 reveal-left">
-                <div class="cab-service-card">
-                    <div class="img-reveal">
-                        <img src="{% static 'images/destinations/cochin.jpg' %}" alt="Kochi Cab Service" class="img-fluid w-100" style="height: 180px; object-fit: cover;">
+                <div class="cab-service-card h-100 d-flex flex-column border-0 shadow-sm rounded-4 overflow-hidden">
+                    <div class="img-reveal position-relative">
+                        <a href="{% url 'city_detail' state_slug='kerala' city_slug='cochin' %}">
+                            <img src="{% static 'images/destinations/cochin.jpg' %}" alt="Cochin Travel Guide"
+                                class="img-fluid w-100 hover-scale" style="height: 190px; object-fit: cover;">
+                        </a>
+                        <div class="cab-icon-badge">
+                            <i class="bi bi-building-fill"></i>
+                        </div>
                     </div>
-                    <div class="cab-icon-badge">
-                        <i class="bi bi-building-fill"></i>
-                    </div>
-                    <div class="p-4 pt-2 d-flex flex-column flex-grow-1">
-                        <h5 class="fw-bold text-dark mb-3" style="font-size: 1.1rem;">Kochi Cab Service</h5>
-                        <ul class="list-unstyled d-flex flex-column gap-2 text-muted small mb-4">
-                            <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Airport Transfer</span></li>
-                            <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Local City Rides</span></li>
-                            <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Outstation Trips</span></li>
-                            <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Corporate Travel</span></li>
+                    <div class="p-4 d-flex flex-column flex-grow-1 bg-white">
+                        <a href="{% url 'city_detail' state_slug='kerala' city_slug='cochin' %}"
+                            class="text-decoration-none">
+                            <h5 class="fw-bold text-dark mb-3 text-center" style="font-size: 1.2rem;">Cochin (Kochi)
+                            </h5>
+                        </a>
+                        <ul class="list-unstyled d-flex flex-column gap-2 text-secondary small mb-4">
+                            <li class="d-flex align-items-center gap-2"><i
+                                    class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Airport Transfer</span>
+                            </li>
+                            <li class="d-flex align-items-center gap-2"><i
+                                    class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Local City Rides</span>
+                            </li>
+                            <li class="d-flex align-items-center gap-2"><i
+                                    class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Outstation Trips</span>
+                            </li>
+                            <li class="d-flex align-items-center gap-2"><i
+                                    class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Corporate Travel</span>
+                            </li>
                         </ul>
-                        <button class="btn p-0 border-0 text-danger fw-bold small text-start mt-auto d-inline-flex align-items-center gap-1" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Kerala" data-city="Kochi">
-                            Book Now <i class="bi bi-arrow-right"></i>
-                        </button>
+                        <div class="mt-auto pt-3 border-top">
+                            <a href="{% url 'city_detail' state_slug='kerala' city_slug='cochin' %}"
+                                class="btn btn-outline-danger w-100 rounded-pill py-2 fw-bold text-decoration-none d-flex align-items-center justify-content-center gap-2">
+                                Explore City <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Thiruvananthapuram Cab Service -->
+            <!-- Trivandrum City Card -->
             <div class="col-lg-3 col-md-6 reveal-up">
-                <div class="cab-service-card">
-                    <div class="img-reveal">
-                        <img src="{% static 'images/destinations/trivandrum.jpg' %}" alt="Trivandrum Cab Service" class="img-fluid w-100" style="height: 180px; object-fit: cover;">
+                <div class="cab-service-card h-100 d-flex flex-column border-0 shadow-sm rounded-4 overflow-hidden">
+                    <div class="img-reveal position-relative">
+                        <a href="{% url 'city_detail' state_slug='kerala' city_slug='trivandrum' %}">
+                            <img src="{% static 'images/destinations/trivandrum.jpg' %}" alt="Trivandrum Travel Guide"
+                                class="img-fluid w-100 hover-scale" style="height: 190px; object-fit: cover;">
+                        </a>
+                        <div class="cab-icon-badge">
+                            <i class="bi bi-car-front-fill"></i>
+                        </div>
                     </div>
-                    <div class="cab-icon-badge">
-                        <i class="bi bi-car-front-fill"></i>
-                    </div>
-                    <div class="p-4 pt-2 d-flex flex-column flex-grow-1">
-                        <h5 class="fw-bold text-dark mb-3" style="font-size: 1.1rem;">Thiruvananthapuram Cab</h5>
-                        <ul class="list-unstyled d-flex flex-column gap-2 text-muted small mb-4">
-                            <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Airport Transfer</span></li>
-                            <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Local City Rides</span></li>
-                            <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Outstation Trips</span></li>
-                            <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Corporate Travel</span></li>
+                    <div class="p-4 d-flex flex-column flex-grow-1 bg-white">
+                        <a href="{% url 'city_detail' state_slug='kerala' city_slug='trivandrum' %}"
+                            class="text-decoration-none">
+                            <h5 class="fw-bold text-dark mb-3 text-center" style="font-size: 1.2rem;">Trivandrum</h5>
+                        </a>
+                        <ul class="list-unstyled d-flex flex-column gap-2 text-secondary small mb-4">
+                            <li class="d-flex align-items-center gap-2"><i
+                                    class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Airport Transfer</span>
+                            </li>
+                            <li class="d-flex align-items-center gap-2"><i
+                                    class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Local City Rides</span>
+                            </li>
+                            <li class="d-flex align-items-center gap-2"><i
+                                    class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Outstation Trips</span>
+                            </li>
+                            <li class="d-flex align-items-center gap-2"><i
+                                    class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Corporate Travel</span>
+                            </li>
                         </ul>
-                        <button class="btn p-0 border-0 text-danger fw-bold small text-start mt-auto d-inline-flex align-items-center gap-1" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Kerala" data-city="Trivandrum">
-                            Book Now <i class="bi bi-arrow-right"></i>
-                        </button>
+                        <div class="mt-auto pt-3 border-top">
+                            <a href="{% url 'city_detail' state_slug='kerala' city_slug='trivandrum' %}"
+                                class="btn btn-outline-danger w-100 rounded-pill py-2 fw-bold text-decoration-none d-flex align-items-center justify-content-center gap-2">
+                                Explore City <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Munnar Cab Service -->
+            <!-- Thrissur City Card -->
             <div class="col-lg-3 col-md-6 reveal-up">
-                <div class="cab-service-card">
-                    <div class="img-reveal">
-                        <img src="{% static 'images/destinations/munnar.jpg' %}" alt="Munnar Cab Service" class="img-fluid w-100" style="height: 180px; object-fit: cover;">
+                <div class="cab-service-card h-100 d-flex flex-column border-0 shadow-sm rounded-4 overflow-hidden">
+                    <div class="img-reveal position-relative">
+                        <a href="{% url 'city_detail' state_slug='kerala' city_slug='thrissur' %}">
+                            <img src="{% static 'images/destinations/munnar.jpg' %}" alt="Thrissur Travel Guide"
+                                class="img-fluid w-100 hover-scale" style="height: 190px; object-fit: cover;">
+                        </a>
+                        <div class="cab-icon-badge">
+                            <i class="bi bi-tree-fill"></i>
+                        </div>
                     </div>
-                    <div class="cab-icon-badge">
-                        <i class="bi bi-tree-fill"></i>
-                    </div>
-                    <div class="p-4 pt-2 d-flex flex-column flex-grow-1">
-                        <h5 class="fw-bold text-dark mb-3" style="font-size: 1.1rem;">Munnar Cab Service</h5>
-                        <ul class="list-unstyled d-flex flex-column gap-2 text-muted small mb-4">
-                            <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Airport Transfer</span></li>
-                            <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Local City Rides</span></li>
-                            <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Outstation Trips</span></li>
-                            <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Corporate Travel</span></li>
+                    <div class="p-4 d-flex flex-column flex-grow-1 bg-white">
+                        <a href="{% url 'city_detail' state_slug='kerala' city_slug='thrissur' %}"
+                            class="text-decoration-none">
+                            <h5 class="fw-bold text-dark mb-3 text-center" style="font-size: 1.2rem;">Thrissur</h5>
+                        </a>
+                        <ul class="list-unstyled d-flex flex-column gap-2 text-secondary small mb-4">
+                            <li class="d-flex align-items-center gap-2"><i
+                                    class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Airport Transfer</span>
+                            </li>
+                            <li class="d-flex align-items-center gap-2"><i
+                                    class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Local City Rides</span>
+                            </li>
+                            <li class="d-flex align-items-center gap-2"><i
+                                    class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Outstation Trips</span>
+                            </li>
+                            <li class="d-flex align-items-center gap-2"><i
+                                    class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Corporate Travel</span>
+                            </li>
                         </ul>
-                        <button class="btn p-0 border-0 text-danger fw-bold small text-start mt-auto d-inline-flex align-items-center gap-1" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Kerala" data-city="Munnar">
-                            Book Now <i class="bi bi-arrow-right"></i>
-                        </button>
+                        <div class="mt-auto pt-3 border-top">
+                            <a href="{% url 'city_detail' state_slug='kerala' city_slug='thrissur' %}"
+                                class="btn btn-outline-danger w-100 rounded-pill py-2 fw-bold text-decoration-none d-flex align-items-center justify-content-center gap-2">
+                                Explore City <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Alleppey Cab Service -->
+            <!-- Calicut City Card -->
             <div class="col-lg-3 col-md-6 reveal-right">
-                <div class="cab-service-card">
-                    <div class="img-reveal">
-                        <img src="{% static 'images/destinations/alapuzha.jpg' %}" alt="Alleppey Cab Service" class="img-fluid w-100" style="height: 180px; object-fit: cover;">
+                <div class="cab-service-card h-100 d-flex flex-column border-0 shadow-sm rounded-4 overflow-hidden">
+                    <div class="img-reveal position-relative">
+                        <a href="{% url 'city_detail' state_slug='kerala' city_slug='calicut' %}">
+                            <img src="{% static 'images/destinations/alapuzha.jpg' %}" alt="Calicut Travel Guide"
+                                class="img-fluid w-100 hover-scale" style="height: 190px; object-fit: cover;">
+                        </a>
+                        <div class="cab-icon-badge">
+                            <i class="bi bi-water"></i>
+                        </div>
                     </div>
-                    <div class="cab-icon-badge">
-                        <i class="bi bi-water"></i>
-                    </div>
-                    <div class="p-4 pt-2 d-flex flex-column flex-grow-1">
-                        <h5 class="fw-bold text-dark mb-3" style="font-size: 1.1rem;">Alleppey Cab Service</h5>
-                        <ul class="list-unstyled d-flex flex-column gap-2 text-muted small mb-4">
-                            <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Airport Transfer</span></li>
-                            <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Local City Rides</span></li>
-                            <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Outstation Trips</span></li>
-                            <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Corporate Travel</span></li>
+                    <div class="p-4 d-flex flex-column flex-grow-1 bg-white">
+                        <a href="{% url 'city_detail' state_slug='kerala' city_slug='calicut' %}"
+                            class="text-decoration-none">
+                            <h5 class="fw-bold text-dark mb-3 text-center" style="font-size: 1.2rem;">Calicut
+                                (Kozhikode)</h5>
+                        </a>
+                        <ul class="list-unstyled d-flex flex-column gap-2 text-secondary small mb-4">
+                            <li class="d-flex align-items-center gap-2"><i
+                                    class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Airport Transfer</span>
+                            </li>
+                            <li class="d-flex align-items-center gap-2"><i
+                                    class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Local City Rides</span>
+                            </li>
+                            <li class="d-flex align-items-center gap-2"><i
+                                    class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Outstation Trips</span>
+                            </li>
+                            <li class="d-flex align-items-center gap-2"><i
+                                    class="bi bi-check-circle-fill text-danger fs-6"></i> <span>Corporate Travel</span>
+                            </li>
                         </ul>
-                        <button class="btn p-0 border-0 text-danger fw-bold small text-start mt-auto d-inline-flex align-items-center gap-1" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Kerala" data-city="Alleppey">
-                            Book Now <i class="bi bi-arrow-right"></i>
-                        </button>
+                        <div class="mt-auto pt-3 border-top">
+                            <a href="{% url 'city_detail' state_slug='kerala' city_slug='calicut' %}"
+                                class="btn btn-outline-danger w-100 rounded-pill py-2 fw-bold text-decoration-none d-flex align-items-center justify-content-center gap-2">
+                                Explore City <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -417,11 +569,14 @@
     <div class="container">
         <div class="d-flex align-items-end justify-content-between mb-4">
             <div class="reveal-down">
-                <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block mb-1" style="color: #E31E24; font-size: 0.75rem; letter-spacing: 1.2px;">POPULAR DESTINATIONS</span>
-                <h2 class="fw-extrabold text-dark mb-0" style="font-size: 2.2rem; letter-spacing: -0.5px;">Must Visit Places in Kerala</h2>
+                <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block mb-1"
+                    style="color: #E31E24; font-size: 0.75rem; letter-spacing: 1.2px;">POPULAR DESTINATIONS</span>
+                <h2 class="fw-extrabold text-dark mb-0" style="font-size: 2.2rem; letter-spacing: -0.5px;">Must Visit
+                    Places in Kerala</h2>
             </div>
             <div class="d-flex align-items-center gap-2 reveal-right">
-                <a href="#cab-services" class="text-decoration-none text-dark fw-bold small">View All Places <i class="bi bi-chevron-right ms-1"></i></a>
+                <a href="#cab-services" class="text-decoration-none text-dark fw-bold small">View All Places <i
+                        class="bi bi-chevron-right ms-1"></i></a>
             </div>
         </div>
 
@@ -539,40 +694,68 @@
 <section id="outstation-routes" class="vth-section py-5 bg-white border-top border-bottom">
     <div class="container">
         <div class="text-start mb-4">
-            <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block mb-1 reveal-down" style="color: #E31E24; font-size: 0.75rem; letter-spacing: 1.2px;">POPULAR OUTSTATION ROUTES</span>
-            <h2 class="fw-extrabold text-dark mb-1 reveal-left" style="font-size: 2.2rem; letter-spacing: -0.5px;">Popular Outstation Routes from Kerala</h2>
-            <p class="text-muted small mb-0 reveal-left">Explore top cab routes, tempo traveller rentals & outstation travel options across Kerala.</p>
+            <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block mb-1 reveal-down"
+                style="color: #E31E24; font-size: 0.75rem; letter-spacing: 1.2px;">POPULAR OUTSTATION ROUTES</span>
+            <h2 class="fw-extrabold text-dark mb-1 reveal-left" style="font-size: 2.2rem; letter-spacing: -0.5px;">
+                Popular Outstation Routes from Kerala</h2>
+            <p class="text-muted small mb-0 reveal-left">Explore top cab routes, tempo traveller rentals & outstation
+                travel options across Kerala.</p>
         </div>
 
         <div class="row g-4">
             <!-- Left Card: Kochi Outstation Routes -->
             <div class="col-lg-6 col-md-12 reveal-left">
-                <div class="p-4 p-md-4.5 rounded-4 bg-light border border-light-subtle shadow-sm h-100 d-flex flex-column justify-content-between">
+                <div
+                    class="p-4 p-md-4.5 rounded-4 bg-light border border-light-subtle shadow-sm h-100 d-flex flex-column justify-content-between">
                     <div>
                         <div class="d-flex align-items-center gap-2 mb-3">
                             <i class="bi bi-geo-alt-fill text-danger fs-4"></i>
-                            <h4 class="fw-bold text-dark mb-0" style="font-size: 1.25rem;">Popular Outstation Routes from Kochi</h4>
+                            <h4 class="fw-bold text-dark mb-0" style="font-size: 1.25rem;">Popular Outstation Routes
+                                from Kochi</h4>
                         </div>
                         <p class="text-muted small mb-3" style="line-height: 1.6;">
-                            Vibhu Travel Hub offers 24/7 cab service in Kochi, airport transfers, and outstation cabs to Kerala's top hill stations, backwater destinations, and coastal resorts.
+                            Vibhu Travel Hub offers 24/7 cab service in Kochi, airport transfers, and outstation cabs to
+                            Kerala's top hill stations, backwater destinations, and coastal resorts.
                         </p>
 
                         <div class="d-flex flex-wrap gap-2 mb-4">
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Munnar"><i class="bi bi-signpost text-danger"></i> Kochi to Munnar Cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Alleppey"><i class="bi bi-signpost text-danger"></i> Kochi to Alleppey Cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Thekkady"><i class="bi bi-signpost text-danger"></i> Kochi to Thekkady Cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Wayanad"><i class="bi bi-signpost text-danger"></i> Kochi to Wayanad Cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Trivandrum"><i class="bi bi-signpost text-danger"></i> Kochi to Trivandrum Cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Kozhikode"><i class="bi bi-signpost text-danger"></i> Kochi to Kozhikode Cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Kumarakom"><i class="bi bi-signpost text-danger"></i> Kochi to Kumarakom Cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Munnar Alleppey"><i class="bi bi-signpost text-danger"></i> Munnar to Alleppey Cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Munnar Thekkady"><i class="bi bi-signpost text-danger"></i> Munnar to Thekkady Cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Varkala"><i class="bi bi-signpost text-danger"></i> Alleppey to Varkala Cab</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                                data-destination="Munnar"><i class="bi bi-signpost text-danger"></i> Kochi to Munnar
+                                Cab</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                                data-destination="Alleppey"><i class="bi bi-signpost text-danger"></i> Kochi to Alleppey
+                                Cab</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                                data-destination="Thekkady"><i class="bi bi-signpost text-danger"></i> Kochi to Thekkady
+                                Cab</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                                data-destination="Wayanad"><i class="bi bi-signpost text-danger"></i> Kochi to Wayanad
+                                Cab</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                                data-destination="Trivandrum"><i class="bi bi-signpost text-danger"></i> Kochi to
+                                Trivandrum Cab</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                                data-destination="Kozhikode"><i class="bi bi-signpost text-danger"></i> Kochi to
+                                Kozhikode Cab</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                                data-destination="Kumarakom"><i class="bi bi-signpost text-danger"></i> Kochi to
+                                Kumarakom Cab</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                                data-destination="Munnar Alleppey"><i class="bi bi-signpost text-danger"></i> Munnar to
+                                Alleppey Cab</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                                data-destination="Munnar Thekkady"><i class="bi bi-signpost text-danger"></i> Munnar to
+                                Thekkady Cab</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                                data-destination="Varkala"><i class="bi bi-signpost text-danger"></i> Alleppey to
+                                Varkala Cab</a>
                         </div>
                     </div>
 
                     <div>
-                        <button class="btn btn-outline-danger rounded-pill px-4 py-2 fw-bold small" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Kerala" data-city="Kochi">
+                        <button class="btn btn-outline-danger rounded-pill px-4 py-2 fw-bold small"
+                            data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Kerala"
+                            data-city="Kochi">
                             Book Kochi Services <i class="bi bi-arrow-right ms-1"></i>
                         </button>
                     </div>
@@ -581,32 +764,57 @@
 
             <!-- Right Card: Trivandrum & Calicut Outstation Routes -->
             <div class="col-lg-6 col-md-12 reveal-right">
-                <div class="p-4 p-md-4.5 rounded-4 bg-light border border-light-subtle shadow-sm h-100 d-flex flex-column justify-content-between">
+                <div
+                    class="p-4 p-md-4.5 rounded-4 bg-light border border-light-subtle shadow-sm h-100 d-flex flex-column justify-content-between">
                     <div>
                         <div class="d-flex align-items-center gap-2 mb-3">
                             <i class="bi bi-geo-alt-fill text-danger fs-4"></i>
-                            <h4 class="fw-bold text-dark mb-0" style="font-size: 1.25rem;">Popular Outstation Routes across Kerala</h4>
+                            <h4 class="fw-bold text-dark mb-0" style="font-size: 1.25rem;">Popular Outstation Routes
+                                across Kerala</h4>
                         </div>
                         <p class="text-muted small mb-3" style="line-height: 1.6;">
-                            Vibhu Travel Hub provides seamless outstation taxi rentals, airport taxis, and Tempo Travellers connecting Kerala with Tamil Nadu, Karnataka & interstate destinations.
+                            Vibhu Travel Hub provides seamless outstation taxi rentals, airport taxis, and Tempo
+                            Travellers connecting Kerala with Tamil Nadu, Karnataka & interstate destinations.
                         </p>
 
                         <div class="d-flex flex-wrap gap-2 mb-4">
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Kanyakumari"><i class="bi bi-signpost text-danger"></i> Trivandrum to Kanyakumari Cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Varkala"><i class="bi bi-signpost text-danger"></i> Trivandrum to Varkala Cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Alleppey"><i class="bi bi-signpost text-danger"></i> Trivandrum to Alleppey Cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Kovalam Taxi"><i class="bi bi-airplane text-danger"></i> Trivandrum Airport to Kovalam Taxi</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Wayanad"><i class="bi bi-signpost text-danger"></i> Kozhikode to Wayanad Cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Airport Munnar"><i class="bi bi-airplane text-danger"></i> Kochi Airport to Munnar Taxi</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Airport Alleppey"><i class="bi bi-airplane text-danger"></i> Kochi Airport to Alleppey Taxi</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Bangalore"><i class="bi bi-signpost text-danger"></i> Kochi to Bangalore Outstation Cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Coimbatore"><i class="bi bi-signpost text-danger"></i> Kochi to Coimbatore Cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Chennai"><i class="bi bi-signpost text-danger"></i> Kochi to Chennai Cab</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                                data-destination="Kanyakumari"><i class="bi bi-signpost text-danger"></i> Trivandrum to
+                                Kanyakumari Cab</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                                data-destination="Varkala"><i class="bi bi-signpost text-danger"></i> Trivandrum to
+                                Varkala Cab</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                                data-destination="Alleppey"><i class="bi bi-signpost text-danger"></i> Trivandrum to
+                                Alleppey Cab</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                                data-destination="Kovalam Taxi"><i class="bi bi-airplane text-danger"></i> Trivandrum
+                                Airport to Kovalam Taxi</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                                data-destination="Wayanad"><i class="bi bi-signpost text-danger"></i> Kozhikode to
+                                Wayanad Cab</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                                data-destination="Airport Munnar"><i class="bi bi-airplane text-danger"></i> Kochi
+                                Airport to Munnar Taxi</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                                data-destination="Airport Alleppey"><i class="bi bi-airplane text-danger"></i> Kochi
+                                Airport to Alleppey Taxi</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                                data-destination="Bangalore"><i class="bi bi-signpost text-danger"></i> Kochi to
+                                Bangalore Outstation Cab</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                                data-destination="Coimbatore"><i class="bi bi-signpost text-danger"></i> Kochi to
+                                Coimbatore Cab</a>
+                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                                data-destination="Chennai"><i class="bi bi-signpost text-danger"></i> Kochi to Chennai
+                                Cab</a>
                         </div>
                     </div>
 
                     <div>
-                        <button class="btn btn-outline-danger rounded-pill px-4 py-2 fw-bold small" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Kerala" data-city="Trivandrum">
+                        <button class="btn btn-outline-danger rounded-pill px-4 py-2 fw-bold small"
+                            data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Kerala"
+                            data-city="Trivandrum">
                             Book Kerala Services <i class="bi bi-arrow-right ms-1"></i>
                         </button>
                     </div>
@@ -624,8 +832,10 @@
         <div class="row g-5">
             <!-- Left Column: Gallery -->
             <div class="col-lg-6 col-md-12 reveal-left">
-                <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block mb-1" style="color: #E31E24; font-size: 0.75rem; letter-spacing: 1.2px;">GALLERY</span>
-                <h2 class="fw-extrabold text-dark mb-4" style="font-size: 2rem; letter-spacing: -0.5px;">Beautiful Kerala</h2>
+                <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block mb-1"
+                    style="color: #E31E24; font-size: 0.75rem; letter-spacing: 1.2px;">GALLERY</span>
+                <h2 class="fw-extrabold text-dark mb-4" style="font-size: 2rem; letter-spacing: -0.5px;">Beautiful
+                    Kerala</h2>
 
                 <div class="row g-2.5">
                     <div class="col-4">
@@ -635,7 +845,8 @@
                     </div>
                     <div class="col-4">
                         <div class="gallery-tile">
-                            <img src="{% static 'images/destinations/alapuzha.jpg' %}" alt="Alleppey Backwater Houseboat">
+                            <img src="{% static 'images/destinations/alapuzha.jpg' %}"
+                                alt="Alleppey Backwater Houseboat">
                         </div>
                     </div>
                     <div class="col-4">
@@ -661,7 +872,8 @@
                 </div>
 
                 <div class="mt-3.5">
-                    <a href="#popular-destinations" class="text-danger text-decoration-none fw-bold small d-inline-flex align-items-center gap-1">
+                    <a href="#popular-destinations"
+                        class="text-danger text-decoration-none fw-bold small d-inline-flex align-items-center gap-1">
                         View Full Gallery <i class="bi bi-arrow-right"></i>
                     </a>
                 </div>
@@ -669,78 +881,93 @@
 
             <!-- Right Column: Why Choose Vibhu Travel Hub -->
             <div class="col-lg-6 col-md-12 reveal-right">
-                <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block mb-1" style="color: #E31E24; font-size: 0.75rem; letter-spacing: 1.2px;">WHY CHOOSE VIBHU TRAVEL HUB?</span>
-                <h2 class="fw-extrabold text-dark mb-4" style="font-size: 2rem; letter-spacing: -0.5px;">Your Journey, Our Responsibility</h2>
+                <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block mb-1"
+                    style="color: #E31E24; font-size: 0.75rem; letter-spacing: 1.2px;">WHY CHOOSE VIBHU TRAVEL
+                    HUB?</span>
+                <h2 class="fw-extrabold text-dark mb-4" style="font-size: 2rem; letter-spacing: -0.5px;">Your Journey,
+                    Our Responsibility</h2>
 
                 <div class="row g-4">
                     <div class="col-6">
                         <div class="d-flex align-items-start gap-3">
-                            <div class="rounded-circle p-2.5 text-danger border border-danger-subtle bg-danger-subtle d-flex align-items-center justify-content-center" style="width: 44px; height: 44px; min-width: 44px;">
+                            <div class="rounded-circle p-2.5 text-danger border border-danger-subtle bg-danger-subtle d-flex align-items-center justify-content-center"
+                                style="width: 44px; height: 44px; min-width: 44px;">
                                 <i class="bi bi-person-badge-fill fs-5"></i>
                             </div>
                             <div>
                                 <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem;">Professional Drivers</h6>
-                                <p class="text-muted small mb-0" style="font-size: 0.8rem; line-height: 1.45;">Experienced & verified drivers</p>
+                                <p class="text-muted small mb-0" style="font-size: 0.8rem; line-height: 1.45;">
+                                    Experienced & verified drivers</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-6">
                         <div class="d-flex align-items-start gap-3">
-                            <div class="rounded-circle p-2.5 text-danger border border-danger-subtle bg-danger-subtle d-flex align-items-center justify-content-center" style="width: 44px; height: 44px; min-width: 44px;">
+                            <div class="rounded-circle p-2.5 text-danger border border-danger-subtle bg-danger-subtle d-flex align-items-center justify-content-center"
+                                style="width: 44px; height: 44px; min-width: 44px;">
                                 <i class="bi bi-car-front-fill fs-5"></i>
                             </div>
                             <div>
                                 <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem;">Luxury Fleet</h6>
-                                <p class="text-muted small mb-0" style="font-size: 0.8rem; line-height: 1.45;">Well maintained premium vehicles</p>
+                                <p class="text-muted small mb-0" style="font-size: 0.8rem; line-height: 1.45;">Well
+                                    maintained premium vehicles</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-6">
                         <div class="d-flex align-items-start gap-3">
-                            <div class="rounded-circle p-2.5 text-danger border border-danger-subtle bg-danger-subtle d-flex align-items-center justify-content-center" style="width: 44px; height: 44px; min-width: 44px;">
+                            <div class="rounded-circle p-2.5 text-danger border border-danger-subtle bg-danger-subtle d-flex align-items-center justify-content-center"
+                                style="width: 44px; height: 44px; min-width: 44px;">
                                 <i class="bi bi-shield-lock-fill fs-5"></i>
                             </div>
                             <div>
                                 <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem;">Safe & Secure</h6>
-                                <p class="text-muted small mb-0" style="font-size: 0.8rem; line-height: 1.45;">Your safety is our top priority</p>
+                                <p class="text-muted small mb-0" style="font-size: 0.8rem; line-height: 1.45;">Your
+                                    safety is our top priority</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-6">
                         <div class="d-flex align-items-start gap-3">
-                            <div class="rounded-circle p-2.5 text-danger border border-danger-subtle bg-danger-subtle d-flex align-items-center justify-content-center" style="width: 44px; height: 44px; min-width: 44px;">
+                            <div class="rounded-circle p-2.5 text-danger border border-danger-subtle bg-danger-subtle d-flex align-items-center justify-content-center"
+                                style="width: 44px; height: 44px; min-width: 44px;">
                                 <i class="bi bi-headset fs-5"></i>
                             </div>
                             <div>
                                 <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem;">24/7 Support</h6>
-                                <p class="text-muted small mb-0" style="font-size: 0.8rem; line-height: 1.45;">Always available for you</p>
+                                <p class="text-muted small mb-0" style="font-size: 0.8rem; line-height: 1.45;">Always
+                                    available for you</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-6">
                         <div class="d-flex align-items-start gap-3">
-                            <div class="rounded-circle p-2.5 text-danger border border-danger-subtle bg-danger-subtle d-flex align-items-center justify-content-center" style="width: 44px; height: 44px; min-width: 44px;">
+                            <div class="rounded-circle p-2.5 text-danger border border-danger-subtle bg-danger-subtle d-flex align-items-center justify-content-center"
+                                style="width: 44px; height: 44px; min-width: 44px;">
                                 <i class="bi bi-currency-rupee fs-5"></i>
                             </div>
                             <div>
                                 <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem;">Affordable Pricing</h6>
-                                <p class="text-muted small mb-0" style="font-size: 0.8rem; line-height: 1.45;">Best price guarantee with no hidden charges</p>
+                                <p class="text-muted small mb-0" style="font-size: 0.8rem; line-height: 1.45;">Best
+                                    price guarantee with no hidden charges</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-6">
                         <div class="d-flex align-items-start gap-3">
-                            <div class="rounded-circle p-2.5 text-danger border border-danger-subtle bg-danger-subtle d-flex align-items-center justify-content-center" style="width: 44px; height: 44px; min-width: 44px;">
+                            <div class="rounded-circle p-2.5 text-danger border border-danger-subtle bg-danger-subtle d-flex align-items-center justify-content-center"
+                                style="width: 44px; height: 44px; min-width: 44px;">
                                 <i class="bi bi-clock-check-fill fs-5"></i>
                             </div>
                             <div>
                                 <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem;">On-Time Service</h6>
-                                <p class="text-muted small mb-0" style="font-size: 0.8rem; line-height: 1.45;">Punctual & reliable travel service</p>
+                                <p class="text-muted small mb-0" style="font-size: 0.8rem; line-height: 1.45;">Punctual
+                                    & reliable travel service</p>
                             </div>
                         </div>
                     </div>
@@ -758,35 +985,44 @@
         <div class="p-4 p-md-5 rounded-4 bg-white border border-light-subtle shadow-sm reveal-zoom">
             <div class="row align-items-center g-4">
                 <div class="col-lg-4 col-md-12 reveal-left">
-                    <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block mb-1" style="font-size: 0.75rem; letter-spacing: 1px;">PLAN YOUR JOURNEY</span>
-                    <h3 class="fw-extrabold text-dark mb-1" style="font-size: 1.8rem; letter-spacing: -0.5px;">Book Your Trip Now!</h3>
+                    <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block mb-1"
+                        style="font-size: 0.75rem; letter-spacing: 1px;">PLAN YOUR JOURNEY</span>
+                    <h3 class="fw-extrabold text-dark mb-1" style="font-size: 1.8rem; letter-spacing: -0.5px;">Book Your
+                        Trip Now!</h3>
                     <p class="text-muted small mb-0">Fill in the details and our team will contact you shortly.</p>
                 </div>
 
                 <div class="col-lg-8 col-md-12 reveal-right">
-                    <form action="#" method="GET" class="row g-3 align-items-end" onsubmit="event.preventDefault(); bootstrap.Modal.getOrCreateInstance(document.getElementById('enquiryModal')).show();">
+                    <form action="#" method="GET" class="row g-3 align-items-end"
+                        onsubmit="event.preventDefault(); bootstrap.Modal.getOrCreateInstance(document.getElementById('enquiryModal')).show();">
                         <div class="col-md-4">
                             <label class="form-label small fw-bold text-dark mb-1">Your Name</label>
-                            <input type="text" class="form-control rounded-3 py-2 text-dark bg-light border-0" placeholder="Enter your name" required>
+                            <input type="text" class="form-control rounded-3 py-2 text-dark bg-light border-0"
+                                placeholder="Enter your name" required>
                         </div>
                         <div class="col-md-4">
                             <label class="form-label small fw-bold text-dark mb-1">Phone Number</label>
-                            <input type="tel" class="form-control rounded-3 py-2 text-dark bg-light border-0" placeholder="Enter your phone" required>
+                            <input type="tel" class="form-control rounded-3 py-2 text-dark bg-light border-0"
+                                placeholder="Enter your phone" required>
                         </div>
                         <div class="col-md-4">
                             <label class="form-label small fw-bold text-dark mb-1">Pickup Location</label>
-                            <input type="text" class="form-control rounded-3 py-2 text-dark bg-light border-0" placeholder="Enter pickup location" required>
+                            <input type="text" class="form-control rounded-3 py-2 text-dark bg-light border-0"
+                                placeholder="Enter pickup location" required>
                         </div>
                         <div class="col-md-4">
                             <label class="form-label small fw-bold text-dark mb-1">Drop Location</label>
-                            <input type="text" class="form-control rounded-3 py-2 text-dark bg-light border-0" placeholder="Enter drop location" required>
+                            <input type="text" class="form-control rounded-3 py-2 text-dark bg-light border-0"
+                                placeholder="Enter drop location" required>
                         </div>
                         <div class="col-md-4">
                             <label class="form-label small fw-bold text-dark mb-1">Travel Date</label>
                             <input type="date" class="form-control rounded-3 py-2 text-dark bg-light border-0" required>
                         </div>
                         <div class="col-md-4">
-                            <button type="submit" class="btn btn-danger w-100 rounded-3 py-2 fw-bold text-white shadow-sm border-0" style="background-color: #E31E24; font-size: 0.95rem;">
+                            <button type="submit"
+                                class="btn btn-danger w-100 rounded-3 py-2 fw-bold text-white shadow-sm border-0"
+                                style="background-color: #E31E24; font-size: 0.95rem;">
                                 Submit Enquiry
                             </button>
                         </div>

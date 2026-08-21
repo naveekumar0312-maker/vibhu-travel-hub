@@ -5,83 +5,97 @@
 <head>
 
     <!-- ==========================================
-        META TAGS
+        SEO & META TAGS
     =========================================== -->
-
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Vibhu Travel Hub">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#000000">
 
-    <meta http-equiv="X-UA-Compatible"
-          content="IE=edge">
+    <!-- Canonical URL (Dynamic HTTPS Production Domain) -->
+    <link rel="canonical" href="https://vibhutravelhub.com{{ request.path }}">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <!-- Title -->
+    <title>{% block title %}Luxury Travel Services in South India | Vibhu Travel Hub{% endblock %}</title>
 
-    <meta name="description"
-          content="{% block description %}Vibhu Travel Hub is a premier travel agency in Tamil Nadu offering cab service, cab booking, outstation cabs, airport transfers, tempo traveller rentals, luxury bus rentals, and tour packages across Coimbatore, Madurai, Trichy, Chennai, and South India.{% endblock %}">
+    <!-- Meta Description -->
+    <meta name="description" content="{% block description %}Vibhu Travel Hub is a premier travel agency offering cab service, outstation cabs, airport transfers, tempo traveller rentals, luxury bus rentals, and tour packages across South India.{% endblock %}">
 
-    <meta name="keywords"
-          content="{% block keywords %}travel agency, travel agency in tamil nadu, cab service, cab booking, outstation cabs, travel services, airport transfers, best travel agency, Vibhu Travel Hub{% endblock %}">
+    <!-- Meta Keywords -->
+    <meta name="keywords" content="{% block keywords %}travel agency, travel agency in tamil nadu, cab service, cab booking, outstation cabs, tempo traveller rental, luxury bus booking, South India tour packages, Vibhu Travel Hub{% endblock %}">
 
-    <meta name="author"
-          content="Vibhu Travel Hub">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Vibhu Travel Hub">
+    <meta property="og:title" content="{% block og_title %}{% block title_og %}Luxury Travel Services in South India | Vibhu Travel Hub{% endblock %}{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Vibhu Travel Hub is a premier travel agency offering cab service, outstation cabs, airport transfers, tempo traveller rentals, luxury bus rentals, and tour packages across South India.{% endblock %}">
+    <meta property="og:url" content="{% block og_url %}https://vibhutravelhub.com{{ request.path }}{% endblock %}">
+    <meta property="og:image" content="{% block og_image %}https://vibhutravelhub.com{% static 'images/logo/og-banner.webp' %}{% endblock %}">
 
-    <meta name="robots"
-          content="index,follow">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{% block twitter_title %}Luxury Travel Services in South India | Vibhu Travel Hub{% endblock %}">
+    <meta name="twitter:description" content="{% block twitter_description %}Vibhu Travel Hub is a premier travel agency offering cab service, outstation cabs, airport transfers, tempo traveller rentals, luxury bus rentals, and tour packages across South India.{% endblock %}">
+    <meta name="twitter:image" content="{% block twitter_image %}https://vibhutravelhub.com{% static 'images/logo/og-banner.webp' %}{% endblock %}">
 
-    <meta name="theme-color"
-          content="#000000">
+    <!-- Google Site Verification -->
+    <meta name="google-site-verification" content="_zCwFqOnZnGMhGv0HUWoKT_BxYdRsI4kqT5lrE6nXh8" />
 
-    <!-- ==========================================
-        CANONICAL
-    =========================================== -->
-
-    <link rel="canonical"
-          href="{% block canonical %}https://www.vibhutravelhub.com/{% endblock %}">
-
-    <!-- ==========================================
-        TITLE
-    =========================================== -->
-
-    <title>
-        {% block title %}
-        Travel Agency in Tamil Nadu | Cab & Travel Services | Vibhu Travel Hub
-        {% endblock %}
-    </title>
-
-    <!-- ==========================================
-        FAVICON
-    =========================================== -->
-
-    <link rel="icon"
-          type="image/webp"
-          href="{% static 'images/logo/logo.webp' %}">
-
-    <link rel="apple-touch-icon"
-          href="{% static 'images/logo/logo.webp' %}">
-
-    {% block icon %}{% endblock %}
-
-    <!-- ==========================================
-        OPEN GRAPH
-    =========================================== -->
-
-    <meta property="og:type"
-          content="website">
-
-    <meta property="og:site_name"
-          content="Vibhu Travel Hub">
-
-    <meta property="og:title"
-          content="{% block og_title %}Travel Agency in Tamil Nadu | Cab & Travel Services | Vibhu Travel Hub{% endblock %}">
-
-    <meta property="og:description"
-          content="{% block og_description %}Vibhu Travel Hub offers cab service, cab booking, outstation cabs, airport transfers, Tempo Traveller & Tour Packages across Tamil Nadu.{% endblock %}">
-
-    <meta property="og:url"
-          content="{% block og_url %}https://www.vibhutravelhub.com/{% endblock %}">
-
-    <meta property="og:image"
-          content="https://www.vibhutravelhub.com/static/images/logo/og-banner.webp">
+    <!-- Structured Data (JSON-LD) -->
+    {% block schema %}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TravelAgency",
+      "name": "Vibhu Travel Hub",
+      "url": "https://vibhutravelhub.com",
+      "logo": "https://vibhutravelhub.com/static/images/logo/logo.webp",
+      "image": "https://vibhutravelhub.com/static/images/logo/logo.webp",
+      "description": "Vibhu Travel Hub is a premier travel agency offering cab service, cab booking, tempo traveller rentals, luxury bus rentals, and outstation tour packages across South India.",
+      "email": "vibhutravelhub66@gmail.com",
+      "telephone": "+91-9655866660",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Joyce Villa Building, 87, Grey Town",
+        "addressLocality": "Coimbatore",
+        "addressRegion": "Tamil Nadu",
+        "postalCode": "641018",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "11.0014",
+        "longitude": "76.9629"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "00:00",
+        "closes": "23:59"
+      },
+      "areaServed": [
+        { "@type": "City", "name": "Coimbatore" },
+        { "@type": "City", "name": "Madurai" },
+        { "@type": "City", "name": "Trichy" },
+        { "@type": "City", "name": "Chennai" },
+        { "@type": "AdministrativeArea", "name": "Tamil Nadu" },
+        { "@type": "AdministrativeArea", "name": "Kerala" },
+        { "@type": "AdministrativeArea", "name": "Karnataka" }
+      ]
+    }
+    </script>
+    {% endblock %}
 
     <!-- ==========================================
         DNS PREFETCH
@@ -217,60 +231,7 @@
     </style>
 
     
-    <meta name="google-site-verification" content="_zCwFqOnZnGMhGv0HUWoKT_BxYdRsI4kqT5lrE6nXh8" />
-
- {% block schema %}
-        <script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"TravelAgency",
-  "name":"Vibhu Travel Hub",
-  "url":"https://www.vibhutravelhub.com",
-  "logo":"https://www.vibhutravelhub.com/static/images/logo/logo.webp",
-  "image":"https://www.vibhutravelhub.com/static/images/logo/logo.webp",
-  "description":"Vibhu Travel Hub is a premier travel agency offering cab service, cab booking, tempo traveller rentals, luxury bus rentals, and outstation tour packages across Tamil Nadu.",
-  "email":"vibhutravelhub66@gmail.com",
-  "telephone":"+91-9655866660",
-  "priceRange":"$$",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Joyce Villa Building, 87, Grey Town",
-    "addressLocality": "Coimbatore",
-    "addressRegion": "Tamil Nadu",
-    "postalCode": "641018",
-    "addressCountry": "IN"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": "11.0014",
-    "longitude": "76.9629"
-  },
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-      "Sunday"
-    ],
-    "opens": "00:00",
-    "closes": "23:59"
-  },
-  "areaServed": [
-    { "@type": "City", "name": "Coimbatore" },
-    { "@type": "City", "name": "Madurai" },
-    { "@type": "City", "name": "Trichy" },
-    { "@type": "City", "name": "Chennai" },
-    { "@type": "AdministrativeArea", "name": "Tamil Nadu" },
-    { "@type": "AdministrativeArea", "name": "Kerala" },
-    { "@type": "AdministrativeArea", "name": "Karnataka" }
-  ]
-}
-        </script>
- {% endblock %}
+    {% block schema_extra %}{% endblock %}
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-WKX7DN094J"></script>

@@ -1,14 +1,33 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}About Us | Vibhu Travel Hub — Premium Travel Services{% endblock %}
+{% block title %}About Us | Vibhu Travel Hub — Premier Travel Agency in South India{% endblock %}
 
-{% block description %}Learn about Vibhu Travel Hub, one of the most trusted travel partners across South India offering cab service, tempo traveller rentals, luxury bus rentals, and tour packages across Tamil Nadu, Kerala, and Karnataka.{% endblock %}
+{% block description %}Learn about Vibhu Travel Hub, leading travel agency in Coimbatore offering premium cabs, tempo travellers, luxury buses, and outstation tours with professional drivers.{% endblock %}
 
-{% block og_title %}About Us | Vibhu Travel Hub — Premium Travel Services{% endblock %}
-{% block og_description %}Learn about Vibhu Travel Hub, one of the most trusted travel partners across South India offering cab service, tempo traveller rentals, luxury bus rentals, and tour packages.{% endblock %}
-{% block og_url %}https://www.vibhutravelhub.com/about/{% endblock %}
-{% block canonical %}https://www.vibhutravelhub.com/about/{% endblock %}
+{% block og_title %}About Us | Vibhu Travel Hub — Premier Travel Agency in South India{% endblock %}
+{% block og_description %}Learn about Vibhu Travel Hub, leading travel agency in Coimbatore offering premium cabs, tempo travellers, luxury buses, and outstation tours with professional drivers.{% endblock %}
+{% block og_image %}https://vibhutravelhub.com{% static 'images/logo/og-banner.webp' %}{% endblock %}
+
+{% block schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "https://vibhutravelhub.com/"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "About Us",
+    "item": "https://vibhutravelhub.com/about/"
+  }]
+}
+</script>
+{% endblock %}
 
 {% block extra_css %}
 <!-- Google Fonts for Cursive Script -->
@@ -156,7 +175,7 @@
         <div class="row align-items-center">
             <div class="col-lg-6 col-md-10 anim-fade-up">
                 <span class="vth-script-eyebrow">Know More About Us</span>
-                <h1 class="fw-extrabold text-dark mb-3" style="font-size: 3.2rem; letter-spacing: -1.2px; line-height: 1.15;">About Us</h1>
+                <h1 class="fw-extrabold text-dark mb-3" style="font-size: 3.2rem; letter-spacing: -1.2px; line-height: 1.15;">About Vibhu Travel Hub</h1>
                 <p class="text-secondary mb-4" style="font-size: 1.05rem; line-height: 1.65; max-width: 520px; color: #475569;">
                     We are one of the most trusted travel partners across South India. Our mission is to provide safe, comfortable and memorable journeys for every traveller.
                 </p>

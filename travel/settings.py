@@ -53,8 +53,6 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
 
-    "django.contrib.sitemaps",
-
     # Local App
     "website",
     "dashboard",

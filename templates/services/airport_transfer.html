@@ -1,0 +1,302 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Airport Taxi & Transfer Services | Coimbatore & South India | Vibhu Travel Hub{% endblock %}
+{% block description %}Book 24/7 airport pickup and drop taxi services in Coimbatore, Chennai, Cochin & Bangalore. Reliable on-time cabs with driver assistance and zero wait charges.{% endblock %}
+{% block keywords %}airport taxi coimbatore, coimbatore airport pickup, airport drop cab, coimbatore airport to ooty taxi, airport transfer service south india{% endblock %}
+
+{% block og_title %}Airport Taxi & Transfer Services | Vibhu Travel Hub{% endblock %}
+{% block og_description %}Book 24/7 airport pickup and drop taxi services in Coimbatore, Chennai, Cochin & Bangalore. Reliable on-time cabs with driver assistance and zero wait charges.{% endblock %}
+{% block og_image %}https://vibhutravelhub.com{% static 'images/services/taxi-service-hero.jpg' %}{% endblock %}
+
+{% block twitter_title %}Airport Taxi & Transfer Services | Vibhu Travel Hub{% endblock %}
+{% block twitter_description %}Book 24/7 airport pickup and drop taxi services in Coimbatore, Chennai, Cochin & Bangalore. Reliable on-time cabs with driver assistance and zero wait charges.{% endblock %}
+{% block twitter_image %}https://vibhutravelhub.com{% static 'images/services/taxi-service-hero.jpg' %}{% endblock %}
+
+{% block schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Airport Taxi & Transfer Services",
+  "provider": {
+    "@type": "TravelAgency",
+    "name": "Vibhu Travel Hub",
+    "url": "https://vibhutravelhub.com"
+  },
+  "areaServed": "South India",
+  "description": "24/7 airport pickup and drop taxi services in Coimbatore, Chennai, Cochin and Bangalore."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "https://vibhutravelhub.com/"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "Services",
+    "item": "https://vibhutravelhub.com/#services"
+  },{
+    "@type": "ListItem",
+    "position": 3,
+    "name": "Airport Transfer",
+    "item": "https://vibhutravelhub.com/services/airport-transfer/"
+  }]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do you offer 24/7 airport pickup at Coimbatore International Airport (CJB)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, we provide round-the-clock 24/7 airport pickup and drop services at Coimbatore International Airport with flight tracking."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I book a direct airport taxi from Coimbatore Airport to Ooty or Munnar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, we provide direct outstation cabs from Coimbatore Airport directly to Ooty, Kodaikanal, Munnar, and Coorg."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if my flight is delayed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We monitor flight arrival times. Our driver will wait at the arrival hall based on your actual landing time."
+      }
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<!-- 1. BREADCRUMBS -->
+<nav aria-label="breadcrumb" class="bg-light py-3 border-bottom">
+    <div class="container">
+        <ol class="breadcrumb mb-0 small reveal-down">
+            <li class="breadcrumb-item"><a href="{% url 'home' %}" class="text-decoration-none text-danger fw-semibold"><i class="bi bi-house-door-fill"></i> Home</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'home' %}#services" class="text-decoration-none text-secondary">Services</a></li>
+            <li class="breadcrumb-item active text-dark fw-bold" aria-current="page">Airport Transfer</li>
+        </ol>
+    </div>
+</nav>
+
+<!-- 2. HERO SECTION -->
+<section class="py-5 bg-dark text-white position-relative overflow-hidden" style="background: linear-gradient(135deg, #111827 0%, #1F2937 100%);">
+    <div class="container py-4 position-relative z-2">
+        <div class="row align-items-center">
+            <div class="col-lg-8 reveal-left">
+                <span class="badge bg-danger rounded-pill px-3 py-2 text-uppercase mb-3 fw-bold tracking-wider float">24/7 On-Time Transfers</span>
+                <h1 class="display-4 fw-extrabold mb-3 text-white">Airport Taxi & Transfer Services</h1>
+                <p class="lead text-light opacity-90 mb-4" style="max-width: 680px; line-height: 1.6;">
+                    Hassle-free airport pickups and drops across Coimbatore, Chennai, Cochin, and Bangalore. Professional driver greeting, flight monitoring, and transparent rates.
+                </p>
+                <div class="d-flex flex-wrap gap-3">
+                    <button class="btn btn-danger rounded-pill px-4 py-2.5 fw-bold text-white shadow-sm d-inline-flex align-items-center gap-2" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Airport Transfer Booking">
+                        <i class="bi bi-airplane-fill wobble"></i> Book Airport Transfer
+                    </button>
+                    <a href="https://wa.me/919655866660?text=Hi%20Vibhu%20Travel%20Hub,%20I%20need%20an%20airport%20taxi%20transfer" target="_blank" class="btn btn-outline-light rounded-pill px-4 py-2.5 fw-bold d-inline-flex align-items-center gap-2">
+                        <i class="bi bi-whatsapp"></i> Instant WhatsApp Quote
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 3. SERVICE FEATURES -->
+<section class="py-5 bg-white">
+    <div class="container">
+        <div class="text-center mb-5 reveal-up">
+            <span class="text-danger fw-bold text-uppercase small tracking-wider">Why Travel With Us</span>
+            <h2 class="fw-extrabold text-dark">Stress-Free Airport Transportation</h2>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3 reveal-up reveal-delay-1">
+                <div class="p-4 rounded-4 bg-light border text-center h-100 hover-lift">
+                    <i class="bi bi-clock-history text-danger fs-1 mb-3 d-block wobble"></i>
+                    <h3 class="h6 fw-bold text-dark mb-2">24/7 On-Time Pickup</h3>
+                    <p class="small text-secondary mb-0">Never miss a flight. Guaranteed punctual pickups anytime, day or night.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 reveal-up reveal-delay-2">
+                <div class="p-4 rounded-4 bg-light border text-center h-100 hover-lift">
+                    <i class="bi bi-radar text-danger fs-1 mb-3 d-block wobble"></i>
+                    <h3 class="h6 fw-bold text-dark mb-2">Flight Monitoring</h3>
+                    <p class="small text-secondary mb-0">We track your flight landing time so driver schedules automatically adjust for delays.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 reveal-up reveal-delay-3">
+                <div class="p-4 rounded-4 bg-light border text-center h-100 hover-lift">
+                    <i class="bi bi-person-badge-fill text-danger fs-1 mb-3 d-block wobble"></i>
+                    <h3 class="h6 fw-bold text-dark mb-2">Professional Drivers</h3>
+                    <p class="small text-secondary mb-0">Courteous, verified drivers holding airport credentials for smooth terminal assistance.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 reveal-up reveal-delay-4">
+                <div class="p-4 rounded-4 bg-light border text-center h-100 hover-lift">
+                    <i class="bi bi-receipt-cutoff text-danger fs-1 mb-3 d-block wobble"></i>
+                    <h3 class="h6 fw-bold text-dark mb-2">Transparent All-Inclusive</h3>
+                    <p class="small text-secondary mb-0">No hidden fees. Upfront quotes including toll and driver charges.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 4. AIRPORTS COVERED -->
+<section class="py-5 bg-light border-top">
+    <div class="container">
+        <div class="text-center mb-4 reveal-up">
+            <span class="text-danger fw-bold text-uppercase small tracking-wider">Airports Served</span>
+            <h2 class="fw-extrabold text-dark">Airports Covered in South India</h2>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4 reveal-up reveal-delay-1">
+                <div class="p-4 bg-white rounded-4 border shadow-sm h-100 hover-lift">
+                    <h3 class="h6 fw-bold text-dark mb-2"><i class="bi bi-geo-alt-fill text-danger me-2 wobble"></i>Coimbatore Airport (CJB)</h3>
+                    <p class="small text-secondary mb-2">Primary airport transfer hub connecting to Ooty, Kodaikanal, Isha Yoga & Tirupur.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 reveal-up reveal-delay-2">
+                <div class="p-4 bg-white rounded-4 border shadow-sm h-100 hover-lift">
+                    <h3 class="h6 fw-bold text-dark mb-2"><i class="bi bi-geo-alt-fill text-danger me-2 wobble"></i>Cochin International Airport (COK)</h3>
+                    <p class="small text-secondary mb-2">Direct airport cabs to Munnar, Alleppey houseboats, Fort Kochi & Thrissur.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 reveal-up reveal-delay-3">
+                <div class="p-4 bg-white rounded-4 border shadow-sm h-100 hover-lift">
+                    <h3 class="h6 fw-bold text-dark mb-2"><i class="bi bi-geo-alt-fill text-danger me-2 wobble"></i>Chennai International Airport (MAA)</h3>
+                    <p class="small text-secondary mb-2">Transfers to Mahabalipuram, Pondicherry, Vellore & Chennai city hotels.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 reveal-up reveal-delay-4">
+                <div class="p-4 bg-white rounded-4 border shadow-sm h-100 hover-lift">
+                    <h3 class="h6 fw-bold text-dark mb-2"><i class="bi bi-geo-alt-fill text-danger me-2 wobble"></i>Bangalore Airport (BLR)</h3>
+                    <p class="small text-secondary mb-2">Outstation airport cabs to Mysore, Coorg, Hosur & Coimbatore.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 reveal-up reveal-delay-5">
+                <div class="p-4 bg-white rounded-4 border shadow-sm h-100 hover-lift">
+                    <h3 class="h6 fw-bold text-dark mb-2"><i class="bi bi-geo-alt-fill text-danger me-2 wobble"></i>Trichy International Airport (TRZ)</h3>
+                    <p class="small text-secondary mb-2">Airport transfers to Tanjore, Srirangam & Kumbakonam temple circuits.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 reveal-up reveal-delay-5">
+                <div class="p-4 bg-white rounded-4 border shadow-sm h-100 hover-lift">
+                    <h3 class="h6 fw-bold text-dark mb-2"><i class="bi bi-geo-alt-fill text-danger me-2 wobble"></i>Trivandrum Airport (TRV)</h3>
+                    <p class="small text-secondary mb-2">Airport taxis to Kovalam beach, Varkala cliff & Kanyakumari.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 5. FLEET SECTION -->
+<section class="py-5 bg-white border-top">
+    <div class="container">
+        <div class="text-center mb-4 reveal-up">
+            <span class="text-danger fw-bold text-uppercase small tracking-wider">Fleet Options</span>
+            <h2 class="fw-extrabold text-dark">Vehicles for Airport Transfers</h2>
+        </div>
+        <div class="row g-4">
+            {% for v in vehicles|slice:":4" %}
+            <div class="col-md-6 col-lg-3 reveal-up reveal-delay-{{ forloop.counter }}">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-lift">
+                    {% if v.image %}
+                    <img src="{{ v.image.url }}" alt="Vibhu Travel Hub {{ v.name }} Airport Transfer" class="card-img-top" style="height: 160px; object-fit: cover;">
+                    {% endif %}
+                    <div class="card-body p-3">
+                        <h3 class="h6 fw-bold text-dark mb-1">{{ v.name }}</h3>
+                        <p class="small text-muted mb-2">{{ v.category }} • {{ v.passengers }} Seats • {{ v.luggage }}</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="fw-bold text-danger">{{ v.display_price }}</span>
+                            <button class="btn btn-danger btn-sm rounded-pill px-3" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Airport Transfer - {{ v.name }}">Book</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- 6. FAQ SECTION -->
+<section class="py-5 bg-light border-top">
+    <div class="container">
+        <div class="text-center mb-4 reveal-up">
+            <span class="text-danger fw-bold text-uppercase small tracking-wider">FAQs</span>
+            <h2 class="fw-extrabold text-dark">Frequently Asked Questions — Airport Transfer</h2>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-9 reveal-up">
+                <div class="accordion accordion-flush" id="airportFaqAccordion">
+                    <div class="accordion-item border rounded-3 mb-3 overflow-hidden shadow-sm">
+                        <h3 class="accordion-header" id="headingA1">
+                            <button class="accordion-button collapsed fw-bold text-dark py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseA1" aria-expanded="false">
+                                Do you offer 24/7 airport pickup at Coimbatore International Airport (CJB)?
+                            </button>
+                        </h3>
+                        <div id="collapseA1" class="accordion-collapse collapse" data-bs-parent="#airportFaqAccordion">
+                            <div class="accordion-body text-secondary leading-relaxed">
+                                Yes, we provide round-the-clock 24/7 airport pickup and drop services at Coimbatore International Airport with flight tracking.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item border rounded-3 mb-3 overflow-hidden shadow-sm">
+                        <h3 class="accordion-header" id="headingA2">
+                            <button class="accordion-button collapsed fw-bold text-dark py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseA2" aria-expanded="false">
+                                Can I book a direct airport taxi from Coimbatore Airport to Ooty or Munnar?
+                            </button>
+                        </h3>
+                        <div id="collapseA2" class="accordion-collapse collapse" data-bs-parent="#airportFaqAccordion">
+                            <div class="accordion-body text-secondary leading-relaxed">
+                                Yes, we provide direct outstation cabs from Coimbatore Airport directly to Ooty, Kodaikanal, Munnar, and Coorg.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item border rounded-3 mb-3 overflow-hidden shadow-sm">
+                        <h3 class="accordion-header" id="headingA3">
+                            <button class="accordion-button collapsed fw-bold text-dark py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseA3" aria-expanded="false">
+                                What happens if my flight is delayed?
+                            </button>
+                        </h3>
+                        <div id="collapseA3" class="accordion-collapse collapse" data-bs-parent="#airportFaqAccordion">
+                            <div class="accordion-body text-secondary leading-relaxed">
+                                We monitor flight arrival times. Our driver will wait at the arrival hall based on your actual landing time.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 7. BOOKING CTA -->
+<section class="py-5 bg-danger text-white text-center scale-reveal">
+    <div class="container">
+        <h2 class="fw-extrabold mb-2">Book Your Airport Transfer Now</h2>
+        <p class="lead mb-4 opacity-90">Reliable, comfortable & punctual airport pickups and drops.</p>
+        <button class="btn btn-light rounded-pill px-5 py-3 fw-bold text-danger shadow" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Airport Transfer Booking">
+            <i class="bi bi-airplane-fill me-2 wobble"></i> Reserve Airport Taxi
+        </button>
+    </div>
+</section>
+{% endblock %}

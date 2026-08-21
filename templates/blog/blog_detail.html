@@ -4,10 +4,51 @@
 {% block title %}{{ post.title }} | Vibhu Travel Hub{% endblock %}
 {% block description %}{{ post.short_description }}{% endblock %}
 
-{% block og_title %}{{ post.title }}{% endblock %}
+{% block og_title %}{{ post.title }} | Vibhu Travel Hub{% endblock %}
 {% block og_description %}{{ post.short_description }}{% endblock %}
-{% block og_url %}{{ request.build_absolute_uri }}{% endblock %}
-{% block canonical %}{{ request.build_absolute_uri }}{% endblock %}
+{% if post.featured_image %}
+{% block og_image %}https://vibhutravelhub.com{{ post.featured_image.url }}{% endblock %}
+{% block twitter_image %}https://vibhutravelhub.com{{ post.featured_image.url }}{% endblock %}
+{% endif %}
+
+{% block schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{{ post.title|escapejs }}",
+  "description": "{{ post.short_description|escapejs }}",
+  "url": "https://vibhutravelhub.com{{ request.path }}",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Vibhu Travel Hub",
+    "logo": "https://vibhutravelhub.com/static/images/logo/logo.webp"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "https://vibhutravelhub.com/"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "Blog",
+    "item": "https://vibhutravelhub.com/blog/"
+  },{
+    "@type": "ListItem",
+    "position": 3,
+    "name": "{{ post.title|escapejs }}",
+    "item": "https://vibhutravelhub.com{{ request.path }}"
+  }]
+}
+</script>
+{% endblock %}
 
 {% block body_class %}blog-detail-page{% endblock %}
 

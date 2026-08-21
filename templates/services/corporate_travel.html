@@ -1,20 +1,32 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Corporate Vehicle Rental & Executive Transport | Chennai, Coimbatore & Bangalore{% endblock %}
-{% block description %}Book Innova Crysta rental, Force Urbania rental, 26 seater Tempo Traveller rental, and luxury
-coach rental for corporate events & employee transport in Chennai, Coimbatore, Madurai & Bangalore.{% endblock %}
-{% block keywords %}Innova Crysta rental in Coimbatore, Force Urbania rental in Chennai, 26 seater Tempo Traveller in
-Bangalore, 50 seater bus rental in Chennai, luxury car rental in Coimbatore, AC bus rental in Chennai{% endblock %}
-{% block canonical %}https://www.vibhutravels.in/services/corporate-travel/{% endblock %}
+{% block title %}Corporate Travel & Executive Car Rentals | Vibhu Travel Hub{% endblock %}
+{% block description %}Professional corporate vehicle rentals, executive employee transport, and event cab services in Coimbatore, Chennai, and Bangalore.{% endblock %}
+{% block keywords %}Innova Crysta rental in Coimbatore, Force Urbania rental in Chennai, 26 seater Tempo Traveller in Bangalore, 50 seater bus rental in Chennai{% endblock %}
+{% block og_title %}Corporate Travel & Executive Car Rentals | Vibhu Travel Hub{% endblock %}
+{% block og_description %}Professional corporate vehicle rentals, executive employee transport, and event cab services in Coimbatore, Chennai, and Bangalore.{% endblock %}
+{% block og_image %}https://vibhutravelhub.com{% static 'images/services/corporate-hero.jpg' %}{% endblock %}
 
-{% block og_title %}Corporate Vehicle Rental & Luxury Transport Services | Vibhu Travel Hub{% endblock %}
-{% block og_description %}Book premium Innova Crysta, Force Urbania, Tempo Traveller & luxury bus rentals for executive
-meetings and corporate trips across South India.{% endblock %}
-{% block og_url %}https://www.vibhutravels.in/services/corporate-travel/{% endblock %}
-{% block og_image %}https://www.vibhutravels.in{% static 'images/services/corporate-hero.jpg' %}{% endblock %}
+{% block twitter_title %}Corporate Travel & Executive Car Rentals | Vibhu Travel Hub{% endblock %}
+{% block twitter_description %}Professional corporate vehicle rentals, executive employee transport, and event cab services in Coimbatore, Chennai, and Bangalore.{% endblock %}
+{% block twitter_image %}https://vibhutravelhub.com{% static 'images/services/corporate-hero.jpg' %}{% endblock %}
 
-{% block schema_markup %}
+{% block schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Corporate Travel & Executive Car Rentals",
+  "provider": {
+    "@type": "TravelAgency",
+    "name": "Vibhu Travel Hub",
+    "url": "https://vibhutravelhub.com"
+  },
+  "areaServed": "South India",
+  "description": "Professional corporate vehicle rentals and executive transport with Vibhu Travel Hub."
+}
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -23,25 +35,20 @@ meetings and corporate trips across South India.{% endblock %}
     "@type": "ListItem",
     "position": 1,
     "name": "Home",
-    "item": "https://www.vibhutravels.in/"
+    "item": "https://vibhutravelhub.com/"
   },{
     "@type": "ListItem",
     "position": 2,
     "name": "Services",
-    "item": "https://www.vibhutravels.in/#fleet"
+    "item": "https://vibhutravelhub.com/#services"
   },{
     "@type": "ListItem",
     "position": 3,
     "name": "Corporate Travel",
-    "item": "https://www.vibhutravels.in/services/corporate-travel/"
+    "item": "https://vibhutravelhub.com/services/corporate-travel/"
   }]
 }
 </script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Corporate Travel Solutions in Coimbatore",
   "provider": {
     "@type": "TravelAgency",
     "name": "Vibhu Travel Hub"
@@ -154,9 +161,7 @@ meetings and corporate trips across South India.{% endblock %}
         <div class="row align-items-center">
             <div class="col-lg-7 col-md-10">
                 <span class="vth-script-eyebrow vth-anim-left">Vibhu Travel Hub</span>
-                <h1 class="fw-extrabold text-dark mb-3 vth-anim-left" style="font-size: 3.2rem; letter-spacing: -1.2px; line-height: 1.15;">
-                    Corporate Travel <span class="text-danger">Management.</span>
-                </h1>
+                <h1 class="fw-extrabold text-dark mb-3 vth-anim-left" style="font-size: 3.2rem; letter-spacing: -1.2px; line-height: 1.15;">Corporate Travel & Executive Car Rentals</h1>
                 <p class="text-secondary mb-4 vth-anim-up" style="font-size: 1.05rem; line-height: 1.65; max-width: 540px; color: #475569;">
                     Streamline your company's transportation with our professional fleet. Reliable executive cabs, airport transfers, and staff commuting solutions.
                 </p>

@@ -32,10 +32,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // 4. SCROLL REVEAL ENGINE (INTERSECTION OBSERVER)
-    const revealSelector = '.reveal, .reveal-up, .reveal-down, .reveal-left, .reveal-right, .reveal-scale, .reveal-zoom, .reveal-fade, .img-reveal, .stagger-item, .footer-reveal-item, .dest-card-ref, .place-card-ref, [data-reveal], [data-aos]';
+    const revealSelector = '.reveal, .reveal-up, .reveal-down, .reveal-left, .reveal-right, .reveal-scale, .reveal-zoom, .reveal-fade, .scale-reveal, .fade-reveal, .img-reveal, .stagger-item, .footer-reveal-item, .dest-card-ref, .place-card-ref, [data-reveal], [data-aos]';
     const revealElements = document.querySelectorAll(revealSelector);
 
-    const childSelector = '.reveal, .reveal-up, .reveal-down, .reveal-left, .reveal-right, .reveal-scale, .reveal-zoom, .reveal-fade, .img-reveal, .stagger-item, .dest-card-ref, .place-card-ref, [data-reveal]';
+    const childSelector = '.reveal, .reveal-up, .reveal-down, .reveal-left, .reveal-right, .reveal-scale, .reveal-zoom, .reveal-fade, .scale-reveal, .fade-reveal, .img-reveal, .stagger-item, .dest-card-ref, .place-card-ref, [data-reveal]';
 
     if (!prefersReducedMotion && 'IntersectionObserver' in window) {
         const revealOptions = {

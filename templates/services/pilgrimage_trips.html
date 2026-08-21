@@ -1,19 +1,32 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Pilgrimage Vehicle Rental & Temple Tour Packages | Madurai, Trichy & Coimbatore{% endblock %}
-{% block description %}Book Innova Crysta rental, 12 to 26 seater Tempo Traveller rental, and AC bus rental in Madurai,
-Trichy, Coimbatore & Chennai for Rameswaram, Srirangam & Palani temple tours.{% endblock %}
-{% block keywords %}Innova Crysta rental in Madurai, 17 seater Tempo Traveller in Madurai, 12 seater Tempo Traveller in Trichy, 35 seater bus rental in Madurai, non AC bus rental in Madurai, Tempo Traveller rental in Coimbatore{% endblock %}
-{% block canonical %}https://www.vibhutravels.in/services/pilgrimage-trips/{% endblock %}
+{% block title %}Pilgrimage Tour Packages & Temple Taxi Services | Vibhu Travel Hub{% endblock %}
+{% block description %}Sacred temple tours and pilgrimage vehicle rentals for Palani, Rameshwaram, Madurai, Sabarimala, Tirupati & Chidambaram with experienced drivers.{% endblock %}
+{% block keywords %}Innova Crysta rental in Madurai, 17 seater Tempo Traveller in Madurai, temple tour package Tamil Nadu, Rameshwaram cab package{% endblock %}
+{% block og_title %}Pilgrimage Tour Packages & Temple Taxi Services | Vibhu Travel Hub{% endblock %}
+{% block og_description %}Sacred temple tours and pilgrimage vehicle rentals for Palani, Rameshwaram, Madurai, Sabarimala, Tirupati & Chidambaram with experienced drivers.{% endblock %}
+{% block og_image %}https://vibhutravelhub.com{% static 'images/services/pilgrimage-hero.jpg' %}{% endblock %}
 
-{% block og_title %}Pilgrimage Vehicle Rental & Temple Packages | Madurai, Trichy, Coimbatore & Chennai{% endblock %}
-{% block og_description %}Book Innova Crysta rental, Tempo Traveller rental & luxury bus rental for temple pilgrimages
-across South India with Vibhu Travel Hub.{% endblock %}
-{% block og_url %}https://www.vibhutravels.in/services/pilgrimage-trips/{% endblock %}
-{% block og_image %}https://www.vibhutravels.in{% static 'images/services/pilgrimage-hero.jpg' %}{% endblock %}
+{% block twitter_title %}Pilgrimage Tour Packages & Temple Taxi Services | Vibhu Travel Hub{% endblock %}
+{% block twitter_description %}Sacred temple tours and pilgrimage vehicle rentals for Palani, Rameshwaram, Madurai, Sabarimala, Tirupati & Chidambaram with experienced drivers.{% endblock %}
+{% block twitter_image %}https://vibhutravelhub.com{% static 'images/services/pilgrimage-hero.jpg' %}{% endblock %}
 
-{% block schema_markup %}
+{% block schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Pilgrimage Tour Packages & Temple Taxi Services",
+  "provider": {
+    "@type": "TravelAgency",
+    "name": "Vibhu Travel Hub",
+    "url": "https://vibhutravelhub.com"
+  },
+  "areaServed": "South India",
+  "description": "Sacred temple tours and pilgrimage vehicle rentals with Vibhu Travel Hub."
+}
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -22,25 +35,20 @@ across South India with Vibhu Travel Hub.{% endblock %}
     "@type": "ListItem",
     "position": 1,
     "name": "Home",
-    "item": "https://www.vibhutravels.in/"
+    "item": "https://vibhutravelhub.com/"
   },{
     "@type": "ListItem",
     "position": 2,
     "name": "Services",
-    "item": "https://www.vibhutravels.in/#fleet"
+    "item": "https://vibhutravelhub.com/#services"
   },{
     "@type": "ListItem",
     "position": 3,
     "name": "Pilgrimage Trips",
-    "item": "https://www.vibhutravels.in/services/pilgrimage-trips/"
+    "item": "https://vibhutravelhub.com/services/pilgrimage-trips/"
   }]
 }
 </script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Pilgrimage Tours from Coimbatore",
   "provider": {
     "@type": "TravelAgency",
     "name": "Vibhu Travel Hub"
@@ -153,9 +161,7 @@ across South India with Vibhu Travel Hub.{% endblock %}
         <div class="row align-items-center">
             <div class="col-lg-7 col-md-10">
                 <span class="vth-script-eyebrow vth-anim-left">Vibhu Travel Hub</span>
-                <h1 class="fw-extrabold text-dark mb-3 vth-anim-left" style="font-size: 3.2rem; letter-spacing: -1.2px; line-height: 1.15;">
-                    Pilgrimage Tours <span class="text-danger">from Coimbatore.</span>
-                </h1>
+                <h1 class="fw-extrabold text-dark mb-3 vth-anim-left" style="font-size: 3.2rem; letter-spacing: -1.2px; line-height: 1.15;">Pilgrimage Tour Packages & Temple Taxi Services</h1>
                 <p class="text-secondary mb-4 vth-anim-up" style="font-size: 1.05rem; line-height: 1.65; max-width: 540px; color: #475569;">
                     Experience divine journeys to South India's most sacred temples with our comfortable vehicles and courteous, route-expert drivers.
                 </p>

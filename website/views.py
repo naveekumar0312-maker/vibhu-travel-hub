@@ -92,20 +92,29 @@ def corporate_travel(request):
 
 
 
+import os
+
+def sitemap_xml(request):
+    sitemap_path = os.path.join(settings.BASE_DIR, 'static', 'sitemap.xml')
+    if os.path.exists(sitemap_path):
+        with open(sitemap_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+        return HttpResponse(content, content_type="application/xml")
+    return HttpResponse(status=404)
+
 def robots_txt(request):
-
+    robots_path = os.path.join(settings.BASE_DIR, 'static', 'robots.txt')
+    if os.path.exists(robots_path):
+        with open(robots_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+        return HttpResponse(content, content_type="text/plain")
     lines = [
-
         "User-agent: *",
-
         "Allow: /",
-
         "Disallow: /admin/",
-
-        "Sitemap: https://www.vibhutravelhub.com/sitemap.xml",
-
+        "Disallow: /dashboard/",
+        "Sitemap: https://vibhutravelhub.com/sitemap.xml",
     ]
-
     return HttpResponse(
         "\n".join(lines),
         content_type="text/plain"
@@ -178,6 +187,9 @@ def api_submit_enquiry(request):
     return JsonResponse({'status': 'error', 'message': 'Invalid request method.'}, status=405)
 
 from .models import Enquiry, Vehicle, OutstationRoute, NewsletterSubscriber, CitySEO
+from .seo_utils import STATES_SEO_DATA, CITIES_SEO_DATA, TOURIST_PLACES_SEO_DATA, get_place_seo_data
+# pyrefly: ignore [missing-import]
+from django.http import Http404
 
 
 def get_city_seo_dict():
@@ -188,25 +200,60 @@ def get_city_seo_dict():
 def tamil_nadu_view(request):
     vehicles = Vehicle.objects.filter(is_active=True).order_by('display_order')
     city_seo = get_city_seo_dict()
+    state_data = STATES_SEO_DATA.get('tamil-nadu', {})
     return render(request, 'destinations/tamilnadu.html', {
         'vehicles': vehicles,
-        'city_seo': city_seo
+        'city_seo': city_seo,
+        'state_data': state_data,
     })
 
 def kerala_view(request):
     vehicles = Vehicle.objects.filter(is_active=True).order_by('display_order')
     city_seo = get_city_seo_dict()
+    state_data = STATES_SEO_DATA.get('kerala', {})
     return render(request, 'destinations/kerala.html', {
         'vehicles': vehicles,
-        'city_seo': city_seo
+        'city_seo': city_seo,
+        'state_data': state_data,
     })
 
 def karnataka_view(request):
     vehicles = Vehicle.objects.filter(is_active=True).order_by('display_order')
     city_seo = get_city_seo_dict()
+    state_data = STATES_SEO_DATA.get('karnataka', {})
     return render(request, 'destinations/karnataka.html', {
         'vehicles': vehicles,
-        'city_seo': city_seo
+        'city_seo': city_seo,
+        'state_data': state_data,
+    })
+
+def city_detail_view(request, state_slug, city_slug):
+    city_data = CITIES_SEO_DATA.get(city_slug)
+    if not city_data or city_data.get('state_slug') != state_slug:
+        raise Http404("City page not found")
+    vehicles = Vehicle.objects.filter(is_active=True).order_by('display_order')
+    return render(request, 'destinations/city_detail.html', {
+        'city_data': city_data,
+        'vehicles': vehicles,
+    })
+
+def tourist_place_detail_view(request, state_slug, city_slug, place_slug):
+    place_data = TOURIST_PLACES_SEO_DATA.get(place_slug)
+    if not place_data:
+        place_data = get_place_seo_data(place_slug)
+        place_data = dict(place_data)
+        place_data['state_slug'] = state_slug
+        place_data['city_slug'] = city_slug
+    vehicles = Vehicle.objects.filter(is_active=True).order_by('display_order')
+    return render(request, 'destinations/tourist_place_detail.html', {
+        'place_data': place_data,
+        'vehicles': vehicles,
+    })
+
+def airport_transfer_service(request):
+    vehicles = Vehicle.objects.filter(is_active=True).order_by('display_order')
+    return render(request, 'services/airport_transfer.html', {
+        'vehicles': vehicles,
     })
 
 def newsletter_subscribe(request):

@@ -1,21 +1,32 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Innova & Car Rental Service | Innova Crysta, Ertiga, Sedan & SUV Rentals{% endblock %}
-{% block description %}Book Innova rental, Innova Crysta rental, Ertiga, sedan car rental, SUV car rental, 7 seater car
-rental, and luxury car rental in Coimbatore, Chennai, Madurai, and Trichy with Vibhu Travel Hub.{% endblock %}
-{% block keywords %}Innova rental in Coimbatore, Innova Crysta rental in Coimbatore, Ertiga rental in Coimbatore, sedan
-car rental in Coimbatore, SUV car rental in Coimbatore, 7 seater car rental in Coimbatore, luxury car rental in
-Coimbatore, Innova rental in Chennai, Innova Crysta rental in Madurai, Ertiga rental in Trichy{% endblock %}
-{% block canonical %}https://www.vibhutravels.in/services/local-taxi-service/{% endblock %}
+{% block title %}Local Taxi & Car Rental Service in Coimbatore | Vibhu Travel Hub{% endblock %}
+{% block description %}Book local taxi and car rental in Coimbatore, Madurai & Chennai with Vibhu Travel Hub. Sedans, SUVs, Innova Crysta with professional drivers at best rates.{% endblock %}
+{% block keywords %}Innova rental in Coimbatore, Innova Crysta rental in Coimbatore, Ertiga rental in Coimbatore, sedan car rental in Coimbatore, SUV car rental in Coimbatore{% endblock %}
+{% block og_title %}Local Taxi & Car Rental Service in Coimbatore | Vibhu Travel Hub{% endblock %}
+{% block og_description %}Book local taxi and car rental in Coimbatore, Madurai & Chennai with Vibhu Travel Hub. Sedans, SUVs, Innova Crysta with professional drivers at best rates.{% endblock %}
+{% block og_image %}https://vibhutravelhub.com{% static 'images/services/taxi-service-hero.jpg' %}{% endblock %}
 
-{% block og_title %}Innova & Car Rental Service in Coimbatore, Chennai, Madurai & Trichy{% endblock %}
-{% block og_description %}Book Innova Crysta rental, Ertiga rental, SUV car rental, 7 seater car rental, and luxury car
-rental in Coimbatore, Chennai, Madurai & Trichy with Vibhu Travel Hub.{% endblock %}
-{% block og_url %}https://www.vibhutravels.in/services/local-taxi-service/{% endblock %}
-{% block og_image %}https://www.vibhutravels.in{% static 'images/services/taxi-service-hero.jpg' %}{% endblock %}
+{% block twitter_title %}Local Taxi & Car Rental Service in Coimbatore | Vibhu Travel Hub{% endblock %}
+{% block twitter_description %}Book local taxi and car rental in Coimbatore, Madurai & Chennai with Vibhu Travel Hub. Sedans, SUVs, Innova Crysta with professional drivers at best rates.{% endblock %}
+{% block twitter_image %}https://vibhutravelhub.com{% static 'images/services/taxi-service-hero.jpg' %}{% endblock %}
 
-{% block schema_markup %}
+{% block schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Local Taxi & Car Rental Service",
+  "provider": {
+    "@type": "TravelAgency",
+    "name": "Vibhu Travel Hub",
+    "url": "https://vibhutravelhub.com"
+  },
+  "areaServed": "Coimbatore, Tamil Nadu",
+  "description": "Book local taxi and car rental in Coimbatore with Vibhu Travel Hub."
+}
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -24,7 +35,7 @@ rental in Coimbatore, Chennai, Madurai & Trichy with Vibhu Travel Hub.{% endbloc
     "@type": "ListItem",
     "position": 1,
     "name": "Home",
-    "item": "https://www.vibhutravels.in/"
+    "item": "https://vibhutravelhub.com/"
   },{
     "@type": "ListItem",
     "position": 2,
@@ -152,9 +163,7 @@ rental in Coimbatore, Chennai, Madurai & Trichy with Vibhu Travel Hub.{% endbloc
         <div class="row align-items-center">
             <div class="col-lg-7 col-md-10">
                 <span class="vth-script-eyebrow vth-anim-left">Vibhu Travel Hub</span>
-                <h1 class="fw-extrabold text-dark mb-3 vth-anim-left" style="font-size: 3.2rem; letter-spacing: -1.2px; line-height: 1.15;">
-                    Local Cab Service <span class="text-danger">in Coimbatore.</span>
-                </h1>
+                <h1 class="fw-extrabold text-dark mb-3 vth-anim-left" style="font-size: 3.2rem; letter-spacing: -1.2px; line-height: 1.15;">Local Taxi & Car Rental Services</h1>
                 <p class="text-secondary mb-4 vth-anim-up" style="font-size: 1.05rem; line-height: 1.65; max-width: 540px; color: #475569;">
                     Experience the comfort of our premium cabs for city rides, airport transfers, and full-day local sightseeing with professional, verified drivers.
                 </p>

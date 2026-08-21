@@ -1,40 +1,29 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Contact Vibhu Travel Hub | Travel Agency in Coimbatore, Madurai, Trichy & Chennai{% endblock %}
-{% block description %}Contact Vibhu Travel Hub for cab booking, tempo traveller rental, and luxury bus rentals across Coimbatore, Madurai, Trichy, and Chennai.{% endblock %}
+{% block title %}Contact Vibhu Travel Hub | Cab Booking & Travel Agency in Coimbatore{% endblock %}
+{% block description %}Get in touch with Vibhu Travel Hub for cab booking, tempo traveller, bus rental & outstation tour enquiries in Coimbatore, Madurai, Trichy, Chennai & South India.{% endblock %}
 {% block keywords %}contact vibhu travel hub, travel agency in coimbatore, cab booking madurai, cab booking trichy, tempo traveller chennai, airport transfer{% endblock %}
-{% block canonical %}https://www.vibhutravels.in/contact/{% endblock %}
-
-{% block og_title %}Contact Vibhu Travel Hub | Travel Agency in Coimbatore, Madurai, Trichy & Chennai{% endblock %}
-{% block og_description %}Contact Vibhu Travel Hub for cab booking, tempo traveller rental, and luxury bus rentals across Coimbatore, Madurai, Trichy, and Chennai.{% endblock %}
-{% block og_url %}https://www.vibhutravels.in/contact/{% endblock %}
+{% block og_title %}Contact Vibhu Travel Hub | Cab Booking & Travel Agency in Coimbatore{% endblock %}
+{% block og_description %}Get in touch with Vibhu Travel Hub for cab booking, tempo traveller, bus rental & outstation tour enquiries in Coimbatore, Madurai, Trichy, Chennai & South India.{% endblock %}
+{% block og_image %}https://vibhutravelhub.com{% static 'images/logo/og-banner.webp' %}{% endblock %}
 
 {% block schema %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "TravelAgency",
-  "name": "Vibhu Travel Hub",
-  "url": "https://www.vibhutravels.in",
-  "logo": "https://www.vibhutravels.in/static/images/logo/logo.webp",
-  "telephone": "+91-9655866660",
-  "email": "vibhutravelhub66@gmail.com",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Joyce Villa Building, 87, Grey Town",
-    "addressLocality": "Coimbatore",
-    "addressRegion": "Tamil Nadu",
-    "postalCode": "641018",
-    "addressCountry": "India"
-  },
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-    "opens": "00:00",
-    "closes": "23:59"
-  },
-  "areaServed": ["Tamil Nadu", "Kerala", "Karnataka"]
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "https://vibhutravelhub.com/"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "Contact",
+    "item": "https://vibhutravelhub.com/contact/"
+  }]
 }
 </script>
 {% endblock %}
@@ -182,9 +171,7 @@
         <div class="row align-items-center">
             <div class="col-lg-7 col-md-10">
                 <span class="vth-script-eyebrow vth-card-anim-left">GET IN TOUCH</span>
-                <h1 class="fw-extrabold text-dark mb-3 vth-card-anim-left" style="font-size: 3.2rem; letter-spacing: -1.2px; line-height: 1.15;">
-                    Let's Plan Your <span class="text-danger">Journey.</span>
-                </h1>
+                <h1 class="fw-extrabold text-dark mb-3 vth-card-anim-left" style="font-size: 3.2rem; letter-spacing: -1.2px; line-height: 1.15;">Contact Vibhu Travel Hub</h1>
                 <p class="text-secondary mb-4 vth-card-anim-up" style="font-size: 1.05rem; line-height: 1.65; max-width: 560px; color: #475569;">
                     Have a question or planning your next journey? Our travel team is ready to assist you with premium cab bookings, tempo travellers, luxury buses, and corporate travel across South India.
                 </p>

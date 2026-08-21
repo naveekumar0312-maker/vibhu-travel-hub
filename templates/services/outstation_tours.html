@@ -1,21 +1,32 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Outstation Car Rental & Bus Rental Services | Vibhu Travel Hub{% endblock %}
-{% block description %}Book outstation Innova Crysta rental, Force Urbania rental, 12-26 seater Tempo Traveller rental,
-and AC bus rental from Coimbatore, Chennai, Madurai, and Trichy.{% endblock %}
-{% block keywords %}Innova rental in Coimbatore, Innova Crysta rental in Chennai, Force Urbania rental in Coimbatore,
-Tempo Traveller rental in Madurai, Ertiga rental in Trichy, 35 seater bus rental in Coimbatore, AC Tempo Traveller in
-Chennai{% endblock %}
-{% block canonical %}https://www.vibhutravels.in/services/outstation-tours/{% endblock %}
+{% block title %}Outstation Cab Booking & Tour Packages | Vibhu Travel Hub{% endblock %}
+{% block description %}Book outstation cabs and customized tour packages across Tamil Nadu, Kerala, and Karnataka with transparent per-km pricing and expert drivers.{% endblock %}
+{% block keywords %}Innova rental in Coimbatore, Innova Crysta rental in Chennai, Force Urbania rental in Coimbatore, Tempo Traveller rental in Madurai{% endblock %}
+{% block og_title %}Outstation Cab Booking & Tour Packages | Vibhu Travel Hub{% endblock %}
+{% block og_description %}Book outstation cabs and customized tour packages across Tamil Nadu, Kerala, and Karnataka with transparent per-km pricing and expert drivers.{% endblock %}
+{% block og_image %}https://vibhutravelhub.com{% static 'images/services/outstation-hero.jpg' %}{% endblock %}
 
-{% block og_title %}Outstation Car & Bus Rental Services in Tamil Nadu, Kerala & Karnataka{% endblock %}
-{% block og_description %}Book outstation cabs, Innova Crysta rental, Force Urbania rental, Tempo Traveller rental, and
-luxury bus rentals across South India with Vibhu Travel Hub.{% endblock %}
-{% block og_url %}https://www.vibhutravels.in/services/outstation-tours/{% endblock %}
-{% block og_image %}https://www.vibhutravels.in{% static 'images/services/outstation-hero.jpg' %}{% endblock %}
+{% block twitter_title %}Outstation Cab Booking & Tour Packages | Vibhu Travel Hub{% endblock %}
+{% block twitter_description %}Book outstation cabs and customized tour packages across Tamil Nadu, Kerala, and Karnataka with transparent per-km pricing and expert drivers.{% endblock %}
+{% block twitter_image %}https://vibhutravelhub.com{% static 'images/services/outstation-hero.jpg' %}{% endblock %}
 
-{% block schema_markup %}
+{% block schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Outstation Cab Rentals & Tour Packages",
+  "provider": {
+    "@type": "TravelAgency",
+    "name": "Vibhu Travel Hub",
+    "url": "https://vibhutravelhub.com"
+  },
+  "areaServed": "South India",
+  "description": "Book outstation cabs and tour packages with Vibhu Travel Hub."
+}
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -24,25 +35,20 @@ luxury bus rentals across South India with Vibhu Travel Hub.{% endblock %}
     "@type": "ListItem",
     "position": 1,
     "name": "Home",
-    "item": "https://www.vibhutravels.in/"
+    "item": "https://vibhutravelhub.com/"
   },{
     "@type": "ListItem",
     "position": 2,
     "name": "Services",
-    "item": "https://www.vibhutravels.in/#fleet"
+    "item": "https://vibhutravelhub.com/#services"
   },{
     "@type": "ListItem",
     "position": 3,
     "name": "Outstation Tours",
-    "item": "https://www.vibhutravels.in/services/outstation-tours/"
+    "item": "https://vibhutravelhub.com/services/outstation-tours/"
   }]
 }
 </script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Outstation Cab Service in Coimbatore",
   "provider": {
     "@type": "TravelAgency",
     "name": "Vibhu Travel Hub"
@@ -155,9 +161,7 @@ luxury bus rentals across South India with Vibhu Travel Hub.{% endblock %}
         <div class="row align-items-center">
             <div class="col-lg-7 col-md-10">
                 <span class="vth-script-eyebrow vth-anim-left">Vibhu Travel Hub</span>
-                <h1 class="fw-extrabold text-dark mb-3 vth-anim-left" style="font-size: 3.2rem; letter-spacing: -1.2px; line-height: 1.15;">
-                    Outstation Cab Service <span class="text-danger">from Coimbatore.</span>
-                </h1>
+                <h1 class="fw-extrabold text-dark mb-3 vth-anim-left" style="font-size: 3.2rem; letter-spacing: -1.2px; line-height: 1.15;">Outstation Cab Rentals & Tour Packages</h1>
                 <p class="text-secondary mb-4 vth-anim-up" style="font-size: 1.05rem; line-height: 1.65; max-width: 540px; color: #475569;">
                     Travel comfortably to any city or hill station across Tamil Nadu, Kerala, and Karnataka with our verified drivers and premium vehicles.
                 </p>

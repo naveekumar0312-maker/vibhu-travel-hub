@@ -1,8 +1,32 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Blog | Vibhu Travel Hub{% endblock %}
-{% block description %}Read our latest blogs, travel guides, and tips for your next journey across South India.{% endblock %}
+{% block title %}Travel Blog & South India Travel Guides | Vibhu Travel Hub{% endblock %}
+{% block description %}Read travel tips, destination guides, itinerary suggestions, and transport advice for traveling across Tamil Nadu, Kerala, and Karnataka.{% endblock %}
+
+{% block og_title %}Travel Blog & South India Travel Guides | Vibhu Travel Hub{% endblock %}
+{% block og_description %}Read travel tips, destination guides, itinerary suggestions, and transport advice for traveling across Tamil Nadu, Kerala, and Karnataka.{% endblock %}
+{% block og_image %}https://vibhutravelhub.com{% static 'images/logo/og-banner.webp' %}{% endblock %}
+
+{% block schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "https://vibhutravelhub.com/"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "Blog",
+    "item": "https://vibhutravelhub.com/blog/"
+  }]
+}
+</script>
+{% endblock %}
 
 {% block body_class %}blog-page{% endblock %}
 
@@ -18,7 +42,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <span class="blog-eyebrow load-anim" style="color: #ED1B3B; font-style: italic; font-family: 'Playfair Display', Georgia, serif; text-transform: lowercase; font-size: 1.3rem; letter-spacing: 0; font-weight: 600;">Live with wanderlust</span>
-                <h1 class="blog-hero-title load-anim load-delay-1" style="font-size: 3.2rem; font-weight: 800; color: #111827; margin-bottom: 0.8rem;">Travel Blog</h1>
+                <h1 class="blog-hero-title load-anim load-delay-1" style="font-size: 3.2rem; font-weight: 800; color: #111827; margin-bottom: 0.8rem;">Vibhu Travel Hub Blog</h1>
                 <p class="blog-hero-description load-anim load-delay-2" style="color: #64748B; font-size: 1.02rem; line-height: 1.7; max-width: 720px; margin: 0 auto 1.5rem;">
                     We share our experiences, tips and travel stories to inspire and guide our readers in their own wanderlust adventures. From hidden gems to popular destinations, we showcase the beauty and diversity of the world, and promote responsible and sustainable travel.
                 </p>

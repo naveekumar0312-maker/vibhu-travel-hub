@@ -1,0 +1,353 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ city_data.title }}{% endblock %}
+{% block description %}{{ city_data.description }}{% endblock %}
+
+{% block og_title %}{{ city_data.title }}{% endblock %}
+{% block og_description %}{{ city_data.description }}{% endblock %}
+{% block og_image %}https://vibhutravelhub.com{% static 'images/destinations/' %}{{ city_data.slug }}.jpg{% endblock %}
+
+{% block twitter_title %}{{ city_data.title }}{% endblock %}
+{% block twitter_description %}{{ city_data.description }}{% endblock %}
+{% block twitter_image %}https://vibhutravelhub.com{% static 'images/destinations/' %}{{ city_data.slug }}.jpg{% endblock %}
+
+{% block schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TouristDestination",
+  "name": "{{ city_data.city_name }}",
+  "description": "{{ city_data.description|escapejs }}",
+  "containedInPlace": {
+    "@type": "AdministrativeArea",
+    "name": "{{ city_data.state_name }}"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "https://vibhutravelhub.com/"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "Destinations",
+    "item": "https://vibhutravelhub.com/destinations/{{ city_data.state_slug }}/"
+  },{
+    "@type": "ListItem",
+    "position": 3,
+    "name": "{{ city_data.state_name }}",
+    "item": "https://vibhutravelhub.com/destinations/{{ city_data.state_slug }}/"
+  },{
+    "@type": "ListItem",
+    "position": 4,
+    "name": "{{ city_data.city_name }}",
+    "item": "https://vibhutravelhub.com/destinations/{{ city_data.state_slug }}/{{ city_data.slug }}/"
+  }]
+}
+</script>
+{% if city_data.faqs %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {% for faq in city_data.faqs %}
+    {
+      "@type": "Question",
+      "name": "{{ faq.q|escapejs }}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{ faq.a|escapejs }}"
+      }
+    }{% if not forloop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<!-- 1. BREADCRUMBS -->
+<nav aria-label="breadcrumb" class="bg-light py-3 border-bottom">
+    <div class="container">
+        <ol class="breadcrumb mb-0 small reveal-down">
+            <li class="breadcrumb-item"><a href="{% url 'home' %}" class="text-decoration-none text-danger fw-semibold"><i class="bi bi-house-door-fill"></i> Home</a></li>
+            <li class="breadcrumb-item"><a href="/destinations/{{ city_data.state_slug }}/" class="text-decoration-none text-secondary">{{ city_data.state_name }}</a></li>
+            <li class="breadcrumb-item active text-dark fw-bold" aria-current="page">{{ city_data.city_name }}</li>
+        </ol>
+    </div>
+</nav>
+
+<!-- 2. HERO SECTION -->
+<section class="py-5 bg-dark text-white position-relative overflow-hidden" style="background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);">
+    <div class="container py-4 position-relative z-2">
+        <div class="row align-items-center">
+            <div class="col-lg-8 reveal-left">
+                <span class="badge bg-danger rounded-pill px-3 py-2 text-uppercase mb-3 fw-bold tracking-wider float">Explore {{ city_data.state_name }}</span>
+                <h1 class="display-4 fw-extrabold mb-3 text-white">{{ city_data.h1 }}</h1>
+                <p class="lead text-light opacity-90 mb-4" style="max-width: 680px; line-height: 1.6;">
+                    {{ city_data.about }}
+                </p>
+                <div class="d-flex flex-wrap gap-3">
+                    <a href="#places-to-visit" class="btn btn-danger rounded-pill px-4 py-2.5 fw-bold text-white shadow-sm d-inline-flex align-items-center gap-2">
+                        <i class="bi bi-compass wobble"></i> Explore {{ city_data.city_name }}
+                    </a>
+                    <button class="btn btn-outline-light rounded-pill px-4 py-2.5 fw-bold d-inline-flex align-items-center gap-2" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="{{ city_data.city_name }} Travel">
+                        <i class="bi bi-calendar-check"></i> Plan Your Trip
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 3. ABOUT THE CITY -->
+<section class="py-5 bg-white">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 reveal-up">
+                <span class="text-danger fw-bold text-uppercase small tracking-wider d-block mb-1">Destination Overview</span>
+                <h2 class="fw-extrabold text-dark mb-4">About {{ city_data.city_name }}</h2>
+                
+                <div class="city-about-content mb-4">
+                    {% if city_data.about_paragraphs %}
+                        {% for p in city_data.about_paragraphs %}
+                            <p class="text-secondary leading-relaxed mb-3" style="font-size: 1.05rem; line-height: 1.8;">
+                                {{ p }}
+                            </p>
+                        {% endfor %}
+                    {% else %}
+                        <p class="text-secondary leading-relaxed mb-3" style="font-size: 1.05rem; line-height: 1.8;">
+                            {{ city_data.about }}
+                        </p>
+                    {% endif %}
+                </div>
+
+                <div class="p-4 bg-light rounded-4 border shadow-sm mt-4">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <i class="bi bi-geo-alt-fill text-danger fs-5"></i>
+                        <h3 class="h6 fw-bold text-dark mb-0">📍 How to Reach {{ city_data.city_name }}</h3>
+                    </div>
+                    {% if city_data.how_to_reach %}
+                    <p class="small text-secondary mb-3" style="line-height: 1.6;">
+                        {{ city_data.how_to_reach }}
+                    </p>
+                    {% endif %}
+                    <div class="row g-3 text-secondary small border-top pt-3">
+                        <div class="col-md-3 col-6">
+                            <span class="d-block text-muted">State</span>
+                            <strong class="text-dark fs-6">{{ city_data.state_name }}</strong>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <span class="d-block text-muted">Primary Appeal</span>
+                            <strong class="text-dark fs-6">Heritage & Nature</strong>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <span class="d-block text-muted">Trip Duration</span>
+                            <strong class="text-dark fs-6">2 to 3 Days</strong>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <span class="d-block text-muted">Best Season</span>
+                            <strong class="text-dark fs-6">Sept to March</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 4. PLACES TO VISIT -->
+{% if city_data.places_to_visit %}
+<section id="places-to-visit" class="py-5 bg-light border-top">
+    <div class="container">
+        <div class="text-center mb-5 reveal-up">
+            <span class="text-danger fw-bold text-uppercase small tracking-wider">Must-See Sightseeing</span>
+            <h2 class="fw-extrabold text-dark">Explore Tourist Places in {{ city_data.city_name }}</h2>
+        </div>
+        <div class="row g-4">
+            {% for place in city_data.places_to_visit %}
+            <div class="col-md-6 col-lg-3 reveal-up reveal-delay-{{ forloop.counter }}">
+                <div class="card h-100 border border-light-subtle shadow-sm rounded-4 overflow-hidden hover-lift d-flex flex-column bg-white">
+                    <div class="card-body p-4 d-flex flex-column flex-grow-1">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="rounded-circle bg-danger-subtle text-danger p-2.5 d-flex align-items-center justify-content-center" style="width: 42px; height: 42px; min-width: 42px;">
+                                <i class="bi bi-geo-alt-fill fs-5"></i>
+                            </div>
+                            <div>
+                                <span class="badge bg-danger-subtle text-danger rounded-pill px-2.5 py-1 small fw-bold mb-1 d-inline-block">{{ city_data.city_name }}</span>
+                                <h3 class="h6 fw-bold text-dark mb-0" style="font-size: 1rem; line-height: 1.3;">
+                                    <a href="{% url 'tourist_place_detail' state_slug=city_data.state_slug city_slug=city_data.slug place_slug=place.slug %}" class="text-dark text-decoration-none hover-danger">
+                                        {{ place.name }}
+                                    </a>
+                                </h3>
+                            </div>
+                        </div>
+                        <p class="small text-secondary mb-3 flex-grow-1" style="line-height: 1.6;">{{ place.desc }}</p>
+                        <div class="mt-auto pt-3 border-top">
+                            <a href="{% url 'tourist_place_detail' state_slug=city_data.state_slug city_slug=city_data.slug place_slug=place.slug %}" class="btn btn-outline-danger w-100 rounded-pill py-2 fw-bold text-decoration-none d-flex align-items-center justify-content-center gap-2" style="font-size: 0.9rem;">
+                                Explore Place <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- 5. THINGS TO DO -->
+{% if city_data.things_to_do %}
+<section class="py-5 bg-white border-top">
+    <div class="container">
+        <div class="text-center mb-5 reveal-up">
+            <span class="text-danger fw-bold text-uppercase small tracking-wider">Travel Experiences</span>
+            <h2 class="fw-extrabold text-dark">Things to Do in {{ city_data.city_name }}</h2>
+        </div>
+        <div class="row g-4">
+            {% for thing in city_data.things_to_do %}
+            <div class="col-md-6 col-lg-3 reveal-up reveal-delay-{{ forloop.counter }}">
+                <div class="p-4 rounded-4 bg-light border text-center h-100 hover-lift">
+                    <i class="bi bi-star-fill text-danger fs-3 mb-3 d-block wobble"></i>
+                    <h3 class="h6 fw-bold text-dark mb-2">{{ thing.title }}</h3>
+                    <p class="small text-secondary mb-0">{{ thing.desc }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- 6. POPULAR TRIPS / NEARBY DESTINATIONS -->
+{% if city_data.nearby_trips %}
+<section class="py-5 bg-light border-top">
+    <div class="container">
+        <div class="text-center mb-5 reveal-up">
+            <span class="text-danger fw-bold text-uppercase small tracking-wider">Travel Discovery</span>
+            <h2 class="fw-extrabold text-dark">Popular Trips from {{ city_data.city_name }}</h2>
+        </div>
+        <div class="row g-4">
+            {% for trip in city_data.nearby_trips %}
+            <div class="col-md-6 col-lg-3 reveal-up reveal-delay-{{ forloop.counter }}">
+                <div class="p-4 bg-white rounded-4 border shadow-sm h-100 d-flex flex-column hover-lift">
+                    <span class="badge bg-danger-subtle text-danger rounded-pill px-3 py-1 fw-bold align-self-start mb-2">{{ trip.distance }} • {{ trip.time }}</span>
+                    <h3 class="h6 fw-bold text-dark mb-2">{{ trip.name }}</h3>
+                    <p class="small text-secondary mb-3 flex-grow-1">{{ trip.desc }}</p>
+                    <a href="{% url 'tourist_place_detail' state_slug=city_data.state_slug city_slug=city_data.slug place_slug=trip.slug %}" class="text-decoration-none text-danger fw-bold small mt-auto d-inline-flex align-items-center gap-1">
+                        Explore Destination <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- 7. LOCAL EXPERIENCES -->
+{% if city_data.local_experiences %}
+<section class="py-5 bg-white border-top">
+    <div class="container">
+        <div class="text-center mb-4 reveal-up">
+            <span class="text-danger fw-bold text-uppercase small tracking-wider">Local Insights</span>
+            <h2 class="fw-extrabold text-dark">Local Experiences in {{ city_data.city_name }}</h2>
+        </div>
+        <div class="row g-4">
+            {% for exp in city_data.local_experiences %}
+            <div class="col-md-4 reveal-up reveal-delay-{{ forloop.counter }}">
+                <div class="p-4 bg-light rounded-4 border h-100 hover-lift">
+                    <h3 class="h6 fw-bold text-dark mb-2"><i class="bi bi-heart-fill text-danger me-2 wobble"></i>{{ exp.title }}</h3>
+                    <p class="small text-secondary mb-0">{{ exp.desc }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- 8. TRAVEL TIPS -->
+{% if city_data.travel_tips %}
+<section class="py-5 bg-light border-top">
+    <div class="container">
+        <div class="text-center mb-4 reveal-up">
+            <span class="text-danger fw-bold text-uppercase small tracking-wider">Traveler Advice</span>
+            <h2 class="fw-extrabold text-dark">Travel Tips for {{ city_data.city_name }}</h2>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8 reveal-up">
+                <div class="bg-white rounded-4 p-4 border shadow-sm">
+                    <ul class="list-unstyled mb-0 d-flex flex-column gap-3">
+                        {% for tip in city_data.travel_tips %}
+                        <li class="d-flex align-items-start gap-3">
+                            <i class="bi bi-check-circle-fill text-danger fs-5 mt-1"></i>
+                            <span class="text-dark fw-medium">{{ tip }}</span>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- 9. FAQ SECTION -->
+{% if city_data.faqs %}
+<section class="py-5 bg-white border-top">
+    <div class="container">
+        <div class="text-center mb-5 reveal-up">
+            <span class="text-danger fw-bold text-uppercase small tracking-wider">Travel FAQs</span>
+            <h2 class="fw-extrabold text-dark">Frequently Asked Questions — {{ city_data.city_name }} Travel</h2>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-9 reveal-up">
+                <div class="accordion accordion-flush" id="cityFaqAccordion">
+                    {% for faq in city_data.faqs %}
+                    <div class="accordion-item border rounded-3 mb-3 overflow-hidden shadow-sm">
+                        <h3 class="accordion-header" id="headingC{{ forloop.counter }}">
+                            <button class="accordion-button {% if not forloop.first %}collapsed{% endif %} fw-bold text-dark py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseC{{ forloop.counter }}" aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}">
+                                {{ faq.q }}
+                            </button>
+                        </h3>
+                        <div id="collapseC{{ forloop.counter }}" class="accordion-collapse collapse {% if forloop.first %}show{% endif %}" data-bs-parent="#cityFaqAccordion">
+                            <div class="accordion-body text-secondary leading-relaxed">
+                                {{ faq.a }}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- 10. EDITORIAL TRAVEL CTA -->
+<section class="py-5 bg-danger text-white text-center scale-reveal">
+    <div class="container">
+        <h2 class="fw-extrabold mb-2">Ready to Explore {{ city_data.city_name }}?</h2>
+        <p class="lead mb-4 opacity-90">Plan your journey with Vibhu Travel Hub for unforgettable travel experiences.</p>
+        <div class="d-flex justify-content-center flex-wrap gap-3">
+            <button class="btn btn-light rounded-pill px-5 py-3 fw-bold text-danger shadow" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="{{ city_data.city_name }} Travel">
+                <i class="bi bi-compass-fill me-2 wobble"></i> Plan Your Trip
+            </button>
+            <a href="https://wa.me/919655866660?text=Hi%20Vibhu%20Travel%20Hub,%20I%20am%20planning%20a%20trip%20to%20{{ city_data.city_name }}" target="_blank" class="btn btn-outline-light rounded-pill px-4 py-3 fw-bold">
+                <i class="bi bi-whatsapp me-2"></i> WhatsApp Us
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}
