@@ -1,0 +1,112 @@
+{% extends 'dashboard/base_dashboard.html' %}
+
+{% block title %}Manage One Way Fares & Cities{% endblock %}
+{% block page_title %}Manage One Way Fares & Cities{% endblock %}
+
+{% block content %}
+<div class="glass-card anim-card p-4">
+    <!-- Header -->
+    <div class="d-flex align-items-center justify-content-between mb-4 pb-3 border-bottom">
+        <div>
+            <h5 class="text-dark fw-bold mb-1"><i class="bi bi-tags-fill text-danger me-2"></i>One Way Fares & Active Cities</h5>
+            <span class="text-muted small">Add, edit, or remove route fares for the website</span>
+        </div>
+        <a href="{% url 'oneway_booking_list' %}" class="btn btn-outline-secondary btn-sm rounded-pill px-3">
+            <i class="bi bi-arrow-left me-1"></i> Back to Bookings
+        </a>
+    </div>
+
+    <!-- Messages -->
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags|default:'info' }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <div class="row g-4">
+        <!-- Add Fare Card -->
+        <div class="col-lg-4">
+            <div class="card border border-light-subtle rounded-4 p-4 shadow-sm bg-white">
+                <h6 class="text-danger fw-bold text-uppercase mb-3 small" style="letter-spacing: 1px;">ADD NEW ONE WAY FARE</h6>
+                <form method="POST" action="{% url 'oneway_fare_list' %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="action_type" value="add_fare">
+                    
+                    <div class="mb-3">
+                        <label class="form-label text-dark fw-bold small">From City <span class="text-danger">*</span></label>
+                        <input type="text" name="from_city" class="form-control text-dark" placeholder="e.g. Coimbatore" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label text-dark fw-bold small">To City <span class="text-danger">*</span></label>
+                        <input type="text" name="to_city" class="form-control text-dark" placeholder="e.g. Erode" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label text-dark fw-bold small">Starting Fare (₹) <span class="text-danger">*</span></label>
+                        <input type="number" step="1" name="fare" class="form-control text-dark" placeholder="e.g. 1725" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-danger w-100 rounded-pill fw-bold py-2">
+                        <i class="bi bi-plus-circle me-1"></i> Add Fare Record
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Fares Table -->
+        <div class="col-lg-8">
+            <div class="card border border-light-subtle rounded-4 p-4 shadow-sm bg-white">
+                <h6 class="text-dark fw-bold text-uppercase mb-3 small" style="letter-spacing: 1px;">ACTIVE FARES ({% if fares %}{{ fares.count }}{% else %}0{% endif %})</h6>
+                
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle custom-table">
+                        <thead>
+                            <tr>
+                                <th>From City</th>
+                                <th>To City</th>
+                                <th>Starting Fare</th>
+                                <th>Status</th>
+                                <th class="text-end">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for fare in fares %}
+                            <tr>
+                                <td class="fw-bold text-dark">{{ fare.from_city }}</td>
+                                <td class="fw-medium text-dark"><i class="bi bi-arrow-right-short text-danger me-1"></i> {{ fare.to_city }}</td>
+                                <td class="fw-extrabold text-danger fs-6">₹{{ fare.fare|floatformat:0 }}</td>
+                                <td>
+                                    {% if fare.is_active %}
+                                        <span class="badge bg-success-subtle text-success border border-success-subtle px-2.5 py-1 rounded-pill">Active</span>
+                                    {% else %}
+                                        <span class="badge bg-secondary">Inactive</span>
+                                    {% endif %}
+                                </td>
+                                <td class="text-end">
+                                    <form method="POST" action="{% url 'oneway_fare_list' %}" class="d-inline">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="action_type" value="delete_fare">
+                                        <input type="hidden" name="fare_id" value="{{ fare.id }}">
+                                        <button type="submit" class="btn btn-sm btn-outline-danger rounded-pill px-3" onclick="return confirm('Delete fare from {{ fare.from_city }} to {{ fare.to_city }}?')">
+                                            <i class="bi bi-trash-fill"></i> Delete
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="5" class="text-center py-4 text-muted">No fare records found. Add one above!</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

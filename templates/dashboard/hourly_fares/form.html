@@ -1,0 +1,118 @@
+{% extends 'dashboard/base_dashboard.html' %}
+{% load static %}
+
+{% block title %}{% if is_edit %}Edit Hourly Fare #{{ fare.id }}{% else %}Add Hourly Fare{% endif %} - Custom Management{% endblock %}
+{% block page_title %}{% if is_edit %}Edit Hourly Rental Fare{% else %}Add Hourly Rental Fare{% endif %}{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-0">
+
+    <div class="d-flex align-items-center justify-content-between mb-4">
+        <a href="{% url 'management_hourly_fare_list' %}" class="btn btn-outline-secondary rounded-pill px-3">
+            <i class="bi bi-arrow-left me-1"></i> Back to Hourly Fares
+        </a>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card border-0 shadow-sm rounded-4">
+                <div class="card-header bg-white border-0 pt-4 px-4 pb-0">
+                    <h5 class="fw-bold text-dark mb-0">
+                        <i class="bi bi-clock-history text-danger me-2"></i>
+                        {% if is_edit %}Edit Hourly Rental Fare Configuration{% else %}Add New Hourly Rental Fare Package{% endif %}
+                    </h5>
+                </div>
+                <div class="card-body p-4">
+                    <form method="POST" action="{% if is_edit %}{% url 'management_hourly_fare_edit' fare.pk %}{% else %}{% url 'management_hourly_fare_create' %}{% endif %}">
+                        {% csrf_token %}
+
+                        <div class="row g-3">
+
+                            <!-- City * -->
+                            <div class="col-md-6">
+                                <label for="id_city" class="form-label fw-bold small text-dark">City *</label>
+                                <input type="text" id="id_city" name="city" list="cityOptions" class="form-control" placeholder="e.g. Coimbatore" value="{% if is_edit %}{{ fare.city }}{% endif %}" required>
+                                <datalist id="cityOptions">
+                                    {% for c in cities %}
+                                    <option value="{{ c.name }}">
+                                    {% endfor %}
+                                    <option value="Coimbatore">
+                                    <option value="Chennai">
+                                    <option value="Trichy">
+                                    <option value="Madurai">
+                                    <option value="Erode">
+                                    <option value="Salem">
+                                </datalist>
+                            </div>
+
+                            <!-- Vehicle Type * -->
+                            <div class="col-md-6">
+                                <label for="id_vehicle_type" class="form-label fw-bold small text-dark">Vehicle Type *</label>
+                                <select id="id_vehicle_type" name="vehicle_type" class="form-select" required>
+                                    <option value="" disabled {% if not is_edit %}selected{% endif %}>Select Vehicle Type</option>
+                                    {% for v in vehicle_types %}
+                                    <option value="{{ v }}" {% if is_edit and fare.vehicle_type == v %}selected{% endif %}>{{ v }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                            <!-- Hours * -->
+                            <div class="col-md-4">
+                                <label for="id_hours" class="form-label fw-bold small text-dark">Hours Package *</label>
+                                <select id="id_hours" name="hours" class="form-select" required>
+                                    <option value="" disabled {% if not is_edit %}selected{% endif %}>Select Hours</option>
+                                    {% for val, label in hours_options %}
+                                    <option value="{{ val }}" {% if is_edit and fare.hours == val %}selected{% endif %}>{{ label }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                            <!-- Base Fare * -->
+                            <div class="col-md-4">
+                                <label for="id_base_fare" class="form-label fw-bold small text-dark">Base Fare (₹) *</label>
+                                <input type="number" step="0.01" id="id_base_fare" name="base_fare" class="form-control" placeholder="e.g. 499.00" min="0" value="{% if is_edit %}{{ fare.base_fare }}{% endif %}" required>
+                            </div>
+
+                            <!-- Free KM * -->
+                            <div class="col-md-4">
+                                <label for="id_free_km" class="form-label fw-bold small text-dark">Free KM *</label>
+                                <input type="number" id="id_free_km" name="free_km" class="form-control" placeholder="e.g. 10" min="0" value="{% if is_edit %}{{ fare.free_km }}{% else %}10{% endif %}" required>
+                            </div>
+
+                            <!-- Extra KM Fare -->
+                            <div class="col-md-6">
+                                <label for="id_extra_km_fare" class="form-label fw-bold small text-dark">Extra KM Fare (₹/km)</label>
+                                <input type="number" step="0.01" id="id_extra_km_fare" name="extra_km_fare" class="form-control" placeholder="e.g. 15.00" min="0" value="{% if is_edit %}{{ fare.extra_km_fare }}{% else %}0.00{% endif %}">
+                            </div>
+
+                            <!-- Extra Minute Fare -->
+                            <div class="col-md-6">
+                                <label for="id_extra_minute_fare" class="form-label fw-bold small text-dark">Extra Minute Fare (₹/min)</label>
+                                <input type="number" step="0.01" id="id_extra_minute_fare" name="extra_minute_fare" class="form-control" placeholder="e.g. 2.50" min="0" value="{% if is_edit %}{{ fare.extra_minute_fare }}{% else %}0.00{% endif %}">
+                            </div>
+
+                            <!-- Active Status -->
+                            <div class="col-12 mt-4">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="id_is_active" name="is_active" {% if not is_edit or fare.is_active %}checked{% endif %}>
+                                    <label class="form-check-label fw-bold text-dark" for="id_is_active">Active Status (Visible on Website Frontend)</label>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="mt-4 pt-3 border-top text-end">
+                            <a href="{% url 'management_hourly_fare_list' %}" class="btn btn-light rounded-pill px-4 me-2">Cancel</a>
+                            <button type="submit" class="btn btn-danger rounded-pill px-4 fw-bold" style="background-color: #E31E24; border: none;">
+                                {% if is_edit %}Save Changes{% else %}Add Hourly Fare{% endif %}
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

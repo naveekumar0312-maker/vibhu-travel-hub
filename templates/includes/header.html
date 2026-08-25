@@ -46,13 +46,30 @@
             <a href="{% url 'corporate_travel' %}" class="mobile-accordion-link">Corporate Travel</a>
         </div>
 
+        <!-- Book a Cab Accordion -->
+        <a href="#" class="mobile-nav-link mobile-accordion-toggle" data-target="mobileBookCab">
+            <div class="nav-link-inner"><i class="bi bi-taxi-front"></i> Book a Cab</div>
+            <i class="bi bi-chevron-down chevron"></i>
+        </a>
+        <div class="mobile-accordion-content" id="mobileBookCab">
+            <a href="{% url 'book_cab_one_way' %}" class="mobile-accordion-link {% if request.resolver_match.url_name == 'book_cab_one_way' %}active text-danger{% endif %}">One Way Trip</a>
+            <a href="{% url 'book_cab_round_trip' %}" class="mobile-accordion-link {% if request.resolver_match.url_name == 'book_cab_round_trip' %}active text-danger{% endif %}">Round Trip</a>
+            <a href="{% url 'book_cab_hourly' %}" class="mobile-accordion-link {% if request.resolver_match.url_name == 'book_cab_hourly' %}active text-danger{% endif %}">Hourly Rental</a>
+            <a href="{% url 'book_cab_bulk' %}" class="mobile-accordion-link {% if request.resolver_match.url_name == 'book_cab_bulk' %}active text-danger{% endif %}">Bulk Booking</a>
+        </div>
+
         <a href="{% url 'blog_list' %}" class="mobile-nav-link {% if 'blog' in request.resolver_match.url_name %}active{% endif %}">
             <div class="nav-link-inner"><i class="bi bi-journal-text"></i> Blog</div>
+        </a>
+
+        <a href="{% url 'fleet_partner' %}" class="mobile-nav-link {% if 'partner' in request.resolver_match.url_name %}active{% endif %}">
+            <div class="nav-link-inner"><i class="bi bi-person-badge"></i> Partner With Us</div>
         </a>
 
         <a href="{% url 'contact' %}" class="mobile-nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}">
             <div class="nav-link-inner"><i class="bi bi-envelope"></i> Contact</div>
         </a>
+
     </div>
 
     <div class="mobile-sidebar-footer">
@@ -87,7 +104,7 @@
 
             <!-- Center Schedule -->
             <div class="topbar-schedule text-muted small fw-medium">
-                <i class="bi bi-clock-history me-1"></i> Mon–Sun | 24/7 Available
+                <i class="bi bi-clock-history me-1"></i> Mon–Sat  Available
             </div>
 
             <!-- Right Socials -->
@@ -159,24 +176,37 @@
                         </ul>
                     </li>
 
+                    <!-- Book a Cab Dropdown -->
+                    <li class="nav-item dropdown vth-hover-dropdown">
+                        <a class="nav-link vth-nav-link dropdown-toggle {% if 'book_cab' in request.resolver_match.url_name or 'trip' in request.resolver_match.url_name %}active{% endif %}" href="{% url 'book_cab' %}" id="bookCabDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Book a Cab <i class="bi bi-chevron-down nav-chevron small ms-1"></i>
+                        </a>
+                        <ul class="dropdown-menu border-0 shadow-lg rounded-3 py-2" aria-labelledby="bookCabDropdown">
+                            <li><a href="{% url 'book_cab' %}" class="dropdown-item py-2 px-3 {% if request.resolver_match.url_name == 'book_cab' %}active text-danger fw-bold{% endif %}"><i class="bi bi-compass-fill text-danger me-2"></i> All Booking Options</a></li>
+                            <li><hr class="dropdown-divider my-1"></li>
+                            <li><a href="{% url 'book_cab_one_way' %}" class="dropdown-item py-2 px-3 {% if request.resolver_match.url_name == 'book_cab_one_way' %}active text-danger fw-bold{% endif %}"><i class="bi bi-taxi-front-fill text-danger me-2"></i> One Way Trip</a></li>
+                            <li><a href="{% url 'book_cab_round_trip' %}" class="dropdown-item py-2 px-3 {% if request.resolver_match.url_name == 'book_cab_round_trip' %}active text-danger fw-bold{% endif %}"><i class="bi bi-arrow-left-right text-danger me-2"></i> Round Trip</a></li>
+                            <li><a href="{% url 'book_cab_hourly' %}" class="dropdown-item py-2 px-3 {% if request.resolver_match.url_name == 'book_cab_hourly' %}active text-danger fw-bold{% endif %}"><i class="bi bi-clock-history text-danger me-2"></i> Hourly Rental</a></li>
+                            <li><a href="{% url 'book_cab_bulk' %}" class="dropdown-item py-2 px-3 {% if request.resolver_match.url_name == 'book_cab_bulk' %}active text-danger fw-bold{% endif %}"><i class="bi bi-people-fill text-danger me-2"></i> Bulk Booking</a></li>
+                        </ul>
+                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link vth-nav-link {% if 'blog' in request.resolver_match.url_name %}active{% endif %}" href="{% url 'blog_list' %}">Blog</a>
                     </li>
 
                     <li class="nav-item">
+                        <a class="nav-link vth-nav-link {% if 'partner' in request.resolver_match.url_name %}active{% endif %}" href="{% url 'fleet_partner' %}">Partner</a>
+                    </li>
+
+                    <li class="nav-item">
                         <a class="nav-link vth-nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}" href="{% url 'contact' %}">Contact</a>
                     </li>
+
                 </ul>
 
                 <!-- RIGHT CTA BUTTONS -->
-                <div class="d-flex align-items-center gap-2 ms-lg-3 mt-3 mt-lg-0">
-                    <a href="tel:+919655866660" class="btn btn-call-now rounded-pill px-3 py-2 fw-bold text-dark border shadow-sm">
-                        <i class="bi bi-telephone-fill text-danger me-1"></i> Call Now
-                    </a>
-                    <a href="#" class="btn btn-book-now rounded-pill px-4 py-2 fw-bold text-white shadow-sm" style="background-color: #E31E24;" data-bs-toggle="modal" data-bs-target="#enquiryModal">
-                        Book Now
-                    </a>
-                </div>
+                
             </div>
         </div>
     </nav>

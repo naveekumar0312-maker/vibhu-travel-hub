@@ -1,0 +1,924 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Hourly Rental Taxi Service | Vibhu Travel Hub{% endblock %}
+{% block description %}Book hourly rental cabs with Vibhu Travel Hub. Flexible 1-hour, 2-hour, 4-hour, and 8-hour cab packages in Coimbatore, Chennai, and South India with free KM.{% endblock %}
+
+{% block extra_css %}
+<style>
+    :root {
+        --vth-red: #E31E24;
+        --vth-red-hover: #c9161b;
+        --vth-red-brand: #d81b3a;
+        --vth-dark: #111111;
+        --vth-light-gray-bg: #f5f5f7;
+        --vth-border-gray: #e2e8f0;
+    }
+
+    /* HERO BANNER */
+    .hourly-hero-banner {
+        position: relative;
+        width: 100%;
+        min-height: 260px;
+        height: 280px;
+        background: url("{% static 'images/destinations/hourly-rental.jpg' %}") no-repeat center right / cover;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+    }
+    .hourly-hero-overlay {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: linear-gradient(135deg, rgba(227, 30, 36, 0.96) 0%, rgba(185, 20, 26, 0.90) 100%);
+        clip-path: polygon(0 0, 68% 0, 48% 100%, 0 100%);
+        z-index: 2;
+        display: flex;
+        align-items: center;
+    }
+    .hourly-hero-title {
+        color: #ffffff;
+        font-size: clamp(26px, 5vw, 3.4rem);
+        font-weight: 800;
+        letter-spacing: -0.5px;
+        margin: 0;
+        padding-left: 8%;
+        line-height: 1.1;
+    }
+
+    /* BREADCRUMB BAR */
+    .hourly-breadcrumb-bar {
+        background-color: #ffffff;
+        padding: 14px 24px;
+        border-bottom: 1px solid #f1f5f9;
+    }
+    .hourly-breadcrumb-link {
+        color: #64748b;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+    }
+    .hourly-breadcrumb-link:hover {
+        color: var(--vth-red);
+    }
+    .hourly-breadcrumb-active {
+        color: #1e293b;
+        font-weight: 600;
+        font-size: 14px;
+    }
+
+    /* OUTER WRAPPER */
+    .hourly-page-section {
+        background-color: #ffffff;
+        padding-top: 30px;
+        padding-bottom: 70px;
+    }
+
+    .hourly-max-container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    /* 1. TRIP TYPE PILL NAVIGATION */
+    .hourly-pill-nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-bottom: 30px;
+    }
+
+    .hourly-pill-item {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 44px;
+        padding: 0 28px;
+        border-radius: 30px;
+        background-color: #ffffff;
+        border: 1px solid #222222;
+        color: #222222;
+        font-size: 15px;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.25s ease;
+        white-space: nowrap;
+    }
+
+    .hourly-pill-item:hover {
+        border-color: var(--vth-red);
+        color: var(--vth-red);
+        transform: translateY(-1px);
+    }
+
+    .hourly-pill-item.active {
+        border-color: var(--vth-red);
+        color: var(--vth-red);
+        font-weight: 600;
+        background-color: #ffffff;
+        box-shadow: 0 2px 10px rgba(227, 30, 36, 0.12);
+    }
+
+    /* INTRO SECTION */
+    .hourly-intro-header {
+        text-align: center;
+        margin-bottom: 35px;
+    }
+    .hourly-eyebrow {
+        display: block;
+        font-size: 14px;
+        font-weight: 700;
+        color: #0f172a;
+        margin-bottom: 4px;
+    }
+    .hourly-intro-title {
+        font-size: clamp(22px, 5vw, 2.3rem);
+        font-weight: 800;
+        color: #0f172a;
+        margin-bottom: 8px;
+        letter-spacing: -0.5px;
+        line-height: 1.2;
+    }
+    .hourly-intro-title .text-red {
+        color: var(--vth-red);
+    }
+    .hourly-intro-subtext {
+        font-size: clamp(13px, 3.5vw, 1.05rem);
+        font-weight: 500;
+        color: #334155;
+        margin: 0 auto;
+        max-width: 800px;
+        line-height: 1.4;
+    }
+
+    /* FILTER SECTION CARD */
+    .hourly-filter-card {
+        background-color: var(--vth-light-gray-bg);
+        border: 1px solid #e2e8f0;
+        border-radius: 16px;
+        padding: 24px 28px;
+        margin-bottom: 35px;
+        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+    }
+
+    .hourly-filter-label {
+        font-size: 14px;
+        font-weight: 700;
+        color: #1e293b;
+        margin-bottom: 6px;
+        display: block;
+    }
+
+    .hourly-filter-select {
+        background-color: #ffffff !important;
+        border: 1px solid #d1d5db !important;
+        border-radius: 8px !important;
+        height: 46px !important;
+        padding: 10px 16px !important;
+        font-size: 14px !important;
+        color: #111111 !important;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+    }
+
+    .hourly-filter-select:focus {
+        border-color: var(--vth-red) !important;
+        box-shadow: 0 0 0 3px rgba(227, 30, 36, 0.15) !important;
+        outline: none !important;
+    }
+
+    .btn-hourly-filter {
+        background-color: var(--vth-red) !important;
+        color: #ffffff !important;
+        border: none !important;
+        font-weight: 700 !important;
+        font-size: 15px !important;
+        height: 46px !important;
+        border-radius: 8px !important;
+        width: 100%;
+        transition: all 0.25s ease !important;
+        cursor: pointer;
+    }
+
+    .btn-hourly-filter:hover {
+        background-color: var(--vth-red-hover) !important;
+        box-shadow: 0 4px 12px rgba(227, 30, 36, 0.3) !important;
+    }
+
+    /* TWO-COLUMN GRID LAYOUT (65% / 35%) */
+    .hourly-content-grid {
+        display: flex;
+        gap: 50px;
+        align-items: flex-start;
+    }
+
+    .hourly-left-col {
+        flex: 1 1 63%;
+        min-width: 0;
+    }
+
+    .hourly-right-col {
+        flex: 0 0 37%;
+        width: 37%;
+        min-width: 330px;
+    }
+
+    @media (max-width: 991px) {
+        .hourly-content-grid {
+            flex-direction: column;
+            gap: 40px;
+        }
+        .hourly-left-col,
+        .hourly-right-col {
+            width: 100%;
+            flex: 1 1 100%;
+        }
+        .hourly-hero-banner {
+            height: 190px !important;
+            min-height: 190px !important;
+        }
+        .hourly-hero-overlay {
+            clip-path: polygon(0 0, 75% 0, 56% 100%, 0 100%);
+        }
+        .hourly-hero-title {
+            font-size: 1.85rem !important;
+            padding-left: 20px !important;
+        }
+    }
+
+    /* FARE TABLE CONTAINER & STYLING */
+    .hourly-table-card {
+        background-color: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+    }
+
+    .hourly-table-responsive {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .hourly-fare-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0;
+    }
+
+    .hourly-fare-table th {
+        background-color: #f1f5f9;
+        color: #334155;
+        font-size: 13px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        padding: 14px 16px;
+        border-bottom: 2px solid #e2e8f0;
+        text-align: left;
+    }
+
+    .hourly-fare-table th.text-center {
+        text-align: center;
+    }
+
+    .hourly-fare-table tr {
+        cursor: pointer;
+        transition: background-color 0.15s ease;
+    }
+
+    .hourly-fare-table tr:nth-child(odd) {
+        background-color: #ffffff;
+    }
+
+    .hourly-fare-table tr:nth-child(even) {
+        background-color: #f8fafc;
+    }
+
+    .hourly-fare-table tr:hover {
+        background-color: #fff0f2;
+    }
+
+    .hourly-fare-table td {
+        padding: 14px 16px;
+        font-size: 14px;
+        color: #222222;
+        vertical-align: middle;
+        border-bottom: 1px solid #f1f5f9;
+    }
+
+    .hourly-fare-table td.city-name {
+        font-weight: 700;
+        color: #111111;
+    }
+
+    .hourly-fare-table td.vehicle-cat {
+        font-weight: 600;
+        color: #0f172a;
+    }
+
+    .hourly-fare-table td.badge-val {
+        text-align: center;
+        color: #475569;
+        font-weight: 600;
+    }
+
+    .hourly-fare-table td.base-fare-price {
+        text-align: center;
+        font-weight: 800;
+        font-size: 16px;
+        color: var(--vth-red);
+    }
+
+    .hourly-fare-table td.extra-rates {
+        font-size: 12px;
+        color: #64748b;
+    }
+
+    /* RIGHT SIDE BOOKING FORM CARD */
+    .hourly-form-card {
+        background-color: var(--vth-light-gray-bg);
+        border-radius: 18px;
+        padding: 36px 30px;
+        border: 1px solid #e5e7eb;
+        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.03);
+    }
+
+    @media (min-width: 992px) {
+        .sticky-form-wrapper {
+            position: sticky;
+            top: 100px;
+            z-index: 10;
+        }
+    }
+
+    .form-heading-title {
+        font-size: 24px;
+        font-weight: 800;
+        color: #111111;
+        line-height: 1.25;
+        margin-bottom: 24px;
+        letter-spacing: -0.3px;
+    }
+
+    .hourly-input-group {
+        margin-bottom: 18px;
+    }
+
+    .hourly-field-label {
+        font-size: 14px;
+        font-weight: 700;
+        color: #1e293b;
+        margin-bottom: 6px;
+        display: block;
+    }
+
+    .hourly-input-control {
+        background-color: #ffffff !important;
+        border: 1px solid #d1d5db !important;
+        color: #111111 !important;
+        border-radius: 8px !important;
+        height: 46px !important;
+        padding: 10px 16px !important;
+        font-size: 14px !important;
+        width: 100%;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+    }
+
+    textarea.hourly-input-control {
+        height: auto !important;
+    }
+
+    .hourly-input-control:focus {
+        border-color: var(--vth-red) !important;
+        box-shadow: 0 0 0 3px rgba(227, 30, 36, 0.15) !important;
+        outline: none !important;
+    }
+
+    /* CAPTCHA STYLING */
+    .captcha-card-box {
+        background-color: #ffffff;
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+        padding: 12px 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+        transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+        user-select: none;
+    }
+
+    .captcha-card-box.has-error {
+        border-color: #dc3545 !important;
+        background-color: #fff8f8;
+    }
+
+    .captcha-card-box.verified {
+        border-color: #198754;
+        background-color: #f6fbf8;
+    }
+
+    .captcha-checkbox {
+        width: 22px;
+        height: 22px;
+        cursor: pointer;
+        accent-color: var(--vth-red);
+        border-radius: 4px;
+        margin: 0;
+    }
+
+    .captcha-text-label {
+        font-size: 14px;
+        font-weight: 600;
+        color: #222222;
+        cursor: pointer;
+        margin-bottom: 0;
+    }
+
+    .captcha-badge-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #64748b;
+        line-height: 1;
+    }
+
+    .captcha-shield-icon {
+        font-size: 20px;
+        color: #94a3b8;
+        transition: color 0.25s ease, transform 0.25s ease;
+    }
+
+    .captcha-card-box.verified .captcha-shield-icon {
+        color: #198754;
+        transform: scale(1.1);
+    }
+
+    .captcha-badge-subtext {
+        font-size: 9px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-top: 3px;
+        color: #94a3b8;
+    }
+
+    .btn-hourly-book {
+        background-color: var(--vth-red) !important;
+        color: #ffffff !important;
+        border: none !important;
+        font-weight: 700 !important;
+        font-size: 16px !important;
+        height: 48px !important;
+        border-radius: 30px !important;
+        width: 100%;
+        box-shadow: 0 4px 14px rgba(227, 30, 36, 0.3) !important;
+        transition: all 0.25s ease !important;
+        cursor: pointer;
+    }
+
+    .btn-hourly-book:hover {
+        background-color: var(--vth-red-hover) !important;
+        transform: translateY(-1px) !important;
+        box-shadow: 0 6px 18px rgba(227, 30, 36, 0.4) !important;
+    }
+
+    @media (max-width: 767px) {
+        .hourly-page-section {
+            padding-top: 20px;
+            padding-bottom: 50px;
+        }
+        .hourly-pill-nav {
+            gap: 10px;
+        }
+        .hourly-pill-item {
+            height: 38px;
+            padding: 0 18px;
+            font-size: 13px;
+        }
+        .hourly-form-card {
+            padding: 24px 18px;
+        }
+        .form-heading-title {
+            font-size: 20px;
+        }
+        .hourly-fare-table td, .hourly-fare-table th {
+            padding: 10px 8px;
+            font-size: 12px;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<main>
+
+    <!-- HERO BANNER -->
+    <section class="hourly-hero-banner">
+        <div class="hourly-hero-overlay">
+            <h1 class="hourly-hero-title">Hourly Rental</h1>
+        </div>
+    </section>
+
+    <!-- BREADCRUMB BAR -->
+    <div class="hourly-breadcrumb-bar">
+        <div class="container px-3 px-sm-4">
+            <a href="{% url 'home' %}" class="hourly-breadcrumb-link">Home</a>
+            <span class="mx-2 text-muted">/</span>
+            <a href="{% url 'book_cab' %}" class="hourly-breadcrumb-link">Book a Trip</a>
+            <span class="mx-2 text-muted">/</span>
+            <span class="hourly-breadcrumb-active">Hourly Rental</span>
+        </div>
+    </div>
+
+    <!-- MAIN SECTION -->
+    <section class="hourly-page-section">
+        <div class="hourly-max-container">
+
+            <!-- 1. TRIP TYPE NAVIGATION PILLS -->
+            <nav class="hourly-pill-nav">
+                <a href="{% url 'book_cab_one_way' %}" class="hourly-pill-item">Oneway Trip</a>
+                <a href="{% url 'book_cab_round_trip' %}" class="hourly-pill-item">Round Trip</a>
+                <a href="{% url 'book_cab_hourly' %}" class="hourly-pill-item active">Hourly Rental</a>
+                <a href="{% url 'book_cab_bulk' %}" class="hourly-pill-item">Bulk Booking</a>
+            </nav>
+
+            <!-- INTRO HEADER -->
+            <div class="hourly-intro-header">
+                <span class="hourly-eyebrow">Flexible City Cabs</span>
+                <h2 class="hourly-intro-title">
+                    <span class="text-red">Hourly Rental</span> Taxi Service
+                </h2>
+                <p class="hourly-intro-subtext">
+                    Pay only for the hours & kilometers you use. Ideal for business meetings, shopping, city tours & multiple stops.
+                </p>
+            </div>
+
+            <!-- 2. FILTER SECTION CARD -->
+            <div class="hourly-filter-card">
+                {% if filter_error %}
+                <div class="alert alert-warning border-warning rounded-3 mb-3 text-center fw-bold">
+                    <i class="bi bi-exclamation-triangle-fill me-1"></i> {{ filter_error }}
+                </div>
+                {% endif %}
+
+                <form method="GET" action="{% url 'book_cab_hourly' %}" class="row g-3 align-items-end">
+                    
+                    <!-- City * -->
+                    <div class="col-12 col-md-3">
+                        <label for="filter_city" class="hourly-filter-label">City *</label>
+                        <select id="filter_city" name="city" class="form-select hourly-filter-select" required>
+                            <option value="" disabled {% if not selected_city %}selected{% endif %}>Select City</option>
+                            {% for c in cities %}
+                                <option value="{{ c }}" {% if selected_city == c %}selected{% endif %}>{{ c }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <!-- Vehicle Type * -->
+                    <div class="col-12 col-md-4">
+                        <label for="filter_vehicle" class="hourly-filter-label">Vehicle Type *</label>
+                        <select id="filter_vehicle" name="vehicle_type" class="form-select hourly-filter-select" required>
+                            <option value="" disabled {% if not selected_vehicle %}selected{% endif %}>Select Vehicle Type</option>
+                            {% for v in vehicle_categories %}
+                                <option value="{{ v }}" {% if selected_vehicle == v %}selected{% endif %}>{{ v }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <!-- Hours * -->
+                    <div class="col-12 col-md-3">
+                        <label for="filter_hours" class="hourly-filter-label">Hours *</label>
+                        <select id="filter_hours" name="hours" class="form-select hourly-filter-select" required>
+                            <option value="" disabled {% if not selected_hours %}selected{% endif %}>Select Hours</option>
+                            {% for val, label in hours_options %}
+                                <option value="{{ val }}" {% if selected_hours == val|slugify %}selected{% endif %}>{{ label }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="col-12 col-md-2 d-flex gap-2">
+                        <button type="submit" class="btn btn-hourly-filter">Submit</button>
+                        {% if selected_city or selected_vehicle or selected_hours %}
+                        <a href="{% url 'book_cab_hourly' %}" class="btn btn-outline-secondary d-flex align-items-center justify-content-center px-3" style="height: 46px; border-radius: 8px;" title="Reset Filters"><i class="bi bi-arrow-counterclockwise"></i></a>
+                        {% endif %}
+                    </div>
+
+                </form>
+            </div>
+
+            <!-- 3. TWO-COLUMN GRID LAYOUT (65% LEFT / 35% RIGHT) -->
+            <div class="hourly-content-grid">
+
+                <!-- LEFT COLUMN: FARE TABLE -->
+                <div class="hourly-left-col">
+                    <div class="hourly-table-card">
+                        {% if fares %}
+                        <div class="hourly-table-responsive">
+                            <table class="hourly-fare-table">
+                                <thead>
+                                    <tr>
+                                        <th>CITY</th>
+                                        <th>VEHICLE TYPE</th>
+                                        <th class="text-center">HOURS</th>
+                                        <th class="text-center">BASE FARE</th>
+                                        <th class="text-center">FREE KM</th>
+                                        <th class="text-center">EXTRA FARE</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for f in fares %}
+                                    <tr onclick="selectHourlyPackage('{{ f.city }}', '{{ f.vehicle_type }}', '{{ f.hours }}')">
+                                        <td class="city-name">{{ f.city }}</td>
+                                        <td class="vehicle-cat">{{ f.vehicle_type }}</td>
+                                        <td class="badge-val">{{ f.hours }} Hr{% if f.hours > 1 %}s{% endif %}</td>
+                                        <td class="base-fare-price">₹{{ f.base_fare|floatformat:0 }}/-*</td>
+                                        <td class="badge-val">{{ f.free_km }}</td>
+                                        <td class="extra-rates text-center font-monospace">
+                                            ₹{{ f.extra_km_fare|floatformat:0 }}/KM & ₹{{ f.extra_minute_fare|floatformat:0 }}/Min/-*
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        {% else %}
+                        <div class="p-5 text-center">
+                            <i class="bi bi-info-circle text-danger fs-1 d-block mb-3"></i>
+                            <h5 class="fw-bold text-dark mb-2">Fare not available for the selected option.</h5>
+                            <p class="text-muted small mb-0">Please select a different city, vehicle category, or hour package above.</p>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <!-- RIGHT COLUMN: STICKY BOOKING FORM CARD -->
+                <div class="hourly-right-col">
+                    <div class="sticky-form-wrapper">
+                        <div class="hourly-form-card">
+                            
+                            <h2 class="form-heading-title">
+                                Book Your Hourly Cab Rental
+                            </h2>
+
+                            <form id="hourlyBookingForm" method="POST" action="{% url 'book_cab_hourly' %}">
+                                {% csrf_token %}
+
+                                <!-- 1. Name * -->
+                                <div class="hourly-input-group">
+                                    <label for="id_name" class="hourly-field-label">Name *</label>
+                                    <input type="text" id="id_name" name="name" class="form-control hourly-input-control" placeholder="Your Name" required>
+                                </div>
+
+                                <!-- 2. Mobile Number * -->
+                                <div class="hourly-input-group">
+                                    <label for="id_mobile" class="hourly-field-label">Mobile Number *</label>
+                                    <input type="tel" id="id_mobile" name="mobile" class="form-control hourly-input-control" placeholder="Your Mobile Number" required>
+                                </div>
+
+                                <!-- 3. Email ID -->
+                                <div class="hourly-input-group">
+                                    <label for="id_email" class="hourly-field-label">Email ID</label>
+                                    <input type="email" id="id_email" name="email" class="form-control hourly-input-control" placeholder="Enter Email Id">
+                                </div>
+
+                                <!-- 4. Pickup City * -->
+                                <div class="hourly-input-group">
+                                    <label for="id_pickup_city" class="hourly-field-label">Pickup City *</label>
+                                    <select id="id_pickup_city" name="pickup_city" class="form-select hourly-input-control" required>
+                                        <option value="" disabled selected>Select Pickup City</option>
+                                        {% for c in cities %}
+                                            <option value="{{ c }}" {% if selected_city == c %}selected{% endif %}>{{ c }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+                                <!-- 5. Pickup Date * -->
+                                <div class="hourly-input-group">
+                                    <label for="id_pickup_date" class="hourly-field-label">Pickup Date *</label>
+                                    <input type="date" id="id_pickup_date" name="pickup_date" class="form-control hourly-input-control" required>
+                                </div>
+
+                                <!-- 6. Start Time * -->
+                                <div class="hourly-input-group">
+                                    <label for="id_pickup_time" class="hourly-field-label">Start Time *</label>
+                                    <select id="id_pickup_time" name="pickup_time" class="form-select hourly-input-control" required>
+                                        <option value="" disabled selected>Select Start Time</option>
+                                        <option value="06:00 AM">06:00 AM</option>
+                                        <option value="07:00 AM">07:00 AM</option>
+                                        <option value="08:00 AM">08:00 AM</option>
+                                        <option value="09:00 AM">09:00 AM</option>
+                                        <option value="10:00 AM">10:00 AM</option>
+                                        <option value="11:00 AM">11:00 AM</option>
+                                        <option value="12:00 PM">12:00 PM</option>
+                                        <option value="01:00 PM">01:00 PM</option>
+                                        <option value="02:00 PM">02:00 PM</option>
+                                        <option value="03:00 PM">03:00 PM</option>
+                                        <option value="04:00 PM">04:00 PM</option>
+                                        <option value="05:00 PM">05:00 PM</option>
+                                        <option value="06:00 PM">06:00 PM</option>
+                                        <option value="07:00 PM">07:00 PM</option>
+                                        <option value="08:00 PM">08:00 PM</option>
+                                    </select>
+                                </div>
+
+                                <!-- 7. Hours Package * -->
+                                <div class="hourly-input-group">
+                                    <label for="id_hours" class="hourly-field-label">Hours Package *</label>
+                                    <select id="id_hours" name="hours" class="form-select hourly-input-control" required>
+                                        <option value="" disabled selected>Select Package</option>
+                                        <option value="1">1 Hour Package</option>
+                                        <option value="2">2 Hours Package</option>
+                                        <option value="4">4 Hours Package</option>
+                                        <option value="8">8 Hours Package</option>
+                                        <option value="12">12 Hours Package</option>
+                                        <option value="24">24 Hours Package</option>
+                                    </select>
+                                </div>
+
+                                <!-- 8. Vehicle Type * -->
+                                <div class="hourly-input-group">
+                                    <label for="id_vehicle_type" class="hourly-field-label">Vehicle Type *</label>
+                                    <select id="id_vehicle_type" name="vehicle_type" class="form-select hourly-input-control" required>
+                                        <option value="" disabled selected>Select Vehicle Category</option>
+                                        {% for v in vehicle_categories %}
+                                            <option value="{{ v }}" {% if selected_vehicle == v %}selected{% endif %}>{{ v }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+                                <!-- 9. Comments -->
+                                <div class="hourly-input-group">
+                                    <label for="id_comments" class="hourly-field-label">Comments / Requirements</label>
+                                    <textarea id="id_comments" name="comments" rows="2" class="form-control hourly-input-control" placeholder="Enter notes or pickup address details"></textarea>
+                                </div>
+
+                                <!-- 10. CAPTCHA -->
+                                <div class="hourly-input-group">
+                                    <div class="captcha-card-box" id="captchaBox">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <input type="checkbox" id="id_captcha_check" name="captcha_verified" value="1" class="captcha-checkbox">
+                                            <label for="id_captcha_check" class="captcha-text-label">I'm not a robot</label>
+                                        </div>
+                                        <div class="captcha-badge-info">
+                                            <i class="bi bi-shield-check captcha-shield-icon"></i>
+                                            <span class="captcha-badge-subtext">Security Check</span>
+                                        </div>
+                                    </div>
+                                    <div class="text-danger small mt-1 d-none fw-bold" id="captchaErrMsg">Please verify that you are not a robot.</div>
+                                </div>
+
+                                <!-- 11. Submit Button -->
+                                <div class="mt-4">
+                                    <button type="submit" id="hourlySubmitBtn" class="btn btn-hourly-book">
+                                        <span id="btnText">Book Now</span>
+                                        <span id="btnSpinner" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                                    </button>
+                                </div>
+
+                            </form>
+
+                            <!-- Alerts -->
+                            <div id="hourlySuccessAlert" class="alert alert-success mt-3 text-center d-none">
+                                <h6 class="fw-bold mb-1" id="successTitle">Your Hourly Rental booking request has been received.</h6>
+                                <span class="small" id="successMsg">Thank you! Your request has been submitted successfully.</span>
+                            </div>
+
+                            <div id="hourlyErrorAlert" class="alert alert-danger mt-3 text-center d-none">
+                                <span id="errorMsg">Error submitting request. Please check required fields.</span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+</main>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+function selectHourlyPackage(city, vehicleType, hours) {
+    const citySel = document.getElementById('id_pickup_city');
+    const vehSel = document.getElementById('id_vehicle_type');
+    const hrsSel = document.getElementById('id_hours');
+    
+    if (citySel && city) citySel.value = city;
+    if (vehSel && vehicleType) vehSel.value = vehicleType;
+    if (hrsSel && hours) hrsSel.value = hours;
+
+    const formEl = document.getElementById('hourlyBookingForm');
+    if (formEl) {
+        formEl.scrollIntoView({ behavior: 'smooth' });
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const captchaCheck = document.getElementById('id_captcha_check');
+    const captchaBox = document.getElementById('captchaBox');
+    const captchaErrMsg = document.getElementById('captchaErrMsg');
+
+    if (captchaCheck && captchaBox) {
+        captchaCheck.addEventListener('change', function() {
+            if (this.checked) {
+                captchaBox.classList.add('verified');
+                captchaBox.classList.remove('has-error');
+                if (captchaErrMsg) captchaErrMsg.classList.add('d-none');
+            } else {
+                captchaBox.classList.remove('verified');
+            }
+        });
+    }
+
+    // Ajax Form Submission
+    const bookingForm = document.getElementById('hourlyBookingForm');
+    const submitBtn = document.getElementById('hourlySubmitBtn');
+    const btnText = document.getElementById('btnText');
+    const btnSpinner = document.getElementById('btnSpinner');
+    const successAlert = document.getElementById('hourlySuccessAlert');
+    const errorAlert = document.getElementById('hourlyErrorAlert');
+
+    if (bookingForm) {
+        bookingForm.addEventListener('submit', function(e) {
+            if (successAlert) successAlert.classList.add('d-none');
+            if (errorAlert) errorAlert.classList.add('d-none');
+
+            // Validate CAPTCHA
+            if (captchaCheck && !captchaCheck.checked) {
+                e.preventDefault();
+                if (captchaBox) captchaBox.classList.add('has-error');
+                if (captchaErrMsg) captchaErrMsg.classList.remove('d-none');
+                if (errorAlert) {
+                    if (document.getElementById('errorMsg')) {
+                        document.getElementById('errorMsg').textContent = 'Please verify that you are not a robot.';
+                    }
+                    errorAlert.classList.remove('d-none');
+                }
+                captchaBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return;
+            }
+
+            e.preventDefault();
+
+            submitBtn.disabled = true;
+            btnText.classList.add('d-none');
+            btnSpinner.classList.remove('d-none');
+
+            const formData = new FormData(bookingForm);
+
+            fetch(bookingForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            })
+            .then(res => res.json())
+            .then(data => {
+                submitBtn.disabled = false;
+                btnText.classList.remove('d-none');
+                btnSpinner.classList.add('d-none');
+
+                if (data.status === 'success') {
+                    bookingForm.reset();
+                    bookingForm.style.display = 'none';
+                    if (captchaBox) captchaBox.classList.remove('verified', 'has-error');
+
+                    if (data.title && document.getElementById('successTitle')) {
+                        document.getElementById('successTitle').textContent = data.title;
+                    }
+                    if (data.message && document.getElementById('successMsg')) {
+                        document.getElementById('successMsg').textContent = data.message;
+                    }
+
+                    if (successAlert) successAlert.classList.remove('d-none');
+                } else {
+                    if (document.getElementById('errorMsg')) {
+                        document.getElementById('errorMsg').textContent = data.message || 'Validation error.';
+                    }
+                    if (errorAlert) errorAlert.classList.remove('d-none');
+                }
+            })
+            .catch(err => {
+                submitBtn.disabled = false;
+                btnText.classList.remove('d-none');
+                btnSpinner.classList.add('d-none');
+                if (document.getElementById('errorMsg')) {
+                    document.getElementById('errorMsg').textContent = 'Network error. Please try again.';
+                }
+                if (errorAlert) errorAlert.classList.remove('d-none');
+            });
+        });
+    }
+});
+</script>
+{% endblock %}

@@ -384,3 +384,314 @@ class CitySEO(models.Model):
         return [k.strip() for k in self.segment_keywords.replace('\n', ',').split(',') if k.strip()]
 
 
+class FleetPartnerInquiry(models.Model):
+    STATUS_CHOICES = [
+        ("New", "New"),
+        ("Contacted", "Contacted"),
+        ("Approved", "Approved"),
+        ("Rejected", "Rejected"),
+    ]
+
+    VEHICLE_CHOICES = [
+        ("Sedan", "Sedan"),
+        ("SUV", "SUV"),
+        ("Luxury Car", "Luxury Car"),
+        ("Tempo Traveller", "Tempo Traveller"),
+        ("Mini Bus", "Mini Bus"),
+        ("Tourist Bus", "Tourist Bus"),
+    ]
+
+    SERVICE_CHOICES = [
+        ("Local Travel", "Local Travel"),
+        ("Airport Transfer", "Airport Transfer"),
+        ("Outstation Travel", "Outstation Travel"),
+        ("Tour Packages", "Tour Packages"),
+        ("Corporate Travel", "Corporate Travel"),
+        ("All Services", "All Services"),
+    ]
+
+    name = models.CharField(max_length=100, verbose_name="Name")
+    mobile = models.CharField(max_length=20, verbose_name="Mobile Number")
+    email = models.EmailField(verbose_name="Email Address")
+    city = models.CharField(max_length=100, verbose_name="City")
+    vehicle_count = models.CharField(max_length=50, verbose_name="Number of Vehicles")
+    vehicle_type = models.CharField(max_length=50, choices=VEHICLE_CHOICES, verbose_name="Vehicle Type")
+    service_type = models.CharField(max_length=100, choices=SERVICE_CHOICES, verbose_name="Service Preference", blank=True, null=True)
+    message = models.TextField(blank=True, null=True, verbose_name="Message")
+
+    status = models.CharField(
+        max_length=20,
+        choices=STATUS_CHOICES,
+        default="New",
+        verbose_name="Status"
+    )
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ["-created_at"]
+        verbose_name = "Fleet Partner Application"
+        verbose_name_plural = "Fleet Partner Applications"
+
+    def __str__(self):
+        return f"{self.name} - {self.city} ({self.vehicle_type} x {self.vehicle_count})"
+
+
+class PartnerEnquiry(models.Model):
+    STATUS_CHOICES = [
+        ("New", "New"),
+        ("Contacted", "Contacted"),
+        ("In Progress", "In Progress"),
+        ("Converted", "Converted"),
+        ("Rejected", "Rejected"),
+    ]
+
+    VEHICLE_CHOICES = [
+        ("Car", "Car"),
+        ("Sedan", "Sedan"),
+        ("SUV", "SUV"),
+        ("Tempo Traveller", "Tempo Traveller"),
+        ("Luxury Bus", "Luxury Bus"),
+        ("Other", "Other"),
+    ]
+
+    SERVICE_CHOICES = [
+        ("Local Cab Service", "Local Cab Service"),
+        ("Outstation Travel", "Outstation Travel"),
+        ("Airport Transfer", "Airport Transfer"),
+        ("Corporate Travel", "Corporate Travel"),
+        ("Tourist Packages", "Tourist Packages"),
+        ("All Services", "All Services"),
+    ]
+
+    full_name = models.CharField(max_length=100, verbose_name="Full Name")
+    mobile_number = models.CharField(max_length=20, verbose_name="Mobile Number")
+    email = models.EmailField(verbose_name="Email Address", blank=True, null=True)
+    city = models.CharField(max_length=100, verbose_name="City")
+    vehicle_type = models.CharField(max_length=50, choices=VEHICLE_CHOICES, verbose_name="Vehicle Type")
+    vehicle_count = models.CharField(max_length=50, verbose_name="Number of Vehicles")
+    vehicle_details = models.CharField(max_length=255, verbose_name="Vehicle Model / Details", blank=True, null=True)
+    preferred_service = models.CharField(max_length=100, choices=SERVICE_CHOICES, verbose_name="Preferred Service")
+    message = models.TextField(blank=True, null=True, verbose_name="Message")
+
+    status = models.CharField(
+        max_length=20,
+        choices=STATUS_CHOICES,
+        default="New",
+        verbose_name="Status"
+    )
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ["-created_at"]
+        verbose_name = "Partner Enquiry"
+        verbose_name_plural = "Partner Enquiries"
+
+    def __str__(self):
+        return f"{self.full_name} - {self.city} ({self.vehicle_type} x {self.vehicle_count})"
+
+
+class City(models.Model):
+    name = models.CharField(max_length=100, unique=True, verbose_name="City Name")
+    is_active = models.BooleanField(default=True, verbose_name="Active Status")
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ["name"]
+        verbose_name = "City"
+        verbose_name_plural = "Cities"
+
+    def __str__(self):
+        return self.name
+
+
+class OneWayFare(models.Model):
+    from_city = models.CharField(max_length=100, verbose_name="From City")
+    to_city = models.CharField(max_length=100, verbose_name="To City")
+    fare = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Starting Fare (₹)")
+    is_active = models.BooleanField(default=True, verbose_name="Active Status")
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ["from_city", "to_city"]
+        verbose_name = "One Way Fare"
+        verbose_name_plural = "One Way Fares"
+
+    @property
+    def destination(self):
+        return self.to_city
+
+    def __str__(self):
+        return f"{self.from_city} → {self.to_city} (₹{self.fare})"
+
+
+class OneWayBooking(models.Model):
+    STATUS_CHOICES = [
+        ("New", "New"),
+        ("Contacted", "Contacted"),
+        ("Confirmed", "Confirmed"),
+        ("Completed", "Completed"),
+        ("Cancelled", "Cancelled"),
+    ]
+
+    name = models.CharField(max_length=100, verbose_name="Name")
+    email = models.EmailField(verbose_name="Email ID")
+    mobile = models.CharField(max_length=20, verbose_name="Mobile Number")
+    pickup_date = models.DateField(verbose_name="Pickup Date")
+    pickup_time = models.CharField(max_length=50, verbose_name="Pick Up Time")
+    pickup_city = models.CharField(max_length=100, verbose_name="Pickup City")
+    drop_city = models.CharField(max_length=100, verbose_name="Drop Off City")
+    comments = models.TextField(blank=True, null=True, verbose_name="Comments")
+    status = models.CharField(
+        max_length=20,
+        choices=STATUS_CHOICES,
+        default="New",
+        verbose_name="Status"
+    )
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Submitted Date")
+
+    class Meta:
+        ordering = ["-created_at"]
+        verbose_name = "One Way Booking"
+        verbose_name_plural = "One Way Bookings"
+
+    @property
+    def mobile_number(self):
+        return self.mobile
+
+    @property
+    def drop_off_city(self):
+        return self.drop_city
+
+    def __str__(self):
+        return f"{self.name} - {self.pickup_city} to {self.drop_city} ({self.pickup_date})"
+
+
+class RoundTripFare(models.Model):
+    from_city = models.CharField(max_length=100, verbose_name="From City")
+    place = models.CharField(max_length=150, verbose_name="Place / Route")
+    distance_km = models.CharField(max_length=50, verbose_name="Km")
+    trip_duration = models.CharField(max_length=50, verbose_name="Trip Duration")
+    sedan_fare = models.CharField(max_length=50, verbose_name="Sedan Fare")
+    mini_fare = models.CharField(max_length=50, verbose_name="Mini / SUV Fare")
+    display_order = models.IntegerField(default=0)
+    is_active = models.BooleanField(default=True, verbose_name="Active Status")
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ["from_city", "display_order"]
+        verbose_name = "Round Trip Fare"
+        verbose_name_plural = "Round Trip Fares"
+
+    def __str__(self):
+        return f"{self.from_city} → {self.place} (Sedan: {self.sedan_fare}, Mini: {self.mini_fare})"
+
+
+class RoundTripBooking(models.Model):
+    STATUS_CHOICES = [
+        ("New", "New"),
+        ("Contacted", "Contacted"),
+        ("Confirmed", "Confirmed"),
+        ("Completed", "Completed"),
+        ("Cancelled", "Cancelled"),
+    ]
+
+    name = models.CharField(max_length=100, verbose_name="Name")
+    email = models.EmailField(verbose_name="Email ID")
+    mobile = models.CharField(max_length=20, verbose_name="Mobile Number")
+    pickup_city = models.CharField(max_length=100, verbose_name="Pickup City")
+    pickup_date = models.DateField(verbose_name="Pickup Date")
+    pickup_time = models.CharField(max_length=50, verbose_name="Pick Up Time")
+    dropoff_date = models.DateField(verbose_name="Drop Off Date")
+    dropoff_time = models.CharField(max_length=50, verbose_name="Drop Off Time")
+    comments = models.TextField(blank=True, null=True, verbose_name="Comments")
+    status = models.CharField(
+        max_length=20,
+        choices=STATUS_CHOICES,
+        default="New",
+        verbose_name="Status"
+    )
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Submitted Date")
+
+    class Meta:
+        ordering = ["-created_at"]
+        verbose_name = "Round Trip Booking"
+        verbose_name_plural = "Round Trip Bookings"
+
+    def __str__(self):
+        return f"{self.name} - {self.pickup_city} ({self.pickup_date} to {self.dropoff_date})"
+
+
+class HourlyRentalFare(models.Model):
+    VEHICLE_CATEGORIES = [
+        ("Sedan / Hatchback", "Sedan / Hatchback"),
+        ("SUV / MUV", "SUV / MUV"),
+        ("Tempo Traveller", "Tempo Traveller"),
+        ("Luxury Bus", "Luxury Bus"),
+    ]
+
+    city = models.CharField(max_length=100, verbose_name="City")
+    vehicle_type = models.CharField(max_length=100, choices=VEHICLE_CATEGORIES, verbose_name="Vehicle Type")
+    hours = models.IntegerField(default=1, verbose_name="Hours")
+    base_fare = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Base Fare")
+    free_km = models.IntegerField(default=10, verbose_name="Free KM")
+    extra_km_fare = models.DecimalField(max_digits=10, decimal_places=2, default=0.00, verbose_name="Extra KM Fare")
+    extra_minute_fare = models.DecimalField(max_digits=10, decimal_places=2, default=0.00, verbose_name="Extra Minute Fare")
+    is_active = models.BooleanField(default=True, verbose_name="Active Status")
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ["city", "vehicle_type", "hours"]
+        verbose_name = "Hourly Rental Fare"
+        verbose_name_plural = "Hourly Rental Fares"
+
+    def __str__(self):
+        return f"{self.city} - {self.vehicle_type} ({self.hours} Hrs - ₹{self.base_fare})"
+
+
+class BulkBooking(models.Model):
+    STATUS_CHOICES = [
+        ("New", "New"),
+        ("Contacted", "Contacted"),
+        ("Confirmed", "Confirmed"),
+        ("Completed", "Completed"),
+        ("Cancelled", "Cancelled"),
+    ]
+
+    name = models.CharField(max_length=100, verbose_name="Name")
+    email = models.EmailField(verbose_name="Email ID")
+    mobile_number = models.CharField(max_length=20, verbose_name="Mobile Number")
+    pickup_date = models.DateField(verbose_name="Pickup Date")
+    pickup_city = models.CharField(max_length=100, verbose_name="Pickup City")
+    comments = models.TextField(blank=True, null=True, verbose_name="Comments")
+    status = models.CharField(
+        max_length=20,
+        choices=STATUS_CHOICES,
+        default="New",
+        verbose_name="Status"
+    )
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Submitted Date")
+    updated_at = models.DateTimeField(auto_now=True, verbose_name="Updated Date")
+
+    class Meta:
+        ordering = ["-created_at"]
+        verbose_name = "Bulk Booking"
+        verbose_name_plural = "Bulk Bookings"
+
+    def __str__(self):
+        return f"{self.name} - {self.pickup_city} ({self.pickup_date})"
+
+
+
+
+
+
+
+
+
+

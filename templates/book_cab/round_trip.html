@@ -1,0 +1,923 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Round Trip Taxi Service | Vibhu Travel Hub{% endblock %}
+{% block description %}Book reliable round trip taxi services with Vibhu Travel Hub. Comfortable cabs, professional drivers and convenient outstation travel from Coimbatore and surrounding cities.{% endblock %}
+
+{% block extra_css %}
+<style>
+    :root {
+        --vth-red: #E31E24;
+        --vth-red-hover: #c9161b;
+        --vth-red-brand: #d81b3a;
+        --vth-dark: #111111;
+        --vth-light-gray-bg: #f5f5f7;
+        --vth-border-gray: #e2e8f0;
+    }
+
+    /* HERO BANNER */
+    .roundtrip-hero-banner {
+        position: relative;
+        width: 100%;
+        min-height: 260px;
+        height: 280px;
+        background: url("{% static 'images/destinations/round-trip.jpg' %}") no-repeat center right / cover;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+    }
+    .roundtrip-hero-overlay {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: linear-gradient(135deg, rgba(227, 30, 36, 0.96) 0%, rgba(185, 20, 26, 0.90) 100%);
+        clip-path: polygon(0 0, 68% 0, 48% 100%, 0 100%);
+        z-index: 2;
+        display: flex;
+        align-items: center;
+    }
+    .roundtrip-hero-title {
+        color: #ffffff;
+        font-size: clamp(26px, 5vw, 3.4rem);
+        font-weight: 800;
+        letter-spacing: -0.5px;
+        margin: 0;
+        padding-left: 8%;
+        line-height: 1.1;
+    }
+
+    /* BREADCRUMB BAR */
+    .roundtrip-breadcrumb-bar {
+        background-color: #ffffff;
+        padding: 14px 24px;
+        border-bottom: 1px solid #f1f5f9;
+    }
+    .roundtrip-breadcrumb-link {
+        color: #64748b;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+    }
+    .roundtrip-breadcrumb-link:hover {
+        color: var(--vth-red);
+    }
+    .roundtrip-breadcrumb-active {
+        color: #1e293b;
+        font-weight: 600;
+        font-size: 14px;
+    }
+
+    /* OUTER WRAPPER */
+    .roundtrip-page-section {
+        background-color: #ffffff;
+        padding-top: 30px;
+        padding-bottom: 70px;
+    }
+
+    .roundtrip-max-container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    /* 1. TRIP TYPE PILL NAVIGATION */
+    .roundtrip-pill-nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-bottom: 30px;
+    }
+
+    .roundtrip-pill-item {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 44px;
+        padding: 0 28px;
+        border-radius: 30px;
+        background-color: #ffffff;
+        border: 1px solid #222222;
+        color: #222222;
+        font-size: 15px;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.25s ease;
+        white-space: nowrap;
+    }
+
+    .roundtrip-pill-item:hover {
+        border-color: var(--vth-red);
+        color: var(--vth-red);
+        transform: translateY(-1px);
+    }
+
+    .roundtrip-pill-item.active {
+        border-color: var(--vth-red);
+        color: var(--vth-red);
+        font-weight: 600;
+        background-color: #ffffff;
+        box-shadow: 0 2px 10px rgba(227, 30, 36, 0.12);
+    }
+
+    /* INTRO SECTION */
+    .roundtrip-intro-header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .roundtrip-eyebrow {
+        display: block;
+        font-size: 14px;
+        font-weight: 700;
+        color: #0f172a;
+        margin-bottom: 4px;
+    }
+    .roundtrip-intro-title {
+        font-size: clamp(22px, 5vw, 2.3rem);
+        font-weight: 800;
+        color: #0f172a;
+        margin-bottom: 8px;
+        letter-spacing: -0.5px;
+        line-height: 1.2;
+    }
+    .roundtrip-intro-title .text-red {
+        color: var(--vth-red);
+    }
+    .roundtrip-intro-subtext {
+        font-size: clamp(13px, 3.5vw, 1.05rem);
+        font-weight: 600;
+        color: #334155;
+        margin: 0 auto;
+        max-width: 800px;
+        line-height: 1.4;
+    }
+
+    /* 2. HEADING */
+    .roundtrip-main-title {
+        font-size: clamp(28px, 4vw, 40px);
+        font-weight: 800;
+        color: #111111;
+        letter-spacing: -0.5px;
+        margin-top: 10px;
+        margin-bottom: 28px;
+        text-align: left;
+        line-height: 1.15;
+    }
+
+    /* 3. TWO-COLUMN GRID LAYOUT (65% / 35%) */
+    .roundtrip-content-grid {
+        display: flex;
+        gap: 60px;
+        align-items: flex-start;
+    }
+
+    .roundtrip-left-col {
+        flex: 1 1 63%;
+        min-width: 0;
+    }
+
+    .roundtrip-right-col {
+        flex: 0 0 37%;
+        width: 37%;
+        min-width: 330px;
+    }
+
+    @media (max-width: 991px) {
+        .roundtrip-content-grid {
+            flex-direction: column;
+            gap: 40px;
+        }
+        .roundtrip-left-col,
+        .roundtrip-right-col {
+            width: 100%;
+            flex: 1 1 100%;
+        }
+        .roundtrip-hero-banner {
+            height: 190px !important;
+            min-height: 190px !important;
+        }
+        .roundtrip-hero-overlay {
+            clip-path: polygon(0 0, 75% 0, 56% 100%, 0 100%);
+        }
+        .roundtrip-hero-title {
+            font-size: 1.85rem !important;
+            padding-left: 20px !important;
+        }
+    }
+
+    /* 4. FARE TABLE CARD DESIGN */
+    .fare-card-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .fare-card {
+        border-radius: 12px;
+        overflow: hidden;
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+        transition: all 0.3s ease;
+    }
+
+    .fare-card-header {
+        background-color: var(--vth-red-brand);
+        color: #ffffff;
+        height: 50px;
+        padding: 0 24px;
+        font-size: 18px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        user-select: none;
+        transition: background-color 0.25s ease;
+    }
+
+    .fare-card-header:hover {
+        background-color: #c01431;
+    }
+
+    .fare-header-arrow {
+        font-size: 20px;
+        font-weight: 700;
+        transition: transform 0.3s ease;
+    }
+
+    .fare-card.expanded .fare-header-arrow {
+        transform: rotate(180deg);
+    }
+
+    .fare-card-body {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        background-color: #ffffff;
+    }
+
+    .fare-card.expanded .fare-card-body {
+        max-height: 3000px;
+    }
+
+    .fare-table-responsive {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* ROUND TRIP FARE TABLE STYLING MATCHING REFERENCE */
+    .roundtrip-fare-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0;
+    }
+
+    .roundtrip-fare-table th {
+        background-color: #f1f5f9;
+        color: #334155;
+        font-size: 13px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        padding: 12px 16px;
+        border-bottom: 2px solid #e2e8f0;
+        text-align: left;
+    }
+
+    .roundtrip-fare-table th.text-center {
+        text-align: center;
+    }
+
+    .roundtrip-fare-table tr {
+        cursor: pointer;
+        transition: background-color 0.15s ease;
+    }
+
+    .roundtrip-fare-table tr:nth-child(odd) {
+        background-color: #ffffff;
+    }
+
+    .roundtrip-fare-table tr:nth-child(even) {
+        background-color: #f7f7f9;
+    }
+
+    .roundtrip-fare-table tr:hover {
+        background-color: #fff0f2;
+    }
+
+    .roundtrip-fare-table td {
+        padding: 13px 16px;
+        font-size: 14px;
+        color: #222222;
+        vertical-align: middle;
+        border-bottom: 1px solid #efefef;
+    }
+
+    .roundtrip-fare-table td.place-name {
+        font-weight: 600;
+        color: #111111;
+    }
+
+    .roundtrip-fare-table td.badge-val {
+        text-align: center;
+        color: #475569;
+        font-weight: 500;
+    }
+
+    .roundtrip-fare-table td.fare-price {
+        text-align: center;
+        font-weight: 700;
+        color: var(--vth-red);
+    }
+
+    /* 5. RIGHT SIDE BOOKING FORM CARD */
+    .roundtrip-form-card {
+        background-color: var(--vth-light-gray-bg);
+        border-radius: 18px;
+        padding: 38px 32px;
+        border: 1px solid #e5e7eb;
+        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.03);
+    }
+
+    @media (min-width: 992px) {
+        .sticky-form-wrapper {
+            position: sticky;
+            top: 100px;
+            z-index: 10;
+        }
+    }
+
+    .form-heading-title {
+        font-size: 25px;
+        font-weight: 800;
+        color: #111111;
+        line-height: 1.25;
+        margin-bottom: 24px;
+        letter-spacing: -0.3px;
+    }
+
+    .roundtrip-input-group {
+        margin-bottom: 20px;
+    }
+
+    .roundtrip-field-label {
+        font-size: 14px;
+        font-weight: 700;
+        color: #1e293b;
+        margin-bottom: 6px;
+        display: block;
+    }
+
+    .roundtrip-input-control {
+        background-color: #ffffff !important;
+        border: 1px solid #d1d5db !important;
+        color: #111111 !important;
+        border-radius: 8px !important;
+        height: 46px !important;
+        padding: 10px 16px !important;
+        font-size: 14px !important;
+        width: 100%;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+    }
+
+    textarea.roundtrip-input-control {
+        height: auto !important;
+    }
+
+    .roundtrip-input-control:focus {
+        border-color: var(--vth-red) !important;
+        box-shadow: 0 0 0 3px rgba(227, 30, 36, 0.15) !important;
+        outline: none !important;
+    }
+
+    /* CAPTCHA STYLING */
+    .captcha-card-box {
+        background-color: #ffffff;
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+        padding: 12px 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+        transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+        user-select: none;
+    }
+
+    .captcha-card-box.has-error {
+        border-color: #dc3545 !important;
+        background-color: #fff8f8;
+    }
+
+    .captcha-card-box.verified {
+        border-color: #198754;
+        background-color: #f6fbf8;
+    }
+
+    .captcha-checkbox {
+        width: 22px;
+        height: 22px;
+        cursor: pointer;
+        accent-color: var(--vth-red);
+        border-radius: 4px;
+        margin: 0;
+    }
+
+    .captcha-text-label {
+        font-size: 14px;
+        font-weight: 600;
+        color: #222222;
+        cursor: pointer;
+        margin-bottom: 0;
+    }
+
+    .captcha-badge-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #64748b;
+        line-height: 1;
+    }
+
+    .captcha-shield-icon {
+        font-size: 20px;
+        color: #94a3b8;
+        transition: color 0.25s ease, transform 0.25s ease;
+    }
+
+    .captcha-card-box.verified .captcha-shield-icon {
+        color: #198754;
+        transform: scale(1.1);
+    }
+
+    .captcha-badge-subtext {
+        font-size: 9px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-top: 3px;
+        color: #94a3b8;
+    }
+
+    .btn-roundtrip-book {
+        background-color: var(--vth-red) !important;
+        color: #ffffff !important;
+        border: none !important;
+        font-weight: 700 !important;
+        font-size: 16px !important;
+        height: 48px !important;
+        border-radius: 30px !important;
+        width: 100%;
+        box-shadow: 0 4px 14px rgba(227, 30, 36, 0.3) !important;
+        transition: all 0.25s ease !important;
+        cursor: pointer;
+    }
+
+    .btn-roundtrip-book:hover {
+        background-color: var(--vth-red-hover) !important;
+        transform: translateY(-1px) !important;
+        box-shadow: 0 6px 18px rgba(227, 30, 36, 0.4) !important;
+    }
+
+    /* RESPONSIVE DESIGN ADJUSTMENTS */
+    @media (max-width: 767px) {
+        .roundtrip-page-section {
+            padding-top: 20px;
+            padding-bottom: 50px;
+        }
+        .roundtrip-pill-nav {
+            gap: 10px;
+        }
+        .roundtrip-pill-item {
+            height: 38px;
+            padding: 0 18px;
+            font-size: 13px;
+        }
+        .roundtrip-main-title {
+            font-size: 26px;
+            margin-bottom: 20px;
+        }
+        .roundtrip-form-card {
+            padding: 24px 18px;
+        }
+        .form-heading-title {
+            font-size: 20px;
+        }
+        .roundtrip-fare-table td, .roundtrip-fare-table th {
+            padding: 10px 8px;
+            font-size: 12px;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<main>
+
+    <!-- HERO BANNER -->
+    <section class="roundtrip-hero-banner">
+        <div class="roundtrip-hero-overlay">
+            <h1 class="roundtrip-hero-title">Round Trip</h1>
+        </div>
+    </section>
+
+    <!-- BREADCRUMB BAR -->
+    <div class="roundtrip-breadcrumb-bar">
+        <div class="container px-3 px-sm-4">
+            <a href="{% url 'home' %}" class="roundtrip-breadcrumb-link">Home</a>
+            <span class="mx-2 text-muted">/</span>
+            <a href="{% url 'book_cab' %}" class="roundtrip-breadcrumb-link">Book a Trip</a>
+            <span class="mx-2 text-muted">/</span>
+            <span class="roundtrip-breadcrumb-active">Round Trip</span>
+        </div>
+    </div>
+
+    <!-- MAIN SECTION -->
+    <section class="roundtrip-page-section">
+        <div class="roundtrip-max-container">
+
+            <!-- 1. TRIP TYPE NAVIGATION PILLS -->
+            <nav class="roundtrip-pill-nav">
+                <a href="{% url 'book_cab_one_way' %}" class="roundtrip-pill-item">Oneway Trip</a>
+                <a href="{% url 'book_cab_round_trip' %}" class="roundtrip-pill-item active">Round Trip</a>
+                <a href="{% url 'book_cab_hourly' %}" class="roundtrip-pill-item">Hourly Rental</a>
+                <a href="{% url 'book_cab_bulk' %}" class="roundtrip-pill-item">Bulk Booking</a>
+            </nav>
+
+            <!-- INTRO SECTION -->
+            <div class="roundtrip-intro-header">
+                <span class="roundtrip-eyebrow">Trips</span>
+                <h2 class="roundtrip-intro-title">
+                    <span class="text-red">Reach Us,</span> We are here to help you
+                </h2>
+                <p class="roundtrip-intro-subtext">
+                    Hassle-Free Bookings on-time Pick-up.<br class="d-none d-sm-inline"> Your Reliable Ride for Every Business Need.
+                </p>
+            </div>
+
+            <!-- 2. HEADING -->
+            <h1 class="roundtrip-main-title">Round Trip Fare</h1>
+
+            <!-- 3. MAIN CONTENT GRID (65% LEFT / 35% RIGHT) -->
+            <div class="roundtrip-content-grid">
+
+                <!-- LEFT COLUMN: FARE TABLES -->
+                <div class="roundtrip-left-col">
+                    <div class="fare-card-container">
+                        {% for item in ordered_fares_by_city %}
+                        <div class="fare-card {% if forloop.first %}expanded{% endif %}" id="rt-card-{{ forloop.counter }}">
+                            
+                            <!-- Red Header Bar -->
+                            <div class="fare-card-header" onclick="toggleFareCard('rt-card-{{ forloop.counter }}')">
+                                <span>From {{ item.origin }}</span>
+                                <span class="fare-header-arrow">↑</span>
+                            </div>
+
+                            <!-- Card Body with Round Trip Fare Table -->
+                            <div class="fare-card-body">
+                                {% if item.fares %}
+                                <div class="fare-table-responsive">
+                                    <table class="roundtrip-fare-table">
+                                        <thead>
+                                            <tr>
+                                                <th>PLACE</th>
+                                                <th class="text-center">KM</th>
+                                                <th class="text-center">TRIP DURATION</th>
+                                                <th class="text-center">SEDAN</th>
+                                                <th class="text-center">MINI / SUV</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for fare in item.fares %}
+                                            <tr onclick="selectOriginCity('{{ fare.from_city }}')">
+                                                <td class="place-name">{{ fare.place }}</td>
+                                                <td class="badge-val">{{ fare.distance_km }}</td>
+                                                <td class="badge-val">{{ fare.trip_duration }}</td>
+                                                <td class="fare-price">{{ fare.sedan_fare }}</td>
+                                                <td class="fare-price">{{ fare.mini_fare }}</td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                                {% else %}
+                                <div class="p-4 text-center text-muted small">
+                                    Round trip fares for {{ item.origin }} are available upon request using the enquiry form.
+                                </div>
+                                {% endif %}
+                            </div>
+
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <!-- RIGHT COLUMN: STICKY BOOKING FORM CARD -->
+                <div class="roundtrip-right-col">
+                    <div class="sticky-form-wrapper">
+                        <div class="roundtrip-form-card">
+                            
+                            <h2 class="form-heading-title">
+                                Your Reliable Ride for Every<br class="d-none d-sm-inline"> Business Need.
+                            </h2>
+
+                            <form id="roundTripRefBookingForm" method="POST" action="{% url 'book_cab_round_trip' %}">
+                                {% csrf_token %}
+
+                                <!-- 1. Name * -->
+                                <div class="roundtrip-input-group">
+                                    <label for="id_name" class="roundtrip-field-label">Name *</label>
+                                    <input type="text" id="id_name" name="name" class="form-control roundtrip-input-control" placeholder="Your Name" required>
+                                </div>
+
+                                <!-- 2. Email ID * -->
+                                <div class="roundtrip-input-group">
+                                    <label for="id_email" class="roundtrip-field-label">Email ID *</label>
+                                    <input type="email" id="id_email" name="email" class="form-control roundtrip-input-control" placeholder="Enter Email Id" required>
+                                </div>
+
+                                <!-- 3. Mobile Number * -->
+                                <div class="roundtrip-input-group">
+                                    <label for="id_mobile" class="roundtrip-field-label">Mobile Number *</label>
+                                    <input type="tel" id="id_mobile" name="mobile" class="form-control roundtrip-input-control" placeholder="Your Mobile Number" required>
+                                </div>
+
+                                <!-- 4. Pickup City * -->
+                                <div class="roundtrip-input-group">
+                                    <label for="id_pickup_city" class="roundtrip-field-label">Pickup City *</label>
+                                    <select id="id_pickup_city" name="pickup_city" class="form-select roundtrip-input-control" required>
+                                        <option value="" disabled selected>Select Pickup City</option>
+                                        {% for city in cities %}
+                                            <option value="{{ city.name }}">{{ city.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+                                <!-- 5. Pickup Date * -->
+                                <div class="roundtrip-input-group">
+                                    <label for="id_pickup_date" class="roundtrip-field-label">Pickup Date *</label>
+                                    <input type="date" id="id_pickup_date" name="pickup_date" class="form-control roundtrip-input-control" required>
+                                </div>
+
+                                <!-- 6. Pick up Time * -->
+                                <div class="roundtrip-input-group">
+                                    <label for="id_pickup_time" class="roundtrip-field-label">Pick up Time *</label>
+                                    <select id="id_pickup_time" name="pickup_time" class="form-select roundtrip-input-control" required>
+                                        <option value="" disabled selected>Select Pickup Time</option>
+                                        <option value="06:00 AM">06:00 AM</option>
+                                        <option value="07:00 AM">07:00 AM</option>
+                                        <option value="08:00 AM">08:00 AM</option>
+                                        <option value="09:00 AM">09:00 AM</option>
+                                        <option value="10:00 AM">10:00 AM</option>
+                                        <option value="11:00 AM">11:00 AM</option>
+                                        <option value="12:00 PM">12:00 PM</option>
+                                        <option value="01:00 PM">01:00 PM</option>
+                                        <option value="02:00 PM">02:00 PM</option>
+                                        <option value="03:00 PM">03:00 PM</option>
+                                        <option value="04:00 PM">04:00 PM</option>
+                                        <option value="05:00 PM">05:00 PM</option>
+                                        <option value="06:00 PM">06:00 PM</option>
+                                        <option value="07:00 PM">07:00 PM</option>
+                                        <option value="08:00 PM">08:00 PM</option>
+                                        <option value="09:00 PM">09:00 PM</option>
+                                        <option value="10:00 PM">10:00 PM</option>
+                                    </select>
+                                </div>
+
+                                <!-- 7. Drop Off Date * -->
+                                <div class="roundtrip-input-group">
+                                    <label for="id_dropoff_date" class="roundtrip-field-label">Drop Off Date *</label>
+                                    <input type="date" id="id_dropoff_date" name="dropoff_date" class="form-control roundtrip-input-control" required>
+                                </div>
+
+                                <!-- 8. Drop Off Time * -->
+                                <div class="roundtrip-input-group">
+                                    <label for="id_dropoff_time" class="roundtrip-field-label">Drop Off Time *</label>
+                                    <select id="id_dropoff_time" name="dropoff_time" class="form-select roundtrip-input-control" required>
+                                        <option value="" disabled selected>Select Drop Off Time</option>
+                                        <option value="06:00 AM">06:00 AM</option>
+                                        <option value="07:00 AM">07:00 AM</option>
+                                        <option value="08:00 AM">08:00 AM</option>
+                                        <option value="09:00 AM">09:00 AM</option>
+                                        <option value="10:00 AM">10:00 AM</option>
+                                        <option value="11:00 AM">11:00 AM</option>
+                                        <option value="12:00 PM">12:00 PM</option>
+                                        <option value="01:00 PM">01:00 PM</option>
+                                        <option value="02:00 PM">02:00 PM</option>
+                                        <option value="03:00 PM">03:00 PM</option>
+                                        <option value="04:00 PM">04:00 PM</option>
+                                        <option value="05:00 PM">05:00 PM</option>
+                                        <option value="06:00 PM">06:00 PM</option>
+                                        <option value="07:00 PM">07:00 PM</option>
+                                        <option value="08:00 PM">08:00 PM</option>
+                                        <option value="09:00 PM">09:00 PM</option>
+                                        <option value="10:00 PM">10:00 PM</option>
+                                    </select>
+                                </div>
+
+                                <!-- 9. Comments -->
+                                <div class="roundtrip-input-group">
+                                    <label for="id_comments" class="roundtrip-field-label">Comments</label>
+                                    <textarea id="id_comments" name="comments" rows="2" class="form-control roundtrip-input-control" placeholder="Enter Your Comments"></textarea>
+                                </div>
+
+                                <!-- 10. Security Verification / CAPTCHA -->
+                                <div class="roundtrip-input-group">
+                                    <div class="captcha-card-box" id="captchaBox">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <input type="checkbox" id="id_captcha_check" name="captcha_verified" value="1" class="captcha-checkbox">
+                                            <label for="id_captcha_check" class="captcha-text-label">I'm not a robot</label>
+                                        </div>
+                                        <div class="captcha-badge-info">
+                                            <i class="bi bi-shield-check captcha-shield-icon"></i>
+                                            <span class="captcha-badge-subtext">Security Check</span>
+                                        </div>
+                                    </div>
+                                    <div class="text-danger small mt-1 d-none fw-bold" id="captchaErrMsg">Please verify that you are not a robot.</div>
+                                </div>
+
+                                <!-- 11. Submit Button -->
+                                <div class="mt-4">
+                                    <button type="submit" id="refSubmitBtn" class="btn btn-roundtrip-book">
+                                        <span id="refBtnText">Book Now</span>
+                                        <span id="refBtnSpinner" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                                    </button>
+                                </div>
+
+                            </form>
+
+                            <!-- Alerts -->
+                            <div id="refSuccessAlert" class="alert alert-success mt-3 text-center d-none">
+                                <h6 class="fw-bold mb-1" id="refSuccessTitle">Your round trip booking request has been received.</h6>
+                                <span class="small" id="refSuccessMsg">Your round trip booking request has been submitted successfully.</span>
+                            </div>
+
+                            <div id="refErrorAlert" class="alert alert-danger mt-3 text-center d-none">
+                                <span id="refErrorMsg">Error submitting form. Please check input fields.</span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+</main>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Expand/Collapse Fare Cards
+function toggleFareCard(cardId) {
+    const card = document.getElementById(cardId);
+    if (card) {
+        card.classList.toggle('expanded');
+    }
+}
+
+// Select origin city from table click
+function selectOriginCity(fromCity) {
+    const pickupSel = document.getElementById('id_pickup_city');
+    if (pickupSel && fromCity) {
+        pickupSel.value = fromCity;
+        const formEl = document.getElementById('roundTripRefBookingForm');
+        if (formEl) {
+            formEl.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const pickupDateEl = document.getElementById('id_pickup_date');
+    const dropoffDateEl = document.getElementById('id_dropoff_date');
+    const captchaCheck = document.getElementById('id_captcha_check');
+    const captchaBox = document.getElementById('captchaBox');
+    const captchaErrMsg = document.getElementById('captchaErrMsg');
+
+    // Date constraint validation
+    if (pickupDateEl && dropoffDateEl) {
+        pickupDateEl.addEventListener('change', function() {
+            if (this.value) {
+                dropoffDateEl.min = this.value;
+                if (dropoffDateEl.value && dropoffDateEl.value < this.value) {
+                    dropoffDateEl.value = this.value;
+                }
+            }
+        });
+    }
+
+    if (captchaCheck && captchaBox) {
+        captchaCheck.addEventListener('change', function() {
+            if (this.checked) {
+                captchaBox.classList.add('verified');
+                captchaBox.classList.remove('has-error');
+                if (captchaErrMsg) captchaErrMsg.classList.add('d-none');
+            } else {
+                captchaBox.classList.remove('verified');
+            }
+        });
+    }
+
+    // Ajax Form Submission
+    const bookingForm = document.getElementById('roundTripRefBookingForm');
+    const submitBtn = document.getElementById('refSubmitBtn');
+    const btnText = document.getElementById('refBtnText');
+    const btnSpinner = document.getElementById('refBtnSpinner');
+    const successAlert = document.getElementById('refSuccessAlert');
+    const errorAlert = document.getElementById('refErrorAlert');
+
+    if (bookingForm) {
+        bookingForm.addEventListener('submit', function(e) {
+            if (successAlert) successAlert.classList.add('d-none');
+            if (errorAlert) errorAlert.classList.add('d-none');
+
+            // Date comparison validation
+            if (pickupDateEl && dropoffDateEl && pickupDateEl.value && dropoffDateEl.value) {
+                if (dropoffDateEl.value < pickupDateEl.value) {
+                    e.preventDefault();
+                    if (document.getElementById('refErrorMsg')) {
+                        document.getElementById('refErrorMsg').textContent = 'Drop-off date cannot be earlier than Pickup date.';
+                    }
+                    if (errorAlert) errorAlert.classList.remove('d-none');
+                    dropoffDateEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    return;
+                }
+            }
+
+            // Validate CAPTCHA
+            if (captchaCheck && !captchaCheck.checked) {
+                e.preventDefault();
+                if (captchaBox) captchaBox.classList.add('has-error');
+                if (captchaErrMsg) captchaErrMsg.classList.remove('d-none');
+                if (errorAlert) {
+                    if (document.getElementById('refErrorMsg')) {
+                        document.getElementById('refErrorMsg').textContent = 'Please verify that you are not a robot.';
+                    }
+                    errorAlert.classList.remove('d-none');
+                }
+                captchaBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return;
+            }
+
+            e.preventDefault();
+
+            submitBtn.disabled = true;
+            btnText.classList.add('d-none');
+            btnSpinner.classList.remove('d-none');
+
+            const formData = new FormData(bookingForm);
+
+            fetch(bookingForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            })
+            .then(res => res.json())
+            .then(data => {
+                submitBtn.disabled = false;
+                btnText.classList.remove('d-none');
+                btnSpinner.classList.add('d-none');
+
+                if (data.status === 'success') {
+                    bookingForm.reset();
+                    bookingForm.style.display = 'none';
+                    if (captchaBox) captchaBox.classList.remove('verified', 'has-error');
+
+                    if (data.title && document.getElementById('refSuccessTitle')) {
+                        document.getElementById('refSuccessTitle').textContent = data.title;
+                    }
+                    if (data.message && document.getElementById('refSuccessMsg')) {
+                        document.getElementById('refSuccessMsg').textContent = data.message;
+                    }
+
+                    if (successAlert) successAlert.classList.remove('d-none');
+                } else {
+                    if (document.getElementById('refErrorMsg')) {
+                        document.getElementById('refErrorMsg').textContent = data.message || 'Validation error.';
+                    }
+                    if (errorAlert) errorAlert.classList.remove('d-none');
+                }
+            })
+            .catch(err => {
+                submitBtn.disabled = false;
+                btnText.classList.remove('d-none');
+                btnSpinner.classList.add('d-none');
+                if (document.getElementById('refErrorMsg')) {
+                    document.getElementById('refErrorMsg').textContent = 'Network error. Please try again.';
+                }
+                if (errorAlert) errorAlert.classList.remove('d-none');
+            });
+        });
+    }
+});
+</script>
+{% endblock %}

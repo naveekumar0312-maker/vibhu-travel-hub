@@ -34,21 +34,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Global Card & Directional Scroll Animations Observer
-    const animCards = document.querySelectorAll('.vth-card-anim-left, .vth-card-anim-right, .vth-card-anim-up, .vth-card-anim-down, .vth-anim-left, .vth-anim-right, .vth-anim-up, .vth-anim-down');
+    // Global Card, Reveal & Directional Scroll Animations Observer
+    const animCards = document.querySelectorAll('.vth-card-anim-left, .vth-card-anim-right, .vth-card-anim-up, .vth-card-anim-down, .vth-anim-left, .vth-anim-right, .vth-anim-up, .vth-anim-down, .reveal, .reveal-up, .reveal-down, .reveal-left, .reveal-right, .reveal-scale, .reveal-fade, .stagger-item, .anim-fade-up');
     if (animCards.length > 0) {
         if ('IntersectionObserver' in window) {
             const cardObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('vth-animated');
+                        entry.target.classList.add('vth-animated', 'active', 'is-visible');
                         cardObserver.unobserve(entry.target);
                     }
                 });
-            }, { threshold: 0.1 });
+            }, { threshold: 0.08 });
             animCards.forEach(el => cardObserver.observe(el));
         } else {
-            animCards.forEach(el => el.classList.add('vth-animated'));
+            animCards.forEach(el => el.classList.add('vth-animated', 'active', 'is-visible'));
         }
     }
 });

@@ -1,0 +1,220 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Book One Way Trip | Vibhu Travel Hub{% endblock %}
+{% block description %}Book a point-to-point one-way cab journey across South India with Vibhu Travel Hub. Affordable rates, verified drivers, and 24/7 availability.{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/premium-about.css' %}?v={{ STATIC_VERSION }}">
+<style>
+    .trip-hero-banner {
+        background: url("{% static 'images/destinations/tn-gallery-1.jpg' %}") no-repeat center right / cover;
+        position: relative;
+        min-height: 340px;
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+    .trip-hero-overlay {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.88) 45%, rgba(255, 255, 255, 0.45) 75%, rgba(255, 255, 255, 0.15) 100%);
+        z-index: 1;
+    }
+    .trip-card {
+        background: #ffffff;
+        border-radius: 24px;
+        padding: 44px;
+        border: 1px solid #E2E8F0;
+        box-shadow: 0 10px 35px rgba(15, 23, 42, 0.06);
+    }
+    .trip-input {
+        background-color: #F8FAFC !important;
+        border: 1px solid #CBD5E1 !important;
+        color: #0F172A !important;
+        border-radius: 12px !important;
+        padding: 12px 16px !important;
+        font-size: 0.95rem !important;
+    }
+    .trip-input:focus {
+        background-color: #ffffff !important;
+        border-color: #E31E24 !important;
+        box-shadow: 0 0 0 3px rgba(227, 30, 36, 0.15) !important;
+        outline: none !important;
+    }
+    .btn-trip-submit {
+        background-color: #E31E24 !important;
+        border: none !important;
+        color: #ffffff !important;
+        font-weight: 700 !important;
+        font-size: 1.05rem !important;
+        padding: 14px 45px !important;
+        border-radius: 50px !important;
+        box-shadow: 0 6px 20px rgba(227, 30, 36, 0.3) !important;
+        transition: all 0.3s ease !important;
+    }
+    .btn-trip-submit:hover {
+        background-color: #c41432 !important;
+        transform: translateY(-2px) !important;
+    }
+    @media (max-width: 767px) {
+        .trip-card { padding: 26px 18px; border-radius: 18px; }
+        .btn-trip-submit { width: 100% !important; }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<main>
+    <!-- HERO -->
+    <section class="trip-hero-banner py-5">
+        <div class="trip-hero-overlay"></div>
+        <div class="container position-relative z-2">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 anim-fade-up">
+                    <span class="vth-eyebrow-tag">ONE WAY CAB BOOKING</span>
+                    <h1 class="fw-extrabold text-dark mb-2" style="font-size: 3rem; letter-spacing: -1px;">Book Your One Way Journey</h1>
+                    <p class="text-danger fw-bold mb-3" style="font-size: 1.1rem; color: #E31E24 !important;">Travel comfortably with Vibhu Travel Hub's premium cab and travel services.</p>
+                    <div class="d-flex align-items-center gap-2 text-muted small fw-medium">
+                        <a href="{% url 'home' %}" class="text-decoration-none text-muted">Home</a>
+                        <i class="bi bi-chevron-right" style="font-size: 0.75rem;"></i>
+                        <span>Book a Trip</span>
+                        <i class="bi bi-chevron-right" style="font-size: 0.75rem;"></i>
+                        <span class="text-danger fw-bold">One Way Trip</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORM SECTION -->
+    <section class="py-5" style="background-color: #F8FAFC;">
+        <div class="container py-lg-3">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 col-xl-9">
+                    <div class="trip-card w-100">
+                        <div class="text-center mb-4">
+                            <span class="vth-eyebrow-tag">ONE WAY TRIP</span>
+                            <h2 class="fw-extrabold text-dark mb-2" style="font-size: 2rem;">One Way Cab Details</h2>
+                            <p class="text-muted small">Pay only for the distance you travel with no hidden charges.</p>
+                        </div>
+
+                        <form id="oneWayTripForm" method="POST" action="{% url 'one_way_trip' %}">
+                            {% csrf_token %}
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold text-dark mb-1">Full Name <span class="text-danger">*</span></label>
+                                    <input type="text" name="full_name" class="form-control trip-input" placeholder="Your Full Name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold text-dark mb-1">Mobile Number <span class="text-danger">*</span></label>
+                                    <input type="tel" name="mobile_number" class="form-control trip-input" placeholder="10-Digit Mobile Number" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold text-dark mb-1">Email Address</label>
+                                    <input type="email" name="email" class="form-control trip-input" placeholder="Email Address (Optional)">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold text-dark mb-1">Vehicle Type <span class="text-danger">*</span></label>
+                                    <select name="vehicle_type" class="form-select trip-input" required>
+                                        <option value="" disabled selected>Select Vehicle</option>
+                                        <option value="Sedan">Sedan (Dzire, Etios)</option>
+                                        <option value="SUV">SUV (Innova, Ertiga)</option>
+                                        <option value="Luxury Car">Luxury Car (Crysta, Fortuner)</option>
+                                        <option value="Tempo Traveller">Tempo Traveller (12-26 Seater)</option>
+                                        <option value="Luxury Bus">Luxury Bus</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold text-dark mb-1">Pickup Location <span class="text-danger">*</span></label>
+                                    <input type="text" name="pickup" class="form-control trip-input" placeholder="Pickup City / Address" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold text-dark mb-1">Drop Location <span class="text-danger">*</span></label>
+                                    <input type="text" name="drop" class="form-control trip-input" placeholder="Drop City / Destination" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold text-dark mb-1">Travel Date <span class="text-danger">*</span></label>
+                                    <input type="date" name="travel_date" class="form-control trip-input" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold text-dark mb-1">Travel Time</label>
+                                    <input type="time" name="travel_time" class="form-control trip-input">
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label small fw-bold text-dark mb-1">Number of Passengers</label>
+                                    <select name="passengers" class="form-select trip-input">
+                                        <option value="1 - 4 Passengers">1 - 4 Passengers</option>
+                                        <option value="5 - 7 Passengers">5 - 7 Passengers</option>
+                                        <option value="8 - 12 Passengers">8 - 12 Passengers</option>
+                                        <option value="13+ Passengers">13+ Passengers</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label small fw-bold text-dark mb-1">Additional Requirements</label>
+                                    <textarea name="message" rows="3" class="form-control trip-input" placeholder="Luggage, AC requirements, notes..."></textarea>
+                                </div>
+                                <div class="col-12 mt-4 text-center">
+                                    <button type="submit" class="btn btn-danger btn-trip-submit w-100 w-md-auto">Book One Way Trip <i class="bi bi-arrow-right ms-1"></i></button>
+                                </div>
+                            </div>
+                        </form>
+
+                        <div id="formSuccess" class="alert alert-success mt-4 text-center d-none">
+                            Thank you! Your One Way Trip booking request has been submitted successfully.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="py-5 bg-white">
+        <div class="container text-center">
+            <h3 class="fw-bold mb-4">Why Book One Way With Vibhu Travel Hub?</h3>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="p-4 rounded-4 border bg-light">
+                        <i class="bi bi-currency-rupee text-danger fs-1 mb-2 d-block"></i>
+                        <h5 class="fw-bold">Pay One-Way Fare Only</h5>
+                        <p class="small text-muted mb-0">No return charges for your one-way journeys across Tamil Nadu, Kerala, and Karnataka.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-4 rounded-4 border bg-light">
+                        <i class="bi bi-shield-check text-danger fs-1 mb-2 d-block"></i>
+                        <h5 class="fw-bold">Verified Drivers</h5>
+                        <p class="small text-muted mb-0">Courteous, experienced, and background-verified professional drivers.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-4 rounded-4 border bg-light">
+                        <i class="bi bi-clock-history text-danger fs-1 mb-2 d-block"></i>
+                        <h5 class="fw-bold">24/7 Availability</h5>
+                        <p class="small text-muted mb-0">Punctual pickup & drop services anytime, day or night.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.getElementById('oneWayTripForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const formData = new FormData(this);
+    fetch(this.action, { method: 'POST', body: formData, headers: { 'X-Requested-With': 'XMLHttpRequest' } })
+    .then(r => r.json()).then(data => {
+        if(data.status === 'success') {
+            this.style.display = 'none';
+            document.getElementById('formSuccess').classList.remove('d-none');
+        } else {
+            alert(data.message || 'Error submitting form');
+        }
+    });
+});
+</script>
+{% endblock %}

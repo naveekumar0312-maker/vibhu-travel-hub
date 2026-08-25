@@ -1,0 +1,778 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Oneway Trip Call Taxi - Book Cab Online | Vibhu Travel Hub{% endblock %}
+{% block description %}Book reliable one-way cab services with Vibhu Travel Hub for comfortable and hassle-free journeys
+across South India.{% endblock %}
+
+{% block extra_css %}
+<style>
+    :root {
+        --vth-red: #E31E24;
+        --vth-red-hover: #c9161b;
+        --vth-red-brand: #d81b3a;
+        --vth-dark: #111111;
+        --vth-light-gray-bg: #f5f5f7;
+        --vth-border-gray: #e2e8f0;
+    }
+
+    /* HERO BANNER */
+    .oneway-hero-banner {
+        position: relative;
+        width: 100%;
+        min-height: 260px;
+        height: 280px;
+        background: url("{% static 'images/destinations/one-way.jpg' %}") no-repeat center right / cover;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+    }
+
+    .oneway-hero-overlay {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: linear-gradient(135deg, rgba(227, 30, 36, 0.96) 0%, rgba(185, 20, 26, 0.90) 100%);
+        clip-path: polygon(0 0, 68% 0, 48% 100%, 0 100%);
+        z-index: 2;
+        display: flex;
+        align-items: center;
+    }
+
+    .oneway-hero-title {
+        color: #ffffff;
+        font-size: clamp(26px, 5vw, 3.4rem);
+        font-weight: 800;
+        letter-spacing: -0.5px;
+        margin: 0;
+        padding-left: 8%;
+        line-height: 1.1;
+    }
+
+    /* BREADCRUMB BAR */
+    .oneway-breadcrumb-bar {
+        background-color: #ffffff;
+        padding: 14px 24px;
+        border-bottom: 1px solid #f1f5f9;
+    }
+
+    .oneway-breadcrumb-link {
+        color: #64748b;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .oneway-breadcrumb-link:hover {
+        color: var(--vth-red);
+    }
+
+    .oneway-breadcrumb-active {
+        color: #1e293b;
+        font-weight: 600;
+        font-size: 14px;
+    }
+
+    /* Outer Wrapper */
+    .oneway-page-section {
+        background-color: #ffffff;
+        padding-top: 35px;
+        padding-bottom: 70px;
+    }
+
+    .oneway-max-container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    /* 1. TRIP TYPE PILL NAVIGATION */
+    .oneway-pill-nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-bottom: 35px;
+    }
+
+    .oneway-pill-item {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 44px;
+        padding: 0 28px;
+        border-radius: 30px;
+        background-color: #ffffff;
+        border: 1px solid #222222;
+        color: #222222;
+        font-size: 15px;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.25s ease;
+        white-space: nowrap;
+    }
+
+    .oneway-pill-item:hover {
+        border-color: var(--vth-red);
+        color: var(--vth-red);
+        transform: translateY(-1px);
+    }
+
+    .oneway-pill-item.active {
+        border-color: var(--vth-red);
+        color: var(--vth-red);
+        font-weight: 600;
+        background-color: #ffffff;
+        box-shadow: 0 2px 10px rgba(227, 30, 36, 0.12);
+    }
+
+    /* 2. ONE WAY TRIP FARE HEADING */
+    .oneway-main-title {
+        font-size: clamp(30px, 4vw, 42px);
+        font-weight: 800;
+        color: #111111;
+        letter-spacing: -0.5px;
+        margin-top: 10px;
+        margin-bottom: 28px;
+        text-align: left;
+        line-height: 1.15;
+    }
+
+    /* 3. TWO-COLUMN GRID LAYOUT (65% / 35%) */
+    .oneway-content-grid {
+        display: flex;
+        gap: 60px;
+        align-items: flex-start;
+    }
+
+    .oneway-left-col {
+        flex: 1 1 63%;
+        min-width: 0;
+    }
+
+    .oneway-right-col {
+        flex: 0 0 37%;
+        width: 37%;
+        min-width: 330px;
+    }
+
+    @media (max-width: 991px) {
+        .oneway-content-grid {
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .oneway-left-col,
+        .oneway-right-col {
+            width: 100%;
+            flex: 1 1 100%;
+        }
+    }
+
+    /* 4. FARE TABLE CARD DESIGN */
+    .fare-card-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .fare-card {
+        border-radius: 12px;
+        overflow: hidden;
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+        transition: all 0.3s ease;
+    }
+
+    .fare-card-header {
+        background-color: var(--vth-red-brand);
+        color: #ffffff;
+        height: 50px;
+        padding: 0 24px;
+        font-size: 18px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        user-select: none;
+        transition: background-color 0.25s ease;
+    }
+
+    .fare-card-header:hover {
+        background-color: #c01431;
+    }
+
+    .fare-header-arrow {
+        font-size: 20px;
+        font-weight: 700;
+        transition: transform 0.3s ease;
+    }
+
+    .fare-card.expanded .fare-header-arrow {
+        transform: rotate(180deg);
+    }
+
+    .fare-card-body {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        background-color: #ffffff;
+    }
+
+    .fare-card.expanded .fare-card-body {
+        max-height: 2500px;
+    }
+
+    .fare-table-responsive {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* 4-COLUMN TABLE DESIGN MATCHING SCREENSHOT */
+    .fare-4col-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0;
+    }
+
+    .fare-4col-table tr {
+        cursor: pointer;
+        transition: background-color 0.15s ease;
+    }
+
+    .fare-4col-table tr:nth-child(odd) {
+        background-color: #ffffff;
+    }
+
+    .fare-4col-table tr:nth-child(even) {
+        background-color: #f7f7f9;
+    }
+
+    .fare-4col-table tr:hover {
+        background-color: #fff0f2;
+    }
+
+    .fare-4col-table td {
+        padding: 13px 18px;
+        font-size: 15px;
+        color: #222222;
+        vertical-align: middle;
+        border-bottom: 1px solid #efefef;
+    }
+
+    .fare-4col-table td.dest-name {
+        text-align: center;
+        font-weight: 500;
+        width: 30%;
+        color: #333333;
+    }
+
+    .fare-4col-table td.fare-val {
+        text-align: center;
+        font-weight: 600;
+        color: #111111;
+        width: 20%;
+    }
+
+    .fare-4col-table td.divider-col {
+        border-left: 1px solid #e2e8f0;
+    }
+
+    /* 5. RIGHT SIDE BOOKING FORM CARD */
+    .oneway-form-card {
+        background-color: var(--vth-light-gray-bg);
+        border-radius: 18px;
+        padding: 38px 32px;
+        border: 1px solid #e5e7eb;
+        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.03);
+    }
+
+    @media (min-width: 992px) {
+        .sticky-form-wrapper {
+            position: sticky;
+            top: 100px;
+            z-index: 10;
+        }
+    }
+
+    .form-heading-title {
+        font-size: 25px;
+        font-weight: 800;
+        color: #111111;
+        line-height: 1.25;
+        margin-bottom: 24px;
+        letter-spacing: -0.3px;
+    }
+
+    .oneway-input-group {
+        margin-bottom: 20px;
+    }
+
+    .oneway-field-label {
+        font-size: 14px;
+        font-weight: 700;
+        color: #1e293b;
+        margin-bottom: 6px;
+        display: block;
+    }
+
+    .oneway-input-control {
+        background-color: #ffffff !important;
+        border: 1px solid #d1d5db !important;
+        color: #111111 !important;
+        border-radius: 8px !important;
+        height: 46px !important;
+        padding: 10px 16px !important;
+        font-size: 14px !important;
+        width: 100%;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+    }
+
+    textarea.oneway-input-control {
+        height: auto !important;
+    }
+
+    .oneway-input-control:focus {
+        border-color: var(--vth-red) !important;
+        box-shadow: 0 0 0 3px rgba(227, 30, 36, 0.15) !important;
+        outline: none !important;
+    }
+
+    .btn-oneway-book {
+        background-color: var(--vth-red) !important;
+        color: #ffffff !important;
+        border: none !important;
+        font-weight: 700 !important;
+        font-size: 16px !important;
+        height: 48px !important;
+        border-radius: 30px !important;
+        width: 100%;
+        box-shadow: 0 4px 14px rgba(227, 30, 36, 0.3) !important;
+        transition: all 0.25s ease !important;
+        cursor: pointer;
+    }
+
+    .btn-oneway-book:hover {
+        background-color: var(--vth-red-hover) !important;
+        transform: translateY(-1px) !important;
+        box-shadow: 0 6px 18px rgba(227, 30, 36, 0.4) !important;
+    }
+
+    .est-fare-box {
+        background-color: #fff1f2;
+        border: 1px solid #fecdd3;
+        border-radius: 10px;
+        padding: 14px;
+        margin-bottom: 20px;
+    }
+
+    /* RESPONSIVE DESIGN ADJUSTMENTS */
+    @media (max-width: 767px) {
+        .oneway-page-section {
+            padding-top: 20px;
+            padding-bottom: 50px;
+        }
+
+        .oneway-pill-nav {
+            gap: 10px;
+        }
+
+        .oneway-pill-item {
+            height: 38px;
+            padding: 0 18px;
+            font-size: 13px;
+        }
+
+        .oneway-main-title {
+            font-size: 26px;
+            margin-bottom: 20px;
+        }
+
+        .oneway-form-card {
+            padding: 24px 18px;
+        }
+
+        .form-heading-title {
+            font-size: 20px;
+        }
+
+        .fare-4col-table td {
+            padding: 10px 8px;
+            font-size: 13px;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<main>
+
+    <!-- HERO BANNER -->
+    <section class="oneway-hero-banner">
+        <div class="oneway-hero-overlay">
+            <h1 class="oneway-hero-title">One Way Trip</h1>
+        </div>
+    </section>
+
+    <!-- BREADCRUMB BAR -->
+    <div class="oneway-breadcrumb-bar">
+        <div class="container px-3 px-sm-4">
+            <a href="{% url 'home' %}" class="oneway-breadcrumb-link">Home</a>
+            <span class="mx-2 text-muted">/</span>
+            <a href="{% url 'book_cab' %}" class="oneway-breadcrumb-link">Book a Trip</a>
+            <span class="mx-2 text-muted">/</span>
+            <span class="oneway-breadcrumb-active">One Way Trip</span>
+        </div>
+    </div>
+
+    <div class="oneway-page-section">
+        <div class="oneway-max-container">
+
+        <!-- ==========================================
+            1. TRIP TYPE NAVIGATION PILLS
+        ========================================== -->
+        <nav class="oneway-pill-nav">
+            <a href="{% url 'book_cab_one_way' %}" class="oneway-pill-item active">Oneway Trip</a>
+            <a href="{% url 'book_cab_round_trip' %}" class="oneway-pill-item">Round Trip</a>
+            <a href="{% url 'book_cab_hourly' %}" class="oneway-pill-item">Hourly Rental</a>
+            <a href="{% url 'book_cab_bulk' %}" class="oneway-pill-item">Bulk Booking</a>
+        </nav>
+
+        <!-- ==========================================
+            2. HEADING
+        ========================================== -->
+        <h1 class="oneway-main-title">Oneway Trip Fare</h1>
+
+        <!-- ==========================================
+            3. MAIN CONTENT GRID (65% LEFT / 35% RIGHT)
+        ========================================== -->
+        <div class="oneway-content-grid">
+
+            <!-- LEFT COLUMN: FARE TABLES -->
+            <div class="oneway-left-col">
+                <div class="fare-card-container">
+                    {% for item in ordered_fares_by_city %}
+                    <div class="fare-card {% if forloop.first %}expanded{% endif %}"
+                        id="acc-card-{{ forloop.counter }}">
+
+                        <!-- Red Header Bar -->
+                        <div class="fare-card-header" onclick="toggleFareCard('acc-card-{{ forloop.counter }}')">
+                            <span>From {{ item.origin }}</span>
+                            <span class="fare-header-arrow">↑</span>
+                        </div>
+
+                        <!-- Card Body with 4-Column Fare Table -->
+                        <div class="fare-card-body">
+                            {% if item.fares %}
+                            <div class="fare-table-responsive">
+                                <table class="fare-4col-table">
+                                    <tbody>
+                                        {% for fare in item.fares %}
+                                        {% if forloop.counter0|divisibleby:2 %}
+                                        <tr onclick="selectRouteFare('{{ fare.from_city }}', '{{ fare.to_city }}')">
+                                            <td class="dest-name">{{ fare.to_city }}</td>
+                                            <td class="fare-val">Rs.{{ fare.fare|floatformat:0 }}/-*</td>
+                                            {% else %}
+                                            <td class="dest-name divider-col">{{ fare.to_city }}</td>
+                                            <td class="fare-val">Rs.{{ fare.fare|floatformat:0 }}/-*</td>
+                                        </tr>
+                                        {% endif %}
+                                        {% if forloop.last and not forloop.counter0|divisibleby:2 %}
+                                        <!-- Already closed by row pair -->
+                                        {% elif forloop.last and forloop.counter0|divisibleby:2 %}
+                                        <td class="dest-name divider-col"></td>
+                                        <td class="fare-val"></td>
+                                        </tr>
+                                        {% endif %}
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                            {% else %}
+                            <div class="p-4 text-center text-muted small">
+                                One-way fares for {{ item.origin }} are available upon request using the enquiry form.
+                            </div>
+                            {% endif %}
+                        </div>
+
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: STICKY BOOKING FORM CARD -->
+            <div class="oneway-right-col">
+                <div class="sticky-form-wrapper">
+                    <div class="oneway-form-card">
+
+                        <h2 class="form-heading-title">
+                            Your Reliable Ride for Every<br class="d-none d-sm-inline"> Business Need.
+                        </h2>
+
+                        <form id="oneWayRefBookingForm" method="POST" action="{% url 'book_cab_one_way' %}">
+                            {% csrf_token %}
+
+                            <!-- 1. Name * -->
+                            <div class="oneway-input-group">
+                                <label for="id_name" class="oneway-field-label">Name *</label>
+                                <input type="text" id="id_name" name="name" class="form-control oneway-input-control"
+                                    placeholder="Your Name" required>
+                            </div>
+
+                            <!-- 2. Email Id * -->
+                            <div class="oneway-input-group">
+                                <label for="id_email" class="oneway-field-label">Email Id *</label>
+                                <input type="email" id="id_email" name="email" class="form-control oneway-input-control"
+                                    placeholder="Your Email Id" required>
+                            </div>
+
+                            <!-- 3. Mobile Number * -->
+                            <div class="oneway-input-group">
+                                <label for="id_mobile" class="oneway-field-label">Mobile Number *</label>
+                                <input type="tel" id="id_mobile" name="mobile" class="form-control oneway-input-control"
+                                    placeholder="Your Mobile Number" required>
+                            </div>
+
+                            <!-- 4. Pickup Date * -->
+                            <div class="oneway-input-group">
+                                <label for="id_pickup_date" class="oneway-field-label">Pickup Date *</label>
+                                <input type="date" id="id_pickup_date" name="pickup_date"
+                                    class="form-control oneway-input-control" required>
+                            </div>
+
+                            <!-- 5. Pickup Time * -->
+                            <div class="oneway-input-group">
+                                <label for="id_pickup_time" class="oneway-field-label">Pickup Time *</label>
+                                <select id="id_pickup_time" name="pickup_time" class="form-select oneway-input-control"
+                                    required>
+                                    <option value="" disabled selected>Select Pickup Time</option>
+                                    <option value="06:00 AM">06:00 AM</option>
+                                    <option value="07:00 AM">07:00 AM</option>
+                                    <option value="08:00 AM">08:00 AM</option>
+                                    <option value="09:00 AM">09:00 AM</option>
+                                    <option value="10:00 AM">10:00 AM</option>
+                                    <option value="11:00 AM">11:00 AM</option>
+                                    <option value="12:00 PM">12:00 PM</option>
+                                    <option value="01:00 PM">01:00 PM</option>
+                                    <option value="02:00 PM">02:00 PM</option>
+                                    <option value="03:00 PM">03:00 PM</option>
+                                    <option value="04:00 PM">04:00 PM</option>
+                                    <option value="05:00 PM">05:00 PM</option>
+                                    <option value="06:00 PM">06:00 PM</option>
+                                    <option value="07:00 PM">07:00 PM</option>
+                                    <option value="08:00 PM">08:00 PM</option>
+                                    <option value="09:00 PM">09:00 PM</option>
+                                    <option value="10:00 PM">10:00 PM</option>
+                                </select>
+                            </div>
+
+                            <!-- 6. Pickup City * -->
+                            <div class="oneway-input-group">
+                                <label for="id_pickup_city" class="oneway-field-label">Pickup City *</label>
+                                <select id="id_pickup_city" name="pickup_city" class="form-select oneway-input-control"
+                                    required>
+                                    <option value="" disabled selected>Select Pickup City</option>
+                                    {% for city in cities %}
+                                    <option value="{{ city.name }}">{{ city.name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                            <!-- 7. Drop Off City * -->
+                            <div class="oneway-input-group">
+                                <label for="id_drop_off_city" class="oneway-field-label">Drop Off City *</label>
+                                <select id="id_drop_off_city" name="drop_off_city"
+                                    class="form-select oneway-input-control" required>
+                                    <option value="" disabled selected>Select Drop Off City</option>
+                                    {% for city in cities %}
+                                    <option value="{{ city.name }}">{{ city.name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                            <!-- 8. Comments -->
+                            <div class="oneway-input-group">
+                                <label for="id_comments" class="oneway-field-label">Comments</label>
+                                <textarea id="id_comments" name="comments" rows="2"
+                                    class="form-control oneway-input-control"
+                                    placeholder="Enter Your Comments"></textarea>
+                            </div>
+
+                            <!-- 9. Security Verification / CAPTCHA -->
+                            
+
+                            <!-- Dynamic Estimated Fare Box -->
+                            <div class="d-none" id="estFareBox">
+                                <div class="est-fare-box text-center">
+                                    <div class="small text-muted fw-bold">Estimated Starting Fare</div>
+                                    <div class="fw-extrabold text-danger fs-4 my-1" id="estFarePrice">₹0</div>
+                                    <div class="text-muted" style="font-size: 0.75rem;">* Fare is indicative and may
+                                        vary based on vehicle type and route.</div>
+                                </div>
+                            </div>
+
+                            <!-- 10. Submit Button -->
+                            <div class="mt-4">
+                                <button type="submit" id="refSubmitBtn" class="btn btn-oneway-book">
+                                    <span id="refBtnText">Book Now</span>
+                                    <span id="refBtnSpinner" class="spinner-border spinner-border-sm d-none"
+                                        role="status" aria-hidden="true"></span>
+                                </button>
+                            </div>
+
+                        </form>
+
+                        <!-- Alerts -->
+                        <div id="refSuccessAlert" class="alert alert-success mt-3 text-center d-none">
+                            <h6 class="fw-bold mb-1" id="refSuccessTitle">Your one-way cab booking request has been
+                                received.</h6>
+                            <span class="small" id="refSuccessMsg">Thank you for choosing Vibhu Travel Hub. Our team
+                                will contact you shortly.</span>
+                        </div>
+
+                        <div id="refErrorAlert" class="alert alert-danger mt-3 text-center d-none">
+                            <span id="refErrorMsg">Error submitting form. Please check input fields.</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</main>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Expand/Collapse Fare Cards
+    function toggleFareCard(cardId) {
+        const card = document.getElementById(cardId);
+        if (card) {
+            card.classList.toggle('expanded');
+        }
+    }
+
+    // Select route fare from table
+    function selectRouteFare(fromCity, toCity) {
+        const pickupSel = document.getElementById('id_pickup_city');
+        const dropSel = document.getElementById('id_drop_off_city');
+
+        if (pickupSel && dropSel) {
+            pickupSel.value = fromCity;
+            dropSel.value = toCity;
+            updateFareNotice();
+            const formEl = document.getElementById('oneWayRefBookingForm');
+            if (formEl) {
+                formEl.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    }
+
+    // Dynamic Fare lookup
+    const fareLookupMap = JSON.parse('{{ fare_lookup_json|escapejs|default:"{}" }}');
+    function updateFareNotice() {
+        const pCityEl = document.getElementById('id_pickup_city');
+        const dCityEl = document.getElementById('id_drop_off_city');
+        const noticeBox = document.getElementById('estFareBox');
+        const priceText = document.getElementById('estFarePrice');
+
+        if (pCityEl && dCityEl && noticeBox && priceText) {
+            const pCity = pCityEl.value.trim().toLowerCase();
+            const dCity = dCityEl.value.trim().toLowerCase();
+
+            if (pCity && dCity) {
+                const key = pCity + '___' + dCity;
+                if (fareLookupMap.hasOwnProperty(key)) {
+                    priceText.textContent = '₹' + Math.round(fareLookupMap[key]);
+                    noticeBox.classList.remove('d-none');
+                    return;
+                }
+            }
+            noticeBox.classList.add('d-none');
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const pickupSel = document.getElementById('id_pickup_city');
+        const dropSel = document.getElementById('id_drop_off_city');
+
+        if (pickupSel) pickupSel.addEventListener('change', updateFareNotice);
+        if (dropSel) dropSel.addEventListener('change', updateFareNotice);
+
+        // Ajax Form Submission
+        const bookingForm = document.getElementById('oneWayRefBookingForm');
+        const submitBtn = document.getElementById('refSubmitBtn');
+        const btnText = document.getElementById('refBtnText');
+        const btnSpinner = document.getElementById('refBtnSpinner');
+        const successAlert = document.getElementById('refSuccessAlert');
+        const errorAlert = document.getElementById('refErrorAlert');
+
+        if (bookingForm) {
+            bookingForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                if (successAlert) successAlert.classList.add('d-none');
+                if (errorAlert) errorAlert.classList.add('d-none');
+
+                submitBtn.disabled = true;
+                btnText.classList.add('d-none');
+                btnSpinner.classList.remove('d-none');
+
+                const formData = new FormData(bookingForm);
+
+                fetch(bookingForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest'
+                    }
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        submitBtn.disabled = false;
+                        btnText.classList.remove('d-none');
+                        btnSpinner.classList.add('d-none');
+
+                        if (data.status === 'success') {
+                            bookingForm.reset();
+                            bookingForm.style.display = 'none';
+                            if (document.getElementById('estFareBox')) {
+                                document.getElementById('estFareBox').classList.add('d-none');
+                            }
+
+                            if (data.title && document.getElementById('refSuccessTitle')) {
+                                document.getElementById('refSuccessTitle').textContent = data.title;
+                            }
+                            if (data.message && document.getElementById('refSuccessMsg')) {
+                                document.getElementById('refSuccessMsg').textContent = data.message;
+                            }
+
+                            if (successAlert) successAlert.classList.remove('d-none');
+                        } else {
+                            if (document.getElementById('refErrorMsg')) {
+                                document.getElementById('refErrorMsg').textContent = data.message || 'Validation error.';
+                            }
+                            if (errorAlert) errorAlert.classList.remove('d-none');
+                        }
+                    })
+                    .catch(err => {
+                        submitBtn.disabled = false;
+                        btnText.classList.remove('d-none');
+                        btnSpinner.classList.add('d-none');
+                        if (document.getElementById('refErrorMsg')) {
+                            document.getElementById('refErrorMsg').textContent = 'Network error. Please try again.';
+                        }
+                        if (errorAlert) errorAlert.classList.remove('d-none');
+                    });
+            });
+        }
+    });
+</script>
+{% endblock %}

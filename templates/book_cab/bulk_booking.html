@@ -1,0 +1,540 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Bulk Booking | Vibhu Travel Hub{% endblock %}
+{% block description %}Book bulk cabs, buses, and tempo travellers for corporate events, weddings, tours, and large group trips with Vibhu Travel Hub.{% endblock %}
+
+{% block extra_css %}
+<style>
+    :root {
+        --vth-red: #E31E24;
+        --vth-red-hover: #c9161b;
+        --vth-red-brand: #d81b3a;
+        --vth-dark: #111111;
+        --vth-light-gray-bg: #f5f5f7;
+        --vth-border-gray: #e2e8f0;
+    }
+
+    /* HERO BANNER */
+    .bulk-hero-banner {
+        position: relative;
+        width: 100%;
+        min-height: 260px;
+        height: 280px;
+        background: url("{% static 'images/destinations/bulk-booking.jpg' %}") no-repeat center right / cover;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+    }
+    .bulk-hero-overlay {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: linear-gradient(135deg, rgba(227, 30, 36, 0.96) 0%, rgba(185, 20, 26, 0.90) 100%);
+        clip-path: polygon(0 0, 68% 0, 48% 100%, 0 100%);
+        z-index: 2;
+        display: flex;
+        align-items: center;
+    }
+    .bulk-hero-title {
+        color: #ffffff;
+        font-size: clamp(26px, 5vw, 3.4rem);
+        font-weight: 800;
+        letter-spacing: -0.5px;
+        margin: 0;
+        padding-left: 8%;
+        line-height: 1.1;
+    }
+
+    /* BREADCRUMB BAR */
+    .bulk-breadcrumb-bar {
+        background-color: #ffffff;
+        padding: 14px 24px;
+        border-bottom: 1px solid #f1f5f9;
+    }
+    .bulk-breadcrumb-link {
+        color: #64748b;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+    }
+    .bulk-breadcrumb-link:hover {
+        color: var(--vth-red);
+    }
+    .bulk-breadcrumb-active {
+        color: #1e293b;
+        font-weight: 600;
+        font-size: 14px;
+    }
+
+    /* OUTER WRAPPER */
+    .bulk-page-section {
+        background-color: #ffffff;
+        padding-top: 30px;
+        padding-bottom: 70px;
+    }
+
+    .bulk-max-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    /* 1. TRIP TYPE PILL NAVIGATION */
+    .bulk-pill-nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-bottom: 35px;
+    }
+
+    .bulk-pill-item {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 44px;
+        padding: 0 28px;
+        border-radius: 30px;
+        background-color: #ffffff;
+        border: 1px solid #222222;
+        color: #222222;
+        font-size: 15px;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.25s ease;
+        white-space: nowrap;
+    }
+
+    .bulk-pill-item:hover {
+        border-color: var(--vth-red);
+        color: var(--vth-red);
+        transform: translateY(-1px);
+    }
+
+    .bulk-pill-item.active {
+        border-color: var(--vth-red);
+        color: var(--vth-red);
+        font-weight: 600;
+        background-color: #ffffff;
+        box-shadow: 0 2px 10px rgba(227, 30, 36, 0.12);
+    }
+
+    /* FORM CARD CONTAINER */
+    .bulk-form-card {
+        background-color: var(--vth-light-gray-bg);
+        border-radius: 20px;
+        padding: 44px 40px;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.04);
+    }
+
+    .bulk-form-title {
+        font-size: 26px;
+        font-weight: 800;
+        color: #111111;
+        margin-bottom: 30px;
+        letter-spacing: -0.4px;
+    }
+
+    .bulk-input-group {
+        margin-bottom: 22px;
+    }
+
+    .bulk-field-label {
+        font-size: 14px;
+        font-weight: 700;
+        color: #1e293b;
+        margin-bottom: 8px;
+        display: block;
+    }
+
+    .bulk-input-control {
+        background-color: #ffffff !important;
+        border: 1px solid #d1d5db !important;
+        color: #111111 !important;
+        border-radius: 8px !important;
+        height: 48px !important;
+        padding: 10px 16px !important;
+        font-size: 15px !important;
+        width: 100%;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+    }
+
+    textarea.bulk-input-control {
+        height: auto !important;
+    }
+
+    .bulk-input-control:focus {
+        border-color: var(--vth-red) !important;
+        box-shadow: 0 0 0 3px rgba(227, 30, 36, 0.15) !important;
+        outline: none !important;
+    }
+
+    /* CAPTCHA STYLING */
+    .captcha-card-box {
+        background-color: #ffffff;
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+        padding: 14px 18px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+        transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+        user-select: none;
+    }
+
+    .captcha-card-box.has-error {
+        border-color: #dc3545 !important;
+        background-color: #fff8f8;
+    }
+
+    .captcha-card-box.verified {
+        border-color: #198754;
+        background-color: #f6fbf8;
+    }
+
+    .captcha-checkbox {
+        width: 22px;
+        height: 22px;
+        cursor: pointer;
+        accent-color: var(--vth-red);
+        border-radius: 4px;
+        margin: 0;
+    }
+
+    .captcha-text-label {
+        font-size: 14px;
+        font-weight: 600;
+        color: #222222;
+        cursor: pointer;
+        margin-bottom: 0;
+    }
+
+    .captcha-badge-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #64748b;
+        line-height: 1;
+    }
+
+    .captcha-shield-icon {
+        font-size: 20px;
+        color: #94a3b8;
+        transition: color 0.25s ease, transform 0.25s ease;
+    }
+
+    .captcha-card-box.verified .captcha-shield-icon {
+        color: #198754;
+        transform: scale(1.1);
+    }
+
+    .captcha-badge-subtext {
+        font-size: 9px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-top: 3px;
+        color: #94a3b8;
+    }
+
+    .btn-bulk-submit {
+        background-color: var(--vth-red) !important;
+        color: #ffffff !important;
+        border: none !important;
+        font-weight: 700 !important;
+        font-size: 16px !important;
+        height: 50px !important;
+        padding: 0 42px !important;
+        border-radius: 30px !important;
+        box-shadow: 0 4px 14px rgba(227, 30, 36, 0.3) !important;
+        transition: all 0.25s ease !important;
+        cursor: pointer;
+    }
+
+    .btn-bulk-submit:hover {
+        background-color: var(--vth-red-hover) !important;
+        transform: translateY(-1px) !important;
+        box-shadow: 0 6px 18px rgba(227, 30, 36, 0.4) !important;
+    }
+
+    @media (max-width: 767px) {
+        .bulk-page-section {
+            padding-top: 20px;
+            padding-bottom: 50px;
+        }
+        .bulk-pill-nav {
+            gap: 10px;
+        }
+        .bulk-pill-item {
+            height: 38px;
+            padding: 0 18px;
+            font-size: 13px;
+        }
+        .bulk-form-card {
+            padding: 26px 20px;
+        }
+        .bulk-form-title {
+            font-size: 21px;
+            margin-bottom: 20px;
+        }
+        .btn-bulk-submit {
+            width: 100% !important;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<main>
+
+    <!-- HERO BANNER -->
+    <section class="bulk-hero-banner">
+        <div class="bulk-hero-overlay">
+            <h1 class="bulk-hero-title">Bulk Booking</h1>
+        </div>
+    </section>
+
+    <!-- BREADCRUMB BAR -->
+    <div class="bulk-breadcrumb-bar">
+        <div class="container px-3 px-sm-4">
+            <a href="{% url 'home' %}" class="bulk-breadcrumb-link">Home</a>
+            <span class="mx-2 text-muted">/</span>
+            <a href="{% url 'book_cab' %}" class="bulk-breadcrumb-link">Book a Trip</a>
+            <span class="mx-2 text-muted">/</span>
+            <span class="bulk-breadcrumb-active">Bulk Booking</span>
+        </div>
+    </div>
+
+    <!-- MAIN SECTION -->
+    <section class="bulk-page-section">
+        <div class="bulk-max-container">
+
+            <!-- 1. TRIP TYPE NAVIGATION PILLS -->
+            <nav class="bulk-pill-nav">
+                <a href="{% url 'book_cab_one_way' %}" class="bulk-pill-item">Oneway Trip</a>
+                <a href="{% url 'book_cab_round_trip' %}" class="bulk-pill-item">Round Trip</a>
+                <a href="{% url 'book_cab_hourly' %}" class="bulk-pill-item">Hourly Rental</a>
+                <a href="{% url 'book_cab_bulk' %}" class="bulk-pill-item active">Bulk Booking</a>
+            </nav>
+
+            <!-- 2. FORM CARD -->
+            <div class="bulk-form-card">
+                <h2 class="bulk-form-title">Request Bulk Booking</h2>
+
+                <form id="bulkBookingForm" method="POST" action="{% url 'book_cab_bulk' %}">
+                    {% csrf_token %}
+
+                    <div class="row">
+
+                        <!-- Row 1: Name & Email ID -->
+                        <div class="col-12 col-md-6">
+                            <div class="bulk-input-group">
+                                <label for="id_name" class="bulk-field-label">Name *</label>
+                                <input type="text" id="id_name" name="name" class="form-control bulk-input-control" placeholder="Your Name" required>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <div class="bulk-input-group">
+                                <label for="id_email" class="bulk-field-label">Email ID *</label>
+                                <input type="email" id="id_email" name="email" class="form-control bulk-input-control" placeholder="Your Email Id" required>
+                            </div>
+                        </div>
+
+                        <!-- Row 2: Mobile Number & Pickup Date -->
+                        <div class="col-12 col-md-6">
+                            <div class="bulk-input-group">
+                                <label for="id_mobile_number" class="bulk-field-label">Mobile Number *</label>
+                                <input type="tel" id="id_mobile_number" name="mobile_number" class="form-control bulk-input-control" placeholder="Your Mobile Number" required>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <div class="bulk-input-group">
+                                <label for="id_pickup_date" class="bulk-field-label">Pickup Date *</label>
+                                <input type="date" id="id_pickup_date" name="pickup_date" class="form-control bulk-input-control" placeholder="dd-mm-yyyy" required>
+                            </div>
+                        </div>
+
+                        <!-- Row 3: Pickup City -->
+                        <div class="col-12">
+                            <div class="bulk-input-group">
+                                <label for="id_pickup_city" class="bulk-field-label">Pickup City *</label>
+                                <select id="id_pickup_city" name="pickup_city" class="form-select bulk-input-control" required>
+                                    <option value="" disabled selected>Select Pickup City</option>
+                                    {% for c in cities %}
+                                        <option value="{{ c.name }}">{{ c.name }}</option>
+                                    {% empty %}
+                                        <option value="Coimbatore">Coimbatore</option>
+                                        <option value="Chennai">Chennai</option>
+                                        <option value="Trichy">Trichy</option>
+                                        <option value="Madurai">Madurai</option>
+                                        <option value="Erode">Erode</option>
+                                        <option value="Salem">Salem</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Row 4: Comments -->
+                        <div class="col-12">
+                            <div class="bulk-input-group">
+                                <label for="id_comments" class="bulk-field-label">Comments</label>
+                                <textarea id="id_comments" name="comments" rows="3" class="form-control bulk-input-control" placeholder="Enter Your Comments"></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Row 5: reCAPTCHA -->
+                        <div class="col-12">
+                            <div class="bulk-input-group">
+                                <div class="captcha-card-box" id="captchaBox">
+                                    <div class="d-flex align-items-center gap-3">
+                                        <input type="checkbox" id="id_captcha_check" name="captcha_verified" value="1" class="captcha-checkbox">
+                                        <label for="id_captcha_check" class="captcha-text-label">I'm not a robot</label>
+                                    </div>
+                                    <div class="captcha-badge-info">
+                                        <i class="bi bi-shield-check captcha-shield-icon"></i>
+                                        <span class="captcha-badge-subtext">reCAPTCHA</span>
+                                    </div>
+                                </div>
+                                <div class="text-danger small mt-1 d-none fw-bold" id="captchaErrMsg">Please verify that you are not a robot.</div>
+                            </div>
+                        </div>
+
+                        <!-- Row 6: Submit Button (Right aligned on desktop) -->
+                        <div class="col-12 text-md-end mt-3">
+                            <button type="submit" id="bulkSubmitBtn" class="btn btn-bulk-submit">
+                                <span id="btnText">Book Now</span>
+                                <span id="btnSpinner" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                            </button>
+                        </div>
+
+                    </div>
+
+                </form>
+
+                <!-- Alerts -->
+                <div id="bulkSuccessAlert" class="alert alert-success mt-4 text-center d-none">
+                    <h5 class="fw-bold mb-1" id="successTitle">Your bulk booking request has been received.</h5>
+                    <p class="mb-0" id="successMsg">Your bulk booking request has been submitted successfully. Our team will contact you shortly.</p>
+                </div>
+
+                <div id="bulkErrorAlert" class="alert alert-danger mt-4 text-center d-none">
+                    <span id="errorMsg">Error submitting request. Please check all required fields.</span>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+</main>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const captchaCheck = document.getElementById('id_captcha_check');
+    const captchaBox = document.getElementById('captchaBox');
+    const captchaErrMsg = document.getElementById('captchaErrMsg');
+
+    if (captchaCheck && captchaBox) {
+        captchaCheck.addEventListener('change', function() {
+            if (this.checked) {
+                captchaBox.classList.add('verified');
+                captchaBox.classList.remove('has-error');
+                if (captchaErrMsg) captchaErrMsg.classList.add('d-none');
+            } else {
+                captchaBox.classList.remove('verified');
+            }
+        });
+    }
+
+    // Ajax Form Submission
+    const bookingForm = document.getElementById('bulkBookingForm');
+    const submitBtn = document.getElementById('bulkSubmitBtn');
+    const btnText = document.getElementById('btnText');
+    const btnSpinner = document.getElementById('btnSpinner');
+    const successAlert = document.getElementById('bulkSuccessAlert');
+    const errorAlert = document.getElementById('bulkErrorAlert');
+
+    if (bookingForm) {
+        bookingForm.addEventListener('submit', function(e) {
+            if (successAlert) successAlert.classList.add('d-none');
+            if (errorAlert) errorAlert.classList.add('d-none');
+
+            // Validate CAPTCHA
+            if (captchaCheck && !captchaCheck.checked) {
+                e.preventDefault();
+                if (captchaBox) captchaBox.classList.add('has-error');
+                if (captchaErrMsg) captchaErrMsg.classList.remove('d-none');
+                if (errorAlert) {
+                    if (document.getElementById('errorMsg')) {
+                        document.getElementById('errorMsg').textContent = 'Please verify that you are not a robot.';
+                    }
+                    errorAlert.classList.remove('d-none');
+                }
+                captchaBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return;
+            }
+
+            e.preventDefault();
+
+            submitBtn.disabled = true;
+            btnText.classList.add('d-none');
+            btnSpinner.classList.remove('d-none');
+
+            const formData = new FormData(bookingForm);
+
+            fetch(bookingForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            })
+            .then(res => res.json())
+            .then(data => {
+                submitBtn.disabled = false;
+                btnText.classList.remove('d-none');
+                btnSpinner.classList.add('d-none');
+
+                if (data.status === 'success') {
+                    bookingForm.reset();
+                    bookingForm.style.display = 'none';
+                    if (captchaBox) captchaBox.classList.remove('verified', 'has-error');
+
+                    if (data.title && document.getElementById('successTitle')) {
+                        document.getElementById('successTitle').textContent = data.title;
+                    }
+                    if (data.message && document.getElementById('successMsg')) {
+                        document.getElementById('successMsg').textContent = data.message;
+                    }
+
+                    if (successAlert) successAlert.classList.remove('d-none');
+                } else {
+                    if (document.getElementById('errorMsg')) {
+                        document.getElementById('errorMsg').textContent = data.message || 'Validation error.';
+                    }
+                    if (errorAlert) errorAlert.classList.remove('d-none');
+                }
+            })
+            .catch(err => {
+                submitBtn.disabled = false;
+                btnText.classList.remove('d-none');
+                btnSpinner.classList.add('d-none');
+                if (document.getElementById('errorMsg')) {
+                    document.getElementById('errorMsg').textContent = 'Network error. Please try again.';
+                }
+                if (errorAlert) errorAlert.classList.remove('d-none');
+            });
+        });
+    }
+});
+</script>
+{% endblock %}

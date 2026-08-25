@@ -215,6 +215,18 @@
             color: #fff;
         }
         
+        .vth-float-book-cab {
+            background: linear-gradient(135deg, #E31E24 0%, #b31217 100%);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 4px 15px rgba(227, 30, 36, 0.35);
+        }
+        
+        .vth-float-book-cab:hover {
+            background: linear-gradient(135deg, #ff1f26 0%, #E31E24 100%);
+            box-shadow: 0 8px 25px rgba(227, 30, 36, 0.5);
+            color: #ffffff;
+        }
+
         .vth-float-wa {
             background-color: #25D366;
         }
@@ -232,9 +244,49 @@
             background: linear-gradient(135deg, #0056b3 0%, #004085 100%);
             box-shadow: 0 6px 20px rgba(13, 110, 253, 0.4);
         }
+
+        @media (min-width: 992px) {
+            .navbar .nav-item.dropdown:hover > .dropdown-menu {
+                display: block !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+                transform: translateY(0) !important;
+            }
+            .navbar .dropdown-menu {
+                display: block;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(10px);
+                transition: all 0.25s ease;
+            }
+            .dropdown-item:hover, .dropdown-item:focus {
+                background-color: #FFF5F5 !important;
+                color: #E31E24 !important;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .vth-floating-buttons {
+                bottom: 20px;
+                right: 18px;
+                gap: 14px;
+            }
+            .vth-float-btn {
+                width: 48px;
+                height: 48px;
+                font-size: 22px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .vth-float-btn,
+            .vth-float-btn:hover {
+                transition: none !important;
+                transform: none !important;
+            }
+        }
     </style>
 
-    
     {% block schema_extra %}{% endblock %}
 
 <!-- Google tag (gtag.js) -->
@@ -263,15 +315,21 @@
     </main>
 
     <!-- ==========================================
-        FLOATING BUTTONS
+        FLOATING BUTTONS (BOOK A CAB -> WHATSAPP -> ENQUIRY)
     =========================================== -->
     <div class="vth-floating-buttons">
-        <button id="floatingEnquiryBtn" class="vth-float-btn anim-float vth-float-enquiry" aria-label="Quick Enquiry" data-bs-toggle="modal" data-bs-target="#enquiryModal">
-            <i class="bi bi-chat-dots-fill"></i>
-        </button>
-        <a href="https://wa.me/919655866660" target="_blank" class="vth-float-btn anim-float vth-float-wa" aria-label="WhatsApp Us">
+        <!-- 1. BOOK A CAB (TOP) -->
+        <a href="{% url 'book_cab' %}" class="vth-float-btn anim-float vth-float-book-cab" aria-label="Book a Cab" title="Book a Cab">
+            <i class="bi bi-taxi-front-fill"></i>
+        </a>
+        <!-- 2. EXISTING WHATSAPP (MIDDLE) -->
+        <a href="https://wa.me/919655866660" target="_blank" class="vth-float-btn anim-float vth-float-wa" aria-label="WhatsApp Us" title="WhatsApp Us">
             <i class="bi bi-whatsapp"></i>
         </a>
+        <!-- 3. EXISTING ENQUIRY (BOTTOM) -->
+        <button id="floatingEnquiryBtn" class="vth-float-btn anim-float vth-float-enquiry" aria-label="Quick Enquiry" title="Quick Enquiry" data-bs-toggle="modal" data-bs-target="#enquiryModal">
+            <i class="bi bi-chat-dots-fill"></i>
+        </button>
     </div>
 
     <!-- ==========================================

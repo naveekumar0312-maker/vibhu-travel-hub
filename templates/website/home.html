@@ -4,15 +4,19 @@
 
 {% block title %}Vibhu Travel Hub | Luxury Travel & Cab Services Across South India{% endblock %}
 
-{% block description %}Vibhu Travel Hub offers premium cab rentals, tempo travellers, luxury buses and customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %}
+{% block description %}Vibhu Travel Hub offers premium cab rentals, tempo travellers, luxury buses and customized travel
+services across Tamil Nadu, Kerala and Karnataka.{% endblock %}
 
-{% block keywords %}Vibhu Travel Hub, cab service South India, luxury travel South India, cab rental Tamil Nadu, Kerala travel, Karnataka travel, tempo traveller rental{% endblock %}
+{% block keywords %}Vibhu Travel Hub, cab service South India, luxury travel South India, cab rental Tamil Nadu, Kerala
+travel, Karnataka travel, tempo traveller rental{% endblock %}
 
 {% block og_title %}Vibhu Travel Hub | Luxury Travel & Cab Services Across South India{% endblock %}
-{% block og_description %}Vibhu Travel Hub offers premium cab rentals, tempo travellers, luxury buses and customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %}
+{% block og_description %}Vibhu Travel Hub offers premium cab rentals, tempo travellers, luxury buses and customized
+travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %}
 
 {% block twitter_title %}Vibhu Travel Hub | Luxury Travel & Cab Services Across South India{% endblock %}
-{% block twitter_description %}Vibhu Travel Hub offers premium cab rentals, tempo travellers, luxury buses and customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %}
+{% block twitter_description %}Vibhu Travel Hub offers premium cab rentals, tempo travellers, luxury buses and
+customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %}
 
 {% block schema %}
 <script type="application/ld+json">
@@ -118,33 +122,77 @@
 
     /* Hero Entrance System */
     @keyframes heroBgEntrance {
-        0% { opacity: 0.8; transform: scale(1.02); }
-        100% { opacity: 1; transform: scale(1); }
+        0% {
+            opacity: 0.8;
+            transform: scale(1.02);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
     }
 
     @keyframes heroLabelEntrance {
-        0% { opacity: 0; transform: translateY(20px); }
-        100% { opacity: 1; transform: translateY(0); }
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     @keyframes heroHeadingEntrance {
-        0% { opacity: 0; transform: translateY(35px); filter: blur(8px); }
-        100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+        0% {
+            opacity: 0;
+            transform: translateY(35px);
+            filter: blur(8px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0);
+        }
     }
 
     @keyframes heroDescEntrance {
-        0% { opacity: 0; transform: translateY(20px); }
-        100% { opacity: 1; transform: translateY(0); }
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     @keyframes heroBtnEntrance {
-        0% { opacity: 0; transform: translateY(20px); }
-        100% { opacity: 1; transform: translateY(0); }
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     @keyframes heroCardEntrance {
-        0% { opacity: 0; transform: translateY(30px); }
-        100% { opacity: 1; transform: translateY(0); }
+        0% {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     .vth-hero-section {
@@ -159,48 +207,150 @@
     }
 
     @media (max-width: 1400px) {
-        .vth-hero-bg-img { object-position: 56% 48%; }
-    }
-    @media (max-width: 1199px) {
-        .vth-hero-section { min-height: 600px; }
-        .vth-hero-bg-img { object-position: 60% 48%; }
-    }
-    @media (max-width: 991px) {
-        .vth-hero-section { min-height: 560px; }
-        .vth-hero-bg-img { object-position: 64% 50%; }
-    }
-    @media (max-width: 767px) {
-        .vth-hero-section { min-height: 520px; }
-        .vth-hero-bg-img { object-position: 68% 50%; }
-    }
-    @media (max-width: 575px) {
-        .vth-hero-section { min-height: 480px; }
-        .vth-hero-bg-img { object-position: 72% 50%; }
-    }
-
-    .hero-label-anim { opacity: 0; animation: heroLabelEntrance 600ms cubic-bezier(0.22, 1, 0.36, 1) 0ms forwards; }
-    .hero-heading-anim { opacity: 0; animation: heroHeadingEntrance 800ms cubic-bezier(0.22, 1, 0.36, 1) 200ms forwards; }
-    .hero-desc-anim { opacity: 0; animation: heroDescEntrance 650ms cubic-bezier(0.22, 1, 0.36, 1) 450ms forwards; }
-    .hero-buttons-anim { opacity: 0; animation: heroBtnEntrance 600ms cubic-bezier(0.22, 1, 0.36, 1) 650ms forwards; }
-    .hero-card-anim-1 { opacity: 0; animation: heroCardEntrance 600ms cubic-bezier(0.22, 1, 0.36, 1) 850ms forwards; }
-    .hero-card-anim-2 { opacity: 0; animation: heroCardEntrance 600ms cubic-bezier(0.22, 1, 0.36, 1) 950ms forwards; }
-    .hero-card-anim-3 { opacity: 0; animation: heroCardEntrance 600ms cubic-bezier(0.22, 1, 0.36, 1) 1050ms forwards; }
-    .hero-card-anim-4 { opacity: 0; animation: heroCardEntrance 600ms cubic-bezier(0.22, 1, 0.36, 1) 1150ms forwards; }
-
-    @media (prefers-reduced-motion: reduce) {
-        .vth-hero-section, .vth-hero-bg-img, .hero-label-anim, .hero-heading-anim, .hero-desc-anim, .hero-buttons-anim, .hero-card-anim-1, .hero-card-anim-2, .hero-card-anim-3, .hero-card-anim-4 {
-            animation: none !important; opacity: 1 !important; transform: none !important; filter: none !important;
+        .vth-hero-bg-img {
+            object-position: 56% 48%;
         }
     }
 
-    .service-card-item { transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
-    .service-card-item:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12) !important; }
-    .service-card-item:hover .service-card-img { transform: scale(1.06); }
-    .service-card-item:hover .btn-outline-danger i { transform: translateX(4px); transition: transform 0.25s ease; }
-    .destination-card-link { text-decoration: none; color: inherit; display: block; }
-    .place-card-link { text-decoration: none; color: inherit; display: block; transition: transform 0.3s ease, box-shadow 0.3s ease; }
-    .place-card-link:hover .place-card-ref { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1) !important; }
-    .place-card-link:hover .place-card-img { transform: scale(1.08); transition: transform 0.5s ease; }
+    @media (max-width: 1199px) {
+        .vth-hero-section {
+            min-height: 600px;
+        }
+
+        .vth-hero-bg-img {
+            object-position: 60% 48%;
+        }
+    }
+
+    @media (max-width: 991px) {
+        .vth-hero-section {
+            min-height: 560px;
+        }
+
+        .vth-hero-bg-img {
+            object-position: 64% 50%;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .vth-hero-section {
+            min-height: 520px;
+        }
+
+        .vth-hero-bg-img {
+            object-position: 68% 50%;
+        }
+    }
+
+    @media (max-width: 575px) {
+        .vth-hero-section {
+            min-height: 480px;
+        }
+
+        .vth-hero-bg-img {
+            object-position: 72% 50%;
+        }
+    }
+
+    .hero-label-anim {
+        opacity: 0;
+        animation: heroLabelEntrance 600ms cubic-bezier(0.22, 1, 0.36, 1) 0ms forwards;
+    }
+
+    .hero-heading-anim {
+        opacity: 0;
+        animation: heroHeadingEntrance 800ms cubic-bezier(0.22, 1, 0.36, 1) 200ms forwards;
+    }
+
+    .hero-desc-anim {
+        opacity: 0;
+        animation: heroDescEntrance 650ms cubic-bezier(0.22, 1, 0.36, 1) 450ms forwards;
+    }
+
+    .hero-buttons-anim {
+        opacity: 0;
+        animation: heroBtnEntrance 600ms cubic-bezier(0.22, 1, 0.36, 1) 650ms forwards;
+    }
+
+    .hero-card-anim-1 {
+        opacity: 0;
+        animation: heroCardEntrance 600ms cubic-bezier(0.22, 1, 0.36, 1) 850ms forwards;
+    }
+
+    .hero-card-anim-2 {
+        opacity: 0;
+        animation: heroCardEntrance 600ms cubic-bezier(0.22, 1, 0.36, 1) 950ms forwards;
+    }
+
+    .hero-card-anim-3 {
+        opacity: 0;
+        animation: heroCardEntrance 600ms cubic-bezier(0.22, 1, 0.36, 1) 1050ms forwards;
+    }
+
+    .hero-card-anim-4 {
+        opacity: 0;
+        animation: heroCardEntrance 600ms cubic-bezier(0.22, 1, 0.36, 1) 1150ms forwards;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+        .vth-hero-section,
+        .vth-hero-bg-img,
+        .hero-label-anim,
+        .hero-heading-anim,
+        .hero-desc-anim,
+        .hero-buttons-anim,
+        .hero-card-anim-1,
+        .hero-card-anim-2,
+        .hero-card-anim-3,
+        .hero-card-anim-4 {
+            animation: none !important;
+            opacity: 1 !important;
+            transform: none !important;
+            filter: none !important;
+        }
+    }
+
+    .service-card-item {
+        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .service-card-item:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12) !important;
+    }
+
+    .service-card-item:hover .service-card-img {
+        transform: scale(1.06);
+    }
+
+    .service-card-item:hover .btn-outline-danger i {
+        transform: translateX(4px);
+        transition: transform 0.25s ease;
+    }
+
+    .destination-card-link {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+    }
+
+    .place-card-link {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .place-card-link:hover .place-card-ref {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    .place-card-link:hover .place-card-img {
+        transform: scale(1.08);
+        transition: transform 0.5s ease;
+    }
 </style>
 {% endblock %}
 
@@ -209,7 +359,8 @@
 <!-- ==========================================
     SECTION 1 — HOME / HERO SECTION
 ========================================== -->
-<section id="home" class="vth-hero-section position-relative overflow-hidden d-flex flex-column justify-content-between py-4 py-lg-5">
+<section id="home"
+    class="vth-hero-section position-relative overflow-hidden d-flex flex-column justify-content-between py-4 py-lg-5">
     <!-- Responsive Hero Image Backdrop Layer -->
     <img src="{% static 'images/hero-slider/hero-sea.png' %}" alt="South India Travel Destinations"
         class="vth-hero-bg-img position-absolute top-0 start-0 w-100 h-100">
@@ -223,14 +374,16 @@
         <div class="row align-items-center" style="min-height: 420px;">
             <!-- Left Column: Content -->
             <div class="col-lg-6 col-md-10" style="max-width: 550px;">
-                <span class="vth-hero-script hero-label-anim" style="color: #FF5A5F; font-size: 2rem;">Explore South India</span>
+                <span class="vth-hero-script hero-label-anim" style="color: #FF5A5F; font-size: 2rem;">Explore South
+                    India</span>
                 <h1 class="hero-main-title hero-heading-anim text-white mb-3"
                     style="font-size: 3.5rem; font-weight: 800; line-height: 1.12; letter-spacing: -1.2px; text-shadow: 0 2px 10px rgba(0,0,0,0.3);">
                     Luxury Travel<br>Across South India
                 </h1>
                 <p class="text-white-50 hero-desc-anim mb-4"
                     style="font-size: 1.08rem; line-height: 1.65; color: rgba(255, 255, 255, 0.88) !important; text-shadow: 0 1px 4px rgba(0,0,0,0.4);">
-                    Premium cabs, tempo travellers & luxury buses for unforgettable journeys across Tamil Nadu, Kerala & Karnataka.
+                    Premium cabs, tempo travellers & luxury buses for unforgettable journeys across Tamil Nadu, Kerala &
+                    Karnataka.
                 </p>
                 <div class="d-flex align-items-center gap-3 flex-wrap mb-4 mb-lg-5 hero-buttons-anim">
                     <a href="#"
@@ -251,46 +404,54 @@
         <!-- 4 Hero Feature Cards -->
         <div class="row g-3 mt-3">
             <div class="col-lg-3 col-6">
-                <div class="hero-mini-card hero-card-anim-1 p-3 rounded-4 bg-white border border-light-subtle shadow d-flex align-items-center gap-3">
+                <div
+                    class="hero-mini-card hero-card-anim-1 p-3 rounded-4 bg-white border border-light-subtle shadow d-flex align-items-center gap-3">
                     <div class="mini-icon-box rounded-circle p-2.5 text-danger d-flex align-items-center justify-content-center"
                         style="background: rgba(227, 30, 36, 0.08); width: 44px; height: 44px; flex-shrink: 0;">
                         <i class="bi bi-tag-fill fs-5"></i>
                     </div>
                     <div>
-                        <h6 class="mb-0 fw-bold text-dark lh-sm" style="font-size: 0.88rem;">Best Price<br><span class="text-muted fw-normal" style="font-size: 0.78rem;">Guaranteed</span></h6>
+                        <h6 class="mb-0 fw-bold text-dark lh-sm" style="font-size: 0.88rem;">Best Price<br><span
+                                class="text-muted fw-normal" style="font-size: 0.78rem;">Guaranteed</span></h6>
                     </div>
                 </div>
             </div>
             <div class="col-lg-3 col-6">
-                <div class="hero-mini-card hero-card-anim-2 p-3 rounded-4 bg-white border border-light-subtle shadow d-flex align-items-center gap-3">
+                <div
+                    class="hero-mini-card hero-card-anim-2 p-3 rounded-4 bg-white border border-light-subtle shadow d-flex align-items-center gap-3">
                     <div class="mini-icon-box rounded-circle p-2.5 text-danger d-flex align-items-center justify-content-center"
                         style="background: rgba(227, 30, 36, 0.08); width: 44px; height: 44px; flex-shrink: 0;">
                         <i class="bi bi-person-badge-fill fs-5"></i>
                     </div>
                     <div>
-                        <h6 class="mb-0 fw-bold text-dark lh-sm" style="font-size: 0.88rem;">Professional<br><span class="text-muted fw-normal" style="font-size: 0.78rem;">Drivers</span></h6>
+                        <h6 class="mb-0 fw-bold text-dark lh-sm" style="font-size: 0.88rem;">Professional<br><span
+                                class="text-muted fw-normal" style="font-size: 0.78rem;">Drivers</span></h6>
                     </div>
                 </div>
             </div>
             <div class="col-lg-3 col-6">
-                <div class="hero-mini-card hero-card-anim-3 p-3 rounded-4 bg-white border border-light-subtle shadow d-flex align-items-center gap-3">
+                <div
+                    class="hero-mini-card hero-card-anim-3 p-3 rounded-4 bg-white border border-light-subtle shadow d-flex align-items-center gap-3">
                     <div class="mini-icon-box rounded-circle p-2.5 text-danger d-flex align-items-center justify-content-center"
                         style="background: rgba(227, 30, 36, 0.08); width: 44px; height: 44px; flex-shrink: 0;">
                         <i class="bi bi-car-front-fill fs-5"></i>
                     </div>
                     <div>
-                        <h6 class="mb-0 fw-bold text-dark lh-sm" style="font-size: 0.88rem;">Luxury & Comfort<br><span class="text-muted fw-normal" style="font-size: 0.78rem;">Vehicles</span></h6>
+                        <h6 class="mb-0 fw-bold text-dark lh-sm" style="font-size: 0.88rem;">Luxury & Comfort<br><span
+                                class="text-muted fw-normal" style="font-size: 0.78rem;">Vehicles</span></h6>
                     </div>
                 </div>
             </div>
             <div class="col-lg-3 col-6">
-                <div class="hero-mini-card hero-card-anim-4 p-3 rounded-4 bg-white border border-light-subtle shadow d-flex align-items-center gap-3">
+                <div
+                    class="hero-mini-card hero-card-anim-4 p-3 rounded-4 bg-white border border-light-subtle shadow d-flex align-items-center gap-3">
                     <div class="mini-icon-box rounded-circle p-2.5 text-danger d-flex align-items-center justify-content-center"
                         style="background: rgba(227, 30, 36, 0.08); width: 44px; height: 44px; flex-shrink: 0;">
                         <i class="bi bi-headset fs-5"></i>
                     </div>
                     <div>
-                        <h6 class="mb-0 fw-bold text-dark lh-sm" style="font-size: 0.88rem;">24/7 Customer<br><span class="text-muted fw-normal" style="font-size: 0.78rem;">Support</span></h6>
+                        <h6 class="mb-0 fw-bold text-dark lh-sm" style="font-size: 0.88rem;">24/7 Customer<br><span
+                                class="text-muted fw-normal" style="font-size: 0.78rem;">Support</span></h6>
                     </div>
                 </div>
             </div>
@@ -368,9 +529,12 @@
         <div class="row align-items-center g-4">
             <div class="col-lg-6 reveal-left">
                 <div class="position-relative overflow-hidden rounded-4 shadow-sm border">
-                    <img src="{% static 'images/about/hero.png' %}" alt="Discover Vibhu Travel Hub" class="img-fluid w-100" style="object-fit: cover; min-height: 320px;">
-                    <div class="position-absolute bottom-0 start-0 m-3 p-3 bg-white rounded-3 shadow-sm border d-flex align-items-center gap-3">
-                        <div class="bg-danger text-white rounded-circle p-2.5 d-flex align-items-center justify-content-center" style="width: 44px; height: 44px; background-color: #E31E24 !important;">
+                    <img src="{% static 'images/about/hero.png' %}" alt="Discover Vibhu Travel Hub"
+                        class="img-fluid w-100" style="object-fit: cover; min-height: 320px;">
+                    <div
+                        class="position-absolute bottom-0 start-0 m-3 p-3 bg-white rounded-3 shadow-sm border d-flex align-items-center gap-3">
+                        <div class="bg-danger text-white rounded-circle p-2.5 d-flex align-items-center justify-content-center"
+                            style="width: 44px; height: 44px; background-color: #E31E24 !important;">
                             <i class="bi bi-star-fill fs-5"></i>
                         </div>
                         <div>
@@ -381,10 +545,15 @@
                 </div>
             </div>
             <div class="col-lg-6 ps-lg-5 reveal-right">
-                <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block mb-1" style="color: #E31E24; font-size: 0.75rem; letter-spacing: 1.2px;">WELCOME TO VIBHU TRAVEL HUB</span>
-                <h2 class="fw-extrabold text-dark mb-3" style="font-size: 2.2rem; letter-spacing: -0.5px;">Discover Vibhu Travel Hub</h2>
+                <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block mb-1"
+                    style="color: #E31E24; font-size: 0.75rem; letter-spacing: 1.2px;">WELCOME TO VIBHU TRAVEL
+                    HUB</span>
+                <h2 class="fw-extrabold text-dark mb-3" style="font-size: 2.2rem; letter-spacing: -0.5px;">Discover
+                    Vibhu Travel Hub</h2>
                 <p class="text-muted mb-4" style="line-height: 1.7; font-size: 0.98rem;">
-                    Vibhu Travel Hub is South India's premier travel and transport provider. We deliver luxurious, reliable, and affordable travel solutions across Tamil Nadu, Kerala, and Karnataka with a fleet of meticulously maintained cabs, tempo travellers, and coaches.
+                    Vibhu Travel Hub is South India's premier travel and transport provider. We deliver luxurious,
+                    reliable, and affordable travel solutions across Tamil Nadu, Kerala, and Karnataka with a fleet of
+                    meticulously maintained cabs, tempo travellers, and coaches.
                 </p>
                 <div class="row g-3 mb-4">
                     <div class="col-6">
@@ -408,7 +577,9 @@
                         </div>
                     </div>
                 </div>
-                <a href="{% url 'about' %}" class="btn btn-danger rounded-pill px-4 py-2.5 fw-bold text-white shadow-sm border-0 d-inline-flex align-items-center gap-2" style="background-color: #E31E24; font-size: 0.95rem;">
+                <a href="{% url 'about' %}"
+                    class="btn btn-danger rounded-pill px-4 py-2.5 fw-bold text-white shadow-sm border-0 d-inline-flex align-items-center gap-2"
+                    style="background-color: #E31E24; font-size: 0.95rem;">
                     Learn More <i class="bi bi-arrow-right"></i>
                 </a>
             </div>
@@ -529,7 +700,8 @@
         <div class="text-center mb-5 reveal-down">
             <span class="vth-eyebrow text-uppercase fw-bold d-block mb-1"
                 style="color: #E31E24; font-size: 0.8rem; letter-spacing: 1.5px;">OUR VEHICLES</span>
-            <h2 class="fw-extrabold text-dark mb-2" style="font-size: 2.3rem; letter-spacing: -0.5px;">Travel in Comfort</h2>
+            <h2 class="fw-extrabold text-dark mb-2" style="font-size: 2.3rem; letter-spacing: -0.5px;">Travel in Comfort
+            </h2>
             <p class="text-muted mx-auto mb-0" style="max-width: 680px; font-size: 0.98rem; line-height: 1.6;">
                 Travel in comfort with our well-maintained fleet of vehicles, perfect for any group size
             </p>
@@ -549,12 +721,13 @@
 
                         <!-- Video or Image Player -->
                         {% if vehicle.get_video_url %}
-                            <video autoplay muted loop playsinline preload="auto">
-                                <source src="{{ vehicle.get_video_url }}" type="video/mp4">
-                                {% if vehicle.image %}<img src="{{ vehicle.image.url }}" alt="{{ vehicle.name }}">{% endif %}
-                            </video>
+                        <video autoplay muted loop playsinline preload="auto">
+                            <source src="{{ vehicle.get_video_url }}" type="video/mp4">
+                            {% if vehicle.image %}<img src="{{ vehicle.image.url }}" alt="{{ vehicle.name }}">{% endif %}
+                        </video>
                         {% else %}
-                            <img src="{% if vehicle.image %}{{ vehicle.image.url }}{% else %}{% static 'images/vehicles/traveller.webp' %}{% endif %}" alt="{{ vehicle.name }}">
+                        <img src="{% if vehicle.image %}{{ vehicle.image.url }}{% else %}{% static 'images/vehicles/traveller.webp' %}{% endif %}"
+                            alt="{{ vehicle.name }}">
                         {% endif %}
                     </div>
 
@@ -575,7 +748,8 @@
                             </p>
 
                             <!-- Capacity Row -->
-                            <div class="d-flex align-items-center gap-2 text-dark fw-semibold small mb-3" style="font-size: 0.88rem;">
+                            <div class="d-flex align-items-center gap-2 text-dark fw-semibold small mb-3"
+                                style="font-size: 0.88rem;">
                                 <i class="bi bi-people-fill" style="color: #FF1F1F;"></i>
                                 <span>{{ vehicle.passengers }} Passengers</span>
                             </div>
@@ -583,27 +757,26 @@
                             <!-- Feature Tags / Chips -->
                             <div class="d-flex flex-wrap gap-2 mb-4">
                                 {% if vehicle.feature_tags %}
-                                    {% for tag in vehicle.feature_tags.split %}
-                                        <span class="fleet-chip">{{ tag }}</span>
-                                    {% endfor %}
+                                {% for tag in vehicle.feature_tags.split %}
+                                <span class="fleet-chip">{{ tag }}</span>
+                                {% endfor %}
                                 {% else %}
-                                    {% if vehicle.has_music %}
-                                        <span class="fleet-chip">AC & Music System</span>
-                                    {% endif %}
-                                    {% if vehicle.has_driver %}
-                                        <span class="fleet-chip">Professional Driver</span>
-                                    {% endif %}
-                                    <span class="fleet-chip">Clean Interiors</span>
+                                {% if vehicle.has_music %}
+                                <span class="fleet-chip">AC & Music System</span>
+                                {% endif %}
+                                {% if vehicle.has_driver %}
+                                <span class="fleet-chip">Professional Driver</span>
+                                {% endif %}
+                                <span class="fleet-chip">Clean Interiors</span>
                                 {% endif %}
                             </div>
                         </div>
 
                         <!-- CTA Button -->
                         <div>
-                            <button type="button" 
-                                class="fleet-view-btn d-flex align-items-center justify-content-center gap-2 fleet-details-trigger" 
-                                data-bs-toggle="modal" 
-                                data-bs-target="#vehicleDetailsModal" 
+                            <button type="button"
+                                class="fleet-view-btn d-flex align-items-center justify-content-center gap-2 fleet-details-trigger"
+                                data-bs-toggle="modal" data-bs-target="#vehicleDetailsModal"
                                 data-vehicle-index="{{ forloop.counter0 }}">
                                 View Details
                             </button>
@@ -626,7 +799,8 @@
                                 <span class="fleet-model-pill">Etios / Dzire</span>
                             </div>
                             <p class="text-muted small mb-3" style="font-size: 0.88rem; line-height: 1.55;">
-                                Perfect for couples and small families. Experience comfort and elegance with our well-maintained fleet.
+                                Perfect for couples and small families. Experience comfort and elegance with our
+                                well-maintained fleet.
                             </p>
                             <div class="d-flex align-items-center gap-2 text-dark fw-semibold small mb-3">
                                 <i class="bi bi-people-fill" style="color: #FF1F1F;"></i>
@@ -639,7 +813,8 @@
                             </div>
                         </div>
                         <div>
-                            <button type="button" class="fleet-view-btn" data-bs-toggle="modal" data-bs-target="#vehicleDetailsModal" data-vehicle-index="0">
+                            <button type="button" class="fleet-view-btn" data-bs-toggle="modal"
+                                data-bs-target="#vehicleDetailsModal" data-vehicle-index="0">
                                 View Details
                             </button>
                         </div>
@@ -659,7 +834,8 @@
                                 <span class="fleet-model-pill">Ertiga / Innova</span>
                             </div>
                             <p class="text-muted small mb-3" style="font-size: 0.88rem; line-height: 1.55;">
-                                Spacious and versatile for families and small groups with ample luggage space and comfort.
+                                Spacious and versatile for families and small groups with ample luggage space and
+                                comfort.
                             </p>
                             <div class="d-flex align-items-center gap-2 text-dark fw-semibold small mb-3">
                                 <i class="bi bi-people-fill" style="color: #FF1F1F;"></i>
@@ -672,7 +848,8 @@
                             </div>
                         </div>
                         <div>
-                            <button type="button" class="fleet-view-btn" data-bs-toggle="modal" data-bs-target="#vehicleDetailsModal" data-vehicle-index="1">
+                            <button type="button" class="fleet-view-btn" data-bs-toggle="modal"
+                                data-bs-target="#vehicleDetailsModal" data-vehicle-index="1">
                                 View Details
                             </button>
                         </div>
@@ -692,7 +869,8 @@
                                 <span class="fleet-model-pill">Force Traveller</span>
                             </div>
                             <p class="text-muted small mb-3" style="font-size: 0.88rem; line-height: 1.55;">
-                                Perfect for medium groups and extended tours with premium amenities and modern facilities.
+                                Perfect for medium groups and extended tours with premium amenities and modern
+                                facilities.
                             </p>
                             <div class="d-flex align-items-center gap-2 text-dark fw-semibold small mb-3">
                                 <i class="bi bi-people-fill" style="color: #FF1F1F;"></i>
@@ -705,7 +883,8 @@
                             </div>
                         </div>
                         <div>
-                            <button type="button" class="fleet-view-btn" data-bs-toggle="modal" data-bs-target="#vehicleDetailsModal" data-vehicle-index="2">
+                            <button type="button" class="fleet-view-btn" data-bs-toggle="modal"
+                                data-bs-target="#vehicleDetailsModal" data-vehicle-index="2">
                                 View Details
                             </button>
                         </div>
@@ -726,10 +905,12 @@
             <div class="reveal-left">
                 <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block reveal-down"
                     style="color: #E31E24; font-size: 0.75rem; letter-spacing: 1.2px;">EXPLORE SOUTH INDIA</span>
-                <h2 class="fw-extrabold text-dark mb-0" style="font-size: 2.3rem; letter-spacing: -0.5px;">Top Destinations</h2>
+                <h2 class="fw-extrabold text-dark mb-0" style="font-size: 2.3rem; letter-spacing: -0.5px;">Top
+                    Destinations</h2>
             </div>
             <div class="d-flex align-items-center gap-3 reveal-right">
-                <a href="{% url 'tamil_nadu_view' %}" class="text-decoration-none text-dark fw-bold small">View All Destinations <i class="bi bi-chevron-right ms-1"></i></a>
+                <a href="{% url 'tamil_nadu_view' %}" class="text-decoration-none text-dark fw-bold small">View All
+                    Destinations <i class="bi bi-chevron-right ms-1"></i></a>
             </div>
         </div>
 
@@ -739,7 +920,8 @@
                 <a href="{% url 'tamil_nadu_view' %}" class="destination-card-link">
                     <div class="destination-card">
                         <div class="destination-image-wrapper">
-                            <img src="{% static 'images/destinations/tamil2.jpeg' %}" alt="Tamil Nadu" class="destination-image">
+                            <img src="{% static 'images/destinations/tamil2.jpeg' %}" alt="Tamil Nadu"
+                                class="destination-image">
                         </div>
                         <div class="destination-content">
                             <div class="destination-label">
@@ -749,7 +931,8 @@
                             <p class="destination-subtitle">Temples, Beaches &amp; Heritage Cities</p>
                             <div class="destination-divider"></div>
                             <p class="destination-description">
-                                Explore the rich cultural heritage, magnificent temples, pristine beaches and vibrant cities of Tamil Nadu.
+                                Explore the rich cultural heritage, magnificent temples, pristine beaches and vibrant
+                                cities of Tamil Nadu.
                             </p>
                             <span class="destination-button">
                                 View Packages <i class="bi bi-arrow-right"></i>
@@ -764,7 +947,8 @@
                 <a href="{% url 'kerala_view' %}" class="destination-card-link">
                     <div class="destination-card">
                         <div class="destination-image-wrapper">
-                            <img src="{% static 'images/destinations/kerala2.png' %}" alt="Kerala" class="destination-image">
+                            <img src="{% static 'images/destinations/kerala2.png' %}" alt="Kerala"
+                                class="destination-image">
                         </div>
                         <div class="destination-content">
                             <div class="destination-label">
@@ -774,7 +958,8 @@
                             <p class="destination-subtitle">Backwaters, Beaches &amp; Nature</p>
                             <div class="destination-divider"></div>
                             <p class="destination-description">
-                                Discover tranquil backwaters, lush green tea plantations, palm-fringed beaches and serene hill stations of Kerala.
+                                Discover tranquil backwaters, lush green tea plantations, palm-fringed beaches and
+                                serene hill stations of Kerala.
                             </p>
                             <span class="destination-button">
                                 View Packages <i class="bi bi-arrow-right"></i>
@@ -789,7 +974,8 @@
                 <a href="{% url 'karnataka_view' %}" class="destination-card-link">
                     <div class="destination-card">
                         <div class="destination-image-wrapper">
-                            <img src="{% static 'images/destinations/karnataka2.png' %}" alt="Karnataka" class="destination-image">
+                            <img src="{% static 'images/destinations/karnataka2.png' %}" alt="Karnataka"
+                                class="destination-image">
                         </div>
                         <div class="destination-content">
                             <div class="destination-label">
@@ -799,7 +985,8 @@
                             <p class="destination-subtitle">Hill Stations, Heritage &amp; Modern Cities</p>
                             <div class="destination-divider"></div>
                             <p class="destination-description">
-                                Experience historic palaces, royal heritage sites, misty coffee estates, waterfalls and tech hubs of Karnataka.
+                                Experience historic palaces, royal heritage sites, misty coffee estates, waterfalls and
+                                tech hubs of Karnataka.
                             </p>
                             <span class="destination-button">
                                 View Packages <i class="bi bi-arrow-right"></i>
@@ -821,27 +1008,37 @@
             <div class="reveal-left">
                 <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block reveal-down"
                     style="color: #E31E24; font-size: 0.75rem; letter-spacing: 1.2px;">TAILORED TRAVEL SOLUTIONS</span>
-                <h2 class="fw-extrabold text-dark mb-0" style="font-size: 2.3rem; letter-spacing: -0.5px;">Explore Our Services</h2>
+                <h2 class="fw-extrabold text-dark mb-0" style="font-size: 2.3rem; letter-spacing: -0.5px;">Explore Our
+                    Services</h2>
             </div>
             <div class="d-flex align-items-center gap-3 reveal-right">
-                <a href="{% url 'local_taxi_service' %}" class="text-decoration-none text-dark fw-bold small">View All Services <i class="bi bi-chevron-right ms-1"></i></a>
+                <a href="{% url 'local_taxi_service' %}" class="text-decoration-none text-dark fw-bold small">View All
+                    Services <i class="bi bi-chevron-right ms-1"></i></a>
             </div>
         </div>
 
         <div class="row g-4">
             <!-- Service 1: Local Cab Service -->
             <div class="col-lg-4 col-md-6 reveal-up">
-                <div class="service-card-item rounded-4 bg-white overflow-hidden border border-light-subtle shadow-sm h-100 d-flex flex-column">
+                <div
+                    class="service-card-item rounded-4 bg-white overflow-hidden border border-light-subtle shadow-sm h-100 d-flex flex-column">
                     <div class="service-card-img-wrapper position-relative overflow-hidden" style="height: 200px;">
-                        <img src="{% static 'images/services/taxi-service-hero.jpg' %}" alt="Local Cab Service" class="service-card-img w-100 h-100" style="object-fit: cover; transition: transform 0.5s ease;">
-                        <span class="badge position-absolute top-0 start-0 m-3 px-3 py-1.5 rounded-pill text-white fw-bold" style="background-color: #E31E24; font-size: 0.72rem;">Cabs &amp; Rentals</span>
+                        <img src="{% static 'images/services/taxi-service-hero.jpg' %}" alt="Local Cab Service"
+                            class="service-card-img w-100 h-100"
+                            style="object-fit: cover; transition: transform 0.5s ease;">
+                        <span
+                            class="badge position-absolute top-0 start-0 m-3 px-3 py-1.5 rounded-pill text-white fw-bold"
+                            style="background-color: #E31E24; font-size: 0.72rem;">Cabs &amp; Rentals</span>
                     </div>
                     <div class="p-4 d-flex flex-column flex-grow-1">
                         <h4 class="fw-extrabold text-dark mb-2" style="font-size: 1.25rem;">Local Cab Service</h4>
                         <p class="text-muted small mb-4 flex-grow-1" style="line-height: 1.6;">
-                            Book Innova rental, Innova Crysta rental, Ertiga, sedan car rental, SUV car rental, and luxury car rental for local and outstation travel.
+                            Book Innova rental, Innova Crysta rental, Ertiga, sedan car rental, SUV car rental, and
+                            luxury car rental for local and outstation travel.
                         </p>
-                        <a href="{% url 'local_taxi_service' %}" class="btn btn-outline-danger rounded-pill fw-bold text-start px-3 py-2 border-0 d-inline-flex align-items-center gap-2" style="color: #E31E24; font-size: 0.9rem;">
+                        <a href="{% url 'local_taxi_service' %}"
+                            class="btn btn-outline-danger rounded-pill fw-bold text-start px-3 py-2 border-0 d-inline-flex align-items-center gap-2"
+                            style="color: #E31E24; font-size: 0.9rem;">
                             Explore Service <i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
@@ -850,17 +1047,25 @@
 
             <!-- Service 2: Outstation Tours -->
             <div class="col-lg-4 col-md-6 reveal-up">
-                <div class="service-card-item rounded-4 bg-white overflow-hidden border border-light-subtle shadow-sm h-100 d-flex flex-column">
+                <div
+                    class="service-card-item rounded-4 bg-white overflow-hidden border border-light-subtle shadow-sm h-100 d-flex flex-column">
                     <div class="service-card-img-wrapper position-relative overflow-hidden" style="height: 200px;">
-                        <img src="{% static 'images/services/outstation-hero.jpg' %}" alt="Outstation Tours" class="service-card-img w-100 h-100" style="object-fit: cover; transition: transform 0.5s ease;">
-                        <span class="badge position-absolute top-0 start-0 m-3 px-3 py-1.5 rounded-pill text-white fw-bold" style="background-color: #E31E24; font-size: 0.72rem;">Road Trips</span>
+                        <img src="{% static 'images/services/outstation-hero.jpg' %}" alt="Outstation Tours"
+                            class="service-card-img w-100 h-100"
+                            style="object-fit: cover; transition: transform 0.5s ease;">
+                        <span
+                            class="badge position-absolute top-0 start-0 m-3 px-3 py-1.5 rounded-pill text-white fw-bold"
+                            style="background-color: #E31E24; font-size: 0.72rem;">Road Trips</span>
                     </div>
                     <div class="p-4 d-flex flex-column flex-grow-1">
                         <h4 class="fw-extrabold text-dark mb-2" style="font-size: 1.25rem;">Outstation Tours</h4>
                         <p class="text-muted small mb-4 flex-grow-1" style="line-height: 1.6;">
-                            Premium outstation cab services for one-way drops and round trip tours from Coimbatore to Ooty, Munnar, Chennai, Bangalore and more.
+                            Premium outstation cab services for one-way drops and round trip tours from Coimbatore to
+                            Ooty, Munnar, Chennai, Bangalore and more.
                         </p>
-                        <a href="{% url 'outstation_tours' %}" class="btn btn-outline-danger rounded-pill fw-bold text-start px-3 py-2 border-0 d-inline-flex align-items-center gap-2" style="color: #E31E24; font-size: 0.9rem;">
+                        <a href="{% url 'outstation_tours' %}"
+                            class="btn btn-outline-danger rounded-pill fw-bold text-start px-3 py-2 border-0 d-inline-flex align-items-center gap-2"
+                            style="color: #E31E24; font-size: 0.9rem;">
                             Explore Service <i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
@@ -869,17 +1074,25 @@
 
             <!-- Service 3: Tempo Traveller -->
             <div class="col-lg-4 col-md-6 reveal-up">
-                <div class="service-card-item rounded-4 bg-white overflow-hidden border border-light-subtle shadow-sm h-100 d-flex flex-column">
+                <div
+                    class="service-card-item rounded-4 bg-white overflow-hidden border border-light-subtle shadow-sm h-100 d-flex flex-column">
                     <div class="service-card-img-wrapper position-relative overflow-hidden" style="height: 200px;">
-                        <img src="{% static 'images/services/tempo-hero.png' %}" alt="Tempo Traveller" class="service-card-img w-100 h-100" style="object-fit: cover; transition: transform 0.5s ease;">
-                        <span class="badge position-absolute top-0 start-0 m-3 px-3 py-1.5 rounded-pill text-white fw-bold" style="background-color: #E31E24; font-size: 0.72rem;">Group Travel</span>
+                        <img src="{% static 'images/services/tempo-hero.png' %}" alt="Tempo Traveller"
+                            class="service-card-img w-100 h-100"
+                            style="object-fit: cover; transition: transform 0.5s ease;">
+                        <span
+                            class="badge position-absolute top-0 start-0 m-3 px-3 py-1.5 rounded-pill text-white fw-bold"
+                            style="background-color: #E31E24; font-size: 0.72rem;">Group Travel</span>
                     </div>
                     <div class="p-4 d-flex flex-column flex-grow-1">
                         <h4 class="fw-extrabold text-dark mb-2" style="font-size: 1.25rem;">Tempo Traveller</h4>
                         <p class="text-muted small mb-4 flex-grow-1" style="line-height: 1.6;">
-                            Book 12, 14, 17, 20, and 26 seater AC Tempo Traveller and Force Urbania rental for outstation tours and family trips.
+                            Book 12, 14, 17, 20, and 26 seater AC Tempo Traveller and Force Urbania rental for
+                            outstation tours and family trips.
                         </p>
-                        <a href="{% url 'tempo_traveller' %}" class="btn btn-outline-danger rounded-pill fw-bold text-start px-3 py-2 border-0 d-inline-flex align-items-center gap-2" style="color: #E31E24; font-size: 0.9rem;">
+                        <a href="{% url 'tempo_traveller' %}"
+                            class="btn btn-outline-danger rounded-pill fw-bold text-start px-3 py-2 border-0 d-inline-flex align-items-center gap-2"
+                            style="color: #E31E24; font-size: 0.9rem;">
                             Explore Service <i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
@@ -888,17 +1101,25 @@
 
             <!-- Service 4: Luxury Bus Rental -->
             <div class="col-lg-4 col-md-6 reveal-up">
-                <div class="service-card-item rounded-4 bg-white overflow-hidden border border-light-subtle shadow-sm h-100 d-flex flex-column">
+                <div
+                    class="service-card-item rounded-4 bg-white overflow-hidden border border-light-subtle shadow-sm h-100 d-flex flex-column">
                     <div class="service-card-img-wrapper position-relative overflow-hidden" style="height: 200px;">
-                        <img src="{% static 'images/services/bus-hero.jpg' %}" alt="Luxury Bus Rental" class="service-card-img w-100 h-100" style="object-fit: cover; transition: transform 0.5s ease;">
-                        <span class="badge position-absolute top-0 start-0 m-3 px-3 py-1.5 rounded-pill text-white fw-bold" style="background-color: #E31E24; font-size: 0.72rem;">Coaches &amp; Buses</span>
+                        <img src="{% static 'images/services/bus-hero.jpg' %}" alt="Luxury Bus Rental"
+                            class="service-card-img w-100 h-100"
+                            style="object-fit: cover; transition: transform 0.5s ease;">
+                        <span
+                            class="badge position-absolute top-0 start-0 m-3 px-3 py-1.5 rounded-pill text-white fw-bold"
+                            style="background-color: #E31E24; font-size: 0.72rem;">Coaches &amp; Buses</span>
                     </div>
                     <div class="p-4 d-flex flex-column flex-grow-1">
                         <h4 class="fw-extrabold text-dark mb-2" style="font-size: 1.25rem;">Luxury Bus Rental</h4>
                         <p class="text-muted small mb-4 flex-grow-1" style="line-height: 1.6;">
-                            Book 20 to 54 seater AC bus rental, non AC bus rental, minibus rental, and luxury coach rental for weddings, tours, and corporate events.
+                            Book 20 to 54 seater AC bus rental, non AC bus rental, minibus rental, and luxury coach
+                            rental for weddings, tours, and corporate events.
                         </p>
-                        <a href="{% url 'bus_booking' %}" class="btn btn-outline-danger rounded-pill fw-bold text-start px-3 py-2 border-0 d-inline-flex align-items-center gap-2" style="color: #E31E24; font-size: 0.9rem;">
+                        <a href="{% url 'bus_booking' %}"
+                            class="btn btn-outline-danger rounded-pill fw-bold text-start px-3 py-2 border-0 d-inline-flex align-items-center gap-2"
+                            style="color: #E31E24; font-size: 0.9rem;">
                             Explore Service <i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
@@ -907,17 +1128,25 @@
 
             <!-- Service 5: Pilgrimage Trips -->
             <div class="col-lg-4 col-md-6 reveal-up">
-                <div class="service-card-item rounded-4 bg-white overflow-hidden border border-light-subtle shadow-sm h-100 d-flex flex-column">
+                <div
+                    class="service-card-item rounded-4 bg-white overflow-hidden border border-light-subtle shadow-sm h-100 d-flex flex-column">
                     <div class="service-card-img-wrapper position-relative overflow-hidden" style="height: 200px;">
-                        <img src="{% static 'images/services/pilgrimage-hero.jpg' %}" alt="Pilgrimage Trips" class="service-card-img w-100 h-100" style="object-fit: cover; transition: transform 0.5s ease;">
-                        <span class="badge position-absolute top-0 start-0 m-3 px-3 py-1.5 rounded-pill text-white fw-bold" style="background-color: #E31E24; font-size: 0.72rem;">Spiritual Tours</span>
+                        <img src="{% static 'images/services/pilgrimage-hero.jpg' %}" alt="Pilgrimage Trips"
+                            class="service-card-img w-100 h-100"
+                            style="object-fit: cover; transition: transform 0.5s ease;">
+                        <span
+                            class="badge position-absolute top-0 start-0 m-3 px-3 py-1.5 rounded-pill text-white fw-bold"
+                            style="background-color: #E31E24; font-size: 0.72rem;">Spiritual Tours</span>
                     </div>
                     <div class="p-4 d-flex flex-column flex-grow-1">
                         <h4 class="fw-extrabold text-dark mb-2" style="font-size: 1.25rem;">Pilgrimage Trips</h4>
                         <p class="text-muted small mb-4 flex-grow-1" style="line-height: 1.6;">
-                            Exclusive temple tour packages from Coimbatore to Navagraha temples, Tirupati, Madurai, and Rameswaram with expert drivers.
+                            Exclusive temple tour packages from Coimbatore to Navagraha temples, Tirupati, Madurai, and
+                            Rameswaram with expert drivers.
                         </p>
-                        <a href="{% url 'pilgrimage_trips' %}" class="btn btn-outline-danger rounded-pill fw-bold text-start px-3 py-2 border-0 d-inline-flex align-items-center gap-2" style="color: #E31E24; font-size: 0.9rem;">
+                        <a href="{% url 'pilgrimage_trips' %}"
+                            class="btn btn-outline-danger rounded-pill fw-bold text-start px-3 py-2 border-0 d-inline-flex align-items-center gap-2"
+                            style="color: #E31E24; font-size: 0.9rem;">
                             Explore Service <i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
@@ -926,17 +1155,25 @@
 
             <!-- Service 6: Corporate Travel -->
             <div class="col-lg-4 col-md-6 reveal-up">
-                <div class="service-card-item rounded-4 bg-white overflow-hidden border border-light-subtle shadow-sm h-100 d-flex flex-column">
+                <div
+                    class="service-card-item rounded-4 bg-white overflow-hidden border border-light-subtle shadow-sm h-100 d-flex flex-column">
                     <div class="service-card-img-wrapper position-relative overflow-hidden" style="height: 200px;">
-                        <img src="{% static 'images/services/corporate-hero.jpg' %}" alt="Corporate Travel" class="service-card-img w-100 h-100" style="object-fit: cover; transition: transform 0.5s ease;">
-                        <span class="badge position-absolute top-0 start-0 m-3 px-3 py-1.5 rounded-pill text-white fw-bold" style="background-color: #E31E24; font-size: 0.72rem;">Executive</span>
+                        <img src="{% static 'images/services/corporate-hero.jpg' %}" alt="Corporate Travel"
+                            class="service-card-img w-100 h-100"
+                            style="object-fit: cover; transition: transform 0.5s ease;">
+                        <span
+                            class="badge position-absolute top-0 start-0 m-3 px-3 py-1.5 rounded-pill text-white fw-bold"
+                            style="background-color: #E31E24; font-size: 0.72rem;">Executive</span>
                     </div>
                     <div class="p-4 d-flex flex-column flex-grow-1">
                         <h4 class="fw-extrabold text-dark mb-2" style="font-size: 1.25rem;">Corporate Travel</h4>
                         <p class="text-muted small mb-4 flex-grow-1" style="line-height: 1.6;">
-                            Professional B2B car rental and corporate travel services including employee transport, airport transfers, and monthly billing options.
+                            Professional B2B car rental and corporate travel services including employee transport,
+                            airport transfers, and monthly billing options.
                         </p>
-                        <a href="{% url 'corporate_travel' %}" class="btn btn-outline-danger rounded-pill fw-bold text-start px-3 py-2 border-0 d-inline-flex align-items-center gap-2" style="color: #E31E24; font-size: 0.9rem;">
+                        <a href="{% url 'corporate_travel' %}"
+                            class="btn btn-outline-danger rounded-pill fw-bold text-start px-3 py-2 border-0 d-inline-flex align-items-center gap-2"
+                            style="color: #E31E24; font-size: 0.9rem;">
                             Explore Service <i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
@@ -955,10 +1192,12 @@
             <div class="reveal-down">
                 <span class="vth-eyebrow text-danger fw-bold text-uppercase"
                     style="color: #E31E24; font-size: 0.75rem; letter-spacing: 1.2px;">MUST VISIT PLACES</span>
-                <h2 class="fw-extrabold text-dark mb-0" style="font-size: 2.3rem; letter-spacing: -0.5px;">Popular Tourist Places</h2>
+                <h2 class="fw-extrabold text-dark mb-0" style="font-size: 2.3rem; letter-spacing: -0.5px;">Popular
+                    Tourist Places</h2>
             </div>
             <div class="mt-3 mt-md-0 reveal-right">
-                <a href="{% url 'tamil_nadu_view' %}" class="text-decoration-none text-dark fw-bold small">View All Places <i class="bi bi-chevron-right ms-1"></i></a>
+                <a href="{% url 'tamil_nadu_view' %}" class="text-decoration-none text-dark fw-bold small">View All
+                    Places <i class="bi bi-chevron-right ms-1"></i></a>
             </div>
         </div>
 
@@ -1092,38 +1331,50 @@
             <div class="row align-items-center g-4 position-relative z-2">
                 <div class="col-lg-5 col-md-12 reveal-left">
                     <span class="badge rounded-pill px-3 py-1.5 mb-2 fw-bold text-uppercase"
-                        style="background: rgba(227, 30, 36, 0.08); color: #E31E24; border: 1px solid rgba(227, 30, 36, 0.2); font-size: 0.72rem; letter-spacing: 1.2px;">PLAN YOUR JOURNEY TODAY</span>
-                    <h3 class="fw-extrabold text-dark mb-2" style="font-size: 2.1rem; letter-spacing: -0.5px;">Plan Your Journey Today</h3>
-                    <p class="text-muted small mb-4" style="font-size: 0.92rem;">Start your unforgettable journey across South India with Vibhu Travel Hub.</p>
+                        style="background: rgba(227, 30, 36, 0.08); color: #E31E24; border: 1px solid rgba(227, 30, 36, 0.2); font-size: 0.72rem; letter-spacing: 1.2px;">PLAN
+                        YOUR JOURNEY TODAY</span>
+                    <h3 class="fw-extrabold text-dark mb-2" style="font-size: 2.1rem; letter-spacing: -0.5px;">Plan Your
+                        Journey Today</h3>
+                    <p class="text-muted small mb-4" style="font-size: 0.92rem;">Start your unforgettable journey across
+                        South India with Vibhu Travel Hub.</p>
                     <div class="d-flex flex-wrap gap-2">
-                        <button type="button" class="btn btn-danger rounded-pill px-4 py-2.5 fw-bold text-white shadow-sm border-0 d-inline-flex align-items-center gap-2" style="background-color: #E31E24;" data-bs-toggle="modal" data-bs-target="#enquiryModal">
+                        <button type="button"
+                            class="btn btn-danger rounded-pill px-4 py-2.5 fw-bold text-white shadow-sm border-0 d-inline-flex align-items-center gap-2"
+                            style="background-color: #E31E24;" data-bs-toggle="modal" data-bs-target="#enquiryModal">
                             <i class="bi bi-calendar-check-fill"></i> Book Your Trip
                         </button>
-                        <a href="{% url 'contact' %}" class="btn btn-outline-dark rounded-pill px-4 py-2.5 fw-bold text-dark d-inline-flex align-items-center gap-2">
+                        <a href="{% url 'contact' %}"
+                            class="btn btn-outline-dark rounded-pill px-4 py-2.5 fw-bold text-dark d-inline-flex align-items-center gap-2">
                             <i class="bi bi-envelope-fill"></i> Contact Us
                         </a>
-                        <a href="https://wa.me/919655866660" target="_blank" class="btn btn-success rounded-pill px-4 py-2.5 fw-bold text-white d-inline-flex align-items-center gap-2" style="background-color: #25D366; border: none;">
+                        <a href="https://wa.me/919655866660" target="_blank"
+                            class="btn btn-success rounded-pill px-4 py-2.5 fw-bold text-white d-inline-flex align-items-center gap-2"
+                            style="background-color: #25D366; border: none;">
                             <i class="bi bi-whatsapp"></i> WhatsApp Us
                         </a>
                     </div>
                 </div>
 
                 <div class="col-lg-7 col-md-12 reveal-right">
-                    <form action="#" method="GET" class="row g-3 align-items-end p-4 rounded-4 bg-light border border-light-subtle shadow-sm"
+                    <form action="#" method="GET"
+                        class="row g-3 align-items-end p-4 rounded-4 bg-light border border-light-subtle shadow-sm"
                         onsubmit="event.preventDefault(); bootstrap.Modal.getOrCreateInstance(document.getElementById('enquiryModal')).show();">
                         <div class="col-md-4">
                             <label class="form-label small fw-bold text-dark mb-1">Your Name</label>
-                            <input type="text" class="form-control rounded-3 py-2 text-dark bg-white border border-secondary-subtle"
+                            <input type="text"
+                                class="form-control rounded-3 py-2 text-dark bg-white border border-secondary-subtle"
                                 placeholder="Enter your name" required>
                         </div>
                         <div class="col-md-4">
                             <label class="form-label small fw-bold text-dark mb-1">Phone Number</label>
-                            <input type="tel" class="form-control rounded-3 py-2 text-dark bg-white border border-secondary-subtle"
+                            <input type="tel"
+                                class="form-control rounded-3 py-2 text-dark bg-white border border-secondary-subtle"
                                 placeholder="Enter your phone" required>
                         </div>
                         <div class="col-md-4">
                             <label class="form-label small fw-bold text-dark mb-1">Travel Date</label>
-                            <input type="date" class="form-control rounded-3 py-2 text-dark bg-white border border-secondary-subtle"
+                            <input type="date"
+                                class="form-control rounded-3 py-2 text-dark bg-white border border-secondary-subtle"
                                 required>
                         </div>
                         <div class="col-12 mt-3">
@@ -1154,10 +1405,12 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
             transition: border-color 0.2s ease, box-shadow 0.2s ease;
         }
+
         .home-faq-accordion .accordion-item:hover {
             border-color: #CBD5E1 !important;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
         }
+
         .home-faq-accordion .accordion-button {
             font-size: 1.05rem;
             font-weight: 700;
@@ -1166,15 +1419,18 @@
             padding: 18px 24px;
             box-shadow: none !important;
         }
+
         .home-faq-accordion .accordion-button:not(.collapsed) {
             color: #E31E24;
             background: #FFF5F5;
             border-bottom: 1px solid #FEE2E2;
         }
+
         .home-faq-accordion .accordion-button::after {
             background-size: 1.1rem;
             transition: transform 0.25s ease;
         }
+
         .home-faq-accordion .accordion-body {
             font-size: 0.95rem;
             line-height: 1.7;
@@ -1187,26 +1443,32 @@
         <div class="text-center mb-5 reveal-down">
             <span class="vth-eyebrow text-uppercase fw-bold d-block mb-1"
                 style="color: #E31E24; font-size: 0.8rem; letter-spacing: 1.5px;">FREQUENTLY ASKED QUESTIONS</span>
-            <h2 class="fw-extrabold text-dark mb-2" style="font-size: 2.3rem; letter-spacing: -0.5px;">Have Questions? We Have Answers</h2>
+            <h2 class="fw-extrabold text-dark mb-2" style="font-size: 2.3rem; letter-spacing: -0.5px;">Have Questions?
+                We Have Answers</h2>
             <p class="text-muted mx-auto mb-0" style="max-width: 680px; font-size: 0.98rem; line-height: 1.6;">
-                Find quick answers to common questions about booking cabs, tempo travellers, pricing, drivers, and outstation trips with Vibhu Travel Hub.
+                Find quick answers to common questions about booking cabs, tempo travellers, pricing, drivers, and
+                outstation trips with Vibhu Travel Hub.
             </p>
         </div>
 
         <div class="row justify-content-center">
             <div class="col-lg-10">
                 <div class="accordion home-faq-accordion" id="homeFaqAccordion">
-                    
+
                     <!-- FAQ 1 -->
                     <div class="accordion-item reveal-up">
                         <h3 class="accordion-header" id="headingFaqOne">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaqOne" aria-expanded="true" aria-controls="collapseFaqOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseFaqOne" aria-expanded="true" aria-controls="collapseFaqOne">
                                 How do I book a cab or tempo traveller with Vibhu Travel Hub?
                             </button>
                         </h3>
-                        <div id="collapseFaqOne" class="accordion-collapse collapse show" aria-labelledby="headingFaqOne" data-bs-parent="#homeFaqAccordion">
+                        <div id="collapseFaqOne" class="accordion-collapse collapse show"
+                            aria-labelledby="headingFaqOne" data-bs-parent="#homeFaqAccordion">
                             <div class="accordion-body">
-                                Booking is simple! You can click the <strong>"Book Your Trip"</strong> button to send an instant booking request via our online enquiry modal, call us directly at <strong>+91 96558 66660</strong>, or chat with our 24/7 team on WhatsApp.
+                                Booking is simple! You can click the <strong>"Book Your Trip"</strong> button to send an
+                                instant booking request via our online enquiry modal, call us directly at <strong>+91
+                                    96558 66660</strong>, or chat with our 24/7 team on WhatsApp.
                             </div>
                         </div>
                     </div>
@@ -1214,13 +1476,17 @@
                     <!-- FAQ 2 -->
                     <div class="accordion-item reveal-up">
                         <h3 class="accordion-header" id="headingFaqTwo">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaqTwo" aria-expanded="false" aria-controls="collapseFaqTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseFaqTwo" aria-expanded="false" aria-controls="collapseFaqTwo">
                                 Are driver charges, fuel, and taxes included in the pricing?
                             </button>
                         </h3>
-                        <div id="collapseFaqTwo" class="accordion-collapse collapse" aria-labelledby="headingFaqTwo" data-bs-parent="#homeFaqAccordion">
+                        <div id="collapseFaqTwo" class="accordion-collapse collapse" aria-labelledby="headingFaqTwo"
+                            data-bs-parent="#homeFaqAccordion">
                             <div class="accordion-body">
-                                Yes, our standard daily tariffs include vehicle rental, fuel charges, and driver pay. Interstate permit fees, toll gate charges, and parking fees are calculated at actuals based on your specific travel itinerary.
+                                Yes, our standard daily tariffs include vehicle rental, fuel charges, and driver pay.
+                                Interstate permit fees, toll gate charges, and parking fees are calculated at actuals
+                                based on your specific travel itinerary.
                             </div>
                         </div>
                     </div>
@@ -1228,13 +1494,18 @@
                     <!-- FAQ 3 -->
                     <div class="accordion-item reveal-up">
                         <h3 class="accordion-header" id="headingFaqThree">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaqThree" aria-expanded="false" aria-controls="collapseFaqThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseFaqThree" aria-expanded="false"
+                                aria-controls="collapseFaqThree">
                                 What vehicle options are available in your fleet?
                             </button>
                         </h3>
-                        <div id="collapseFaqThree" class="accordion-collapse collapse" aria-labelledby="headingFaqThree" data-bs-parent="#homeFaqAccordion">
+                        <div id="collapseFaqThree" class="accordion-collapse collapse" aria-labelledby="headingFaqThree"
+                            data-bs-parent="#homeFaqAccordion">
                             <div class="accordion-body">
-                                Our fleet includes comfortable Sedans (Etios, Dzire), SUVs (Ertiga, Innova, Innova Crysta), Tempo Travellers (12 to 26 Seater, Force Urbania), and Luxury AC Buses (20 to 54 Seater) for group tours and corporate events.
+                                Our fleet includes comfortable Sedans (Etios, Dzire), SUVs (Ertiga, Innova, Innova
+                                Crysta), Tempo Travellers (12 to 26 Seater, Force Urbania), and Luxury AC Buses (20 to
+                                54 Seater) for group tours and corporate events.
                             </div>
                         </div>
                     </div>
@@ -1242,13 +1513,16 @@
                     <!-- FAQ 4 -->
                     <div class="accordion-item reveal-up">
                         <h3 class="accordion-header" id="headingFaqFour">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaqFour" aria-expanded="false" aria-controls="collapseFaqFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseFaqFour" aria-expanded="false" aria-controls="collapseFaqFour">
                                 Do you provide outstation one-way drop and round-trip services?
                             </button>
                         </h3>
-                        <div id="collapseFaqFour" class="accordion-collapse collapse" aria-labelledby="headingFaqFour" data-bs-parent="#homeFaqAccordion">
+                        <div id="collapseFaqFour" class="accordion-collapse collapse" aria-labelledby="headingFaqFour"
+                            data-bs-parent="#homeFaqAccordion">
                             <div class="accordion-body">
-                                Yes! We provide both one-way drop taxi services and round-trip outstation tour packages from Coimbatore to all major destinations across Tamil Nadu, Kerala, and Karnataka.
+                                Yes! We provide both one-way drop taxi services and round-trip outstation tour packages
+                                from Coimbatore to all major destinations across Tamil Nadu, Kerala, and Karnataka.
                             </div>
                         </div>
                     </div>
@@ -1256,13 +1530,17 @@
                     <!-- FAQ 5 -->
                     <div class="accordion-item reveal-up">
                         <h3 class="accordion-header" id="headingFaqFive">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaqFive" aria-expanded="false" aria-controls="collapseFaqFive">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseFaqFive" aria-expanded="false" aria-controls="collapseFaqFive">
                                 Are your drivers verified and experienced for hill station driving?
                             </button>
                         </h3>
-                        <div id="collapseFaqFive" class="accordion-collapse collapse" aria-labelledby="headingFaqFive" data-bs-parent="#homeFaqAccordion">
+                        <div id="collapseFaqFive" class="accordion-collapse collapse" aria-labelledby="headingFaqFive"
+                            data-bs-parent="#homeFaqAccordion">
                             <div class="accordion-body">
-                                Absolutely. All Vibhu Travel Hub drivers are background-checked, courteous, professional, and highly experienced in navigating Western Ghats hill roads including Ooty, Kodaikanal, Munnar, and Wayanad safely.
+                                Absolutely. All Vibhu Travel Hub drivers are background-checked, courteous,
+                                professional, and highly experienced in navigating Western Ghats hill roads including
+                                Ooty, Kodaikanal, Munnar, and Wayanad safely.
                             </div>
                         </div>
                     </div>
@@ -1400,7 +1678,8 @@
                                 style="max-height: 180px; object-fit: contain;">
                         </div>
                         <div class="d-flex justify-content-center gap-2 flex-wrap">
-                            <span id="vModalCapacityBadge" class="badge bg-danger rounded-pill px-3 py-2">12 Seater</span>
+                            <span id="vModalCapacityBadge" class="badge bg-danger rounded-pill px-3 py-2">12
+                                Seater</span>
                             <span id="vModalAcBadge" class="badge bg-secondary rounded-pill px-3 py-2">AC</span>
                             <span id="vModalCategoryBadge" class="badge bg-dark rounded-pill px-3 py-2">SUV</span>
                         </div>
@@ -1410,7 +1689,8 @@
                     <div class="col-md-7">
                         <!-- Up to 400 KM Box -->
                         <div class="p-3 bg-white rounded-3 border mb-3">
-                            <h6 class="fw-bold text-danger mb-2" style="font-size: 0.85rem; letter-spacing: 0.5px;">UP TO 400 KM / DAY TARIFF</h6>
+                            <h6 class="fw-bold text-danger mb-2" style="font-size: 0.85rem; letter-spacing: 0.5px;">UP
+                                TO 400 KM / DAY TARIFF</h6>
                             <div class="d-flex justify-content-between align-items-center mb-1">
                                 <span class="text-muted small">Day Rent:</span>
                                 <span id="vModalDayRent" class="fw-bold text-dark fs-6">₹1,800</span>
@@ -1423,7 +1703,8 @@
 
                         <!-- Above 400 KM Box -->
                         <div class="p-3 bg-white rounded-3 border mb-3">
-                            <h6 class="fw-bold text-danger mb-2" style="font-size: 0.85rem; letter-spacing: 0.5px;">ABOVE 400 KM / DAY TARIFF</h6>
+                            <h6 class="fw-bold text-danger mb-2" style="font-size: 0.85rem; letter-spacing: 0.5px;">
+                                ABOVE 400 KM / DAY TARIFF</h6>
                             <div id="vModalAbove400Content">
                                 <div class="d-flex justify-content-between align-items-center mb-1">
                                     <span class="text-muted small">Flat Per KM:</span>
@@ -1441,13 +1722,16 @@
 
                         <!-- Interstate Permits -->
                         <div class="p-3 bg-white rounded-3 border">
-                            <h6 class="fw-bold text-dark mb-2" style="font-size: 0.85rem; letter-spacing: 0.5px;">INTERSTATE PERMIT COSTS</h6>
+                            <h6 class="fw-bold text-dark mb-2" style="font-size: 0.85rem; letter-spacing: 0.5px;">
+                                INTERSTATE PERMIT COSTS</h6>
                             <div class="d-flex justify-content-between align-items-center mb-1">
-                                <span class="text-muted small"><i class="bi bi-geo-alt-fill text-danger me-1"></i>Kerala Permit:</span>
+                                <span class="text-muted small"><i class="bi bi-geo-alt-fill text-danger me-1"></i>Kerala
+                                    Permit:</span>
                                 <span id="vModalKeralaPermit" class="fw-bold text-dark small">₹700</span>
                             </div>
                             <div class="d-flex justify-content-between align-items-center">
-                                <span class="text-muted small"><i class="bi bi-geo-alt-fill text-danger me-1"></i>Karnataka Permit:</span>
+                                <span class="text-muted small"><i
+                                        class="bi bi-geo-alt-fill text-danger me-1"></i>Karnataka Permit:</span>
                                 <span id="vModalKarnatakaPermit" class="fw-bold text-dark small">₹1,500</span>
                             </div>
                         </div>
@@ -1456,18 +1740,25 @@
 
                 <!-- Important Booking Notes -->
                 <div class="mt-4 p-3 bg-white rounded-3 border border-warning-subtle">
-                    <h6 class="fw-bold text-dark mb-2" style="font-size: 0.85rem;"><i class="bi bi-info-circle-fill text-warning me-1"></i> Important Booking Information & Notes</h6>
+                    <h6 class="fw-bold text-dark mb-2" style="font-size: 0.85rem;"><i
+                            class="bi bi-info-circle-fill text-warning me-1"></i> Important Booking Information & Notes
+                    </h6>
                     <ul class="text-muted mb-0 ps-3" style="font-size: 0.78rem; line-height: 1.55;">
-                        <li>Toll and parking are payable separately at actuals unless specifically included in the confirmed quotation.</li>
-                        <li>Travel between 10:00 PM and 6:00 AM attracts a Night Driving Charge equal to 50% of the applicable Day Rent.</li>
-                        <li>Final rates depend on route, operating hours, vehicle availability and verified garage-to-garage kilometres.</li>
+                        <li>Toll and parking are payable separately at actuals unless specifically included in the
+                            confirmed quotation.</li>
+                        <li>Travel between 10:00 PM and 6:00 AM attracts a Night Driving Charge equal to 50% of the
+                            applicable Day Rent.</li>
+                        <li>Final rates depend on route, operating hours, vehicle availability and verified
+                            garage-to-garage kilometres.</li>
                         <li>Booking is confirmed only after itinerary approval and advance payment.</li>
                     </ul>
                 </div>
             </div>
             <div class="modal-footer bg-white border-top-0 px-4 py-3 d-flex justify-content-between">
-                <button type="button" class="btn btn-outline-secondary rounded-pill px-4" data-bs-dismiss="modal">Close</button>
-                <button type="button" id="vModalBookBtn" class="btn btn-danger rounded-pill px-4 fw-bold" style="background-color: #E31E24;">
+                <button type="button" class="btn btn-outline-secondary rounded-pill px-4"
+                    data-bs-dismiss="modal">Close</button>
+                <button type="button" id="vModalBookBtn" class="btn btn-danger rounded-pill px-4 fw-bold"
+                    style="background-color: #E31E24;">
                     Book on WhatsApp <i class="bi bi-whatsapp ms-1"></i>
                 </button>
             </div>

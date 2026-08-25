@@ -155,6 +155,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+LOGIN_URL = "/management/login/"
+LOGIN_REDIRECT_URL = "/management/dashboard/"
+
 # ==========================================
 # LANGUAGE
 # ==========================================

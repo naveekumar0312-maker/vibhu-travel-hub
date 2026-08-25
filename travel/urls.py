@@ -4,6 +4,7 @@ from django.urls import path, include
 from django.conf import settings
 # pyrefly: ignore [missing-import]
 from django.conf.urls.static import static
+# pyrefly: ignore [missing-import]
 from django.views.generic.base import RedirectView
 
 # ==========================
@@ -15,7 +16,8 @@ urlpatterns = [
     # Favicon
     path("favicon.ico", RedirectView.as_view(url=settings.STATIC_URL + "images/logo/logo.webp", permanent=True)),
 
-    # Custom Premium Admin
+    # Custom Management Dashboard
+    path("management/", include("dashboard.urls")),
     path("admin/", include("dashboard.urls")),
 
     # Website

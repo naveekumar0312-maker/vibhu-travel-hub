@@ -1,0 +1,161 @@
+{% extends 'dashboard/base_dashboard.html' %}
+
+{% block title %}Partner Enquiry Details - {{ enquiry.full_name }}{% endblock %}
+{% block page_title %}Partner Enquiry Details{% endblock %}
+
+{% block content %}
+<div class="glass-card anim-card p-4">
+    <!-- Navigation Back -->
+    <div class="d-flex align-items-center justify-content-between mb-4 pb-3 border-bottom">
+        <div class="d-flex align-items-center gap-3">
+            <a href="{% url 'partner_enquiries_list' %}" class="btn btn-outline-secondary btn-sm rounded-pill px-3">
+                <i class="bi bi-arrow-left me-1"></i> Back to Enquiries
+            </a>
+            <h5 class="text-dark fw-bold mb-0">Partner Enquiry #{{ enquiry.id }}</h5>
+        </div>
+        <span class="text-muted small">Submitted on {{ enquiry.created_at|date:"M d, Y" }} at {{ enquiry.created_at|date:"H:i" }}</span>
+    </div>
+
+    <!-- Feedback Messages -->
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags|default:'info' }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <div class="row g-4">
+        <!-- Left Side: Applicant & Vehicle Details -->
+        <div class="col-lg-8">
+            <div class="card border border-light-subtle rounded-4 p-4 shadow-sm h-100 bg-white">
+                <h6 class="text-danger fw-bold text-uppercase mb-3 small" style="letter-spacing: 1px;">APPLICANT & FLEET INFORMATION</h6>
+                
+                <div class="row g-3">
+                    <!-- Full Name -->
+                    <div class="col-md-6">
+                        <label class="text-muted small d-block mb-1">FULL NAME</label>
+                        <div class="fw-bold text-dark fs-5">{{ enquiry.full_name }}</div>
+                    </div>
+
+                    <!-- Mobile Number -->
+                    <div class="col-md-6">
+                        <label class="text-muted small d-block mb-1">MOBILE NUMBER</label>
+                        <div>
+                            <a href="tel:{{ enquiry.mobile_number }}" class="text-decoration-none text-dark fw-bold fs-5">
+                                <i class="bi bi-telephone-fill text-danger me-1"></i> {{ enquiry.mobile_number }}
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Email Address -->
+                    <div class="col-md-6">
+                        <label class="text-muted small d-block mb-1">EMAIL ADDRESS</label>
+                        <div>
+                            {% if enquiry.email %}
+                                <a href="mailto:{{ enquiry.email }}" class="text-decoration-none text-dark fw-medium">
+                                    <i class="bi bi-envelope-fill text-danger me-1"></i> {{ enquiry.email }}
+                                </a>
+                            {% else %}
+                                <span class="text-muted">Not specified</span>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <!-- City -->
+                    <div class="col-md-6">
+                        <label class="text-muted small d-block mb-1">CITY</label>
+                        <div class="fw-bold text-dark fs-6">{{ enquiry.city }}</div>
+                    </div>
+
+                    <hr class="my-2">
+
+                    <!-- Vehicle Type -->
+                    <div class="col-md-6">
+                        <label class="text-muted small d-block mb-1">VEHICLE TYPE</label>
+                        <div>
+                            <span class="badge bg-danger-subtle text-danger border border-danger-subtle px-3 py-1.5 rounded-pill fw-bold">
+                                {{ enquiry.vehicle_type }}
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Vehicle Count -->
+                    <div class="col-md-6">
+                        <label class="text-muted small d-block mb-1">NUMBER OF VEHICLES</label>
+                        <div class="fw-bold text-dark fs-6">{{ enquiry.vehicle_count }}</div>
+                    </div>
+
+                    <!-- Vehicle Details -->
+                    <div class="col-12">
+                        <label class="text-muted small d-block mb-1">VEHICLE MODEL / DETAILS</label>
+                        <div class="p-3 bg-light rounded-3 text-dark fw-medium">
+                            {{ enquiry.vehicle_details|default:"No specific model details provided." }}
+                        </div>
+                    </div>
+
+                    <!-- Preferred Service -->
+                    <div class="col-12">
+                        <label class="text-muted small d-block mb-1">PREFERRED SERVICE</label>
+                        <div class="fw-bold text-dark fs-6">{{ enquiry.preferred_service }}</div>
+                    </div>
+
+                    <!-- Message -->
+                    <div class="col-12">
+                        <label class="text-muted small d-block mb-1">ADDITIONAL MESSAGE</label>
+                        <div class="p-3 bg-light rounded-3 text-dark">
+                            {{ enquiry.message|default:"No additional message provided." }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side: Status Management Box -->
+        <div class="col-lg-4">
+            <div class="card border border-light-subtle rounded-4 p-4 shadow-sm bg-white mb-4">
+                <h6 class="text-dark fw-bold text-uppercase mb-3 small" style="letter-spacing: 1px;">ENQUIRY STATUS MANAGEMENT</h6>
+
+                <div class="mb-4">
+                    <label class="text-muted small d-block mb-1">CURRENT STATUS</label>
+                    {% if enquiry.status == 'New' %}
+                        <span class="badge bg-danger fs-6 px-3 py-2 rounded-pill">New</span>
+                    {% elif enquiry.status == 'Contacted' %}
+                        <span class="badge bg-warning text-dark fs-6 px-3 py-2 rounded-pill">Contacted</span>
+                    {% elif enquiry.status == 'In Progress' %}
+                        <span class="badge bg-info text-dark fs-6 px-3 py-2 rounded-pill">In Progress</span>
+                    {% elif enquiry.status == 'Converted' %}
+                        <span class="badge bg-success fs-6 px-3 py-2 rounded-pill">Converted</span>
+                    {% else %}
+                        <span class="badge bg-secondary fs-6 px-3 py-2 rounded-pill">{{ enquiry.status }}</span>
+                    {% endif %}
+                </div>
+
+                <!-- Update Status Form -->
+                <form method="POST" action="{% url 'partner_enquiry_update' enquiry.id %}">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="id_status" class="form-label text-dark fw-bold small">Change Status</label>
+                        <select name="status" id="id_status" class="form-select text-dark fw-medium">
+                            {% for st_code, st_label in status_choices %}
+                                <option value="{{ st_code }}" {% if enquiry.status == st_code %}selected{% endif %}>{{ st_label }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-danger w-100 rounded-pill py-2 fw-bold">
+                        <i class="bi bi-save me-1"></i> Update Status
+                    </button>
+                </form>
+            </div>
+
+            <!-- Quick Info Box -->
+            <div class="card border border-light-subtle rounded-4 p-4 shadow-sm bg-light">
+                <h6 class="text-dark fw-bold mb-2 small">TIMESTAMPS</h6>
+                <div class="small text-muted mb-1">Submitted: <span class="text-dark fw-medium">{{ enquiry.created_at|date:"M d, Y H:i" }}</span></div>
+                <div class="small text-muted">Last Updated: <span class="text-dark fw-medium">{{ enquiry.updated_at|date:"M d, Y H:i" }}</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -40,7 +40,32 @@
             </li>
             <li class="nav-item">
                 <a href="{% url 'dashboard_enquiries' %}" class="nav-link {% if request.resolver_match.url_name == 'dashboard_enquiries' %}active{% endif %}">
-                    <i class="bi bi-chat-dots-fill"></i> Enquiries
+                    <i class="bi bi-chat-dots-fill"></i> Customer Enquiries
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'oneway_booking_list' %}" class="nav-link {% if 'oneway' in request.resolver_match.url_name %}active{% endif %}">
+                    <i class="bi bi-taxi-front-fill"></i> One Way Bookings
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'management_roundtrip_list' %}" class="nav-link {% if 'roundtrip' in request.resolver_match.url_name or 'round-trip' in request.path %}active{% endif %}">
+                    <i class="bi bi-arrow-left-right"></i> Round Trip Bookings
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'management_bulk_list' %}" class="nav-link {% if 'bulk' in request.resolver_match.url_name or 'bulk-bookings' in request.path %}active{% endif %}">
+                    <i class="bi bi-layers-fill"></i> Bulk Bookings
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'management_hourly_fare_list' %}" class="nav-link {% if 'hourly_fare' in request.resolver_match.url_name or 'hourly-rental' in request.path %}active{% endif %}">
+                    <i class="bi bi-clock-history"></i> Hourly Rental Fares
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'partner_enquiries_list' %}" class="nav-link {% if 'partner_enquir' in request.resolver_match.url_name %}active{% endif %}">
+                    <i class="bi bi-briefcase-fill"></i> Partner Enquiries
                 </a>
             </li>
             <li class="nav-item">

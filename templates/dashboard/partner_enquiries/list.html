@@ -1,0 +1,180 @@
+{% extends 'dashboard/base_dashboard.html' %}
+
+{% block title %}Partner Enquiries{% endblock %}
+{% block page_title %}Partner Enquiries Dashboard{% endblock %}
+
+{% block content %}
+<div class="glass-card anim-card p-4">
+    <!-- Header & Search/Filters -->
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4">
+        <div>
+            <h5 class="text-dark fw-bold mb-1"><i class="bi bi-briefcase-fill text-danger me-2"></i>Partner Enquiries</h5>
+            <span class="text-muted small">Manage fleet partner applications & status updates</span>
+        </div>
+        <div class="d-flex flex-wrap align-items-center gap-2">
+            <form method="GET" action="{% url 'partner_enquiries_list' %}" class="d-flex flex-wrap gap-2">
+                <!-- Search Input -->
+                <input type="text" name="q" value="{{ query }}" class="form-control form-control-sm text-dark" placeholder="Search name, phone, city..." style="min-width: 180px;">
+                
+                <!-- Status Filter -->
+                <select name="status" class="form-select form-select-sm text-dark" style="min-width: 130px;">
+                    <option value="">All Statuses</option>
+                    {% for st in status_choices %}
+                        <option value="{{ st }}" {% if status_filter == st %}selected{% endif %}>{{ st }}</option>
+                    {% endfor %}
+                </select>
+
+                <!-- Vehicle Type Filter -->
+                <select name="vehicle_type" class="form-select form-select-sm text-dark" style="min-width: 140px;">
+                    <option value="">All Vehicles</option>
+                    {% for veh in vehicle_choices %}
+                        <option value="{{ veh }}" {% if vehicle_filter == veh %}selected{% endif %}>{{ veh }}</option>
+                    {% endfor %}
+                </select>
+
+                <!-- Service Filter -->
+                <select name="preferred_service" class="form-select form-select-sm text-dark" style="min-width: 150px;">
+                    <option value="">All Services</option>
+                    {% for srv in service_choices %}
+                        <option value="{{ srv }}" {% if service_filter == srv %}selected{% endif %}>{{ srv }}</option>
+                    {% endfor %}
+                </select>
+
+                <button type="submit" class="btn btn-sm btn-danger"><i class="bi bi-funnel-fill"></i> Filter</button>
+                {% if query or status_filter or vehicle_filter or service_filter %}
+                    <a href="{% url 'partner_enquiries_list' %}" class="btn btn-sm btn-outline-secondary">Reset</a>
+                {% endif %}
+            </form>
+        </div>
+    </div>
+    
+    <!-- Table -->
+    <div class="table-responsive">
+        <table class="table table-hover custom-table align-middle">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Full Name</th>
+                    <th>Mobile & Email</th>
+                    <th>City</th>
+                    <th>Vehicle</th>
+                    <th>Preferred Service</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for enquiry in page_obj %}
+                <tr>
+                    <td>
+                        <span class="small fw-semibold text-dark">{{ enquiry.created_at|date:"M d, Y" }}</span><br>
+                        <span class="small text-muted">{{ enquiry.created_at|date:"H:i" }}</span>
+                    </td>
+                    <td class="fw-bold text-dark">{{ enquiry.full_name }}</td>
+                    <td>
+                        <div class="small">
+                            <a href="tel:{{ enquiry.mobile_number }}" class="text-decoration-none text-dark fw-medium">
+                                <i class="bi bi-telephone-fill text-danger me-1"></i> {{ enquiry.mobile_number }}
+                            </a>
+                            {% if enquiry.email %}
+                                <br>
+                                <a href="mailto:{{ enquiry.email }}" class="text-decoration-none text-muted">
+                                    <i class="bi bi-envelope-fill text-muted me-1"></i> {{ enquiry.email }}
+                                </a>
+                            {% endif %}
+                        </div>
+                    </td>
+                    <td><span class="fw-medium text-dark">{{ enquiry.city }}</span></td>
+                    <td>
+                        <span class="badge bg-light text-dark border px-2.5 py-1">
+                            <i class="bi bi-car-front-fill me-1 text-danger"></i> {{ enquiry.vehicle_type }} ({{ enquiry.vehicle_count }})
+                        </span>
+                    </td>
+                    <td><span class="small text-dark">{{ enquiry.preferred_service }}</span></td>
+                    <td>
+                        {% if enquiry.status == 'New' %}
+                            <span class="badge bg-danger">New</span>
+                        {% elif enquiry.status == 'Contacted' %}
+                            <span class="badge bg-warning text-dark">Contacted</span>
+                        {% elif enquiry.status == 'In Progress' %}
+                            <span class="badge bg-info text-dark">In Progress</span>
+                        {% elif enquiry.status == 'Converted' %}
+                            <span class="badge bg-success">Converted</span>
+                        {% else %}
+                            <span class="badge bg-secondary">{{ enquiry.status }}</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        <div class="btn-group">
+                            <a href="{% url 'partner_enquiry_detail' enquiry.id %}" class="btn btn-sm btn-primary rounded-start" title="View Details">
+                                <i class="bi bi-eye-fill"></i> View
+                            </a>
+                            <button class="btn btn-sm btn-danger rounded-end" data-bs-toggle="modal" data-bs-target="#deleteModal{{ enquiry.id }}" title="Delete">
+                                <i class="bi bi-trash-fill"></i>
+                            </button>
+                        </div>
+
+                        <!-- Delete Confirmation Modal -->
+                        <div class="modal fade" id="deleteModal{{ enquiry.id }}" tabindex="-1" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content" style="background: #FFFFFF;">
+                                    <div class="modal-header border-bottom">
+                                        <h5 class="modal-title text-dark fw-bold">Delete Partner Enquiry?</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body text-dark">
+                                        Are you sure you want to delete the enquiry from <strong>{{ enquiry.full_name }}</strong> ({{ enquiry.city }})?<br>
+                                        <span class="text-danger small mt-2 d-block">This action cannot be undone.</span>
+                                    </div>
+                                    <div class="modal-footer border-0">
+                                        <button type="button" class="btn btn-outline-secondary rounded-pill px-4" data-bs-dismiss="modal">Cancel</button>
+                                        <form method="POST" action="{% url 'partner_enquiry_delete' enquiry.id %}">
+                                            {% csrf_token %}
+                                            <button type="submit" class="btn btn-danger rounded-pill px-4">Delete Permanently</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="8" class="text-center py-5 text-muted">
+                        <i class="bi bi-inbox fs-1 d-block mb-2"></i>
+                        No partner enquiries found.
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- Pagination -->
+    {% if page_obj.has_other_pages %}
+    <nav class="mt-4" aria-label="Page navigation">
+        <ul class="pagination pagination-sm justify-content-end mb-0">
+            {% if page_obj.has_previous %}
+                <li class="page-item"><a class="page-link bg-white text-dark border-light" href="?page={{ page_obj.previous_page_number }}{% if query %}&q={{ query }}{% endif %}{% if status_filter %}&status={{ status_filter }}{% endif %}{% if vehicle_filter %}&vehicle_type={{ vehicle_filter }}{% endif %}{% if service_filter %}&preferred_service={{ service_filter }}{% endif %}">Previous</a></li>
+            {% else %}
+                <li class="page-item disabled"><span class="page-link bg-light text-muted border-light">Previous</span></li>
+            {% endif %}
+            
+            {% for num in page_obj.paginator.page_range %}
+                {% if page_obj.number == num %}
+                    <li class="page-item active"><span class="page-link bg-danger text-white border-danger">{{ num }}</span></li>
+                {% else %}
+                    <li class="page-item"><a class="page-link bg-white text-dark border-light" href="?page={{ num }}{% if query %}&q={{ query }}{% endif %}{% if status_filter %}&status={{ status_filter }}{% endif %}{% if vehicle_filter %}&vehicle_type={{ vehicle_filter }}{% endif %}{% if service_filter %}&preferred_service={{ service_filter }}{% endif %}">{{ num }}</a></li>
+                {% endif %}
+            {% endfor %}
+            
+            {% if page_obj.has_next %}
+                <li class="page-item"><a class="page-link bg-white text-dark border-light" href="?page={{ page_obj.next_page_number }}{% if query %}&q={{ query }}{% endif %}{% if status_filter %}&status={{ status_filter }}{% endif %}{% if vehicle_filter %}&vehicle_type={{ vehicle_filter }}{% endif %}{% if service_filter %}&preferred_service={{ service_filter }}{% endif %}">Next</a></li>
+            {% else %}
+                <li class="page-item disabled"><span class="page-link bg-light text-muted border-light">Next</span></li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+</div>
+{% endblock %}

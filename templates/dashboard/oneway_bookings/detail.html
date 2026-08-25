@@ -1,0 +1,148 @@
+{% extends 'dashboard/base_dashboard.html' %}
+
+{% block title %}One Way Booking Details - {{ booking.name }}{% endblock %}
+{% block page_title %}One Way Booking Details{% endblock %}
+
+{% block content %}
+<div class="glass-card anim-card p-4">
+    <!-- Navigation Back -->
+    <div class="d-flex align-items-center justify-content-between mb-4 pb-3 border-bottom">
+        <div class="d-flex align-items-center gap-3">
+            <a href="{% url 'oneway_booking_list' %}" class="btn btn-outline-secondary btn-sm rounded-pill px-3">
+                <i class="bi bi-arrow-left me-1"></i> Back to One Way Bookings
+            </a>
+            <h5 class="text-dark fw-bold mb-0">One Way Booking #{{ booking.id }}</h5>
+        </div>
+        <span class="text-muted small">Submitted on {{ booking.created_at|date:"M d, Y" }} at {{ booking.created_at|date:"H:i" }}</span>
+    </div>
+
+    <!-- Messages -->
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags|default:'info' }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <div class="row g-4">
+        <!-- Customer & Trip Details -->
+        <div class="col-lg-8">
+            <div class="card border border-light-subtle rounded-4 p-4 shadow-sm h-100 bg-white">
+                <h6 class="text-danger fw-bold text-uppercase mb-3 small" style="letter-spacing: 1px;">CUSTOMER & RIDE INFORMATION</h6>
+                
+                <div class="row g-3">
+                    <!-- Customer Name -->
+                    <div class="col-md-6">
+                        <label class="text-muted small d-block mb-1">NAME</label>
+                        <div class="fw-bold text-dark fs-5">{{ booking.name }}</div>
+                    </div>
+
+                    <!-- Mobile Number -->
+                    <div class="col-md-6">
+                        <label class="text-muted small d-block mb-1">MOBILE NUMBER</label>
+                        <div>
+                            <a href="tel:{{ booking.mobile }}" class="text-decoration-none text-dark fw-bold fs-5">
+                                <i class="bi bi-telephone-fill text-danger me-1"></i> {{ booking.mobile }}
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Email Address -->
+                    <div class="col-md-6">
+                        <label class="text-muted small d-block mb-1">EMAIL ID</label>
+                        <div>
+                            {% if booking.email %}
+                                <a href="mailto:{{ booking.email }}" class="text-decoration-none text-dark fw-medium">
+                                    <i class="bi bi-envelope-fill text-danger me-1"></i> {{ booking.email }}
+                                </a>
+                            {% else %}
+                                <span class="text-muted">Not specified</span>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <!-- Submitted Date -->
+                    <div class="col-md-6">
+                        <label class="text-muted small d-block mb-1">SUBMITTED DATE</label>
+                        <div class="fw-medium text-dark">{{ booking.created_at|date:"M d, Y H:i" }}</div>
+                    </div>
+
+                    <hr class="my-2">
+
+                    <!-- Pickup City -->
+                    <div class="col-md-6">
+                        <label class="text-muted small d-block mb-1">PICKUP CITY</label>
+                        <div class="fw-bold text-dark fs-6"><i class="bi bi-geo-alt-fill text-danger me-1"></i> {{ booking.pickup_city }}</div>
+                    </div>
+
+                    <!-- Drop Off City -->
+                    <div class="col-md-6">
+                        <label class="text-muted small d-block mb-1">DROP OFF CITY</label>
+                        <div class="fw-bold text-dark fs-6"><i class="bi bi-pin-map-fill text-danger me-1"></i> {{ booking.drop_city }}</div>
+                    </div>
+
+                    <!-- Pickup Date -->
+                    <div class="col-md-6">
+                        <label class="text-muted small d-block mb-1">PICKUP DATE</label>
+                        <div class="fw-bold text-dark fs-6"><i class="bi bi-calendar-event text-danger me-1"></i> {{ booking.pickup_date|date:"M d, Y" }}</div>
+                    </div>
+
+                    <!-- Pickup Time -->
+                    <div class="col-md-6">
+                        <label class="text-muted small d-block mb-1">PICKUP TIME</label>
+                        <div class="fw-bold text-dark fs-6"><i class="bi bi-clock text-danger me-1"></i> {{ booking.pickup_time }}</div>
+                    </div>
+
+                    <!-- Comments -->
+                    <div class="col-12">
+                        <label class="text-muted small d-block mb-1">COMMENTS / ADDITIONAL REQUIREMENTS</label>
+                        <div class="p-3 bg-light rounded-3 text-dark">
+                            {{ booking.comments|default:"No additional comments provided." }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Status Management Box -->
+        <div class="col-lg-4">
+            <div class="card border border-light-subtle rounded-4 p-4 shadow-sm bg-white mb-4">
+                <h6 class="text-dark fw-bold text-uppercase mb-3 small" style="letter-spacing: 1px;">BOOKING STATUS</h6>
+
+                <div class="mb-4">
+                    <label class="text-muted small d-block mb-1">CURRENT STATUS</label>
+                    {% if booking.status == 'New' %}
+                        <span class="badge bg-danger fs-6 px-3 py-2 rounded-pill">New</span>
+                    {% elif booking.status == 'Contacted' %}
+                        <span class="badge bg-warning text-dark fs-6 px-3 py-2 rounded-pill">Contacted</span>
+                    {% elif booking.status == 'Confirmed' %}
+                        <span class="badge bg-info text-dark fs-6 px-3 py-2 rounded-pill">Confirmed</span>
+                    {% elif booking.status == 'Completed' %}
+                        <span class="badge bg-success fs-6 px-3 py-2 rounded-pill">Completed</span>
+                    {% else %}
+                        <span class="badge bg-secondary fs-6 px-3 py-2 rounded-pill">{{ booking.status }}</span>
+                    {% endif %}
+                </div>
+
+                <!-- Update Form -->
+                <form method="POST" action="{% url 'oneway_booking_detail' booking.id %}">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="id_status" class="form-label text-dark fw-bold small">Change Status</label>
+                        <select name="status" id="id_status" class="form-select text-dark fw-medium">
+                            {% for st_code, st_label in status_choices %}
+                                <option value="{{ st_code }}" {% if booking.status == st_code %}selected{% endif %}>{{ st_label }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-danger w-100 rounded-pill py-2 fw-bold">
+                        <i class="bi bi-save me-1"></i> Update Status
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

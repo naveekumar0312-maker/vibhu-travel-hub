@@ -1,7 +1,17 @@
 from urllib.parse import quote
 # pyrefly: ignore [missing-import]
 from django.shortcuts import redirect, render
-from .models import Enquiry, Vehicle, OutstationRoute, NewsletterSubscriber
+from .models import (
+    Enquiry,
+    Vehicle,
+    OutstationRoute,
+    NewsletterSubscriber,
+    PartnerEnquiry,
+    FleetPartnerInquiry,
+    City,
+    OneWayFare,
+    OneWayBooking,
+)
 # pyrefly: ignore [missing-import]
 from django.http import HttpResponse, JsonResponse
 # pyrefly: ignore [missing-import]
@@ -236,11 +246,12 @@ def city_detail_view(request, state_slug, city_slug):
     })
 
 def tourist_place_detail_view(request, state_slug, city_slug, place_slug):
-    place_data = TOURIST_PLACES_SEO_DATA.get(place_slug)
-    if not place_data:
-        raise Http404("Tourist place page not found")
-    if place_data.get('state_slug') != state_slug or place_data.get('city_slug') != city_slug:
-        raise Http404("Tourist place location mismatch")
+    place_data = get_place_seo_data(place_slug)
+    if not place_data.get('state_slug'):
+        place_data['state_slug'] = state_slug
+    if not place_data.get('city_slug'):
+        place_data['city_slug'] = city_slug
+
     vehicles = Vehicle.objects.filter(is_active=True).order_by('display_order')
     return render(request, 'destinations/tourist_place_detail.html', {
         'place_data': place_data,
@@ -296,4 +307,619 @@ def newsletter_subscribe(request):
         return JsonResponse({"status": "success", "message": "You have successfully subscribed to Vibhu Travel Hub. We'll keep you updated with our latest travel offers and updates."})
         
     return JsonResponse({"status": "error", "message": "Invalid request."})
+
+
+def fleet_partner_view(request):
+    vehicles = Vehicle.objects.filter(is_active=True).order_by('display_order')
+    return render(request, "website/fleet_partner.html", {
+        "vehicles": vehicles,
+    })
+
+
+def api_submit_fleet_partner(request):
+    if request.method == "POST":
+        from .models import PartnerEnquiry, FleetPartnerInquiry
+        try:
+            full_name = (request.POST.get('full_name') or request.POST.get('name') or '').strip()
+            mobile_number = (request.POST.get('mobile_number') or request.POST.get('mobile') or '').strip()
+            email = request.POST.get('email', '').strip()
+            city = request.POST.get('city', '').strip()
+            vehicle_type = request.POST.get('vehicle_type', '').strip()
+            vehicle_count = request.POST.get('vehicle_count', '').strip()
+            vehicle_details = request.POST.get('vehicle_details', '').strip()
+            preferred_service = (request.POST.get('preferred_service') or request.POST.get('service_type') or '').strip()
+            message = request.POST.get('message', '').strip()
+
+            # Backend Validation
+            if not all([full_name, mobile_number, city, vehicle_type, vehicle_count, preferred_service]):
+                return JsonResponse({
+                    'status': 'error',
+                    'message': 'Please fill in all required fields marked with *.'
+                }, status=400)
+
+            # Create PartnerEnquiry
+            partner_enquiry = PartnerEnquiry.objects.create(
+                full_name=full_name,
+                mobile_number=mobile_number,
+                email=email,
+                city=city,
+                vehicle_type=vehicle_type,
+                vehicle_count=vehicle_count,
+                vehicle_details=vehicle_details,
+                preferred_service=preferred_service,
+                message=message,
+                status="New",
+            )
+
+            # Also create FleetPartnerInquiry for backward compatibility
+            try:
+                FleetPartnerInquiry.objects.create(
+                    name=full_name,
+                    mobile=mobile_number,
+                    email=email,
+                    city=city,
+                    vehicle_count=vehicle_count,
+                    vehicle_type=vehicle_type,
+                    service_type=preferred_service,
+                    message=message,
+                    status="New",
+                )
+            except Exception:
+                pass
+
+            return JsonResponse({
+                'status': 'success',
+                'message': 'Thank you for your interest in partnering with Vibhu Travel Hub. Our team will contact you shortly.',
+                'inquiry_id': str(partner_enquiry.id),
+            })
+        except Exception:
+            return JsonResponse({
+                'status': 'error',
+                'message': 'An error occurred while submitting your enquiry. Please try again.'
+            }, status=500)
+
+    return JsonResponse({'status': 'error', 'message': 'Invalid request method.'}, status=405)
+
+
+def book_cab(request):
+    vehicles = Vehicle.objects.filter(is_active=True).order_by('display_order')
+    if request.method == "POST":
+        try:
+            name = (request.POST.get('name') or request.POST.get('full_name') or '').strip()
+            phone = (request.POST.get('phone') or request.POST.get('mobile_number') or '').strip()
+            email = request.POST.get('email', '').strip()
+            pickup = request.POST.get('pickup', '').strip()
+            drop = request.POST.get('drop', '').strip()
+            travel_date = request.POST.get('travel_date')
+            travel_time = request.POST.get('travel_time', '').strip()
+            vehicle_type = request.POST.get('vehicle_type', '').strip()
+            passengers = request.POST.get('passengers', '').strip()
+            trip_type = request.POST.get('trip_type', '').strip()
+            message = request.POST.get('message', '').strip()
+
+            if not all([name, phone, pickup, drop, travel_date, vehicle_type]):
+                return JsonResponse({'status': 'error', 'message': 'Please fill in all required fields marked with *.'}, status=400)
+
+            details_parts = []
+            if trip_type: details_parts.append(f"Trip Type: {trip_type}")
+            if vehicle_type: details_parts.append(f"Vehicle: {vehicle_type}")
+            if passengers: details_parts.append(f"Passengers: {passengers}")
+            if travel_time: details_parts.append(f"Time: {travel_time}")
+            if message: details_parts.append(f"Notes: {message}")
+
+            details_str = " | ".join(details_parts)
+
+            enquiry = Enquiry.objects.create(
+                name=name,
+                phone=phone,
+                email=email,
+                pickup=pickup,
+                drop=drop,
+                destination=drop,
+                travel_date=travel_date,
+                message=details_str,
+            )
+
+            return JsonResponse({
+                'status': 'success',
+                'message': 'Thank you! Your cab booking request has been submitted successfully. Our team will contact you shortly.',
+                'booking_id': str(enquiry.id),
+            })
+        except Exception as e:
+            return JsonResponse({'status': 'error', 'message': f'Server Error: {str(e)}'}, status=500)
+
+    return render(request, "website/book_cab.html", {'vehicles': vehicles})
+
+
+def book_cab_one_way(request):
+    import json
+    vehicles = Vehicle.objects.filter(is_active=True).order_by('display_order')
+    cities = City.objects.filter(is_active=True).order_by('name')
+    fares = OneWayFare.objects.filter(is_active=True).order_by('from_city', 'to_city')
+
+    origin_order = ['Coimbatore', 'Trichy', 'Karur', 'Tirupur', 'Salem', 'Erode']
+    fares_by_from_city = {}
+    fare_lookup = {}
+    for fare_item in fares:
+        from_c = fare_item.from_city.strip()
+        fares_by_from_city.setdefault(from_c, []).append(fare_item)
+        key = f"{from_c.lower()}___{fare_item.to_city.strip().lower()}"
+        fare_lookup[key] = float(fare_item.fare)
+
+    # Reorder according to specified origins list
+    ordered_fares_by_city = []
+    for origin in origin_order:
+        matching_fares = fares_by_from_city.get(origin, [])
+        ordered_fares_by_city.append({
+            'origin': origin,
+            'fares': matching_fares
+        })
+
+    if request.method == "POST":
+        try:
+            name = (request.POST.get('name') or request.POST.get('full_name') or '').strip()
+            email = request.POST.get('email', '').strip()
+            mobile = (request.POST.get('mobile') or request.POST.get('mobile_number') or request.POST.get('phone') or '').strip()
+            pickup_date = request.POST.get('pickup_date') or request.POST.get('travel_date')
+            pickup_time = (request.POST.get('pickup_time') or request.POST.get('travel_time') or '').strip()
+            pickup_city = (request.POST.get('pickup_city') or request.POST.get('pickup') or '').strip()
+            drop_city = (request.POST.get('drop_off_city') or request.POST.get('drop_city') or request.POST.get('drop') or '').strip()
+            comments = (request.POST.get('comments') or request.POST.get('message') or '').strip()
+            captcha_val = (request.POST.get('captcha') or '').strip()
+
+            if not all([name, email, mobile, pickup_date, pickup_time, pickup_city, drop_city]):
+                return JsonResponse({'status': 'error', 'message': 'Please fill in all required fields marked with *.'}, status=400)
+
+            if captcha_val != "12":
+                return JsonResponse({'status': 'error', 'message': 'Incorrect CAPTCHA answer. Please solve 7 + 5.'}, status=400)
+
+            # Create OneWayBooking
+            booking = OneWayBooking.objects.create(
+                name=name,
+                email=email,
+                mobile=mobile,
+                pickup_date=pickup_date,
+                pickup_time=pickup_time,
+                pickup_city=pickup_city,
+                drop_city=drop_city,
+                comments=comments,
+                status="New"
+            )
+
+            # Create compatibility Enquiry
+            try:
+                Enquiry.objects.create(
+                    name=name,
+                    phone=mobile,
+                    email=email,
+                    pickup=pickup_city,
+                    drop=drop_city,
+                    destination=drop_city,
+                    travel_date=pickup_date,
+                    message=f"One Way Cab Booking | Time: {pickup_time} | Comments: {comments}",
+                    status="New"
+                )
+            except Exception:
+                pass
+
+            return JsonResponse({
+                'status': 'success',
+                'title': 'Your one-way cab booking request has been received.',
+                'message': 'Thank you for choosing Vibhu Travel Hub. Our team will contact you shortly.',
+                'booking_id': str(booking.id)
+            })
+        except Exception as e:
+            return JsonResponse({'status': 'error', 'message': f'Server Error: {str(e)}'}, status=500)
+
+    context = {
+        'vehicles': vehicles,
+        'cities': cities,
+        'fares': fares,
+        'ordered_fares_by_city': ordered_fares_by_city,
+        'fare_lookup_json': json.dumps(fare_lookup),
+    }
+    return render(request, "book_cab/one_way.html", context)
+
+
+
+
+def book_cab_round_trip(request):
+    from .models import RoundTripBooking, RoundTripFare, City, Enquiry, Vehicle
+    from datetime import datetime
+
+    vehicles = Vehicle.objects.filter(is_active=True).order_by('display_order')
+    cities = City.objects.filter(is_active=True).order_by('name')
+
+    # Seed initial RoundTripFare data if table is empty
+    if not RoundTripFare.objects.exists():
+        initial_fares = [
+            # Coimbatore
+            ("Coimbatore", "Ooty-Coonoor-Kotagiri", "250Km", "18Hrs", "Rs.4525/-*", "Rs.4275/-*", 1),
+            ("Coimbatore", "Kodaikanal", "350Km", "24Hrs", "Rs.6250/-*", "Rs.5850/-*", 2),
+            ("Coimbatore", "Munnar", "320Km", "24Hrs", "Rs.5800/-*", "Rs.5400/-*", 3),
+            ("Coimbatore", "Madurai", "440Km", "24Hrs", "Rs.7200/-*", "Rs.6800/-*", 4),
+            ("Coimbatore", "Mysore-Bangalore", "700Km", "48Hrs", "Rs.11500/-*", "Rs.10800/-*", 5),
+            # Chennai
+            ("Chennai", "Pondicherry", "320Km", "24Hrs", "Rs.5200/-*", "Rs.4800/-*", 1),
+            ("Chennai", "Tirupati", "300Km", "24Hrs", "Rs.4900/-*", "Rs.4500/-*", 2),
+            ("Chennai", "Mahabalipuram", "120Km", "12Hrs", "Rs.2800/-*", "Rs.2500/-*", 3),
+            ("Chennai", "Vellore", "280Km", "18Hrs", "Rs.4500/-*", "Rs.4200/-*", 4),
+            # Trichy
+            ("Trichy", "Tanjore-Kumbakonam", "200Km", "18Hrs", "Rs.3800/-*", "Rs.3500/-*", 1),
+            ("Trichy", "Velankanni", "300Km", "24Hrs", "Rs.4900/-*", "Rs.4600/-*", 2),
+            ("Trichy", "Rameswaram", "480Km", "36Hrs", "Rs.7800/-*", "Rs.7200/-*", 3),
+            # Madurai
+            ("Madurai", "Rameswaram-Dhanushkodi", "360Km", "24Hrs", "Rs.5900/-*", "Rs.5500/-*", 1),
+            ("Madurai", "Kanyakumari", "490Km", "36Hrs", "Rs.7900/-*", "Rs.7300/-*", 2),
+            ("Madurai", "Kodaikanal", "240Km", "18Hrs", "Rs.4400/-*", "Rs.4100/-*", 3),
+            # Erode
+            ("Erode", "Yercaud", "220Km", "18Hrs", "Rs.3900/-*", "Rs.3600/-*", 1),
+            ("Erode", "Ooty", "300Km", "24Hrs", "Rs.4900/-*", "Rs.4500/-*", 2),
+            ("Erode", "Coimbatore", "200Km", "12Hrs", "Rs.3200/-*", "Rs.2900/-*", 3),
+            # Salem
+            ("Salem", "Yercaud-Hogenakkal", "260Km", "18Hrs", "Rs.4300/-*", "Rs.3900/-*", 1),
+            ("Salem", "Bangalore", "420Km", "24Hrs", "Rs.6800/-*", "Rs.6300/-*", 2),
+            ("Salem", "Ooty", "440Km", "36Hrs", "Rs.7200/-*", "Rs.6700/-*", 3),
+            # Tirupur
+            ("Tirupur", "Valparai-Topslip", "280Km", "24Hrs", "Rs.4800/-*", "Rs.4400/-*", 1),
+            ("Tirupur", "Ooty-Coonoor", "280Km", "24Hrs", "Rs.4800/-*", "Rs.4400/-*", 2),
+            ("Tirupur", "Kodaikanal", "340Km", "24Hrs", "Rs.5900/-*", "Rs.5500/-*", 3),
+            # Pollachi
+            ("Pollachi", "Topslip-Parambikulam", "160Km", "14Hrs", "Rs.3200/-*", "Rs.2900/-*", 1),
+            ("Pollachi", "Valparai-Athirapally", "280Km", "24Hrs", "Rs.4900/-*", "Rs.4500/-*", 2),
+            ("Pollachi", "Munnar", "240Km", "18Hrs", "Rs.4300/-*", "Rs.3900/-*", 3),
+            # Karur
+            ("Karur", "Namakkal-Kolli Hills", "220Km", "18Hrs", "Rs.3900/-*", "Rs.3600/-*", 1),
+            ("Karur", "Madurai", "300Km", "24Hrs", "Rs.4900/-*", "Rs.4500/-*", 2),
+            ("Karur", "Kodaikanal", "360Km", "24Hrs", "Rs.6000/-*", "Rs.5600/-*", 3),
+            # Tirunelveli
+            ("Tirunelveli", "Courtallam-Tenkasi", "180Km", "14Hrs", "Rs.3400/-*", "Rs.3100/-*", 1),
+            ("Tirunelveli", "Kanyakumari-Trivandrum", "320Km", "24Hrs", "Rs.5400/-*", "Rs.4900/-*", 2),
+            ("Tirunelveli", "Mundanthurai-Manimuthar", "160Km", "12Hrs", "Rs.3100/-*", "Rs.2800/-*", 3),
+        ]
+        for f_city, pl, dist, dur, sed, mini, ord_val in initial_fares:
+            RoundTripFare.objects.create(
+                from_city=f_city,
+                place=pl,
+                distance_km=dist,
+                trip_duration=dur,
+                sedan_fare=sed,
+                mini_fare=mini,
+                display_order=ord_val
+            )
+
+    origin_order = ['Coimbatore', 'Chennai', 'Trichy', 'Madurai', 'Erode', 'Salem', 'Tirupur', 'Pollachi', 'Karur', 'Tirunelveli']
+    all_fares = RoundTripFare.objects.filter(is_active=True).order_by('from_city', 'display_order')
+    
+    fares_by_from_city = {}
+    for fare_item in all_fares:
+        from_c = fare_item.from_city.strip()
+        fares_by_from_city.setdefault(from_c, []).append(fare_item)
+
+    ordered_fares_by_city = []
+    for origin in origin_order:
+        matching_fares = fares_by_from_city.get(origin, [])
+        ordered_fares_by_city.append({
+            'origin': origin,
+            'fares': matching_fares
+        })
+
+    if request.method == "POST":
+        try:
+            name = (request.POST.get('name') or request.POST.get('full_name') or '').strip()
+            email = request.POST.get('email', '').strip()
+            mobile = (request.POST.get('mobile') or request.POST.get('mobile_number') or request.POST.get('phone') or '').strip()
+            pickup_city = (request.POST.get('pickup_city') or request.POST.get('pickup') or '').strip()
+            pickup_date = request.POST.get('pickup_date') or request.POST.get('departure_date')
+            pickup_time = (request.POST.get('pickup_time') or request.POST.get('departure_time') or '').strip()
+            dropoff_date = request.POST.get('dropoff_date') or request.POST.get('drop_off_date') or request.POST.get('return_date')
+            dropoff_time = (request.POST.get('dropoff_time') or request.POST.get('drop_off_time') or request.POST.get('return_time') or '').strip()
+            comments = (request.POST.get('comments') or request.POST.get('message') or '').strip()
+            captcha_verified = (request.POST.get('captcha_verified') or '').strip()
+
+            if not all([name, email, mobile, pickup_city, pickup_date, pickup_time, dropoff_date, dropoff_time]):
+                return JsonResponse({'status': 'error', 'message': 'Please fill in all required fields marked with *.'}, status=400)
+
+            if captcha_verified not in ['1', 'true', 'yes', 'on']:
+                return JsonResponse({'status': 'error', 'message': 'Please verify that you are not a robot.'}, status=400)
+
+            # Date validation: dropoff_date cannot be earlier than pickup_date
+            try:
+                p_date_obj = datetime.strptime(pickup_date, '%Y-%m-%d').date()
+                d_date_obj = datetime.strptime(dropoff_date, '%Y-%m-%d').date()
+                if d_date_obj < p_date_obj:
+                    return JsonResponse({'status': 'error', 'message': 'Drop-off date cannot be earlier than Pickup date.'}, status=400)
+            except Exception:
+                pass
+
+            # Create RoundTripBooking
+            booking = RoundTripBooking.objects.create(
+                name=name,
+                email=email,
+                mobile=mobile,
+                pickup_city=pickup_city,
+                pickup_date=pickup_date,
+                pickup_time=pickup_time,
+                dropoff_date=dropoff_date,
+                dropoff_time=dropoff_time,
+                comments=comments,
+                status="Pending"
+            )
+
+            # Compatibility Enquiry
+            try:
+                Enquiry.objects.create(
+                    name=name,
+                    phone=mobile,
+                    email=email,
+                    pickup=pickup_city,
+                    drop=f"Round Trip ({pickup_city})",
+                    destination=f"Round Trip ({pickup_city})",
+                    travel_date=pickup_date,
+                    message=f"Round Trip Cab Booking | Return: {dropoff_date} {dropoff_time} | Pick Time: {pickup_time} | Comments: {comments}",
+                    status="New"
+                )
+            except Exception:
+                pass
+
+            return JsonResponse({
+                'status': 'success',
+                'title': 'Your round trip booking request has been received.',
+                'message': 'Your round trip booking request has been submitted successfully. Our team will contact you shortly.',
+                'booking_id': str(booking.id)
+            })
+        except Exception as e:
+            return JsonResponse({'status': 'error', 'message': f'Server Error: {str(e)}'}, status=500)
+
+    context = {
+        'vehicles': vehicles,
+        'cities': cities,
+        'ordered_fares_by_city': ordered_fares_by_city,
+    }
+    return render(request, "book_cab/round_trip.html", context)
+
+
+def book_cab_hourly(request):
+    from .models import HourlyRentalFare, City, Enquiry, Vehicle
+
+    vehicles = Vehicle.objects.filter(is_active=True).order_by('display_order')
+
+    # Seed initial HourlyRentalFare dataset for 1 through 12 Hours if empty
+    if not HourlyRentalFare.objects.exists():
+        initial_fares = [
+            # Coimbatore Sedan / Hatchback (1 to 12 Hours)
+            ("Coimbatore", "Sedan / Hatchback", 1, 378.00, 10, 17.00, 2.00),
+            ("Coimbatore", "Sedan / Hatchback", 2, 750.00, 20, 17.00, 2.00),
+            ("Coimbatore", "Sedan / Hatchback", 3, 1100.00, 30, 17.00, 2.00),
+            ("Coimbatore", "Sedan / Hatchback", 4, 1450.00, 40, 17.00, 2.00),
+            ("Coimbatore", "Sedan / Hatchback", 5, 1800.00, 50, 17.00, 2.00),
+            ("Coimbatore", "Sedan / Hatchback", 6, 2150.00, 60, 17.00, 2.00),
+            ("Coimbatore", "Sedan / Hatchback", 7, 2500.00, 70, 17.00, 2.00),
+            ("Coimbatore", "Sedan / Hatchback", 8, 2850.00, 80, 17.00, 2.00),
+            ("Coimbatore", "Sedan / Hatchback", 9, 3200.00, 90, 17.00, 2.00),
+            ("Coimbatore", "Sedan / Hatchback", 10, 3550.00, 100, 17.00, 2.00),
+            ("Coimbatore", "Sedan / Hatchback", 11, 3900.00, 110, 17.00, 2.00),
+            ("Coimbatore", "Sedan / Hatchback", 12, 4250.00, 120, 17.00, 2.00),
+
+            # Coimbatore SUV / MUV (1 to 12 Hours)
+            ("Coimbatore", "SUV / MUV", 1, 550.00, 10, 20.00, 3.00),
+            ("Coimbatore", "SUV / MUV", 2, 1050.00, 20, 20.00, 3.00),
+            ("Coimbatore", "SUV / MUV", 3, 1550.00, 30, 20.00, 3.00),
+            ("Coimbatore", "SUV / MUV", 4, 2050.00, 40, 20.00, 3.00),
+            ("Coimbatore", "SUV / MUV", 5, 2550.00, 50, 20.00, 3.00),
+            ("Coimbatore", "SUV / MUV", 6, 3050.00, 60, 20.00, 3.00),
+            ("Coimbatore", "SUV / MUV", 7, 3550.00, 70, 20.00, 3.00),
+            ("Coimbatore", "SUV / MUV", 8, 4050.00, 80, 20.00, 3.00),
+            ("Coimbatore", "SUV / MUV", 9, 4550.00, 90, 20.00, 3.00),
+            ("Coimbatore", "SUV / MUV", 10, 5050.00, 100, 20.00, 3.00),
+            ("Coimbatore", "SUV / MUV", 11, 5550.00, 110, 20.00, 3.00),
+            ("Coimbatore", "SUV / MUV", 12, 6050.00, 120, 20.00, 3.00),
+
+            # Chennai
+            ("Chennai", "Sedan / Hatchback", 1, 450.00, 10, 18.00, 2.50),
+            ("Chennai", "Sedan / Hatchback", 2, 850.00, 20, 18.00, 2.50),
+            ("Chennai", "Sedan / Hatchback", 4, 1650.00, 40, 18.00, 2.50),
+            ("Chennai", "Sedan / Hatchback", 8, 3150.00, 80, 18.00, 2.50),
+            ("Chennai", "Sedan / Hatchback", 12, 4500.00, 120, 18.00, 2.50),
+
+            # Trichy
+            ("Trichy", "Sedan / Hatchback", 1, 350.00, 10, 16.00, 2.00),
+            ("Trichy", "Sedan / Hatchback", 2, 700.00, 20, 16.00, 2.00),
+            ("Trichy", "Sedan / Hatchback", 4, 1350.00, 40, 16.00, 2.00),
+            ("Trichy", "Sedan / Hatchback", 8, 2500.00, 80, 16.00, 2.00),
+            ("Trichy", "Sedan / Hatchback", 12, 3700.00, 120, 16.00, 2.00),
+
+            # Madurai
+            ("Madurai", "Sedan / Hatchback", 1, 370.00, 10, 17.00, 2.00),
+            ("Madurai", "Sedan / Hatchback", 2, 720.00, 20, 17.00, 2.00),
+            ("Madurai", "Sedan / Hatchback", 4, 1400.00, 40, 17.00, 2.00),
+            ("Madurai", "Sedan / Hatchback", 8, 2650.00, 80, 17.00, 2.00),
+            ("Madurai", "Sedan / Hatchback", 12, 3850.00, 120, 17.00, 2.00),
+        ]
+        for c, v, h, bf, fkm, ekm, emin in initial_fares:
+            HourlyRentalFare.objects.create(
+                city=c,
+                vehicle_type=v,
+                hours=h,
+                base_fare=bf,
+                free_km=fkm,
+                extra_km_fare=ekm,
+                extra_minute_fare=emin
+            )
+
+    if request.method == "POST":
+        try:
+            name = (request.POST.get('name') or request.POST.get('full_name') or '').strip()
+            mobile = (request.POST.get('mobile') or request.POST.get('mobile_number') or request.POST.get('phone') or '').strip()
+            email = request.POST.get('email', '').strip()
+            pickup_city = (request.POST.get('pickup_city') or request.POST.get('pickup') or request.POST.get('city') or '').strip()
+            pickup_date = request.POST.get('pickup_date') or request.POST.get('travel_date')
+            pickup_time = (request.POST.get('pickup_time') or request.POST.get('start_time') or '').strip()
+            hours_package = (request.POST.get('hours') or request.POST.get('rental_duration') or '').strip()
+            vehicle_type = (request.POST.get('vehicle_type') or 'Sedan / Hatchback').strip()
+            comments = (request.POST.get('comments') or request.POST.get('message') or '').strip()
+            captcha_verified = (request.POST.get('captcha_verified') or '').strip()
+
+            if not all([name, mobile, pickup_city, pickup_date, hours_package]):
+                return JsonResponse({'status': 'error', 'message': 'Please fill in all required fields marked with *.'}, status=400)
+
+            if captcha_verified not in ['1', 'true', 'yes', 'on']:
+                return JsonResponse({'status': 'error', 'message': 'Please verify that you are not a robot.'}, status=400)
+
+            details_parts = [
+                "Type: Hourly Cab Rental",
+                f"City: {pickup_city}",
+                f"Vehicle Type: {vehicle_type}",
+                f"Duration: {hours_package} Hours",
+            ]
+            if pickup_time: details_parts.append(f"Start Time: {pickup_time}")
+            if comments: details_parts.append(f"Notes: {comments}")
+
+            enquiry = Enquiry.objects.create(
+                name=name,
+                phone=mobile,
+                email=email,
+                pickup=pickup_city,
+                drop=f"Hourly Rental ({hours_package} Hrs - {vehicle_type})",
+                destination=f"Hourly Rental ({hours_package} Hrs)",
+                travel_date=pickup_date,
+                message=" | ".join(details_parts),
+                status="New"
+            )
+
+            return JsonResponse({
+                'status': 'success',
+                'title': 'Your Hourly Rental booking request has been received.',
+                'message': 'Thank you! Your Hourly Cab Rental request has been submitted successfully. Our team will contact you shortly.',
+                'booking_id': str(enquiry.id)
+            })
+        except Exception as e:
+            return JsonResponse({'status': 'error', 'message': f'Server Error: {str(e)}'}, status=500)
+
+    # GET Filter parameters
+    selected_city = request.GET.get('city', '').strip()
+    selected_vehicle = request.GET.get('vehicle_type', '').strip()
+    selected_hours = request.GET.get('hours', '').strip()
+    filter_submitted = 'city' in request.GET or 'vehicle_type' in request.GET or 'hours' in request.GET
+
+    filter_error = None
+    if filter_submitted:
+        if not selected_city or not selected_vehicle or not selected_hours:
+            filter_error = "Please select City, Vehicle Type, and Hours to search hourly rental fares."
+
+    fares_qs = HourlyRentalFare.objects.filter(is_active=True)
+
+    if selected_city:
+        fares_qs = fares_qs.filter(city__iexact=selected_city)
+    if selected_vehicle:
+        fares_qs = fares_qs.filter(vehicle_type__iexact=selected_vehicle)
+    if selected_hours and selected_hours.isdigit():
+        fares_qs = fares_qs.filter(hours=int(selected_hours))
+
+    # Available Filter Dropdown Data
+    active_cities_db = list(City.objects.filter(is_active=True).values_list('name', flat=True))
+    fare_cities_db = list(HourlyRentalFare.objects.filter(is_active=True).values_list('city', flat=True).distinct())
+    combined_cities = sorted(list(set(active_cities_db + fare_cities_db)))
+
+    vehicle_categories = [
+        "Sedan / Hatchback",
+        "SUV / MUV",
+        "Tempo Traveller",
+        "Luxury Bus"
+    ]
+
+    hours_options = [(i, f"{i} Hour" if i == 1 else f"{i} Hours") for i in range(1, 13)]
+
+    context = {
+        'vehicles': vehicles,
+        'fares': fares_qs,
+        'cities': combined_cities,
+        'vehicle_categories': vehicle_categories,
+        'hours_options': hours_options,
+        'selected_city': selected_city,
+        'selected_vehicle': selected_vehicle,
+        'selected_hours': selected_hours,
+        'filter_error': filter_error,
+        'filter_submitted': filter_submitted,
+        'filtered_count': fares_qs.count(),
+    }
+    return render(request, "book_cab/hourly_rental.html", context)
+
+
+def book_cab_bulk(request):
+    from .models import BulkBooking, City, Enquiry, Vehicle
+
+    vehicles = Vehicle.objects.filter(is_active=True).order_by('display_order')
+    cities = City.objects.filter(is_active=True).order_by('name')
+
+    if request.method == "POST":
+        try:
+            name = (request.POST.get('name') or request.POST.get('full_name') or '').strip()
+            email = request.POST.get('email', '').strip()
+            mobile = (request.POST.get('mobile_number') or request.POST.get('mobile') or request.POST.get('phone') or '').strip()
+            pickup_date = request.POST.get('pickup_date') or request.POST.get('travel_date')
+            pickup_city = (request.POST.get('pickup_city') or request.POST.get('city') or request.POST.get('pickup') or '').strip()
+            comments = (request.POST.get('comments') or request.POST.get('message') or '').strip()
+            captcha_verified = (request.POST.get('captcha_verified') or '').strip()
+
+            if not all([name, email, mobile, pickup_date, pickup_city]):
+                return JsonResponse({'status': 'error', 'message': 'Please fill in all required fields marked with *.'}, status=400)
+
+            if captcha_verified not in ['1', 'true', 'yes', 'on']:
+                return JsonResponse({'status': 'error', 'message': 'Please verify that you are not a robot.'}, status=400)
+
+            # Create BulkBooking in database
+            booking = BulkBooking.objects.create(
+                name=name,
+                email=email,
+                mobile_number=mobile,
+                pickup_date=pickup_date,
+                pickup_city=pickup_city,
+                comments=comments,
+                status="New"
+            )
+
+            # Compatibility Enquiry
+            try:
+                Enquiry.objects.create(
+                    name=name,
+                    phone=mobile,
+                    email=email,
+                    pickup=pickup_city,
+                    drop=f"Bulk Booking ({pickup_city})",
+                    destination=f"Bulk Booking ({pickup_city})",
+                    travel_date=pickup_date,
+                    message=f"Bulk Booking Request | Date: {pickup_date} | City: {pickup_city} | Comments: {comments}",
+                    status="New"
+                )
+            except Exception:
+                pass
+
+            return JsonResponse({
+                'status': 'success',
+                'title': 'Your bulk booking request has been received.',
+                'message': 'Your bulk booking request has been submitted successfully. Our team will contact you shortly.',
+                'booking_id': str(booking.id)
+            })
+        except Exception as e:
+            return JsonResponse({'status': 'error', 'message': f'Server Error: {str(e)}'}, status=500)
+
+    context = {
+        'vehicles': vehicles,
+        'cities': cities,
+    }
+    return render(request, "book_cab/bulk_booking.html", context)
+
+
+# Aliases for backward compatibility
+one_way_trip = book_cab_one_way
+round_trip = book_cab_round_trip
+hourly_rental = book_cab_hourly
+bulk_booking = book_cab_bulk
+
+
+
+
+
+
 
