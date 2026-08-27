@@ -5,12 +5,14 @@ from .models import (
     Enquiry,
     Vehicle,
     OutstationRoute,
-    NewsletterSubscriber,
     PartnerEnquiry,
     FleetPartnerInquiry,
     City,
     OneWayFare,
     OneWayBooking,
+    RoundTripBooking,
+    BulkBooking,
+    HourlyRentalBooking,
 )
 # pyrefly: ignore [missing-import]
 from django.http import HttpResponse, JsonResponse
@@ -194,7 +196,7 @@ def api_submit_enquiry(request):
             
     return JsonResponse({'status': 'error', 'message': 'Invalid request method.'}, status=405)
 
-from .models import Enquiry, Vehicle, OutstationRoute, NewsletterSubscriber, CitySEO
+from .models import Enquiry, Vehicle, OutstationRoute, CitySEO
 from .seo_utils import STATES_SEO_DATA, CITIES_SEO_DATA, TOURIST_PLACES_SEO_DATA, get_place_seo_data
 # pyrefly: ignore [missing-import]
 from django.http import Http404
@@ -263,48 +265,6 @@ def airport_transfer_service(request):
     return render(request, 'services/airport_transfer.html', {
         'vehicles': vehicles,
     })
-
-def newsletter_subscribe(request):
-    if request.method == "POST":
-        name = request.POST.get("name", "").strip()
-        email = request.POST.get("email", "").strip()
-
-        if not name or not email:
-            return JsonResponse({"status": "error", "message": "Name and email are required."})
-        
-        # Check if already subscribed
-        if NewsletterSubscriber.objects.filter(email__iexact=email).exists():
-            return JsonResponse({"status": "error", "message": "This email address is already subscribed."})
-        
-        # Create subscriber
-        subscriber = NewsletterSubscriber.objects.create(name=name, email=email)
-        
-        # Send email to admin
-        try:
-            admin_email = getattr(settings, 'ADMIN_NOTIFICATION_EMAIL', settings.DEFAULT_FROM_EMAIL)
-            send_mail(
-                subject="New Newsletter Subscriber – Vibhu Travel Hub",
-                message=f"Hello Admin,\n\nYou have received a new newsletter subscription.\n\nSubscriber Details\n------------------\nName: {name}\nEmail: {email}\nSubscribed At: {subscriber.subscribed_at.strftime('%d %B %Y, %I:%M %p')}\n\nPlease review the subscriber from the Vibhu Travel Hub Admin Dashboard.\n\nRegards,\nVibhu Travel Hub\nPremium Travel Services",
-                from_email=settings.DEFAULT_FROM_EMAIL,
-                recipient_list=[admin_email],
-                fail_silently=True
-            )
-        except Exception:
-            pass
-            
-        # Send welcome email to subscriber
-        try:
-            send_mail(
-                subject="Welcome to Vibhu Travel Hub",
-                message=f"Hello {name},\n\nThank you for subscribing to Vibhu Travel Hub.\n\nYou are now connected with us and will receive updates about our latest travel services, destinations and offers.\n\nWe look forward to helping you plan your next journey.\n\nRegards,\nVibhu Travel Hub\nPremium Travel Services",
-                from_email=settings.DEFAULT_FROM_EMAIL,
-                recipient_list=[email],
-                fail_silently=True
-            )
-        except Exception:
-            pass
-            
-        return JsonResponse({"status": "success", "message": "You have successfully subscribed to Vibhu Travel Hub. We'll keep you updated with our latest travel offers and updates."})
         
     return JsonResponse({"status": "error", "message": "Invalid request."})
 
@@ -465,13 +425,9 @@ def book_cab_one_way(request):
             pickup_city = (request.POST.get('pickup_city') or request.POST.get('pickup') or '').strip()
             drop_city = (request.POST.get('drop_off_city') or request.POST.get('drop_city') or request.POST.get('drop') or '').strip()
             comments = (request.POST.get('comments') or request.POST.get('message') or '').strip()
-            captcha_val = (request.POST.get('captcha') or '').strip()
 
             if not all([name, email, mobile, pickup_date, pickup_time, pickup_city, drop_city]):
                 return JsonResponse({'status': 'error', 'message': 'Please fill in all required fields marked with *.'}, status=400)
-
-            if captcha_val != "12":
-                return JsonResponse({'status': 'error', 'message': 'Incorrect CAPTCHA answer. Please solve 7 + 5.'}, status=400)
 
             # Create OneWayBooking
             booking = OneWayBooking.objects.create(
@@ -614,14 +570,13 @@ def book_cab_round_trip(request):
             pickup_time = (request.POST.get('pickup_time') or request.POST.get('departure_time') or '').strip()
             dropoff_date = request.POST.get('dropoff_date') or request.POST.get('drop_off_date') or request.POST.get('return_date')
             dropoff_time = (request.POST.get('dropoff_time') or request.POST.get('drop_off_time') or request.POST.get('return_time') or '').strip()
+            destination = (request.POST.get('destination') or request.POST.get('destination_city') or request.POST.get('drop_off_city') or request.POST.get('place') or '').strip()
+            vehicle_type = (request.POST.get('vehicle_type') or request.POST.get('car_type') or '').strip()
+            passengers = (request.POST.get('passengers') or request.POST.get('persons') or '').strip()
             comments = (request.POST.get('comments') or request.POST.get('message') or '').strip()
-            captcha_verified = (request.POST.get('captcha_verified') or '').strip()
 
             if not all([name, email, mobile, pickup_city, pickup_date, pickup_time, dropoff_date, dropoff_time]):
                 return JsonResponse({'status': 'error', 'message': 'Please fill in all required fields marked with *.'}, status=400)
-
-            if captcha_verified not in ['1', 'true', 'yes', 'on']:
-                return JsonResponse({'status': 'error', 'message': 'Please verify that you are not a robot.'}, status=400)
 
             # Date validation: dropoff_date cannot be earlier than pickup_date
             try:
@@ -638,12 +593,15 @@ def book_cab_round_trip(request):
                 email=email,
                 mobile=mobile,
                 pickup_city=pickup_city,
+                destination=destination,
                 pickup_date=pickup_date,
                 pickup_time=pickup_time,
                 dropoff_date=dropoff_date,
                 dropoff_time=dropoff_time,
+                vehicle_type=vehicle_type,
+                passengers=passengers,
                 comments=comments,
-                status="Pending"
+                status="New"
             )
 
             # Compatibility Enquiry
@@ -758,13 +716,9 @@ def book_cab_hourly(request):
             hours_package = (request.POST.get('hours') or request.POST.get('rental_duration') or '').strip()
             vehicle_type = (request.POST.get('vehicle_type') or 'Sedan / Hatchback').strip()
             comments = (request.POST.get('comments') or request.POST.get('message') or '').strip()
-            captcha_verified = (request.POST.get('captcha_verified') or '').strip()
 
             if not all([name, mobile, pickup_city, pickup_date, hours_package]):
                 return JsonResponse({'status': 'error', 'message': 'Please fill in all required fields marked with *.'}, status=400)
-
-            if captcha_verified not in ['1', 'true', 'yes', 'on']:
-                return JsonResponse({'status': 'error', 'message': 'Please verify that you are not a robot.'}, status=400)
 
             details_parts = [
                 "Type: Hourly Cab Rental",
@@ -775,7 +729,21 @@ def book_cab_hourly(request):
             if pickup_time: details_parts.append(f"Start Time: {pickup_time}")
             if comments: details_parts.append(f"Notes: {comments}")
 
-            enquiry = Enquiry.objects.create(
+            booking = HourlyRentalBooking.objects.create(
+                name=name,
+                mobile=mobile,
+                email=email,
+                pickup_city=pickup_city,
+                pickup_date=pickup_date,
+                pickup_time=pickup_time or '09:00 AM',
+                vehicle_type=vehicle_type,
+                hours=f"{hours_package} Hours" if str(hours_package).isdigit() else str(hours_package),
+                comments=comments,
+                status="New"
+            )
+
+            # Compatibility Enquiry
+            Enquiry.objects.create(
                 name=name,
                 phone=mobile,
                 email=email,
@@ -791,7 +759,7 @@ def book_cab_hourly(request):
                 'status': 'success',
                 'title': 'Your Hourly Rental booking request has been received.',
                 'message': 'Thank you! Your Hourly Cab Rental request has been submitted successfully. Our team will contact you shortly.',
-                'booking_id': str(enquiry.id)
+                'booking_id': booking.booking_id
             })
         except Exception as e:
             return JsonResponse({'status': 'error', 'message': f'Server Error: {str(e)}'}, status=500)
@@ -860,13 +828,9 @@ def book_cab_bulk(request):
             pickup_date = request.POST.get('pickup_date') or request.POST.get('travel_date')
             pickup_city = (request.POST.get('pickup_city') or request.POST.get('city') or request.POST.get('pickup') or '').strip()
             comments = (request.POST.get('comments') or request.POST.get('message') or '').strip()
-            captcha_verified = (request.POST.get('captcha_verified') or '').strip()
 
             if not all([name, email, mobile, pickup_date, pickup_city]):
                 return JsonResponse({'status': 'error', 'message': 'Please fill in all required fields marked with *.'}, status=400)
-
-            if captcha_verified not in ['1', 'true', 'yes', 'on']:
-                return JsonResponse({'status': 'error', 'message': 'Please verify that you are not a robot.'}, status=400)
 
             # Create BulkBooking in database
             booking = BulkBooking.objects.create(

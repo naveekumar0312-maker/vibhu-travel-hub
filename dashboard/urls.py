@@ -3,7 +3,6 @@ from django.urls import path, include
 from .views.auth_views import dashboard_login, dashboard_logout, dashboard_home
 from .views.enquiry_views import enquiry_list, enquiry_delete
 from .views.fleet_views import fleet_list, fleet_create, fleet_edit, fleet_delete
-from .views.subscriber_views import subscriber_list, subscriber_detail, subscriber_toggle, subscriber_delete
 from .views.user_views import user_list
 from .views.seo_views import seo_list, seo_edit
 
@@ -22,7 +21,9 @@ from .views.oneway_booking_views import (
 
 from .views.management_roundtrip_views import (
     management_roundtrip_list,
+    management_roundtrip_create,
     management_roundtrip_detail,
+    management_roundtrip_edit,
     management_roundtrip_status,
     management_roundtrip_delete,
 )
@@ -40,6 +41,15 @@ from .views.management_bulk_views import (
     management_bulk_status,
     management_bulk_edit,
     management_bulk_delete,
+)
+
+from .views.management_hourly_booking_views import (
+    management_hourly_booking_list,
+    management_hourly_booking_create,
+    management_hourly_booking_detail,
+    management_hourly_booking_edit,
+    management_hourly_booking_status,
+    management_hourly_booking_delete,
 )
 
 urlpatterns = [
@@ -62,11 +72,22 @@ urlpatterns = [
     
     # Round Trip Bookings Management
     path('round-trip/', management_roundtrip_list, name='management_roundtrip_list'),
+    path('round-trip/create/', management_roundtrip_create, name='management_roundtrip_create'),
     path('round-trip/<int:pk>/', management_roundtrip_detail, name='management_roundtrip_detail'),
+    path('round-trip/<int:pk>/edit/', management_roundtrip_edit, name='management_roundtrip_edit'),
     path('round-trip/<int:pk>/status/', management_roundtrip_status, name='management_roundtrip_status'),
     path('round-trip/<int:pk>/delete/', management_roundtrip_delete, name='management_roundtrip_delete'),
     path('dashboard/roundtrip-bookings/', management_roundtrip_list, name='management_roundtrip_list_alias'),
     path('dashboard/roundtrip-bookings/<int:pk>/', management_roundtrip_detail, name='management_roundtrip_detail_alias'),
+
+    # Hourly Rental Bookings Management
+    path('hourly-bookings/', management_hourly_booking_list, name='management_hourly_booking_list'),
+    path('hourly-bookings/create/', management_hourly_booking_create, name='management_hourly_booking_create'),
+    path('hourly-bookings/<int:pk>/', management_hourly_booking_detail, name='management_hourly_booking_detail'),
+    path('hourly-bookings/<int:pk>/edit/', management_hourly_booking_edit, name='management_hourly_booking_edit'),
+    path('hourly-bookings/<int:pk>/status/', management_hourly_booking_status, name='management_hourly_booking_status'),
+    path('hourly-bookings/<int:pk>/delete/', management_hourly_booking_delete, name='management_hourly_booking_delete'),
+    path('dashboard/hourly-bookings/', management_hourly_booking_list, name='management_hourly_booking_list_alias'),
 
     # Hourly Rental Pricing Management
     path('hourly-rental/', hourly_fare_list, name='management_hourly_fare_list'),
@@ -102,12 +123,6 @@ urlpatterns = [
     # City SEO
     path('dashboard/seo/', seo_list, name='dashboard_seo'),
     path('dashboard/seo/<int:city_id>/edit/', seo_edit, name='seo_edit'),
-    
-    # Subscribers
-    path('dashboard/subscribers/', subscriber_list, name='dashboard_subscribers'),
-    path('dashboard/subscribers/<int:sub_id>/', subscriber_detail, name='subscriber_detail'),
-    path('dashboard/subscribers/<int:sub_id>/toggle/', subscriber_toggle, name='subscriber_toggle'),
-    path('dashboard/subscribers/<int:sub_id>/delete/', subscriber_delete, name='subscriber_delete'),
     
     # Users
     path('dashboard/users/', user_list, name='dashboard_users'),

@@ -7,12 +7,14 @@ body {
 }
 
 .site-header {
-    position: relative;
-    z-index: 1000;
+    position: sticky !important;
+    top: 0 !important;
+    left: 0;
     width: 100%;
+    z-index: 1000;
     background: #FFFFFF !important;
     border-bottom: 1px solid #E2E8F0;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
 .vth-topbar {
@@ -31,6 +33,10 @@ body {
 
 .topbar-link:hover {
     color: #E31E24 !important;
+}
+
+.topbar-schedule {
+    color: #64748B !important;
 }
 
 .topbar-socials a {

@@ -555,3 +555,9 @@ body.enquiry-modal-open {
         padding: 12px 14px;
     }
 }
+
+/* Helpers */
+.max-w-900 { max-width: 900px; }
+.max-w-600 { max-width: 600px; }
+.bg-purple { background-color: #8B5CF6 !important; }
+

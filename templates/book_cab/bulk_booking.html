@@ -5,6 +5,11 @@
 {% block description %}Book bulk cabs, buses, and tempo travellers for corporate events, weddings, tours, and large group trips with Vibhu Travel Hub.{% endblock %}
 
 {% block extra_css %}
+<!-- Google Fonts for Cursive Script -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+
 <style>
     :root {
         --vth-red: #E31E24;
@@ -15,26 +20,31 @@
         --vth-border-gray: #e2e8f0;
     }
 
-    /* HERO BANNER */
-    .bulk-hero-banner {
-        position: relative;
-        width: 100%;
-        min-height: 260px;
-        height: 280px;
-        background: url("{% static 'images/destinations/bulk-booking.jpg' %}") no-repeat center right / cover;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
+    .vth-script-eyebrow {
+        font-family: 'Caveat', cursive, sans-serif;
+        color: #E31E24;
+        font-size: 1.8rem;
+        line-height: 1;
+        display: block;
+        margin-bottom: 0.3rem;
     }
-    .bulk-hero-overlay {
-        position: absolute;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
-        background: linear-gradient(135deg, rgba(227, 30, 36, 0.96) 0%, rgba(185, 20, 26, 0.90) 100%);
-        clip-path: polygon(0 0, 68% 0, 48% 100%, 0 100%);
-        z-index: 2;
+
+    /* HERO BANNER (MATCHING ABOUT US) */
+    .about-hero-section {
+        background: url("{% static 'images/destinations/bulk-booking.jpg' %}") no-repeat center right / cover;
+        position: relative;
+        min-height: 340px;
         display: flex;
         align-items: center;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .about-hero-overlay {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.88) 42%, rgba(255, 255, 255, 0.45) 75%, rgba(255, 255, 255, 0.15) 100%);
+        z-index: 1;
     }
     .bulk-hero-title {
         color: #ffffff;
@@ -173,76 +183,6 @@
         outline: none !important;
     }
 
-    /* CAPTCHA STYLING */
-    .captcha-card-box {
-        background-color: #ffffff;
-        border: 1px solid #d1d5db;
-        border-radius: 8px;
-        padding: 14px 18px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
-        transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-        user-select: none;
-    }
-
-    .captcha-card-box.has-error {
-        border-color: #dc3545 !important;
-        background-color: #fff8f8;
-    }
-
-    .captcha-card-box.verified {
-        border-color: #198754;
-        background-color: #f6fbf8;
-    }
-
-    .captcha-checkbox {
-        width: 22px;
-        height: 22px;
-        cursor: pointer;
-        accent-color: var(--vth-red);
-        border-radius: 4px;
-        margin: 0;
-    }
-
-    .captcha-text-label {
-        font-size: 14px;
-        font-weight: 600;
-        color: #222222;
-        cursor: pointer;
-        margin-bottom: 0;
-    }
-
-    .captcha-badge-info {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        color: #64748b;
-        line-height: 1;
-    }
-
-    .captcha-shield-icon {
-        font-size: 20px;
-        color: #94a3b8;
-        transition: color 0.25s ease, transform 0.25s ease;
-    }
-
-    .captcha-card-box.verified .captcha-shield-icon {
-        color: #198754;
-        transform: scale(1.1);
-    }
-
-    .captcha-badge-subtext {
-        font-size: 9px;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        margin-top: 3px;
-        color: #94a3b8;
-    }
-
     .btn-bulk-submit {
         background-color: var(--vth-red) !important;
         color: #ffffff !important;
@@ -293,23 +233,28 @@
 {% block content %}
 <main>
 
-    <!-- HERO BANNER -->
-    <section class="bulk-hero-banner">
-        <div class="bulk-hero-overlay">
-            <h1 class="bulk-hero-title">Bulk Booking</h1>
+    <!-- HERO SECTION (MATCHING ABOUT US) -->
+    <section class="about-hero-section py-5">
+        <div class="about-hero-overlay"></div>
+        <div class="container position-relative z-2">
+            <div class="row align-items-center">
+                <div class="col-lg-7 col-md-10 anim-fade-up">
+                    <span class="vth-script-eyebrow">Travel Together</span>
+                    <h1 class="fw-extrabold text-dark mb-3" style="font-size: 3.2rem; letter-spacing: -1.2px; line-height: 1.15;">Bulk Booking</h1>
+                    <p class="text-secondary mb-4" style="font-size: 1.05rem; line-height: 1.65; max-width: 540px; color: #475569;">
+                        Planning a group trip or corporate travel? We offer bulk booking solutions with the best vehicles, comfort and pricing.
+                    </p>
+                    <div class="d-flex align-items-center gap-2 text-muted small fw-medium">
+                        <a href="{% url 'home' %}" class="text-decoration-none text-muted">Home</a>
+                        <i class="bi bi-chevron-right" style="font-size: 0.75rem;"></i>
+                        <a href="{% url 'book_cab' %}" class="text-decoration-none text-muted">Book a Cab</a>
+                        <i class="bi bi-chevron-right" style="font-size: 0.75rem;"></i>
+                        <span class="text-danger fw-bold">Bulk Booking</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
-
-    <!-- BREADCRUMB BAR -->
-    <div class="bulk-breadcrumb-bar">
-        <div class="container px-3 px-sm-4">
-            <a href="{% url 'home' %}" class="bulk-breadcrumb-link">Home</a>
-            <span class="mx-2 text-muted">/</span>
-            <a href="{% url 'book_cab' %}" class="bulk-breadcrumb-link">Book a Trip</a>
-            <span class="mx-2 text-muted">/</span>
-            <span class="bulk-breadcrumb-active">Bulk Booking</span>
-        </div>
-    </div>
 
     <!-- MAIN SECTION -->
     <section class="bulk-page-section">
@@ -390,23 +335,6 @@
                             </div>
                         </div>
 
-                        <!-- Row 5: reCAPTCHA -->
-                        <div class="col-12">
-                            <div class="bulk-input-group">
-                                <div class="captcha-card-box" id="captchaBox">
-                                    <div class="d-flex align-items-center gap-3">
-                                        <input type="checkbox" id="id_captcha_check" name="captcha_verified" value="1" class="captcha-checkbox">
-                                        <label for="id_captcha_check" class="captcha-text-label">I'm not a robot</label>
-                                    </div>
-                                    <div class="captcha-badge-info">
-                                        <i class="bi bi-shield-check captcha-shield-icon"></i>
-                                        <span class="captcha-badge-subtext">reCAPTCHA</span>
-                                    </div>
-                                </div>
-                                <div class="text-danger small mt-1 d-none fw-bold" id="captchaErrMsg">Please verify that you are not a robot.</div>
-                            </div>
-                        </div>
-
                         <!-- Row 6: Submit Button (Right aligned on desktop) -->
                         <div class="col-12 text-md-end mt-3">
                             <button type="submit" id="bulkSubmitBtn" class="btn btn-bulk-submit">
@@ -439,22 +367,6 @@
 {% block extra_js %}
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    const captchaCheck = document.getElementById('id_captcha_check');
-    const captchaBox = document.getElementById('captchaBox');
-    const captchaErrMsg = document.getElementById('captchaErrMsg');
-
-    if (captchaCheck && captchaBox) {
-        captchaCheck.addEventListener('change', function() {
-            if (this.checked) {
-                captchaBox.classList.add('verified');
-                captchaBox.classList.remove('has-error');
-                if (captchaErrMsg) captchaErrMsg.classList.add('d-none');
-            } else {
-                captchaBox.classList.remove('verified');
-            }
-        });
-    }
-
     // Ajax Form Submission
     const bookingForm = document.getElementById('bulkBookingForm');
     const submitBtn = document.getElementById('bulkSubmitBtn');
@@ -467,21 +379,6 @@ document.addEventListener('DOMContentLoaded', function() {
         bookingForm.addEventListener('submit', function(e) {
             if (successAlert) successAlert.classList.add('d-none');
             if (errorAlert) errorAlert.classList.add('d-none');
-
-            // Validate CAPTCHA
-            if (captchaCheck && !captchaCheck.checked) {
-                e.preventDefault();
-                if (captchaBox) captchaBox.classList.add('has-error');
-                if (captchaErrMsg) captchaErrMsg.classList.remove('d-none');
-                if (errorAlert) {
-                    if (document.getElementById('errorMsg')) {
-                        document.getElementById('errorMsg').textContent = 'Please verify that you are not a robot.';
-                    }
-                    errorAlert.classList.remove('d-none');
-                }
-                captchaBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                return;
-            }
 
             e.preventDefault();
 
@@ -507,7 +404,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (data.status === 'success') {
                     bookingForm.reset();
                     bookingForm.style.display = 'none';
-                    if (captchaBox) captchaBox.classList.remove('verified', 'has-error');
 
                     if (data.title && document.getElementById('successTitle')) {
                         document.getElementById('successTitle').textContent = data.title;

@@ -3,70 +3,340 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Premium Admin</title>
+    <title>Admin Portal Login | Vibhu Travel Hub</title>
     
-    <!-- Bootstrap 5 -->
+    <!-- Favicon -->
+    <link rel="icon" type="image/webp" href="/static/images/logo/logo.webp">
+    
+    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-    <!-- Global Typography -->
-    <link rel="stylesheet" href="/static/css/typography.css?v=global-1">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/static/dashboard/css/dashboard.css">
-</head>
-<body class="login-bg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!-- Google Fonts: Outfit & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --vth-red: #E31E24;
+            --vth-red-hover: #b81419;
+            --vth-dark: #0F172A;
+            --glass-bg: rgba(15, 23, 42, 0.78);
+            --glass-border: rgba(255, 255, 255, 0.12);
+        }
 
-<div class="login-container">
-    <div class="glass-panel login-card text-center">
-        <!-- Brand -->
+        * {
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            background-color: var(--vth-dark);
+        }
+
+        /* Full Screen Background Container */
+        .login-wrapper {
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.88) 0%, rgba(15, 23, 42, 0.72) 100%),
+                        url('https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=1920&auto=format&fit=crop') no-repeat center center;
+            background-size: cover;
+            padding: 24px;
+        }
+
+        /* Ambient Glow Overlay */
+        .login-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(227, 30, 36, 0.25) 0%, rgba(0, 0, 0, 0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        /* Glassmorphism Card */
+        .admin-login-card {
+            width: 100%;
+            max-width: 440px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 40px 36px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            animation: cardSlideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            position: relative;
+            z-index: 10;
+        }
+
+        @keyframes cardSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Brand Title */
+        .brand-heading {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 1.5rem;
+            letter-spacing: -0.5px;
+            color: #FFFFFF;
+        }
+
+        .brand-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(227, 30, 36, 0.15);
+            border: 1px solid rgba(227, 30, 36, 0.3);
+            color: #FF6B6B;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            padding: 5px 14px;
+            border-radius: 30px;
+            text-uppercase: uppercase;
+        }
+
+        /* Input Controls */
+        .form-label-custom {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .input-group-custom {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.25s ease;
+        }
+
+        .input-group-custom:focus-within {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--vth-red);
+            box-shadow: 0 0 0 4px rgba(227, 30, 36, 0.2);
+        }
+
+        .input-group-icon {
+            color: rgba(255, 255, 255, 0.5);
+            padding-left: 16px;
+            display: flex;
+            align-items: center;
+        }
+
+        .form-control-custom {
+            background: transparent !important;
+            border: none !important;
+            color: #FFFFFF !important;
+            padding: 12px 16px;
+            font-size: 0.95rem;
+            box-shadow: none !important;
+        }
+
+        .form-control-custom::placeholder {
+            color: rgba(255, 255, 255, 0.35);
+        }
+
+        .btn-toggle-pw {
+            background: transparent;
+            border: none;
+            color: rgba(255, 255, 255, 0.5);
+            padding-right: 16px;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .btn-toggle-pw:hover {
+            color: #FFFFFF;
+        }
+
+        /* Checkbox & Links */
+        .custom-check .form-check-input {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.25);
+            cursor: pointer;
+        }
+
+        .custom-check .form-check-input:checked {
+            background-color: var(--vth-red);
+            border-color: var(--vth-red);
+        }
+
+        .custom-check .form-check-label {
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 0.85rem;
+            cursor: pointer;
+        }
+
+        .forgot-link {
+            color: #FF6B6B;
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .forgot-link:hover {
+            color: #FFFFFF;
+            text-decoration: underline;
+        }
+
+        /* Submit Button */
+        .btn-login-submit {
+            background: linear-gradient(135deg, #E31E24 0%, #b81419 100%);
+            border: none;
+            color: #FFFFFF;
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 14px;
+            border-radius: 12px;
+            width: 100%;
+            transition: all 0.25s ease;
+            box-shadow: 0 8px 20px rgba(227, 30, 36, 0.35);
+            cursor: pointer;
+        }
+
+        .btn-login-submit:hover {
+            background: linear-gradient(135deg, #ff232a 0%, #E31E24 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(227, 30, 36, 0.5);
+            color: #FFFFFF;
+        }
+
+        .btn-login-submit:active {
+            transform: translateY(0);
+        }
+
+        /* Alert Styling */
+        .alert-custom {
+            background: rgba(239, 68, 68, 0.15);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: #FCA5A5;
+            border-radius: 12px;
+            font-size: 0.88rem;
+            padding: 12px 16px;
+        }
+
+        /* Footer Security Notice */
+        .security-notice {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.78rem;
+            text-align: center;
+            margin-top: 24px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-wrapper">
+    <div class="admin-login-card text-center">
+        <!-- Logo & Header -->
         <div class="mb-4">
-            <i class="bi bi-shield-lock-fill text-danger" style="font-size: 3rem;"></i>
-            <h3 class="fw-bold mt-2" style="color: var(--text-main); letter-spacing: 1px;">Vibhu<span class="text-danger">Travel</span></h3>
-            <p style="color: var(--text-muted); font-size: 14px;">Premium Admin Authentication</p>
+            <img src="/static/images/logo/logo.webp" alt="Vibhu Travel Hub Logo" style="height: 52px; width: auto;" class="mb-3">
+            <div class="brand-heading mb-2">VIBHU TRAVEL HUB</div>
+            <div class="brand-badge"><i class="bi bi-shield-lock-fill"></i> Secure Operations Portal</div>
         </div>
-        
+
         {% if messages %}
             {% for message in messages %}
-                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert" style="border-radius: 10px; font-size: 14px;">
-                    {{ message }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <div class="alert alert-custom alert-dismissible fade show text-start mb-4" role="alert">
+                    <i class="bi bi-exclamation-triangle-fill me-2"></i> {{ message }}
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             {% endfor %}
         {% endif %}
 
         <form method="POST" action="{% url 'dashboard_login' %}">
             {% csrf_token %}
+            {% if next %}
+                <input type="hidden" name="next" value="{{ next }}">
+            {% endif %}
+
+            <!-- Username Field -->
             <div class="mb-3 text-start">
-                <label class="form-label text-muted small fw-bold">Username</label>
-                <div class="input-group">
-                    <span class="input-group-text bg-white border-end-0" style="border-color: var(--border-color); color: var(--text-muted);"><i class="bi bi-person-fill"></i></span>
-                    <input type="text" name="username" class="form-control anim-input custom-input border-start-0" placeholder="Enter admin username" required autofocus>
-                </div>
-            </div>
-            
-            <div class="mb-4 text-start">
-                <label class="form-label text-muted small fw-bold">Password</label>
-                <div class="input-group">
-                    <span class="input-group-text bg-white border-end-0" style="border-color: var(--border-color); color: var(--text-muted);"><i class="bi bi-key-fill"></i></span>
-                    <input type="password" name="password" class="form-control anim-input custom-input border-start-0" placeholder="Enter secure password" required>
+                <label for="id_username" class="form-label-custom">Admin Username</label>
+                <div class="input-group-custom d-flex align-items-center">
+                    <span class="input-group-icon"><i class="bi bi-person-fill fs-5"></i></span>
+                    <input type="text" id="id_username" name="username" class="form-control form-control-custom" placeholder="Enter admin username" required autofocus autocomplete="username">
                 </div>
             </div>
 
-            <div class="d-flex justify-content-between align-items-center mb-4">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="remember" name="remember">
-                    <label class="form-check-label text-muted small" for="remember">Remember me</label>
+            <!-- Password Field -->
+            <div class="mb-4 text-start">
+                <label for="id_password" class="form-label-custom">Password</label>
+                <div class="input-group-custom d-flex align-items-center">
+                    <span class="input-group-icon"><i class="bi bi-key-fill fs-5"></i></span>
+                    <input type="password" id="id_password" name="password" class="form-control form-control-custom" placeholder="Enter secure password" required autocomplete="current-password">
+                    <button type="button" class="btn-toggle-pw" id="togglePasswordBtn" aria-label="Toggle Password Visibility">
+                        <i class="bi bi-eye-slash-fill" id="togglePwIcon"></i>
+                    </button>
                 </div>
-                <a href="#" class="text-danger small text-decoration-none">Forgot Password?</a>
             </div>
-            
-            <button type="submit" class="btn premium-btn w-100 fw-bold py-2 mb-3">
-                <i class="bi bi-box-arrow-in-right me-2"></i> Secure Login
+
+            <!-- Options Row -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div class="form-check custom-check">
+                    <input class="form-check-input" type="checkbox" id="remember" name="remember">
+                    <label class="form-check-label" for="remember">Remember session</label>
+                </div>
+                <a href="tel:+919655866660" class="forgot-link">Contact Support</a>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-login-submit">
+                <i class="bi bi-box-arrow-in-right me-2"></i> Access Admin Dashboard
             </button>
         </form>
+
+        <div class="security-notice">
+            <i class="bi bi-lock-fill me-1"></i> Authorized Travel Management Personnel Only &bull; &copy; 2026 Vibhu Travel Hub
+        </div>
     </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const toggleBtn = document.getElementById('togglePasswordBtn');
+        const pwInput = document.getElementById('id_password');
+        const pwIcon = document.getElementById('togglePwIcon');
+
+        if (toggleBtn && pwInput && pwIcon) {
+            toggleBtn.addEventListener('click', function() {
+                if (pwInput.type === 'password') {
+                    pwInput.type = 'text';
+                    pwIcon.classList.remove('bi-eye-slash-fill');
+                    pwIcon.classList.add('bi-eye-fill');
+                } else {
+                    pwInput.type = 'password';
+                    pwIcon.classList.remove('bi-eye-fill');
+                    pwIcon.classList.add('bi-eye-slash-fill');
+                }
+            });
+        }
+    });
+</script>
 </body>
 </html>

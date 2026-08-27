@@ -1,0 +1,133 @@
+{% extends 'dashboard/base_dashboard.html' %}
+{% load static %}
+
+{% block title %}{% if is_edit %}Edit Booking {{ booking.booking_id }}{% else %}New Round Trip Booking{% endif %} - Vibhu Travel Hub Admin{% endblock %}
+{% block page_title %}{% if is_edit %}Edit Round Trip Booking{% else %}Add Round Trip Booking{% endif %}{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-0">
+
+    <div class="d-flex align-items-center justify-content-between mb-4">
+        <div>
+            <a href="{% url 'management_roundtrip_list' %}" class="text-decoration-none text-muted small fw-semibold">
+                <i class="bi bi-arrow-left me-1"></i> Back to Round Trip List
+            </a>
+            <h3 class="fw-bold text-dark mb-0 mt-1">{% if is_edit %}Edit Booking {{ booking.booking_id }}{% else %}New Round Trip Booking{% endif %}</h3>
+        </div>
+    </div>
+
+    <div class="card border-0 shadow-sm rounded-4 max-w-900">
+        <div class="card-body p-4 p-md-5">
+            <form method="POST" action="{% if is_edit %}{% url 'management_roundtrip_edit' booking.pk %}{% else %}{% url 'management_roundtrip_create' %}{% endif %}">
+                {% csrf_token %}
+
+                <div class="row g-3">
+                    <h5 class="fw-bold text-danger mb-2">Customer Information</h5>
+
+                    <!-- Name -->
+                    <div class="col-md-6">
+                        <label for="id_name" class="form-label small fw-bold text-dark">Customer Name <span class="text-danger">*</span></label>
+                        <input type="text" id="id_name" name="name" class="form-control" placeholder="Full Name" value="{{ booking.name|default:'' }}" required>
+                    </div>
+
+                    <!-- Mobile -->
+                    <div class="col-md-6">
+                        <label for="id_mobile" class="form-label small fw-bold text-dark">Mobile Number <span class="text-danger">*</span></label>
+                        <input type="tel" id="id_mobile" name="mobile" class="form-control" placeholder="e.g. 9876543210" value="{{ booking.mobile|default:'' }}" required>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="col-md-12">
+                        <label for="id_email" class="form-label small fw-bold text-dark">Email Address</label>
+                        <input type="email" id="id_email" name="email" class="form-control" placeholder="name@example.com" value="{{ booking.email|default:'' }}">
+                    </div>
+
+                    <hr class="my-4 text-secondary opacity-25">
+                    <h5 class="fw-bold text-danger mb-2">Trip & Itinerary Details</h5>
+
+                    <!-- Pickup City -->
+                    <div class="col-md-6">
+                        <label for="id_pickup_city" class="form-label small fw-bold text-dark">Pickup City <span class="text-danger">*</span></label>
+                        <input type="text" id="id_pickup_city" name="pickup_city" class="form-control" placeholder="e.g. Coimbatore, Chennai, Bangalore" value="{{ booking.pickup_city|default:'' }}" required>
+                    </div>
+
+                    <!-- Destination -->
+                    <div class="col-md-6">
+                        <label for="id_destination" class="form-label small fw-bold text-dark">Destination / Route</label>
+                        <input type="text" id="id_destination" name="destination" class="form-control" placeholder="e.g. Ooty, Munnar, Rameswaram" value="{{ booking.destination|default:'' }}">
+                    </div>
+
+                    <!-- Pickup Date -->
+                    <div class="col-md-6">
+                        <label for="id_pickup_date" class="form-label small fw-bold text-dark">Pickup Date <span class="text-danger">*</span></label>
+                        <input type="date" id="id_pickup_date" name="pickup_date" class="form-control" value="{{ booking.pickup_date|date:'Y-m-d' }}" required>
+                    </div>
+
+                    <!-- Pickup Time -->
+                    <div class="col-md-6">
+                        <label for="id_pickup_time" class="form-label small fw-bold text-dark">Pickup Time</label>
+                        <input type="text" id="id_pickup_time" name="pickup_time" class="form-control" placeholder="e.g. 08:30 AM" value="{{ booking.pickup_time|default:'08:30 AM' }}">
+                    </div>
+
+                    <!-- Dropoff Date -->
+                    <div class="col-md-6">
+                        <label for="id_dropoff_date" class="form-label small fw-bold text-dark">Drop-off / Return Date <span class="text-danger">*</span></label>
+                        <input type="date" id="id_dropoff_date" name="dropoff_date" class="form-control" value="{{ booking.dropoff_date|date:'Y-m-d' }}" required>
+                    </div>
+
+                    <!-- Dropoff Time -->
+                    <div class="col-md-6">
+                        <label for="id_dropoff_time" class="form-label small fw-bold text-dark">Drop-off / Return Time</label>
+                        <input type="text" id="id_dropoff_time" name="dropoff_time" class="form-control" placeholder="e.g. 07:00 PM" value="{{ booking.dropoff_time|default:'07:00 PM' }}">
+                    </div>
+
+                    <!-- Vehicle Type -->
+                    <div class="col-md-6">
+                        <label for="id_vehicle_type" class="form-label small fw-bold text-dark">Vehicle Preference</label>
+                        <select id="id_vehicle_type" name="vehicle_type" class="form-select">
+                            <option value="">Select Vehicle</option>
+                            {% for v in vehicles %}
+                                <option value="{{ v.name }}" {% if booking.vehicle_type == v.name %}selected{% endif %}>{{ v.name }} ({{ v.category }})</option>
+                            {% endfor %}
+                            <option value="Sedan" {% if booking.vehicle_type == 'Sedan' %}selected{% endif %}>Sedan</option>
+                            <option value="SUV" {% if booking.vehicle_type == 'SUV' %}selected{% endif %}>SUV</option>
+                            <option value="Tempo Traveller" {% if booking.vehicle_type == 'Tempo Traveller' %}selected{% endif %}>Tempo Traveller</option>
+                        </select>
+                    </div>
+
+                    <!-- Passengers -->
+                    <div class="col-md-6">
+                        <label for="id_passengers" class="form-label small fw-bold text-dark">Number of Passengers</label>
+                        <input type="text" id="id_passengers" name="passengers" class="form-control" placeholder="e.g. 4 Passengers" value="{{ booking.passengers|default:'' }}">
+                    </div>
+
+                    <!-- Comments -->
+                    <div class="col-12">
+                        <label for="id_comments" class="form-label small fw-bold text-dark">Comments / Special Notes</label>
+                        <textarea id="id_comments" name="comments" rows="3" class="form-control" placeholder="Additional customer preferences or notes...">{{ booking.comments|default:'' }}</textarea>
+                    </div>
+
+                    <!-- Status -->
+                    <div class="col-md-6">
+                        <label for="id_status" class="form-label small fw-bold text-dark">Booking Status</label>
+                        <select id="id_status" name="status" class="form-select">
+                            {% for st_val, st_lbl in statuses %}
+                                <option value="{{ st_val }}" {% if booking.status == st_val %}selected{% endif %}>{{ st_lbl }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <!-- Submit Buttons -->
+                    <div class="col-12 mt-4 text-end">
+                        <a href="{% url 'management_roundtrip_list' %}" class="btn btn-light rounded-pill px-4 me-2">Cancel</a>
+                        <button type="submit" class="btn btn-danger rounded-pill px-5 fw-bold">
+                            {% if is_edit %}Save Changes{% else %}Create Booking{% endif %}
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

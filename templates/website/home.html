@@ -693,6 +693,79 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
             color: #FFFFFF;
             box-shadow: 0 8px 20px rgba(255, 31, 31, 0.25);
         }
+
+        .fleet-card-actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-top: auto;
+            padding-top: 16px;
+            border-top: 1px solid #F1F5F9;
+        }
+
+        .fleet-btn-details {
+            flex: 1;
+            height: 44px;
+            border: 1.5px solid #334155;
+            color: #1E293B;
+            background: #FFFFFF;
+            font-weight: 600;
+            font-size: 0.88rem;
+            border-radius: 50px;
+            padding: 0 14px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.25s ease;
+            text-decoration: none;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+
+        .fleet-btn-details:hover,
+        .fleet-btn-details:focus {
+            background: #F8FAFC;
+            color: #0F172A;
+            border-color: #0F172A;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .fleet-btn-book {
+            flex: 1;
+            height: 44px;
+            border: 1.5px solid #E31E24;
+            background: #E31E24;
+            color: #FFFFFF;
+            font-weight: 700;
+            font-size: 0.88rem;
+            border-radius: 50px;
+            padding: 0 14px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.25s ease;
+            text-decoration: none;
+            white-space: nowrap;
+            box-shadow: 0 4px 12px rgba(227, 30, 36, 0.25);
+        }
+
+        .fleet-btn-book:hover,
+        .fleet-btn-book:focus {
+            background: #C8151A;
+            border-color: #C8151A;
+            color: #FFFFFF;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(227, 30, 36, 0.35);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .fleet-btn-details, .fleet-btn-book {
+                transition: none !important;
+                transform: none !important;
+            }
+        }
     </style>
 
     <div class="container">
@@ -772,14 +845,18 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
                             </div>
                         </div>
 
-                        <!-- CTA Button -->
-                        <div>
+                        <!-- CTA Action Buttons Row -->
+                        <div class="fleet-card-actions">
                             <button type="button"
-                                class="fleet-view-btn d-flex align-items-center justify-content-center gap-2 fleet-details-trigger"
+                                class="fleet-btn-details fleet-details-trigger"
                                 data-bs-toggle="modal" data-bs-target="#vehicleDetailsModal"
                                 data-vehicle-index="{{ forloop.counter0 }}">
                                 View Details
                             </button>
+                            <a href="{% get_whatsapp_url vehicle %}" target="_blank" rel="noopener noreferrer"
+                                class="fleet-btn-book">
+                                Book Now
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -812,11 +889,14 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
                                 <span class="fleet-chip">Clean Interiors</span>
                             </div>
                         </div>
-                        <div>
-                            <button type="button" class="fleet-view-btn" data-bs-toggle="modal"
+                        <div class="fleet-card-actions">
+                            <button type="button" class="fleet-btn-details fleet-details-trigger" data-bs-toggle="modal"
                                 data-bs-target="#vehicleDetailsModal" data-vehicle-index="0">
                                 View Details
                             </button>
+                            <a href="https://wa.me/919655866660?text=Hello%20Vibhu%20Travel%20Hub%2C%0A%0AI%20am%20interested%20in%20booking%20the%20following%20vehicle%3A%0A%0AVehicle%3A%20Sedan%20%28Etios%20%2F%20Dzire%29%0AVehicle%20Type%3A%20Sedan%0ASeating%20Capacity%3A%202-4%20Passengers%0A%0AI%20would%20like%20to%20know%20the%20availability%20and%20booking%20details.%0A%0APlease%20assist%20me%20with%20the%20booking.%0A%0AThank%20you." target="_blank" rel="noopener noreferrer" class="fleet-btn-book">
+                                Book Now
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -847,11 +927,14 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
                                 <span class="fleet-chip">Comfortable Seating</span>
                             </div>
                         </div>
-                        <div>
-                            <button type="button" class="fleet-view-btn" data-bs-toggle="modal"
+                        <div class="fleet-card-actions">
+                            <button type="button" class="fleet-btn-details fleet-details-trigger" data-bs-toggle="modal"
                                 data-bs-target="#vehicleDetailsModal" data-vehicle-index="1">
                                 View Details
                             </button>
+                            <a href="https://wa.me/919655866660?text=Hello%20Vibhu%20Travel%20Hub%2C%0A%0AI%20am%20interested%20in%20booking%20the%20following%20vehicle%3A%0A%0AVehicle%3A%20SUV%20%28Ertiga%20%2F%20Innova%29%0AVehicle%20Type%3A%20SUV%0ASeating%20Capacity%3A%205-7%20Passengers%0A%0AI%20would%20like%20to%20know%20the%20availability%20and%20booking%20details.%0A%0APlease%20assist%20me%20with%20the%20booking.%0A%0AThank%20you." target="_blank" rel="noopener noreferrer" class="fleet-btn-book">
+                                Book Now
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -882,11 +965,14 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
                                 <span class="fleet-chip">Ample Legroom</span>
                             </div>
                         </div>
-                        <div>
-                            <button type="button" class="fleet-view-btn" data-bs-toggle="modal"
+                        <div class="fleet-card-actions">
+                            <button type="button" class="fleet-btn-details fleet-details-trigger" data-bs-toggle="modal"
                                 data-bs-target="#vehicleDetailsModal" data-vehicle-index="2">
                                 View Details
                             </button>
+                            <a href="https://wa.me/919655866660?text=Hello%20Vibhu%20Travel%20Hub%2C%0A%0AI%20am%20interested%20in%20booking%20the%20following%20vehicle%3A%0A%0AVehicle%3A%20Tempo%20Traveller%20%28Force%20Traveller%29%0AVehicle%20Type%3A%20Tempo%20Traveller%0ASeating%20Capacity%3A%209-14%20Passengers%0A%0AI%20would%20like%20to%20know%20the%20availability%20and%20booking%20details.%0A%0APlease%20assist%20me%20with%20the%20booking.%0A%0AThank%20you." target="_blank" rel="noopener noreferrer" class="fleet-btn-book">
+                                Book Now
+                            </a>
                         </div>
                     </div>
                 </div>

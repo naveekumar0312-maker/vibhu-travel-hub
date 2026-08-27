@@ -53,21 +53,7 @@
 {% block body_class %}blog-detail-page{% endblock %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/blog.css' %}">
-<style>
-    /* Force dark glass background on navbar since this page lacks a hero image */
-    body.blog-detail-page .premium-navbar {
-        background: rgba(20, 20, 20, 0.95) !important;
-        backdrop-filter: blur(18px) !important;
-        -webkit-backdrop-filter: blur(18px) !important;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.30) !important;
-    }
-    body.blog-detail-page .site-header {
-        position: fixed;
-        background: rgba(20, 20, 20, 0.95);
-    }
-</style>
+<link rel="stylesheet" href="{% static 'css/blog.css' %}?v={{ STATIC_VERSION }}">
 {% endblock %}
 
 {% block content %}

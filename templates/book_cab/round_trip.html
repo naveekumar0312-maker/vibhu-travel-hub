@@ -5,6 +5,11 @@
 {% block description %}Book reliable round trip taxi services with Vibhu Travel Hub. Comfortable cabs, professional drivers and convenient outstation travel from Coimbatore and surrounding cities.{% endblock %}
 
 {% block extra_css %}
+<!-- Google Fonts for Cursive Script -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+
 <style>
     :root {
         --vth-red: #E31E24;
@@ -15,26 +20,31 @@
         --vth-border-gray: #e2e8f0;
     }
 
-    /* HERO BANNER */
-    .roundtrip-hero-banner {
-        position: relative;
-        width: 100%;
-        min-height: 260px;
-        height: 280px;
-        background: url("{% static 'images/destinations/round-trip.jpg' %}") no-repeat center right / cover;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
+    .vth-script-eyebrow {
+        font-family: 'Caveat', cursive, sans-serif;
+        color: #E31E24;
+        font-size: 1.8rem;
+        line-height: 1;
+        display: block;
+        margin-bottom: 0.3rem;
     }
-    .roundtrip-hero-overlay {
-        position: absolute;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
-        background: linear-gradient(135deg, rgba(227, 30, 36, 0.96) 0%, rgba(185, 20, 26, 0.90) 100%);
-        clip-path: polygon(0 0, 68% 0, 48% 100%, 0 100%);
-        z-index: 2;
+
+    /* HERO BANNER (MATCHING ABOUT US) */
+    .about-hero-section {
+        background: url("{% static 'images/destinations/round-trip.jpg' %}") no-repeat center right / cover;
+        position: relative;
+        min-height: 340px;
         display: flex;
         align-items: center;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .about-hero-overlay {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.88) 42%, rgba(255, 255, 255, 0.45) 75%, rgba(255, 255, 255, 0.15) 100%);
+        z-index: 1;
     }
     .roundtrip-hero-title {
         color: #ffffff;
@@ -347,6 +357,8 @@
         .sticky-form-wrapper {
             position: sticky;
             top: 100px;
+            height: fit-content;
+            align-self: flex-start;
             z-index: 10;
         }
     }
@@ -392,76 +404,6 @@
         border-color: var(--vth-red) !important;
         box-shadow: 0 0 0 3px rgba(227, 30, 36, 0.15) !important;
         outline: none !important;
-    }
-
-    /* CAPTCHA STYLING */
-    .captcha-card-box {
-        background-color: #ffffff;
-        border: 1px solid #d1d5db;
-        border-radius: 8px;
-        padding: 12px 16px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
-        transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-        user-select: none;
-    }
-
-    .captcha-card-box.has-error {
-        border-color: #dc3545 !important;
-        background-color: #fff8f8;
-    }
-
-    .captcha-card-box.verified {
-        border-color: #198754;
-        background-color: #f6fbf8;
-    }
-
-    .captcha-checkbox {
-        width: 22px;
-        height: 22px;
-        cursor: pointer;
-        accent-color: var(--vth-red);
-        border-radius: 4px;
-        margin: 0;
-    }
-
-    .captcha-text-label {
-        font-size: 14px;
-        font-weight: 600;
-        color: #222222;
-        cursor: pointer;
-        margin-bottom: 0;
-    }
-
-    .captcha-badge-info {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        color: #64748b;
-        line-height: 1;
-    }
-
-    .captcha-shield-icon {
-        font-size: 20px;
-        color: #94a3b8;
-        transition: color 0.25s ease, transform 0.25s ease;
-    }
-
-    .captcha-card-box.verified .captcha-shield-icon {
-        color: #198754;
-        transform: scale(1.1);
-    }
-
-    .captcha-badge-subtext {
-        font-size: 9px;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        margin-top: 3px;
-        color: #94a3b8;
     }
 
     .btn-roundtrip-book {
@@ -519,23 +461,28 @@
 {% block content %}
 <main>
 
-    <!-- HERO BANNER -->
-    <section class="roundtrip-hero-banner">
-        <div class="roundtrip-hero-overlay">
-            <h1 class="roundtrip-hero-title">Round Trip</h1>
+    <!-- HERO SECTION (MATCHING ABOUT US) -->
+    <section class="about-hero-section py-5">
+        <div class="about-hero-overlay"></div>
+        <div class="container position-relative z-2">
+            <div class="row align-items-center">
+                <div class="col-lg-7 col-md-10 anim-fade-up">
+                    <span class="vth-script-eyebrow">Round Every Journey</span>
+                    <h1 class="fw-extrabold text-dark mb-3" style="font-size: 3.2rem; letter-spacing: -1.2px; line-height: 1.15;">Round Trip</h1>
+                    <p class="text-secondary mb-4" style="font-size: 1.05rem; line-height: 1.65; max-width: 540px; color: #475569;">
+                        Plan your round trip with ease. We ensure a smooth, comfortable, and memorable travel experience for you and your family.
+                    </p>
+                    <div class="d-flex align-items-center gap-2 text-muted small fw-medium">
+                        <a href="{% url 'home' %}" class="text-decoration-none text-muted">Home</a>
+                        <i class="bi bi-chevron-right" style="font-size: 0.75rem;"></i>
+                        <a href="{% url 'book_cab' %}" class="text-decoration-none text-muted">Book a Cab</a>
+                        <i class="bi bi-chevron-right" style="font-size: 0.75rem;"></i>
+                        <span class="text-danger fw-bold">Round Trip</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
-
-    <!-- BREADCRUMB BAR -->
-    <div class="roundtrip-breadcrumb-bar">
-        <div class="container px-3 px-sm-4">
-            <a href="{% url 'home' %}" class="roundtrip-breadcrumb-link">Home</a>
-            <span class="mx-2 text-muted">/</span>
-            <a href="{% url 'book_cab' %}" class="roundtrip-breadcrumb-link">Book a Trip</a>
-            <span class="mx-2 text-muted">/</span>
-            <span class="roundtrip-breadcrumb-active">Round Trip</span>
-        </div>
-    </div>
 
     <!-- MAIN SECTION -->
     <section class="roundtrip-page-section">
@@ -726,21 +673,6 @@
                                     <textarea id="id_comments" name="comments" rows="2" class="form-control roundtrip-input-control" placeholder="Enter Your Comments"></textarea>
                                 </div>
 
-                                <!-- 10. Security Verification / CAPTCHA -->
-                                <div class="roundtrip-input-group">
-                                    <div class="captcha-card-box" id="captchaBox">
-                                        <div class="d-flex align-items-center gap-3">
-                                            <input type="checkbox" id="id_captcha_check" name="captcha_verified" value="1" class="captcha-checkbox">
-                                            <label for="id_captcha_check" class="captcha-text-label">I'm not a robot</label>
-                                        </div>
-                                        <div class="captcha-badge-info">
-                                            <i class="bi bi-shield-check captcha-shield-icon"></i>
-                                            <span class="captcha-badge-subtext">Security Check</span>
-                                        </div>
-                                    </div>
-                                    <div class="text-danger small mt-1 d-none fw-bold" id="captchaErrMsg">Please verify that you are not a robot.</div>
-                                </div>
-
                                 <!-- 11. Submit Button -->
                                 <div class="mt-4">
                                     <button type="submit" id="refSubmitBtn" class="btn btn-roundtrip-book">
@@ -797,9 +729,6 @@ function selectOriginCity(fromCity) {
 document.addEventListener('DOMContentLoaded', function() {
     const pickupDateEl = document.getElementById('id_pickup_date');
     const dropoffDateEl = document.getElementById('id_dropoff_date');
-    const captchaCheck = document.getElementById('id_captcha_check');
-    const captchaBox = document.getElementById('captchaBox');
-    const captchaErrMsg = document.getElementById('captchaErrMsg');
 
     // Date constraint validation
     if (pickupDateEl && dropoffDateEl) {
@@ -809,18 +738,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (dropoffDateEl.value && dropoffDateEl.value < this.value) {
                     dropoffDateEl.value = this.value;
                 }
-            }
-        });
-    }
-
-    if (captchaCheck && captchaBox) {
-        captchaCheck.addEventListener('change', function() {
-            if (this.checked) {
-                captchaBox.classList.add('verified');
-                captchaBox.classList.remove('has-error');
-                if (captchaErrMsg) captchaErrMsg.classList.add('d-none');
-            } else {
-                captchaBox.classList.remove('verified');
             }
         });
     }
@@ -851,21 +768,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
 
-            // Validate CAPTCHA
-            if (captchaCheck && !captchaCheck.checked) {
-                e.preventDefault();
-                if (captchaBox) captchaBox.classList.add('has-error');
-                if (captchaErrMsg) captchaErrMsg.classList.remove('d-none');
-                if (errorAlert) {
-                    if (document.getElementById('refErrorMsg')) {
-                        document.getElementById('refErrorMsg').textContent = 'Please verify that you are not a robot.';
-                    }
-                    errorAlert.classList.remove('d-none');
-                }
-                captchaBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                return;
-            }
-
             e.preventDefault();
 
             submitBtn.disabled = true;
@@ -890,7 +792,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (data.status === 'success') {
                     bookingForm.reset();
                     bookingForm.style.display = 'none';
-                    if (captchaBox) captchaBox.classList.remove('verified', 'has-error');
 
                     if (data.title && document.getElementById('refSuccessTitle')) {
                         document.getElementById('refSuccessTitle').textContent = data.title;

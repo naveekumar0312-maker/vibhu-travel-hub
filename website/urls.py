@@ -101,8 +101,6 @@ path("destinations/<slug:state_slug>/<slug:city_slug>/", views.city_detail_view,
 path("destinations/<slug:state_slug>/<slug:city_slug>/<slug:place_slug>/", views.tourist_place_detail_view, name="tourist_place_detail"),
 path("destinations/<slug:state_slug>/<slug:city_slug>/place/<slug:place_slug>/", views.tourist_place_detail_view, name="tourist_place_detail_place"),
 
-path("subscribe/", views.newsletter_subscribe, name="newsletter_subscribe"),
-
 # Book a Cab Pages (with Dropdown)
 path("book-cab/", views.book_cab, name="book_cab"),
 path("book-cab/one-way/", views.book_cab_one_way, name="book_cab_one_way"),

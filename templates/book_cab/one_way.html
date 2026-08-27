@@ -6,6 +6,11 @@
 across South India.{% endblock %}
 
 {% block extra_css %}
+<!-- Google Fonts for Cursive Script -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+
 <style>
     :root {
         --vth-red: #E31E24;
@@ -16,27 +21,31 @@ across South India.{% endblock %}
         --vth-border-gray: #e2e8f0;
     }
 
-    /* HERO BANNER */
-    .oneway-hero-banner {
-        position: relative;
-        width: 100%;
-        min-height: 260px;
-        height: 280px;
-        background: url("{% static 'images/destinations/one-way.jpg' %}") no-repeat center right / cover;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
+    .vth-script-eyebrow {
+        font-family: 'Caveat', cursive, sans-serif;
+        color: #E31E24;
+        font-size: 1.8rem;
+        line-height: 1;
+        display: block;
+        margin-bottom: 0.3rem;
     }
 
-    .oneway-hero-overlay {
-        position: absolute;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
-        background: linear-gradient(135deg, rgba(227, 30, 36, 0.96) 0%, rgba(185, 20, 26, 0.90) 100%);
-        clip-path: polygon(0 0, 68% 0, 48% 100%, 0 100%);
-        z-index: 2;
+    /* HERO BANNER (MATCHING ABOUT US) */
+    .about-hero-section {
+        background: url("{% static 'images/destinations/one-way.jpg' %}") no-repeat center right / cover;
+        position: relative;
+        min-height: 340px;
         display: flex;
         align-items: center;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .about-hero-overlay {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.88) 42%, rgba(255, 255, 255, 0.45) 75%, rgba(255, 255, 255, 0.15) 100%);
+        z-index: 1;
     }
 
     .oneway-hero-title {
@@ -78,6 +87,9 @@ across South India.{% endblock %}
         background-color: #ffffff;
         padding-top: 35px;
         padding-bottom: 70px;
+        height: auto;
+        min-height: auto;
+        overflow: visible;
     }
 
     .oneway-max-container {
@@ -85,6 +97,8 @@ across South India.{% endblock %}
         margin: 0 auto;
         padding-left: 24px;
         padding-right: 24px;
+        height: auto;
+        overflow: visible;
     }
 
     /* 1. TRIP TYPE PILL NAVIGATION */
@@ -140,22 +154,26 @@ across South India.{% endblock %}
         line-height: 1.15;
     }
 
-    /* 3. TWO-COLUMN GRID LAYOUT (65% / 35%) */
+    /* 3. TWO-COLUMN GRID LAYOUT (63% / 37%) */
     .oneway-content-grid {
         display: flex;
-        gap: 60px;
+        gap: 40px;
         align-items: flex-start;
+        height: auto;
+        min-height: 0;
+        overflow: visible;
     }
 
     .oneway-left-col {
         flex: 1 1 63%;
+        width: 63%;
         min-width: 0;
     }
 
     .oneway-right-col {
         flex: 0 0 37%;
         width: 37%;
-        min-width: 330px;
+        min-width: 320px;
     }
 
     @media (max-width: 991px) {
@@ -176,6 +194,8 @@ across South India.{% endblock %}
         display: flex;
         flex-direction: column;
         gap: 20px;
+        height: auto;
+        overflow: visible;
     }
 
     .fare-card {
@@ -224,12 +244,13 @@ across South India.{% endblock %}
     }
 
     .fare-card.expanded .fare-card-body {
-        max-height: 2500px;
+        max-height: 9999px;
     }
 
     .fare-table-responsive {
         width: 100%;
         overflow-x: auto;
+        overflow-y: visible;
         -webkit-overflow-scrolling: touch;
     }
 
@@ -296,6 +317,8 @@ across South India.{% endblock %}
         .sticky-form-wrapper {
             position: sticky;
             top: 100px;
+            height: fit-content;
+            align-self: flex-start;
             z-index: 10;
         }
     }
@@ -412,23 +435,28 @@ across South India.{% endblock %}
 {% block content %}
 <main>
 
-    <!-- HERO BANNER -->
-    <section class="oneway-hero-banner">
-        <div class="oneway-hero-overlay">
-            <h1 class="oneway-hero-title">One Way Trip</h1>
+    <!-- HERO SECTION (MATCHING ABOUT US) -->
+    <section class="about-hero-section py-5">
+        <div class="about-hero-overlay"></div>
+        <div class="container position-relative z-2">
+            <div class="row align-items-center">
+                <div class="col-lg-7 col-md-10 anim-fade-up">
+                    <span class="vth-script-eyebrow">Travel One Way</span>
+                    <h1 class="fw-extrabold text-dark mb-3" style="font-size: 3.2rem; letter-spacing: -1.2px; line-height: 1.15;">One Way Trip</h1>
+                    <p class="text-secondary mb-4" style="font-size: 1.05rem; line-height: 1.65; max-width: 540px; color: #475569;">
+                        Enjoy a comfortable and hassle-free one way trip to your destination with our well-maintained cabs and professional drivers.
+                    </p>
+                    <div class="d-flex align-items-center gap-2 text-muted small fw-medium">
+                        <a href="{% url 'home' %}" class="text-decoration-none text-muted">Home</a>
+                        <i class="bi bi-chevron-right" style="font-size: 0.75rem;"></i>
+                        <a href="{% url 'book_cab' %}" class="text-decoration-none text-muted">Book a Cab</a>
+                        <i class="bi bi-chevron-right" style="font-size: 0.75rem;"></i>
+                        <span class="text-danger fw-bold">One Way Trip</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
-
-    <!-- BREADCRUMB BAR -->
-    <div class="oneway-breadcrumb-bar">
-        <div class="container px-3 px-sm-4">
-            <a href="{% url 'home' %}" class="oneway-breadcrumb-link">Home</a>
-            <span class="mx-2 text-muted">/</span>
-            <a href="{% url 'book_cab' %}" class="oneway-breadcrumb-link">Book a Trip</a>
-            <span class="mx-2 text-muted">/</span>
-            <span class="oneway-breadcrumb-active">One Way Trip</span>
-        </div>
-    </div>
 
     <div class="oneway-page-section">
         <div class="oneway-max-container">
@@ -602,9 +630,6 @@ across South India.{% endblock %}
                                     class="form-control oneway-input-control"
                                     placeholder="Enter Your Comments"></textarea>
                             </div>
-
-                            <!-- 9. Security Verification / CAPTCHA -->
-                            
 
                             <!-- Dynamic Estimated Fare Box -->
                             <div class="d-none" id="estFareBox">

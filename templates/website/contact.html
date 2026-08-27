@@ -38,27 +38,20 @@
 <style>
     /* Hero Section (Matching about.html) */
     .about-hero-section {
+        background: url("{% static 'images/destinations/contact.png' %}") no-repeat center right / cover;
         position: relative;
-        min-height: 440px;
+        min-height: 340px;
         display: flex;
         align-items: center;
         width: 100%;
         overflow: hidden;
-        background: #F8FAFC;
-    }
-
-    .about-hero-bg {
-        position: absolute;
-        top: 0; right: 0; width: 55%; height: 100%;
-        object-fit: cover;
-        z-index: 1;
     }
 
     .about-hero-overlay {
         position: absolute;
         top: 0; left: 0; width: 100%; height: 100%;
-        background: linear-gradient(90deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.92) 45%, rgba(255, 255, 255, 0.6) 75%, rgba(255, 255, 255, 0.2) 100%);
-        z-index: 2;
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.88) 42%, rgba(255, 255, 255, 0.45) 75%, rgba(255, 255, 255, 0.15) 100%);
+        z-index: 1;
     }
 
     .vth-script-eyebrow {
@@ -158,32 +151,48 @@
         .about-hero-section { min-height: 360px; }
         .contact-form-card { padding: 1.5rem; }
     }
+
+    .map-card-hover {
+        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        border-radius: 20px;
+        cursor: pointer;
+    }
+
+    .map-card-hover:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08) !important;
+    }
+
+    .map-overlay-badge {
+        transition: all 0.25s ease;
+        z-index: 10;
+    }
+
+    .map-card-hover:hover .map-overlay-badge {
+        background-color: #E31E24 !important;
+        color: #FFFFFF !important;
+        border-color: #E31E24 !important;
+    }
+
+    .map-card-hover:hover .map-overlay-badge i {
+        color: #FFFFFF !important;
+    }
 </style>
 {% endblock %}
 
 {% block content %}
-<!-- 1. HERO SECTION (ABOUT.HTML STYLE) -->
+<!-- 1. HERO SECTION (ABOUT.HTML STYLE MATCH) -->
 <section class="about-hero-section py-5">
-    <img src="{% static 'images/hero-slider/background-4.jpeg' %}" alt="Contact Vibhu Travel Hub" class="about-hero-bg vth-card-anim-right">
     <div class="about-hero-overlay"></div>
-
-    <div class="container position-relative z-3 my-auto">
+    <div class="container position-relative z-2">
         <div class="row align-items-center">
-            <div class="col-lg-7 col-md-10">
-                <span class="vth-script-eyebrow vth-card-anim-left">GET IN TOUCH</span>
-                <h1 class="fw-extrabold text-dark mb-3 vth-card-anim-left" style="font-size: 3.2rem; letter-spacing: -1.2px; line-height: 1.15;">Contact Vibhu Travel Hub</h1>
-                <p class="text-secondary mb-4 vth-card-anim-up" style="font-size: 1.05rem; line-height: 1.65; max-width: 560px; color: #475569;">
+            <div class="col-lg-6 col-md-10 anim-fade-up">
+                <span class="vth-script-eyebrow">Get In Touch</span>
+                <h1 class="fw-extrabold text-dark mb-3" style="font-size: 3.2rem; letter-spacing: -1.2px; line-height: 1.15;">Contact Vibhu Travel Hub</h1>
+                <p class="text-secondary mb-4" style="font-size: 1.05rem; line-height: 1.65; max-width: 520px; color: #475569;">
                     Have a question or planning your next journey? Our travel team is ready to assist you with premium cab bookings, tempo travellers, luxury buses, and corporate travel across South India.
                 </p>
-                <div class="d-flex flex-wrap gap-3 vth-card-anim-down mb-3">
-                    <a href="tel:+919655866660" class="btn btn-danger rounded-pill px-4 py-2.5 fw-bold text-white shadow-sm border-0 d-inline-flex align-items-center gap-2" style="background-color: #E31E24;">
-                        <i class="bi bi-telephone-fill"></i> Call Now
-                    </a>
-                    <a href="https://wa.me/919655866660" target="_blank" class="btn btn-outline-dark rounded-pill px-4 py-2.5 fw-bold d-inline-flex align-items-center gap-2">
-                        <i class="bi bi-whatsapp"></i> WhatsApp Us
-                    </a>
-                </div>
-                <div class="d-flex align-items-center gap-2 text-muted small fw-medium vth-card-anim-up">
+                <div class="d-flex align-items-center gap-2 text-muted small fw-medium">
                     <a href="{% url 'home' %}" class="text-decoration-none text-muted">Home</a>
                     <i class="bi bi-chevron-right" style="font-size: 0.75rem;"></i>
                     <span class="text-danger fw-bold">Contact Us</span>
@@ -241,10 +250,7 @@
                 <div class="feature-card">
                     <div class="feature-icon"><i class="bi bi-clock-fill"></i></div>
                     <h5 class="fw-bold mb-2 text-dark">Availability</h5>
-                    <p class="text-secondary mb-3">Mon – Sat (24 Hours)</p>
-                    <span class="badge bg-danger-subtle text-danger rounded-pill px-3 py-2 fw-bold">
-                        <i class="bi bi-check-circle-fill me-1"></i> Always Open
-                    </span>
+                    <p class="text-secondary mb-3">Mon – Sat </p>  
                 </div>
             </div>
         </div>
@@ -344,12 +350,18 @@
                     <h5 class="fw-bold text-dark mb-3" style="font-size: 1.05rem;">
                         <i class="bi bi-geo-alt-fill text-danger me-2"></i>Our Head Office
                     </h5>
-                    <p class="text-secondary small mb-0" style="line-height: 1.7;">
+                    <p class="text-secondary small mb-3" style="line-height: 1.7;">
                         <strong>Joyce Villa Building</strong><br>
                         87, Grey Town,<br>
                         Coimbatore, Tamil Nadu – 641018,<br>
                         India
                     </p>
+                    <a href="https://www.google.com/maps/place/Vibhu+Travel+Hub/@11.006147,76.965568,17z/data=!3m1!4b1!4m6!3m5!1s0x3ba859d0edb61655:0xc6cc73e46dec5acb!8m2!3d11.006147!4d76.9681429!16s%2Fg%2F11nhy5xqsh?hl=en-GB&entry=ttu&g_ep=EgoyMDI2MDgyNC4wIKXMDSoASAFQAw%3D%3D"
+                       target="_blank" rel="noopener noreferrer"
+                       class="btn btn-outline-danger btn-sm rounded-pill fw-bold d-inline-flex align-items-center gap-2"
+                       style="border-color: #E31E24; color: #E31E24;">
+                        <i class="bi bi-map-fill"></i> Get Directions
+                    </a>
                 </div>
             </div>
         </div>
@@ -420,20 +432,44 @@
 <!-- 5. GOOGLE MAP LOCATION -->
 <section class="py-5 bg-white overflow-hidden">
     <div class="container py-lg-3">
-        <div class="text-center mb-4 vth-card-anim-up">
-            <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block mb-1">FIND US</span>
-            <h2 class="fw-extrabold text-dark mb-0" style="font-size: 2.2rem; letter-spacing: -0.5px;">Our Office Location</h2>
+        <div class="d-flex flex-column flex-md-row align-items-md-end justify-content-between mb-4 vth-card-anim-up gap-3">
+            <div>
+                <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block mb-1">FIND US</span>
+                <h2 class="fw-extrabold text-dark mb-0" style="font-size: 2.2rem; letter-spacing: -0.5px;">Our Office Location</h2>
+            </div>
+            <div class="d-flex gap-2 flex-wrap">
+                <a href="https://www.google.com/maps/place/Vibhu+Travel+Hub/@11.006147,76.965568,17z/data=!3m1!4b1!4m6!3m5!1s0x3ba859d0edb61655:0xc6cc73e46dec5acb!8m2!3d11.006147!4d76.9681429!16s%2Fg%2F11nhy5xqsh?hl=en-GB&entry=ttu&g_ep=EgoyMDI2MDgyNC4wIKXMDSoASAFQAw%3D%3D"
+                   target="_blank" rel="noopener noreferrer"
+                   class="btn btn-danger rounded-pill px-4 py-2 fw-bold text-white shadow-sm border-0 d-inline-flex align-items-center gap-2"
+                   style="background-color: #E31E24;">
+                    <i class="bi bi-geo-alt-fill"></i> View on Google Maps
+                </a>
+                <a href="https://www.google.com/maps/place/Vibhu+Travel+Hub/@11.006147,76.965568,17z/data=!3m1!4b1!4m6!3m5!1s0x3ba859d0edb61655:0xc6cc73e46dec5acb!8m2!3d11.006147!4d76.9681429!16s%2Fg%2F11nhy5xqsh?hl=en-GB&entry=ttu&g_ep=EgoyMDI2MDgyNC4wIKXMDSoASAFQAw%3D%3D"
+                   target="_blank" rel="noopener noreferrer"
+                   class="btn btn-outline-dark rounded-pill px-4 py-2 fw-bold d-inline-flex align-items-center gap-2">
+                    <i class="bi bi-sign-turn-right-fill text-danger"></i> Get Directions
+                </a>
+            </div>
         </div>
-        <div class="contact-form-card p-2 overflow-hidden vth-card-anim-up">
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.244!2d76.9558!3d11.0168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTHCsDAxJzAwLjUiTiA3NsKwNTcnMjAuOSJF!5e0!3m2!1sen!2sin!4v1"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-                title="Vibhu Travel Hub Office Location"
-                style="width: 100%; height: 400px; border: none; border-radius: 16px;">
-            </iframe>
-        </div>
+
+        <!-- Interactive Clickable Map Container -->
+        <a href="https://www.google.com/maps/place/Vibhu+Travel+Hub/@11.006147,76.965568,17z/data=!3m1!4b1!4m6!3m5!1s0x3ba859d0edb61655:0xc6cc73e46dec5acb!8m2!3d11.006147!4d76.9681429!16s%2Fg%2F11nhy5xqsh?hl=en-GB&entry=ttu&g_ep=EgoyMDI2MDgyNC4wIKXMDSoASAFQAw%3D%3D"
+           target="_blank" rel="noopener noreferrer"
+           class="d-block text-decoration-none position-relative map-card-hover vth-card-anim-up">
+            <div class="contact-form-card p-2 overflow-hidden position-relative">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.480036665796!2d76.965568!3d11.006147!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba859d0edb61655%3A0xc6cc73e46dec5acb!2sVibhu%20Travel%20Hub!5e0!3m2!1sen!2sin!4v1"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Vibhu Travel Hub Office Location"
+                    style="width: 100%; height: 400px; border: none; border-radius: 16px; pointer-events: none;">
+                </iframe>
+                <div class="map-overlay-badge position-absolute bottom-0 end-0 m-4 bg-white text-dark shadow-lg px-3 py-2 rounded-pill d-flex align-items-center gap-2 border fw-bold small">
+                    <i class="bi bi-box-arrow-up-right text-danger"></i> Click to Open in Google Maps
+                </div>
+            </div>
+        </a>
     </div>
 </section>
 

@@ -303,20 +303,6 @@ class OutstationRoute(models.Model):
     def __str__(self):
         return self.route_name
 
-class NewsletterSubscriber(models.Model):
-    name = models.CharField(max_length=100)
-    email = models.EmailField(unique=True)
-    subscribed_at = models.DateTimeField(auto_now_add=True)
-    is_active = models.BooleanField(default=True)
-
-    class Meta:
-        ordering = ["-subscribed_at"]
-        verbose_name = "Newsletter Subscriber"
-        verbose_name_plural = "Newsletter Subscribers"
-
-    def __str__(self):
-        return f"{self.name} ({self.email})"
-
 
 class CitySEO(models.Model):
     city_name = models.CharField(max_length=100, unique=True, help_text="e.g. Coimbatore, Madurai, Chennai, Bangalore, Kochi")
@@ -594,8 +580,9 @@ class RoundTripFare(models.Model):
 class RoundTripBooking(models.Model):
     STATUS_CHOICES = [
         ("New", "New"),
-        ("Contacted", "Contacted"),
         ("Confirmed", "Confirmed"),
+        ("Assigned", "Assigned"),
+        ("In Progress", "In Progress"),
         ("Completed", "Completed"),
         ("Cancelled", "Cancelled"),
     ]
@@ -604,10 +591,13 @@ class RoundTripBooking(models.Model):
     email = models.EmailField(verbose_name="Email ID")
     mobile = models.CharField(max_length=20, verbose_name="Mobile Number")
     pickup_city = models.CharField(max_length=100, verbose_name="Pickup City")
+    destination = models.CharField(max_length=150, blank=True, null=True, verbose_name="Destination / Route")
     pickup_date = models.DateField(verbose_name="Pickup Date")
     pickup_time = models.CharField(max_length=50, verbose_name="Pick Up Time")
     dropoff_date = models.DateField(verbose_name="Drop Off Date")
     dropoff_time = models.CharField(max_length=50, verbose_name="Drop Off Time")
+    vehicle_type = models.CharField(max_length=100, blank=True, null=True, verbose_name="Vehicle Type")
+    passengers = models.CharField(max_length=50, blank=True, null=True, verbose_name="Passengers")
     comments = models.TextField(blank=True, null=True, verbose_name="Comments")
     status = models.CharField(
         max_length=20,
@@ -621,6 +611,10 @@ class RoundTripBooking(models.Model):
         ordering = ["-created_at"]
         verbose_name = "Round Trip Booking"
         verbose_name_plural = "Round Trip Bookings"
+
+    @property
+    def booking_id(self):
+        return f"RT-{1000 + self.pk}"
 
     def __str__(self):
         return f"{self.name} - {self.pickup_city} ({self.pickup_date} to {self.dropoff_date})"
@@ -685,6 +679,55 @@ class BulkBooking(models.Model):
 
     def __str__(self):
         return f"{self.name} - {self.pickup_city} ({self.pickup_date})"
+
+
+class HourlyRentalBooking(models.Model):
+    STATUS_CHOICES = [
+        ("New", "New"),
+        ("Contacted", "Contacted"),
+        ("Confirmed", "Confirmed"),
+        ("Completed", "Completed"),
+        ("Cancelled", "Cancelled"),
+    ]
+
+    name = models.CharField(max_length=100, verbose_name="Customer Name")
+    mobile = models.CharField(max_length=20, verbose_name="Mobile Number")
+    email = models.EmailField(verbose_name="Email Address", blank=True, null=True)
+    pickup_city = models.CharField(max_length=100, verbose_name="Pickup City")
+    pickup_date = models.DateField(verbose_name="Pickup Date")
+    pickup_time = models.CharField(max_length=50, verbose_name="Pickup Time", blank=True, null=True)
+    vehicle_type = models.CharField(max_length=100, verbose_name="Vehicle Type", default="Sedan / Hatchback")
+    hours = models.CharField(max_length=50, verbose_name="Number of Hours", default="4 Hours")
+    comments = models.TextField(blank=True, null=True, verbose_name="Comments / Special Requirements")
+    status = models.CharField(
+        max_length=20,
+        choices=STATUS_CHOICES,
+        default="New",
+        verbose_name="Booking Status"
+    )
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Created At")
+    updated_at = models.DateTimeField(auto_now=True, verbose_name="Updated At")
+
+    class Meta:
+        ordering = ["-created_at"]
+        verbose_name = "Hourly Rental Booking"
+        verbose_name_plural = "Hourly Rental Bookings"
+
+    @property
+    def booking_id(self):
+        return f"HR-{1000 + self.pk}"
+
+    @property
+    def customer_name(self):
+        return self.name
+
+    @property
+    def mobile_number(self):
+        return self.mobile
+
+    def __str__(self):
+        return f"{self.name} - {self.pickup_city} ({self.hours}, {self.vehicle_type})"
+
 
 
 
