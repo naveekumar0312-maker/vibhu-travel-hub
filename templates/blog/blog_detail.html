@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}{{ post.title }} | Vibhu Travel Hub{% endblock %}
+{% block title %}{{ post.title }} | Vibhu Travel Hub Blog{% endblock %}
 {% block description %}{{ post.short_description }}{% endblock %}
 
 {% block og_title %}{{ post.title }} | Vibhu Travel Hub{% endblock %}
@@ -53,27 +53,160 @@
 {% block body_class %}blog-detail-page{% endblock %}
 
 {% block extra_css %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{% static 'css/blog.css' %}?v={{ STATIC_VERSION }}">
 {% endblock %}
 
 {% block content %}
-<div class="blog-detail-container" data-aos="fade-up">
-    <!-- Post Header -->
-    <div class="blog-detail-header">
-        <h1 class="blog-detail-title">{{ post.title }}</h1>
-        <hr class="blog-article-divider mt-4 mb-4">
-    </div>
 
-    <!-- Featured Image -->
-    {% if post.featured_image %}
-    <div class="blog-detail-image-wrapper">
-        <img src="{{ post.featured_image.url }}" alt="{{ post.title }}" class="blog-detail-image">
+<!-- Header & Breadcrumb -->
+<section class="py-4 bg-light border-bottom">
+    <div class="container">
+        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+            <a href="{% url 'blog_list' %}" class="text-decoration-none text-muted fw-semibold small">
+                <i class="bi bi-arrow-left me-1"></i> Back to Blog
+            </a>
+            <div class="d-flex align-items-center gap-2 text-muted small">
+                <a href="{% url 'home' %}" class="text-decoration-none text-muted">Home</a>
+                <i class="bi bi-chevron-right" style="font-size: 0.75rem;"></i>
+                <a href="{% url 'blog_list' %}" class="text-decoration-none text-muted">Blog</a>
+                <i class="bi bi-chevron-right" style="font-size: 0.75rem;"></i>
+                <span class="text-danger fw-bold">{{ post.category }}</span>
+            </div>
+        </div>
     </div>
-    {% endif %}
+</section>
 
-    <!-- Content -->
-    <article class="blog-article">
-        {{ post.content|safe }}
-    </article>
-</div>
+<!-- Article Header -->
+<section class="py-5 bg-white">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <span class="badge bg-danger-subtle text-danger fw-bold rounded-pill px-3 py-2 mb-3" style="font-size: 0.85rem;">{{ post.category }}</span>
+                <h1 class="display-5 fw-extrabold text-dark mb-4" style="line-height: 1.25;">{{ post.title }}</h1>
+                
+                <div class="d-flex align-items-center gap-4 text-muted small border-top border-bottom py-3 mb-4 flex-wrap">
+                    <div><i class="bi bi-person-fill text-danger me-1"></i> Vibhu Travel Hub Editorial</div>
+                    <div><i class="bi bi-calendar3 text-danger me-1"></i> {{ post.published_date|date:"F d, Y" }}</div>
+                    <div><i class="bi bi-clock-fill text-danger me-1"></i> {{ post.reading_time }}</div>
+                </div>
+
+                {% if post.short_description %}
+                <p class="lead text-secondary mb-4" style="font-size: 1.15rem; line-height: 1.7;">
+                    {{ post.short_description }}
+                </p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Article Body & Sidebar -->
+<section class="py-4 bg-light">
+    <div class="container">
+        <div class="row g-5 justify-content-center">
+            
+            <!-- Left Main Column -->
+            <div class="col-lg-8">
+                <article class="bg-white p-4 p-lg-5 rounded-4 shadow-sm border vth-article-body">
+                    {% if post.featured_image %}
+                    <div class="mb-4 overflow-hidden rounded-3">
+                        <img src="{{ post.get_image_url }}" alt="{{ post.title }}" class="img-fluid w-100" style="max-height: 480px; object-fit: cover;">
+                    </div>
+                    {% endif %}
+                    
+                    <div class="article-content" style="color: #334155; font-size: 1.05rem; line-height: 1.8;">
+                        {{ post.content|safe }}
+                    </div>
+                </article>
+            </div>
+
+            <!-- Right Sidebar Column -->
+            <div class="col-lg-4">
+                <aside class="sticky-top" style="top: 90px;">
+                    
+                    <!-- Search Widget -->
+                    <div class="bg-white p-4 rounded-4 shadow-sm border mb-4">
+                        <h5 class="fw-bold mb-3" style="font-size: 1.1rem;">Search Blog</h5>
+                        <form action="{% url 'blog_list' %}" method="GET" class="d-flex align-items-center">
+                            <input type="text" name="q" placeholder="Search..." class="form-control me-2" aria-label="Search">
+                            <button type="submit" class="btn btn-danger"><i class="bi bi-search"></i></button>
+                        </form>
+                    </div>
+
+                    <!-- Categories Widget -->
+                    <div class="bg-white p-4 rounded-4 shadow-sm border mb-4">
+                        <h5 class="fw-bold mb-3" style="font-size: 1.1rem;">Categories</h5>
+                        <div class="d-flex flex-column gap-2">
+                            {% for cat in categories %}
+                            {% if cat != 'All' %}
+                            <a href="{% url 'blog_list' %}?category={{ cat }}" class="text-decoration-none text-secondary d-flex align-items-center justify-content-between p-2 rounded-2 border-bottom hover-bg-light">
+                                <span>{{ cat }}</span>
+                                <i class="bi bi-chevron-right small text-muted"></i>
+                            </a>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <!-- Recent Articles Widget -->
+                    <div class="bg-white p-4 rounded-4 shadow-sm border mb-4">
+                        <h5 class="fw-bold mb-3" style="font-size: 1.1rem;">Recent Articles</h5>
+                        <div class="d-flex flex-column gap-3">
+                            {% for rpost in recent_posts %}
+                            <a href="{% url 'blog_detail' rpost.slug %}" class="text-decoration-none d-flex align-items-center gap-3">
+                                <img src="{{ rpost.get_image_url }}" alt="{{ rpost.title }}" class="rounded" style="width: 60px; height: 60px; object-fit: cover;">
+                                <div>
+                                    <h6 class="fw-semibold text-dark mb-1 line-clamp-2" style="font-size: 0.9rem; line-height: 1.35;">{{ rpost.title }}</h6>
+                                    <span class="text-muted extra-small"><i class="bi bi-calendar3 me-1"></i>{{ rpost.published_date|date:"M d, Y" }}</span>
+                                </div>
+                            </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                </aside>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Related Articles Section -->
+{% if related_posts %}
+<section class="py-5 bg-white border-top">
+    <div class="container py-3">
+        <h3 class="fw-bold mb-4" style="color: #0F172A;">Related Travel Articles</h3>
+        <div class="row g-4">
+            {% for ritem in related_posts %}
+            <div class="col-lg-4 col-md-6 col-12">
+                <article class="vth-blog-card card h-100 border-0 shadow-sm overflow-hidden">
+                    <div class="vth-card-media position-relative overflow-hidden">
+                        <a href="{% url 'blog_detail' ritem.slug %}">
+                            <img src="{{ ritem.get_image_url }}" alt="{{ ritem.title }}" class="vth-card-img" loading="lazy">
+                        </a>
+                        <span class="vth-card-badge badge bg-danger rounded-pill">{{ ritem.category }}</span>
+                    </div>
+                    <div class="card-body d-flex flex-column p-4">
+                        <h5 class="vth-card-title mb-2">
+                            <a href="{% url 'blog_detail' ritem.slug %}" class="text-dark text-decoration-none">{{ ritem.title }}</a>
+                        </h5>
+                        <p class="text-secondary small mb-4 flex-grow-1" style="line-height: 1.6;">
+                            {{ ritem.short_description|truncatewords:18 }}
+                        </p>
+                        <a href="{% url 'blog_detail' ritem.slug %}" class="vth-card-link text-danger fw-bold text-decoration-none small mt-auto">
+                            Read More <i class="bi bi-arrow-right ms-1"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
 {% endblock %}
+

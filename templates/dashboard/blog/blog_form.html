@@ -1,4 +1,5 @@
 {% extends 'dashboard/base_dashboard.html' %}
+{% load static %}
 
 {% block title %}{{ title }}{% endblock %}
 {% block page_title %}{{ title }}{% endblock %}
@@ -17,6 +18,17 @@
                     {% for field in form %}
                         <div class="mb-3">
                             <label for="{{ field.id_for_label }}" class="form-label fw-bold">{{ field.label }}</label>
+                            
+                            {% if field.name == 'featured_image' and form.instance.featured_image %}
+                            <div class="mb-2 p-2 bg-light rounded border d-flex align-items-center gap-3">
+                                <img src="{{ form.instance.get_image_url }}" alt="Preview" style="max-height: 80px; width: 120px; object-fit: cover; border-radius: 6px;">
+                                <div>
+                                    <span class="d-block small text-muted">Current Image:</span>
+                                    <span class="fw-semibold small text-truncate d-inline-block" style="max-width: 250px;">{{ form.instance.featured_image.name }}</span>
+                                </div>
+                            </div>
+                            {% endif %}
+                            
                             {{ field }}
                             {% if field.help_text %}
                                 <div class="form-text">{{ field.help_text }}</div>

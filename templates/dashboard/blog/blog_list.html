@@ -17,7 +17,8 @@
                 <thead>
                     <tr>
                         <th>Title</th>
-                        <th>Author</th>
+                        <th>Category</th>
+                        <th>Featured</th>
                         <th>Published Date</th>
                         <th>Status</th>
                         <th class="text-end">Actions</th>
@@ -29,7 +30,7 @@
                         <td>
                             <div class="d-flex align-items-center">
                                 {% if post.featured_image %}
-                                    <img src="{{ post.featured_image.url }}" alt="{{ post.title }}" class="rounded me-3" style="width: 50px; height: 50px; object-fit: cover;">
+                                    <img src="{{ post.get_image_url }}" alt="{{ post.title }}" class="rounded me-3" style="width: 50px; height: 50px; object-fit: cover;">
                                 {% else %}
                                     <div class="bg-secondary rounded me-3 d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
                                         <i class="bi bi-image text-white"></i>
@@ -41,7 +42,14 @@
                                 </div>
                             </div>
                         </td>
-                        <td>{{ post.author.username }}</td>
+                        <td><span class="badge bg-light text-dark border">{{ post.category }}</span></td>
+                        <td>
+                            {% if post.is_featured %}
+                                <span class="badge bg-danger">Featured</span>
+                            {% else %}
+                                <span class="badge bg-secondary">Standard</span>
+                            {% endif %}
+                        </td>
                         <td>{{ post.published_date|date:"M d, Y" }}</td>
                         <td>
                             {% if post.is_published %}
@@ -51,13 +59,13 @@
                             {% endif %}
                         </td>
                         <td class="text-end">
-                            <a href="{% url 'dashboard_blog_toggle' post.id %}" class="btn btn-sm btn-outline-secondary me-1" title="Toggle Status">
+                            <a href="{% url 'dashboard_blog_toggle' post.id %}" class="btn btn-sm btn-outline-secondary me-1" title="Toggle Publish Status">
                                 <i class="bi bi-power"></i>
                             </a>
-                            <a href="{% url 'dashboard_blog_edit' post.id %}" class="btn btn-sm btn-outline-primary me-1">
+                            <a href="{% url 'dashboard_blog_edit' post.id %}" class="btn btn-sm btn-outline-primary me-1" title="Edit Article">
                                 <i class="bi bi-pencil"></i>
                             </a>
-                            <a href="{% url 'dashboard_blog_delete' post.id %}" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure you want to delete this blog post?');">
+                            <a href="{% url 'dashboard_blog_delete' post.id %}" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure you want to delete this blog post?');" title="Delete Article">
                                 <i class="bi bi-trash"></i>
                             </a>
                         </td>

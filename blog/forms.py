@@ -5,19 +5,26 @@ from .models import BlogPost
 class BlogPostForm(forms.ModelForm):
     class Meta:
         model = BlogPost
-        fields = ['title', 'short_description', 'featured_image', 'content', 'is_published']
+        fields = '__all__'
+        exclude = ['author', 'published_date']
         labels = {
             'title': 'Blog Title',
-            'short_description': 'Short Description',
-            'featured_image': 'Blog Image',
+            'category': 'Category',
+            'short_description': 'Short Description / Excerpt',
+            'featured_image': 'Featured Image',
             'content': 'Blog Content',
-            'is_published': 'Published',
+            'reading_time': 'Estimated Reading Time',
+            'is_featured': 'Mark as Featured Article',
+            'is_published': 'Published Status',
         }
         widgets = {
-            'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'e.g. Best Tourist Places to Visit in Tamil Nadu'}),
-            'short_description': forms.Textarea(attrs={'class': 'form-control', 'rows': 3, 'placeholder': 'Brief description of the blog...'}),
+            'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'e.g. Best Weekend Getaways from Coimbatore'}),
+            'category': forms.Select(attrs={'class': 'form-select'}),
+            'short_description': forms.Textarea(attrs={'class': 'form-control', 'rows': 3, 'placeholder': 'Brief summary or excerpt of the article...'}),
             'content': forms.Textarea(attrs={'class': 'form-control', 'rows': 15, 'id': 'blog-content-editor', 'placeholder': 'Enter HTML content here...'}),
             'featured_image': forms.FileInput(attrs={'class': 'form-control'}),
+            'reading_time': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'e.g. 5 min read'}),
+            'is_featured': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
             'is_published': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
         }
 
