@@ -36,7 +36,7 @@
 <link rel="stylesheet" href="{% static 'css/service.css' %}?v={{ STATIC_VERSION }}">
 
 <style>
-    /* Hero Section (Matching about.html) */
+    /* Hero Section (Contact Page) */
     .about-hero-section {
         background: url("{% static 'images/destinations/contact.png' %}") no-repeat center right / cover;
         position: relative;
@@ -52,6 +52,7 @@
         top: 0; left: 0; width: 100%; height: 100%;
         background: linear-gradient(90deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.88) 42%, rgba(255, 255, 255, 0.45) 75%, rgba(255, 255, 255, 0.15) 100%);
         z-index: 1;
+        display: block !important;
     }
 
     .vth-script-eyebrow {
@@ -69,6 +70,43 @@
         letter-spacing: 1.5px;
         text-transform: uppercase;
         font-weight: 700;
+    }
+
+    .contact-hero-title {
+        color: #0F172A;
+        font-size: 3.2rem;
+        letter-spacing: -1.2px;
+        line-height: 1.15;
+    }
+
+    .contact-hero-desc {
+        color: #475569;
+        font-size: 1.05rem;
+        line-height: 1.65;
+        max-width: 520px;
+    }
+
+    .contact-hero-breadcrumb {
+        color: #6C757D;
+        font-size: 0.875rem;
+    }
+
+    .contact-breadcrumb-link {
+        color: #6C757D;
+        transition: color 0.2s ease;
+    }
+
+    .contact-breadcrumb-link:hover {
+        color: #E31E24;
+    }
+
+    .contact-breadcrumb-icon {
+        color: #6C757D;
+        font-size: 0.75rem;
+    }
+
+    .contact-breadcrumb-active {
+        color: #E31E24;
     }
 
     /* Form Card */
@@ -148,7 +186,71 @@
 
     @media (max-width: 768px) {
         .about-hero-bg { width: 100%; opacity: 0.25; }
-        .about-hero-section { min-height: 360px; }
+
+        .about-hero-section {
+            background-position: center center !important;
+            min-height: 380px !important;
+            padding-top: 3.5rem !important;
+            padding-bottom: 3.5rem !important;
+        }
+
+        .about-hero-overlay {
+            display: block !important;
+            background: linear-gradient(
+                90deg,
+                rgba(0, 0, 0, 0.65) 0%,
+                rgba(0, 0, 0, 0.40) 100%
+            ) !important;
+            z-index: 1 !important;
+        }
+
+        .about-hero-section .container {
+            position: relative !important;
+            z-index: 2 !important;
+            padding-left: 20px !important;
+            padding-right: 20px !important;
+        }
+
+        .vth-script-eyebrow.contact-hero-script {
+            font-size: clamp(18px, 5vw, 20px) !important;
+            color: #E31E24 !important;
+            margin-bottom: 0.4rem !important;
+        }
+
+        .contact-hero-title {
+            color: #FFFFFF !important;
+            font-size: clamp(30px, 8vw, 42px) !important;
+            line-height: 1.2 !important;
+            margin-bottom: 0.85rem !important;
+            overflow-wrap: break-word;
+            word-break: break-word;
+        }
+
+        .contact-hero-desc {
+            color: rgba(255, 255, 255, 0.90) !important;
+            font-size: clamp(15px, 4vw, 17px) !important;
+            line-height: 1.6 !important;
+            max-width: 100% !important;
+            margin-bottom: 1.25rem !important;
+        }
+
+        .contact-hero-breadcrumb {
+            color: #FFFFFF !important;
+            font-size: clamp(14px, 3.5vw, 15px) !important;
+        }
+
+        .contact-breadcrumb-link {
+            color: #FFFFFF !important;
+        }
+
+        .contact-breadcrumb-icon {
+            color: rgba(255, 255, 255, 0.75) !important;
+        }
+
+        .contact-breadcrumb-active {
+            color: #E31E24 !important;
+        }
+
         .contact-form-card { padding: 1.5rem; }
     }
 
@@ -187,15 +289,15 @@
     <div class="container position-relative z-2">
         <div class="row align-items-center">
             <div class="col-lg-6 col-md-10 anim-fade-up">
-                <span class="vth-script-eyebrow">Get In Touch</span>
-                <h1 class="fw-extrabold text-dark mb-3" style="font-size: 3.2rem; letter-spacing: -1.2px; line-height: 1.15;">Contact Vibhu Travel Hub</h1>
-                <p class="text-secondary mb-4" style="font-size: 1.05rem; line-height: 1.65; max-width: 520px; color: #475569;">
+                <span class="vth-script-eyebrow contact-hero-script">Get In Touch</span>
+                <h1 class="contact-hero-title fw-extrabold mb-3">Contact Vibhu Travel Hub</h1>
+                <p class="contact-hero-desc mb-4">
                     Have a question or planning your next journey? Our travel team is ready to assist you with premium cab bookings, tempo travellers, luxury buses, and corporate travel across South India.
                 </p>
-                <div class="d-flex align-items-center gap-2 text-muted small fw-medium">
-                    <a href="{% url 'home' %}" class="text-decoration-none text-muted">Home</a>
-                    <i class="bi bi-chevron-right" style="font-size: 0.75rem;"></i>
-                    <span class="text-danger fw-bold">Contact Us</span>
+                <div class="contact-hero-breadcrumb d-flex align-items-center gap-2 fw-medium">
+                    <a href="{% url 'home' %}" class="contact-breadcrumb-link text-decoration-none">Home</a>
+                    <i class="bi bi-chevron-right contact-breadcrumb-icon"></i>
+                    <span class="contact-breadcrumb-active fw-bold">Contact Us</span>
                 </div>
             </div>
         </div>

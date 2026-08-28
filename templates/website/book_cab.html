@@ -33,9 +33,9 @@
 
     /* HERO BANNER (MATCHING ABOUT US) */
     .about-hero-section {
-        background: url("{% static 'images/destinations/tn-gallery-3.png' %}") no-repeat center right / cover;
+        background: url("{% static 'images/destinations/tn-gallery-3.png' %}") no-repeat center center / cover;
         position: relative;
-        min-height: 340px;
+        min-height: 380px;
         display: flex;
         align-items: center;
         width: 100%;
@@ -45,8 +45,14 @@
     .about-hero-overlay {
         position: absolute;
         top: 0; left: 0; width: 100%; height: 100%;
-        background: linear-gradient(90deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.88) 42%, rgba(255, 255, 255, 0.45) 75%, rgba(255, 255, 255, 0.15) 100%);
+        background: linear-gradient(90deg, rgba(7, 18, 35, 0.62) 0%, rgba(7, 18, 35, 0.38) 42%, rgba(7, 18, 35, 0.08) 100%);
         z-index: 1;
+    }
+
+    @media (max-width: 767.98px) {
+        .about-hero-overlay {
+            background: linear-gradient(180deg, rgba(7, 18, 35, 0.48) 0%, rgba(7, 18, 35, 0.22) 55%, rgba(7, 18, 35, 0.12) 100%) !important;
+        }
     }
 
     .book-cab-hero-title {
@@ -271,13 +277,13 @@
         <div class="container position-relative z-2">
             <div class="row align-items-center">
                 <div class="col-lg-7 col-md-10 anim-fade-up">
-                    <span class="vth-script-eyebrow">Book Your Ride</span>
-                    <h1 class="fw-extrabold text-dark mb-3" style="font-size: 3.2rem; letter-spacing: -1.2px; line-height: 1.15;">Book a Cab</h1>
-                    <p class="text-secondary mb-4" style="font-size: 1.05rem; line-height: 1.65; max-width: 540px; color: #475569;">
+                    <span class="vth-script-eyebrow text-danger">Book Your Ride</span>
+                    <h1 class="fw-extrabold text-white mb-3" style="font-size: 3.2rem; letter-spacing: -1.2px; line-height: 1.15;">Book a Cab</h1>
+                    <p class="mb-4" style="font-size: 1.05rem; line-height: 1.65; max-width: 540px; color: rgba(255, 255, 255, 0.90);">
                         Reserve your perfect cab for local, outstation, airport transfers, and every journey you need. Safe, reliable, and always on time.
                     </p>
-                    <div class="d-flex align-items-center gap-2 text-muted small fw-medium">
-                        <a href="{% url 'home' %}" class="text-decoration-none text-muted">Home</a>
+                    <div class="d-flex align-items-center gap-2 text-white-50 small fw-medium">
+                        <a href="{% url 'home' %}" class="text-decoration-none text-white-50">Home</a>
                         <i class="bi bi-chevron-right" style="font-size: 0.75rem;"></i>
                         <span class="text-danger fw-bold">Book a Cab</span>
                     </div>
