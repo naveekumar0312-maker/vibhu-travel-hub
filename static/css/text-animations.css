@@ -167,6 +167,7 @@
     background: linear-gradient(90deg, #E31E24 0%, #FF5A5F 50%, #E31E24 100%);
     background-size: 200% auto;
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: vthGradientFlow 4.5s linear infinite;
     display: inline-block;
