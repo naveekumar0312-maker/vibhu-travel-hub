@@ -7,7 +7,7 @@ STATES_SEO_DATA = {
         "name": "Tamil Nadu",
         "slug": "tamil-nadu",
         "h1": "Tamil Nadu Travel Guide & Tourist Destinations",
-        "title": "Tamil Nadu Travel Guide & Tourist Destinations | Vibhu Travel Hub",
+        "title": "Tamil Nadu Travel Guide & Destinations | Vibhu Travel Hub",
         "description": "Discover Tamil Nadu with our complete travel guide covering ancient Dravidian temples, Nilgiri hill stations, coastal heritage, top attractions, travel tips, and FAQs.",
         "tagline": "Discover the Ancient Soul & Scenic Majesty of Tamil Nadu",
         "intro": "Explore Tamil Nadu's thousand-year-old Dravidian temples, tranquil Nilgiri hill stations like Ooty and Kodaikanal, UNESCO shore monuments, and vibrant cultural heritage with Vibhu Travel Hub.",
@@ -118,7 +118,7 @@ STATES_SEO_DATA = {
         "name": "Kerala",
         "slug": "kerala",
         "h1": "Kerala Travel Guide & Backwater Destinations",
-        "title": "Kerala Travel Guide & Backwater Destinations | Vibhu Travel Hub",
+        "title": "Kerala Travel Guide & Destinations | Vibhu Travel Hub",
         "description": "Explore God's Own Country with our travel guide covering Munnar hill stations, Alleppey backwaters, Fort Kochi, Thekkady wildlife, travel tips, and FAQs.",
         "tagline": "Experience God's Own Country in Ultimate Comfort & Serenity",
         "intro": "Immerse yourself in Kerala's tranquil emerald backwaters, sprawling Munnar tea plantations, palm-fringed beaches, Ayurvedic wellness, and rich cultural traditions with Vibhu Travel Hub.",
@@ -345,7 +345,7 @@ TOURIST_PLACES_SEO_DATA = {
         "place_name": "Marina Beach",
         "slug": "marina-beach",
         "h1": "Marina Beach – Travel Guide",
-        "title": "Marina Beach Travel Guide & Tourist Places | Vibhu Travel Hub",
+        "title": "Marina Beach Travel Guide & Attractions | Vibhu Travel Hub",
         "description": "Explore Marina Beach Chennai with our complete travel guide covering coastline views, lighthouse, beach promenade, travel tips, and FAQs.",
         "tagline": "World's Second Longest Natural Urban Beach",
         "about_paragraphs": [
@@ -507,7 +507,7 @@ TOURIST_PLACES_SEO_DATA = {
         "place_name": "Mahabalipuram",
         "slug": "mahabalipuram",
         "h1": "Mahabalipuram – Travel Guide",
-        "title": "Mahabalipuram Travel Guide & Tourist Places | Vibhu Travel Hub",
+        "title": "Mahabalipuram Travel Guide & Heritage | Vibhu Travel Hub",
         "description": "Explore Mahabalipuram with our travel guide covering Shore Temple, Pancha Rathas, Arjuna's Penance, travel tips, and FAQs.",
         "tagline": "7th-Century Pallava UNESCO World Heritage Site",
         "about_paragraphs": [
@@ -1117,7 +1117,7 @@ TOURIST_PLACES_SEO_DATA = {
         "place_name": "Kodaikanal",
         "slug": "kodaikanal",
         "h1": "Kodaikanal Tour from Coimbatore – Explore the Princess of Hill Stations",
-        "title": "Coimbatore to Kodaikanal Cab & Tour Package | Vibhu Travel Hub",
+        "title": "Coimbatore to Kodaikanal Cab Rental | Vibhu Travel Hub",
         "description": "Book Coimbatore to Kodaikanal cab and tour packages with Vibhu Travel Hub. Explore Kodai Lake, Pillar Rocks, Coaker's Walk, pine forests and more.",
         "tagline": "Plan Your Kodaikanal Tour from Coimbatore with Comfortable Cabs & Travel Services",
         "about_paragraphs": [
@@ -1393,7 +1393,7 @@ TOURIST_PLACES_SEO_DATA = {
         "place_name": "Mysore Palace",
         "slug": "mysore-palace",
         "h1": "Mysore Palace – Royal Amba Vilas",
-        "title": "Mysore Palace Travel Guide & Royal Heritage | Vibhu Travel Hub",
+        "title": "Mysore Palace Travel Guide & Heritage | Vibhu Travel Hub",
         "description": "Explore Mysore Palace with our travel guide covering durbar halls, Sunday evening illuminations, Dasara festival, travel tips, and FAQs.",
         "tagline": "Step Into Royal Grandeur & Golden Illuminated Palaces",
         "about_paragraphs": [
@@ -1695,7 +1695,7 @@ COIMBATORE_LANDING_PAGES = {
 
     "bus-rental-coimbatore": {
         "slug": "bus-rental-coimbatore",
-        "title": "Bus Rental in Coimbatore | Tourist Bus Booking | Vibhu Travel Hub",
+        "title": "Bus Rental in Coimbatore | Bus Booking | Vibhu Travel Hub",
         "description": "Book tourist bus rental in Coimbatore for family tours, group trips, corporate travel, weddings and outstation journeys with Vibhu Travel Hub.",
         "h1": "Bus Rental in Coimbatore",
         "eyebrow": "COIMBATORE GROUP TRANSPORT",
@@ -2268,7 +2268,7 @@ CITIES_SEO_DATA = {
         "state_name": "Karnataka",
         "state_slug": "karnataka",
         "h1": "Chikmagalur Travel Guide",
-        "title": "Chikmagalur Travel Guide & Places to Visit | Vibhu Travel Hub",
+        "title": "Chikmagalur Travel Guide & Attractions | Vibhu Travel Hub",
         "description": "Explore Chikmagalur travel guide covering Mullayanagiri peak, Baba Budangiri, coffee estates, travel tips, and FAQs.",
         "about": "Chikmagalur, the birthplace of Indian coffee, is situated in the Western Ghats of Karnataka. Renowned for Mullayanagiri peak, coffee homestays, and pristine waterfalls.",
         "about_paragraphs": [
