@@ -1,1 +1,134 @@
-:root{--font-primary:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;--font-display:'Outfit','Plus Jakarta Sans',sans-serif;--font-cursive:'Caveat',cursive,sans-serif;--base-line-height:1.65;--base-word-spacing:0.01em;--fs-hero-title:clamp(2.2rem, 7vw, 3rem);--fs-section-heading:clamp(1.8rem, 5vw, 2.5rem);--fs-card-heading:clamp(1.2rem, 3.5vw, 1.45rem);--fs-sub-heading:clamp(1.05rem, 3vw, 1.25rem);--fs-paragraph:clamp(0.95rem, 2vw, 1.05rem);--fs-button:clamp(0.9rem, 1.8vw, 0.95rem);--fs-nav:clamp(0.9rem, 1.8vw, 0.95rem)}@media (min-width:768px){:root{--fs-hero-title:clamp(3rem, 5vw, 3.8rem);--fs-section-heading:clamp(2.2rem, 3.8vw, 2.8rem)}}@media (min-width:1200px){:root{--fs-hero-title:clamp(3.4rem, 4.8vw, 4.2rem);--fs-section-heading:clamp(2.3rem, 3.5vw, 3.2rem);--fs-card-heading:1.45rem;--fs-sub-heading:1.25rem;--fs-paragraph:1.05rem;--fs-button:0.95rem;--fs-nav:0.95rem}}html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}body,button,input,select,textarea{font-family:var(--font-primary)!important;font-size:var(--fs-paragraph);font-weight:400;line-height:var(--base-line-height);word-spacing:var(--base-word-spacing);color:#334155}h1,h2,h3,h4,h5,h6{font-family:var(--font-display)!important;color:#0f172a;line-height:1.12;margin-top:0;letter-spacing:-.02em}.hero-main-title,.hero-title,h1{font-family:var(--font-display)!important;font-size:var(--fs-hero-title);font-weight:800;line-height:1.05;letter-spacing:-.025em}.section-eyebrow,.vth-eyebrow{font-family:var(--font-primary);font-size:clamp(.75rem, 1.2vw, .85rem);font-weight:700;letter-spacing:.12em;text-transform:uppercase}.section-heading,h2{font-family:var(--font-display)!important;font-size:var(--fs-section-heading);font-weight:800;line-height:1.1;letter-spacing:-.02em}.card-heading,.dest-card-overlay h3,h3{font-family:var(--font-display)!important;font-size:var(--fs-card-heading);font-weight:700;line-height:1.25;letter-spacing:-.015em}.sub-heading,h4,h5,h6{font-family:var(--font-primary)!important;font-size:var(--fs-sub-heading);font-weight:600;line-height:1.35}p{font-family:var(--font-primary);font-size:var(--fs-paragraph);font-weight:400;line-height:var(--base-line-height)}.btn,button{font-family:var(--font-primary)!important;font-size:var(--fs-button);font-weight:700;letter-spacing:.02em}.nav-link,.vth-nav-link,nav a{font-family:var(--font-primary)!important;font-size:var(--fs-nav);font-weight:600;letter-spacing:.01em}
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --font-primary: 'Comfortaa', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Comfortaa', 'Outfit', sans-serif;
+  --font-cursive: 'Comfortaa', cursive, sans-serif;
+  --base-line-height: 1.65;
+  --base-word-spacing: 0.01em;
+  --fs-hero-title: clamp(2.2rem, 7vw, 3rem);
+  --fs-section-heading: clamp(1.8rem, 5vw, 2.5rem);
+  --fs-card-heading: clamp(1.2rem, 3.5vw, 1.45rem);
+  --fs-sub-heading: clamp(1.05rem, 3vw, 1.25rem);
+  --fs-paragraph: clamp(0.95rem, 2vw, 1.05rem);
+  --fs-button: clamp(0.9rem, 1.8vw, 0.95rem);
+  --fs-nav: clamp(0.9rem, 1.8vw, 0.95rem);
+}
+
+@media (min-width: 768px) {
+  :root {
+    --fs-hero-title: clamp(3rem, 5vw, 3.8rem);
+    --fs-section-heading: clamp(2.2rem, 3.8vw, 2.8rem);
+  }
+}
+
+@media (min-width: 1200px) {
+  :root {
+    --fs-hero-title: clamp(3.4rem, 4.8vw, 4.2rem);
+    --fs-section-heading: clamp(2.3rem, 3.5vw, 3.2rem);
+    --fs-card-heading: 1.45rem;
+    --fs-sub-heading: 1.25rem;
+    --fs-paragraph: 1.05rem;
+    --fs-button: 0.95rem;
+    --fs-nav: 0.95rem;
+  }
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Global Font Override */
+*,
+*::before,
+*::after,
+body,
+button,
+input,
+select,
+textarea,
+p,
+span,
+a,
+li,
+h1, h2, h3, h4, h5, h6,
+.btn,
+.nav-link {
+  font-family: 'Comfortaa', var(--font-primary) !important;
+}
+
+body {
+  font-size: var(--fs-paragraph);
+  font-weight: 500 !important; /* Comfortaa Medium */
+  line-height: var(--base-line-height);
+  word-spacing: var(--base-word-spacing);
+  color: #334155;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #0f172a;
+  line-height: 1.2;
+  margin-top: 0;
+  font-weight: 600 !important;
+}
+
+.hero-main-title,
+.hero-title,
+h1 {
+  font-size: var(--fs-hero-title);
+  font-weight: 700 !important;
+  line-height: 1.15;
+}
+
+.section-eyebrow,
+.vth-eyebrow {
+  font-size: clamp(0.75rem, 1.2vw, 0.85rem);
+  font-weight: 600 !important;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.section-heading,
+h2 {
+  font-size: var(--fs-section-heading);
+  font-weight: 700 !important;
+  line-height: 1.2;
+}
+
+.card-heading,
+.dest-card-overlay h3,
+h3 {
+  font-size: var(--fs-card-heading);
+  font-weight: 600 !important;
+  line-height: 1.3;
+}
+
+.sub-heading,
+h4, h5, h6 {
+  font-size: var(--fs-sub-heading);
+  font-weight: 500 !important;
+  line-height: 1.4;
+}
+
+p {
+  font-size: var(--fs-paragraph);
+  font-weight: 500 !important; /* Medium */
+  line-height: var(--base-line-height);
+}
+
+.btn,
+button {
+  font-size: var(--fs-button);
+  font-weight: 600 !important;
+  letter-spacing: 0.02em;
+}
+
+.nav-link,
+.vth-nav-link,
+nav a {
+  font-size: var(--fs-nav);
+  font-weight: 500 !important;
+  letter-spacing: 0.01em;
+}
