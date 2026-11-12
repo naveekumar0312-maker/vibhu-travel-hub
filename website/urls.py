@@ -1,4 +1,5 @@
 # pyrefly: ignore [missing-import]
+from django.views.generic import RedirectView
 from django.urls import path
 
 from . import views
@@ -6,6 +7,10 @@ from dashboard.views import partner_enquiry_views as dashboard_partner_views
 from website.views import robots_txt
 
 urlpatterns = [
+    path("routes/", views.routes_index, name="routes_index"),
+    path("routes/<slug:route_slug>/", views.route_detail, name="route_detail"),
+    path("services/bus-rental/", RedirectView.as_view(url="/bus-rental-coimbatore/", permanent=True)),
+
 
     path(
         "",
@@ -24,7 +29,16 @@ urlpatterns = [
         views.contact,
         name="contact"
     ),
-
+    path(
+    "privacy-policy/",
+    views.privacy_policy,
+    name="privacy_policy"
+),
+path(
+    "terms-and-conditions/",
+    views.terms_conditions,
+    name="terms_conditions",
+),
     path(
         "send-enquiry/",
         views.send_enquiry,
@@ -39,9 +53,9 @@ urlpatterns = [
 
 
     path(
-    "services/local-taxi-service/",
-    views.local_taxi_service,
-    name="local_taxi_service"
+    "services/local-cab-service/",
+    views.local_cab_service,
+    name="local_cab_service"
 ),
 
 path(
@@ -80,8 +94,23 @@ path(
 ),
 
 # Service Aliases
-path("services/taxi/", views.local_taxi_service, name="service_taxi_alias"),
-path("services/local-taxi/", views.local_taxi_service, name="service_local_taxi_alias"),
+# Keep the main SEO URL canonical and permanently redirect legacy aliases.
+path(
+    "services/cab/",
+    RedirectView.as_view(
+        url="/services/local-cab-service/",
+        permanent=True,
+    ),
+    name="service_cab_alias",
+),
+path(
+    "services/local-cab/",
+    RedirectView.as_view(
+        url="/services/local-cab-service/",
+        permanent=True,
+    ),
+    name="service_local_cab_alias",
+),
 path("services/outstation/", views.outstation_tours, name="service_outstation_alias"),
 path("services/luxury-bus/", views.bus_booking, name="service_luxury_bus_alias"),
 path("services/airport-transfers/", views.airport_transfer_service, name="service_airport_transfers_alias"),
@@ -94,6 +123,58 @@ path("destinations/tamil-nadu/", views.tamil_nadu_view, name="tamil_nadu_view"),
 path("destinations/kerala/", views.kerala_view, name="kerala_view"),
 path("destinations/karnataka/", views.karnataka_view, name="karnataka_view"),
 
+# Ooty Dedicated Landing Page
+path(
+    "destinations/tamil-nadu/ooty/",
+    views.ooty_landing_view,
+    name="ooty_landing"
+),
+
+# Legacy Ooty URL -> Dedicated Ooty Landing Page
+path(
+    "destinations/tamil-nadu/coimbatore/ooty/",
+    views.ooty_legacy_redirect,
+    name="ooty_legacy_redirect"
+),
+# ============================================================
+# Coimbatore SEO Landing Pages
+# ============================================================
+
+path(
+    "tempo-traveller-rental-coimbatore/",
+    views.coimbatore_landing_view,
+    {
+        "landing_slug": "tempo-traveller-rental-coimbatore"
+    },
+    name="tempo_traveller_rental_coimbatore",
+),
+
+path(
+    "bus-rental-coimbatore/",
+    views.coimbatore_landing_view,
+    {
+        "landing_slug": "bus-rental-coimbatore"
+    },
+    name="bus_rental_coimbatore",
+),
+
+path(
+    "coimbatore-to-ooty-tour-package/",
+    views.coimbatore_landing_view,
+    {
+        "landing_slug": "coimbatore-to-ooty-tour-package"
+    },
+    name="coimbatore_to_ooty_tour",
+),
+
+path(
+    "outstation-cab-service-coimbatore/",
+    views.coimbatore_landing_view,
+    {
+        "landing_slug": "outstation-cab-service-coimbatore"
+    },
+    name="outstation_cab_coimbatore",
+),
 # City Landing Pages
 path("destinations/<slug:state_slug>/<slug:city_slug>/", views.city_detail_view, name="city_detail"),
 

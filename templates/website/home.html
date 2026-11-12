@@ -2,20 +2,18 @@
 {% load static %}
 {% load vehicle_tags %}
 
-{% block title %}Vibhu Travel Hub | Luxury Travel & Cab Services Across South India{% endblock %}
+{% block meta_title %}Travel Agency in Coimbatore | Cab & Tempo Traveller
+{% endblock %}
 
-{% block description %}Vibhu Travel Hub offers premium cab rentals, tempo travellers, luxury buses and customized travel
-services across Tamil Nadu, Kerala and Karnataka.{% endblock %}
-
-{% block keywords %}Vibhu Travel Hub, cab service South India, luxury travel South India, cab rental Tamil Nadu, Kerala
+{% block meta_description %}Book cabs, tempo travellers & buses in Coimbatore with upfront pricing — no hidden fares. 5+ years, 24/7 WhatsApp booking.{% endblock %}
+{% block keywords %}travel agency Coimbatore, travel companies in Coimbatore, tours and travels Coimbatore, tour operator Coimbatore, tour packages Coimbatore, Coimbatore travel packages, Coimbatore trip packages, Coimbatore holiday packages, travel agent Coimbatore, travel services Coimbatore, tourist services Coimbatore, outstation travel agency Coimbatore, South India tour packages from Coimbatore, family tour packages from Coimbatore, group tour packages Coimbatore, corporate travel service Coimbatore, pilgrimage tour packages Coimbatore
 travel, Karnataka travel, tempo traveller rental{% endblock %}
 
-{% block og_title %}Vibhu Travel Hub | Luxury Travel & Cab Services Across South India{% endblock %}
-{% block og_description %}Vibhu Travel Hub offers premium cab rentals, tempo travellers, luxury buses and customized
-travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %}
+{% block og_title %}Best Travel Agency in Coimbatore{% endblock %}
+{% block og_description %}Vibhu Travel Hub offers cab rentals, tempo travellers, bus rentals and customized travel options across Tamil Nadu, Kerala and Karnataka.{% endblock %}
 
-{% block twitter_title %}Vibhu Travel Hub | Luxury Travel & Cab Services Across South India{% endblock %}
-{% block twitter_description %}Vibhu Travel Hub offers premium cab rentals, tempo travellers, luxury buses and
+{% block twitter_title %}Vibhu Travel Hub | Cab, Tempo Traveller & Bus Rental in Coimbatore{% endblock %}
+{% block twitter_description %}Vibhu Travel Hub offers cab rentals, tempo travellers, bus rentals and
 customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %}
 
 {% block schema %}
@@ -24,12 +22,12 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
   "@context": "https://schema.org",
   "@type": "TravelAgency",
   "name": "Vibhu Travel Hub",
-  "url": "https://vibhutravelhub.com",
-  "logo": "https://vibhutravelhub.com/static/images/logo/logo.webp",
-  "image": "https://vibhutravelhub.com/static/images/logo/og-banner.webp",
-  "description": "Vibhu Travel Hub is a premier travel agency offering cab service, outstation cabs, tempo traveller rentals, luxury bus rentals, and tour packages across South India.",
+  "url": "https://www.vibhutravelhub.com",
+  "logo": "https://www.vibhutravelhub.com/static/images/logo/logo.webp",
+  "image": "https://www.vibhutravelhub.com/static/images/logo/og-banner.webp",
+  "description": "Vibhu Travel Hub is a travel agency in Coimbatore offering cab rental, outstation cabs, tempo traveller rental, bus rental, and tour packages across South India.",
   "email": "vibhutravelhub66@gmail.com",
-  "telephone": "+91-9655866660",
+  "telephone": "+91 96558 66660",
   "priceRange": "$$",
   "address": {
     "@type": "PostalAddress",
@@ -56,7 +54,7 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "Vibhu Travel Hub",
-  "url": "https://vibhutravelhub.com"
+  "url": "https://www.vibhutravelhub.com"
 }
 </script>
 {% endblock %}
@@ -64,10 +62,6 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
 {% block body_class %}home-page{% endblock %}
 
 {% block extra_css %}
-<!-- Google Fonts for Cursive Eyebrow -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{% static 'css/home-3d.css' %}?v={{ STATIC_VERSION }}">
 <style>
     .vth-hero-script {
@@ -351,6 +345,42 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
         transform: scale(1.08);
         transition: transform 0.5s ease;
     }
+/* =========================================================
+   VIBHU TRAVEL HUB - MOBILE HERO H1 FIX
+   ========================================================= */
+
+@media (max-width: 767.98px) {
+
+    .vth-hero-section .hero-main-title {
+        text-align: center !important;
+        width: 100% !important;
+        max-width: 100% !important;
+
+        font-size: 2rem !important;
+        line-height: 1.15 !important;
+        letter-spacing: -0.5px !important;
+
+        margin-left: auto !important;
+        margin-right: auto !important;
+
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+
+        word-break: normal !important;
+        overflow-wrap: normal !important;
+        hyphens: none !important;
+    }
+
+    .vth-hero-section .hero-main-title br {
+        display: none !important;
+    }
+
+    .vth-hero-section .vth-hero-script {
+        display: block !important;
+        text-align: center !important;
+        width: 100% !important;
+    }
+}
 </style>
 {% endblock %}
 
@@ -362,7 +392,13 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
 <section id="home"
     class="vth-hero-section position-relative overflow-hidden d-flex flex-column justify-content-between py-4 py-lg-5">
     <!-- Responsive Hero Image Backdrop Layer -->
-    <img src="{% static 'images/hero-slider/hero-sea.png' %}" alt="South India Travel Destinations"
+    <img
+        src="{% static 'images/home-optimized/travel-hero-20260926.webp' %}"
+        srcset="{% static 'images/home-optimized/travel-hero-640w-20260926.webp' %} 640w,
+                {% static 'images/home-optimized/travel-hero-960w-20260926.webp' %} 960w,
+                {% static 'images/home-optimized/travel-hero-20260926.webp' %} 1280w"
+        sizes="100vw"
+        alt="South India Travel Destinations"
         class="vth-hero-bg-img position-absolute top-0 start-0 w-100 h-100">
 
     <!-- Left-Side Subtle Ocean Gradient Overlay for Text Readability -->
@@ -377,12 +413,12 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
                 <span class="vth-hero-script hero-label-anim" style="color: #FF5A5F; font-size: 2rem;">Explore South
                     India</span>
                 <h1 class="hero-main-title hero-heading-anim text-white mb-3"
-                    style="font-size: 3.5rem; font-weight: 800; line-height: 1.12; letter-spacing: -1.2px; text-shadow: 0 2px 10px rgba(0,0,0,0.3);">
-                    Luxury Travel<br>Across South India
-                </h1>
+    style="font-size: 3.5rem; font-weight: 800; line-height: 1.12; letter-spacing: -1.2px; text-shadow: 0 2px 10px rgba(0,0,0,0.3);">
+    Best Travel Agency in Coimbatore
+</h1>
                 <p class="text-white-50 hero-desc-anim mb-4"
                     style="font-size: 1.08rem; line-height: 1.65; color: rgba(255, 255, 255, 0.88) !important; text-shadow: 0 1px 4px rgba(0,0,0,0.4);">
-                    Premium cabs, tempo travellers & luxury buses for unforgettable journeys across Tamil Nadu, Kerala &
+                    Cabs, tempo travellers & buses for journeys across Tamil Nadu, Kerala &
                     Karnataka.
                 </p>
                 <div class="d-flex align-items-center gap-3 flex-wrap mb-4 mb-lg-5 hero-buttons-anim">
@@ -411,8 +447,8 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
                         <i class="bi bi-tag-fill fs-5"></i>
                     </div>
                     <div>
-                        <h6 class="mb-0 fw-bold text-dark lh-sm" style="font-size: 0.88rem;">Best Price<br><span
-                                class="text-muted fw-normal" style="font-size: 0.78rem;">Guaranteed</span></h6>
+                        <div class="mb-0 fw-bold text-dark lh-sm" style="font-size: 0.88rem;">Best Price<br><span
+                                class="text-muted fw-normal" style="font-size: 0.78rem;">Guaranteed</span></div>
                     </div>
                 </div>
             </div>
@@ -424,8 +460,8 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
                         <i class="bi bi-person-badge-fill fs-5"></i>
                     </div>
                     <div>
-                        <h6 class="mb-0 fw-bold text-dark lh-sm" style="font-size: 0.88rem;">Professional<br><span
-                                class="text-muted fw-normal" style="font-size: 0.78rem;">Drivers</span></h6>
+                        <div class="mb-0 fw-bold text-dark lh-sm" style="font-size: 0.88rem;">Professional<br><span
+                                class="text-muted fw-normal" style="font-size: 0.78rem;">Drivers</span></div>
                     </div>
                 </div>
             </div>
@@ -437,8 +473,8 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
                         <i class="bi bi-car-front-fill fs-5"></i>
                     </div>
                     <div>
-                        <h6 class="mb-0 fw-bold text-dark lh-sm" style="font-size: 0.88rem;">Luxury & Comfort<br><span
-                                class="text-muted fw-normal" style="font-size: 0.78rem;">Vehicles</span></h6>
+                        <div class="mb-0 fw-bold text-dark lh-sm" style="font-size: 0.88rem;">Comfort & Care<br><span
+                                class="text-muted fw-normal" style="font-size: 0.78rem;">Vehicles</span></div>
                     </div>
                 </div>
             </div>
@@ -450,8 +486,8 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
                         <i class="bi bi-headset fs-5"></i>
                     </div>
                     <div>
-                        <h6 class="mb-0 fw-bold text-dark lh-sm" style="font-size: 0.88rem;">24/7 Customer<br><span
-                                class="text-muted fw-normal" style="font-size: 0.78rem;">Support</span></h6>
+                        <div class="mb-0 fw-bold text-dark lh-sm" style="font-size: 0.88rem;">24/7 Customer<br><span
+                                class="text-muted fw-normal" style="font-size: 0.78rem;">Support</span></div>
                     </div>
                 </div>
             </div>
@@ -467,7 +503,7 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
                 <div class="d-flex align-items-center gap-2.5">
                     <i class="bi bi-shield-check text-danger fs-3"></i>
                     <div>
-                        <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">Safe & Secure</h6>
+                        <div class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">Safe & Secure</div>
                         <span class="text-muted d-block" style="font-size: 0.75rem;">Your safety is our priority</span>
                     </div>
                 </div>
@@ -476,7 +512,7 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
                 <div class="d-flex align-items-center gap-2.5">
                     <i class="bi bi-person-check text-danger fs-3"></i>
                     <div>
-                        <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">Professional Drivers</h6>
+                        <div class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">Professional Drivers</div>
                         <span class="text-muted d-block" style="font-size: 0.75rem;">Experienced & verified</span>
                     </div>
                 </div>
@@ -485,7 +521,7 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
                 <div class="d-flex align-items-center gap-2.5">
                     <i class="bi bi-car-front text-danger fs-3"></i>
                     <div>
-                        <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">Luxury Fleet</h6>
+                        <div class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">Comfortable Fleet</div>
                         <span class="text-muted d-block" style="font-size: 0.75rem;">Well maintained vehicles</span>
                     </div>
                 </div>
@@ -494,7 +530,7 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
                 <div class="d-flex align-items-center gap-2.5">
                     <i class="bi bi-clock-history text-danger fs-3"></i>
                     <div>
-                        <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">24/7 Support</h6>
+                        <div class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">24/7 Support</div>
                         <span class="text-muted d-block" style="font-size: 0.75rem;">Always available for you</span>
                     </div>
                 </div>
@@ -503,7 +539,7 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
                 <div class="d-flex align-items-center gap-2.5">
                     <i class="bi bi-receipt text-danger fs-3"></i>
                     <div>
-                        <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">Best Price</h6>
+                        <div class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">Best Price</div>
                         <span class="text-muted d-block" style="font-size: 0.75rem;">Affordable & transparent</span>
                     </div>
                 </div>
@@ -512,7 +548,7 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
                 <div class="d-flex align-items-center gap-2.5">
                     <i class="bi bi-airplane text-danger fs-3"></i>
                     <div>
-                        <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">Airport Transfer</h6>
+                        <div class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">Airport Transfer</div>
                         <span class="text-muted d-block" style="font-size: 0.75rem;">On-time pickup & drop</span>
                     </div>
                 </div>
@@ -529,8 +565,16 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
         <div class="row align-items-center g-4">
             <div class="col-lg-6 reveal-left">
                 <div class="position-relative overflow-hidden rounded-4 shadow-sm border">
-                    <img src="{% static 'images/about/hero.png' %}" alt="Discover Vibhu Travel Hub"
-                        class="img-fluid w-100" style="object-fit: cover; min-height: 320px;">
+                    <img
+                        src="{% static 'images/home-optimized/hero.webp' %}"
+                        srcset="{% static 'images/home-optimized/hero-360w.webp' %} 360w,
+                                {% static 'images/home-optimized/hero.webp' %} 480w"
+                        sizes="(max-width: 991px) 100vw, 50vw"
+                        alt="Discover Vibhu Travel Hub"
+                        class="img-fluid w-100"
+                        width="480"
+                        height="360"
+                        style="object-fit: cover; min-height: 320px;">
                     <div
                         class="position-absolute bottom-0 start-0 m-3 p-3 bg-white rounded-3 shadow-sm border d-flex align-items-center gap-3">
                         <div class="bg-danger text-white rounded-circle p-2.5 d-flex align-items-center justify-content-center"
@@ -538,7 +582,7 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
                             <i class="bi bi-star-fill fs-5"></i>
                         </div>
                         <div>
-                            <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.9rem;">Top Rated Travel Partner</h6>
+                            <div class="fw-bold mb-0 text-dark" style="font-size: 0.9rem;">Top Rated Travel Partner</div>
                             <span class="text-muted small">5+ Years of Service Excellence</span>
                         </div>
                     </div>
@@ -551,7 +595,7 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
                 <h2 class="fw-extrabold text-dark mb-3" style="font-size: 2.2rem; letter-spacing: -0.5px;">Discover
                     Vibhu Travel Hub</h2>
                 <p class="text-muted mb-4" style="line-height: 1.7; font-size: 0.98rem;">
-                    Vibhu Travel Hub is South India's premier travel and transport provider. We deliver luxurious,
+                    Vibhu Travel Hub is a Coimbatore-based travel and transport provider offering reliable
                     reliable, and affordable travel solutions across Tamil Nadu, Kerala, and Karnataka with a fleet of
                     meticulously maintained cabs, tempo travellers, and coaches.
                 </p>
@@ -573,14 +617,14 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
                     </div>
                     <div class="col-6">
                         <div class="d-flex align-items-center gap-2 text-dark fw-bold small">
-                            <i class="bi bi-check-circle-fill text-danger"></i> Luxury &amp; Clean Fleet
+                            <i class="bi bi-check-circle-fill text-danger"></i> Clean & Well-Maintained Fleet
                         </div>
                     </div>
                 </div>
                 <a href="{% url 'about' %}"
                     class="btn btn-danger rounded-pill px-4 py-2.5 fw-bold text-white shadow-sm border-0 d-inline-flex align-items-center gap-2"
                     style="background-color: #E31E24; font-size: 0.95rem;">
-                    Learn More <i class="bi bi-arrow-right"></i>
+                    Learn More About Vibhu Travel Hub <i class="bi bi-arrow-right"></i>
                 </a>
             </div>
         </div>
@@ -796,13 +840,13 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
 
                         <!-- Video or Image Player -->
                         {% if vehicle.get_video_url %}
-                        <video autoplay muted loop playsinline preload="auto">
+                        <video autoplay muted loop playsinline preload="metadata">
                             <source src="{{ vehicle.get_video_url }}" type="video/mp4">
-                            {% if vehicle.image %}<img src="{{ vehicle.image.url }}" alt="{{ vehicle.name }}">{% endif %}
+                            {% if vehicle.image %}<img src="{{ vehicle.image.url }}" alt="{{ vehicle.name }} Rental in Coimbatore - Vibhu Travel Hub">{% endif %}
                         </video>
                         {% else %}
                         <img src="{% if vehicle.image %}{{ vehicle.image.url }}{% else %}{% static 'images/vehicles/traveller.webp' %}{% endif %}"
-                            alt="{{ vehicle.name }}">
+                            alt="{{ vehicle.name }} Rental in Coimbatore - Vibhu Travel Hub">
                         {% endif %}
                     </div>
 
@@ -861,125 +905,6 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
                     </div>
                 </div>
             </div>
-            {% empty %}
-            <!-- Static Reference Cards if DB is Empty -->
-            <div class="col-lg-4 col-md-6 col-12 reveal-up d-flex align-items-stretch">
-                <div class="vth-fleet-card w-100">
-                    <div class="fleet-card-media">
-                        <div class="fleet-price-badge">₹1,800/day</div>
-                        <img src="{% static 'images/vehicles/sedan.webp' %}" alt="Sedan">
-                    </div>
-                    <div class="p-4 d-flex flex-column flex-grow-1 justify-content-between">
-                        <div>
-                            <div class="d-flex align-items-center justify-content-between gap-2 mb-2">
-                                <h3 class="fleet-card-title">Sedan</h3>
-                                <span class="fleet-model-pill">Etios / Dzire</span>
-                            </div>
-                            <p class="text-muted small mb-3" style="font-size: 0.88rem; line-height: 1.55;">
-                                Perfect for couples and small families. Experience comfort and elegance with our
-                                well-maintained fleet.
-                            </p>
-                            <div class="d-flex align-items-center gap-2 text-dark fw-semibold small mb-3">
-                                <i class="bi bi-people-fill" style="color: #FF1F1F;"></i>
-                                <span>2-4 Passengers</span>
-                            </div>
-                            <div class="d-flex flex-wrap gap-2 mb-4">
-                                <span class="fleet-chip">AC & Music System</span>
-                                <span class="fleet-chip">Professional Driver</span>
-                                <span class="fleet-chip">Clean Interiors</span>
-                            </div>
-                        </div>
-                        <div class="fleet-card-actions">
-                            <button type="button" class="fleet-btn-details fleet-details-trigger" data-bs-toggle="modal"
-                                data-bs-target="#vehicleDetailsModal" data-vehicle-index="0">
-                                View Details
-                            </button>
-                            <a href="https://wa.me/919655866660?text=Hello%20Vibhu%20Travel%20Hub%2C%0A%0AI%20am%20interested%20in%20booking%20the%20following%20vehicle%3A%0A%0AVehicle%3A%20Sedan%20%28Etios%20%2F%20Dzire%29%0AVehicle%20Type%3A%20Sedan%0ASeating%20Capacity%3A%202-4%20Passengers%0A%0AI%20would%20like%20to%20know%20the%20availability%20and%20booking%20details.%0A%0APlease%20assist%20me%20with%20the%20booking.%0A%0AThank%20you."
-                                target="_blank" rel="noopener noreferrer" class="fleet-btn-book">
-                                Book Now
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-12 reveal-up d-flex align-items-stretch">
-                <div class="vth-fleet-card w-100">
-                    <div class="fleet-card-media">
-                        <div class="fleet-price-badge">₹2,500/day</div>
-                        <img src="{% static 'images/vehicles/suv.png' %}" alt="SUV">
-                    </div>
-                    <div class="p-4 d-flex flex-column flex-grow-1 justify-content-between">
-                        <div>
-                            <div class="d-flex align-items-center justify-content-between gap-2 mb-2">
-                                <h3 class="fleet-card-title">SUV</h3>
-                                <span class="fleet-model-pill">Ertiga / Innova</span>
-                            </div>
-                            <p class="text-muted small mb-3" style="font-size: 0.88rem; line-height: 1.55;">
-                                Spacious and versatile for families and small groups with ample luggage space and
-                                comfort.
-                            </p>
-                            <div class="d-flex align-items-center gap-2 text-dark fw-semibold small mb-3">
-                                <i class="bi bi-people-fill" style="color: #FF1F1F;"></i>
-                                <span>5-7 Passengers</span>
-                            </div>
-                            <div class="d-flex flex-wrap gap-2 mb-4">
-                                <span class="fleet-chip">Extra Luggage Space</span>
-                                <span class="fleet-chip">Hill Station Ready</span>
-                                <span class="fleet-chip">Comfortable Seating</span>
-                            </div>
-                        </div>
-                        <div class="fleet-card-actions">
-                            <button type="button" class="fleet-btn-details fleet-details-trigger" data-bs-toggle="modal"
-                                data-bs-target="#vehicleDetailsModal" data-vehicle-index="1">
-                                View Details
-                            </button>
-                            <a href="https://wa.me/919655866660?text=Hello%20Vibhu%20Travel%20Hub%2C%0A%0AI%20am%20interested%20in%20booking%20the%20following%20vehicle%3A%0A%0AVehicle%3A%20SUV%20%28Ertiga%20%2F%20Innova%29%0AVehicle%20Type%3A%20SUV%0ASeating%20Capacity%3A%205-7%20Passengers%0A%0AI%20would%20like%20to%20know%20the%20availability%20and%20booking%20details.%0A%0APlease%20assist%20me%20with%20the%20booking.%0A%0AThank%20you."
-                                target="_blank" rel="noopener noreferrer" class="fleet-btn-book">
-                                Book Now
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-12 reveal-up d-flex align-items-stretch">
-                <div class="vth-fleet-card w-100">
-                    <div class="fleet-card-media">
-                        <div class="fleet-price-badge">₹3,800/day</div>
-                        <img src="{% static 'images/vehicles/traveller.webp' %}" alt="Tempo Traveller">
-                    </div>
-                    <div class="p-4 d-flex flex-column flex-grow-1 justify-content-between">
-                        <div>
-                            <div class="d-flex align-items-center justify-content-between gap-2 mb-2">
-                                <h3 class="fleet-card-title">Tempo Traveller</h3>
-                                <span class="fleet-model-pill">Force Traveller</span>
-                            </div>
-                            <p class="text-muted small mb-3" style="font-size: 0.88rem; line-height: 1.55;">
-                                Perfect for medium groups and extended tours with premium amenities and modern
-                                facilities.
-                            </p>
-                            <div class="d-flex align-items-center gap-2 text-dark fw-semibold small mb-3">
-                                <i class="bi bi-people-fill" style="color: #FF1F1F;"></i>
-                                <span>9-14 Passengers</span>
-                            </div>
-                            <div class="d-flex flex-wrap gap-2 mb-4">
-                                <span class="fleet-chip">Reclining Seats</span>
-                                <span class="fleet-chip">Entertainment System</span>
-                                <span class="fleet-chip">Ample Legroom</span>
-                            </div>
-                        </div>
-                        <div class="fleet-card-actions">
-                            <button type="button" class="fleet-btn-details fleet-details-trigger" data-bs-toggle="modal"
-                                data-bs-target="#vehicleDetailsModal" data-vehicle-index="2">
-                                View Details
-                            </button>
-                            <a href="https://wa.me/919655866660?text=Hello%20Vibhu%20Travel%20Hub%2C%0A%0AI%20am%20interested%20in%20booking%20the%20following%20vehicle%3A%0A%0AVehicle%3A%20Tempo%20Traveller%20%28Force%20Traveller%29%0AVehicle%20Type%3A%20Tempo%20Traveller%0ASeating%20Capacity%3A%209-14%20Passengers%0A%0AI%20would%20like%20to%20know%20the%20availability%20and%20booking%20details.%0A%0APlease%20assist%20me%20with%20the%20booking.%0A%0AThank%20you."
-                                target="_blank" rel="noopener noreferrer" class="fleet-btn-book">
-                                Book Now
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
             {% endfor %}
         </div>
     </div>
@@ -994,7 +919,16 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
             <div class="reveal-left">
                 <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block reveal-down"
                     style="color: #E31E24; font-size: 0.75rem; letter-spacing: 1.2px;">EXPLORE SOUTH INDIA</span>
-                <h2 class="fw-extrabold text-dark mb-0" style="font-size: 2.3rem; letter-spacing: -0.5px;">Top
+                
+                <p class="text-muted mt-3 mb-4" style="max-width: 850px;">
+                    As a trusted Coimbatore travel agency, Vibhu Travel Hub provides
+                    customized travel services for family trips, group tours, corporate
+                    travel, pilgrimage journeys and outstation holidays. Choose from
+                    South India tour packages from Coimbatore with comfortable cabs,
+                    Tempo Travellers and buses.
+                </p>
+
+<h2 class="fw-extrabold text-dark mb-0" style="font-size: 2.3rem; letter-spacing: -0.5px;">Top
                     Destinations</h2>
             </div>
             <div class="d-flex align-items-center gap-3 reveal-right">
@@ -1009,19 +943,19 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
                 <a href="{% url 'tamil_nadu_view' %}" class="destination-card-link">
                     <div class="destination-card">
                         <div class="destination-image-wrapper">
-                            <img src="{% static 'images/destinations/tamil2.jpeg' %}" alt="Tamil Nadu"
+                            <img src="{% static 'images/home-optimized/tamil2.webp' %}" alt="Tamil Nadu"
                                 class="destination-image">
                         </div>
                         <div class="destination-content">
                             <div class="destination-label">
                                 <i class="bi bi-geo-alt-fill"></i> VIBHU TRAVEL HUB
                             </div>
-                            <h3 class="destination-title">Tamil Nadu</h3>
+                            <h3 class="destination-title">Tamil Nadu Tour Packages from Coimbatore</h3>
                             <p class="destination-subtitle">Temples, Beaches &amp; Heritage Cities</p>
                             <div class="destination-divider"></div>
                             <p class="destination-description">
-                                Explore the rich cultural heritage, magnificent temples, pristine beaches and vibrant
-                                cities of Tamil Nadu.
+                                Plan Tamil Nadu tour packages from Coimbatore and explore the rich cultural heritage,
+                                magnificent temples, pristine beaches and vibrant cities across the state.
                             </p>
                             <span class="destination-button">
                                 View Packages <i class="bi bi-arrow-right"></i>
@@ -1036,19 +970,19 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
                 <a href="{% url 'kerala_view' %}" class="destination-card-link">
                     <div class="destination-card">
                         <div class="destination-image-wrapper">
-                            <img src="{% static 'images/destinations/kerala2.png' %}" alt="Kerala"
+                            <img src="{% static 'images/home-optimized/kerala2.webp' %}" alt="Kerala"
                                 class="destination-image">
                         </div>
                         <div class="destination-content">
                             <div class="destination-label">
                                 <i class="bi bi-geo-alt-fill"></i> VIBHU TRAVEL HUB
                             </div>
-                            <h3 class="destination-title">Kerala</h3>
+                            <h3 class="destination-title">Kerala Tour Packages from Coimbatore</h3>
                             <p class="destination-subtitle">Backwaters, Beaches &amp; Nature</p>
                             <div class="destination-divider"></div>
                             <p class="destination-description">
-                                Discover tranquil backwaters, lush green tea plantations, palm-fringed beaches and
-                                serene hill stations of Kerala.
+                                Book Kerala tour packages from Coimbatore and discover tranquil backwaters, lush green tea
+                                plantations, palm-fringed beaches and serene hill stations across Kerala.
                             </p>
                             <span class="destination-button">
                                 View Packages <i class="bi bi-arrow-right"></i>
@@ -1063,19 +997,19 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
                 <a href="{% url 'karnataka_view' %}" class="destination-card-link">
                     <div class="destination-card">
                         <div class="destination-image-wrapper">
-                            <img src="{% static 'images/destinations/karnataka2.png' %}" alt="Karnataka"
+                            <img src="{% static 'images/home-optimized/karnataka2.webp' %}" alt="Karnataka"
                                 class="destination-image">
                         </div>
                         <div class="destination-content">
                             <div class="destination-label">
                                 <i class="bi bi-geo-alt-fill"></i> VIBHU TRAVEL HUB
                             </div>
-                            <h3 class="destination-title">Karnataka</h3>
+                            <h3 class="destination-title">Karnataka Tour Packages from Coimbatore</h3>
                             <p class="destination-subtitle">Hill Stations, Heritage &amp; Modern Cities</p>
                             <div class="destination-divider"></div>
                             <p class="destination-description">
-                                Experience historic palaces, royal heritage sites, misty coffee estates, waterfalls and
-                                tech hubs of Karnataka.
+                                Explore Karnataka tour packages from Coimbatore and experience historic palaces, royal
+                                heritage sites, misty coffee estates, waterfalls and vibrant cities across the state.
                             </p>
                             <span class="destination-button">
                                 View Packages <i class="bi bi-arrow-right"></i>
@@ -1101,7 +1035,7 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
                     Services</h2>
             </div>
             <div class="d-flex align-items-center gap-3 reveal-right">
-                <a href="{% url 'local_taxi_service' %}" class="text-decoration-none text-dark fw-bold small">View All
+                <a href="{% url 'local_cab_service' %}" class="text-decoration-none text-dark fw-bold small">View All
                     Services <i class="bi bi-chevron-right ms-1"></i></a>
             </div>
         </div>
@@ -1112,7 +1046,7 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
                 <div
                     class="service-card-item rounded-4 bg-white overflow-hidden border border-light-subtle shadow-sm h-100 d-flex flex-column">
                     <div class="service-card-img-wrapper position-relative overflow-hidden" style="height: 200px;">
-                        <img src="{% static 'images/services/taxi-service-hero.jpg' %}" alt="Local Cab Service"
+                        <img src="{% static 'images/home-optimized/cab-service-hero.webp' %}" alt="Local Cab Service"
                             class="service-card-img w-100 h-100"
                             style="object-fit: cover; transition: transform 0.5s ease;">
                         <span
@@ -1120,15 +1054,14 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
                             style="background-color: #E31E24; font-size: 0.72rem;">Cabs &amp; Rentals</span>
                     </div>
                     <div class="p-4 d-flex flex-column flex-grow-1">
-                        <h4 class="fw-extrabold text-dark mb-2" style="font-size: 1.25rem;">Local Cab Service</h4>
+                        <h3 class="fw-extrabold text-dark mb-2" style="font-size: 1.25rem;">Cab Service &amp; Car Rental in Coimbatore</h3>
                         <p class="text-muted small mb-4 flex-grow-1" style="line-height: 1.6;">
-                            Book Innova rental, Innova Crysta rental, Ertiga, sedan car rental, SUV car rental, and
-                            luxury car rental for local and outstation travel.
+                            Book Innova, Innova Crysta, Ertiga, sedan, SUV and car rentals in Coimbatore for local travel and outstation trips.
                         </p>
-                        <a href="{% url 'local_taxi_service' %}"
+                        <a href="{% url 'local_cab_service' %}"
                             class="btn btn-outline-danger rounded-pill fw-bold text-start px-3 py-2 border-0 d-inline-flex align-items-center gap-2"
                             style="color: #E31E24; font-size: 0.9rem;">
-                            Explore Service <i class="bi bi-arrow-right"></i>
+                            Explore Cab Rental in Coimbatore <i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
                 </div>
@@ -1139,7 +1072,12 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
                 <div
                     class="service-card-item rounded-4 bg-white overflow-hidden border border-light-subtle shadow-sm h-100 d-flex flex-column">
                     <div class="service-card-img-wrapper position-relative overflow-hidden" style="height: 200px;">
-                        <img src="{% static 'images/services/outstation-hero.jpg' %}" alt="Outstation Tours"
+                        <img
+                            src="{% static 'images/home-optimized/outstation-hero.webp' %}"
+                            srcset="{% static 'images/home-optimized/outstation-hero-180w.webp' %} 180w,
+                                    {% static 'images/home-optimized/outstation-hero.webp' %} 198w"
+                            sizes="(max-width: 767px) 100vw, (max-width: 1199px) 50vw, 420px"
+                            alt="Outstation Tours"
                             class="service-card-img w-100 h-100"
                             style="object-fit: cover; transition: transform 0.5s ease;">
                         <span
@@ -1147,9 +1085,9 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
                             style="background-color: #E31E24; font-size: 0.72rem;">Road Trips</span>
                     </div>
                     <div class="p-4 d-flex flex-column flex-grow-1">
-                        <h4 class="fw-extrabold text-dark mb-2" style="font-size: 1.25rem;">Outstation Tours</h4>
+                        <h3 class="fw-extrabold text-dark mb-2" style="font-size: 1.25rem;">Outstation Tours</h3>
                         <p class="text-muted small mb-4 flex-grow-1" style="line-height: 1.6;">
-                            Premium outstation cab services for one-way drops and round trip tours from Coimbatore to
+                            Outstation cab rental for one-way drops and round trip tours from Coimbatore to
                             Ooty, Munnar, Chennai, Bangalore and more.
                         </p>
                         <a href="{% url 'outstation_tours' %}"
@@ -1166,7 +1104,7 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
                 <div
                     class="service-card-item rounded-4 bg-white overflow-hidden border border-light-subtle shadow-sm h-100 d-flex flex-column">
                     <div class="service-card-img-wrapper position-relative overflow-hidden" style="height: 200px;">
-                        <img src="{% static 'images/services/tempo-hero.png' %}" alt="Tempo Traveller"
+                        <img src="{% static 'images/home-optimized/tempo-hero.webp' %}" alt="Tempo Traveller"
                             class="service-card-img w-100 h-100"
                             style="object-fit: cover; transition: transform 0.5s ease;">
                         <span
@@ -1174,10 +1112,9 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
                             style="background-color: #E31E24; font-size: 0.72rem;">Group Travel</span>
                     </div>
                     <div class="p-4 d-flex flex-column flex-grow-1">
-                        <h4 class="fw-extrabold text-dark mb-2" style="font-size: 1.25rem;">Tempo Traveller</h4>
+                        <h3 class="fw-extrabold text-dark mb-2" style="font-size: 1.25rem;">Tempo Traveller Rental in Coimbatore</h3>
                         <p class="text-muted small mb-4 flex-grow-1" style="line-height: 1.6;">
-                            Book 12, 14, 17, 20, and 26 seater AC Tempo Traveller and Force Urbania rental for
-                            outstation tours and family trips.
+                            Book 14 seater AC and Non-AC Tempo Traveller rental in Coimbatore for family trips, group tours and outstation travel.
                         </p>
                         <a href="{% url 'tempo_traveller' %}"
                             class="btn btn-outline-danger rounded-pill fw-bold text-start px-3 py-2 border-0 d-inline-flex align-items-center gap-2"
@@ -1188,12 +1125,12 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
                 </div>
             </div>
 
-            <!-- Service 4: Luxury Bus Rental -->
+            <!-- Service 4: Bus Rental -->
             <div class="col-lg-4 col-md-6 reveal-up">
                 <div
                     class="service-card-item rounded-4 bg-white overflow-hidden border border-light-subtle shadow-sm h-100 d-flex flex-column">
                     <div class="service-card-img-wrapper position-relative overflow-hidden" style="height: 200px;">
-                        <img src="{% static 'images/services/bus-hero.jpg' %}" alt="Luxury Bus Rental"
+                        <img src="{% static 'images/home-optimized/bus-hero.webp' %}" alt="Bus Rental"
                             class="service-card-img w-100 h-100"
                             style="object-fit: cover; transition: transform 0.5s ease;">
                         <span
@@ -1201,10 +1138,9 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
                             style="background-color: #E31E24; font-size: 0.72rem;">Coaches &amp; Buses</span>
                     </div>
                     <div class="p-4 d-flex flex-column flex-grow-1">
-                        <h4 class="fw-extrabold text-dark mb-2" style="font-size: 1.25rem;">Luxury Bus Rental</h4>
+                        <h3 class="fw-extrabold text-dark mb-2" style="font-size: 1.25rem;">Bus Rental in Coimbatore</h3>
                         <p class="text-muted small mb-4 flex-grow-1" style="line-height: 1.6;">
-                            Book 20 to 54 seater AC bus rental, non AC bus rental, minibus rental, and luxury coach
-                            rental for weddings, tours, and corporate events.
+                            Book reliable tourist bus and coach rental services in Coimbatore for weddings, group tours and corporate events.
                         </p>
                         <a href="{% url 'bus_booking' %}"
                             class="btn btn-outline-danger rounded-pill fw-bold text-start px-3 py-2 border-0 d-inline-flex align-items-center gap-2"
@@ -1220,7 +1156,7 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
                 <div
                     class="service-card-item rounded-4 bg-white overflow-hidden border border-light-subtle shadow-sm h-100 d-flex flex-column">
                     <div class="service-card-img-wrapper position-relative overflow-hidden" style="height: 200px;">
-                        <img src="{% static 'images/services/pilgrimage-hero.jpg' %}" alt="Pilgrimage Trips"
+                        <img src="{% static 'images/home-optimized/pilgrimage-hero.webp' %}" alt="Pilgrimage Trips"
                             class="service-card-img w-100 h-100"
                             style="object-fit: cover; transition: transform 0.5s ease;">
                         <span
@@ -1228,7 +1164,7 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
                             style="background-color: #E31E24; font-size: 0.72rem;">Spiritual Tours</span>
                     </div>
                     <div class="p-4 d-flex flex-column flex-grow-1">
-                        <h4 class="fw-extrabold text-dark mb-2" style="font-size: 1.25rem;">Pilgrimage Trips</h4>
+                        <h3 class="fw-extrabold text-dark mb-2" style="font-size: 1.25rem;">Pilgrimage Trips</h3>
                         <p class="text-muted small mb-4 flex-grow-1" style="line-height: 1.6;">
                             Exclusive temple tour packages from Coimbatore to Navagraha temples, Tirupati, Madurai, and
                             Rameswaram with expert drivers.
@@ -1247,7 +1183,12 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
                 <div
                     class="service-card-item rounded-4 bg-white overflow-hidden border border-light-subtle shadow-sm h-100 d-flex flex-column">
                     <div class="service-card-img-wrapper position-relative overflow-hidden" style="height: 200px;">
-                        <img src="{% static 'images/services/corporate-hero.jpg' %}" alt="Corporate Travel"
+                        <img
+                            src="{% static 'images/home-optimized/corporate-hero.webp' %}"
+                            srcset="{% static 'images/home-optimized/corporate-hero-300w.webp' %} 300w,
+                                    {% static 'images/home-optimized/corporate-hero.webp' %} 420w"
+                            sizes="(max-width: 767px) 100vw, (max-width: 1199px) 50vw, 420px"
+                            alt="Corporate Travel"
                             class="service-card-img w-100 h-100"
                             style="object-fit: cover; transition: transform 0.5s ease;">
                         <span
@@ -1255,7 +1196,7 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
                             style="background-color: #E31E24; font-size: 0.72rem;">Executive</span>
                     </div>
                     <div class="p-4 d-flex flex-column flex-grow-1">
-                        <h4 class="fw-extrabold text-dark mb-2" style="font-size: 1.25rem;">Corporate Travel</h4>
+                        <h3 class="fw-extrabold text-dark mb-2" style="font-size: 1.25rem;">Corporate Travel</h3>
                         <p class="text-muted small mb-4 flex-grow-1" style="line-height: 1.6;">
                             Professional B2B car rental and corporate travel services including employee transport,
                             airport transfers, and monthly billing options.
@@ -1296,11 +1237,16 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
                 <a href="{% url 'karnataka_view' %}" class="place-card-link">
                     <div class="place-card-ref rounded-4 bg-white overflow-hidden border border-light-subtle shadow-sm">
                         <div class="img-reveal">
-                            <img src="{% static 'images/destinations/coorg.jpg' %}" alt="Coorg"
-                                class="place-card-img img-fluid w-100" style="height: 140px; object-fit: cover;">
+                            <img
+                                src="{% static 'images/home-optimized/coorg.webp' %}"
+                                srcset="{% static 'images/home-optimized/coorg.webp' %} 151w"
+                                sizes="(max-width: 575px) 50vw, (max-width: 991px) 25vw, 151px"
+                                alt="Coorg"
+                                class="place-card-img img-fluid w-100"
+                                style="height: 140px; object-fit: cover;">
                         </div>
                         <div class="p-3">
-                            <h6 class="fw-bold text-dark mb-0" style="font-size: 0.95rem;">Coorg</h6>
+                            <h3 class="fw-bold text-dark mb-0" style="font-size: 0.95rem;">Coorg</h3>
                             <span class="text-muted small">Karnataka</span>
                         </div>
                     </div>
@@ -1312,11 +1258,11 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
                 <a href="{% url 'kerala_view' %}" class="place-card-link">
                     <div class="place-card-ref rounded-4 bg-white overflow-hidden border border-light-subtle shadow-sm">
                         <div class="img-reveal">
-                            <img src="{% static 'images/destinations/munnar.jpg' %}" alt="Munnar"
+                            <img src="{% static 'images/home-optimized/munnar.webp' %}" alt="Munnar"
                                 class="place-card-img img-fluid w-100" style="height: 140px; object-fit: cover;">
                         </div>
                         <div class="p-3">
-                            <h6 class="fw-bold text-dark mb-0" style="font-size: 0.95rem;">Munnar</h6>
+                            <h3 class="fw-bold text-dark mb-0" style="font-size: 0.95rem;">Munnar</h3>
                             <span class="text-muted small">Kerala</span>
                         </div>
                     </div>
@@ -1328,11 +1274,11 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
                 <a href="{% url 'karnataka_view' %}" class="place-card-link">
                     <div class="place-card-ref rounded-4 bg-white overflow-hidden border border-light-subtle shadow-sm">
                         <div class="img-reveal">
-                            <img src="{% static 'images/destinations/mysore.jpg' %}" alt="Mysore Palace"
+                            <img src="{% static 'images/home-optimized/mysore.webp' %}" alt="Mysore Palace"
                                 class="place-card-img img-fluid w-100" style="height: 140px; object-fit: cover;">
                         </div>
                         <div class="p-3">
-                            <h6 class="fw-bold text-dark mb-0" style="font-size: 0.95rem;">Mysore Palace</h6>
+                            <h3 class="fw-bold text-dark mb-0" style="font-size: 0.95rem;">Mysore Palace</h3>
                             <span class="text-muted small">Karnataka</span>
                         </div>
                     </div>
@@ -1344,11 +1290,11 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
                 <a href="{% url 'tamil_nadu_view' %}" class="place-card-link">
                     <div class="place-card-ref rounded-4 bg-white overflow-hidden border border-light-subtle shadow-sm">
                         <div class="img-reveal">
-                            <img src="{% static 'images/destinations/ooty.avif' %}" alt="Ooty"
+                            <img src="{% static 'images/home-optimized/ooty.webp' %}" alt="Ooty"
                                 class="place-card-img img-fluid w-100" style="height: 140px; object-fit: cover;">
                         </div>
                         <div class="p-3">
-                            <h6 class="fw-bold text-dark mb-0" style="font-size: 0.95rem;">Ooty</h6>
+                            <h3 class="fw-bold text-dark mb-0" style="font-size: 0.95rem;">Ooty</h3>
                             <span class="text-muted small">Tamil Nadu</span>
                         </div>
                     </div>
@@ -1360,11 +1306,17 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
                 <a href="{% url 'kerala_view' %}" class="place-card-link">
                     <div class="place-card-ref rounded-4 bg-white overflow-hidden border border-light-subtle shadow-sm">
                         <div class="img-reveal">
-                            <img src="{% static 'images/destinations/alapuzha.jpg' %}" alt="Alleppey"
-                                class="place-card-img img-fluid w-100" style="height: 140px; object-fit: cover;">
+                            <img
+                                src="{% static 'images/home-optimized/alapuzha.webp' %}"
+                                srcset="{% static 'images/home-optimized/alapuzha-180w.webp' %} 180w,
+                                        {% static 'images/home-optimized/alapuzha-320w.webp' %} 320w"
+                                sizes="(max-width: 575px) 50vw, (max-width: 991px) 25vw, 176px"
+                                alt="Alleppey"
+                                class="place-card-img img-fluid w-100"
+                                style="height: 140px; object-fit: cover;">
                         </div>
                         <div class="p-3">
-                            <h6 class="fw-bold text-dark mb-0" style="font-size: 0.95rem;">Alleppey</h6>
+                            <h3 class="fw-bold text-dark mb-0" style="font-size: 0.95rem;">Alleppey</h3>
                             <span class="text-muted small">Kerala</span>
                         </div>
                     </div>
@@ -1376,11 +1328,11 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
                 <a href="{% url 'karnataka_view' %}" class="place-card-link">
                     <div class="place-card-ref rounded-4 bg-white overflow-hidden border border-light-subtle shadow-sm">
                         <div class="img-reveal">
-                            <img src="{% static 'images/destinations/Hampis.jpg' %}" alt="Hampi"
+                            <img src="{% static 'images/home-optimized/Hampis.webp' %}" alt="Hampi"
                                 class="place-card-img img-fluid w-100" style="height: 140px; object-fit: cover;">
                         </div>
                         <div class="p-3">
-                            <h6 class="fw-bold text-dark mb-0" style="font-size: 0.95rem;">Hampi</h6>
+                            <h3 class="fw-bold text-dark mb-0" style="font-size: 0.95rem;">Hampi</h3>
                             <span class="text-muted small">Karnataka</span>
                         </div>
                     </div>
@@ -1461,8 +1413,10 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
                                 placeholder="Enter your phone" required>
                         </div>
                         <div class="col-md-4">
-                            <label class="form-label small fw-bold text-dark mb-1">Travel Date</label>
+                            <label for="home-travel-date" class="form-label small fw-bold text-dark mb-1">Travel Date</label>
                             <input type="date"
+                                id="home-travel-date"
+                                name="travel_date"
                                 class="form-control rounded-3 py-2 text-dark bg-white border border-secondary-subtle"
                                 required>
                         </div>
@@ -1593,8 +1547,7 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
                             data-bs-parent="#homeFaqAccordion">
                             <div class="accordion-body">
                                 Our fleet includes comfortable Sedans (Etios, Dzire), SUVs (Ertiga, Innova, Innova
-                                Crysta), Tempo Travellers (12 to 26 Seater, Force Urbania), and Luxury AC Buses (20 to
-                                54 Seater) for group tours and corporate events.
+                                Crysta), 14 Seater Tempo Travellers, and group bus and coach services for group tours and corporate events.
                             </div>
                         </div>
                     </div>
@@ -1610,7 +1563,7 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
                         <div id="collapseFaqFour" class="accordion-collapse collapse" aria-labelledby="headingFaqFour"
                             data-bs-parent="#homeFaqAccordion">
                             <div class="accordion-body">
-                                Yes! We provide both one-way drop taxi services and round-trip outstation tour packages
+                                Yes! We provide both one-way drop cab services and round-trip outstation tour packages
                                 from Coimbatore to all major destinations across Tamil Nadu, Kerala, and Karnataka.
                             </div>
                         </div>
@@ -1703,7 +1656,7 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
             if (mImg) mImg.src = v.image_url;
             if (mCapBadge) mCapBadge.textContent = v.capacity ? `${v.capacity} Seater` : 'Standard';
             if (mAcBadge) mAcBadge.textContent = v.ac_type || 'AC';
-            if (mCatBadge) mCatBadge.textContent = v.category || 'Luxury';
+            if (mCatBadge) mCatBadge.textContent = v.category || 'Vehicle';
 
             if (mDayRent) mDayRent.textContent = v.day_rent ? `₹${Number(v.day_rent).toLocaleString('en-IN')}` : (v.price || 'Price on Request');
             if (mPerKm) mPerKm.textContent = v.per_km_rate ? `₹${v.per_km_rate}/km` : '—';
@@ -1767,8 +1720,7 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
                                 style="max-height: 180px; object-fit: contain;">
                         </div>
                         <div class="d-flex justify-content-center gap-2 flex-wrap">
-                            <span id="vModalCapacityBadge" class="badge bg-danger rounded-pill px-3 py-2">12
-                                Seater</span>
+                            <span id="vModalCapacityBadge" class="badge bg-danger rounded-pill px-3 py-2">Standard</span>
                             <span id="vModalAcBadge" class="badge bg-secondary rounded-pill px-3 py-2">AC</span>
                             <span id="vModalCategoryBadge" class="badge bg-dark rounded-pill px-3 py-2">SUV</span>
                         </div>
@@ -1778,8 +1730,8 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
                     <div class="col-md-7">
                         <!-- Up to 400 KM Box -->
                         <div class="p-3 bg-white rounded-3 border mb-3">
-                            <h6 class="fw-bold text-danger mb-2" style="font-size: 0.85rem; letter-spacing: 0.5px;">UP
-                                TO 400 KM / DAY TARIFF</h6>
+                            <div class="fw-bold text-danger mb-2" style="font-size: 0.85rem; letter-spacing: 0.5px;">UP
+                                TO 400 KM / DAY TARIFF</div>
                             <div class="d-flex justify-content-between align-items-center mb-1">
                                 <span class="text-muted small">Day Rent:</span>
                                 <span id="vModalDayRent" class="fw-bold text-dark fs-6">₹1,800</span>
@@ -1792,8 +1744,8 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
 
                         <!-- Above 400 KM Box -->
                         <div class="p-3 bg-white rounded-3 border mb-3">
-                            <h6 class="fw-bold text-danger mb-2" style="font-size: 0.85rem; letter-spacing: 0.5px;">
-                                ABOVE 400 KM / DAY TARIFF</h6>
+                            <div class="fw-bold text-danger mb-2" style="font-size: 0.85rem; letter-spacing: 0.5px;">
+                                ABOVE 400 KM / DAY TARIFF</div>
                             <div id="vModalAbove400Content">
                                 <div class="d-flex justify-content-between align-items-center mb-1">
                                     <span class="text-muted small">Flat Per KM:</span>
@@ -1811,8 +1763,8 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
 
                         <!-- Interstate Permits -->
                         <div class="p-3 bg-white rounded-3 border">
-                            <h6 class="fw-bold text-dark mb-2" style="font-size: 0.85rem; letter-spacing: 0.5px;">
-                                INTERSTATE PERMIT COSTS</h6>
+                            <div class="fw-bold text-dark mb-2" style="font-size: 0.85rem; letter-spacing: 0.5px;">
+                                INTERSTATE PERMIT COSTS</div>
                             <div class="d-flex justify-content-between align-items-center mb-1">
                                 <span class="text-muted small"><i class="bi bi-geo-alt-fill text-danger me-1"></i>Kerala
                                     Permit:</span>
@@ -1829,9 +1781,9 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
 
                 <!-- Important Booking Notes -->
                 <div class="mt-4 p-3 bg-white rounded-3 border border-warning-subtle">
-                    <h6 class="fw-bold text-dark mb-2" style="font-size: 0.85rem;"><i
+                    <div class="fw-bold text-dark mb-2" style="font-size: 0.85rem;"><i
                             class="bi bi-info-circle-fill text-warning me-1"></i> Important Booking Information & Notes
-                    </h6>
+                    </div>
                     <ul class="text-muted mb-0 ps-3" style="font-size: 0.78rem; line-height: 1.55;">
                         <li>Toll and parking are payable separately at actuals unless specifically included in the
                             confirmed quotation.</li>
@@ -1854,5 +1806,20 @@ customized travel services across Tamil Nadu, Kerala and Karnataka.{% endblock %
         </div>
     </div>
 </div>
+
+
+
+<!-- Coimbatore Cab Routes CTA -->
+<section class="py-5">
+    <div class="container">
+        <div class="text-center">
+            <a href="{% url 'routes_index' %}"
+               class="btn btn-danger rounded-pill px-4 py-3 fw-semibold">
+                Explore Cab Routes from Coimbatore
+                <i class="bi bi-arrow-right ms-2"></i>
+            </a>
+        </div>
+    </div>
+</section>
 
 {% endblock %}

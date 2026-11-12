@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Cab Routes from Coimbatore | Ooty, Munnar, Kodaikanal, Coorg & Mysore{% endblock %}
+
+{% block meta_description %}Explore popular cab routes from Coimbatore to Ooty, Munnar, Kodaikanal, Coorg and Mysore. Book one-way and round-trip cabs with transparent pricing.{% endblock %}
+
+{% block content %}
+
+<section class="py-5 bg-light">
+    <div class="container py-4">
+
+        <div class="text-center mb-5">
+            <span class="text-danger fw-semibold text-uppercase small">
+                Popular Cab Routes
+            </span>
+
+            <h1 class="display-5 fw-bold text-dark mt-2">
+                Cab Routes from Coimbatore
+            </h1>
+
+            <p class="lead text-secondary mx-auto" style="max-width:760px;">
+                Explore popular routes from Coimbatore to Ooty, Munnar,
+                Kodaikanal, Coorg and Mysore. Choose your destination and
+                book a one-way or round-trip cab.
+            </p>
+        </div>
+
+        <div class="row g-4">
+
+            {% for route in routes %}
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm rounded-4 p-4">
+
+                    <div class="mb-3">
+                        <div class="rounded-circle bg-danger bg-opacity-10 d-inline-flex align-items-center justify-content-center"
+                             style="width:52px;height:52px;">
+                            <i class="bi bi-car-front-fill text-danger fs-4"></i>
+                        </div>
+                    </div>
+
+                    <h2 class="h5 fw-bold text-dark">
+                        {{ route.name }}
+                    </h2>
+
+                    <p class="text-secondary small">
+                        {{ route.description }}
+                    </p>
+
+                    <a href="{% url 'route_detail' route.slug %}"
+                       class="btn btn-outline-danger rounded-pill mt-auto">
+                        View Route
+                        <i class="bi bi-arrow-right ms-1"></i>
+                    </a>
+
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+
+        <div class="text-center mt-5">
+            <a href="https://wa.me/919655866660"
+               class="btn btn-danger rounded-pill px-4 py-3">
+                <i class="bi bi-whatsapp me-2"></i>
+                Book Your Cab
+            </a>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

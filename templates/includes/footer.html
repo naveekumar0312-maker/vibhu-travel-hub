@@ -7,7 +7,7 @@
             <!-- Column 1: Brand Info (LEFT -> CENTER) -->
             <div class="col-lg-3 col-md-6 reveal-left">
                 <div class="d-flex align-items-center gap-2 mb-3">
-                    <img src="{% static 'images/logo/logo.webp' %}" alt="Vibhu Travel Hub Logo" loading="lazy" style="height: 48px; width: auto;">
+                    <img src="{% static 'images/logo/logo.webp' %}" alt="Vibhu Travel Hub Logo" loading="lazy" width="1080" height="1080" style="height: 48px; width: auto;">
                     <div>
                         <h4 class="fw-bold text-dark mb-0 lh-1" style="font-size: 1.2rem; letter-spacing: -0.5px;">VIBHU TRAVEL HUB</h4>
                         <span class="text-danger fw-bold small text-uppercase" style="font-size: 0.65rem; letter-spacing: 1px;">PREMIUM TRAVEL SERVICES</span>
@@ -17,7 +17,7 @@
                     Your trusted travel partner across South India. Experience comfort, safety & luxury with our premium cabs, tempo travellers, and buses.
                 </p>
                 <div class="d-flex gap-2">
-                    <a href="https://wa.me/919655866660" target="_blank" class="btn btn-sm btn-light rounded-circle shadow-sm text-success"><i class="bi bi-whatsapp"></i></a>
+                    <a href="https://wa.me/919655866660" target="_blank" class="btn btn-sm btn-light rounded-circle shadow-sm text-success" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
                     <a href="https://www.instagram.com/vibhu_travelhub?igsi=bGo1eGQzODhpNWxu" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-light rounded-circle shadow-sm text-danger" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
                     <a href="https://www.facebook.com/share/1DdSczz5rQ/" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-light rounded-circle shadow-sm text-primary" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
                 </div>
@@ -43,7 +43,7 @@
             <div class="col-lg-2 col-md-6 reveal-up">
                 <h5 class="fw-bold text-dark mb-3" style="font-size: 1rem;">Our Services</h5>
                 <ul class="list-unstyled d-flex flex-column gap-2 small text-muted">
-                    <li><a href="{% url 'local_taxi_service' %}" class="text-muted text-decoration-none hover-danger">Local Cab Service</a></li>
+                    <li><a href="{% url 'local_cab_service' %}" class="text-muted text-decoration-none hover-danger">Local Cab Service</a></li>
                     <li><a href="{% url 'outstation_tours' %}" class="text-muted text-decoration-none hover-danger">Outstation Tours</a></li>
                     <li><a href="{% url 'tempo_traveller' %}" class="text-muted text-decoration-none hover-danger">Tempo Traveller</a></li>
                     <li><a href="{% url 'bus_booking' %}" class="text-muted text-decoration-none hover-danger">Luxury Bus Rental</a></li>
@@ -91,9 +91,12 @@
         <div class="border-top pt-4 d-flex flex-column flex-md-row align-items-center justify-content-between small text-muted gap-2">
             <p class="mb-0">&copy; 2026 Vibhu Travel Hub. All Rights Reserved.</p>
             <div class="d-flex gap-3">
-                <a href="#" class="text-muted text-decoration-none">Privacy Policy</a>
+                <a href="{% url 'privacy_policy' %}" class="text-muted text-decoration-none">Privacy Policy</a>
                 <span>|</span>
-                <a href="#" class="text-muted text-decoration-none">Terms & Conditions</a>
+                <a href="{% url 'terms_conditions' %}"
+   class="text-muted text-decoration-none">
+    Terms & Conditions
+</a>
             </div>
         </div>
     </div>

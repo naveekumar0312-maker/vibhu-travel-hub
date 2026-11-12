@@ -1,10 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}About Us | Vibhu Travel Hub — Premier Travel Agency in South India{% endblock %}
+{% block meta_title %}About Vibhu Travel Hub | Travel Agency in Coimbatore{% endblock %}
 
-{% block description %}Learn about Vibhu Travel Hub, leading travel agency in Coimbatore offering premium cabs, tempo travellers, luxury buses, and outstation tours with professional drivers.{% endblock %}
-
+{% block meta_description %}Learn about Vibhu Travel Hub, a trusted travel agency in Coimbatore providing premium cab rentals, tempo travellers, luxury buses and customized travel services.{% endblock %}
 {% block og_title %}About Us | Vibhu Travel Hub — Premier Travel Agency in South India{% endblock %}
 {% block og_description %}Learn about Vibhu Travel Hub, leading travel agency in Coimbatore offering premium cabs, tempo travellers, luxury buses, and outstation tours with professional drivers.{% endblock %}
 {% block og_image %}https://vibhutravelhub.com{% static 'images/logo/og-banner.webp' %}{% endblock %}
@@ -33,7 +32,6 @@
 <!-- Google Fonts for Cursive Script -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{% static 'css/premium-about.css' %}?v={{ STATIC_VERSION }}">
 
 <style>
@@ -48,7 +46,7 @@
 
     /* Hero Banner */
     .about-hero-section {
-        background: url("{% static 'images/destinations/tn-gallery-3.png' %}") no-repeat center right / cover;
+        background: url("{% static 'images/destinations/tn-gallery-3.webp' %}") no-repeat center right / cover;
         position: relative;
         min-height: 340px;
         display: flex;
@@ -202,7 +200,7 @@
                     <img src="{% static 'images/vehicles/traveller.webp' %}" alt="Vibhu Travel Hub Fleet" class="story-img-main img-fluid">
                     
                     <!-- Small Inset Image (Scenic Road) -->
-                    <img src="{% static 'images/destinations/munnar.jpg' %}" alt="Scenic Road Journey" class="story-img-inset img-fluid d-none d-sm-block">
+                    <img src="{% static 'images/destinations/munnar.webp' %}" alt="Scenic Road Journey" class="story-img-inset img-fluid d-none d-sm-block">
 
                     <!-- Experience Red Floating Badge -->
                     <div class="story-badge-exp d-flex align-items-center gap-3">
@@ -302,14 +300,14 @@
                 <div class="col-lg-3 col-6 border-end border-light-subtle-sm">
                     <div class="d-flex flex-column align-items-center">
                         <i class="bi bi-car-front-fill text-danger fs-2 mb-2"></i>
-                        <h3 class="fw-extrabold text-dark mb-0" style="font-size: 2.2rem; letter-spacing: -0.5px;">10+</h3>
+                        <h3 class="fw-extrabold text-dark mb-0" style="font-size: 2.2rem; letter-spacing: -0.5px;">7+</h3>
                         <span class="text-muted small fw-medium">Premium Vehicles</span>
                     </div>
                 </div>
                 <div class="col-lg-3 col-6 border-end border-light-subtle-sm">
                     <div class="d-flex flex-column align-items-center">
                         <i class="bi bi-geo-alt-fill text-danger fs-2 mb-2"></i>
-                        <h3 class="fw-extrabold text-dark mb-0" style="font-size: 2.2rem; letter-spacing: -0.5px;">2+</h3>
+                        <h3 class="fw-extrabold text-dark mb-0" style="font-size: 2.2rem; letter-spacing: -0.5px;">3+</h3>
                         <span class="text-muted small fw-medium">Destinations Covered</span>
                     </div>
                 </div>
@@ -423,7 +421,7 @@
             <!-- Right Column: South India Coverage Map Visual -->
             <div class="col-lg-7 reveal-right">
                 <div class="p-4 rounded-4 bg-white border border-light-subtle shadow-sm text-center">
-                    <img src="{% static 'images/destinations/shess.png' %}" alt="South India Coverage Map" class="img-fluid rounded-3" style="max-height: 420px; object-fit: contain;">
+                    <img src="{% static 'images/destinations/shess.webp' %}" alt="South India Coverage Map" class="img-fluid rounded-3" style="max-height: 420px; object-fit: contain;">
                 </div>
             </div>
         </div>
@@ -446,7 +444,7 @@
                     <p class="text-muted small mb-0">Book your ride now and experience premium travel with Vibhu Travel Hub.</p>
                 </div>
                 <div class="col-lg-3 col-md-12 d-flex flex-column flex-sm-row flex-lg-column gap-2 justify-content-center">
-                    <a href="#" class="btn btn-danger rounded-pill px-4 py-2.5 fw-bold text-white shadow-sm border-0 text-center" style="background-color: #E31E24; font-size: 0.95rem;" data-bs-toggle="modal" data-bs-target="#enquiryModal">
+                    <a href="#enquiryModal" class="btn btn-danger rounded-pill px-4 py-2.5 fw-bold text-white shadow-sm border-0 text-center" style="background-color: #E31E24; font-size: 0.95rem;" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="About Us - Book Your Trip">
                         Book Your Trip
                     </a>
                     <a href="{% url 'contact' %}" class="btn btn-outline-dark rounded-pill px-4 py-2.5 fw-bold text-center" style="font-size: 0.95rem;">

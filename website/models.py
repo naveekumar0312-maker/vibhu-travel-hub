@@ -17,7 +17,7 @@ def validate_image_size(value):
 
 def validate_image_extension(value):
     ext = os.path.splitext(value.name)[1]
-    valid_extensions = ['.jpg', '.jpeg', '.png', '.webp']
+    valid_extensions = ['.webp']
     if not ext.lower() in valid_extensions:
         raise ValidationError('Unsupported file extension. Only JPG, JPEG, PNG, WEBP are allowed.')
 
@@ -32,7 +32,7 @@ class Enquiry(models.Model):
 
     VEHICLE_CHOICES = [
 
-        ("Taxi", "Taxi"),
+        ("Cab", "Cab"),
         ("SUV", "SUV"),
         ("Tempo Traveller", "Tempo Traveller"),
         ("Mini Bus", "Mini Bus"),
@@ -150,7 +150,7 @@ class Vehicle(models.Model):
     )
     right_specifications = models.TextField(
         blank=True,
-        default="12–17 Seater\nPremium Interiors\nAC & Comfortable Seats\nLuggage Space\nDriver & Fuel Included",
+        default="Comfortable Seating\nPremium Interiors\nAC & Comfortable Seats\nLuggage Space\nDriver & Fuel Included",
         help_text="Enter right specifications list items (one per line)"
     )
 
@@ -198,7 +198,7 @@ class Vehicle(models.Model):
     @property
     def right_specifications_list(self):
         if not self.right_specifications:
-            spec = f"{self.passengers} Seater" if self.passengers else "12–17 Seater"
+            spec = f"{self.passengers} Seater" if self.passengers else "Comfortable Seating"
             return [spec, "Premium Interiors", "AC & Comfortable Seats", "Luggage Space", "Driver & Fuel Included"]
         return [s.strip() for s in self.right_specifications.split('\n') if s.strip()]
 

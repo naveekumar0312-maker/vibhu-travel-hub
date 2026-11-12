@@ -109,7 +109,7 @@ def fleet_create(request):
         messages.success(request, f'Vehicle "{name}" created successfully!')
         return redirect('dashboard_fleet')
 
-    return render(request, 'dashboard/fleet/form.html')
+    return render(request, 'dashboard/fleet/form.html', {'vehicle': Vehicle()})
 
 @admin_required
 def fleet_edit(request, vehicle_id):

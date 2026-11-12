@@ -1,31 +1,42 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Luxury Bus Rental & Coach Booking Services | Vibhu Travel Hub{% endblock %}
-{% block description %}Hire 20 to 54 seater AC & Non-AC luxury buses and coaches for corporate events, marriage functions, and tour groups across South India.{% endblock %}
-{% block keywords %}minibus rental in Coimbatore, 20 seater bus rental in Chennai, 30 seater bus rental in Madurai, AC bus rental in Coimbatore, luxury coach rental in Chennai{% endblock %}
-{% block og_title %}Luxury Bus Rental & Coach Booking Services | Vibhu Travel Hub{% endblock %}
-{% block og_description %}Hire 20 to 54 seater AC & Non-AC luxury buses and coaches for corporate events, marriage functions, and tour groups across South India.{% endblock %}
-{% block og_image %}https://vibhutravelhub.com{% static 'images/services/bus-hero.jpg' %}{% endblock %}
+{% block meta_title %}Bus Rental in Coimbatore | Bus Booking for Tours & Events{% endblock %}
 
-{% block twitter_title %}Luxury Bus Rental & Coach Booking Services | Vibhu Travel Hub{% endblock %}
-{% block twitter_description %}Hire 20 to 54 seater AC & Non-AC luxury buses and coaches for corporate events, marriage functions, and tour groups across South India.{% endblock %}
-{% block twitter_image %}https://vibhutravelhub.com{% static 'images/services/bus-hero.jpg' %}{% endblock %}
+{% block meta_description %}
+Book a bus rental in Coimbatore for school and college tours, weddings, events, group trips and outstation journeys. AC and Non-AC bus options are available based on your travel requirements.
+{% endblock %}
+{% block keywords %}Bus Rental in Coimbatore, Bus Booking in Coimbatore, Mini Bus Rental in Coimbatore, Tourist Bus Rental in Coimbatore, College Tour Bus Rental in Coimbatore, School Tour Bus Rental in Coimbatore, AC Bus Rental in Coimbatore, Non-AC Bus Rental, Group Bus Rental, Coach Rental in Coimbatore{% endblock %}
+{% block og_title %}Bus Rental in Coimbatore | Bus Booking for Tours & Events{% endblock %}
+{% block og_description %}Book reliable bus and coach rental services in Coimbatore for corporate events, marriage functions, group tours, pilgrimages and outstation travel.{% endblock %}
+{% block og_image %}https://vibhutravelhub.com{% static 'images/services/bus-hero.webp' %}{% endblock %}
+
+{% block twitter_title %}Bus Rental in Coimbatore | Bus Booking for Tours & Events{% endblock %}
+{% block twitter_description %}Book reliable bus and coach rental services in Coimbatore for corporate events, marriage functions, group tours, pilgrimages and outstation travel.{% endblock %}
+{% block twitter_image %}https://vibhutravelhub.com{% static 'images/services/bus-hero.webp' %}{% endblock %}
 
 {% block schema %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "Luxury Bus Rental & Coach Booking",
+  "name": "Bus Rental in Coimbatore",
   "provider": {
     "@type": "TravelAgency",
     "name": "Vibhu Travel Hub",
-    "url": "https://vibhutravelhub.com"
+    "url": "https://vibhutravelhub.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Joyce Villa Building, 87, Grey Town",
+      "addressLocality": "Coimbatore",
+      "addressRegion": "Tamil Nadu",
+      "postalCode": "641018",
+      "addressCountry": "IN"
+    }
   },
   "areaServed": ["Coimbatore", "Chennai", "Madurai", "Trichy", "Kochi", "Bangalore"],
-  "description": "Book 20 to 54 seater AC bus rental, non AC bus rental, minibus rental, and luxury coach rental for weddings, tours, and corporate events.",
-  "image": "https://vibhutravelhub.com/static/images/services/bus-hero.jpg"
+  "description": "Book bus rental services in Coimbatore for school and college tours, weddings, events, group travel and outstation journeys.",
+  "image": "https://vibhutravelhub.com/static/images/services/bus-hero.webp"
 }
 </script>
 <script type="application/ld+json">
@@ -57,7 +68,6 @@
 <!-- Google Fonts for Cursive Script -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap" rel="stylesheet">
 
 <style>
     .vth-script-eyebrow {
@@ -126,21 +136,21 @@
     1. HERO SECTION (EXACT MATCH FOR TAMIL NADU MASTER REFERENCE)
 ========================================== -->
 <section class="vth-hero-tn py-5">
-    <img src="{% static 'images/services/bus-hero.jpg' %}" alt="Luxury Bus Rental & Coach Booking" class="vth-hero-tn-bg">
+    <img src="{% static 'images/services/bus-hero.webp' %}" alt="Bus Rental in Coimbatore" class="vth-hero-tn-bg">
     <div class="vth-hero-tn-overlay"></div>
 
     <div class="container position-relative z-3 my-auto">
         <div class="row align-items-center">
             <div class="col-lg-7 col-md-10">
-                <span class="vth-hero-script reveal-down d-block mb-1" style="color: #FF5A5F; font-size: 1.8rem; font-family: 'Caveat', cursive, sans-serif;">LUXURY COACHES</span>
+                <span class="vth-hero-script reveal-down d-block mb-1" style="color: #FF5A5F; font-size: 1.8rem; font-family: 'Caveat', cursive, sans-serif;">BUS RENTAL</span>
                 <h1 class="hero-main-title text-white mb-3 reveal-left" style="font-size: 3.6rem; font-weight: 800; line-height: 1.1; letter-spacing: -1.2px;">
-                    Luxury Bus Rental & Coach Booking
+                    Bus Rental in Coimbatore
                 </h1>
                 <p class="text-white-50 mb-4 reveal-left" style="font-size: 1.08rem; line-height: 1.65; color: rgba(255, 255, 255, 0.9) !important; max-width: 620px;">
-                    Hire 20 to 54 seater AC & Non-AC luxury buses and coaches for corporate outings, marriage functions, school/college tours, and pilgrimage groups across South India.
+                    Book a bus rental in Coimbatore for school and college tours, weddings, events, pilgrimages and group travel. Choose a suitable bus or coach based on your passenger count, route and travel requirements.
                 </p>
                 <div class="d-flex align-items-center gap-3 flex-wrap reveal-up">
-                    <button class="btn btn-danger rounded-pill px-4 py-2.5 fw-bold text-white shadow-sm border-0 d-inline-flex align-items-center gap-2" style="background-color: #E31E24; font-size: 0.95rem;" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Luxury Bus Rental & Coach Booking">
+                    <button class="btn btn-danger rounded-pill px-4 py-2.5 fw-bold text-white shadow-sm border-0 d-inline-flex align-items-center gap-2" style="background-color: #E31E24; font-size: 0.95rem;" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Bus Rental in Coimbatore">
                         Get a Quote <i class="bi bi-arrow-right"></i>
                     </button>
                     <a href="#about" class="btn btn-light rounded-pill px-4 py-2.5 fw-bold d-inline-flex align-items-center gap-2" style="font-size: 0.95rem; color: #1F2937; background: #FFFFFF; border: 1px solid rgba(255, 255, 255, 0.9);">
@@ -179,9 +189,9 @@
                 </div>
                 <div class="col-lg-2 col-md-4 col-6">
                     <div class="d-flex align-items-center gap-2.5">
-                        <i class="bi bi-car-front text-danger fs-3"></i>
+                        <i class="bi bi-car-front fs-3" style="color: inherit !important;"></i>
                         <div>
-                            <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">Luxury Fleet</h6>
+                            <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">Bus Rental Fleet</h6>
                             <span class="text-muted d-block" style="font-size: 0.75rem;">Well maintained vehicles</span>
                         </div>
                     </div>
@@ -223,7 +233,7 @@
         <div class="row align-items-center g-5">
             <div class="col-lg-6 vth-anim-left">
                 <div class="position-relative pe-lg-3">
-                    <img src="{% static 'images/services/bus.png' %}" alt="Bus Rental Service" class="story-img-main img-fluid">
+                    <img src="{% static 'images/services/bus.webp' %}" alt="Bus Rental Service" class="story-img-main img-fluid">
                     
                     <div class="story-badge-exp d-flex align-items-center gap-3">
                         <div class="bg-white text-danger rounded-circle d-flex align-items-center justify-content-center shadow-sm" style="width: 48px; height: 48px; font-size: 1.4rem;">
@@ -239,12 +249,12 @@
             <div class="col-lg-6 vth-anim-right">
                 <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block mb-1" style="color: #E31E24; font-size: 0.8rem; letter-spacing: 1.5px;">ABOUT SERVICE</span>
                 <h2 class="fw-extrabold text-dark mb-3 vth-anim-right" style="font-size: 2.4rem; letter-spacing: -0.6px; line-height: 1.2;">
-                    Premium Bus Booking <span class="text-danger">for Groups</span>
+                    Bus Booking in Coimbatore <span class="text-danger">for Groups</span>
                 </h2>
                 <div class="about-content text-secondary fs-6 lh-lg vth-anim-up" style="color: #475569;">
-                    <p>Planning group travel or a major event? Vibhu Travel Hub provides top-tier bus rental services across South India. We specialize in executive <strong>wedding bus rental in Coimbatore</strong>, <strong>wedding bus rental in Chennai</strong>, <strong>wedding bus rental in Madurai</strong>, and <strong>wedding bus rental Bangalore</strong> to transport wedding guests safely.</p>
+                    <p>Planning group travel or a major event? Vibhu Travel Hub provides bus rental services from Coimbatore for weddings, school and college tours, pilgrimages, corporate outings and outstation journeys. Our bus booking service helps groups travel together with a suitable vehicle for their route and passenger requirements.</p>
 
-                    <p>We are the preferred vehicle provider for educational institutions, offering reliable <strong>school tour bus rental in Coimbatore</strong>, <strong>school tour bus rental in Chennai</strong>, <strong>school tour bus rental in Bangalore</strong>, <strong>college tour bus rental in Coimbatore</strong>, and <strong>college tour bus rental in Madurai</strong>. Whether you need <strong>event transportation in Chennai</strong> or <strong>corporate bus rental in Coimbatore</strong>, our AC and Non-AC coaches are highway-ready.</p>
+                    <p>For educational trips, we provide school and college tour bus rental options in Coimbatore. We also handle wedding transportation, corporate travel, events and other planned group journeys. AC and Non-AC buses can be selected according to the trip requirements and vehicle availability.</p>
 
                     <div class="p-4 bg-light rounded-4 border-start border-4 border-danger mt-4 shadow-sm">
                         <div class="d-flex align-items-start gap-3">
@@ -280,39 +290,136 @@ document.addEventListener('DOMContentLoaded', function() {
         <!-- Bus Options & City Rental Grid -->
         <div class="row g-4 mt-5">
             <div class="col-12 text-center vth-card-anim-up">
-                <h3 class="fw-bold mb-2">Bus Fleet Seating & City Rental Options</h3>
-                <p class="text-muted">Select from 20 to 54 seater AC & Non-AC buses across South India</p>
+                <h2 class="fw-bold mb-2">Bus Rental Options in Coimbatore</h2>
+                <p class="text-muted">Choose a suitable bus or coach based on your group size and travel requirements</p>
             </div>
 
             <div class="col-lg-3 col-md-6 vth-card-anim-left">
                 <div class="feature-card">
                     <div class="feature-icon"><i class="bi bi-bus-front"></i></div>
-                    <h5 class="fw-bold text-dark">Minibus & 20-30 Seater</h5>
-                    <p class="text-secondary small mb-0">Compact group travel. Reserve a <strong>minibus rental in Coimbatore</strong>, <strong>20 seater bus rental in Chennai</strong>, or <strong>30 seater bus rental in Madurai</strong>.</p>
+                    <h3 class="fw-bold text-dark">Bus Booking in Coimbatore</h3>
+                    <p class="text-secondary small mb-0">Bus booking for corporate outings, family functions, tours, pilgrimages, weddings and other planned group journeys from Coimbatore.</p>
                 </div>
             </div>
 
             <div class="col-lg-3 col-md-6 vth-card-anim-up">
                 <div class="feature-card">
                     <div class="feature-icon"><i class="bi bi-bus-front-fill"></i></div>
-                    <h5 class="fw-bold text-dark">35 & 40 Seater</h5>
-                    <p class="text-secondary small mb-0">Wedding & tour groups. Book a <strong>35 seater bus rental in Coimbatore</strong> or a <strong>40 seater bus rental in Trichy</strong> for comfortable journeys.</p>
+                    <h3 class="fw-bold text-dark">Mini Bus Rental in Coimbatore</h3>
+                    <p class="text-secondary small mb-0">For smaller groups, ask our team about available mini bus rental options in Coimbatore based on your passenger count, route and travel date.</p>
                 </div>
             </div>
 
             <div class="col-lg-3 col-md-6 vth-card-anim-up">
                 <div class="feature-card">
                     <div class="feature-icon"><i class="bi bi-truck-front"></i></div>
-                    <h5 class="fw-bold text-dark">45, 50 & 54 Seater</h5>
-                    <p class="text-secondary small mb-0">Large conventions & school trips. Reserve a <strong>45 seater bus rental in Chennai</strong>, <strong>50 seater bus rental in Coimbatore</strong>, or <strong>54 seater bus rental in Bangalore</strong>.</p>
+                    <h3 class="fw-bold text-dark">Tourist Bus Rental in Coimbatore</h3>
+                    <p class="text-secondary small mb-0">Suitable for weddings, corporate events, school and college tours, pilgrimages and outstation trips requiring group transportation.</p>
                 </div>
             </div>
 
             <div class="col-lg-3 col-md-6 vth-card-anim-right">
                 <div class="feature-card">
                     <div class="feature-icon"><i class="bi bi-stars"></i></div>
-                    <h5 class="fw-bold text-dark">AC & Luxury Coaches</h5>
-                    <p class="text-secondary small mb-0">Air-conditioned luxury. Choose an <strong>AC bus rental in Coimbatore</strong>, <strong>non AC bus rental in Madurai</strong>, or a <strong>luxury coach rental in Chennai</strong>.</p>
+                    <h3 class="fw-bold text-dark">AC & Non-AC Bus Rental</h3>
+                    <p class="text-secondary small mb-0">Air-conditioned comfort. Choose an <strong>AC bus rental in Coimbatore</strong>, <strong>non AC bus rental in Madurai</strong>, or a <strong>coach rental in Chennai</strong>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 3. SCHOOL & COLLEGE TOUR BUS RENTAL -->
+<section class="service-section bg-white py-5">
+    <div class="container py-lg-3">
+        <div class="text-center mb-5 vth-card-anim-up">
+            <span class="text-danger fw-bold text-uppercase tracking-wide">Group Travel</span>
+            <h2 class="section-title mt-2">Bus Rental for College & School Tours</h2>
+            <p class="section-subtitle">
+                Plan organised group transportation from Coimbatore for educational trips and tour programmes.
+            </p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="feature-card h-100">
+                    <div class="feature-icon">
+                        <i class="bi bi-mortarboard"></i>
+                    </div>
+                    <h3 class="fw-bold mb-3">College Tour Bus Rental in Coimbatore</h3>
+                    <p class="text-muted mb-0">
+                        Arrange bus transportation for college tours, industrial visits, educational
+                        trips and student group travel. Share your destination, travel dates and
+                        passenger count to check suitable vehicle availability.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="feature-card h-100">
+                    <div class="feature-icon">
+                        <i class="bi bi-book"></i>
+                    </div>
+                    <h3 class="fw-bold mb-3">School Tour Bus Rental in Coimbatore</h3>
+                    <p class="text-muted mb-0">
+                        Book group transportation for school tours, educational visits and planned
+                        day trips. Vehicle selection can be discussed according to the group size,
+                        route and journey duration.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- BUS SEATING & RENTAL INFORMATION -->
+<section class="service-section bg-light py-5">
+    <div class="container py-lg-3">
+        <div class="text-center mb-5 vth-card-anim-up">
+            <span class="text-danger fw-bold text-uppercase tracking-wide">Vehicle Selection</span>
+            <h2 class="section-title mt-2">Bus Seating & Rental Requirements</h2>
+            <p class="section-subtitle">
+                Vehicle availability depends on the travel date, passenger count, route and trip requirements.
+            </p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card h-100">
+                    <div class="feature-icon">
+                        <i class="bi bi-people"></i>
+                    </div>
+                    <h3 class="fw-bold mb-3">30 Seater Bus Rental</h3>
+                    <p class="text-muted mb-0">
+                        If you require a 30 seater bus, share your travel date, route and passenger
+                        count with our booking team so we can confirm current availability.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card h-100">
+                    <div class="feature-icon">
+                        <i class="bi bi-people-fill"></i>
+                    </div>
+                    <h3 class="fw-bold mb-3">35 Seater Bus Rental</h3>
+                    <p class="text-muted mb-0">
+                        For groups looking for a 35 seater bus, contact us with your journey details
+                        to check the suitable vehicle and rental requirement.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card h-100">
+                    <div class="feature-icon">
+                        <i class="bi bi-bus-front"></i>
+                    </div>
+                    <h3 class="fw-bold mb-3">40 Seater Bus Rental</h3>
+                    <p class="text-muted mb-0">
+                        For larger groups, ask our team about 40 seater bus availability for your
+                        planned route, travel date and trip duration.
+                    </p>
                 </div>
             </div>
         </div>
@@ -320,7 +427,6 @@ document.addEventListener('DOMContentLoaded', function() {
 </section>
 
 <!-- 3. WHY CHOOSE US -->
-<section class="lux-section bg-light py-5">
     <div class="container py-lg-3">
         <div class="text-center mb-5 vth-card-anim-up">
             <span class="text-danger fw-bold text-uppercase tracking-wide">Why Choose Us</span>
@@ -340,7 +446,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="feature-card">
                     <div class="feature-icon"><i class="bi bi-speaker"></i></div>
                     <h5 class="fw-bold mb-3">Entertainment System</h5>
-                    <p class="text-muted mb-0">Buses equipped with premium audio and video systems for a fun journey.</p>
+                    <p class="text-muted mb-0">Buses equipped with audio and video systems for a fun journey.</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 vth-card-anim-right">
@@ -378,7 +484,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 <!-- 5. SERVICE HIGHLIGHTS -->
-<section class="lux-section bg-light">
+<section class="service-section bg-light">
     <div class="container">
         <div class="text-center mb-5" data-aos="fade-up">
             <h2 class="section-title">Ideal For</h2>
@@ -420,8 +526,23 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
 </section>
 
+<!-- TEMPO TRAVELLER INTERNAL LINK -->
+<section class="py-4 bg-white">
+    <div class="container">
+        <div class="text-center">
+            <p class="mb-0 text-muted">
+                For smaller group travel, explore our
+                <a href="{% url 'tempo_traveller' %}" class="text-danger fw-semibold text-decoration-none">
+                    Tempo Traveller Rental in Coimbatore
+                </a>
+                options.
+            </p>
+        </div>
+    </div>
+</section>
+
 <!-- 6. BOOKING PROCESS TIMELINE -->
-<section class="lux-section bg-white">
+<section class="service-section bg-white">
     <div class="container">
         <div class="text-center mb-5" data-aos="fade-up">
             <span class="text-danger fw-bold text-uppercase tracking-wide">Simple Steps</span>

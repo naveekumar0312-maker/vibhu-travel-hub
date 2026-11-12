@@ -34,6 +34,9 @@ def about(request):
 def contact(request):
     return render(request, "website/contact.html")
 
+def terms_conditions(request):
+    return render(request, "website/terms_conditions.html")
+
 def send_enquiry(request):
     if request.method == "POST":
         travel_date = request.POST.get("travel_date")
@@ -70,9 +73,9 @@ Message:
 
     return redirect("home")
 
-def local_taxi_service(request):
+def local_cab_service(request):
     vehicles = Vehicle.objects.filter(is_active=True).order_by('display_order')
-    return render(request, "services/local_taxi_service.html", {'vehicles': vehicles})
+    return render(request, "services/local_cab_service.html", {'vehicles': vehicles})
 
 
 def bus_booking(request):
@@ -123,7 +126,7 @@ def robots_txt(request):
         "Allow: /",
         "Disallow: /admin/",
         "Disallow: /dashboard/",
-        "Sitemap: https://vibhutravelhub.com/sitemap.xml",
+        "Sitemap: https://www.vibhutravelhub.com/sitemap.xml",
     ]
     return HttpResponse(
         "\n".join(lines),
@@ -197,9 +200,10 @@ def api_submit_enquiry(request):
     return JsonResponse({'status': 'error', 'message': 'Invalid request method.'}, status=405)
 
 from .models import Enquiry, Vehicle, OutstationRoute, CitySEO
-from .seo_utils import STATES_SEO_DATA, CITIES_SEO_DATA, TOURIST_PLACES_SEO_DATA, get_place_seo_data
+from .seo_utils import STATES_SEO_DATA, CITIES_SEO_DATA, TOURIST_PLACES_SEO_DATA, COIMBATORE_LANDING_PAGES, get_place_seo_data
 # pyrefly: ignore [missing-import]
 from django.http import Http404
+from .route_seo import ROUTE_SEO_DATA
 
 
 def get_city_seo_dict():
@@ -247,18 +251,181 @@ def city_detail_view(request, state_slug, city_slug):
         'vehicles': vehicles,
     })
 
-def tourist_place_detail_view(request, state_slug, city_slug, place_slug):
-    place_data = get_place_seo_data(place_slug)
-    if not place_data.get('state_slug'):
-        place_data['state_slug'] = state_slug
-    if not place_data.get('city_slug'):
-        place_data['city_slug'] = city_slug
+def coimbatore_landing_view(request, landing_slug):
+    """Dedicated SEO landing pages targeting Coimbatore travel keywords."""
 
-    vehicles = Vehicle.objects.filter(is_active=True).order_by('display_order')
-    return render(request, 'destinations/tourist_place_detail.html', {
-        'place_data': place_data,
-        'vehicles': vehicles,
+    landing_data = COIMBATORE_LANDING_PAGES.get(landing_slug)
+
+    if not landing_data:
+        raise Http404("Landing page not found")
+
+    vehicles = Vehicle.objects.filter(
+        is_active=True
+    ).order_by("display_order")
+
+    return render(
+        request,
+        "destinations/coimbatore_landing.html",
+        {
+            "landing_data": landing_data,
+            "vehicles": vehicles,
+        }
+    )
+
+def ooty_legacy_redirect(request):
+    """301 redirect legacy Ooty URL to the dedicated Ooty landing page."""
+    from django.shortcuts import redirect
+    return redirect("/destinations/tamil-nadu/ooty/", permanent=True)
+
+
+def tourist_place_detail_view(request, state_slug, city_slug, place_slug):
+    # Legacy/incorrect Thrissur tourist-place URLs.
+    # Redirect to the existing canonical tourist-place pages.
+    legacy_redirects = {
+        ("kerala", "thrissur", "athirapilly-falls"): (
+            "kerala", "thrissur", "athirappilly-falls"
+        ),
+        ("kerala", "thrissur", "zoo"): (
+            "kerala", "thrissur", "thrissur-zoo"
+        ),
+        ("kerala", "thrissur", "guruvayur"): (
+            "kerala", "thrissur", "guruvayur-temple"
+        ),
+    }
+
+    redirect_target = legacy_redirects.get(
+        (state_slug, city_slug, place_slug)
+    )
+
+    if redirect_target:
+        return redirect(
+            "tourist_place_detail",
+            state_slug=redirect_target[0],
+            city_slug=redirect_target[1],
+            place_slug=redirect_target[2],
+            permanent=True,
+        )
+
+    # Legacy/invalid Pondicherry destination URL.
+    # Pondicherry is currently represented as a nearby/outstation destination,
+    # not as a standalone Chennai tourist-place page.
+    if (
+        state_slug == "tamil-nadu"
+        and city_slug == "chennai"
+        and place_slug == "pondicherry"
+    ):
+        return redirect(
+            "city_detail",
+            state_slug="tamil-nadu",
+            city_slug="chennai",
+            permanent=True,
+        )
+
+    # If the place slug is actually a configured city, use the canonical city URL.
+    if place_slug in CITIES_SEO_DATA:
+        city_data = CITIES_SEO_DATA.get(place_slug)
+        if city_data and city_data.get("state_slug") == state_slug:
+            return redirect(
+                "city_detail",
+                state_slug=state_slug,
+                city_slug=place_slug,
+                permanent=True,
+            )
+
+    # First use explicitly configured standalone tourist-place SEO data.
+    place_data = TOURIST_PLACES_SEO_DATA.get(place_slug)
+
+    # Fallback: some tourist places are defined inside the city's
+    # places_to_visit list but are not duplicated in TOURIST_PLACES_SEO_DATA.
+    if not place_data:
+        city_data = CITIES_SEO_DATA.get(city_slug)
+
+        if city_data and city_data.get("state_slug") == state_slug:
+            for place in city_data.get("places_to_visit", []):
+                if isinstance(place, dict) and place.get("slug") == place_slug:
+                    place_name = place.get("name") or place.get("place_name") or place_slug.replace("-", " ").title()
+                    city_name = city_data.get("name") or city_slug.replace("-", " ").title()
+
+                    description = (
+                        place.get("description")
+                        or place.get("desc")
+                        or f"Explore {place_name} in {city_name} with travel information, "
+                           f"sightseeing tips and cab services from Vibhu Travel Hub."
+                    )
+
+                    place_data = {
+                        "state_slug": state_slug,
+                        "city_slug": city_slug,
+                        "place_name": place_name,
+                        "slug": place_slug,
+                        "h1": place.get("h1") or f"{place_name} – Travel Guide",
+                        "title": place.get("title") or f"{place_name} Travel Guide | Vibhu Travel Hub",
+                        "description": description,
+                        "tagline": place.get("tagline") or description,
+                        "about_paragraphs": place.get("about_paragraphs") or [description],
+                        "why_visit": place.get("why_visit") or [],
+                        "how_to_reach": place.get("how_to_reach") or (
+                            f"{place_name} is accessible by road from {city_name}. "
+                            f"Book a cab with Vibhu Travel Hub for convenient travel."
+                        ),
+                        "attractions": place.get("attractions") or [],
+                        "experiences": place.get("experiences") or [],
+                        "best_time_guide": place.get("best_time_guide") or {},
+                        "things_to_do": place.get("things_to_do") or [],
+                        "travel_guide_info": place.get("travel_guide_info") or {},
+                        "travel_tips": place.get("travel_tips") or [],
+                        "faqs": place.get("faqs") or [
+                            {
+                                "q": f"How to reach {place_name}?",
+                                "a": (
+                                    f"{place_name} can be reached by road from {city_name}. "
+                                    f"Vibhu Travel Hub provides cab services for convenient "
+                                    f"travel and sightseeing."
+                                ),
+                            },
+                            {
+                                "q": f"Can I book a cab to {place_name}?",
+                                "a": (
+                                    f"Yes. You can book a cab with Vibhu Travel Hub "
+                                    f"for travel to {place_name}."
+                                ),
+                            },
+                        ],
+                    }
+                    break
+
+    if not place_data:
+        raise Http404("Tourist place page not found")
+
+    # Prevent tourist-place pages from being served under unrelated URLs.
+    if place_data.get("state_slug") and place_data.get("state_slug") != state_slug:
+        raise Http404("Tourist place page not found")
+
+    if place_data.get("city_slug") and place_data.get("city_slug") != city_slug:
+        raise Http404("Tourist place page not found")
+
+    vehicles = Vehicle.objects.filter(is_active=True).order_by("display_order")
+
+    return render(
+        request,
+        "destinations/tourist_place_detail.html",
+        {
+            "place_data": place_data,
+            "vehicles": vehicles,
+        },
+    )
+
+
+def ooty_landing_view(request):
+    """Dedicated SEO landing page for Ooty tours from Coimbatore."""
+    place_data = get_place_seo_data("ooty")
+    vehicles = Vehicle.objects.filter(is_active=True).order_by("display_order")
+
+    return render(request, "destinations/ooty.html", {
+        "place_data": place_data,
+        "vehicles": vehicles,
     })
+
 
 def airport_transfer_service(request):
     vehicles = Vehicle.objects.filter(is_active=True).order_by('display_order')
@@ -887,3 +1054,66 @@ bulk_booking = book_cab_bulk
 
 
 
+
+
+def privacy_policy(request):
+    return render(request, "website/privacy_policy.html")
+
+
+
+def routes_index(request):
+    routes = [
+        {
+            "name": "Coimbatore to Ooty Cab Rental",
+            "slug": "coimbatore-to-ooty",
+            "description": "Book a cab from Coimbatore to Ooty for one-way, round-trip and sightseeing travel."
+        },
+        {
+            "name": "Coimbatore to Munnar Cab Rental",
+            "slug": "coimbatore-to-munnar",
+            "description": "Comfortable cab travel from Coimbatore to Munnar with transparent rental pricing."
+        },
+        {
+            "name": "Coimbatore to Kodaikanal Cab Rental",
+            "slug": "coimbatore-to-kodaikanal",
+            "description": "Book a reliable cab from Coimbatore to Kodaikanal for family trips and sightseeing."
+        },
+        {
+            "name": "Coimbatore to Coorg Cab Rental",
+            "slug": "coimbatore-to-coorg",
+            "description": "Travel from Coimbatore to Coorg with comfortable cars and experienced drivers."
+        },
+        {
+            "name": "Coimbatore to Mysore Cab Rental",
+            "slug": "coimbatore-to-mysore",
+            "description": "Book one-way or round-trip cab travel from Coimbatore to Mysore."
+        },
+    ]
+
+    return render(
+        request,
+        "routes/routes_index.html",
+        {"routes": routes}
+    )
+
+
+def route_detail(request, route_slug):
+    route = ROUTE_SEO_DATA.get(route_slug)
+
+    if not route:
+        from django.http import Http404
+        raise Http404("Route not found")
+
+    vehicles = Vehicle.objects.filter(
+        is_active=True,
+        category__in=["Sedan", "SUV / MPV", "SUV"]
+    ).order_by("display_order")
+
+    return render(
+        request,
+        "routes/route_detail.html",
+        {
+            "route": route,
+            "vehicles": vehicles,
+        }
+    )

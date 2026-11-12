@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}{{ post.title }} | Vibhu Travel Hub Blog{% endblock %}
-{% block description %}{{ post.short_description }}{% endblock %}
+{% block meta_title %}{{ post.title }} | Vibhu Travel Hub Blog{% endblock %}
+{% block meta_description %}{{ post.short_description }}{% endblock %}
 
 {% block og_title %}{{ post.title }} | Vibhu Travel Hub{% endblock %}
 {% block og_description %}{{ post.short_description }}{% endblock %}
@@ -55,7 +55,6 @@
 {% block extra_css %}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{% static 'css/blog.css' %}?v={{ STATIC_VERSION }}">
 {% endblock %}
 

@@ -1,31 +1,44 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Tempo Traveller & Force Urbania Rental | Vibhu Travel Hub{% endblock %}
-{% block description %}Rent luxury 12 to 26 seater Tempo Travellers and Force Urbania in Coimbatore, Chennai & Madurai for family trips, corporate & outstation travel.{% endblock %}
-{% block keywords %}Tempo Traveller rental in Coimbatore, 26 seater Tempo Traveller in Chennai, Force Urbania rental in Coimbatore, AC Tempo Traveller in Madurai{% endblock %}
-{% block og_title %}Tempo Traveller & Force Urbania Rental | Vibhu Travel Hub{% endblock %}
-{% block og_description %}Rent luxury 12 to 26 seater Tempo Travellers and Force Urbania in Coimbatore, Chennai & Madurai for family trips, corporate & outstation travel.{% endblock %}
-{% block og_image %}https://vibhutravelhub.com{% static 'images/services/tempo-hero.jpg' %}{% endblock %}
+{% block meta_title %}
+Tempo Traveller Rental in Coimbatore | 12 & 14 Seater
+{% endblock %}
 
-{% block twitter_title %}Tempo Traveller & Force Urbania Rental | Vibhu Travel Hub{% endblock %}
-{% block twitter_description %}Rent luxury 12 to 26 seater Tempo Travellers and Force Urbania in Coimbatore, Chennai & Madurai for family trips, corporate & outstation travel.{% endblock %}
-{% block twitter_image %}https://vibhutravelhub.com{% static 'images/services/tempo-hero.jpg' %}{% endblock %}
+{% block meta_description %}
+Book a Tempo Traveller in Coimbatore for family trips, group tours, pilgrimages and outstation travel. 14 seater AC and Non-AC options are available.
+{% endblock %}
+{% block keywords %}Tempo Traveller Rental in Coimbatore, Tempo Traveller in Coimbatore, 14 Seater Tempo Traveller on Rent in Coimbatore, 14 Seater Tempo Traveller Rental Coimbatore, Tempo Traveller 12 Seater Price in Coimbatore, AC Tempo Traveller in Coimbatore, Non-AC Tempo Traveller, Tempo Traveller for Family Trips, Tempo Traveller for Group Tours, Coimbatore to Ooty Tempo Traveller, Coimbatore to Munnar Tempo Traveller, Coimbatore to Kodaikanal Tempo Traveller{% endblock %}
+{% block og_title %}Tempo Traveller Rental in Coimbatore | 12 & 14 Seater{% endblock %}
+{% block og_description %}Book 14 seater AC and Non-AC Tempo Travellers in Coimbatore for family trips, group tours, pilgrimages and outstation journeys.{% endblock %}
+{% block og_image %}https://vibhutravelhub.com{% static 'images/services/tempo-hero.webp' %}{% endblock %}
+
+{% block twitter_title %}Tempo Traveller Rental in Coimbatore | 12 & 14 Seater{% endblock %}
+{% block twitter_description %}Book 14 seater AC and Non-AC Tempo Travellers in Coimbatore for family trips, group tours, pilgrimages and outstation journeys.{% endblock %}
+{% block twitter_image %}https://vibhutravelhub.com{% static 'images/services/tempo-hero.webp' %}{% endblock %}
 
 {% block schema %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "Tempo Traveller & Force Urbania Rentals",
+  "name": "14 Seater Tempo Traveller Rentals",
   "provider": {
     "@type": "TravelAgency",
     "name": "Vibhu Travel Hub",
-    "url": "https://vibhutravelhub.com"
+    "url": "https://vibhutravelhub.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Joyce Villa Building, 87, Grey Town",
+      "addressLocality": "Coimbatore",
+      "addressRegion": "Tamil Nadu",
+      "postalCode": "641018",
+      "addressCountry": "IN"
+    }
   },
   "areaServed": ["Coimbatore", "Chennai", "Madurai", "Trichy", "Kochi", "Bangalore"],
-  "description": "Book 12, 14, 17, 20, and 26 seater AC Tempo Traveller and Force Urbania rental for outstation tours and family trips.",
-  "image": "https://vibhutravelhub.com/static/images/services/tempo-hero.jpg"
+  "description": "Book 14 seater AC and Non-AC Tempo Traveller rental in Coimbatore for outstation tours, family trips, pilgrimages and group travel.",
+  "image": "https://vibhutravelhub.com/static/images/services/tempo-hero.webp"
 }
 </script>
 <script type="application/ld+json">
@@ -57,7 +70,6 @@
 <!-- Google Fonts for Cursive Script -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap" rel="stylesheet">
 
 <style>
     .vth-script-eyebrow {
@@ -126,7 +138,7 @@
     1. HERO SECTION (EXACT MATCH FOR TAMIL NADU MASTER REFERENCE)
 ========================================== -->
 <section class="vth-hero-tn py-5">
-    <img src="{% static 'images/services/tempo-hero.png' %}" alt="Premium Tempo Traveller Rental" class="vth-hero-tn-bg">
+    <img src="{% static 'images/services/tempo-hero.webp' %}" alt="Tempo Traveller Rental in Coimbatore" class="vth-hero-tn-bg">
     <div class="vth-hero-tn-overlay"></div>
 
     <div class="container position-relative z-3 my-auto">
@@ -134,19 +146,18 @@
             <div class="col-lg-7 col-md-10">
                 <span class="vth-hero-script reveal-down d-block mb-1" style="color: #FF5A5F; font-size: 1.8rem; font-family: 'Caveat', cursive, sans-serif;">GROUP TRAVEL</span>
                 <h1 class="hero-main-title text-white mb-3 reveal-left" style="font-size: 3.6rem; font-weight: 800; line-height: 1.1; letter-spacing: -1.2px;">
-                    Premium Tempo Traveller Rental
+                    Tempo Traveller Rental in Coimbatore
                 </h1>
                 <p class="text-white-50 mb-4 reveal-left" style="font-size: 1.08rem; line-height: 1.65; color: rgba(255, 255, 255, 0.9) !important; max-width: 620px;">
                     Spacious and comfortable Tempo Travellers for family trips, group tours, pilgrimages, weddings and long-distance journeys.
                 </p>
                 <div class="d-flex align-items-center gap-3 flex-wrap reveal-up">
-                    <button class="btn btn-danger rounded-pill px-4 py-2.5 fw-bold text-white shadow-sm border-0 d-inline-flex align-items-center gap-2" style="background-color: #E31E24; font-size: 0.95rem;" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Premium Tempo Traveller Rental">
+                    <button class="btn btn-danger rounded-pill px-4 py-2.5 fw-bold text-white shadow-sm border-0 d-inline-flex align-items-center gap-2" style="background-color: #E31E24; font-size: 0.95rem;" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Tempo Traveller Rental in Coimbatore">
                         Get a Quote <i class="bi bi-arrow-right"></i>
                     </button>
                     <a href="#about" class="btn btn-light rounded-pill px-4 py-2.5 fw-bold d-inline-flex align-items-center gap-2" style="font-size: 0.95rem; color: #1F2937; background: #FFFFFF; border: 1px solid rgba(255, 255, 255, 0.9);">
                         Explore Service <i class="bi bi-compass"></i>
                     </a>
-                </div>
             </div>
         </div>
     </div>
@@ -181,7 +192,7 @@
                     <div class="d-flex align-items-center gap-2.5">
                         <i class="bi bi-car-front text-danger fs-3"></i>
                         <div>
-                            <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">Luxury Fleet</h6>
+                            <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">Tempo Traveller Rental Fleet</h6>
                             <span class="text-muted d-block" style="font-size: 0.75rem;">Well maintained vehicles</span>
                         </div>
                     </div>
@@ -223,7 +234,7 @@
         <div class="row align-items-center g-5">
             <div class="col-lg-6 vth-anim-left">
                 <div class="position-relative pe-lg-3">
-                    <img src="{% static 'images/services/tempo-hero.png' %}" alt="Luxury Tempo Traveller" class="story-img-main img-fluid">
+                    <img src="{% static 'images/services/tempo-hero.webp' %}" alt="Tempo Traveller Rental" class="story-img-main img-fluid">
                     
                     <div class="story-badge-exp d-flex align-items-center gap-3">
                         <div class="bg-white text-danger rounded-circle d-flex align-items-center justify-content-center shadow-sm" style="width: 48px; height: 48px; font-size: 1.4rem;">
@@ -239,12 +250,12 @@
             <div class="col-lg-6 vth-anim-right">
                 <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block mb-1" style="color: #E31E24; font-size: 0.8rem; letter-spacing: 1.5px;">ABOUT SERVICE</span>
                 <h2 class="fw-extrabold text-dark mb-3 vth-anim-right" style="font-size: 2.4rem; letter-spacing: -0.6px; line-height: 1.2;">
-                    Luxury Tempo Travellers <span class="text-danger">for Group Travel</span>
+                    Tempo Traveller in Coimbatore <span class="text-danger">for Group Travel</span>
                 </h2>
                 <div class="about-content text-secondary fs-6 lh-lg vth-anim-up" style="color: #475569;">
                     <p>Traveling with extended family or a group of friends? Hiring a Tempo Traveller is the most economical and fun way to travel together without the hassle of driving multiple cars.</p>
 
-                    <p>Our fleet features brand new Force Motors Tempo Travellers available in 12, 14, and 17 seating capacities. Every vehicle is customized for luxury travel, featuring push-back recliner seats, premium upholstery, ample legroom, and a robust dual air-conditioning system to beat the heat.</p>
+                    <p>Our fleet features comfortable 14-seater Force Motors Tempo Travellers for group travel. Every vehicle is maintained for a comfortable journey, with push-back seating, comfortable upholstery, ample legroom, and air-conditioning options.</p>
 
                     <div class="p-4 bg-light rounded-4 border-start border-4 border-danger mt-4 shadow-sm">
                         <div class="d-flex align-items-start gap-3">
@@ -255,8 +266,7 @@
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -280,39 +290,81 @@ document.addEventListener('DOMContentLoaded', function() {
             <!-- Seating Variants & Cities Grid -->
             <div class="row g-4 mt-5">
                 <div class="col-12 text-center vth-card-anim-up">
-                    <h3 class="fw-bold mb-2">Tempo Traveller Seating & City Options</h3>
-                    <p class="text-muted">Choose your preferred seating capacity and city location</p>
+                    <h2 class="fw-bold mb-2">14 Seater Tempo Traveller on Rent in Coimbatore</h2>
+                    <p class="text-muted">Choose a Tempo Traveller option for family trips, group tours and outstation travel from Coimbatore</p>
+                    <p class="text-secondary small mb-4">
+                        Our 14 seater Tempo Traveller rental in Coimbatore is suitable for family trips, group tours, pilgrimages and outstation journeys. AC and Non-AC options are available based on your travel requirements. For other seating requirements, contact our team for current vehicle availability and rental details.
+                    </p>
                 </div>
 
                 <div class="col-lg-4 col-md-6 vth-card-anim-left">
                     <div class="feature-card">
                         <div class="feature-icon"><i class="bi bi-bus-front"></i></div>
-                        <h5 class="fw-bold text-dark">12 & 14 Seater</h5>
-                        <p class="text-secondary small mb-0">Ideal for small groups and family pilgrimages. Book a <strong>12 seater Tempo Traveller in Coimbatore</strong> or a <strong>14 seater Tempo Traveller in Chennai</strong>, Trichy, or Kochi with push-back seating.</p>
+                        <h5 class="fw-bold text-dark">14 Seater Tempo Traveller</h5>
+                        <p class="text-secondary small mb-0">Ideal for family trips, pilgrimages and group travel. Our 14 seater Tempo Travellers are available in AC and Non-AC options with comfortable seating for group journeys.</p>
                     </div>
                 </div>
 
                 <div class="col-lg-4 col-md-6 vth-card-anim-up">
                     <div class="feature-card">
                         <div class="feature-icon"><i class="bi bi-bus-front-fill"></i></div>
-                        <h5 class="fw-bold text-dark">17 & 20 Seater</h5>
-                        <p class="text-secondary small mb-0">Perfect for medium tours. Reserve a <strong>17 seater Tempo Traveller in Madurai</strong> or a <strong>20 seater Tempo Traveller in Coimbatore</strong>, Bangalore, or Chennai with dual AC.</p>
+                        <h5 class="fw-bold text-dark">14 Seater AC Option</h5>
+                        <p class="text-secondary small mb-0">Choose our 14 seater AC Tempo Traveller for comfortable family tours, corporate outings, temple visits and outstation journeys from Coimbatore.</p>
                     </div>
                 </div>
 
                 <div class="col-lg-4 col-md-6 vth-card-anim-right">
                     <div class="feature-card">
                         <div class="feature-icon"><i class="bi bi-stars"></i></div>
-                        <h5 class="fw-bold text-dark">26 Seater & Force Urbania</h5>
-                        <p class="text-secondary small mb-0">Executive luxury travel. Reserve a <strong>26 seater Tempo Traveller in Coimbatore</strong> or a premium <strong>Force Urbania rental in Chennai</strong> and Coimbatore with extra legroom.</p>
+                        <h5 class="fw-bold text-dark">14 Seater Non-AC Option</h5>
+                        <p class="text-secondary small mb-0">A practical option for group travel, pilgrimages and budget-conscious outstation trips, with comfortable seating for up to 14 passengers.</p>
                     </div>
                 </div>
             </div>
         </div>
 </section>
 
+<!-- 3. TEMPO TRAVELLER RENTAL & PRICING -->
+<section class="service-section bg-white py-5">
+    <div class="container py-lg-3">
+        <div class="text-center mb-5 vth-card-anim-up">
+            <span class="text-danger fw-bold text-uppercase tracking-wide">Rental Information</span>
+            <h2 class="section-title mt-2">Tempo Traveller Rental Options & Pricing</h2>
+            <p class="section-subtitle">
+                Get a rental quote based on your travel date, route, trip duration and vehicle requirement.
+            </p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="feature-card h-100">
+                    <div class="feature-icon"><i class="bi bi-calendar-check"></i></div>
+                    <h3 class="fw-bold mb-3">Tempo Traveller Rental in Coimbatore</h3>
+                    <p class="text-muted mb-0">
+                        Rental charges can vary depending on the destination, number of travel days,
+                        kilometres, pickup location and vehicle requirement. Share your trip details
+                        with us to receive the applicable rental quote.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="feature-card h-100">
+                    <div class="feature-icon"><i class="bi bi-receipt"></i></div>
+                    <h3 class="fw-bold mb-3">Tempo Traveller 12 Seater Price in Coimbatore</h3>
+                    <p class="text-muted mb-0">
+                        If you are checking the price for a 12 seater Tempo Traveller, contact our
+                        booking team with your travel date, route and passenger count. We can confirm
+                        current availability and the applicable rental details for your journey.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- 3. WHY CHOOSE US -->
-<section class="lux-section bg-light py-5">
+<section class="service-section bg-light py-5">
     <div class="container py-lg-3">
         <div class="text-center mb-5 vth-card-anim-up">
             <span class="text-danger fw-bold text-uppercase tracking-wide">Why Choose Us</span>
@@ -332,7 +384,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="feature-card">
                     <div class="feature-icon"><i class="bi bi-usb-drive"></i></div>
                     <h5 class="fw-bold mb-3">Modern Amenities</h5>
-                    <p class="text-muted mb-0">USB charging ports at every seat, reading lights, and premium entertainment systems.</p>
+                    <p class="text-muted mb-0">USB charging ports at every seat, reading lights, and entertainment systems.</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 vth-card-anim-right">
@@ -366,48 +418,10 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
     </div>
 </section>
-
-
-
-<!-- 5. POPULAR ROUTES -->
-<section class="lux-section bg-light">
-    <div class="container">
-        <div class="text-center mb-5" data-aos="fade-up">
-            <h2 class="section-title">Popular Tempo Routes</h2>
-            <p class="section-subtitle">Top destinations our customers visit from Coimbatore.</p>
-        </div>
-
-        <div class="row g-4 justify-content-center">
-            <div class="col-6 col-md-4 col-lg-3 text-center" data-aos="fade-up" data-aos-delay="100">
-                <div class="p-4 bg-white rounded-4 shadow-sm h-100 feature-card">
-                    <i class="bi bi-geo-alt fs-1 text-danger mb-3 d-block"></i>
-                    <h6 class="fw-bold mb-0">Coimbatore → Ooty</h6>
-                </div>
-            </div>
-            <div class="col-6 col-md-4 col-lg-3 text-center" data-aos="fade-up" data-aos-delay="200">
-                <div class="p-4 bg-white rounded-4 shadow-sm h-100 feature-card">
-                    <i class="bi bi-geo-alt fs-1 text-danger mb-3 d-block"></i>
-                    <h6 class="fw-bold mb-0">Coimbatore → Kodaikanal</h6>
-                </div>
-            </div>
-            <div class="col-6 col-md-4 col-lg-3 text-center" data-aos="fade-up" data-aos-delay="300">
-                <div class="p-4 bg-white rounded-4 shadow-sm h-100 feature-card">
-                    <i class="bi bi-geo-alt fs-1 text-danger mb-3 d-block"></i>
-                    <h6 class="fw-bold mb-0">Coimbatore → Munnar</h6>
-                </div>
-            </div>
-            <div class="col-6 col-md-4 col-lg-3 text-center" data-aos="fade-up" data-aos-delay="400">
-                <div class="p-4 bg-white rounded-4 shadow-sm h-100 feature-card">
-                    <i class="bi bi-geo-alt fs-1 text-danger mb-3 d-block"></i>
-                    <h6 class="fw-bold mb-0">Coimbatore → Wayanad</h6>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+          
 
 <!-- 6. BOOKING PROCESS TIMELINE -->
-<section class="lux-section bg-white">
+<section class="service-section bg-white">
     <div class="container">
         <div class="text-center mb-5" data-aos="fade-up">
             <span class="text-danger fw-bold text-uppercase tracking-wide">Simple Steps</span>
@@ -429,7 +443,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="timeline-icon"><i class="bi bi-tags"></i></div>
                 <div class="timeline-content">
                     <h4 class="fw-bold">2. Select Vehicle</h4>
-                    <p class="text-muted mb-0">Choose between our 12, 14, or 17 seater options based on your group size.
+                    <p class="text-muted mb-0">Choose between our 14 seater AC and Non-AC Tempo Traveller options based on your group size and travel requirements.
                     </p>
                 </div>
             </div>

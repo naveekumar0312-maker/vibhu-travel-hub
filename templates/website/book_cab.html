@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Book a Cab | Vibhu Travel Hub{% endblock %}
+{% block meta_title %}Book a Cab in Coimbatore | Vibhu Travel Hub{% endblock %}
 
-{% block description %}Book one way trips, round trips, hourly rentals and bulk travel services with Vibhu Travel Hub. Choose your preferred travel option and book your ride easily.{% endblock %}
+{% block meta_description %}Book one way trips, round trips, hourly rentals and bulk travel services with Vibhu Travel Hub. Choose your preferred travel option and book your ride easily.{% endblock %}
 
 {% block keywords %}book a cab, one way trip, round trip, hourly cab rental, bulk cab booking, Vibhu Travel Hub{% endblock %}
 
@@ -11,7 +11,6 @@
 <!-- Google Fonts for Cursive Script -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap" rel="stylesheet">
 
 <style>
     :root {
@@ -33,7 +32,7 @@
 
     /* HERO BANNER (MATCHING ABOUT US) */
     .about-hero-section {
-        background: url("{% static 'images/destinations/tn-gallery-3.png' %}") no-repeat center center / cover;
+        background: url("{% static 'images/destinations/tn-gallery-3.webp' %}") no-repeat center center / cover;
         position: relative;
         min-height: 380px;
         display: flex;
@@ -310,12 +309,12 @@
                 <div class="col-12 col-md-6 col-lg-4 d-flex align-items-stretch">
                     <div class="trip-card">
                         <div class="trip-card-img-wrapper">
-                            <img src="{% static 'images/destinations/one-way.jpg' %}" alt="One Way Trip Cab Service" class="trip-card-img" onerror="this.onerror=null; this.src=this.dataset.fallback;" data-fallback="{% static 'images/destinations/coimbatore.avif' %}">
+                            <img src="{% static 'images/destinations/one-way.webp' %}" alt="One Way Trip Cab Service" class="trip-card-img" onerror="this.onerror=null; this.src=this.dataset.fallback;" data-fallback="{% static 'images/destinations/coimbatore.webp' %}">
                             <span class="trip-card-badge">Outstation</span>
                         </div>
                         <div class="trip-card-body">
                             <h3 class="trip-card-title">
-                                <i class="bi bi-taxi-front-fill text-danger me-2"></i> One Way Trip
+                                <i class="bi bi-cab-front-fill text-danger me-2"></i> One Way Trip
                             </h3>
                             <p class="trip-card-desc">
                                 Comfortable one-way cab services for hassle-free outstation travel. Pay only for one side drop.
@@ -331,7 +330,7 @@
                 <div class="col-12 col-md-6 col-lg-4 d-flex align-items-stretch">
                     <div class="trip-card">
                         <div class="trip-card-img-wrapper">
-                            <img src="{% static 'images/destinations/round-trip.jpg' %}" alt="Round Trip Cab Service" class="trip-card-img" onerror="this.onerror=null; this.src=this.dataset.fallback;" data-fallback="{% static 'images/destinations/kerala-gallery-1.jpg' %}">
+                            <img src="{% static 'images/destinations/round-trip.webp' %}" alt="Round Trip Cab Service" class="trip-card-img" onerror="this.onerror=null; this.src=this.dataset.fallback;" data-fallback="{% static 'images/destinations/kerala.webp' %}">
                             <span class="trip-card-badge">Multi-Day</span>
                         </div>
                         <div class="trip-card-body">
@@ -352,7 +351,7 @@
                 <div class="col-12 col-md-6 col-lg-4 d-flex align-items-stretch">
                     <div class="trip-card">
                         <div class="trip-card-img-wrapper">
-                            <img src="{% static 'images/destinations/hourly-rental.jpg' %}" alt="Hourly Rental Cab Service" class="trip-card-img" onerror="this.onerror=null; this.src=this.dataset.fallback;" data-fallback="{% static 'images/destinations/karnataka-gallery-1.jpg' %}">
+                            <img src="{% static 'images/destinations/hourly-rental.webp' %}" alt="Hourly Rental Cab Service" class="trip-card-img" onerror="this.onerror=null; this.src=this.dataset.fallback;" data-fallback="{% static 'images/destinations/karnataka-1.webp' %}">
                             <span class="trip-card-badge">Flexible</span>
                         </div>
                         <div class="trip-card-body">
@@ -373,7 +372,7 @@
                 <div class="col-12 col-md-6 col-lg-4 d-flex align-items-stretch">
                     <div class="trip-card">
                         <div class="trip-card-img-wrapper">
-                            <img src="{% static 'images/destinations/bulk-booking.jpg' %}" alt="Bulk Booking Service" class="trip-card-img" onerror="this.onerror=null; this.src=this.dataset.fallback;" data-fallback="{% static 'images/destinations/tamil-nadu-gallery-2.jpg' %}">
+                            <img src="{% static 'images/destinations/bulk-booking.webp' %}" alt="Bulk Booking Service" class="trip-card-img" onerror="this.onerror=null; this.src=this.dataset.fallback;" data-fallback="{% static 'images/destinations/tamil2.webp' %}">
                             <span class="trip-card-badge">Group Travel</span>
                         </div>
                         <div class="trip-card-body">
@@ -402,7 +401,7 @@
                     <div class="col-lg-5 text-center text-lg-end">
                         <div class="d-flex flex-wrap justify-content-center justify-content-lg-end gap-2">
                             <a href="#trip-selection" class="btn btn-danger rounded-pill px-4 py-2.5 fw-bold text-white shadow-sm" style="background-color: var(--vth-red); border: none;">
-                                <i class="bi bi-taxi-front-fill me-1"></i> Book a Cab
+                                <i class="bi bi-cab-front-fill me-1"></i> Book a Cab
                             </a>
                             <a href="https://wa.me/919655866660?text=Hello%20Vibhu%20Travel%20Hub%2C%20I%20would%20like%20to%20book%20a%20cab." target="_blank" class="btn btn-success rounded-pill px-4 py-2.5 fw-bold text-white shadow-sm">
                                 <i class="bi bi-whatsapp me-1"></i> WhatsApp Us

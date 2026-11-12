@@ -1,19 +1,19 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Karnataka Travel Packages, Cab Services & Outstation Rentals | Vibhu Travel Hub{% endblock %}
-{% block description %}Discover Incredible Karnataka with Vibhu Travel Hub. Premium cab services, outstation taxi rentals, Tempo Traveller & luxury bus rentals in Bangalore, Mysore, Coorg, Chikmagalur, Hampi, and Gokarna.{% endblock %}
-{% block keywords %}Karnataka tourism, cab service in Bangalore, taxi service in Mysore, Coorg cab rental, Chikmagalur cabs, Hampi tour taxi, Tempo Traveller Bangalore, Gokarna taxi{% endblock %}
+{% block meta_title %}Karnataka Tour Packages from Coimbatore | Vibhu Travel Hub{% endblock %}
+{% block meta_description %}Explore Karnataka tour packages from Coimbatore with cabs, Tempo Travellers and buses for Mysore, Coorg, Chikmagalur, Bangalore and more.{% endblock %}
+{% block keywords %}Karnataka tour packages from Coimbatore, Karnataka tours from Coimbatore, Karnataka travel packages from Coimbatore, Coimbatore to Karnataka tour, Mysore tour, Coorg tour, Chikmagalur tour{% endblock %}
 {% block canonical %}https://vibhutravelhub.com/destinations/karnataka/{% endblock %}
 
 {% block og_title %}Karnataka Travel Packages & Cab Services | Vibhu Travel Hub{% endblock %}
 {% block og_description %}Book luxury cabs, Tempo Travellers, and tour packages across Karnataka with Vibhu Travel Hub.{% endblock %}
 {% block og_url %}https://vibhutravelhub.com/destinations/karnataka/{% endblock %}
-{% block og_image %}https://vibhutravelhub.com{% static 'images/destinations/karnataka.jpg' %}{% endblock %}
+{% block og_image %}https://vibhutravelhub.com{% static 'images/destinations/karnataka.webp' %}{% endblock %}
 
 {% block twitter_title %}Karnataka Travel Packages & Cab Services | Vibhu Travel Hub{% endblock %}
 {% block twitter_description %}Book luxury cabs, Tempo Travellers, and tour packages across Karnataka with Vibhu Travel Hub.{% endblock %}
-{% block twitter_image %}https://vibhutravelhub.com{% static 'images/destinations/karnataka.jpg' %}{% endblock %}
+{% block twitter_image %}https://vibhutravelhub.com{% static 'images/destinations/karnataka.webp' %}{% endblock %}
 
 {% block schema_markup %}
 <script type="application/ld+json">
@@ -44,7 +44,7 @@
   "@type": "TouristDestination",
   "name": "Karnataka",
   "description": "Discover Karnataka with Vibhu Travel Hub. Explore hill stations, coffee plantations, palaces, waterfalls, wildlife and modern cities.",
-  "image": "https://vibhutravelhub.com{% static 'images/destinations/karnataka.jpg' %}",
+  "image": "https://vibhutravelhub.com{% static 'images/destinations/karnataka.webp' %}",
   "touristType": ["Heritage Tourism", "Nature Tour", "Family Trip"],
   "includesAttraction": [
     {"@type": "TouristAttraction", "name": "Coorg"},
@@ -221,12 +221,10 @@
                     landscapes. Travel across Karnataka with Vibhu Travel Hub for a comfortable and premium journey.
                 </p>
                 <div class="d-flex align-items-center gap-3 flex-wrap reveal-up">
-                    <button
+                    <a href="#enquiryModal"
                         class="btn btn-danger rounded-pill px-4 py-2.5 fw-bold text-white shadow-sm border-0 d-inline-flex align-items-center gap-2"
                         style="background-color: #E31E24; font-size: 0.95rem;" data-bs-toggle="modal"
-                        data-bs-target="#enquiryModal" data-destination="Karnataka">
-                        Book Your Trip <i class="bi bi-arrow-right"></i>
-                    </button>
+                        data-bs-target="#enquiryModal" data-destination="Karnataka">Book Your Trip <i class="bi bi-arrow-right"></i></a>
                     <a href="#popular-destinations"
                         class="btn btn-light rounded-pill px-4 py-2.5 fw-bold d-inline-flex align-items-center gap-2"
                         style="font-size: 0.95rem; color: #1F2937; background: #FFFFFF; border: 1px solid rgba(255, 255, 255, 0.9);">
@@ -314,7 +312,7 @@
             <!-- Left Column: Large Destination Image (~45%) -->
             <div class="col-lg-5 col-md-12 reveal-left">
                 <div class="position-relative rounded-4 overflow-hidden shadow-lg" style="height: 520px;">
-                    <img src="{% static 'images/destinations/mysore.jpg' %}" alt="About Karnataka Royal Heritage & Hills" class="img-fluid w-100 h-100 hover-scale" style="object-fit: cover; transition: transform 0.6s ease;">
+                    <img src="{% static 'images/destinations/mysore.webp' %}" alt="About Karnataka Royal Heritage & Hills" class="img-fluid w-100 h-100 hover-scale" style="object-fit: cover; transition: transform 0.6s ease;">
                     <div class="position-absolute bottom-0 start-0 w-100 p-4" style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);">
                         <span class="badge bg-danger rounded-pill px-3 py-1.5 text-white fw-bold mb-1">One State, Many Worlds</span>
                         <h4 class="text-white fw-bold mb-0">Palaces, Coffee Estates & Ruins</h4>
@@ -337,7 +335,7 @@
                         The state's imperial legacy shines at illuminated Mysore Palace, Chamundi Hill, and the UNESCO World Heritage stone ruins of Hampi. Nature lovers escape to the coffee plantation hills of <a href="{% url 'city_detail' state_slug='karnataka' city_slug='coorg' %}" class="text-danger text-decoration-none fw-bold">Coorg</a> and <a href="{% url 'city_detail' state_slug='karnataka' city_slug='chikmagalur' %}" class="text-danger text-decoration-none fw-bold">Chikmagalur</a>, trek Mullayanagiri peak, explore Kabini tiger safaris, or unwind along the coastal cliff beaches of Gokarna and Udupi.
                     </p>
                     <p class="mb-0">
-                        Discovering places to visit in Karnataka is seamless with Vibhu Travel Hub's 24/7 airport cabs at Kempegowda International Airport (BLR), executive corporate cars, and outstation cab rentals across all popular Karnataka travel destinations.
+                        Planning Karnataka tour packages from Coimbatore is easy with Vibhu Travel Hub. Choose from outstation cabs, Tempo Travellers and bus rentals for trips to Mysore, Coorg, Chikmagalur, Bangalore and other popular Karnataka destinations.
                     </p>
                 </div>
 
@@ -386,7 +384,7 @@
                     Services Across Karnataka</h2>
             </div>
             <div class="d-flex align-items-center gap-2 reveal-right">
-                <a href="{% url 'local_taxi_service' %}" class="text-decoration-none text-dark fw-bold small">View All
+                <a href="{% url 'local_cab_service' %}" class="text-decoration-none text-dark fw-bold small">View All
                     Services <i class="bi bi-chevron-right ms-1"></i></a>
             </div>
         </div>
@@ -397,7 +395,7 @@
                 <div class="cab-service-card h-100 d-flex flex-column border-0 shadow-sm rounded-4 overflow-hidden">
                     <div class="img-reveal position-relative">
                         <a href="{% url 'city_detail' state_slug='karnataka' city_slug='bangalore' %}">
-                            <img src="{% static 'images/destinations/bangalore.jpg' %}" alt="Bangalore Travel Guide"
+                            <img src="{% static 'images/destinations/bangalore.webp' %}" alt="Bangalore Travel Guide"
                                 class="img-fluid w-100 hover-scale" style="height: 190px; object-fit: cover;">
                         </a>
                         <div class="cab-icon-badge">
@@ -438,7 +436,7 @@
                 <div class="cab-service-card h-100 d-flex flex-column border-0 shadow-sm rounded-4 overflow-hidden">
                     <div class="img-reveal position-relative">
                         <a href="{% url 'city_detail' state_slug='karnataka' city_slug='mysore' %}">
-                            <img src="{% static 'images/destinations/mysore.jpg' %}" alt="Mysore Travel Guide"
+                            <img src="{% static 'images/destinations/mysore.webp' %}" alt="Mysore Travel Guide"
                                 class="img-fluid w-100 hover-scale" style="height: 190px; object-fit: cover;">
                         </a>
                         <div class="cab-icon-badge">
@@ -479,7 +477,7 @@
                 <div class="cab-service-card h-100 d-flex flex-column border-0 shadow-sm rounded-4 overflow-hidden">
                     <div class="img-reveal position-relative">
                         <a href="{% url 'city_detail' state_slug='karnataka' city_slug='coorg' %}">
-                            <img src="{% static 'images/destinations/coorg.jpg' %}" alt="Coorg Travel Guide"
+                            <img src="{% static 'images/destinations/coorg.webp' %}" alt="Coorg Travel Guide"
                                 class="img-fluid w-100 hover-scale" style="height: 190px; object-fit: cover;">
                         </a>
                         <div class="cab-icon-badge">
@@ -520,7 +518,7 @@
                 <div class="cab-service-card h-100 d-flex flex-column border-0 shadow-sm rounded-4 overflow-hidden">
                     <div class="img-reveal position-relative">
                         <a href="{% url 'city_detail' state_slug='karnataka' city_slug='chikmagalur' %}">
-                            <img src="{% static 'images/destinations/gokarnas.png' %}" alt="Chikmagalur Travel Guide"
+                            <img src="{% static 'images/destinations/chik.webp' %}" alt="Chikmagalur Coffee Hills"
                                 class="img-fluid w-100 hover-scale" style="height: 190px; object-fit: cover;">
                         </a>
                         <div class="cab-icon-badge">
@@ -572,7 +570,7 @@
                     Places in Karnataka</h2>
             </div>
             <div class="d-flex align-items-center gap-2 reveal-right">
-                <a href="#cab-services" class="text-decoration-none text-dark fw-bold small">View All Places <i
+                <a href="#popular-destinations" class="text-decoration-none text-dark fw-bold small">View All Places <i
                         class="bi bi-chevron-right ms-1"></i></a>
             </div>
         </div>
@@ -582,7 +580,7 @@
             <div class="col-lg-3 col-md-4 col-6 reveal-up">
                 <div class="dest-mini-card">
                     <div class="img-reveal">
-                        <img src="{% static 'images/destinations/coorg.jpg' %}" alt="Coorg Hill Station">
+                        <img src="{% static 'images/destinations/coorg.webp' %}" alt="Coorg Hill Station">
                     </div>
                     <div class="p-3">
                         <h6 class="fw-bold text-dark mb-0" style="font-size: 0.98rem;">Coorg</h6>
@@ -595,7 +593,7 @@
             <div class="col-lg-3 col-md-4 col-6 reveal-up">
                 <div class="dest-mini-card">
                     <div class="img-reveal">
-                        <img src="{% static 'images/destinations/mysore.jpg' %}" alt="Mysore Palace">
+                        <img src="{% static 'images/destinations/mysore.webp' %}" alt="Mysore Palace">
                     </div>
                     <div class="p-3">
                         <h6 class="fw-bold text-dark mb-0" style="font-size: 0.98rem;">Mysore</h6>
@@ -608,7 +606,7 @@
             <div class="col-lg-3 col-md-4 col-6 reveal-up">
                 <div class="dest-mini-card">
                     <div class="img-reveal">
-                        <img src="{% static 'images/destinations/bangalore.jpg' %}" alt="Bangalore Garden City">
+                        <img src="{% static 'images/destinations/bangalore.webp' %}" alt="Bangalore Garden City">
                     </div>
                     <div class="p-3">
                         <h6 class="fw-bold text-dark mb-0" style="font-size: 0.98rem;">Bangalore</h6>
@@ -621,7 +619,7 @@
             <div class="col-lg-3 col-md-4 col-6 reveal-up">
                 <div class="dest-mini-card">
                     <div class="img-reveal">
-                        <img src="{% static 'images/destinations/chik.jpg' %}" alt="Chikmagalur Coffee Hills">
+                        <img src="{% static 'images/destinations/chik.webp' %}" alt="Chikmagalur Coffee Hills">
                     </div>
                     <div class="p-3">
                         <h6 class="fw-bold text-dark mb-0" style="font-size: 0.98rem;">Chikmagalur</h6>
@@ -634,7 +632,7 @@
             <div class="col-lg-3 col-md-4 col-6 reveal-up">
                 <div class="dest-mini-card">
                     <div class="img-reveal">
-                        <img src="{% static 'images/destinations/Hampis.jpg' %}" alt="Hampi UNESCO World Heritage">
+                        <img src="{% static 'images/destinations/Hampis.webp' %}" alt="Hampi UNESCO World Heritage">
                     </div>
                     <div class="p-3">
                         <h6 class="fw-bold text-dark mb-0" style="font-size: 0.98rem;">Hampi</h6>
@@ -647,7 +645,7 @@
             <div class="col-lg-3 col-md-4 col-6 reveal-up">
                 <div class="dest-mini-card">
                     <div class="img-reveal">
-                        <img src="{% static 'images/destinations/gokarnas.png' %}" alt="Gokarna Beach">
+                        <img src="{% static 'images/destinations/gokarnas.webp' %}" alt="Gokarna Beach">
                     </div>
                     <div class="p-3">
                         <h6 class="fw-bold text-dark mb-0" style="font-size: 0.98rem;">Gokarna</h6>
@@ -660,7 +658,7 @@
             <div class="col-lg-3 col-md-4 col-6 reveal-up">
                 <div class="dest-mini-card">
                     <div class="img-reveal">
-                        <img src="{% static 'images/destinations/kabinis.png' %}" alt="Kabini Wildlife Sanctuary">
+                        <img src="{% static 'images/destinations/kabinis.webp' %}" alt="Kabini Wildlife Sanctuary">
                     </div>
                     <div class="p-3">
                         <h6 class="fw-bold text-dark mb-0" style="font-size: 0.98rem;">Kabini</h6>
@@ -673,7 +671,7 @@
             <div class="col-lg-3 col-md-4 col-6 reveal-up">
                 <div class="dest-mini-card">
                     <div class="img-reveal">
-                        <img src="{% static 'images/destinations/karnataka-1.png' %}" alt="Badami Heritage Caves">
+                        <img src="{% static 'images/destinations/karnataka-1.webp' %}" alt="Badami Heritage Caves">
                     </div>
                     <div class="p-3">
                         <h6 class="fw-bold text-dark mb-0" style="font-size: 0.98rem;">Badami</h6>
@@ -716,34 +714,34 @@
                         </p>
 
                         <div class="d-flex flex-wrap gap-2 mb-4">
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Mysore"><i class="bi bi-signpost text-danger"></i> Bangalore to Mysore
                                 Cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Coorg"><i class="bi bi-signpost text-danger"></i> Bangalore to Coorg
                                 Cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Chikmagalur"><i class="bi bi-signpost text-danger"></i> Bangalore to
                                 Chikmagalur Cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Mangalore"><i class="bi bi-signpost text-danger"></i> Bangalore to
                                 Mangalore Cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Hampi"><i class="bi bi-signpost text-danger"></i> Bangalore to Hampi
                                 Cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Gokarna"><i class="bi bi-signpost text-danger"></i> Bangalore to
                                 Gokarna Cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Airport City"><i class="bi bi-airplane text-danger"></i> Bangalore
-                                Airport to City Taxi</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                                Airport to City Cab</a>
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Chennai"><i class="bi bi-signpost text-danger"></i> Bangalore to
                                 Chennai Cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Coimbatore"><i class="bi bi-signpost text-danger"></i> Bangalore to
                                 Coimbatore Cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Ooty"><i class="bi bi-signpost text-danger"></i> Bangalore to Ooty
                                 Cab</a>
                         </div>
@@ -770,41 +768,41 @@
                                 from Mysore</h4>
                         </div>
                         <p class="text-muted small mb-3" style="line-height: 1.6;">
-                            Vibhu Travel Hub provides seamless outstation taxi rentals, Tempo Travellers, and luxury
+                            Vibhu Travel Hub provides seamless outstation cab rentals, Tempo Travellers, and luxury
                             tour coaches for palace tours, hill station getaways, and wildlife safaris.
                         </p>
 
                         <div class="d-flex flex-wrap gap-2 mb-4">
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Coorg"><i class="bi bi-signpost text-danger"></i> Mysore to Coorg
                                 Cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Ooty"><i class="bi bi-signpost text-danger"></i> Mysore to Ooty
                                 Cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Wayanad"><i class="bi bi-signpost text-danger"></i> Mysore to Wayanad
                                 Cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Bandipur"><i class="bi bi-signpost text-danger"></i> Mysore to
                                 Bandipur Cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Bangalore"><i class="bi bi-signpost text-danger"></i> Mysore to
                                 Bangalore Cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Kabini"><i class="bi bi-signpost text-danger"></i> Mysore to Kabini
                                 Cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
-                                data-destination="Nandi Hills"><i class="bi bi-signpost text-danger"></i> Bangalore to
-                                Nandi Hills Taxi</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
-                                data-destination="Airport Mysore"><i class="bi bi-airplane text-danger"></i> Bangalore
-                                Airport to Mysore Taxi</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
-                                data-destination="Pondicherry"><i class="bi bi-signpost text-danger"></i> Bangalore to
-                                Pondicherry Cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
-                                data-destination="Tirupati"><i class="bi bi-signpost text-danger"></i> Bangalore to
-                                Tirupati Cab</a>
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                                data-destination="Chamundi Hills"><i class="bi bi-signpost text-danger"></i> Mysore to
+                                Chamundi Hills Cab</a>
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                                data-destination="Srirangapatna"><i class="bi bi-signpost text-danger"></i> Mysore to
+                                Srirangapatna Cab</a>
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                                data-destination="Mysore Airport"><i class="bi bi-airplane text-danger"></i> Mysore
+                                Airport Cab</a>
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                                data-destination="Chikmagalur"><i class="bi bi-signpost text-danger"></i> Mysore to
+                                Chikmagalur Cab</a>
                         </div>
                     </div>
 
@@ -837,32 +835,32 @@
                 <div class="row g-2.5">
                     <div class="col-4">
                         <div class="gallery-tile">
-                            <img src="{% static 'images/destinations/coorg.jpg' %}" alt="Coorg Coffee Plantations">
+                            <img src="{% static 'images/destinations/coorg.webp' %}" alt="Coorg Coffee Plantations">
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="gallery-tile">
-                            <img src="{% static 'images/destinations/mysore.jpg' %}" alt="Mysore Palace Illumination">
+                            <img src="{% static 'images/destinations/mysore.webp' %}" alt="Mysore Palace Illumination">
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="gallery-tile">
-                            <img src="{% static 'images/destinations/Hampis.jpg' %}" alt="Hampi Heritage Chariot">
+                            <img src="{% static 'images/destinations/Hampis.webp' %}" alt="Hampi Heritage Chariot">
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="gallery-tile">
-                            <img src="{% static 'images/destinations/chik.jpg' %}" alt="Chikmagalur Misty Mountains">
+                            <img src="{% static 'images/destinations/chik.webp' %}" alt="Chikmagalur Misty Mountains">
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="gallery-tile">
-                            <img src="{% static 'images/destinations/gokarnas.png' %}" alt="Gokarna Om Beach">
+                            <img src="{% static 'images/destinations/gokarnas.webp' %}" alt="Gokarna Om Beach">
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="gallery-tile">
-                            <img src="{% static 'images/destinations/kabinis.png' %}" alt="Kabini Forest Sanctuary">
+                            <img src="{% static 'images/destinations/kabinis.webp' %}" alt="Kabini Forest Sanctuary">
                         </div>
                     </div>
                 </div>
@@ -958,7 +956,7 @@
                         <div class="d-flex align-items-start gap-3">
                             <div class="rounded-circle p-2.5 text-danger border border-danger-subtle bg-danger-subtle d-flex align-items-center justify-content-center"
                                 style="width: 44px; height: 44px; min-width: 44px;">
-                                <i class="bi bi-clock-check-fill fs-5"></i>
+                                <i class="bi bi-clock-fill fs-5"></i>
                             </div>
                             <div>
                                 <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem;">On-Time Service</h6>

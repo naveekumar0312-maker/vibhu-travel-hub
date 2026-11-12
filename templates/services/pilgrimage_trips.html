@@ -1,31 +1,44 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Pilgrimage Tour Packages & Temple Taxi Services | Vibhu Travel Hub{% endblock %}
-{% block description %}Sacred temple tours and pilgrimage vehicle rentals for Palani, Rameshwaram, Madurai, Sabarimala, Tirupati & Chidambaram with experienced drivers.{% endblock %}
-{% block keywords %}Innova Crysta rental in Madurai, 17 seater Tempo Traveller in Madurai, temple tour package Tamil Nadu, Rameshwaram cab package{% endblock %}
-{% block og_title %}Pilgrimage Tour Packages & Temple Taxi Services | Vibhu Travel Hub{% endblock %}
-{% block og_description %}Sacred temple tours and pilgrimage vehicle rentals for Palani, Rameshwaram, Madurai, Sabarimala, Tirupati & Chidambaram with experienced drivers.{% endblock %}
-{% block og_image %}https://vibhutravelhub.com{% static 'images/services/pilgrimage-hero.jpg' %}{% endblock %}
+{% block meta_title %}
+Pilgrimage Tour Packages from Coimbatore | Vibhu Travel Hub
+{% endblock %}
 
-{% block twitter_title %}Pilgrimage Tour Packages & Temple Taxi Services | Vibhu Travel Hub{% endblock %}
+{% block meta_description %}
+Plan comfortable pilgrimage trips from Coimbatore with Vibhu Travel Hub. Book cabs, tempo travellers and buses for temple tours and spiritual journeys.
+{% endblock %}
+{% block keywords %}Innova Crysta rental in Madurai, 17 seater Tempo Traveller in Madurai, temple tour package Tamil Nadu, Rameshwaram cab package{% endblock %}
+{% block og_title %}Pilgrimage Tour Packages & Temple Cab Services | Vibhu Travel Hub{% endblock %}
+{% block og_description %}Sacred temple tours and pilgrimage vehicle rentals for Palani, Rameshwaram, Madurai, Sabarimala, Tirupati & Chidambaram with experienced drivers.{% endblock %}
+{% block og_image %}https://vibhutravelhub.com{% static 'images/services/pilgrimage-hero.webp' %}{% endblock %}
+
+{% block twitter_title %}Pilgrimage Tour Packages & Temple Cab Services | Vibhu Travel Hub{% endblock %}
 {% block twitter_description %}Sacred temple tours and pilgrimage vehicle rentals for Palani, Rameshwaram, Madurai, Sabarimala, Tirupati & Chidambaram with experienced drivers.{% endblock %}
-{% block twitter_image %}https://vibhutravelhub.com{% static 'images/services/pilgrimage-hero.jpg' %}{% endblock %}
+{% block twitter_image %}https://vibhutravelhub.com{% static 'images/services/pilgrimage-hero.webp' %}{% endblock %}
 
 {% block schema %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "Pilgrimage Tour Packages & Temple Taxi Services",
+  "name": "Pilgrimage Tour Packages & Temple Cab Services",
   "provider": {
     "@type": "TravelAgency",
     "name": "Vibhu Travel Hub",
-    "url": "https://vibhutravelhub.com"
+    "url": "https://vibhutravelhub.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Joyce Villa Building, 87, Grey Town",
+      "addressLocality": "Coimbatore",
+      "addressRegion": "Tamil Nadu",
+      "postalCode": "641018",
+      "addressCountry": "IN"
+    }
   },
   "areaServed": ["Tamil Nadu", "Kerala", "Karnataka"],
   "description": "Customized temple tour packages and pilgrimage cab services for Rameswaram, Madurai, Palani, Sabarimala, and Chidambaram.",
-  "image": "https://vibhutravelhub.com/static/images/services/pilgrimage-hero.jpg"
+  "image": "https://vibhutravelhub.com/static/images/services/pilgrimage-hero.webp"
 }
 </script>
 <script type="application/ld+json">
@@ -57,7 +70,6 @@
 <!-- Google Fonts for Cursive Script -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap" rel="stylesheet">
 
 <style>
     .vth-script-eyebrow {
@@ -126,7 +138,7 @@
     1. HERO SECTION (EXACT MATCH FOR TAMIL NADU MASTER REFERENCE)
 ========================================== -->
 <section class="vth-hero-tn py-5">
-    <img src="{% static 'images/services/pilgrimage-hero.jpg' %}" alt="Pilgrimage Tour Packages & Temple Taxis" class="vth-hero-tn-bg">
+    <img src="{% static 'images/services/pilgrimage-hero.webp' %}" alt="Pilgrimage Tour Packages & Temple Cabs" class="vth-hero-tn-bg">
     <div class="vth-hero-tn-overlay"></div>
 
     <div class="container position-relative z-3 my-auto">
@@ -134,13 +146,13 @@
             <div class="col-lg-7 col-md-10">
                 <span class="vth-hero-script reveal-down d-block mb-1" style="color: #FF5A5F; font-size: 1.8rem; font-family: 'Caveat', cursive, sans-serif;">DIVINE PILGRIMAGE TOURS</span>
                 <h1 class="hero-main-title text-white mb-3 reveal-left" style="font-size: 3.6rem; font-weight: 800; line-height: 1.1; letter-spacing: -1.2px;">
-                    Pilgrimage Tour Packages & Temple Taxis
+                    Pilgrimage Tour Packages & Temple Cabs
                 </h1>
                 <p class="text-white-50 mb-4 reveal-left" style="font-size: 1.08rem; line-height: 1.65; color: rgba(255, 255, 255, 0.9) !important; max-width: 620px;">
                     Divine temple tour packages to Rameswaram, Madurai Meenakshi, Palani, Sabarimala, Chidambaram and Tirupati with respectful, experienced drivers.
                 </p>
                 <div class="d-flex align-items-center gap-3 flex-wrap reveal-up">
-                    <button class="btn btn-danger rounded-pill px-4 py-2.5 fw-bold text-white shadow-sm border-0 d-inline-flex align-items-center gap-2" style="background-color: #E31E24; font-size: 0.95rem;" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Pilgrimage Tour Packages & Temple Taxis">
+                    <button class="btn btn-danger rounded-pill px-4 py-2.5 fw-bold text-white shadow-sm border-0 d-inline-flex align-items-center gap-2" style="background-color: #E31E24; font-size: 0.95rem;" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Pilgrimage Tour Packages & Temple Cabs">
                         Get a Quote <i class="bi bi-arrow-right"></i>
                     </button>
                     <a href="#about" class="btn btn-light rounded-pill px-4 py-2.5 fw-bold d-inline-flex align-items-center gap-2" style="font-size: 0.95rem; color: #1F2937; background: #FFFFFF; border: 1px solid rgba(255, 255, 255, 0.9);">
@@ -181,7 +193,7 @@
                     <div class="d-flex align-items-center gap-2.5">
                         <i class="bi bi-car-front text-danger fs-3"></i>
                         <div>
-                            <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">Luxury Fleet</h6>
+                            <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">Pilgrimage Travel Fleet</h6>
                             <span class="text-muted d-block" style="font-size: 0.75rem;">Well maintained vehicles</span>
                         </div>
                     </div>
@@ -223,7 +235,7 @@
         <div class="row align-items-center g-5">
             <div class="col-lg-6 vth-anim-left">
                 <div class="position-relative pe-lg-3">
-                    <img src="{% static 'images/services/temple-2.png' %}" alt="Temple Darshan Trips" class="story-img-main img-fluid">
+                    <img src="{% static 'images/services/temple-2.webp' %}" alt="Temple Darshan Trips" class="story-img-main img-fluid">
                     
                     <div class="story-badge-exp d-flex align-items-center gap-3">
                         <div class="bg-white text-danger rounded-circle d-flex align-items-center justify-content-center shadow-sm" style="width: 48px; height: 48px; font-size: 1.4rem;">
@@ -333,44 +345,6 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
 </section>
 
-
-
-<!-- 5. POPULAR ROUTES -->
-<section class="lux-section bg-light">
-    <div class="container">
-        <div class="text-center mb-5" data-aos="fade-up">
-            <h2 class="section-title">Popular Pilgrimage Routes</h2>
-            <p class="section-subtitle">Famous temple tour packages from Coimbatore.</p>
-        </div>
-
-        <div class="row g-4 justify-content-center">
-            <div class="col-6 col-md-4 col-lg-3 text-center" data-aos="fade-up" data-aos-delay="100">
-                <div class="p-4 bg-white rounded-4 shadow-sm h-100 feature-card">
-                    <h6 class="fw-bold mb-1">Coimbatore to</h6>
-                    <h5 class="text-danger fw-bolder">Madurai & Rameswaram</h5>
-                </div>
-            </div>
-            <div class="col-6 col-md-4 col-lg-3 text-center" data-aos="fade-up" data-aos-delay="200">
-                <div class="p-4 bg-white rounded-4 shadow-sm h-100 feature-card">
-                    <h6 class="fw-bold mb-1">Coimbatore to</h6>
-                    <h5 class="text-danger fw-bolder">Tirupati Darshan</h5>
-                </div>
-            </div>
-            <div class="col-6 col-md-4 col-lg-3 text-center" data-aos="fade-up" data-aos-delay="300">
-                <div class="p-4 bg-white rounded-4 shadow-sm h-100 feature-card">
-                    <h6 class="fw-bold mb-1">Coimbatore to</h6>
-                    <h5 class="text-danger fw-bolder">Navagraha Temples</h5>
-                </div>
-            </div>
-            <div class="col-6 col-md-4 col-lg-3 text-center" data-aos="fade-up" data-aos-delay="400">
-                <div class="p-4 bg-white rounded-4 shadow-sm h-100 feature-card">
-                    <h6 class="fw-bold mb-1">Coimbatore to</h6>
-                    <h5 class="text-danger fw-bolder">Arupadai Veedu</h5>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 <!-- 6. BOOKING PROCESS TIMELINE -->
 <section class="lux-section bg-white">

@@ -20,7 +20,7 @@ STATES_SEO_DATA = {
             {"title": "Ancient Dravidian Architecture", "icon": "bi-bank", "desc": "Marvel at soaring 1000-year-old temple gopurams in Madurai, Tanjore, and Srirangam."},
             {"title": "Misty Nilgiri Hill Stations", "icon": "bi-tree-fill", "desc": "Escape to cool mountain weather, tea gardens, and pine forests in Ooty and Kodaikanal."},
             {"title": "UNESCO Coastal Heritage", "icon": "bi-sun-fill", "desc": "Explore 7th-century Pallava rock-cut shore temples and monolithic sculptures in Mahabalipuram."},
-            {"title": "Sacred Pilgrimage Circuits", "icon": "bi-shield-heart", "desc": "Journey along holy temple routes connecting Rameswaram island and Kanyakumari's ocean confluence."},
+            {"title": "Sacred Pilgrimage Circuits", "icon": "bi-shield-check", "desc": "Journey along holy temple routes connecting Rameswaram island and Kanyakumari's ocean confluence."},
             {"title": "Rich Cultural Arts & Cuisine", "icon": "bi-palette-fill", "desc": "Savor authentic Chettinad and Kongunadu flavors while experiencing classical Carnatic arts."},
             {"title": "Scenic Coastal Highways", "icon": "bi-compass-fill", "desc": "Drive along the breathtaking East Coast Road (ECR) overlooking the Bay of Bengal."}
         ],
@@ -41,7 +41,7 @@ STATES_SEO_DATA = {
                 "name": "Madurai",
                 "slug": "madurai",
                 "desc": "Ancient temple city home to the world-famous Meenakshi Amman Temple and rich Tamil culture.",
-                "support": "Temple tour transfers, Rameswaram-Kanyakumari circuit travel & airport taxi services."
+                "support": "Temple tour transfers, Rameswaram-Kanyakumari circuit travel & airport cab services."
             },
             {
                 "name": "Trichy",
@@ -61,12 +61,12 @@ STATES_SEO_DATA = {
             {"name": "Trichy Rockfort", "slug": "trichy", "city_slug": "trichy", "category": "Heritage", "desc": "Ancient fort temple complex built on an 83-meter monolithic rock outcrop."}
         ],
         "experiences": [
-            {"title": "Nilgiri Toy Train Ride", "image": "ooty.avif", "desc": "Ride the century-old UNESCO Nilgiri Mountain Railway steam train winding through mountain tunnels."},
-            {"title": "Chettinad Culinary Feast", "image": "madurai.avif", "desc": "Taste traditional Chettinad multi-course feasts served on fresh banana leaves."},
-            {"title": "ECR Coastal Drive", "image": "chennai.avif", "desc": "Enjoy a scenic drive along the East Coast Road from Chennai to Pondicherry."},
-            {"title": "Kanyakumari Ocean Sunset", "image": "rameswaram.avif", "desc": "Witness golden sunsets where three majestic oceans converge at India's southern tip."},
-            {"title": "Temple Chariot Festivals", "image": "meenakshi-temple.jpg", "desc": "Experience vibrant temple chariot processions and spiritual evening pujas."},
-            {"title": "Tea Estate Walking Tour", "image": "kodai.avif", "desc": "Walk amidst misty emerald tea bushes in Valparai and Coonoor estates."}
+            {"title": "Nilgiri Toy Train Ride", "image": "ooty.webp", "desc": "Ride the century-old UNESCO Nilgiri Mountain Railway steam train winding through mountain tunnels."},
+            {"title": "Chettinad Culinary Feast", "image": "madurai.webp", "desc": "Taste traditional Chettinad multi-course feasts served on fresh banana leaves."},
+            {"title": "ECR Coastal Drive", "image": "chennai.webp", "desc": "Enjoy a scenic drive along the East Coast Road from Chennai to Pondicherry."},
+            {"title": "Kanyakumari Ocean Sunset", "image": "rameswaram.webp", "desc": "Witness golden sunsets where three majestic oceans converge at India's southern tip."},
+            {"title": "Temple Chariot Festivals", "image": "meenakshi-temple.webp", "desc": "Experience vibrant temple chariot processions and spiritual evening pujas."},
+            {"title": "Tea Estate Walking Tour", "image": "kodai.webp", "desc": "Walk amidst misty emerald tea bushes in Valparai and Coonoor estates."}
         ],
         "best_time_guide": {
             "peak": "October to March — Pleasant winter climate (18°C to 28°C), perfect for sightseeing, temple tours, and hill stations.",
@@ -172,12 +172,12 @@ STATES_SEO_DATA = {
             {"name": "Athirappilly", "slug": "thrissur", "city_slug": "thrissur", "category": "Waterfalls", "desc": "Majestic 80ft forest waterfall known as the Niagara of India."}
         ],
         "experiences": [
-            {"title": "Overnight Houseboat Cruise", "image": "alapuzha.jpg", "desc": "Glide along peaceful Alleppey backwaters while savoring freshly cooked Kerala Karimeen dish."},
-            {"title": "Tea Garden Photography", "image": "munnar.jpg", "desc": "Capture panoramic sunrises over rolling green tea carpeted hills in Munnar."},
-            {"title": "Periyar Lake Jungle Safari", "image": "cochin.jpg", "desc": "Watch wild elephant herds and bisons drinking along the Periyar Lake shoreline in Thekkady."},
-            {"title": "Fort Kochi Chinese Nets", "image": "trivandrum.jpg", "desc": "Observe fishermen operating giant wooden Chinese fishing nets against Arabian Sea sunsets."},
-            {"title": "Varkala Cliff Sunset Dining", "image": "gokarnas.png", "desc": "Enjoy fresh seafood at cliff-top cafes overlooking crashing waves below."},
-            {"title": "Organic Spice Garden Walk", "image": "coorg.jpg", "desc": "Touch and smell fresh green cardamom pods, black pepper, and cinnamon bark."}
+            {"title": "Overnight Houseboat Cruise", "image": "alapuzha.webp", "desc": "Glide along peaceful Alleppey backwaters while savoring freshly cooked Kerala Karimeen dish."},
+            {"title": "Tea Garden Photography", "image": "munnar.webp", "desc": "Capture panoramic sunrises over rolling green tea carpeted hills in Munnar."},
+            {"title": "Periyar Lake Jungle Safari", "image": "cochin.webp", "desc": "Watch wild elephant herds and bisons drinking along the Periyar Lake shoreline in Thekkady."},
+            {"title": "Fort Kochi Chinese Nets", "image": "trivandrum.webp", "desc": "Observe fishermen operating giant wooden Chinese fishing nets against Arabian Sea sunsets."},
+            {"title": "Varkala Cliff Sunset Dining", "image": "gokarnas.webp", "desc": "Enjoy fresh seafood at cliff-top cafes overlooking crashing waves below."},
+            {"title": "Organic Spice Garden Walk", "image": "coorg.webp", "desc": "Touch and smell fresh green cardamom pods, black pepper, and cinnamon bark."}
         ],
         "best_time_guide": {
             "peak": "September to March — Pleasant winter weather (20°C to 30°C), ideal for houseboats, beaches, and tea estate tours.",
@@ -186,7 +186,7 @@ STATES_SEO_DATA = {
         },
         "things_to_do": [
             {"title": "Stay on a Houseboat", "icon": "bi-water", "desc": "Book an overnight luxury houseboat cruise on Vembanad Lake."},
-            {"title": "Watch Kathakali Dance", "icon": "bi-masks", "desc": "Experience elaborate facial makeup and drama at cultural art centers."},
+            {"title": "Watch Kathakali Dance", "icon": "bi-mask", "desc": "Experience elaborate facial makeup and drama at cultural art centers."},
             {"title": "Taste Kerala Sadya", "icon": "bi-egg-fried", "desc": "Savor authentic 24-item traditional vegetarian meals served on banana leaves."},
             {"title": "Bamboo Rafting in Periyar", "icon": "bi-compass", "desc": "Trek through dense forests and raft across jungle rivers with naturalists."},
             {"title": "Shop Organic Spices", "icon": "bi-bag-check", "desc": "Buy fresh cardamom, black pepper, vanilla, and tea directly from estate shops."},
@@ -283,12 +283,12 @@ STATES_SEO_DATA = {
             {"name": "Udupi", "slug": "gokarna", "city_slug": "bangalore", "category": "Coast & Temples", "desc": "Coastal temple hub famous for Sri Krishna Temple and Malpe beach St. Mary's Islands."}
         ],
         "experiences": [
-            {"title": "Mysore Palace Night Illumination", "image": "mysore.jpg", "desc": "Witness nearly 100,000 electric bulbs illuminate the grand golden palace outline on Sunday evenings."},
-            {"title": "Coorg Coffee Plantation Walk", "image": "coorg.jpg", "desc": "Walk under shade trees amidst white coffee blossoms and red berries in Madikeri."},
-            {"title": "Sunset over Hampi Ruins", "image": "gokarnas.png", "desc": "Watch golden sunsets over monolithic stone temples from top of Hemakuta Hill in Hampi."},
-            {"title": "Mullayanagiri Mountain Trek", "image": "munnar.jpg", "desc": "Hike to Karnataka's highest peak at 1,930 meters for panoramic cloud views."},
-            {"title": "Kabini Jungle Boat Safari", "image": "cochin.jpg", "desc": "Spot wild elephant herds grazing along the Kabini riverbank at dusk."},
-            {"title": "Gokarna Cliff Beach Walk", "image": "alapuzha.jpg", "desc": "Trek between Kudle Beach and Om Beach along scenic ocean cliffs."}
+            {"title": "Mysore Palace Night Illumination", "image": "mysore.webp", "desc": "Witness nearly 100,000 electric bulbs illuminate the grand golden palace outline on Sunday evenings."},
+            {"title": "Coorg Coffee Plantation Walk", "image": "coorg.webp", "desc": "Walk under shade trees amidst white coffee blossoms and red berries in Madikeri."},
+            {"title": "Sunset over Hampi Ruins", "image": "gokarnas.webp", "desc": "Watch golden sunsets over monolithic stone temples from top of Hemakuta Hill in Hampi."},
+            {"title": "Mullayanagiri Mountain Trek", "image": "munnar.webp", "desc": "Hike to Karnataka's highest peak at 1,930 meters for panoramic cloud views."},
+            {"title": "Kabini Jungle Boat Safari", "image": "cochin.webp", "desc": "Spot wild elephant herds grazing along the Kabini riverbank at dusk."},
+            {"title": "Gokarna Cliff Beach Walk", "image": "alapuzha.webp", "desc": "Trek between Kudle Beach and Om Beach along scenic ocean cliffs."}
         ],
         "best_time_guide": {
             "peak": "October to March — Pleasant winter weather (15°C to 28°C), ideal for exploring Hampi ruins, heritage palaces, and coffee estate homestays.",
@@ -364,7 +364,7 @@ TOURIST_PLACES_SEO_DATA = {
             {"name": "Marina Beach Heritage Spot", "desc": "Historic monument and scenic walk."}
         ],
         "experiences": [
-            {"title": "Sightseeing Tour", "image": "ooty.avif", "desc": "Comfortable tour with Vibhu Travel Hub cabs."}
+            {"title": "Sightseeing Tour", "image": "chennai.webp", "desc": "Comfortable tour with Vibhu Travel Hub cabs."}
         ],
         "best_time_guide": {
             "peak": "October to March — Pleasant weather for travel.",
@@ -418,7 +418,7 @@ TOURIST_PLACES_SEO_DATA = {
             {"name": "Rameswaram Heritage Spot", "desc": "Historic monument and scenic walk."}
         ],
         "experiences": [
-            {"title": "Sightseeing Tour", "image": "ooty.avif", "desc": "Comfortable tour with Vibhu Travel Hub cabs."}
+            {"title": "Sightseeing Tour", "image": "rameswaram.webp", "desc": "Comfortable tour with Vibhu Travel Hub cabs."}
         ],
         "best_time_guide": {
             "peak": "October to March — Pleasant weather for travel.",
@@ -472,7 +472,7 @@ TOURIST_PLACES_SEO_DATA = {
             {"name": "Kanyakumari Heritage Spot", "desc": "Historic monument and scenic walk."}
         ],
         "experiences": [
-            {"title": "Sightseeing Tour", "image": "ooty.avif", "desc": "Comfortable tour with Vibhu Travel Hub cabs."}
+            {"title": "Sightseeing Tour", "image": "kanyakumari.webp", "desc": "Comfortable tour with Vibhu Travel Hub cabs."}
         ],
         "best_time_guide": {
             "peak": "October to March — Pleasant weather for travel.",
@@ -526,7 +526,7 @@ TOURIST_PLACES_SEO_DATA = {
             {"name": "Mahabalipuram Heritage Spot", "desc": "Historic monument and scenic walk."}
         ],
         "experiences": [
-            {"title": "Sightseeing Tour", "image": "ooty.avif", "desc": "Comfortable tour with Vibhu Travel Hub cabs."}
+            {"title": "Sightseeing Tour", "image": "mahabalipuram.webp", "desc": "Comfortable tour with Vibhu Travel Hub cabs."}
         ],
         "best_time_guide": {
             "peak": "October to March — Pleasant weather for travel.",
@@ -560,27 +560,27 @@ TOURIST_PLACES_SEO_DATA = {
         "city_slug": "calicut",
         "place_name": "Wayanad",
         "slug": "wayanad",
-        "h1": "Wayanad – Travel Guide",
-        "title": "Wayanad Travel Guide & Tourist Places | Vibhu Travel Hub",
-        "description": "Explore Wayanad with our travel guide covering Edakkal Caves, Chembra Peak, Banasura Sagar Dam, travel tips, and FAQs.",
-        "tagline": "High Ranges & Ancient Cave Heritage",
+        "h1": "Wayanad Tour from Coimbatore – Explore the Green Hills",
+        "title": "Coimbatore to Wayanad Cab & Tour Package | Vibhu Travel Hub",
+        "description": "Book Coimbatore to Wayanad cab and tour packages with Vibhu Travel Hub. Explore Edakkal Caves, Chembra Peak, Banasura Sagar Dam and more.",
+        "tagline": "Plan Your Wayanad Tour from Coimbatore with Comfortable Cabs & Travel Services",
         "about_paragraphs": [
             "Wayanad is a green high-altitude district in Kerala famous for tea plantations, spice gardens, and ancient Neolithic rock engravings at Edakkal Caves.",
             "Trek to heart-shaped Chembra Lake, boat at Banasura Sagar earth dam, and spot wild elephants in Wayanad Wildlife Sanctuary.",
-            "Vibhu Travel Hub provides hill station cab rentals from Calicut (Kozhikode) airport and railway station to Wayanad."
+            "Vibhu Travel Hub provides comfortable Coimbatore to Wayanad cab, Tempo Traveller and outstation travel options for family trips, group tours and Wayanad holidays."
         ],
         "why_visit": [
             {"title": "Popular Attractions", "icon": "bi-geo-alt-fill", "desc": "Explore top sightseeing spots in Wayanad."},
             {"title": "Scenic Landscapes", "icon": "bi-tree-fill", "desc": "Enjoy pristine natural beauty and photo spots."},
             {"title": "Cultural Heritage", "icon": "bi-bank", "desc": "Discover rich local history and traditions."}
         ],
-        "how_to_reach": "Wayanad is well connected by road with regular transfers available from Calicut.",
+        "how_to_reach": "Wayanad is easily reached from Coimbatore by road through scenic routes via Mysore or Nilambur depending on the itinerary. Vibhu Travel Hub provides Coimbatore to Wayanad cab, Tempo Traveller and outstation travel options for comfortable trips.",
         "attractions": [
             {"name": "Wayanad Main Viewpoint", "desc": "Primary attraction offering great views and local culture."},
             {"name": "Wayanad Heritage Spot", "desc": "Historic monument and scenic walk."}
         ],
         "experiences": [
-            {"title": "Sightseeing Tour", "image": "ooty.avif", "desc": "Comfortable tour with Vibhu Travel Hub cabs."}
+            {"title": "Sightseeing Tour", "image": "wayanad.webp", "desc": "Comfortable tour with Vibhu Travel Hub cabs."}
         ],
         "best_time_guide": {
             "peak": "October to March — Pleasant weather for travel.",
@@ -634,7 +634,7 @@ TOURIST_PLACES_SEO_DATA = {
             {"name": "Thekkady Heritage Spot", "desc": "Historic monument and scenic walk."}
         ],
         "experiences": [
-            {"title": "Sightseeing Tour", "image": "ooty.avif", "desc": "Comfortable tour with Vibhu Travel Hub cabs."}
+            {"title": "Sightseeing Tour", "image": "thekkady.webp", "desc": "Comfortable tour with Vibhu Travel Hub cabs."}
         ],
         "best_time_guide": {
             "peak": "October to March — Pleasant weather for travel.",
@@ -688,7 +688,7 @@ TOURIST_PLACES_SEO_DATA = {
             {"name": "Varkala Heritage Spot", "desc": "Historic monument and scenic walk."}
         ],
         "experiences": [
-            {"title": "Sightseeing Tour", "image": "ooty.avif", "desc": "Comfortable tour with Vibhu Travel Hub cabs."}
+            {"title": "Sightseeing Tour", "image": "varkala.webp", "desc": "Comfortable tour with Vibhu Travel Hub cabs."}
         ],
         "best_time_guide": {
             "peak": "October to March — Pleasant weather for travel.",
@@ -742,7 +742,7 @@ TOURIST_PLACES_SEO_DATA = {
             {"name": "Kovalam Heritage Spot", "desc": "Historic monument and scenic walk."}
         ],
         "experiences": [
-            {"title": "Sightseeing Tour", "image": "ooty.avif", "desc": "Comfortable tour with Vibhu Travel Hub cabs."}
+            {"title": "Sightseeing Tour", "image": "kovalam.webp", "desc": "Comfortable tour with Vibhu Travel Hub cabs."}
         ],
         "best_time_guide": {
             "peak": "October to March — Pleasant weather for travel.",
@@ -796,7 +796,7 @@ TOURIST_PLACES_SEO_DATA = {
             {"name": "Fort Kochi Heritage Spot", "desc": "Historic monument and scenic walk."}
         ],
         "experiences": [
-            {"title": "Sightseeing Tour", "image": "ooty.avif", "desc": "Comfortable tour with Vibhu Travel Hub cabs."}
+            {"title": "Sightseeing Tour", "image": "cochin.webp", "desc": "Comfortable tour with Vibhu Travel Hub cabs."}
         ],
         "best_time_guide": {
             "peak": "October to March — Pleasant weather for travel.",
@@ -850,7 +850,7 @@ TOURIST_PLACES_SEO_DATA = {
             {"name": "Gokarna Heritage Spot", "desc": "Historic monument and scenic walk."}
         ],
         "experiences": [
-            {"title": "Sightseeing Tour", "image": "ooty.avif", "desc": "Comfortable tour with Vibhu Travel Hub cabs."}
+            {"title": "Sightseeing Tour", "image": "gokarnas.webp", "desc": "Comfortable tour with Vibhu Travel Hub cabs."}
         ],
         "best_time_guide": {
             "peak": "October to March — Pleasant weather for travel.",
@@ -904,7 +904,7 @@ TOURIST_PLACES_SEO_DATA = {
             {"name": "Kabini Heritage Spot", "desc": "Historic monument and scenic walk."}
         ],
         "experiences": [
-            {"title": "Sightseeing Tour", "image": "ooty.avif", "desc": "Comfortable tour with Vibhu Travel Hub cabs."}
+            {"title": "Sightseeing Tour", "image": "kabinis.webp", "desc": "Comfortable tour with Vibhu Travel Hub cabs."}
         ],
         "best_time_guide": {
             "peak": "October to March — Pleasant weather for travel.",
@@ -938,14 +938,14 @@ TOURIST_PLACES_SEO_DATA = {
         "city_slug": "coimbatore",
         "place_name": "Ooty",
         "slug": "ooty",
-        "h1": "Ooty – Queen of the Nilgiris",
-        "title": "Ooty Travel Guide & Tourist Places | Vibhu Travel Hub",
-        "description": "Explore Ooty with our complete travel guide covering tea estates, UNESCO toy train, Doddabetta peak, Ooty Lake, travel tips, and FAQs.",
-        "tagline": "Experience the Queen of Hill Stations in the Blue Nilgiris",
+        "h1": "Ooty Tour from Coimbatore – Queen of the Nilgiris",
+        "title": "Coimbatore to Ooty Cab & Tour Package | Vibhu Travel Hub",
+        "description": "Book Coimbatore to Ooty cab and tour packages with Vibhu Travel Hub. Explore Ooty sightseeing, tea estates, Ooty Lake, Doddabetta Peak and more.",
+        "tagline": "Plan Your Ooty Tour from Coimbatore with Comfortable Cabs & Travel Services",
         "about_paragraphs": [
             "Ooty (Udhagamandalam), the undisputed 'Queen of Hill Stations', is nestled in the blue Nilgiri Hills of Tamil Nadu at an altitude of 2,240 meters. Renowned for its sprawling tea gardens, eucalyptus groves, colonial architecture, and the century-old UNESCO Nilgiri Mountain Railway.",
             "Established during the British Raj as a summer retreat, Ooty retains its timeless charming atmosphere. Stroll through 55 acres of manicured flora at the Government Botanical Garden, row across the tranquil waters of Ooty Lake, and admire panoramic mountain vistas from Doddabetta Peak.",
-            "Vibhu Travel Hub makes visiting Ooty smooth and enjoyable. Our local drivers seamlessly navigate the 14 hairpin curves from Mettupalayam, providing comfortable hill station transfers and sightseeing support."
+            "Vibhu Travel Hub makes visiting Ooty from Coimbatore smooth and enjoyable. Book comfortable outstation cabs, Tempo Travellers and sightseeing support for family trips, group tours and Ooty holidays."
         ],
         "why_visit": [
             {"title": "UNESCO Toy Train Ride", "icon": "bi-train-front", "desc": "Experience the historic steam train winding through mountain tunnels and wooden bridges."},
@@ -953,7 +953,7 @@ TOURIST_PLACES_SEO_DATA = {
             {"title": "Doddabetta Mountain Vistas", "icon": "bi-aspect-ratio", "desc": "Enjoy 360-degree views of the Western Ghats from Nilgiris' highest peak."},
             {"title": "Lakeside Boating", "icon": "bi-water", "desc": "Row across calm eucalyptus-bordered waters at Ooty Lake and Pykara."}
         ],
-        "how_to_reach": "Ooty is easily reached by road from Coimbatore (86 km / 3 hours drive) along the scenic Mettupalayam ghat road featuring 14 hairpin curves. Coimbatore International Airport (CJB) and Coimbatore Junction Railway Station serve as the nearest gateways.",
+        "how_to_reach": "Ooty is easily reached by road from Coimbatore (86 km / 3 hours drive) along the scenic Mettupalayam ghat road featuring 14 hairpin curves. Vibhu Travel Hub provides Coimbatore to Ooty cab, Tempo Traveller and outstation travel options for comfortable trips.",
         "attractions": [
             {"name": "Ooty Botanical Garden", "desc": "55-acre manicured garden featuring 650+ exotic plant species and a 20-million-year-old fossilized tree trunk."},
             {"name": "Ooty Lake & Boathouse", "desc": "Picturesque artificial lake created in 1824, ideal for motor boating, row boating, and lakeside walks."},
@@ -965,12 +965,12 @@ TOURIST_PLACES_SEO_DATA = {
             {"name": "Government Museum", "desc": "Showcases tribal artifacts of the native Toda and Badaga communities."}
         ],
         "experiences": [
-            {"title": "Nilgiri Toy Train Ride", "image": "ooty.avif", "desc": "Experience the historic steam train winding through tunnels and wooden bridges between Coonoor and Ooty."},
-            {"title": "Tea Estate Walks", "image": "kodai.avif", "desc": "Stroll amidst emerald green tea bushes and sample fresh Nilgiri orthodox brews."},
-            {"title": "Boating at Ooty Lake", "image": "chennai.avif", "desc": "Enjoy peaceful pedal boating surrounded by eucalyptus trees."},
-            {"title": "Sunset at Doddabetta", "image": "madurai.avif", "desc": "Watch misty sunsets over the Western Ghats mountain horizon."},
-            {"title": "Homemade Chocolate Tasting", "image": "trichy.avif", "desc": "Sample famous local Ooty dark chocolates, truffles, and fudges."},
-            {"title": "Coonoor Day Excursion", "image": "meenakshi-temple.jpg", "desc": "Visit Sim's Park and Dolphin's Nose viewpoint in nearby Coonoor."}
+            {"title": "Nilgiri Toy Train Ride", "image": "ooty.webp", "desc": "Experience the historic steam train winding through tunnels and wooden bridges between Coonoor and Ooty."},
+            {"title": "Tea Estate Walks", "image": "kodai.webp", "desc": "Stroll amidst emerald green tea bushes and sample fresh Nilgiri orthodox brews."},
+            {"title": "Boating at Ooty Lake", "image": "chennai.webp", "desc": "Enjoy peaceful pedal boating surrounded by eucalyptus trees."},
+            {"title": "Sunset at Doddabetta", "image": "madurai.webp", "desc": "Watch misty sunsets over the Western Ghats mountain horizon."},
+            {"title": "Homemade Chocolate Tasting", "image": "trichy.webp", "desc": "Sample famous local Ooty dark chocolates, truffles, and fudges."},
+            {"title": "Coonoor Day Excursion", "image": "meenakshi-temple.webp", "desc": "Visit Sim's Park and Dolphin's Nose viewpoint in nearby Coonoor."}
         ],
         "best_time_guide": {
             "peak": "October to June — Mild, pleasant weather (15°C to 22°C), ideal for sightseeing, lake boating, and botanical garden walks.",
@@ -1018,7 +1018,7 @@ TOURIST_PLACES_SEO_DATA = {
             {"name": "Kodaikanal", "slug": "kodaikanal", "desc": "Princess of Hill Stations 250 km away."},
             {"name": "Coimbatore", "slug": "coimbatore", "desc": "Gateway city 86 km at the foot of the hills."}
         ],
-        "gallery_images": ["ooty.avif", "kodai.avif", "chennai.avif", "madurai.avif", "trichy.avif", "meenakshi-temple.jpg"],
+        "gallery_images": ["ooty.webp", "kodai.webp", "chennai.webp", "madurai.webp", "trichy.webp", "meenakshi-temple.webp"],
         "faqs": [
             {"q": "What is Ooty famous for?", "a": "Ooty is famous for its sprawling tea estates, UNESCO Nilgiri Mountain Railway, Doddabetta Peak, Ooty Lake, Botanical Gardens, and homemade chocolates."},
             {"q": "How many days are recommended for an Ooty trip?", "a": "A 2 to 3-day itinerary allows travelers to explore all major attractions including Ooty, Coonoor, and tea factories comfortably."},
@@ -1028,19 +1028,102 @@ TOURIST_PLACES_SEO_DATA = {
             {"q": "Can I book family tour packages to Ooty with Vibhu Travel Hub?", "a": "Yes, Vibhu Travel Hub offers custom family tour packages, airport transfers, and sightseeing support for Ooty."}
         ]
     },
+    "valparai": {
+        "state_slug": "tamil-nadu",
+        "city_slug": "coimbatore",
+        "place_name": "Valparai",
+        "slug": "valparai",
+        "h1": "Valparai Tour from Coimbatore – Explore the Anamalai Hills",
+        "title": "Coimbatore to Valparai Cab & Tour Package | Vibhu Travel Hub",
+        "description": "Book Coimbatore to Valparai cab and tour packages with Vibhu Travel Hub. Explore tea estates, waterfalls, wildlife and scenic Anamalai Hills.",
+        "tagline": "Plan Your Valparai Tour from Coimbatore with Comfortable Cabs & Travel Services",
+        "about_paragraphs": [
+            "Valparai is a scenic hill station in the Anamalai Hills of Tamil Nadu, known for lush tea estates, misty mountain roads, waterfalls and rich wildlife.",
+            "Explore the winding Aliyar-Valparai hill road, visit tea plantations and viewpoints, and enjoy the peaceful natural surroundings of the Western Ghats.",
+            "Vibhu Travel Hub provides comfortable Coimbatore to Valparai cab, Tempo Traveller and outstation travel options for family trips, group tours and Valparai holidays."
+        ],
+        "why_visit": [
+            {"title": "Tea Estates", "icon": "bi-tree-fill", "desc": "Explore beautiful tea plantations across the Anamalai Hills."},
+            {"title": "Scenic Views", "icon": "bi-camera-fill", "desc": "Enjoy misty mountain roads, valleys and panoramic viewpoints."},
+            {"title": "Waterfalls", "icon": "bi-droplet-fill", "desc": "Discover scenic waterfalls and natural streams around Valparai."},
+            {"title": "Wildlife", "icon": "bi-binoculars-fill", "desc": "Experience the rich biodiversity of the Western Ghats."}
+        ],
+        "how_to_reach": "Valparai is easily reached by road from Coimbatore through Pollachi and Aliyar. Vibhu Travel Hub provides Coimbatore to Valparai cab, Tempo Traveller and outstation travel options for comfortable hill trips.",
+        "attractions": [
+            {"name": "Aliyar Dam", "desc": "Scenic reservoir and popular stop on the route from Pollachi towards Valparai."},
+            {"name": "Monkey Falls", "desc": "Popular waterfall near Aliyar surrounded by the Western Ghats."},
+            {"name": "Nallamudi Viewpoint", "desc": "Panoramic viewpoint offering beautiful views of Valparai's mountain landscapes."},
+            {"name": "Sholayar Dam", "desc": "Scenic dam surrounded by dense greenery and mountain terrain."},
+            {"name": "Valparai Tea Estates", "desc": "Lush tea plantations covering the rolling hills around Valparai."},
+            {"name": "Loam's View Point", "desc": "Scenic roadside viewpoint along the winding Valparai hill route."}
+        ],
+        "experiences": [
+            {"title": "Valparai Tea Estate Drive", "image": "ooty.webp", "desc": "Enjoy a comfortable drive through scenic tea plantations and mountain roads."},
+            {"title": "Anamalai Hills Scenic Tour", "image": "kodai.webp", "desc": "Explore misty hills, valleys and viewpoints around Valparai."},
+            {"title": "Waterfall Sightseeing", "image": "munnar.webp", "desc": "Discover scenic waterfalls and natural attractions along the hill route."},
+            {"title": "Family Hill Station Trip", "image": "madurai.webp", "desc": "Enjoy a comfortable family trip from Coimbatore to Valparai."}
+        ],
+        "best_time_guide": {
+            "peak": "October to May — Pleasant weather for sightseeing and hill travel.",
+            "shoulder": "June to September — Monsoon greenery and misty landscapes.",
+            "off": "Heavy monsoon periods — Check road and weather conditions before travelling."
+        },
+        "things_to_do": [
+            {"title": "Explore Tea Estates", "icon": "bi-tree", "desc": "Drive through the lush tea plantations surrounding Valparai."},
+            {"title": "Visit Scenic Viewpoints", "icon": "bi-binoculars", "desc": "Enjoy panoramic views of the Anamalai Hills."},
+            {"title": "Discover Waterfalls", "icon": "bi-droplet", "desc": "Visit waterfalls and natural attractions along the hill routes."},
+            {"title": "Enjoy Hill Road Drives", "icon": "bi-signpost-2", "desc": "Experience the scenic winding roads from Pollachi and Aliyar to Valparai."}
+        ],
+        "travel_guide_info": {
+            "airports": "Coimbatore International Airport (CJB) - nearest major airport",
+            "railways": "Coimbatore Junction Railway Station - nearest major railway station",
+            "road": "Coimbatore → Pollachi → Aliyar → Valparai hill road",
+            "duration": "2 to 3 Days recommended",
+            "ideal_for": "Families, Couples, Nature Lovers, Group Tours",
+            "popular_routes": "Coimbatore → Pollachi → Aliyar → Monkey Falls → Valparai"
+        },
+        "travel_tips": [
+            "Start early from Coimbatore for a comfortable hill road journey.",
+            "Carry light warm clothing as the weather can become cool and misty.",
+            "Drive carefully on winding ghat roads and follow local forest regulations.",
+            "Avoid feeding or disturbing wildlife along forest stretches.",
+            "Check weather and road conditions during heavy monsoon periods.",
+            "Book your Coimbatore to Valparai cab or Tempo Traveller in advance for group trips."
+        ],
+        "highlights": [
+            {"title": "Nature", "desc": "Tea estates & Western Ghats"},
+            {"title": "Views", "desc": "Misty mountain valleys"},
+            {"title": "Wildlife", "desc": "Rich Anamalai biodiversity"},
+            {"title": "Relaxation", "desc": "Cool hill station climate"}
+        ],
+        "nearby_destinations": [
+            {"name": "Pollachi", "slug": "pollachi", "desc": "Gateway town to the Anamalai and Valparai hill routes."},
+            {"name": "Coimbatore", "slug": "coimbatore", "desc": "Major gateway city for Valparai trips."},
+            {"name": "Ooty", "slug": "ooty", "desc": "Popular Nilgiri hill station in Tamil Nadu."},
+            {"name": "Kodaikanal", "slug": "kodaikanal", "desc": "Popular hill station in the Palani Hills."}
+        ],
+        "gallery_images": ["ooty.webp", "kodai.webp", "munnar.webp", "chennai.webp", "madurai.webp", "trichy.webp"],
+        "faqs": [
+            {"q": "How do I travel from Coimbatore to Valparai?", "a": "Valparai can be reached by road from Coimbatore via Pollachi and Aliyar. Vibhu Travel Hub provides comfortable cab, Tempo Traveller and outstation travel options."},
+            {"q": "How far is Valparai from Coimbatore?", "a": "Valparai is approximately 100 to 110 km from Coimbatore by road depending on the route. Travel time varies with hill road conditions and sightseeing stops."},
+            {"q": "What is Valparai famous for?", "a": "Valparai is famous for its tea estates, scenic Anamalai Hills, waterfalls, forests and rich wildlife."},
+            {"q": "How many days are recommended for a Valparai trip?", "a": "A 2 to 3-day trip is ideal for exploring Valparai tea estates, viewpoints, waterfalls and nearby attractions."},
+            {"q": "Can I book a Tempo Traveller from Coimbatore to Valparai?", "a": "Yes, Vibhu Travel Hub provides Tempo Traveller options from Coimbatore for family trips and group tours to Valparai."}
+        ]
+    },
     "kodaikanal": {
         "state_slug": "tamil-nadu",
         "city_slug": "madurai",
         "place_name": "Kodaikanal",
         "slug": "kodaikanal",
-        "h1": "Kodaikanal – Princess of Hill Stations",
-        "title": "Kodaikanal Travel Guide & Tourist Places | Vibhu Travel Hub",
-        "description": "Explore Kodaikanal with our complete travel guide covering Kodai Lake, Pillar Rocks, Coaker's Walk, pine forests, travel tips, and FAQs.",
-        "tagline": "Discover the Mist-Shrouded Pine Forests & Star Lake of Palani Hills",
+        "h1": "Kodaikanal Tour from Coimbatore – Explore the Princess of Hill Stations",
+        "title": "Coimbatore to Kodaikanal Cab & Tour Package | Vibhu Travel Hub",
+        "description": "Book Coimbatore to Kodaikanal cab and tour packages with Vibhu Travel Hub. Explore Kodai Lake, Pillar Rocks, Coaker's Walk, pine forests and more.",
+        "tagline": "Plan Your Kodaikanal Tour from Coimbatore with Comfortable Cabs & Travel Services",
         "about_paragraphs": [
             "Kodaikanal, set around the star-shaped Kodai Lake in the Palani Hills of Tamil Nadu at an altitude of 2,133 meters, is affectionately known as the 'Princess of Hill Stations'. Renowned for its dense pine forests, mist-shrouded cliff viewpoints, Kurinji flowers, and cool weather.",
             "Walk along Coaker's Walk for sweeping valley views, marvel at the 400-foot granite boulders at Pillar Rocks, and enjoy peaceful pedal boating on Kodai Lake. Kodaikanal's untouched natural beauty makes it an ideal mountain retreat.",
-            "Vibhu Travel Hub offers reliable hill station transfers to Kodaikanal from Madurai, Coimbatore, and Trichy with experienced drivers for the Batlagundu ghat road."
+            "Vibhu Travel Hub provides comfortable Coimbatore to Kodaikanal cab, Tempo Traveller and outstation travel options for family trips, group tours and Kodaikanal holidays."
         ],
         "why_visit": [
             {"title": "Star-Shaped Kodai Lake", "icon": "bi-water", "desc": "Boating and cycling around the iconic 60-acre artificial mountain lake."},
@@ -1048,7 +1131,7 @@ TOURIST_PLACES_SEO_DATA = {
             {"title": "Aromatic Pine Forests", "icon": "bi-tree-fill", "desc": "Walk under dense pine tree canopies featured in famous Indian films."},
             {"title": "Coaker's Walk Panorama", "icon": "bi-compass", "desc": "Pedestrian mountain trail offering views of the plains below."}
         ],
-        "how_to_reach": "Kodaikanal is located 115 km from Madurai (3 hours drive) and 175 km from Coimbatore (4.5 hours drive). Batlagundu ghat road provides smooth highway connectivity.",
+        "how_to_reach": "Kodaikanal is easily reached from Coimbatore by road through Pollachi, Palani and Batlagundu routes. Vibhu Travel Hub provides Coimbatore to Kodaikanal cab, Tempo Traveller and outstation travel options for comfortable hill trips.",
         "attractions": [
             {"name": "Kodai Lake", "desc": "Star-shaped lake created in 1863, featuring boat rentals and a 5 km shoreline path."},
             {"name": "Pillar Rocks", "desc": "Three giant granite boulders standing vertically at a height of 400 feet."},
@@ -1060,12 +1143,12 @@ TOURIST_PLACES_SEO_DATA = {
             {"name": "Guna Caves", "desc": "Narrow rock caverns located between Pillar Rocks and Moir Point."}
         ],
         "experiences": [
-            {"title": "Boating on Kodai Lake", "image": "kodai.avif", "desc": "Row across calm waters surrounded by misty hills."},
-            {"title": "Coaker's Walk Stroll", "image": "ooty.avif", "desc": "Walk along the mountain cliff path during foggy mornings."},
-            {"title": "Pine Canopy Photography", "image": "chennai.avif", "desc": "Capture sunlight filtering through tall pine tree trunks."},
-            {"title": "Homemade Chocolate Shopping", "image": "madurai.avif", "desc": "Buy fresh almond, cashewnut, and dark chocolates."},
-            {"title": "Bryant Park Flower Walk", "image": "trichy.avif", "desc": "Admire colorful terraced flower gardens and ancient trees."},
-            {"title": "Cycling Lake Circuit", "image": "meenakshi-temple.jpg", "desc": "Rent bicycles to ride along the 5 km Kodai Lake perimeter."}
+            {"title": "Boating on Kodai Lake", "image": "kodai.webp", "desc": "Row across calm waters surrounded by misty hills."},
+            {"title": "Coaker's Walk Stroll", "image": "ooty.webp", "desc": "Walk along the mountain cliff path during foggy mornings."},
+            {"title": "Pine Canopy Photography", "image": "chennai.webp", "desc": "Capture sunlight filtering through tall pine tree trunks."},
+            {"title": "Homemade Chocolate Shopping", "image": "madurai.webp", "desc": "Buy fresh almond, cashewnut, and dark chocolates."},
+            {"title": "Bryant Park Flower Walk", "image": "trichy.webp", "desc": "Admire colorful terraced flower gardens and ancient trees."},
+            {"title": "Cycling Lake Circuit", "image": "meenakshi-temple.webp", "desc": "Rent bicycles to ride along the 5 km Kodai Lake perimeter."}
         ],
         "best_time_guide": {
             "peak": "September to May — Clear skies and cool mountain weather (15°C to 20°C).",
@@ -1112,7 +1195,7 @@ TOURIST_PLACES_SEO_DATA = {
             {"name": "Madurai", "slug": "madurai", "desc": "Temple city 115 km away."},
             {"name": "Ooty", "slug": "ooty", "desc": "Queen of Hill Stations 250 km away."}
         ],
-        "gallery_images": ["kodai.avif", "ooty.avif", "chennai.avif", "madurai.avif", "trichy.avif", "meenakshi-temple.jpg"],
+        "gallery_images": ["kodai.webp", "ooty.webp", "chennai.webp", "madurai.webp", "trichy.webp", "meenakshi-temple.webp"],
         "faqs": [
             {"q": "What is Kodaikanal famous for?", "a": "Kodaikanal is famous for Kodai Lake, Pillar Rocks, pine forests, Coaker's Walk, Bryant Park, and homemade chocolates."},
             {"q": "How many days are needed for a Kodaikanal trip?", "a": "A 2 to 3-day trip is ideal to explore all major viewpoints, lakes, and gardens in Kodaikanal."},
@@ -1125,14 +1208,14 @@ TOURIST_PLACES_SEO_DATA = {
         "city_slug": "cochin",
         "place_name": "Alleppey",
         "slug": "alleppey",
-        "h1": "Alleppey – Venice of the East",
-        "title": "Alleppey Travel Guide & Houseboat Backwaters | Vibhu Travel Hub",
-        "description": "Discover Alleppey backwaters with our travel guide covering houseboat cruises, Vembanad lake, Marari beach, Kuttanad, travel tips, and FAQs.",
-        "tagline": "Glide Through Peaceful Palm-Fringed Backwater Lagoons",
+        "h1": "Alleppey Tour from Coimbatore – Explore the Backwaters",
+        "title": "Coimbatore to Alleppey Cab & Tour Package | Vibhu Travel Hub",
+        "description": "Book Coimbatore to Alleppey cab and tour packages with Vibhu Travel Hub. Explore Alleppey backwaters, houseboats, Vembanad Lake, Marari Beach and more.",
+        "tagline": "Plan Your Alleppey Tour from Coimbatore with Comfortable Cabs & Travel Services",
         "about_paragraphs": [
             "Alappuzha (Alleppey), world-renowned as the 'Venice of the East', is Kerala's backwater capital. Situated along the vast shores of Vembanad Lake, Alleppey features an intricate network of serene canals, lagoons, paddy fields, and coconut groves.",
             "The defining Alleppey experience is an overnight stay aboard a traditional Kettuvallam houseboat. As you glide silently past palm-fringed villages, watch local duck farming, paddy cultivation below sea level in Kuttanad, and glowing sunset reflections on the water.",
-            "Vibhu Travel Hub arranges smooth cab transfers from Cochin International Airport and Ernakulam railway station directly to Alleppey boat jetties, ensuring your backwater vacation starts effortlessly."
+            "Vibhu Travel Hub provides comfortable Coimbatore to Alleppey cab, Tempo Traveller and outstation travel options for family trips, group tours and Alleppey holidays."
         ],
         "why_visit": [
             {"title": "Luxury Houseboat Cruises", "icon": "bi-water", "desc": "Overnight stays on air-conditioned Kettuvallam houseboats with private chefs."},
@@ -1140,7 +1223,7 @@ TOURIST_PLACES_SEO_DATA = {
             {"title": "Kuttanad Below Sea Level Farming", "icon": "bi-tree", "desc": "Discover unique sub-sea level paddy farming in the rice bowl of Kerala."},
             {"title": "Marari Quiet Beaches", "icon": "bi-umbrella-fill", "desc": "Unwind on peaceful white sand beaches dotted with fishing boats."}
         ],
-        "how_to_reach": "Alleppey is located 53 km south of Cochin city (1.5 hours drive via NH66). Cochin International Airport (COK) is 75 km away and Alappuzha Railway Station (ALLP) is in the town center.",
+        "how_to_reach": "Alleppey is easily reached from Coimbatore by road through Kerala. Vibhu Travel Hub provides Coimbatore to Alleppey cab, Tempo Traveller and outstation travel options for comfortable backwater trips.",
         "attractions": [
             {"name": "Vembanad Lake Backwaters", "desc": "Vast interconnected lagoon network for houseboat cruising and sunset viewing."},
             {"name": "Marari Beach", "desc": "Serene, uncrowded fishing beach with soft white sand and palm groves."},
@@ -1152,12 +1235,12 @@ TOURIST_PLACES_SEO_DATA = {
             {"name": "Ambalappuzha Temple", "desc": "Ancient Krishna temple famous for sweet Ambalappuzha Palpayasam prasad."}
         ],
         "experiences": [
-            {"title": "Overnight Houseboat Stay", "image": "alapuzha.jpg", "desc": "Enjoy freshly cooked Kerala Pearl Spot fish curry aboard your private houseboat."},
-            {"title": "Shikara Boat Canal Ride", "image": "cochin.jpg", "desc": "Explore narrow village canals where large houseboats cannot enter."},
-            {"title": "Sunset at Marari Beach", "image": "trivandrum.jpg", "desc": "Watch quiet sunrises and sunrises over white sands."},
-            {"title": "Village Life Walking Tour", "image": "munnar.jpg", "desc": "Stroll past canal bridges, coir spinning units, and duck farms."},
-            {"title": "Ambalappuzha Payasam Tasting", "image": "gokarnas.png", "desc": "Sample famous sweet milk pudding at the historic Krishna temple."},
-            {"title": "Kayaking in Narrow Canals", "image": "coorg.jpg", "desc": "Paddle through serene village waterways at sunrise."}
+            {"title": "Overnight Houseboat Stay", "image": "alapuzha.webp", "desc": "Enjoy freshly cooked Kerala Pearl Spot fish curry aboard your private houseboat."},
+            {"title": "Shikara Boat Canal Ride", "image": "cochin.webp", "desc": "Explore narrow village canals where large houseboats cannot enter."},
+            {"title": "Sunset at Marari Beach", "image": "trivandrum.webp", "desc": "Watch quiet sunrises and sunrises over white sands."},
+            {"title": "Village Life Walking Tour", "image": "munnar.webp", "desc": "Stroll past canal bridges, coir spinning units, and duck farms."},
+            {"title": "Ambalappuzha Payasam Tasting", "image": "gokarnas.webp", "desc": "Sample famous sweet milk pudding at the historic Krishna temple."},
+            {"title": "Kayaking in Narrow Canals", "image": "coorg.webp", "desc": "Paddle through serene village waterways at sunrise."}
         ],
         "best_time_guide": {
             "peak": "November to February — Cool, dry winter weather (22°C to 30°C), ideal for houseboats and beach walks.",
@@ -1204,7 +1287,7 @@ TOURIST_PLACES_SEO_DATA = {
             {"name": "Cochin", "slug": "cochin", "desc": "Port city 53 km north."},
             {"name": "Munnar", "slug": "munnar", "desc": "Tea hill station 170 km away."}
         ],
-        "gallery_images": ["alapuzha.jpg", "cochin.jpg", "trivandrum.jpg", "munnar.jpg", "gokarnas.png", "coorg.jpg"],
+        "gallery_images": ["alapuzha.webp", "cochin.webp", "trivandrum.webp", "munnar.webp", "gokarnas.webp", "coorg.webp"],
         "faqs": [
             {"q": "What is Alleppey famous for?", "a": "Alleppey is famous for its luxury Kettuvallam houseboat cruises, Vembanad Lake backwaters, Marari Beach, and Nehru Trophy Snake Boat Race."},
             {"q": "What is the best time to visit Alleppey?", "a": "November to February is the best time with pleasant, dry weather ideal for backwater cruising."},
@@ -1217,14 +1300,14 @@ TOURIST_PLACES_SEO_DATA = {
         "city_slug": "cochin",
         "place_name": "Munnar",
         "slug": "munnar",
-        "h1": "Munnar – Tea Garden Mountain Paradise",
-        "title": "Munnar Travel Guide & Tourist Places | Vibhu Travel Hub",
-        "description": "Explore Munnar with our travel guide covering tea estates, Eravikulam National Park, Anamudi peak, Mattupetty dam, travel tips, and FAQs.",
-        "tagline": "Discover Misty Mountain Valleys & Sprawling Emerald Tea Carpet Hills",
+        "h1": "Munnar Tour from Coimbatore – Explore God's Own Country",
+        "title": "Coimbatore to Munnar Cab & Tour Package | Vibhu Travel Hub",
+        "description": "Book Coimbatore to Munnar cab and tour packages with Vibhu Travel Hub. Explore Munnar tea estates, waterfalls, Eravikulam National Park and more.",
+        "tagline": "Plan Your Munnar Tour from Coimbatore with Comfortable Cabs & Travel Services",
         "about_paragraphs": [
             "Munnar is Kerala's premier hill station, located at an altitude of 1,600 meters in the Western Ghats. Famous for sprawling green tea plantations, mist-filled mountain valleys, rare Nilgiri Tahr goats, and Anamudi—the highest peak in South India.",
             "Originally established as a summer resort for British officers, Munnar's landscape is covered in manicured tea gardens. Visit Eravikulam National Park, enjoy echoes at Echo Point, and take speed boat rides on Mattupetty Dam.",
-            "Vibhu Travel Hub provides comfortable outstation cabs to Munnar from Cochin, Madurai, and Coimbatore with drivers expert in hill road navigation."
+            "Vibhu Travel Hub provides comfortable Coimbatore to Munnar cab, Tempo Traveller and outstation travel options for family trips, group tours and Munnar holidays."
         ],
         "why_visit": [
             {"title": "Rolling Emerald Tea Hills", "icon": "bi-tree-fill", "desc": "Miles of green tea carpet estates covering mountain slopes."},
@@ -1232,7 +1315,7 @@ TOURIST_PLACES_SEO_DATA = {
             {"title": "Mattupetty Dam & Lake", "icon": "bi-water", "desc": "Speed boating surrounded by tea gardens and elephant herds."},
             {"title": "Misty Mountain Weather", "icon": "bi-cloud-sun", "desc": "Cool refreshing mountain breezes year-round."}
         ],
-        "how_to_reach": "Munnar is located 125 km from Cochin (3.5 hours drive via Neriamangalam ghat road) and 160 km from Coimbatore (4.5 hours drive).",
+        "how_to_reach": "Munnar is located 160 km from Coimbatore and is easily reached by road through scenic hill routes. Vibhu Travel Hub provides Coimbatore to Munnar cab, Tempo Traveller and outstation travel options for comfortable trips.",
         "attractions": [
             {"name": "Eravikulam National Park", "desc": "Protected sanctuary home to 750+ Nilgiri Tahr mountain goats and Anamudi Peak."},
             {"name": "Mattupetty Dam & Lake", "desc": "Concrete gravity dam featuring speed boat rides and surrounding tea gardens."},
@@ -1244,12 +1327,12 @@ TOURIST_PLACES_SEO_DATA = {
             {"name": "Anayirangal Dam", "desc": "Lush reservoir surrounded by tea plantations and wild elephant sightings."}
         ],
         "experiences": [
-            {"title": "Tea Garden Tasting Walk", "image": "munnar.jpg", "desc": "Stroll amidst tea bushes and sample freshly processed green tea."},
-            {"title": "Nilgiri Tahr Spotting", "image": "cochin.jpg", "desc": "Spot friendly wild goats at Rajamalai in Eravikulam Park."},
-            {"title": "Mattupetty Speed Boating", "image": "alapuzha.jpg", "desc": "Enjoy thrilling speed boat rides on Mattupetty Lake."},
-            {"title": "Top Station Panorama", "image": "trivandrum.jpg", "desc": "Gaze over mist clouds hovering over the Western Ghats."},
-            {"title": "Attukal Waterfall Walk", "image": "gokarnas.png", "desc": "Enjoy mountain stream views near Attukal falls."},
-            {"title": "Tree House Stay", "image": "coorg.jpg", "desc": "Experience unique stays in elevated wooden tree houses."}
+            {"title": "Tea Garden Tasting Walk", "image": "munnar.webp", "desc": "Stroll amidst tea bushes and sample freshly processed green tea."},
+            {"title": "Nilgiri Tahr Spotting", "image": "cochin.webp", "desc": "Spot friendly wild goats at Rajamalai in Eravikulam Park."},
+            {"title": "Mattupetty Speed Boating", "image": "alapuzha.webp", "desc": "Enjoy thrilling speed boat rides on Mattupetty Lake."},
+            {"title": "Top Station Panorama", "image": "trivandrum.webp", "desc": "Gaze over mist clouds hovering over the Western Ghats."},
+            {"title": "Attukal Waterfall Walk", "image": "gokarnas.webp", "desc": "Enjoy mountain stream views near Attukal falls."},
+            {"title": "Tree House Stay", "image": "coorg.webp", "desc": "Experience unique stays in elevated wooden tree houses."}
         ],
         "best_time_guide": {
             "peak": "September to May — Cool, pleasant climate (12°C to 20°C).",
@@ -1296,7 +1379,7 @@ TOURIST_PLACES_SEO_DATA = {
             {"name": "Thekkady", "slug": "thekkady", "desc": "Wildlife sanctuary 90 km away."},
             {"name": "Cochin", "slug": "cochin", "desc": "Gateway city 125 km away."}
         ],
-        "gallery_images": ["munnar.jpg", "cochin.jpg", "alapuzha.jpg", "trivandrum.jpg", "gokarnas.png", "coorg.jpg"],
+        "gallery_images": ["munnar.webp", "cochin.webp", "alapuzha.webp", "trivandrum.webp", "gokarnas.webp", "coorg.webp"],
         "faqs": [
             {"q": "What is Munnar famous for?", "a": "Munnar is famous for tea plantations, cool mountain climate, Eravikulam National Park, Anamudi Peak, and Mattupetty Dam."},
             {"q": "How many days are needed to explore Munnar?", "a": "A 2 to 3-day itinerary is recommended to cover all major sightseeing spots in Munnar."},
@@ -1334,12 +1417,12 @@ TOURIST_PLACES_SEO_DATA = {
             {"name": "Brindavan Gardens", "desc": "Terraced garden with musical fountains situated 21 km from Mysore Palace."}
         ],
         "experiences": [
-            {"title": "Sunday Night Illumination", "image": "mysore.jpg", "desc": "Witness the grand lighting ceremony every Sunday from 7:00 PM to 7:45 PM."},
-            {"title": "Golden Howdah View", "image": "coorg.jpg", "desc": "Admire the 84 kg solid gold royal elephant throne inside Gombe Thotti."},
-            {"title": "Chamundi Hill Drive", "image": "gokarnas.png", "desc": "Drive up Chamundi Hill to view the giant Nandi monolith and city vistas."},
-            {"title": "Mysore Silk Shopping", "image": "munnar.jpg", "desc": "Buy pure Mysore silk saris at government silk weaving factory outlets."},
-            {"title": "Mysore Pak Tasting", "image": "cochin.jpg", "desc": "Taste melt-in-the-mouth ghee Mysore Pak at original heritage sweet shops."},
-            {"title": "Brindavan Musical Fountains", "image": "alapuzha.jpg", "desc": "Watch evening illuminated water fountain shows at Krishnarajasagara Dam."}
+            {"title": "Sunday Night Illumination", "image": "mysore.webp", "desc": "Witness the grand lighting ceremony every Sunday from 7:00 PM to 7:45 PM."},
+            {"title": "Golden Howdah View", "image": "coorg.webp", "desc": "Admire the 84 kg solid gold royal elephant throne inside Gombe Thotti."},
+            {"title": "Chamundi Hill Drive", "image": "gokarnas.webp", "desc": "Drive up Chamundi Hill to view the giant Nandi monolith and city vistas."},
+            {"title": "Mysore Silk Shopping", "image": "munnar.webp", "desc": "Buy pure Mysore silk saris at government silk weaving factory outlets."},
+            {"title": "Mysore Pak Tasting", "image": "cochin.webp", "desc": "Taste melt-in-the-mouth ghee Mysore Pak at original heritage sweet shops."},
+            {"title": "Brindavan Musical Fountains", "image": "alapuzha.webp", "desc": "Watch evening illuminated water fountain shows at Krishnarajasagara Dam."}
         ],
         "best_time_guide": {
             "peak": "October to March — Pleasant climate, highlighted by the grand 10-day Mysore Dasara festival in October.",
@@ -1386,7 +1469,7 @@ TOURIST_PLACES_SEO_DATA = {
             {"name": "Coorg", "slug": "coorg", "desc": "Coffee hill district 118 km away."},
             {"name": "Bangalore", "slug": "bangalore", "desc": "Capital city 145 km away."}
         ],
-        "gallery_images": ["mysore.jpg", "coorg.jpg", "gokarnas.png", "munnar.jpg", "cochin.jpg", "alapuzha.jpg"],
+        "gallery_images": ["mysore.webp", "coorg.webp", "gokarnas.webp", "munnar.webp", "cochin.webp", "alapuzha.webp"],
         "faqs": [
             {"q": "What is Mysore Palace famous for?", "a": "Mysore Palace is famous for its royal Wadiyar architecture, stained glass durbar halls, Sunday night illumination, and Dasara festival."},
             {"q": "When is Mysore Palace illuminated?", "a": "Mysore Palace is illuminated with nearly 100,000 electric bulbs every Sunday evening and on public holidays from 7:00 PM to 7:45 PM."},
@@ -1410,8 +1493,8 @@ TOURIST_PLACES_SEO_DATA = {
         ],
         "why_visit": [
             {"title": "UNESCO Stone Chariot", "icon": "bi-bank", "desc": "Monolithic stone chariot sculpture at Vittala Temple."},
-            {"title": "Virupaksha Temple", "icon": "bi-shield-heart", "desc": "7th-century active temple with a 160ft gopuram."},
-            {"title": "Surreal Boulder Landscapes", "icon": "bi-landscape", "desc": "Giant granite boulder hills framing ancient stone ruins."},
+            {"title": "Virupaksha Temple", "icon": "bi-shield-check", "desc": "7th-century active temple with a 160ft gopuram."},
+            {"title": "Surreal Boulder Landscapes", "icon": "bi-image", "desc": "Giant granite boulder hills framing ancient stone ruins."},
             {"title": "Tungabhadra Coracle Rides", "icon": "bi-water", "desc": "Traditional round wicker boat rides across the river."}
         ],
         "how_to_reach": "Hampi is located 340 km north of Bangalore (6 hours drive via NH50). Hospet Railway Station (HPT) is 13 km away.",
@@ -1424,10 +1507,10 @@ TOURIST_PLACES_SEO_DATA = {
             {"name": "Malyavanta Raghunatha Temple", "desc": "Hilltop temple where devotional Ramayana chanting echoes continuously."}
         ],
         "experiences": [
-            {"title": "Sunset from Hemakuta Hill", "image": "gokarnas.png", "desc": "Watch golden sunsets illuminating ancient boulder temples."},
-            {"title": "Tungabhadra Coracle Ride", "image": "mysore.jpg", "desc": "Float across river rapids in round wicker coracle boats."},
-            {"title": "Stone Chariot Photography", "image": "coorg.jpg", "desc": "Capture the iconic emblem of Indian stone architecture at Vittala Temple."},
-            {"title": "Explore Hippie Island", "image": "munnar.jpg", "desc": "Cross the river to Virupapurgaddi for relaxed cafe vibes and rock climbing."}
+            {"title": "Sunset from Hemakuta Hill", "image": "gokarnas.webp", "desc": "Watch golden sunsets illuminating ancient boulder temples."},
+            {"title": "Tungabhadra Coracle Ride", "image": "mysore.webp", "desc": "Float across river rapids in round wicker coracle boats."},
+            {"title": "Stone Chariot Photography", "image": "coorg.webp", "desc": "Capture the iconic emblem of Indian stone architecture at Vittala Temple."},
+            {"title": "Explore Hippie Island", "image": "munnar.webp", "desc": "Cross the river to Virupapurgaddi for relaxed cafe vibes and rock climbing."}
         ],
         "best_time_guide": {
             "peak": "October to February — Cool winter weather (18°C to 28°C), perfect for outdoor ruins exploration.",
@@ -1467,7 +1550,7 @@ TOURIST_PLACES_SEO_DATA = {
         "nearby_destinations": [
             {"name": "Bangalore", "slug": "bangalore", "desc": "Capital city 340 km away."}
         ],
-        "gallery_images": ["gokarnas.png", "mysore.jpg", "coorg.jpg", "munnar.jpg"],
+        "gallery_images": ["gokarnas.webp", "mysore.webp", "coorg.webp", "munnar.webp"],
         "faqs": [
             {"q": "What is Hampi famous for?", "a": "Hampi is famous for its UNESCO stone chariot, Virupaksha Temple, Vijayanagara ruins, and boulder-covered hills."},
             {"q": "How many days are needed to explore Hampi?", "a": "A 2 to 3-day trip is recommended to explore both the Sacred Center and Royal Center monuments."}
@@ -1502,8 +1585,8 @@ DEFAULT_PLACE_FALLBACK = {
         {"name": "Coastal Beaches", "desc": "Palm-fringed beaches and coastal promenade walks."}
     ],
     "experiences": [
-        {"title": "Scenic Sightseeing", "image": "alapuzha.jpg", "desc": "Explore top attractions in total comfort."},
-        {"title": "Local Cultural Discovery", "image": "cochin.jpg", "desc": "Taste traditional cuisine and explore local markets."}
+        {"title": "Scenic Sightseeing", "image": "alapuzha.webp", "desc": "Explore top attractions in total comfort."},
+        {"title": "Local Cultural Discovery", "image": "cochin.webp", "desc": "Taste traditional cuisine and explore local markets."}
     ],
     "best_time_guide": {
         "peak": "October to March — Ideal season for pleasant travel.",
@@ -1538,7 +1621,7 @@ DEFAULT_PLACE_FALLBACK = {
     "nearby_destinations": [
         {"name": "Coimbatore", "slug": "coimbatore", "desc": "Gateway city."}
     ],
-    "gallery_images": ["alapuzha.jpg", "cochin.jpg", "munnar.jpg", "ooty.avif"],
+    "gallery_images": ["alapuzha.webp", "cochin.webp", "munnar.webp", "ooty.webp"],
     "faqs": [
         {"q": "What is the best time to visit South India?", "a": "October to March is the best season with pleasant weather across hill stations and coastal destinations."},
         {"q": "Does Vibhu Travel Hub offer custom tour packages?", "a": "Yes, Vibhu Travel Hub provides custom tour packages, outstation cabs, and airport transfers."}
@@ -1558,6 +1641,197 @@ def get_place_seo_data(place_slug):
         data["description"] = f"Explore {name} with our complete travel guide covering top attractions, things to do, travel tips, and FAQs."
     return data
 
+# ============================================================
+# COIMBATORE SEO LANDING PAGES
+# ============================================================
+
+COIMBATORE_LANDING_PAGES = {
+
+    "tempo-traveller-rental-coimbatore": {
+        "slug": "tempo-traveller-rental-coimbatore",
+        "title": "Tempo Traveller Rental in Coimbatore | Vibhu Travel Hub",
+        "description": "Book Tempo Traveller rental in Coimbatore for family trips, group tours, corporate travel and outstation journeys with Vibhu Travel Hub.",
+        "h1": "Tempo Traveller Rental in Coimbatore",
+        "eyebrow": "COIMBATORE GROUP TRAVEL",
+        "intro": "Book comfortable and reliable Tempo Traveller rental in Coimbatore for family vacations, group tours, corporate trips, pilgrimage journeys and outstation travel.",
+        "about": [
+            "Vibhu Travel Hub provides comfortable Tempo Traveller rental services in Coimbatore for families, friends, corporate groups and large travel groups.",
+            "Our Tempo Traveller services are suitable for local sightseeing, weekend trips, hill station tours, pilgrimage journeys and long-distance outstation travel from Coimbatore.",
+            "Choose a suitable vehicle based on your group size and travel requirement, with experienced drivers and convenient pickup options across Coimbatore."
+        ],
+        "highlights": [
+            {
+                "title": "Family & Group Trips",
+                "desc": "Comfortable group transportation for family vacations and friends trips."
+            },
+            {
+                "title": "Outstation Travel",
+                "desc": "Convenient Tempo Traveller rentals for long-distance journeys."
+            },
+            {
+                "title": "Corporate Travel",
+                "desc": "Reliable group transportation for meetings, events and corporate tours."
+            },
+            {
+                "title": "Tour Packages",
+                "desc": "Ideal for Ooty, Kodaikanal, Munnar, Valparai and other destinations."
+            }
+        ],
+        "faqs": [
+            {
+                "q": "Can I rent a Tempo Traveller in Coimbatore?",
+                "a": "Yes. Vibhu Travel Hub provides Tempo Traveller rental services in Coimbatore for family trips, group tours, corporate travel and outstation journeys."
+            },
+            {
+                "q": "Can I book a Tempo Traveller from Coimbatore to Ooty?",
+                "a": "Yes. Tempo Traveller rentals are available from Coimbatore for Ooty trips and other Nilgiri destinations."
+            },
+            {
+                "q": "Is Tempo Traveller available for outstation trips?",
+                "a": "Yes. Tempo Travellers can be booked for outstation tours, sightseeing trips, pilgrimage journeys and group travel."
+            }
+        ]
+    },
+
+    "bus-rental-coimbatore": {
+        "slug": "bus-rental-coimbatore",
+        "title": "Bus Rental in Coimbatore | Tourist Bus Booking | Vibhu Travel Hub",
+        "description": "Book tourist bus rental in Coimbatore for family tours, group trips, corporate travel, weddings and outstation journeys with Vibhu Travel Hub.",
+        "h1": "Bus Rental in Coimbatore",
+        "eyebrow": "COIMBATORE GROUP TRANSPORT",
+        "intro": "Book reliable bus rental services in Coimbatore for family tours, corporate trips, weddings, events, pilgrimages and large group travel.",
+        "about": [
+            "Vibhu Travel Hub offers bus rental services in Coimbatore for groups looking for comfortable and convenient transportation.",
+            "Our bus rental solutions are suitable for weddings, school and college trips, corporate events, pilgrimage tours, family vacations and outstation journeys.",
+            "Plan your trip with a suitable vehicle according to your group size, destination and travel requirements."
+        ],
+        "highlights": [
+            {
+                "title": "Tourist Bus Rental",
+                "desc": "Convenient buses for sightseeing and holiday group tours."
+            },
+            {
+                "title": "Wedding Transportation",
+                "desc": "Group transportation solutions for weddings and family functions."
+            },
+            {
+                "title": "Corporate Travel",
+                "desc": "Reliable transportation for corporate events and team travel."
+            },
+            {
+                "title": "Outstation Tours",
+                "desc": "Comfortable buses for long-distance group journeys."
+            }
+        ],
+        "faqs": [
+            {
+                "q": "Can I rent a tourist bus in Coimbatore?",
+                "a": "Yes. Vibhu Travel Hub provides tourist bus rental services in Coimbatore for group tours, family trips, corporate travel and events."
+            },
+            {
+                "q": "Is bus rental available for outstation trips from Coimbatore?",
+                "a": "Yes. Bus rentals are available for outstation tours, pilgrimage trips, weddings and other group journeys."
+            },
+            {
+                "q": "Can I book a bus for a corporate event?",
+                "a": "Yes. Corporate group transportation can be arranged for meetings, events, employee travel and company tours."
+            }
+        ]
+    },
+
+    "coimbatore-to-ooty-tour-package": {
+        "slug": "coimbatore-to-ooty-tour-package",
+        "title": "Coimbatore to Ooty Tour Package | Cab & Tempo Traveller",
+        "description": "Book Coimbatore to Ooty tour packages with cab and Tempo Traveller options for families, couples and groups with Vibhu Travel Hub.",
+        "h1": "Coimbatore to Ooty Tour Package",
+        "eyebrow": "NILGIRI HILL TRIP",
+        "intro": "Plan a comfortable Coimbatore to Ooty tour with reliable cab and Tempo Traveller options for families, couples, friends and groups.",
+        "about": [
+            "Ooty is one of the most popular hill destinations in South India and is easily accessible from Coimbatore by road.",
+            "Vibhu Travel Hub provides Coimbatore to Ooty cab services, Tempo Traveller rentals and group transportation for sightseeing and holiday trips.",
+            "Your Ooty journey can include popular attractions such as Ooty Lake, Doddabetta Peak, Botanical Gardens, tea estates and the Nilgiri Mountain Railway."
+        ],
+        "highlights": [
+            {
+                "title": "Coimbatore Pickup",
+                "desc": "Convenient pickup from locations across Coimbatore."
+            },
+            {
+                "title": "Ooty Sightseeing",
+                "desc": "Explore popular attractions and scenic locations across Ooty."
+            },
+            {
+                "title": "Cab & Tempo Traveller",
+                "desc": "Choose a comfortable vehicle based on your group size."
+            },
+            {
+                "title": "Flexible Trips",
+                "desc": "Suitable for family holidays, couples, friends and group tours."
+            }
+        ],
+        "faqs": [
+            {
+                "q": "How far is Ooty from Coimbatore?",
+                "a": "Ooty is approximately 86 km from Coimbatore by road, depending on the route and pickup location."
+            },
+            {
+                "q": "Can I book a cab from Coimbatore to Ooty?",
+                "a": "Yes. Vibhu Travel Hub provides cab and outstation cab services from Coimbatore to Ooty."
+            },
+            {
+                "q": "Can I book a Tempo Traveller for Ooty?",
+                "a": "Yes. Tempo Traveller rentals are available for family and group trips from Coimbatore to Ooty."
+            }
+        ]
+    },
+
+    "outstation-cab-service-coimbatore": {
+        "slug": "outstation-cab-service-coimbatore",
+        "title": "Outstation Cab Service in Coimbatore | Vibhu Travel Hub",
+        "description": "Book reliable outstation cab service in Coimbatore for one-way, round-trip and long-distance travel with Vibhu Travel Hub.",
+        "h1": "Outstation Cab Service in Coimbatore",
+        "eyebrow": "COIMBATORE OUTSTATION CAB",
+        "intro": "Book reliable outstation cab services from Coimbatore for one-way trips, round trips, airport transfers, family holidays and long-distance journeys.",
+        "about": [
+            "Vibhu Travel Hub provides outstation cab services in Coimbatore for travellers who need comfortable and dependable transportation beyond the city.",
+            "Our outstation cab service is suitable for one-way travel, round trips, family vacations, business journeys, pilgrimage tours and weekend trips.",
+            "Popular routes include Ooty, Kodaikanal, Munnar, Valparai, Mysore, Chennai, Bangalore and other destinations across South India."
+        ],
+        "highlights": [
+            {
+                "title": "One-Way Cab",
+                "desc": "Convenient cab options for one-way outstation journeys."
+            },
+            {
+                "title": "Round Trips",
+                "desc": "Flexible round-trip travel for holidays and sightseeing."
+            },
+            {
+                "title": "Airport Transfers",
+                "desc": "Reliable pickup and drop services from Coimbatore Airport."
+            },
+            {
+                "title": "Long Distance Travel",
+                "desc": "Comfortable cab solutions for extended journeys."
+            }
+        ],
+        "faqs": [
+            {
+                "q": "Can I book an outstation cab from Coimbatore?",
+                "a": "Yes. Vibhu Travel Hub provides outstation cab services from Coimbatore for one-way and round-trip journeys."
+            },
+            {
+                "q": "Which destinations can I travel to from Coimbatore?",
+                "a": "Popular outstation destinations include Ooty, Kodaikanal, Munnar, Valparai, Mysore, Bangalore, Chennai and other South Indian destinations."
+            },
+            {
+                "q": "Do you provide one-way cab service?",
+                "a": "Yes. One-way outstation cab services are available from Coimbatore to selected destinations."
+            }
+        ]
+    }
+}
+
 
 CITIES_SEO_DATA = {
     "coimbatore": {
@@ -1572,13 +1846,13 @@ CITIES_SEO_DATA = {
         "about_paragraphs": [
             "Coimbatore, known as the 'Manchester of South India', is the second-largest city in Tamil Nadu and a major commercial and tourism gateway. Located along the Noyyal River at the foothills of the Nilgiri Mountains, Coimbatore blends industrial dynamism with rich spiritual and natural heritage.",
             "The city is world-famous for the monumental 112-foot Adiyogi Shiva statue at the Isha Yoga Center, the historic 12th-century Marudhamalai Murugan Temple, and the pristine Siruvani Waterfalls — renowned for possessing some of the sweetest natural spring water on Earth.",
-            "Vibhu Travel Hub provides premium local taxi rentals, airport transfers at Coimbatore International Airport (CJB), and outstation cab packages connecting Coimbatore seamlessly to Ooty, Valparai, Kodaikanal, and Munnar."
+            "Vibhu Travel Hub provides premium local cab rentals, airport transfers at Coimbatore International Airport (CJB), and outstation cab packages connecting Coimbatore seamlessly to Ooty, Valparai, Kodaikanal, and Munnar."
         ],
         "places_to_visit": [
-            {"name": "Isha Yoga Center & Adiyogi", "slug": "isha-yoga", "desc": "World-famous 112ft Adiyogi Shiva statue and spiritual meditation sanctuary.", "image": "coimbatore.avif"},
-            {"name": "Marudhamalai Murugan Temple", "slug": "marudhamalai-temple", "desc": "12th-century hilltop temple dedicated to Lord Murugan with panoramic city views.", "image": "coimbatore.avif"},
-            {"name": "Siruvani Waterfalls", "slug": "siruvani-waterfalls", "desc": "Renowned for sweet mountain spring water and dense forest scenery.", "image": "coimbatore.avif"},
-            {"name": "Kovai Kutralam Waterfalls", "slug": "kovai-kutralam", "desc": "Scenic waterfall inside Siruvani forest reserve, ideal for nature walks.", "image": "coimbatore.avif"}
+            {"name": "Isha Yoga Center & Adiyogi", "slug": "isha-yoga", "desc": "World-famous 112ft Adiyogi Shiva statue and spiritual meditation sanctuary.", "image": "coimbatore.webp"},
+            {"name": "Marudhamalai Murugan Temple", "slug": "marudhamalai-temple", "desc": "12th-century hilltop temple dedicated to Lord Murugan with panoramic city views.", "image": "coimbatore.webp"},
+            {"name": "Siruvani Waterfalls", "slug": "siruvani-waterfalls", "desc": "Renowned for sweet mountain spring water and dense forest scenery.", "image": "coimbatore.webp"},
+            {"name": "Kovai Kutralam Waterfalls", "slug": "kovai-kutralam", "desc": "Scenic waterfall inside Siruvani forest reserve, ideal for nature walks.", "image": "coimbatore.webp"}
         ],
         "things_to_do": [
             {"title": "Visit Adiyogi Statue", "desc": "Witness the iconic 112ft Adiyogi bust and evening light show."},
@@ -1624,9 +1898,9 @@ CITIES_SEO_DATA = {
         ],
         "places_to_visit": [
             {"name": "Marina Beach", "slug": "marina-beach", "desc": "World second longest urban natural beach along the Bay of Bengal.", "image": "marina-beach.avif"},
-            {"name": "Mahabalipuram Shore", "slug": "mahabalipuram", "desc": "UNESCO rock-cut shore monuments along East Coast Road.", "image": "mahabalipuram.avif"},
-            {"name": "Kapaleeshwarar Temple", "slug": "kapaleeshwarar-temple", "desc": "7th-century Dravidian Shiva temple in historic Mylapore.", "image": "chennai.avif"},
-            {"name": "Fort St. George", "slug": "fort-st-george", "desc": "1644 British colonial fort and museum complex.", "image": "chennai.avif"}
+            {"name": "Mahabalipuram Shore", "slug": "mahabalipuram", "desc": "UNESCO rock-cut shore monuments along East Coast Road.", "image": "mahabalipuram.webp"},
+            {"name": "Kapaleeshwarar Temple", "slug": "kapaleeshwarar-temple", "desc": "7th-century Dravidian Shiva temple in historic Mylapore.", "image": "chennai.webp"},
+            {"name": "Fort St. George", "slug": "fort-st-george", "desc": "1644 British colonial fort and museum complex.", "image": "chennai.webp"}
         ],
         "things_to_do": [
             {"title": "Sunrise Walk at Marina", "desc": "Watch early morning sunrises over the Bay of Bengal."},
@@ -1664,10 +1938,10 @@ CITIES_SEO_DATA = {
             "Vibhu Travel Hub provides comfortable temple tour cabs, Madurai Airport (IXM) pickups, and outstation trips connecting Madurai to Rameswaram, Kanyakumari, and Kodaikanal."
         ],
         "places_to_visit": [
-            {"name": "Meenakshi Amman Temple", "slug": "meenakshi-temple", "desc": "Historic architectural icon featuring 14 soaring gopuram towers.", "image": "meenakshi-temple.jpg"},
-            {"name": "Thirumalai Nayakkar Palace", "slug": "thirumalai-palace", "desc": "17th-century palace showcasing Dravidian-Italian architecture.", "image": "madurai.avif"},
-            {"name": "Rameswaram Island", "slug": "rameswaram", "desc": "Sacred island town featuring long temple corridors and Pamban bridge.", "image": "rameswaram.avif"},
-            {"name": "Kanyakumari Pier", "slug": "kanyakumari", "desc": "Southernmost tip of mainland India with Vivekananda Rock Memorial.", "image": "kanyakumari.avif"}
+            {"name": "Meenakshi Amman Temple", "slug": "meenakshi-temple", "desc": "Historic architectural icon featuring 14 soaring gopuram towers.", "image": "meenakshi-temple.webp"},
+            {"name": "Thirumalai Nayakkar Palace", "slug": "thirumalai-palace", "desc": "17th-century palace showcasing Dravidian-Italian architecture.", "image": "madurai.webp"},
+            {"name": "Rameswaram Island", "slug": "rameswaram", "desc": "Sacred island town featuring long temple corridors and Pamban bridge.", "image": "rameswaram.webp"},
+            {"name": "Kanyakumari Pier", "slug": "kanyakumari", "desc": "Southernmost tip of mainland India with Vivekananda Rock Memorial.", "image": "kanyakumari.webp"}
         ],
         "things_to_do": [
             {"title": "Night Temple Ceremony", "desc": "Witness the sacred evening palanquin procession at Meenakshi temple."},
@@ -1705,10 +1979,10 @@ CITIES_SEO_DATA = {
             "Vibhu Travel Hub offers reliable Trichy airport cabs, local sightseeing packages, and outstation trips to Thanjavur Big Temple, Velankanni, and Madurai."
         ],
         "places_to_visit": [
-            {"name": "Rockfort Temple Complex", "slug": "rockfort-temple", "desc": "Ancient fort temple built on an 83m monolithic rock outcrop.", "image": "trichy.avif"},
-            {"name": "Srirangam Ranganathaswamy Temple", "slug": "srirangam-temple", "desc": "World's largest functioning Hindu temple complex with 21 gopurams.", "image": "trichy.avif"},
-            {"name": "Kallanai Ancient Dam", "slug": "kallanai-dam", "desc": "2nd-century Chola stone dam over Kaveri River, still operational.", "image": "trichy.avif"},
-            {"name": "Samayapuram Mariamman Temple", "slug": "samayapuram-temple", "desc": "Renowned pilgrimage shrine dedicated to Goddess Mariamman.", "image": "trichy.avif"}
+            {"name": "Rockfort Temple Complex", "slug": "rockfort-temple", "desc": "Ancient fort temple built on an 83m monolithic rock outcrop.", "image": "trichy.webp"},
+            {"name": "Srirangam Ranganathaswamy Temple", "slug": "srirangam-temple", "desc": "World's largest functioning Hindu temple complex with 21 gopurams.", "image": "trichy.webp"},
+            {"name": "Kallanai Ancient Dam", "slug": "kallanai-dam", "desc": "2nd-century Chola stone dam over Kaveri River, still operational.", "image": "trichy.webp"},
+            {"name": "Samayapuram Mariamman Temple", "slug": "samayapuram-temple", "desc": "Renowned pilgrimage shrine dedicated to Goddess Mariamman.", "image": "trichy.webp"}
         ],
         "things_to_do": [
             {"title": "Climb Rockfort Steps", "desc": "Ascend 437 steps carved into ancient rock for city vistas."},
@@ -1742,10 +2016,10 @@ CITIES_SEO_DATA = {
             "Vibhu Travel Hub provides 24/7 transfers at Cochin International Airport (COK), city sightseeing cabs, and direct outstation transfers to Munnar, Alleppey houseboats, and Thekkady."
         ],
         "places_to_visit": [
-            {"name": "Fort Kochi & Chinese Nets", "slug": "fort-kochi", "desc": "Historic seaside quarter featuring giant wooden fishing nets.", "image": "cochin.jpg"},
-            {"name": "Mattancherry Dutch Palace", "slug": "mattancherry-palace", "desc": "16th-century palace featuring Ramayana wall murals.", "image": "cochin.jpg"},
-            {"name": "Munnar Hill Station", "slug": "munnar", "desc": "Misty tea garden mountain paradise in the Western Ghats.", "image": "munnar.jpg"},
-            {"name": "Alleppey Backwaters", "slug": "alleppey", "desc": "Tranquil palm-fringed canals and houseboat lagoon cruises.", "image": "alapuzha.jpg"}
+            {"name": "Fort Kochi & Chinese Nets", "slug": "fort-kochi", "desc": "Historic seaside quarter featuring giant wooden fishing nets.", "image": "cochin.webp"},
+            {"name": "Mattancherry Dutch Palace", "slug": "mattancherry-palace", "desc": "16th-century palace featuring Ramayana wall murals.", "image": "cochin.webp"},
+            {"name": "Munnar Hill Station", "slug": "munnar", "desc": "Misty tea garden mountain paradise in the Western Ghats.", "image": "munnar.webp"},
+            {"name": "Alleppey Backwaters", "slug": "alleppey", "desc": "Tranquil palm-fringed canals and houseboat lagoon cruises.", "image": "alapuzha.webp"}
         ],
         "things_to_do": [
             {"title": "Watch Sunset at Fort Kochi", "desc": "Photograph Chinese fishing nets against Arabian Sea sunsets."},
@@ -1780,10 +2054,10 @@ CITIES_SEO_DATA = {
             "Vibhu Travel Hub provides Trivandrum Airport (TRV) transfers, temple tour cabs, and coastal drives to Kovalam, Varkala, Poovar, and Kanyakumari."
         ],
         "places_to_visit": [
-            {"name": "Padmanabhaswamy Temple", "slug": "padmanabhaswamy-temple", "desc": "World wealthiest temple featuring Dravidian gopuram architecture.", "image": "trivandrum.jpg"},
-            {"name": "Kovalam Beach", "slug": "kovalam", "desc": "Crescent beach featuring iconic red-and-white lighthouse.", "image": "kovalam.jpg"},
-            {"name": "Varkala Cliff Beach", "slug": "varkala", "desc": "Red laterite cliffs overlooking the Arabian Sea.", "image": "varkala.jpg"},
-            {"name": "Poovar Backwater Island", "slug": "poovar-island", "desc": "Tranquil estuary where river, sea, and backwaters meet.", "image": "trivandrum.jpg"}
+            {"name": "Padmanabhaswamy Temple", "slug": "padmanabhaswamy-temple", "desc": "World wealthiest temple featuring Dravidian gopuram architecture.", "image": "trivandrum.webp"},
+            {"name": "Kovalam Beach", "slug": "kovalam", "desc": "Crescent beach featuring iconic red-and-white lighthouse.", "image": "kovalam.webp"},
+            {"name": "Varkala Cliff Beach", "slug": "varkala", "desc": "Red laterite cliffs overlooking the Arabian Sea.", "image": "varkala.webp"},
+            {"name": "Poovar Backwater Island", "slug": "poovar-island", "desc": "Tranquil estuary where river, sea, and backwaters meet.", "image": "trivandrum.webp"}
         ],
         "things_to_do": [
             {"title": "Darshan at Padmanabhaswamy", "desc": "Experience morning temple rituals in traditional attire."},
@@ -1815,13 +2089,13 @@ CITIES_SEO_DATA = {
         "about_paragraphs": [
             "Thrissur, recognized as the 'Cultural Capital of Kerala', is a spiritual and heritage epicenter built around a hillock crowned by the ancient Vadakkunnathan Shiva Temple.",
             "The city is globally famous for hosting Thrissur Pooram — Kerala's grandest temple festival featuring caparisoned elephants and traditional percussion ensembles. Nearby lies Athirappilly Waterfalls (the 'Niagara of India') and Guruvayur Sri Krishna Temple.",
-            "Vibhu Travel Hub offers reliable Thrissur cab rentals, Guruvayur pilgrimage taxis, and scenic transfers to Athirappilly Falls and Valparai."
+            "Vibhu Travel Hub offers reliable Thrissur cab rentals, Guruvayur pilgrimage cabs, and scenic transfers to Athirappilly Falls and Valparai."
         ],
         "places_to_visit": [
-            {"name": "Athirappilly Waterfalls", "slug": "athirappilly-falls", "desc": "Majestic 80ft forest waterfall known as the Niagara of India.", "image": "munnar.jpg"},
-            {"name": "Vadakkunnathan Temple", "slug": "vadakkunnathan-temple", "desc": "Ancient hilltop Shiva temple inside the famous Thekkinkadu Maidan.", "image": "munnar.jpg"},
-            {"name": "Guruvayur Temple", "slug": "guruvayur-temple", "desc": "Sacred 500-year-old Sri Krishna pilgrimage temple.", "image": "munnar.jpg"},
-            {"name": "Thrissur Zoo & Museum", "slug": "thrissur-zoo", "desc": "Historic zoological park and Kerala heritage art museum.", "image": "munnar.jpg"}
+            {"name": "Athirappilly Waterfalls", "slug": "athirappilly-falls", "desc": "Majestic 80ft forest waterfall known as the Niagara of India.", "image": "munnar.webp"},
+            {"name": "Vadakkunnathan Temple", "slug": "vadakkunnathan-temple", "desc": "Ancient hilltop Shiva temple inside the famous Thekkinkadu Maidan.", "image": "munnar.webp"},
+            {"name": "Guruvayur Temple", "slug": "guruvayur-temple", "desc": "Sacred 500-year-old Sri Krishna pilgrimage temple.", "image": "munnar.webp"},
+            {"name": "Thrissur Zoo & Museum", "slug": "thrissur-zoo", "desc": "Historic zoological park and Kerala heritage art museum.", "image": "munnar.webp"}
         ],
         "things_to_do": [
             {"title": "Visit Athirappilly Falls", "desc": "Marvel at Kerala's largest cascading forest waterfall."}
@@ -1854,10 +2128,10 @@ CITIES_SEO_DATA = {
             "Vibhu Travel Hub provides Calicut Airport (CCJ) transfers, city food tours, and mountain cab transfers to Wayanad."
         ],
         "places_to_visit": [
-            {"name": "Kozhikode Beach Pier", "slug": "kozhikode-beach", "desc": "Historic beach featuring old colonial piers and evening food stalls.", "image": "alapuzha.jpg"},
-            {"name": "Wayanad Rainforest Hills", "slug": "wayanad", "desc": "Misty tea hills, Edakkal caves, and forest waterfalls.", "image": "wayanad.jpg"},
-            {"name": "Mananchira Square Park", "slug": "mananchira-square", "desc": "Heritage park around a clear blue palace water tank.", "image": "alapuzha.jpg"},
-            {"name": "Beypore Shipbuilding Port", "slug": "beypore-port", "desc": "Ancient port famous for handcrafted wooden Uru trading vessels.", "image": "alapuzha.jpg"}
+            {"name": "Kozhikode Beach Pier", "slug": "kozhikode-beach", "desc": "Historic beach featuring old colonial piers and evening food stalls.", "image": "alapuzha.webp"},
+            {"name": "Wayanad Rainforest Hills", "slug": "wayanad", "desc": "Misty tea hills, Edakkal caves, and forest waterfalls.", "image": "wayanad.webp"},
+            {"name": "Mananchira Square Park", "slug": "mananchira-square", "desc": "Heritage park around a clear blue palace water tank.", "image": "alapuzha.webp"},
+            {"name": "Beypore Shipbuilding Port", "slug": "beypore-port", "desc": "Ancient port famous for handcrafted wooden Uru trading vessels.", "image": "alapuzha.webp"}
         ],
         "things_to_do": [
             {"title": "Taste Kozhikode Biryani", "desc": "Savor authentic Malabar dum biryani and Kozhikode Halwa."}
@@ -1887,13 +2161,13 @@ CITIES_SEO_DATA = {
         "about_paragraphs": [
             "Bangalore (Bengaluru), officially known as the 'Garden City of India' and the Silicon Valley of Asia, is Karnataka's cosmopolitan capital situated on the Deccan Plateau at an elevation of over 900 meters.",
             "Known for its year-round pleasant climate, Bangalore blends royal heritage like Bangalore Palace and Tipu Sultan's Summer Palace with sprawling green oases like Lalbagh Botanical Garden and Cubbon Park.",
-            "Vibhu Travel Hub provides 24/7 airport taxi transfers at Kempegowda International Airport (BLR), corporate car rentals, and weekend outstation cabs to Mysore, Coorg, Ooty, Hampi, and Gokarna."
+            "Vibhu Travel Hub provides 24/7 airport cab transfers at Kempegowda International Airport (BLR), corporate car rentals, and weekend outstation cabs to Mysore, Coorg, Ooty, Hampi, and Gokarna."
         ],
         "places_to_visit": [
-            {"name": "Bangalore Palace", "slug": "bangalore-palace", "desc": "19th-century royal palace inspired by England's Windsor Castle.", "image": "bangalore.jpg"},
-            {"name": "Lalbagh Botanical Garden", "slug": "lalbagh-garden", "desc": "240-acre botanical garden featuring 1890 Glass House.", "image": "bangalore.jpg"},
-            {"name": "Hampi UNESCO Ruins", "slug": "hampi", "desc": "14th-century Vijayanagara Empire stone temples and boulder hills.", "image": "hampi.jpg"},
-            {"name": "Gokarna Om Beach", "slug": "gokarna", "desc": "Tranquil coastal town with cliffside beaches and Mahabaleshwar Temple.", "image": "gokarnas.png"}
+            {"name": "Bangalore Palace", "slug": "bangalore-palace", "desc": "19th-century royal palace inspired by England's Windsor Castle.", "image": "bangalore.webp"},
+            {"name": "Lalbagh Botanical Garden", "slug": "lalbagh-garden", "desc": "240-acre botanical garden featuring 1890 Glass House.", "image": "bangalore.webp"},
+            {"name": "Hampi UNESCO Ruins", "slug": "hampi", "desc": "14th-century Vijayanagara Empire stone temples and boulder hills.", "image": "Hampis.webp"},
+            {"name": "Gokarna Om Beach", "slug": "gokarna", "desc": "Tranquil coastal town with cliffside beaches and Mahabaleshwar Temple.", "image": "gokarnas.webp"}
         ],
         "things_to_do": [
             {"title": "Stroll Lalbagh Glass House", "desc": "Explore exotic plant species and annual flower shows."},
@@ -1918,20 +2192,21 @@ CITIES_SEO_DATA = {
         "slug": "mysore",
         "state_name": "Karnataka",
         "state_slug": "karnataka",
-        "h1": "Mysore Travel Guide",
-        "title": "Mysore Travel Guide & Places to Visit | Vibhu Travel Hub",
-        "description": "Explore Mysore travel guide covering Mysore Palace, Chamundi Hill, Brindavan Gardens, travel tips, and FAQs.",
+        "h1": "Mysore Tour from Coimbatore – Explore the Royal City",
+        "title": "Coimbatore to Mysore Cab & Tour Package | Vibhu Travel Hub",
+        "description": "Book Coimbatore to Mysore cab and tour packages with Vibhu Travel Hub. Explore Mysore Palace, Chamundi Hills, Brindavan Gardens and more.",
+        "tagline": "Plan Your Mysore Tour from Coimbatore with Comfortable Cabs & Travel Services",
         "about": "Mysore (Mysuru), the Royal City of Karnataka, is celebrated for the magnificent Mysore Palace, Chamundi Hill Temple, silk saris, and Mysore Pak sweets.",
         "about_paragraphs": [
             "Mysore (Mysuru), known as the 'Heritage City of Karnataka', served as the royal capital of the Wodeyar dynasty for over six centuries. Nestled at the base of Chamundi Hills, Mysore is renowned for grand palaces, sandalwood, and silk.",
             "The center of attraction is the majestic Mysore Palace (Amba Vilas), which dazzles visitors when lit by nearly 100,000 light bulbs every Sunday evening. Other key spots include Chamundeshwari Temple and Brindavan Gardens.",
-            "Vibhu Travel Hub provides comfortable Mysore city sightseeing cabs, Bengaluru-Mysore expressway transfers, and outstation trips to Coorg, Kabini, and Wayanad."
+            "Vibhu Travel Hub provides comfortable Coimbatore to Mysore cab, Tempo Traveller and outstation travel options for family trips, group tours and Mysore holidays."
         ],
         "places_to_visit": [
-            {"name": "Mysore Palace (Amba Vilas)", "slug": "mysore-palace", "desc": "Grand royal residence famous for Sunday night light illuminations.", "image": "mysore.jpg"},
-            {"name": "Chamundeshwari Hill Temple", "slug": "chamundi-hill", "desc": "Hilltop temple overlooking Mysore city with giant stone Nandi.", "image": "mysore.jpg"},
-            {"name": "Kabini River Safari", "slug": "kabini", "desc": "Premier tiger and leopard wildlife sanctuary along Kabini River.", "image": "kabini.jpg"},
-            {"name": "Brindavan Gardens", "slug": "brindavan-gardens", "desc": "Terraced gardens with illuminated dancing musical fountains.", "image": "mysore.jpg"}
+            {"name": "Mysore Palace (Amba Vilas)", "slug": "mysore-palace", "desc": "Grand royal residence famous for Sunday night light illuminations.", "image": "mysore.webp"},
+            {"name": "Chamundeshwari Hill Temple", "slug": "chamundi-hill", "desc": "Hilltop temple overlooking Mysore city with giant stone Nandi.", "image": "mysore.webp"},
+            {"name": "Kabini River Safari", "slug": "kabini", "desc": "Premier tiger and leopard wildlife sanctuary along Kabini River.", "image": "kabinis.webp"},
+            {"name": "Brindavan Gardens", "slug": "brindavan-gardens", "desc": "Terraced gardens with illuminated dancing musical fountains.", "image": "mysore.webp"}
         ],
         "things_to_do": [
             {"title": "Watch Sunday Palace Lighting", "desc": "Witness 100,000 electric bulbs illuminate the palace at 7:00 PM."}
@@ -1954,20 +2229,21 @@ CITIES_SEO_DATA = {
         "slug": "coorg",
         "state_name": "Karnataka",
         "state_slug": "karnataka",
-        "h1": "Coorg Travel Guide",
-        "title": "Coorg Travel Guide & Tourist Places | Vibhu Travel Hub",
-        "description": "Explore Coorg travel guide covering Abbey Falls, Raja's Seat, coffee estate homestays, travel tips, and FAQs.",
+        "h1": "Coorg Tour from Coimbatore – Explore the Scotland of Karnataka",
+        "title": "Coimbatore to Coorg Cab & Tour Package | Vibhu Travel Hub",
+        "description": "Book Coimbatore to Coorg cab and tour packages with Vibhu Travel Hub. Explore coffee plantations, waterfalls, Abbey Falls, Raja's Seat and more.",
+        "tagline": "Plan Your Coorg Tour from Coimbatore with Comfortable Cabs & Travel Services",
         "about": "Coorg (Kodagu), known as the 'Scotland of India', is an emerald hill district in Karnataka famous for coffee plantations, Abbey Falls, Raja's Seat, and Kodava hospitality.",
         "about_paragraphs": [
             "Coorg (Kodagu), fondly called the 'Scotland of India', is an emerald hill district nestled along the eastern slopes of the Western Ghats in Karnataka. Famous for blanketed mist, fragrant coffee plantations, and warm Kodava hospitality.",
             "Visitors flock to Coorg to admire Abbey Falls cascading through spice estates, watch sunsets at Raja's Seat, feed elephants at Dubare Elephant Camp, and visit the Golden Temple at Namdroling Monastery.",
-            "Vibhu Travel Hub provides comfortable outstation cabs from Mysore, Bangalore, and Mangalore directly to your Coorg resort or coffee estate homestay."
+            "Vibhu Travel Hub provides comfortable Coimbatore to Coorg cab, Tempo Traveller and outstation travel options for family trips, group tours and Coorg holidays."
         ],
         "places_to_visit": [
-            {"name": "Abbey Falls", "slug": "abbey-falls", "desc": "Cascading waterfall nestled amidst private coffee and spice estates.", "image": "coorg.jpg"},
-            {"name": "Raja's Seat Viewpoint", "slug": "rajas-seat", "desc": "Seasonal garden viewpoint offering sunset vistas over misty valleys.", "image": "coorg.jpg"},
-            {"name": "Dubare Elephant Camp", "slug": "dubare-elephant-camp", "desc": "Elephant bathing and feeding camp along the Kaveri River.", "image": "coorg.jpg"},
-            {"name": "Namdroling Monastery", "slug": "namdroling-monastery", "desc": "Golden Temple Tibetan Buddhist monastery in Bylakuppe.", "image": "coorg.jpg"}
+            {"name": "Abbey Falls", "slug": "abbey-falls", "desc": "Cascading waterfall nestled amidst private coffee and spice estates.", "image": "coorg.webp"},
+            {"name": "Raja's Seat Viewpoint", "slug": "rajas-seat", "desc": "Seasonal garden viewpoint offering sunset vistas over misty valleys.", "image": "coorg.webp"},
+            {"name": "Dubare Elephant Camp", "slug": "dubare-elephant-camp", "desc": "Elephant bathing and feeding camp along the Kaveri River.", "image": "coorg.webp"},
+            {"name": "Namdroling Monastery", "slug": "namdroling-monastery", "desc": "Golden Temple Tibetan Buddhist monastery in Bylakuppe.", "image": "coorg.webp"}
         ],
         "things_to_do": [
             {"title": "Coffee Plantation Walk", "desc": "Walk amidst aromatic coffee blossoms and pepper vines."},
@@ -2001,10 +2277,10 @@ CITIES_SEO_DATA = {
             "Vibhu Travel Hub offers outstation cab packages from Bangalore, Mysore, and Mangalore for seamless mountain road trips in Chikmagalur."
         ],
         "places_to_visit": [
-            {"name": "Mullayanagiri Peak", "slug": "mullayanagiri-peak", "desc": "Highest mountain peak in Karnataka at 1,930 meters with cloud views.", "image": "gokarnas.png"},
-            {"name": "Baba Budangiri Hills", "slug": "baba-budangiri", "desc": "Sacred mountain range famous for the earliest coffee plantations.", "image": "gokarnas.png"},
-            {"name": "Hebbe Waterfalls", "slug": "hebbe-falls", "desc": "Two-tiered forest waterfall inside a coffee estate reserve.", "image": "gokarnas.png"},
-            {"name": "Bhadra Wildlife Sanctuary", "slug": "bhadra-sanctuary", "desc": "Protected tiger reserve and teak forest safari park.", "image": "gokarnas.png"}
+            {"name": "Mullayanagiri Peak", "slug": "mullayanagiri-peak", "desc": "Highest mountain peak in Karnataka at 1,930 meters with cloud views.", "image": "gokarnas.webp"},
+            {"name": "Baba Budangiri Hills", "slug": "baba-budangiri", "desc": "Sacred mountain range famous for the earliest coffee plantations.", "image": "gokarnas.webp"},
+            {"name": "Hebbe Waterfalls", "slug": "hebbe-falls", "desc": "Two-tiered forest waterfall inside a coffee estate reserve.", "image": "gokarnas.webp"},
+            {"name": "Bhadra Wildlife Sanctuary", "slug": "bhadra-sanctuary", "desc": "Protected tiger reserve and teak forest safari park.", "image": "gokarnas.webp"}
         ],
         "things_to_do": [
             {"title": "Trek Mullayanagiri Peak", "desc": "Hike to the highest peak for panoramic cloud views."}

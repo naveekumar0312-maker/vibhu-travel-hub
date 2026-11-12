@@ -1,16 +1,30 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Outstation Cab Booking & Tour Packages | Vibhu Travel Hub{% endblock %}
-{% block description %}Book outstation cabs and customized tour packages across Tamil Nadu, Kerala, and Karnataka with transparent per-km pricing and expert drivers.{% endblock %}
+{% block meta_title %}
+Outstation Cab Service from Coimbatore | Vibhu Travel Hub
+
+<div class="text-center my-4">
+    <a href="{% url 'routes_index' %}"
+       class="btn btn-outline-danger rounded-pill px-4">
+        Explore Cab Routes from Coimbatore
+        <i class="bi bi-arrow-right ms-1"></i>
+    </a>
+</div>
+
+{% endblock %}
+
+{% block meta_description %}
+Book outstation cab services from Coimbatore with Vibhu Travel Hub. Comfortable cabs for Tamil Nadu, Kerala, Karnataka and long-distance travel.
+{% endblock %}
 {% block keywords %}Innova rental in Coimbatore, Innova Crysta rental in Chennai, Force Urbania rental in Coimbatore, Tempo Traveller rental in Madurai{% endblock %}
 {% block og_title %}Outstation Cab Booking & Tour Packages | Vibhu Travel Hub{% endblock %}
 {% block og_description %}Book outstation cabs and customized tour packages across Tamil Nadu, Kerala, and Karnataka with transparent per-km pricing and expert drivers.{% endblock %}
-{% block og_image %}https://vibhutravelhub.com{% static 'images/services/outstation-hero.jpg' %}{% endblock %}
+{% block og_image %}https://vibhutravelhub.com{% static 'images/services/outstation-hero.webp' %}{% endblock %}
 
 {% block twitter_title %}Outstation Cab Booking & Tour Packages | Vibhu Travel Hub{% endblock %}
 {% block twitter_description %}Book outstation cabs and customized tour packages across Tamil Nadu, Kerala, and Karnataka with transparent per-km pricing and expert drivers.{% endblock %}
-{% block twitter_image %}https://vibhutravelhub.com{% static 'images/services/outstation-hero.jpg' %}{% endblock %}
+{% block twitter_image %}https://vibhutravelhub.com{% static 'images/services/outstation-hero.webp' %}{% endblock %}
 
 {% block schema %}
 <script type="application/ld+json">
@@ -21,11 +35,19 @@
   "provider": {
     "@type": "TravelAgency",
     "name": "Vibhu Travel Hub",
-    "url": "https://vibhutravelhub.com"
+    "url": "https://vibhutravelhub.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Joyce Villa Building, 87, Grey Town",
+      "addressLocality": "Coimbatore",
+      "addressRegion": "Tamil Nadu",
+      "postalCode": "641018",
+      "addressCountry": "IN"
+    }
   },
   "areaServed": ["Coimbatore", "Chennai", "Madurai", "Trichy", "Kochi", "Bangalore"],
   "description": "Outstation cab rentals, round trips, and customized South India tour packages with professional drivers.",
-  "image": "https://vibhutravelhub.com/static/images/services/outstation-hero.jpg"
+  "image": "https://vibhutravelhub.com/static/images/services/outstation-hero.webp"
 }
 </script>
 <script type="application/ld+json">
@@ -57,7 +79,6 @@
 <!-- Google Fonts for Cursive Script -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap" rel="stylesheet">
 
 <style>
     .vth-script-eyebrow {
@@ -126,21 +147,21 @@
     1. HERO SECTION (EXACT MATCH FOR TAMIL NADU MASTER REFERENCE)
 ========================================== -->
 <section class="vth-hero-tn py-5">
-    <img src="{% static 'images/services/outstation-hero.jpg' %}" alt="Premium Outstation Tours" class="vth-hero-tn-bg">
+    <img src="{% static 'images/services/outstation-hero.webp' %}" alt="Outstation Cab Rental from Coimbatore" class="vth-hero-tn-bg">
     <div class="vth-hero-tn-overlay"></div>
 
     <div class="container position-relative z-3 my-auto">
         <div class="row align-items-center">
             <div class="col-lg-7 col-md-10">
-                <span class="vth-hero-script reveal-down d-block mb-1" style="color: #FF5A5F; font-size: 1.8rem; font-family: 'Caveat', cursive, sans-serif;">PREMIUM OUTSTATION TRAVEL</span>
+                <span class="vth-hero-script reveal-down d-block mb-1" style="color: #FF5A5F; font-size: 1.8rem; font-family: 'Caveat', cursive, sans-serif;">OUTSTATION CAB RENTAL</span>
                 <h1 class="hero-main-title text-white mb-3 reveal-left" style="font-size: 3.6rem; font-weight: 800; line-height: 1.1; letter-spacing: -1.2px;">
-                    Premium Outstation Tours
+                    Outstation Cab Rental from Coimbatore
                 </h1>
                 <p class="text-white-50 mb-4 reveal-left" style="font-size: 1.08rem; line-height: 1.65; color: rgba(255, 255, 255, 0.9) !important; max-width: 620px;">
                     Travel comfortably across South India with experienced drivers, well-maintained vehicles and flexible one-way and round-trip travel options.
                 </p>
                 <div class="d-flex align-items-center gap-3 flex-wrap reveal-up">
-                    <button class="btn btn-danger rounded-pill px-4 py-2.5 fw-bold text-white shadow-sm border-0 d-inline-flex align-items-center gap-2" style="background-color: #E31E24; font-size: 0.95rem;" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Premium Outstation Tours">
+                    <button class="btn btn-danger rounded-pill px-4 py-2.5 fw-bold text-white shadow-sm border-0 d-inline-flex align-items-center gap-2" style="background-color: #E31E24; font-size: 0.95rem;" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Outstation Cab Rental from Coimbatore">
                         Get a Quote <i class="bi bi-arrow-right"></i>
                     </button>
                     <a href="#about" class="btn btn-light rounded-pill px-4 py-2.5 fw-bold d-inline-flex align-items-center gap-2" style="font-size: 0.95rem; color: #1F2937; background: #FFFFFF; border: 1px solid rgba(255, 255, 255, 0.9);">
@@ -181,7 +202,7 @@
                     <div class="d-flex align-items-center gap-2.5">
                         <i class="bi bi-car-front text-danger fs-3"></i>
                         <div>
-                            <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">Luxury Fleet</h6>
+                            <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">Outstation Cab Rental Fleet</h6>
                             <span class="text-muted d-block" style="font-size: 0.75rem;">Well maintained vehicles</span>
                         </div>
                     </div>
@@ -223,7 +244,7 @@
         <div class="row align-items-center g-5">
             <div class="col-lg-6 vth-anim-left">
                 <div class="position-relative pe-lg-3">
-                    <img src="{% static 'images/services/outstations.jpg' %}" alt="Outstation Road Trip" class="story-img-main img-fluid">
+                    <img src="{% static 'images/services/outstations.webp' %}" alt="Outstation Road Trip" class="story-img-main img-fluid">
                     
                     <div class="story-badge-exp d-flex align-items-center gap-3">
                         <div class="bg-white text-danger rounded-circle d-flex align-items-center justify-content-center shadow-sm" style="width: 48px; height: 48px; font-size: 1.4rem;">
@@ -252,6 +273,15 @@
                             <p class="text-dark fw-medium mb-0 fs-6 fst-italic">Our drivers are route-experts across Tamil Nadu, Kerala, and Karnataka, and are fluent in multiple regional languages.</p>
                         </div>
                     </div>
+
+                    <p class="mt-4 mb-0">
+                        For city travel, airport transfers and local journeys within Coimbatore,
+                        explore our
+                        <a href="{% url 'local_cab_service' %}" class="text-danger fw-semibold text-decoration-none">
+                            Cab Rental in Coimbatore
+                        </a>
+                        service.
+                    </p>
                 </div>
             </div>
         </div>
@@ -478,8 +508,8 @@ document.addEventListener('DOMContentLoaded', function() {
                                         <span class="vth-route-text">Coimbatore to Bangalore cab</span>
                                         <i class="bi bi-arrow-right vth-route-arrow"></i>
                                     </a>
-                                    <a href="#enquiryModal" data-bs-toggle="modal" data-destination="Coimbatore airport to Ooty taxi" class="vth-route-item">
-                                        <span class="vth-route-text">Coimbatore airport to Ooty taxi</span>
+                                    <a href="#enquiryModal" data-bs-toggle="modal" data-destination="Coimbatore airport to Ooty cab" class="vth-route-item">
+                                        <span class="vth-route-text">Coimbatore airport to Ooty cab</span>
                                         <i class="bi bi-arrow-right vth-route-arrow"></i>
                                     </a>
                                     <a href="#enquiryModal" data-bs-toggle="modal" data-destination="Coimbatore airport to Isha Yoga Center cab" class="vth-route-item">
@@ -524,8 +554,8 @@ document.addEventListener('DOMContentLoaded', function() {
                                         <span class="vth-route-text">Madurai to Munnar cab</span>
                                         <i class="bi bi-arrow-right vth-route-arrow"></i>
                                     </a>
-                                    <a href="#enquiryModal" data-bs-toggle="modal" data-destination="Madurai airport to Rameswaram taxi" class="vth-route-item">
-                                        <span class="vth-route-text">Madurai airport to Rameswaram taxi</span>
+                                    <a href="#enquiryModal" data-bs-toggle="modal" data-destination="Madurai airport to Rameswaram cab" class="vth-route-item">
+                                        <span class="vth-route-text">Madurai airport to Rameswaram cab</span>
                                         <i class="bi bi-arrow-right vth-route-arrow"></i>
                                     </a>
                                     <a href="#enquiryModal" data-bs-toggle="modal" data-destination="Madurai Meenakshi temple tour cab" class="vth-route-item">
@@ -578,8 +608,8 @@ document.addEventListener('DOMContentLoaded', function() {
                                         <span class="vth-route-text">Chennai to Kodaikanal cab</span>
                                         <i class="bi bi-arrow-right vth-route-arrow"></i>
                                     </a>
-                                    <a href="#enquiryModal" data-bs-toggle="modal" data-destination="Chennai airport to Pondicherry taxi" class="vth-route-item">
-                                        <span class="vth-route-text">Chennai airport to Pondicherry taxi</span>
+                                    <a href="#enquiryModal" data-bs-toggle="modal" data-destination="Chennai airport to Pondicherry cab" class="vth-route-item">
+                                        <span class="vth-route-text">Chennai airport to Pondicherry cab</span>
                                         <i class="bi bi-arrow-right vth-route-arrow"></i>
                                     </a>
                                     <a href="#enquiryModal" data-bs-toggle="modal" data-destination="Chennai airport to Tirupati cab" class="vth-route-item">
@@ -636,8 +666,8 @@ document.addEventListener('DOMContentLoaded', function() {
                                         <span class="vth-route-text">Bangalore airport to Mysore cab</span>
                                         <i class="bi bi-arrow-right vth-route-arrow"></i>
                                     </a>
-                                    <a href="#enquiryModal" data-bs-toggle="modal" data-destination="Bangalore airport to Coorg taxi" class="vth-route-item">
-                                        <span class="vth-route-text">Bangalore airport to Coorg taxi</span>
+                                    <a href="#enquiryModal" data-bs-toggle="modal" data-destination="Bangalore airport to Coorg cab" class="vth-route-item">
+                                        <span class="vth-route-text">Bangalore airport to Coorg cab</span>
                                         <i class="bi bi-arrow-right vth-route-arrow"></i>
                                     </a>
                                     <a href="#enquiryModal" data-bs-toggle="modal" data-destination="Bangalore to Mysore Tempo Traveller" class="vth-route-item">
@@ -670,8 +700,8 @@ document.addEventListener('DOMContentLoaded', function() {
                                         <span class="vth-route-text">Kochi to Wayanad cab</span>
                                         <i class="bi bi-arrow-right vth-route-arrow"></i>
                                     </a>
-                                    <a href="#enquiryModal" data-bs-toggle="modal" data-destination="Cochin airport to Munnar taxi" class="vth-route-item">
-                                        <span class="vth-route-text">Cochin airport to Munnar taxi</span>
+                                    <a href="#enquiryModal" data-bs-toggle="modal" data-destination="Cochin airport to Munnar cab" class="vth-route-item">
+                                        <span class="vth-route-text">Cochin airport to Munnar cab</span>
                                         <i class="bi bi-arrow-right vth-route-arrow"></i>
                                     </a>
                                     <a href="#enquiryModal" data-bs-toggle="modal" data-destination="Kochi to Alleppey cab" class="vth-route-item">

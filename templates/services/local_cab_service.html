@@ -1,0 +1,692 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta_title %}Cab Rental in Coimbatore | Car Rental & Outstation Cabs{% endblock %}
+
+{% block meta_description %}Book a reliable cab rental in Coimbatore for local travel and outstation trips. Innova, Crysta, Ertiga, sedan and SUV car rental options available.{% endblock %}
+{% block keywords %}Innova rental in Coimbatore, Innova Crysta rental in Coimbatore, Ertiga rental in Coimbatore, sedan car rental in Coimbatore, SUV car rental in Coimbatore{% endblock %}
+{% block og_title %}Cab Rental in Coimbatore | Car Rental & Outstation Cabs{% endblock %}
+{% block og_description %}Book local cab and car rental in Coimbatore, Madurai & Chennai with Vibhu Travel Hub. Sedans, SUVs, Innova Crysta with professional drivers at best rates.{% endblock %}
+{% block og_image %}https://vibhutravelhub.com{% static 'images/home-optimized/cab-service-hero.webp' %}{% endblock %}
+
+{% block twitter_title %}Cab Rental in Coimbatore | Car Rental & Outstation Cabs{% endblock %}
+{% block twitter_description %}Book local cab and car rental in Coimbatore, Madurai & Chennai with Vibhu Travel Hub. Sedans, SUVs, Innova Crysta with professional drivers at best rates.{% endblock %}
+{% block twitter_image %}https://vibhutravelhub.com{% static 'images/home-optimized/cab-service-hero.webp' %}{% endblock %}
+
+{% block schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Cab Rental in Coimbatore",
+  "provider": {
+    "@type": "TravelAgency",
+    "name": "Vibhu Travel Hub",
+    "url": "https://vibhutravelhub.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Joyce Villa Building, 87, Grey Town",
+      "addressLocality": "Coimbatore",
+      "addressRegion": "Tamil Nadu",
+      "postalCode": "641018",
+      "addressCountry": "IN"
+    }
+  },
+  "areaServed": ["Coimbatore", "Chennai", "Madurai", "Trichy"],
+  "description": "Cab rental, hourly car rentals, and city cab bookings in Coimbatore, Chennai, Madurai, and Trichy.",
+  "image": "https://vibhutravelhub.com/static/images/home-optimized/cab-service-hero.webp"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "https://vibhutravelhub.com/"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "Services",
+    "item": "https://vibhutravelhub.com/#services"
+  },{
+    "@type": "ListItem",
+    "position": 3,
+    "name": "Cab Rental in Coimbatore",
+    "item": "https://vibhutravelhub.com/services/local-cab-service/"
+  }]
+}
+</script>
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/service.css' %}?v={{ STATIC_VERSION }}">
+<!-- Google Fonts for Cursive Script -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<style>
+    .vth-script-eyebrow {
+        font-family: 'Caveat', cursive, sans-serif;
+        color: #E31E24;
+        font-size: 1.8rem;
+        line-height: 1;
+        display: block;
+        margin-bottom: 0.3rem;
+    }
+
+    .story-img-main {
+        border-radius: 20px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+        width: 100%;
+        height: 380px;
+        object-fit: cover;
+    }
+
+    .story-badge-exp {
+        position: absolute;
+        bottom: 20px;
+        left: -10px;
+        background: #E31E24;
+        color: #FFFFFF;
+        padding: 16px 22px;
+        border-radius: 16px;
+        box-shadow: 0 12px 30px rgba(227, 30, 36, 0.35);
+        z-index: 3;
+    }
+
+    /* Directional Animations */
+    .vth-anim-left, .vth-anim-right, .vth-anim-up, .vth-anim-down {
+        opacity: 0;
+        transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        will-change: opacity, transform;
+    }
+    .vth-anim-left { transform: translateX(-40px); }
+    .vth-anim-right { transform: translateX(40px); }
+    .vth-anim-up { transform: translateY(40px); }
+    .vth-anim-down { transform: translateY(-40px); }
+
+    .vth-anim-left.vth-animated,
+    .vth-anim-right.vth-animated,
+    .vth-anim-up.vth-animated,
+    .vth-anim-down.vth-animated {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+
+    /* Local Cab Hero Image & Overlay Presentation */
+    .vth-hero-tn-bg {
+        object-fit: cover !important;
+        object-position: center center !important;
+    }
+
+    .vth-hero-tn-overlay {
+        background: linear-gradient(
+            90deg,
+            rgba(5, 15, 30, 0.58) 0%,
+            rgba(5, 15, 30, 0.32) 42%,
+            rgba(5, 15, 30, 0.08) 100%
+        ) !important;
+    }
+
+    @media (max-width: 767.98px) {
+        .vth-hero-tn-bg {
+            object-position: 65% center !important;
+        }
+
+        .vth-hero-tn-overlay {
+            background: linear-gradient(
+                180deg,
+                rgba(5, 15, 30, 0.48) 0%,
+                rgba(5, 15, 30, 0.25) 55%,
+                rgba(5, 15, 30, 0.10) 100%
+            ) !important;
+        }
+
+        .story-img-main {
+            height: 250px !important;
+        }
+        .story-badge-exp {
+            left: 10px !important;
+            bottom: 10px !important;
+            padding: 10px 16px !important;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- ==========================================
+    1. HERO SECTION (EXACT MATCH FOR TAMIL NADU MASTER REFERENCE)
+========================================== -->
+<section class="vth-hero-tn py-5">
+    <img src="{% static 'images/home-optimized/cab-service-hero.webp' %}" alt="Cab Rental in Coimbatore" class="vth-hero-tn-bg">
+    <div class="vth-hero-tn-overlay"></div>
+
+    <div class="container position-relative z-3 my-auto">
+        <div class="row align-items-center">
+            <div class="col-lg-7 col-md-10">
+                <span class="vth-hero-script reveal-down d-block mb-1" style="color: #FF5A5F; font-size: 1.8rem; font-family: 'Caveat', cursive, sans-serif;">CAB RENTAL IN COIMBATORE</span>
+                <h1 class="hero-main-title text-white mb-3 reveal-left" style="font-size: 3.6rem; font-weight: 800; line-height: 1.1; letter-spacing: -1.2px;">
+                    Cab Rental in Coimbatore
+                </h1>
+                <p class="text-white-50 mb-4 reveal-left" style="font-size: 1.08rem; line-height: 1.65; color: rgba(255, 255, 255, 0.9) !important; max-width: 620px;">
+                    Comfortable and reliable cab rentals for city travel, business visits, shopping, family trips and everyday journeys across Coimbatore, Chennai, Madurai and Trichy.
+                </p>
+                <div class="d-flex align-items-center gap-3 flex-wrap reveal-up">
+                    <button class="btn btn-danger rounded-pill px-4 py-2.5 fw-bold text-white shadow-sm border-0 d-inline-flex align-items-center gap-2" style="background-color: #E31E24; font-size: 0.95rem;" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Cab Rental in Coimbatore">
+                        Get a Quote <i class="bi bi-arrow-right"></i>
+                    </button>
+                    <a href="#about" class="btn btn-light rounded-pill px-4 py-2.5 fw-bold d-inline-flex align-items-center gap-2" style="font-size: 0.95rem; color: #1F2937; background: #FFFFFF; border: 1px solid rgba(255, 255, 255, 0.9);">
+                        Explore Cab Rental <i class="bi bi-compass"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+    2. SERVICE HIGHLIGHTS STRIP (EXACT MATCH FOR TAMIL NADU MASTER REFERENCE)
+========================================== -->
+<section class="py-3 bg-white border-bottom">
+    <div class="container">
+        <div class="p-3.5 rounded-4 bg-white border border-light-subtle shadow-sm reveal-up">
+            <div class="row g-3 text-start align-items-center">
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="d-flex align-items-center gap-2.5">
+                        <i class="bi bi-shield-check text-danger fs-3"></i>
+                        <div>
+                            <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">Safe & Secure</h6>
+                            <span class="text-muted d-block" style="font-size: 0.75rem;">Your safety is our priority</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="d-flex align-items-center gap-2.5">
+                        <i class="bi bi-person-check text-danger fs-3"></i>
+                        <div>
+                            <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">Professional Drivers</h6>
+                            <span class="text-muted d-block" style="font-size: 0.75rem;">Experienced & verified</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="d-flex align-items-center gap-2.5">
+                        <i class="bi bi-car-front text-danger fs-3"></i>
+                        <div>
+                            <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">Cab Rental Fleet</h6>
+                            <span class="text-muted d-block" style="font-size: 0.75rem;">Well maintained vehicles</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="d-flex align-items-center gap-2.5">
+                        <i class="bi bi-clock-history text-danger fs-3"></i>
+                        <div>
+                            <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">24/7 Support</h6>
+                            <span class="text-muted d-block" style="font-size: 0.75rem;">Always available for you</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="d-flex align-items-center gap-2.5">
+                        <i class="bi bi-receipt text-danger fs-3"></i>
+                        <div>
+                            <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">Best Price</h6>
+                            <span class="text-muted d-block" style="font-size: 0.75rem;">Affordable & transparent</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="d-flex align-items-center gap-2.5">
+                        <i class="bi bi-airplane text-danger fs-3"></i>
+                        <div>
+                            <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">Airport Transfer</h6>
+                            <span class="text-muted d-block" style="font-size: 0.75rem;">On-time pickup & drop</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="about" class="py-5 bg-white overflow-hidden">
+    <div class="container py-lg-3">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6 vth-anim-left">
+                <div class="position-relative pe-lg-3">
+                    <img src="{% static 'images/home-optimized/cab-service-hero.webp' %}" alt="Cab Rental in Coimbatore" class="story-img-main img-fluid">
+                    
+                    <div class="story-badge-exp d-flex align-items-center gap-3">
+                        <div class="bg-white text-danger rounded-circle d-flex align-items-center justify-content-center shadow-sm" style="width: 48px; height: 48px; font-size: 1.4rem;">
+                            <i class="bi bi-car-front-fill"></i>
+                        </div>
+                        <div>
+                            <div class="fw-extrabold fs-4 lh-1 text-white">1,000+</div>
+                            <div class="small text-white-50 fw-medium">Happy Rides</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 vth-anim-right">
+                <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block mb-1" style="color: #E31E24; font-size: 0.8rem; letter-spacing: 1.5px;">ABOUT CAB RENTAL</span>
+                <h2 class="fw-extrabold text-dark mb-3 vth-anim-right" style="font-size: 2.4rem; letter-spacing: -0.6px; line-height: 1.2;">
+                    Cab Rental <span class="text-danger">in Coimbatore</span>
+                </h2>
+                <div class="about-content text-secondary fs-6 lh-lg vth-anim-up" style="color: #475569;">
+                    <p>Vibhu Travel Hub makes local travel simple with comfortable cars, professional drivers and flexible booking options. Based in Coimbatore, we provide dependable cab rentals for city rides, shopping, business visits, family outings, sightseeing and short-distance travel. You can choose a suitable sedan, SUV or MPV and book a vehicle with a driver according to your trip requirements. For longer journeys, our cab rental can also be combined with outstation travel plans and hourly rentals.</p>
+
+                    <p>Airport transfers are available for travellers who need convenient pickup and drop-off arrangements, including journeys connected with Coimbatore International Airport. We also support local and intercity travel requirements across Tamil Nadu and neighbouring South Indian destinations, subject to vehicle and driver availability. Whether you need a quick city transfer, a full-day vehicle, or a comfortable car with a professional driver, our team can help plan the right option for your journey.</p>
+
+                    <div class="p-4 bg-light rounded-4 border-start border-4 border-danger mt-4 shadow-sm">
+                        <div class="d-flex align-items-start gap-3">
+                            <i class="bi bi-shield-check text-danger opacity-75" style="font-size: 2rem; line-height: 1;"></i>
+                            <p class="text-dark fw-medium mb-0 fs-6 fst-italic">Safety is our priority. All our vehicles are GPS-enabled, sanitized, and driven by verified professional chauffeurs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const animEls = document.querySelectorAll('.vth-anim-left, .vth-anim-right, .vth-anim-up, .vth-anim-down');
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('vth-animated');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        animEls.forEach(el => observer.observe(el));
+    } else {
+        animEls.forEach(el => el.classList.add('vth-animated'));
+    }
+});
+</script>
+
+        <!-- Car Options & City Grid -->
+        <div class="row g-4 mt-5">
+            <div class="col-12 text-center vth-card-anim-up">
+                <h3 class="fw-bold mb-2">Car Rental & 7 Seater Cab Options in Coimbatore</h3>
+                <p class="text-muted mb-4">
+                    Choose from Innova rental, Innova Crysta rental, Ertiga rental, sedan, SUV and car rental options in Coimbatore. Our tourist car hire options are suitable for local sightseeing, family trips and outstation travel.
+                </p>
+                <p class="text-muted">Choose your preferred vehicle type for local rides and outstation travel</p>
+            </div>
+
+            <div class="col-lg-3 col-md-6 vth-card-anim-left">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-car-front-fill"></i></div>
+                    <h5 class="fw-bold text-dark">Innova & Innova Crysta</h5>
+                    <p class="text-secondary small mb-0">7 seater cabs for rental. Book an <strong>Innova rental in Coimbatore</strong> or an <strong>Innova Crysta rental in Chennai</strong>, Madurai, or Trichy.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 vth-card-anim-up">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-car-front"></i></div>
+                    <h5 class="fw-bold text-dark">Ertiga & 7 Seater</h5>
+                    <p class="text-secondary small mb-0">Budget 7 seater MPVs. Reserve an <strong>Ertiga rental in Coimbatore</strong> or a <strong>7 seater car rental in Chennai</strong>, Trichy, or Madurai.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 vth-card-anim-up">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-speedometer"></i></div>
+                    <h5 class="fw-bold text-dark">Sedan & SUV</h5>
+                    <p class="text-secondary small mb-0">Executive comfort. Book a <strong>sedan car rental in Coimbatore</strong>, Chennai, or an <strong>SUV car rental in Madurai</strong> and Coimbatore.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 vth-card-anim-right">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-gem"></i></div>
+                    <h5 class="fw-bold text-dark">Car Rental Options</h5>
+                    <p class="text-secondary small mb-0">VIP travel & wedding rides. Reserve a <strong>car rental in Coimbatore</strong>, Chennai, Madurai, or Bangalore.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 3. WHY CHOOSE US -->
+<section class="lux-section bg-light py-5">
+    <div class="container py-lg-3">
+        <div class="text-center mb-5 vth-card-anim-up">
+            <span class="text-danger fw-bold text-uppercase tracking-wide">Why Choose Us</span>
+            <h2 class="section-title mt-2">The Vibhu Advantage</h2>
+            <p class="section-subtitle">Comfortable and reliable travel for every journey.</p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6 vth-card-anim-left">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-person-badge"></i></div>
+                    <h5 class="fw-bold mb-3">Professional Drivers</h5>
+                    <p class="text-muted mb-0">Highly trained, verified, and courteous chauffeurs for a safe and smooth journey.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 vth-card-anim-up">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-geo-alt"></i></div>
+                    <h5 class="fw-bold mb-3">GPS Enabled</h5>
+                    <p class="text-muted mb-0">All our vehicles are equipped with live GPS tracking for your safety and peace of mind.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 vth-card-anim-right">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-headset"></i></div>
+                    <h5 class="fw-bold mb-3">24/7 Support</h5>
+                    <p class="text-muted mb-0">Round-the-clock customer assistance to handle your bookings and queries instantly.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 vth-card-anim-left">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-tag"></i></div>
+                    <h5 class="fw-bold mb-3">Affordable Pricing</h5>
+                    <p class="text-muted mb-0">Transparent billing with no hidden charges. Transparent service at competitive rates.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 vth-card-anim-up">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-car-front"></i></div>
+                    <h5 class="fw-bold mb-3">Cab Rental Fleet</h5>
+                    <p class="text-muted mb-0">Choose from a wide range of well-maintained sedans, SUVs, and well-maintained cars.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 vth-card-anim-right">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-shield-check"></i></div>
+                    <h5 class="fw-bold mb-3">Safe Journey</h5>
+                    <p class="text-muted mb-0">Strict safety protocols, sanitized vehicles, and careful driving for your family's safety.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- 5. SERVICE HIGHLIGHTS -->
+<section class="lux-section bg-light">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <h2 class="section-title">Cab Rental in Chennai, Madurai & Tiruchirappalli</h2>
+            <p class="text-muted mb-4">
+                We also provide outstation cab booking from Coimbatore for popular routes including Coimbatore to Ooty, Coimbatore to Munnar and Coimbatore to Kodaikanal. These cab rental options are ideal for families, groups and sightseeing trips.
+            </p>
+            <p class="section-subtitle">Tailored cab solutions for all your local transportation needs.</p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-6 col-md-4 col-lg-2 text-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="p-4 bg-white rounded-4 shadow-sm h-100 feature-card">
+                    <i class="bi bi-airplane fs-1 text-danger mb-3 d-block"></i>
+                    <h6 class="fw-bold mb-0">Airport Pickup</h6>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
+                <div class="p-4 bg-white rounded-4 shadow-sm h-100 feature-card">
+                    <i class="bi bi-train-front fs-1 text-danger mb-3 d-block"></i>
+                    <h6 class="fw-bold mb-0">Railway Pickup</h6>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2 text-center" data-aos="fade-up" data-aos-delay="300">
+                <div class="p-4 bg-white rounded-4 shadow-sm h-100 feature-card">
+                    <i class="bi bi-briefcase fs-1 text-danger mb-3 d-block"></i>
+                    <h6 class="fw-bold mb-0">Corporate Travel</h6>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2 text-center" data-aos="fade-up" data-aos-delay="400">
+                <div class="p-4 bg-white rounded-4 shadow-sm h-100 feature-card">
+                    <i class="bi bi-hearts fs-1 text-danger mb-3 d-block"></i>
+                    <h6 class="fw-bold mb-0">Wedding Cabs</h6>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2 text-center" data-aos="fade-up" data-aos-delay="500">
+                <div class="p-4 bg-white rounded-4 shadow-sm h-100 feature-card">
+                    <i class="bi bi-buildings fs-1 text-danger mb-3 d-block"></i>
+                    <h6 class="fw-bold mb-0">City Sightseeing</h6>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2 text-center" data-aos="fade-up" data-aos-delay="600">
+                <div class="p-4 bg-white rounded-4 shadow-sm h-100 feature-card">
+                    <i class="bi bi-hospital fs-1 text-danger mb-3 d-block"></i>
+                    <h6 class="fw-bold mb-0">Hospital Visits</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 6. BOOKING PROCESS TIMELINE -->
+<section class="lux-section bg-white">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <span class="text-danger fw-bold text-uppercase tracking-wide">Simple Steps</span>
+            <h2 class="section-title mt-2">How to Book Your Cab</h2>
+        </div>
+
+        <div class="booking-timeline">
+            <!-- Step 1 -->
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-icon"><i class="bi bi-telephone"></i></div>
+                <div class="timeline-content">
+                    <h4 class="fw-bold">1. Contact Us</h4>
+                    <p class="text-muted mb-0">Call us or fill out the enquiry form with your pickup and drop location
+                        details.</p>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-icon"><i class="bi bi-check-circle"></i></div>
+                <div class="timeline-content">
+                    <h4 class="fw-bold">2. Confirm Booking</h4>
+                    <p class="text-muted mb-0">Select your preferred vehicle and get an instant, transparent quote.
+                        Confirm to proceed.</p>
+                </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-icon"><i class="bi bi-car-front"></i></div>
+                <div class="timeline-content">
+                    <h4 class="fw-bold">3. Enjoy Your Ride</h4>
+                    <p class="text-muted mb-0">Our chauffeur will arrive at your location on time. Enjoy a comfortable
+                        and safe journey.</p>
+                </div>
+            </div>
+            <!-- Step 4 -->
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-icon"><i class="bi bi-star"></i></div>
+                <div class="timeline-content">
+                    <h4 class="fw-bold">4. Complete & Review</h4>
+                    <p class="text-muted mb-0">Pay seamlessly at the end of your trip and share your valuable feedback
+                        with us.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 7. CHENNAI CAB RENTAL -->
+<section class="lux-section bg-light">
+    <div class="container">
+        <div class="row g-5 align-items-center flex-row-reverse">
+            <div class="col-lg-6" data-aos="fade-left">
+                <img src="{% static 'images/destinations/chennai.webp' %}" alt="Chennai city cab booking"
+                    class="img-fluid rounded-4 shadow-lg w-100" style="height: 400px; object-fit: cover;">
+            </div>
+            <div class="col-lg-6" data-aos="fade-right">
+                <div class="d-inline-block text-danger fw-bold text-uppercase tracking-wide mb-2 small">Outstation
+                    Routes</div>
+                <h2 class="section-title mb-4 fw-bolder text-dark">Cab Rental <span class="text-danger">in Chennai</span></h2>
+                <div class="about-content reveal-right text-secondary fs-6 lh-lg">
+                    <p>Travel comfortably with our dedicated <strong>cab rental in Chennai</strong>. Whether you need
+                        <strong>outstation cabs</strong> or a reliable <strong>one way cab chennai</strong>, Vibhu
+                        Travel Hub ensures a smooth intercity journey.</p>
+                    <p>Need airport connectivity? We provide the best <strong>airport transfer</strong> services for
+                        timely drop-offs and pick-ups. Skip the hassle and enjoy easy <strong>cab booking
+                            chennai</strong> or reserve <strong>cabs in chennai</strong> in advance with our trusted
+                        platform.</p>
+                </div>
+                <button class="btn btn-primary anim-btn rounded-pill px-4 py-2 mt-3 shadow-sm" data-bs-toggle="modal"
+                    data-bs-target="#enquiryModal" data-destination="Chennai Route">Book Chennai Cab</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 8. MADURAI CAB RENTAL -->
+<section class="lux-section bg-white">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6" data-aos="fade-right">
+                <img src="{% static 'images/destinations/madurai.webp' %}" alt="Cab Rental in Madurai and Car Rental"
+                    class="img-fluid rounded-4 shadow-lg w-100" style="height: 400px; object-fit: cover;">
+            </div>
+            <div class="col-lg-6" data-aos="fade-left">
+                <div class="d-inline-block text-danger fw-bold text-uppercase tracking-wide mb-2 small">Spiritual
+                    Journeys</div>
+                <h2 class="section-title mb-4 fw-bolder text-dark">Cab rental <span class="text-danger"> in Madurai
+                        </span></h2>
+                <div class="about-content reveal-right text-secondary fs-6 lh-lg">
+                    <p>Planning a trip to the Temple City? Our <strong>cab rental in Madurai</strong> offers seamless
+                        travel. From booking local <strong>cabs in madurai</strong> to outstation travels, our
+                        <strong>Madurai car rental</strong> is tailored for comfort.</p>
+                    <p>For pilgrims heading further south, we offer competitive outstation rates for <strong>madurai
+                            tour agency</strong> packages. Enjoy a peaceful journey by booking direct <strong>madurai
+                            cabs</strong> with our highly-rated drivers.</p>
+                </div>
+                <button class="btn btn-primary anim-btn rounded-pill px-4 py-2 mt-3 shadow-sm" data-bs-toggle="modal"
+                    data-bs-target="#enquiryModal" data-destination="Madurai Route">Book Madurai Cab</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 9. TRICHY CAB RENTAL -->
+<section class="lux-section bg-light">
+    <div class="container">
+        <div class="row g-5 align-items-center flex-row-reverse">
+            <div class="col-lg-6" data-aos="fade-left">
+                <img src="{% static 'images/destinations/trichy.webp' %}" alt="Cab Rental in Tiruchirappalli and Car Hire"
+                    class="img-fluid rounded-4 shadow-lg w-100" style="height: 400px; object-fit: cover;">
+            </div>
+            <div class="col-lg-6" data-aos="fade-right">
+                <div class="d-inline-block text-danger fw-bold text-uppercase tracking-wide mb-2 small">Central Tamil
+                    Nadu</div>
+                <h2 class="section-title mb-4 fw-bolder text-dark">Cab rental <span class="text-danger"> in Trichy
+                        </span></h2>
+                <div class="about-content reveal-right text-secondary fs-6 lh-lg">
+                    <p>Reach Trichy safely and efficiently with our exclusive <strong>cab rental in Tiruchirappalli</strong>.
+                        Whether you require quick <strong>trichy cabs</strong> or are looking for comprehensive
+                        <strong>car rental in tiruchirappalli</strong>, we have the perfect vehicle for you.</p>
+                    <p>As a leading provider, our <strong>car hire in trichy</strong> guarantees a relaxing journey.
+                        Secure your <strong>outstation cabs</strong> today and travel with ultimate peace of mind.</p>
+                </div>
+                <button class="btn btn-primary anim-btn rounded-pill px-4 py-2 mt-3 shadow-sm" data-bs-toggle="modal"
+                    data-bs-target="#enquiryModal" data-destination="Trichy Route">Book Trichy Cab</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 10. FREQUENTLY ASKED QUESTIONS -->
+<section class="lux-section bg-white">
+    <div class="container" style="max-width: 800px;">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">Everything you need to know about our cab bookings.</p>
+        </div>
+
+        <div class="accordion accordion-flush shadow-sm rounded-4 overflow-hidden border" id="faqAccordion"
+            data-aos="fade-up" data-aos-delay="100">
+            <!-- FAQ 1 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button fw-bold text-dark p-4" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        How can I do an online Cab booking?
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                    data-bs-parent="#faqAccordion">
+                    <div class="accordion-body text-secondary lh-lg p-4 pt-0">
+                        Making an <strong>online Cab booking</strong> is incredibly easy with Vibhu Travel Hub. You can
+                        use our website's booking form, call our contact number directly, or chat with us on WhatsApp to
+                        reserve your <strong>cab rental</strong> instantly.
+                    </div>
+                </div>
+            </div>
+            <!-- FAQ 2 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed fw-bold text-dark p-4" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+                        aria-controls="collapseTwo">
+                        Do you provide Chennai airport Cab rental?
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                    data-bs-parent="#faqAccordion">
+                    <div class="accordion-body text-secondary lh-lg p-4 pt-0">
+                        Yes, we offer <strong>Chennai airport cab booking</strong> and transfers.
+                        Whether you need an <strong>airport transfer</strong> for a drop-off or a pick-up to travel to
+                        another city, our professional drivers ensure you arrive safely and on time.
+                    </div>
+                </div>
+            </div>
+            <!-- FAQ 3 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed fw-bold text-dark p-4" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
+                        aria-controls="collapseThree">
+                        What is the Madurai to Rameshwaram Cab fare?
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                    data-bs-parent="#faqAccordion">
+                    <div class="accordion-body text-secondary lh-lg p-4 pt-0">
+                        The <strong>Madurai to Rameshwaram cab booking</strong> charges depend on the type of vehicle
+                        you choose (Sedan, SUV, or Tempo Traveller). However, we pride ourselves on offering affordable
+                        and transparent <strong>cabs in madurai</strong> pricing with absolutely no hidden fees.
+                    </div>
+                </div>
+            </div>
+            <!-- FAQ 4 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFour">
+                    <button class="accordion-button collapsed fw-bold text-dark p-4" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false"
+                        aria-controls="collapseFour">
+                        Can I book a one-way drop Cab in Trichy?
+                    </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                    data-bs-parent="#faqAccordion">
+                    <div class="accordion-body text-secondary lh-lg p-4 pt-0">
+                        Absolutely. We specialize in <strong>cab rental in Tiruchirappalli</strong> and offer reliable
+                        <strong>outstation cabs</strong> for intercity travels. You only pay for the distance traveled
+                        to your destination, making it a highly cost-effective travel choice.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="{% static 'js/service.js' %}?v={{ STATIC_VERSION }}"></script>
+{% endblock %}

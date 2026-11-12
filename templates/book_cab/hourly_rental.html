@@ -1,14 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Hourly Rental Taxi Service | Vibhu Travel Hub{% endblock %}
-{% block description %}Book hourly rental cabs with Vibhu Travel Hub. Flexible 1-hour, 2-hour, 4-hour, and 8-hour cab packages in Coimbatore, Chennai, and South India with free KM.{% endblock %}
+{% block meta_title %}Hourly Cab Rental in Coimbatore | Vibhu Travel Hub{% endblock %}
+{% block meta_description %}Book hourly rental cabs with Vibhu Travel Hub. Flexible 1-hour, 2-hour, 4-hour, and 8-hour cab packages in Coimbatore, Chennai, and South India with free KM.{% endblock %}
 
 {% block extra_css %}
 <!-- Google Fonts for Cursive Script -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap" rel="stylesheet">
 
 <style>
     :root {
@@ -31,7 +30,7 @@
 
     /* HERO BANNER (MATCHING ABOUT US) */
     .about-hero-section {
-        background: url("{% static 'images/destinations/hourly-rental.jpg' %}") no-repeat center center / cover;
+        background: url("{% static 'images/destinations/hourly-rental.webp' %}") no-repeat center center / cover;
         position: relative;
         min-height: 380px;
         display: flex;
@@ -543,7 +542,7 @@
             <div class="hourly-intro-header">
                 <span class="hourly-eyebrow">Flexible City Cabs</span>
                 <h2 class="hourly-intro-title">
-                    <span class="text-red">Hourly Rental</span> Taxi Service
+                    <span class="text-red">Hourly Rental</span> Cab Service
                 </h2>
                 <p class="hourly-intro-subtext">
                     Pay only for the hours & kilometers you use. Ideal for business meetings, shopping, city tours & multiple stops.

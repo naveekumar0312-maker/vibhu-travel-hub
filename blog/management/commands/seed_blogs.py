@@ -37,7 +37,7 @@ class Command(BaseCommand):
                 'reading_time': '5 min read',
                 'is_featured': True,
                 'is_published': True,
-                'featured_image': 'blog/coimbatore-getaways.jpg'
+                'featured_image': 'blog/coimbatore-getaways.webp'
             },
             {
                 'title': 'Complete Guide to Planning a South India Road Trip',
@@ -61,7 +61,7 @@ class Command(BaseCommand):
                 'reading_time': '7 min read',
                 'is_featured': False,
                 'is_published': True,
-                'featured_image': 'blog/south-india-road-trip.jpg'
+                'featured_image': 'blog/south-india-road-trip.webp'
             },
             {
                 'title': 'Cab vs Tempo Traveller: Which One Should You Choose for Group Travel?',
@@ -80,7 +80,7 @@ class Command(BaseCommand):
                 'reading_time': '4 min read',
                 'is_featured': False,
                 'is_published': True,
-                'featured_image': 'blog/tempo-traveller-group.jpg'
+                'featured_image': 'blog/tempo-traveller-group.webp'
             },
             {
                 'title': 'Top 10 Hidden Gem Places to Visit in Kerala in 2026',
@@ -98,7 +98,7 @@ class Command(BaseCommand):
                 'reading_time': '6 min read',
                 'is_featured': False,
                 'is_published': True,
-                'featured_image': 'blog/kerala-hidden-gems.jpg'
+                'featured_image': 'blog/kerala-hidden-gems.webp'
             },
             {
                 'title': 'Essential Tips for a Comfortable Family Road Trip',
@@ -113,7 +113,7 @@ class Command(BaseCommand):
                 'reading_time': '4 min read',
                 'is_featured': False,
                 'is_published': True,
-                'featured_image': 'blog/family-road-trip.jpg'
+                'featured_image': 'blog/family-road-trip.webp'
             },
             {
                 'title': 'How to Plan a Corporate Group Trip Effortlessly',
@@ -128,7 +128,7 @@ class Command(BaseCommand):
                 'reading_time': '5 min read',
                 'is_featured': False,
                 'is_published': True,
-                'featured_image': 'blog/corporate-group-travel.jpg'
+                'featured_image': 'blog/corporate-group-travel.webp'
             }
         ]
 

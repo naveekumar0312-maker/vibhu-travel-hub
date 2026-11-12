@@ -1,0 +1,921 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta_title %}{{ route.title }}{% endblock %}
+{% block meta_description %}{{ route.description }}{% endblock %}
+
+{% block og_title %}{{ route.title }}{% endblock %}
+{% block og_description %}{{ route.description }}{% endblock %}
+
+{% block twitter_title %}{{ route.title }}{% endblock %}
+{% block twitter_description %}{{ route.description }}{% endblock %}
+
+{% block schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "{{ route.h1|escapejs }}",
+  "description": "{{ route.description|escapejs }}",
+  "provider": {
+    "@type": "TravelAgency",
+    "name": "Vibhu Travel Hub",
+    "url": "https://vibhutravelhub.com/"
+  },
+  "areaServed": {
+    "@type": "Place",
+    "name": "{{ route.destination|escapejs }}"
+  },
+  "serviceType": "Cab Rental"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://vibhutravelhub.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Routes",
+      "item": "https://vibhutravelhub.com/routes/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "{{ route.h1|escapejs }}",
+      "item": "https://vibhutravelhub.com/routes/{{ route.slug }}/"
+    }
+  ]
+}
+</script>
+
+{% if route.faqs %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {% for faq in route.faqs %}
+    {
+      "@type": "Question",
+      "name": "{{ faq.question|escapejs }}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{ faq.answer|escapejs }}"
+      }
+    }{% if not forloop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+
+<!-- BREADCRUMB -->
+<nav aria-label="breadcrumb" class="bg-light py-3 border-bottom">
+    <div class="container">
+        <ol class="breadcrumb mb-0 small reveal-down">
+            <li class="breadcrumb-item">
+                <a href="{% url 'home' %}" class="text-decoration-none text-danger fw-semibold">
+                    <i class="bi bi-house-door-fill"></i> Home
+                </a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="/routes/" class="text-decoration-none text-secondary">
+                    Routes
+                </a>
+            </li>
+            <li class="breadcrumb-item active text-dark fw-bold" aria-current="page">
+                Coimbatore to {{ route.destination }}
+            </li>
+        </ol>
+    </div>
+</nav>
+
+
+<!-- HERO -->
+<section class="py-5 bg-white text-dark position-relative overflow-hidden border-bottom">
+    <div class="container py-4 position-relative z-2">
+        <div class="row align-items-center">
+            <div class="col-lg-9 reveal-left">
+
+                <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block mb-2"
+                      style="color:#E31E24; font-size:0.82rem; letter-spacing:1.2px;">
+                    COIMBATORE TO {{ route.destination }}
+                </span>
+
+                <h1 class="hero-main-title text-dark fw-extrabold mb-3"
+                    style="font-size:3.2rem; line-height:1.15; letter-spacing:-1px; color:#0F172A;">
+                    {{ route.h1 }}
+                </h1>
+
+                <p class="hero-desc-anim lead text-secondary mb-4"
+                   style="max-width:760px; line-height:1.65; color:#475569 !important; font-size:1.1rem;">
+                    {{ route.intro }}
+                </p>
+
+                <div class="d-flex flex-wrap gap-3 reveal-up">
+
+                    <a href="#route-overview"
+                       class="btn btn-danger rounded-pill px-4 py-2 fw-bold text-white shadow-sm d-inline-flex align-items-center gap-2"
+                       style="background-color:#E31E24; border:none;">
+                        <i class="bi bi-signpost-2"></i>
+                        Explore Route
+                    </a>
+
+                    <a href="/book-cab/"
+                       class="btn btn-outline-dark rounded-pill px-4 py-2 fw-bold d-inline-flex align-items-center gap-2"
+                       style="border:1px solid #CBD5E1; color:#1E293B; background:#FFFFFF;">
+                        <i class="bi bi-calendar-check text-danger"></i>
+                        Book Your Cab
+                    </a>
+
+                    <a href="tel:+919655866660"
+                       class="btn btn-outline-dark rounded-pill px-4 py-2 fw-bold d-inline-flex align-items-center gap-2"
+                       style="border:1px solid #CBD5E1; color:#1E293B; background:#FFFFFF;">
+                        <i class="bi bi-telephone-fill text-danger"></i>
+                        Call Now
+                    </a>
+
+                    <a href="https://wa.me/919655866660?text=Hi%20Vibhu%20Travel%20Hub,%20I%20want%20to%20book%20a%20cab%20from%20Coimbatore%20to%20{{ route.destination }}"
+                       target="_blank"
+                       rel="noopener"
+                       class="btn btn-success rounded-pill px-4 py-2 fw-bold d-inline-flex align-items-center gap-2"
+                       style="background-color:#25D366; border:none;">
+                        <i class="bi bi-whatsapp"></i>
+                        WhatsApp
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ROUTE OVERVIEW -->
+<section id="route-overview" class="py-5 bg-white">
+    <div class="container">
+
+        <div class="text-center mb-5 reveal-up">
+            <span class="text-danger fw-bold text-uppercase small tracking-wider d-block mb-2">
+                ROUTE OVERVIEW
+            </span>
+
+            <h2 class="fw-bold text-dark mb-3">
+                Coimbatore to {{ route.destination }} Route Overview
+            </h2>
+
+            <p class="text-secondary mx-auto mb-0" style="max-width:760px;">
+                Plan your journey from Coimbatore to {{ route.destination }} with the route distance,
+                estimated travel time, preferred route and trip suitability clearly presented.
+            </p>
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-md-6 col-lg-3 reveal-up">
+                <div class="h-100 bg-white border rounded-4 p-4 shadow-sm hover-lift">
+                    <div class="d-flex align-items-center justify-content-center rounded-circle mb-3"
+                         style="width:52px;height:52px;background:#FEF2F2;">
+                        <i class="bi bi-signpost-2-fill text-danger fs-4"></i>
+                    </div>
+
+                    <div class="small text-secondary mb-1">Distance</div>
+                    <h3 class="h5 fw-bold text-dark mb-0">
+                        {{ route.distance }}
+                    </h3>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 reveal-up">
+                <div class="h-100 bg-white border rounded-4 p-4 shadow-sm hover-lift">
+                    <div class="d-flex align-items-center justify-content-center rounded-circle mb-3"
+                         style="width:52px;height:52px;background:#FEF2F2;">
+                        <i class="bi bi-clock-fill text-danger fs-4"></i>
+                    </div>
+
+                    <div class="small text-secondary mb-1">Travel Time</div>
+                    <h3 class="h5 fw-bold text-dark mb-0">
+                        {{ route.travel_time }}
+                    </h3>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 reveal-up">
+                <div class="h-100 bg-white border rounded-4 p-4 shadow-sm hover-lift">
+                    <div class="d-flex align-items-center justify-content-center rounded-circle mb-3"
+                         style="width:52px;height:52px;background:#FEF2F2;">
+                        <i class="bi bi-map-fill text-danger fs-4"></i>
+                    </div>
+
+                    <div class="small text-secondary mb-1">Best Route</div>
+                    <h3 class="h6 fw-bold text-dark mb-0">
+                        {{ route.best_route }}
+                    </h3>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 reveal-up">
+                <div class="h-100 bg-white border rounded-4 p-4 shadow-sm hover-lift">
+                    <div class="d-flex align-items-center justify-content-center rounded-circle mb-3"
+                         style="width:52px;height:52px;background:#FEF2F2;">
+                        <i class="bi bi-people-fill text-danger fs-4"></i>
+                    </div>
+
+                    <div class="small text-secondary mb-1">Ideal For</div>
+                    <h3 class="h6 fw-bold text-dark mb-0">
+                        {{ route.ideal_for }}
+                    </h3>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- TRAVEL INFORMATION -->
+<section class="py-5 bg-light border-top border-bottom">
+    <div class="container">
+
+        <div class="row justify-content-center">
+            <div class="col-lg-10 reveal-up">
+
+                <span class="text-danger fw-bold text-uppercase small tracking-wider d-block mb-2">
+                    TRAVEL INFORMATION
+                </span>
+
+                <h2 class="fw-bold text-dark mb-3">
+                    Planning a Cab from Coimbatore to {{ route.destination }}?
+                </h2>
+
+                <p class="text-secondary lead" style="line-height:1.75;">
+                    {{ route.intro }}
+                </p>
+
+                <div class="row g-3 mt-3">
+
+                    <div class="col-md-6">
+                        <div class="bg-white border rounded-4 p-4 h-100">
+                            <div class="d-flex gap-3">
+                                <i class="bi bi-geo-alt-fill text-danger fs-4"></i>
+                                <div>
+                                    <h3 class="h6 fw-bold text-dark">
+                                        Route Distance
+                                    </h3>
+                                    <p class="small text-secondary mb-0">
+                                        {{ route.distance }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="bg-white border rounded-4 p-4 h-100">
+                            <div class="d-flex gap-3">
+                                <i class="bi bi-hourglass-split text-danger fs-4"></i>
+                                <div>
+                                    <h3 class="h6 fw-bold text-dark">
+                                        Estimated Journey Time
+                                    </h3>
+                                    <p class="small text-secondary mb-0">
+                                        {{ route.travel_time }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="bg-white border rounded-4 p-4 h-100">
+                            <div class="d-flex gap-3">
+                                <i class="bi bi-signpost-fill text-danger fs-4"></i>
+                                <div>
+                                    <h3 class="h6 fw-bold text-dark">
+                                        Suggested Route
+                                    </h3>
+                                    <p class="small text-secondary mb-0">
+                                        {{ route.best_route }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="bg-white border rounded-4 p-4 h-100">
+                            <div class="d-flex gap-3">
+                                <i class="bi bi-person-heart text-danger fs-4"></i>
+                                <div>
+                                    <h3 class="h6 fw-bold text-dark">
+                                        Suitable For
+                                    </h3>
+                                    <p class="small text-secondary mb-0">
+                                        {{ route.ideal_for }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- CAB OPTIONS -->
+<section class="py-5 bg-white">
+    <div class="container">
+
+        <div class="text-center mb-5 reveal-up">
+            <span class="text-danger fw-bold text-uppercase small tracking-wider d-block mb-2">
+                AVAILABLE VEHICLES
+            </span>
+
+            <h2 class="fw-bold text-dark mb-3">
+                Cab Options from Coimbatore to {{ route.destination }}
+            </h2>
+
+            <p class="text-secondary mx-auto mb-0" style="max-width:760px;">
+                Choose an available vehicle based on seating requirements, AC preference and
+                the current tariff configuration.
+            </p>
+        </div>
+
+        <div class="row g-4">
+
+            {% for vehicle in vehicles %}
+            <div class="col-md-6 col-lg-4 reveal-up">
+
+                <div class="card h-100 border rounded-4 shadow-sm overflow-hidden hover-lift">
+
+                    {% if vehicle.image %}
+                        <img src="{{ vehicle.image.url }}"
+                             class="card-img-top"
+                             alt="{{ vehicle.name }}"
+                             style="height:220px; object-fit:cover;"
+                             loading="lazy">
+                    {% else %}
+                        <div class="d-flex align-items-center justify-content-center bg-light text-secondary"
+                             style="height:220px;">
+                            <div class="text-center">
+                                <i class="bi bi-car-front fs-1 mb-2"></i>
+                                <div class="small">Vehicle Image</div>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    <div class="card-body p-4">
+
+                        <h3 class="h5 fw-bold text-dark mb-3">
+                            {{ vehicle.name }}
+                        </h3>
+
+                        <div class="d-flex flex-wrap gap-2 mb-3">
+
+                            {% if vehicle.passengers %}
+                            <span class="badge rounded-pill bg-light text-dark border px-3 py-2">
+                                <i class="bi bi-people me-1"></i>
+                                {{ vehicle.passengers }} Seater
+                            </span>
+                            {% endif %}
+
+                            {% if vehicle.ac_type %}
+                            <span class="badge rounded-pill bg-light text-dark border px-3 py-2">
+                                <i class="bi bi-snow me-1"></i>
+                                {{ vehicle.ac_type }}
+                            </span>
+                            {% endif %}
+
+                            <span class="badge rounded-pill bg-light text-dark border px-3 py-2">
+                                <i class="bi bi-person-check me-1"></i>
+                                Driver Included
+                            </span>
+
+                        </div>
+
+                        <div class="border-top pt-3">
+
+                            {% if vehicle.day_rent %}
+                            <div class="d-flex justify-content-between gap-3 mb-2">
+                                <span class="small text-secondary">Day Rent</span>
+                                <span class="small fw-bold text-dark">
+                                    {{ vehicle.day_rent }}
+                                </span>
+                            </div>
+                            {% endif %}
+
+                            {% if vehicle.per_km_rate %}
+                            <div class="d-flex justify-content-between gap-3 mb-2">
+                                <span class="small text-secondary">Per KM Rate</span>
+                                <span class="small fw-bold text-dark">
+                                    {{ vehicle.per_km_rate }}
+                                </span>
+                            </div>
+                            {% endif %}
+
+                            {% if vehicle.flat_per_km_above_400 %}
+                            <div class="d-flex justify-content-between gap-3">
+                                <span class="small text-secondary">Above 400 KM</span>
+                                <span class="small fw-bold text-dark">
+                                    {{ vehicle.flat_per_km_above_400 }}
+                                </span>
+                            </div>
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% empty %}
+            <div class="col-12">
+                <div class="text-center border rounded-4 p-5 bg-light">
+                    <i class="bi bi-car-front text-danger fs-1"></i>
+                    <h3 class="h5 fw-bold mt-3">Vehicle options unavailable</h3>
+                    <p class="text-secondary mb-0">
+                        Please contact us for current cab availability.
+                    </p>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- TRANSPARENT PRICING -->
+<section class="py-5 bg-light border-top border-bottom">
+    <div class="container">
+
+        <div class="row align-items-center g-4">
+
+            <div class="col-lg-7 reveal-left">
+
+                <span class="text-danger fw-bold text-uppercase small tracking-wider d-block mb-2">
+                    CLEAR TARIFF INFORMATION
+                </span>
+
+                <h2 class="fw-bold text-dark mb-3">
+                    Transparent Cab Rental Pricing
+                </h2>
+
+                <p class="text-secondary" style="line-height:1.75;">
+                    Cab rental is based on the current vehicle tariff configuration and the
+                    selected trip requirements.
+                </p>
+
+                <p class="text-secondary mb-0" style="line-height:1.75;">
+                    Toll and parking charges are generally calculated at actuals unless they
+                    are specifically included in the confirmed booking. Interstate permit
+                    charges may apply where applicable.
+                </p>
+
+            </div>
+
+            <div class="col-lg-5 reveal-right">
+
+                <div class="bg-white border rounded-4 p-4 shadow-sm">
+
+                    <div class="d-flex align-items-start gap-3 mb-3">
+                        <div class="d-flex align-items-center justify-content-center rounded-circle"
+                             style="width:48px;height:48px;background:#FEF2F2;flex-shrink:0;">
+                            <i class="bi bi-receipt text-danger fs-5"></i>
+                        </div>
+
+                        <div>
+                            <h3 class="h6 fw-bold text-dark mb-1">
+                                What to Check Before Booking
+                            </h3>
+                            <p class="small text-secondary mb-0">
+                                Review the vehicle tariff and applicable additional charges
+                                before confirming your journey.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="border-top pt-3">
+
+                        <div class="d-flex gap-2 mb-2">
+                            <i class="bi bi-check-circle-fill text-danger"></i>
+                            <span class="small text-secondary">
+                                Current vehicle tariff
+                            </span>
+                        </div>
+
+                        <div class="d-flex gap-2 mb-2">
+                            <i class="bi bi-check-circle-fill text-danger"></i>
+                            <span class="small text-secondary">
+                                Toll and parking at actuals where applicable
+                            </span>
+                        </div>
+
+                        <div class="d-flex gap-2">
+                            <i class="bi bi-check-circle-fill text-danger"></i>
+                            <span class="small text-secondary">
+                                Applicable permit charges
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- WHY CHOOSE VIBHU -->
+<section class="py-5 bg-white">
+    <div class="container">
+
+        <div class="text-center mb-5 reveal-up">
+
+            <span class="text-danger fw-bold text-uppercase small tracking-wider d-block mb-2">
+                WHY TRAVEL WITH US
+            </span>
+
+            <h2 class="fw-bold text-dark mb-3">
+                Why Book Coimbatore to {{ route.destination }} Cab with Vibhu Travel Hub?
+            </h2>
+
+        </div>
+
+        <div class="row g-4">
+
+            {% for highlight in route.highlights %}
+            <div class="col-md-6 col-lg-4 reveal-up">
+
+                <div class="h-100 bg-white border rounded-4 p-4 shadow-sm hover-lift">
+
+                    <div class="d-flex align-items-center justify-content-center rounded-circle mb-3"
+                         style="width:50px;height:50px;background:#FEF2F2;">
+                        <i class="bi bi-check-lg text-danger fs-4"></i>
+                    </div>
+
+                    <h3 class="h6 fw-bold text-dark mb-2">
+                        {{ highlight }}
+                    </h3>
+
+                    <p class="small text-secondary mb-0">
+                        Included as part of the route booking information.
+                    </p>
+
+                </div>
+
+            </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- IMPORTANT TRAVEL INFORMATION -->
+<section class="py-5 bg-light border-top border-bottom">
+    <div class="container">
+
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+
+                <div class="text-center mb-5 reveal-up">
+
+                    <span class="text-danger fw-bold text-uppercase small tracking-wider d-block mb-2">
+                        IMPORTANT INFORMATION
+                    </span>
+
+                    <h2 class="fw-bold text-dark mb-3">
+                        Coimbatore to {{ route.destination }} Travel Information
+                    </h2>
+
+                    <p class="text-secondary mx-auto" style="max-width:760px;">
+                        Keep the key route details in mind while planning your cab journey.
+                    </p>
+
+                </div>
+
+                <div class="row g-4">
+
+                    <div class="col-md-6 reveal-up">
+                        <div class="bg-white border rounded-4 p-4 h-100 shadow-sm">
+
+                            <div class="d-flex gap-3">
+
+                                <div class="d-flex align-items-center justify-content-center rounded-circle"
+                                     style="width:46px;height:46px;background:#FEF2F2;flex-shrink:0;">
+                                    <i class="bi bi-geo-alt text-danger"></i>
+                                </div>
+
+                                <div>
+                                    <h3 class="h6 fw-bold text-dark">
+                                        Route
+                                    </h3>
+                                    <p class="small text-secondary mb-0">
+                                        {{ route.best_route }}
+                                    </p>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 reveal-up">
+                        <div class="bg-white border rounded-4 p-4 h-100 shadow-sm">
+
+                            <div class="d-flex gap-3">
+
+                                <div class="d-flex align-items-center justify-content-center rounded-circle"
+                                     style="width:46px;height:46px;background:#FEF2F2;flex-shrink:0;">
+                                    <i class="bi bi-clock text-danger"></i>
+                                </div>
+
+                                <div>
+                                    <h3 class="h6 fw-bold text-dark">
+                                        Journey Time
+                                    </h3>
+                                    <p class="small text-secondary mb-0">
+                                        {{ route.travel_time }}
+                                    </p>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 reveal-up">
+                        <div class="bg-white border rounded-4 p-4 h-100 shadow-sm">
+
+                            <div class="d-flex gap-3">
+
+                                <div class="d-flex align-items-center justify-content-center rounded-circle"
+                                     style="width:46px;height:46px;background:#FEF2F2;flex-shrink:0;">
+                                    <i class="bi bi-car-front text-danger"></i>
+                                </div>
+
+                                <div>
+                                    <h3 class="h6 fw-bold text-dark">
+                                        Cab Options
+                                    </h3>
+                                    <p class="small text-secondary mb-0">
+                                        Sedan, Ertiga, Innova and Innova Crysta options are
+                                        available subject to current vehicle availability.
+                                    </p>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 reveal-up">
+                        <div class="bg-white border rounded-4 p-4 h-100 shadow-sm">
+
+                            <div class="d-flex gap-3">
+
+                                <div class="d-flex align-items-center justify-content-center rounded-circle"
+                                     style="width:46px;height:46px;background:#FEF2F2;flex-shrink:0;">
+                                    <i class="bi bi-info-circle text-danger"></i>
+                                </div>
+
+                                <div>
+                                    <h3 class="h6 fw-bold text-dark">
+                                        Additional Charges
+                                    </h3>
+                                    <p class="small text-secondary mb-0">
+                                        Toll, parking and applicable additional charges are
+                                        explained separately during booking.
+                                    </p>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- RELATED ROUTES -->
+<section class="py-5 bg-white">
+    <div class="container">
+
+        <div class="text-center mb-5 reveal-up">
+
+            <span class="text-danger fw-bold text-uppercase small tracking-wider d-block mb-2">
+                CONTINUE EXPLORING
+            </span>
+
+            <h2 class="fw-bold text-dark mb-3">
+                Related Cab Routes
+            </h2>
+
+            <p class="text-secondary mx-auto mb-0" style="max-width:700px;">
+                Explore other popular cab routes from Coimbatore.
+            </p>
+
+        </div>
+
+        <div class="row g-4 justify-content-center">
+
+            {% for related in route.related_routes %}
+            <div class="col-md-6 col-lg-3 reveal-up">
+
+                <a href="{{ related.url }}"
+                   class="text-decoration-none">
+
+                    <div class="h-100 bg-white border rounded-4 p-4 shadow-sm hover-lift">
+
+                        <div class="d-flex align-items-center justify-content-center rounded-circle mb-3"
+                             style="width:48px;height:48px;background:#FEF2F2;">
+                            <i class="bi bi-signpost text-danger fs-5"></i>
+                        </div>
+
+                        <h3 class="h6 fw-bold text-dark mb-3">
+                            {{ related.name }}
+                        </h3>
+
+                        <span class="small fw-semibold text-danger d-inline-flex align-items-center gap-2">
+                            Explore Route
+                            <i class="bi bi-arrow-right"></i>
+                        </span>
+
+                    </div>
+
+                </a>
+
+            </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- FAQ -->
+{% if route.faqs %}
+<section class="py-5 bg-light border-top">
+    <div class="container">
+
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+
+                <div class="text-center mb-5 reveal-up">
+
+                    <span class="text-danger fw-bold text-uppercase small tracking-wider d-block mb-2">
+                        FREQUENTLY ASKED QUESTIONS
+                    </span>
+
+                    <h2 class="fw-bold text-dark mb-3">
+                        Coimbatore to {{ route.destination }} Cab FAQs
+                    </h2>
+
+                    <p class="text-secondary">
+                        Find answers to common questions about this route.
+                    </p>
+
+                </div>
+
+                <div class="accordion reveal-up" id="routeFaqAccordion">
+
+                    {% for faq in route.faqs %}
+                    <div class="accordion-item border rounded-4 mb-3 overflow-hidden shadow-sm">
+
+                        <h3 class="accordion-header" id="routeFaqHeading{{ forloop.counter }}">
+
+                            <button class="accordion-button {% if not forloop.first %}collapsed{% endif %} fw-semibold"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#routeFaq{{ forloop.counter }}"
+                                    aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}"
+                                    aria-controls="routeFaq{{ forloop.counter }}">
+
+                                {{ faq.question }}
+
+                            </button>
+
+                        </h3>
+
+                        <div id="routeFaq{{ forloop.counter }}"
+                             class="accordion-collapse collapse {% if forloop.first %}show{% endif %}"
+                             aria-labelledby="routeFaqHeading{{ forloop.counter }}"
+                             data-bs-parent="#routeFaqAccordion">
+
+                            <div class="accordion-body text-secondary"
+                                 style="line-height:1.75;">
+                                {{ faq.answer }}
+                            </div>
+
+                        </div>
+
+                    </div>
+                    {% endfor %}
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+{% endif %}
+
+
+<!-- FINAL CTA -->
+<section class="py-5"
+         style="background:#E31E24;">
+
+    <div class="container py-4">
+
+        <div class="row align-items-center justify-content-between g-4">
+
+            <div class="col-lg-7 reveal-left">
+
+                <span class="text-white text-uppercase fw-bold small d-block mb-2"
+                      style="letter-spacing:1.2px;">
+                    PLAN YOUR JOURNEY
+                </span>
+
+                <h2 class="fw-bold text-white mb-3">
+                    Plan Your Coimbatore to {{ route.destination }} Journey
+                </h2>
+
+                <p class="text-white mb-0"
+                   style="opacity:.9; max-width:650px;">
+                    Book a comfortable cab from Coimbatore to {{ route.destination }}
+                    with Vibhu Travel Hub.
+                </p>
+
+            </div>
+
+            <div class="col-lg-5">
+
+                <div class="d-flex flex-wrap gap-3 justify-content-lg-end reveal-right">
+
+                    <a href="/book-cab/"
+                       class="btn btn-light rounded-pill px-4 py-2 fw-bold d-inline-flex align-items-center gap-2">
+                        <i class="bi bi-calendar-check"></i>
+                        Book Your Cab
+                    </a>
+
+                    <a href="tel:+919655866660"
+                       class="btn rounded-pill px-4 py-2 fw-bold d-inline-flex align-items-center gap-2 text-white"
+                       style="border:1px solid rgba(255,255,255,.7);">
+                        <i class="bi bi-telephone-fill"></i>
+                        Call Now
+                    </a>
+
+                    <a href="https://wa.me/919655866660?text=Hi%20Vibhu%20Travel%20Hub,%20I%20want%20to%20book%20a%20cab%20from%20Coimbatore%20to%20{{ route.destination }}"
+                       target="_blank"
+                       rel="noopener"
+                       class="btn btn-success rounded-pill px-4 py-2 fw-bold d-inline-flex align-items-center gap-2"
+                       style="background:#25D366;border:none;">
+                        <i class="bi bi-whatsapp"></i>
+                        WhatsApp
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

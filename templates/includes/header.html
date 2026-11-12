@@ -6,7 +6,7 @@
 <!-- Mobile Sidebar -->
 <div class="mobile-sidebar" id="mobileSidebar">
     <div class="mobile-sidebar-header">
-        <img src="{% static 'images/logo/logo.webp' %}?v={{ STATIC_VERSION }}" alt="Vibhu Travel Hub" class="brand-logo">
+        <img src="{% static 'images/logo/logo.webp' %}?v={{ STATIC_VERSION }}" alt="Vibhu Travel Hub" class="brand-logo" width="1080" height="1080">
         <button class="mobile-sidebar-close" id="closeSidebar" aria-label="Close Menu"><i class="bi bi-x-lg"></i></button>
     </div>
 
@@ -38,7 +38,7 @@
             <i class="bi bi-chevron-down chevron"></i>
         </a>
         <div class="mobile-accordion-content" id="mobileServices">
-            <a href="{% url 'local_taxi_service' %}" class="mobile-accordion-link">Local Cab Service</a>
+            <a href="{% url 'local_cab_service' %}" class="mobile-accordion-link">Local Cab Service</a>
             <a href="{% url 'outstation_tours' %}" class="mobile-accordion-link">Outstation Tours</a>
             <a href="{% url 'tempo_traveller' %}" class="mobile-accordion-link">Tempo Traveller</a>
             <a href="{% url 'bus_booking' %}" class="mobile-accordion-link">Luxury Bus Rental</a>
@@ -48,7 +48,7 @@
 
         <!-- Book a Cab Accordion -->
         <a href="#" class="mobile-nav-link mobile-accordion-toggle" data-target="mobileBookCab">
-            <div class="nav-link-inner"><i class="bi bi-taxi-front"></i> Book a Cab</div>
+            <div class="nav-link-inner"><i class="bi bi-car-front"></i> Book a Cab</div>
             <i class="bi bi-chevron-down chevron"></i>
         </a>
         <div class="mobile-accordion-content" id="mobileBookCab">
@@ -75,15 +75,15 @@
     <div class="mobile-sidebar-footer">
         <div class="d-flex flex-column gap-2 mb-3 align-items-center">
             <a href="tel:+919655866660" class="mobile-phone-cta-link mb-1">
-                <img src="{% static 'images/about/phone-cta.png' %}" alt="+91 96558 66660" class="mobile-phone-cta-img">
+                <img src="{% static 'images/about/phone-cta.webp' %}" alt="+91 96558 66660" class="mobile-phone-cta-img" width="1869" height="842">
             </a>
             <a href="tel:+919655866660" class="btn btn-outline-dark w-100 rounded-pill"><i class="bi bi-telephone-fill"></i> Call Now</a>
             <a href="https://wa.me/919655866660" target="_blank" class="btn btn-danger w-100 rounded-pill" style="background-color: #E31E24; border: none;">Book Now</a>
         </div>
         <div class="mobile-socials">
-            <a href="https://wa.me/919655866660" target="_blank" class="social-icon whatsapp"><i class="bi bi-whatsapp"></i></a>
-            <a href="https://www.instagram.com/vibhu_travelhub?igsi=bGo1eGQzODhpNWxu" target="_blank" rel="noopener noreferrer" class="social-icon"><i class="bi bi-instagram"></i></a>
-            <a href="https://www.facebook.com/share/1DdSczz5rQ/" target="_blank" rel="noopener noreferrer" class="social-icon"><i class="bi bi-facebook"></i></a>
+            <a href="https://wa.me/919655866660" target="_blank" class="social-icon whatsapp" aria-label="Chat with Vibhu Travel Hub on WhatsApp" title="Chat with Vibhu Travel Hub on WhatsApp"><i class="bi bi-whatsapp" aria-hidden="true"></i></a>
+            <a href="https://www.instagram.com/vibhu_travelhub?igsi=bGo1eGQzODhpNWxu" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Follow Vibhu Travel Hub on Instagram" title="Follow Vibhu Travel Hub on Instagram"><i class="bi bi-instagram" aria-hidden="true"></i></a>
+            <a href="https://www.facebook.com/share/1DdSczz5rQ/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Follow Vibhu Travel Hub on Facebook" title="Follow Vibhu Travel Hub on Facebook"><i class="bi bi-facebook" aria-hidden="true"></i></a>
         </div>
         <div class="mobile-copyright">
             &copy; 2026 Vibhu Travel Hub
@@ -125,7 +125,7 @@
 
             <!-- LEFT: Logo & Subtitle -->
             <a class="navbar-brand d-flex align-items-center gap-2" href="{% url 'home' %}">
-                <img src="{% static 'images/logo/logo.webp' %}?v={{ STATIC_VERSION }}" alt="Vibhu Travel Hub" class="brand-logo" style="height: 48px; width: auto;">
+                <img src="{% static 'images/logo/logo.webp' %}?v={{ STATIC_VERSION }}" alt="Vibhu Travel Hub" class="brand-logo" width="1080" height="1080" style="height: 48px; width: auto;">
                 <div class="brand-text">
                     <span class="brand-title fw-extrabold text-dark d-block lh-1" style="font-size: 1.25rem; letter-spacing: -0.5px;">VIBHU TRAVEL HUB</span>
                     <span class="brand-tagline text-danger fw-bold d-block text-uppercase" style="font-size: 0.68rem; letter-spacing: 1px;">PREMIUM TRAVEL SERVICES</span>
@@ -170,7 +170,7 @@
                             Services <i class="bi bi-chevron-down nav-chevron small ms-1"></i>
                         </a>
                         <ul class="dropdown-menu border-0 shadow-lg rounded-3 py-2" aria-labelledby="servicesDropdown">
-                            <li><a href="{% url 'local_taxi_service' %}" class="dropdown-item py-2 px-3">Local Cab Service</a></li>
+                            <li><a href="{% url 'local_cab_service' %}" class="dropdown-item py-2 px-3">Local Cab Service</a></li>
                             <li><a href="{% url 'outstation_tours' %}" class="dropdown-item py-2 px-3">Outstation Tours</a></li>
                             <li><a href="{% url 'tempo_traveller' %}" class="dropdown-item py-2 px-3">Tempo Traveller</a></li>
                             <li><a href="{% url 'bus_booking' %}" class="dropdown-item py-2 px-3">Luxury Bus Rental</a></li>
@@ -187,7 +187,7 @@
                         <ul class="dropdown-menu border-0 shadow-lg rounded-3 py-2" aria-labelledby="bookCabDropdown">
                             <li><a href="{% url 'book_cab' %}" class="dropdown-item py-2 px-3 {% if request.resolver_match.url_name == 'book_cab' %}active text-danger fw-bold{% endif %}"><i class="bi bi-compass-fill text-danger me-2"></i> All Booking Options</a></li>
                             <li><hr class="dropdown-divider my-1"></li>
-                            <li><a href="{% url 'book_cab_one_way' %}" class="dropdown-item py-2 px-3 {% if request.resolver_match.url_name == 'book_cab_one_way' %}active text-danger fw-bold{% endif %}"><i class="bi bi-taxi-front-fill text-danger me-2"></i> One Way Trip</a></li>
+                            <li><a href="{% url 'book_cab_one_way' %}" class="dropdown-item py-2 px-3 {% if request.resolver_match.url_name == 'book_cab_one_way' %}active text-danger fw-bold{% endif %}"><i class="bi bi-car-front-fill text-danger me-2"></i> One Way Trip</a></li>
                             <li><a href="{% url 'book_cab_round_trip' %}" class="dropdown-item py-2 px-3 {% if request.resolver_match.url_name == 'book_cab_round_trip' %}active text-danger fw-bold{% endif %}"><i class="bi bi-arrow-left-right text-danger me-2"></i> Round Trip</a></li>
                             <li><a href="{% url 'book_cab_hourly' %}" class="dropdown-item py-2 px-3 {% if request.resolver_match.url_name == 'book_cab_hourly' %}active text-danger fw-bold{% endif %}"><i class="bi bi-clock-history text-danger me-2"></i> Hourly Rental</a></li>
                             <li><a href="{% url 'book_cab_bulk' %}" class="dropdown-item py-2 px-3 {% if request.resolver_match.url_name == 'book_cab_bulk' %}active text-danger fw-bold{% endif %}"><i class="bi bi-people-fill text-danger me-2"></i> Bulk Booking</a></li>
@@ -208,7 +208,7 @@
 
                     <li class="nav-item ms-lg-3">
                         <a href="tel:+919655866660" class="nav-phone-banner-link" aria-label="Call +91 96558 66660">
-                            <img src="{% static 'images/phone-cta.png' %}" alt="+91 96558 66660" class="nav-phone-banner-img">
+                            <img src="{% static 'images/phone-cta.webp' %}" alt="+91 96558 66660" class="nav-phone-banner-img" width="1869" height="842">
                         </a>
                     </li>
 

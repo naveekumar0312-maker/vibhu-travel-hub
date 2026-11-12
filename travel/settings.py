@@ -27,9 +27,12 @@ DEBUG = config(
     cast=bool
 )
 
+# Static asset cache-busting version
+STATIC_VERSION = "2.0.1"
+
 ALLOWED_HOSTS = config(
     "ALLOWED_HOSTS",
-    default="127.0.0.1,localhost,.onrender.com,vibhutravelhub.com,www.vibhutravelhub.com"
+    default="127.0.0.1,localhost,93.127.195.80,.onrender.com,vibhutravelhub.com,www.vibhutravelhub.com"
 ).split(",")
 
 CSRF_TRUSTED_ORIGINS = [
@@ -39,6 +42,17 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+# ==========================================
+# PRODUCTION SECURITY
+# ==========================================
+
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
+SECURE_HSTS_SECONDS = 31536000
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
 
 # ==========================================
 # INSTALLED APPS
@@ -129,9 +143,9 @@ WSGI_APPLICATION = "travel.wsgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'travels',
-        'USER': 'root',
-        'PASSWORD': 'root',
+        'NAME': 'vibhu_travel',
+        'USER': 'vibhu_user',
+        'PASSWORD': 'vibhu@123',
         'HOST': '127.0.0.1',
         'PORT': '3306',
     }

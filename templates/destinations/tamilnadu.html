@@ -1,21 +1,21 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Tamil Nadu Travel Packages, Cab Services & Outstation Rentals | Vibhu Travel Hub{% endblock %}
-{% block description %}Explore Tamil Nadu with Vibhu Travel Hub. Premium cab services, outstation taxi rentals, Tempo Traveller & luxury bus rentals in Chennai, Coimbatore, Madurai, Trichy, Ooty, Kodaikanal and Rameswaram.{% endblock %}
-{% block keywords %}Tamil Nadu tourism, cab service in Chennai, taxi service in Coimbatore, Madurai cab service, Trichy taxi rental, Tempo Traveller Tamil Nadu, Ooty tour package, Kodaikanal cabs{% endblock %}
+{% block meta_title %}Tamil Nadu Tour Packages from Coimbatore | Vibhu Travel Hub{% endblock %}
+{% block meta_description %}Plan Tamil Nadu tour packages from Coimbatore with cabs, Tempo Travellers and buses for Ooty, Kodaikanal, Madurai, Rameswaram and more.{% endblock %}
+{% block keywords %}Tamil Nadu tour packages from Coimbatore, Tamil Nadu tours from Coimbatore, Tamil Nadu travel packages, Coimbatore to Tamil Nadu tours, Tamil Nadu tourist places, Ooty tour package, Kodaikanal tour package{% endblock %}
 {% block canonical %}https://vibhutravelhub.com/destinations/tamil-nadu/{% endblock %}
 
 {% block og_title %}Tamil Nadu Travel Packages & Cab Services | Vibhu Travel Hub{% endblock %}
 {% block og_description %}Book luxury cabs, Tempo Travellers, and tour packages across Tamil Nadu with Vibhu Travel
 Hub.{% endblock %}
 {% block og_url %}https://vibhutravelhub.com/destinations/tamil-nadu/{% endblock %}
-{% block og_image %}https://vibhutravelhub.com{% static 'images/destinations/tamil.jpg' %}{% endblock %}
+{% block og_image %}https://vibhutravelhub.com{% static 'images/destinations/tamil.webp' %}{% endblock %}
 
 {% block twitter_title %}Tamil Nadu Travel Packages & Cab Services | Vibhu Travel Hub{% endblock %}
 {% block twitter_description %}Book luxury cabs, Tempo Travellers, and tour packages across Tamil Nadu with Vibhu Travel
 Hub.{% endblock %}
-{% block twitter_image %}https://vibhutravelhub.com{% static 'images/destinations/tamil.jpg' %}{% endblock %}
+{% block twitter_image %}https://vibhutravelhub.com{% static 'images/destinations/tamil.webp' %}{% endblock %}
 
 {% block schema_markup %}
 <script type="application/ld+json">
@@ -46,7 +46,7 @@ Hub.{% endblock %}
   "@type": "TouristDestination",
   "name": "Tamil Nadu",
   "description": "Explore Tamil Nadu with Vibhu Travel Hub. Discover temples, hill stations, beaches, heritage cities and divine road trips.",
-  "image": "https://vibhutravelhub.com{% static 'images/destinations/tamil.jpg' %}",
+  "image": "https://vibhutravelhub.com{% static 'images/destinations/tamil.webp' %}",
   "touristType": ["Heritage Tourism", "Pilgrimage", "Nature Tour"],
   "includesAttraction": [
     {"@type": "TouristAttraction", "name": "Ooty"},
@@ -205,7 +205,7 @@ Hub.{% endblock %}
     1. HERO SECTION (Matching Image 1 Reference)
 ========================================== -->
 <section class="vth-hero-tn py-5">
-    <img src="{% static 'images/destinations/tamil.jpg' %}" alt="Tamil Nadu Destinations" class="vth-hero-tn-bg">
+    <img src="{% static 'images/destinations/tamil.webp' %}" alt="Tamil Nadu Destinations" class="vth-hero-tn-bg">
     <div class="vth-hero-tn-overlay"></div>
 
     <div class="container position-relative z-3 my-auto">
@@ -224,12 +224,10 @@ Hub.{% endblock %}
                     journey.
                 </p>
                 <div class="d-flex align-items-center gap-3 flex-wrap reveal-up">
-                    <button
+                    <a href="#enquiryModal"
                         class="btn btn-danger rounded-pill px-4 py-2.5 fw-bold text-white shadow-sm border-0 d-inline-flex align-items-center gap-2"
                         style="background-color: #E31E24; font-size: 0.95rem;" data-bs-toggle="modal"
-                        data-bs-target="#enquiryModal" data-destination="Tamil Nadu">
-                        Book Your Trip <i class="bi bi-arrow-right"></i>
-                    </button>
+                        data-bs-target="#enquiryModal" data-destination="Tamil Nadu">Book Your Trip <i class="bi bi-arrow-right"></i></a>
                     <a href="#popular-destinations"
                         class="btn btn-light rounded-pill px-4 py-2.5 fw-bold d-inline-flex align-items-center gap-2"
                         style="font-size: 0.95rem; color: #1F2937; background: #FFFFFF; border: 1px solid rgba(255, 255, 255, 0.9);">
@@ -317,7 +315,7 @@ Hub.{% endblock %}
             <!-- Left Column: Large Destination Image (~45%) -->
             <div class="col-lg-5 col-md-12 reveal-left">
                 <div class="position-relative rounded-4 overflow-hidden shadow-lg" style="height: 520px;">
-                    <img src="{% static 'images/destinations/tn-about.avif' %}" alt="About Tamil Nadu Heritage & Destinations" class="img-fluid w-100 h-100 hover-scale" style="object-fit: cover; transition: transform 0.6s ease;">
+                    <img src="{% static 'images/destinations/tn-about.webp' %}" alt="About Tamil Nadu Heritage & Destinations" class="img-fluid w-100 h-100 hover-scale" style="object-fit: cover; transition: transform 0.6s ease;">
                     <div class="position-absolute bottom-0 start-0 w-100 p-4" style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);">
                         <span class="badge bg-danger rounded-pill px-3 py-1.5 text-white fw-bold mb-1">Cultural Capital</span>
                         <h4 class="text-white fw-bold mb-0">Land of Temples & Heritage</h4>
@@ -340,7 +338,7 @@ Hub.{% endblock %}
                         The state's architectural grandeur shines in temple cities like <a href="{% url 'city_detail' state_slug='tamil-nadu' city_slug='madurai' %}" class="text-danger text-decoration-none fw-bold">Madurai</a>, home to the iconic Meenakshi Amman Temple, and <a href="{% url 'city_detail' state_slug='tamil-nadu' city_slug='trichy' %}" class="text-danger text-decoration-none fw-bold">Trichy</a> with its monolithic Rockfort. Beyond temples, travelers enjoy sacred Rameswaram, UNESCO shore monuments at Mahabalipuram, Thanjavur Big Temple, tri-sea sunsets at Kanyakumari, and misty tea hill stations like Ooty and Kodaikanal.
                     </p>
                     <p class="mb-0">
-                        Whether planning a family temple pilgrimage or an outstation tour, exploring places to visit in Tamil Nadu is seamless with Vibhu Travel Hub's dedicated car rentals, outstation cabs, and 24/7 airport transfer support across all popular Tamil Nadu travel destinations.
+                        Planning Tamil Nadu tour packages from Coimbatore is easy with Vibhu Travel Hub. Choose from dedicated car rentals, outstation cabs, Tempo Travellers and bus rentals for family trips, group tours and journeys to popular destinations across Tamil Nadu.
                     </p>
                 </div>
 
@@ -389,7 +387,7 @@ Hub.{% endblock %}
                     Services Across Tamil Nadu</h2>
             </div>
             <div class="d-flex align-items-center gap-2 reveal-right">
-                <a href="{% url 'local_taxi_service' %}" class="text-decoration-none text-dark fw-bold small">View All
+                <a href="{% url 'local_cab_service' %}" class="text-decoration-none text-dark fw-bold small">View All
                     Services <i class="bi bi-chevron-right ms-1"></i></a>
             </div>
         </div>
@@ -400,7 +398,7 @@ Hub.{% endblock %}
                 <div class="cab-service-card h-100 d-flex flex-column border-0 shadow-sm rounded-4 overflow-hidden">
                     <div class="img-reveal position-relative">
                         <a href="{% url 'city_detail' state_slug='tamil-nadu' city_slug='chennai' %}">
-                            <img src="{% static 'images/destinations/chennai.avif' %}" alt="Chennai Travel Guide"
+                            <img src="{% static 'images/destinations/chennai.webp' %}" alt="Chennai Travel Guide"
                                 class="img-fluid w-100 hover-scale" style="height: 190px; object-fit: cover;">
                         </a>
                         <div class="cab-icon-badge">
@@ -441,7 +439,7 @@ Hub.{% endblock %}
                 <div class="cab-service-card h-100 d-flex flex-column border-0 shadow-sm rounded-4 overflow-hidden">
                     <div class="img-reveal position-relative">
                         <a href="{% url 'city_detail' state_slug='tamil-nadu' city_slug='coimbatore' %}">
-                            <img src="{% static 'images/destinations/coimbatore.avif' %}" alt="Coimbatore Travel Guide"
+                            <img src="{% static 'images/destinations/coimbatore.webp' %}" alt="Coimbatore Travel Guide"
                                 class="img-fluid w-100 hover-scale" style="height: 190px; object-fit: cover;">
                         </a>
                         <div class="cab-icon-badge">
@@ -482,7 +480,7 @@ Hub.{% endblock %}
                 <div class="cab-service-card h-100 d-flex flex-column border-0 shadow-sm rounded-4 overflow-hidden">
                     <div class="img-reveal position-relative">
                         <a href="{% url 'city_detail' state_slug='tamil-nadu' city_slug='madurai' %}">
-                            <img src="{% static 'images/destinations/madurai.avif' %}" alt="Madurai Travel Guide"
+                            <img src="{% static 'images/destinations/madurai.webp' %}" alt="Madurai Travel Guide"
                                 class="img-fluid w-100 hover-scale" style="height: 190px; object-fit: cover;">
                         </a>
                         <div class="cab-icon-badge">
@@ -523,7 +521,7 @@ Hub.{% endblock %}
                 <div class="cab-service-card h-100 d-flex flex-column border-0 shadow-sm rounded-4 overflow-hidden">
                     <div class="img-reveal position-relative">
                         <a href="{% url 'city_detail' state_slug='tamil-nadu' city_slug='trichy' %}">
-                            <img src="{% static 'images/destinations/trichy.avif' %}" alt="Trichy Travel Guide"
+                            <img src="{% static 'images/destinations/trichy.webp' %}" alt="Trichy Travel Guide"
                                 class="img-fluid w-100 hover-scale" style="height: 190px; object-fit: cover;">
                         </a>
                         <div class="cab-icon-badge">
@@ -576,7 +574,7 @@ Hub.{% endblock %}
                     Places in Tamil Nadu</h2>
             </div>
             <div class="d-flex align-items-center gap-2 reveal-right">
-                <a href="#cab-services" class="text-decoration-none text-dark fw-bold small">View All Places <i
+                <a href="#popular-destinations" class="text-decoration-none text-dark fw-bold small">View All Places <i
                         class="bi bi-chevron-right ms-1"></i></a>
             </div>
         </div>
@@ -586,7 +584,7 @@ Hub.{% endblock %}
             <div class="col-lg-3 col-md-4 col-6 reveal-up">
                 <div class="dest-mini-card">
                     <div class="img-reveal">
-                        <img src="{% static 'images/destinations/ooty.avif' %}" alt="Ooty Hill Station">
+                        <img src="{% static 'images/destinations/ooty.webp' %}" alt="Ooty Hill Station">
                     </div>
                     <div class="p-3">
                         <h6 class="fw-bold text-dark mb-0" style="font-size: 0.98rem;">Ooty</h6>
@@ -599,7 +597,7 @@ Hub.{% endblock %}
             <div class="col-lg-3 col-md-4 col-6 reveal-up">
                 <div class="dest-mini-card">
                     <div class="img-reveal">
-                        <img src="{% static 'images/destinations/kodai.avif' %}" alt="Kodaikanal Hill Station">
+                        <img src="{% static 'images/destinations/kodai.webp' %}" alt="Kodaikanal Hill Station">
                     </div>
                     <div class="p-3">
                         <h6 class="fw-bold text-dark mb-0" style="font-size: 0.98rem;">Kodaikanal</h6>
@@ -612,7 +610,7 @@ Hub.{% endblock %}
             <div class="col-lg-3 col-md-4 col-6 reveal-up">
                 <div class="dest-mini-card">
                     <div class="img-reveal">
-                        <img src="{% static 'images/destinations/chennai.avif' %}" alt="Chennai City">
+                        <img src="{% static 'images/destinations/chennai.webp' %}" alt="Chennai City">
                     </div>
                     <div class="p-3">
                         <h6 class="fw-bold text-dark mb-0" style="font-size: 0.98rem;">Chennai</h6>
@@ -625,7 +623,7 @@ Hub.{% endblock %}
             <div class="col-lg-3 col-md-4 col-6 reveal-up">
                 <div class="dest-mini-card">
                     <div class="img-reveal">
-                        <img src="{% static 'images/destinations/meenakshi-temple.jpg' %}" alt="Madurai Heritage">
+                        <img src="{% static 'images/destinations/meenakshi-temple.webp' %}" alt="Madurai Heritage">
                     </div>
                     <div class="p-3">
                         <h6 class="fw-bold text-dark mb-0" style="font-size: 0.98rem;">Madurai</h6>
@@ -638,7 +636,7 @@ Hub.{% endblock %}
             <div class="col-lg-3 col-md-4 col-6 reveal-up">
                 <div class="dest-mini-card">
                     <div class="img-reveal">
-                        <img src="{% static 'images/destinations/rameswaram.avif' %}" alt="Rameswaram Spiritual">
+                        <img src="{% static 'images/destinations/rameswaram.webp' %}" alt="Rameswaram Spiritual">
                     </div>
                     <div class="p-3">
                         <h6 class="fw-bold text-dark mb-0" style="font-size: 0.98rem;">Rameswaram</h6>
@@ -651,7 +649,7 @@ Hub.{% endblock %}
             <div class="col-lg-3 col-md-4 col-6 reveal-up">
                 <div class="dest-mini-card">
                     <div class="img-reveal">
-                        <img src="{% static 'images/destinations/kanyakumari.jpg' %}" alt="Kanyakumari Beach">
+                        <img src="{% static 'images/destinations/kanyakumari.webp' %}" alt="Kanyakumari Beach">
                     </div>
                     <div class="p-3">
                         <h6 class="fw-bold text-dark mb-0" style="font-size: 0.98rem;">Kanyakumari</h6>
@@ -664,7 +662,7 @@ Hub.{% endblock %}
             <div class="col-lg-3 col-md-4 col-6 reveal-up">
                 <div class="dest-mini-card">
                     <div class="img-reveal">
-                        <img src="{% static 'images/destinations/mahabalipuram.jpg' %}" alt="Mahabalipuram Heritage">
+                        <img src="{% static 'images/destinations/mahabalipuram.webp' %}" alt="Mahabalipuram Heritage">
                     </div>
                     <div class="p-3">
                         <h6 class="fw-bold text-dark mb-0" style="font-size: 0.98rem;">Mahabalipuram</h6>
@@ -677,7 +675,7 @@ Hub.{% endblock %}
             <div class="col-lg-3 col-md-4 col-6 reveal-up">
                 <div class="dest-mini-card">
                     <div class="img-reveal">
-                        <img src="{% static 'images/destinations/tn-gallery-1.jpg' %}" alt="Thanjavur Heritage">
+                        <img src="{% static 'images/destinations/tn-gallery-1.webp' %}" alt="Thanjavur Heritage">
                     </div>
                     <div class="p-3">
                         <h6 class="fw-bold text-dark mb-0" style="font-size: 0.98rem;">Thanjavur</h6>
@@ -721,34 +719,34 @@ Hub.{% endblock %}
                         </p>
 
                         <div class="d-flex flex-wrap gap-2 mb-4">
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Pondicherry"><i class="bi bi-signpost text-danger"></i> Chennai to
                                 Pondicherry cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Tirupati"><i class="bi bi-signpost text-danger"></i> Chennai to
                                 Tirupati cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Bangalore"><i class="bi bi-signpost text-danger"></i> Chennai to
                                 Bangalore cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Mahabalipuram"><i class="bi bi-signpost text-danger"></i> Chennai to
                                 Mahabalipuram cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Pondicherry"><i class="bi bi-signpost text-danger"></i> Chennai
-                                airport to Pondicherry taxi</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                                airport to Pondicherry cab</a>
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Trichy"><i class="bi bi-signpost text-danger"></i> Chennai to Trichy
                                 cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Madurai"><i class="bi bi-signpost text-danger"></i> Chennai to Madurai
                                 cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Central Station"><i class="bi bi-signpost text-danger"></i> Chennai
                                 Central station cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Pondicherry TT"><i class="bi bi-bus-front text-danger"></i> Chennai to
                                 Pondicherry Tempo Traveller</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Tirupati Bus"><i class="bi bi-bus-front text-danger"></i> Chennai to
                                 Tirupati bus rental</a>
                         </div>
@@ -776,39 +774,39 @@ Hub.{% endblock %}
                         </div>
                         <p class="text-muted small mb-3" style="line-height: 1.6;">
                             Vibhu Travel Hub is the leading provider of 24 hours cab service in Coimbatore and
-                            affordable taxi service in Coimbatore. Transparent per km rates for local sightseeing and
+                            affordable cab service in Coimbatore. Transparent per km rates for local sightseeing and
                             outstation trips.
                         </p>
 
                         <div class="d-flex flex-wrap gap-2 mb-4">
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Ooty"><i class="bi bi-signpost text-danger"></i> Coimbatore to Ooty
                                 cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Wayanad"><i class="bi bi-signpost text-danger"></i> Coimbatore to
                                 Wayanad cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Ooty TT"><i class="bi bi-bus-front text-danger"></i> Coimbatore to
                                 Ooty Tempo Traveller</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Munnar"><i class="bi bi-signpost text-danger"></i> Coimbatore to
                                 Munnar cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Valparai"><i class="bi bi-signpost text-danger"></i> Coimbatore to
                                 Valparai cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Kochi"><i class="bi bi-signpost text-danger"></i> Coimbatore to Kochi
                                 cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Tirupur"><i class="bi bi-signpost text-danger"></i> Coimbatore to
-                                Tirupur taxi</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                                Tirupur cab</a>
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Bangalore"><i class="bi bi-signpost text-danger"></i> Coimbatore to
                                 Bangalore cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Airport Ooty"><i class="bi bi-airplane text-danger"></i> Coimbatore
-                                airport to Ooty taxi</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                                airport to Ooty cab</a>
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Isha Yoga"><i class="bi bi-signpost text-danger"></i> Coimbatore
                                 airport to Isha Yoga Center cab</a>
                         </div>
@@ -843,35 +841,35 @@ Hub.{% endblock %}
                 <div class="row g-2.5">
                     <div class="col-4">
                         <div class="gallery-tile">
-                            <img src="{% static 'images/destinations/tn-gallery-1.jpg' %}"
+                            <img src="{% static 'images/destinations/tn-gallery-1.webp' %}"
                                 alt="Tamil Nadu Temple Architecture">
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="gallery-tile">
-                            <img src="{% static 'images/destinations/kovalam.jpg' %}" alt="Tamil Nadu Coastline">
+                            <img src="{% static 'images/destinations/kovalam.webp' %}" alt="Tamil Nadu Coastline">
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="gallery-tile">
-                            <img src="{% static 'images/destinations/mahabalipuram.jpg' %}"
+                            <img src="{% static 'images/destinations/mahabalipuram.webp' %}"
                                 alt="Mahabalipuram Heritage Shore Temple">
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="gallery-tile">
-                            <img src="{% static 'images/destinations/tn-gallery-3.jpg' %}" alt="Tamil Nadu Waterfall">
+                            <img src="{% static 'images/destinations/tn-gallery-3.webp' %}" alt="Tamil Nadu Waterfall">
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="gallery-tile">
-                            <img src="{% static 'images/destinations/tn-about.avif' %}"
+                            <img src="{% static 'images/destinations/tn-about.webp' %}"
                                 alt="Tamil Nadu Cultural Heritage Dancer">
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="gallery-tile">
-                            <img src="{% static 'images/destinations/ooty.avif' %}" alt="Ooty Tea Plantations">
+                            <img src="{% static 'images/destinations/ooty.webp' %}" alt="Ooty Tea Plantations">
                         </div>
                     </div>
                 </div>
@@ -967,7 +965,7 @@ Hub.{% endblock %}
                         <div class="d-flex align-items-start gap-3">
                             <div class="rounded-circle p-2.5 text-danger border border-danger-subtle bg-danger-subtle d-flex align-items-center justify-content-center"
                                 style="width: 44px; height: 44px; min-width: 44px;">
-                                <i class="bi bi-clock-check-fill fs-5"></i>
+                                <i class="bi bi-clock-fill fs-5"></i>
                             </div>
                             <div>
                                 <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem;">On-Time Service</h6>

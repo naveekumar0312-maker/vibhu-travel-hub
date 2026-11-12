@@ -1,8 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}{{ city_data.title }}{% endblock %}
-{% block description %}{{ city_data.description }}{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/destination.css' %}?v={{ STATIC_VERSION }}">
+{% endblock %}
+
+
+{% block meta_title %}{{ city_data.title }}{% endblock %}
+{% block meta_description %}{{ city_data.description }}{% endblock %}
 
 {% block og_title %}{{ city_data.title }}{% endblock %}
 {% block og_description %}{{ city_data.description }}{% endblock %}
@@ -170,7 +175,136 @@
         </div>
     </div>
 </section>
+<!-- COIMBATORE SEO LANDING PAGES -->
 
+<section class="py-5 bg-light border-top border-bottom">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="text-danger fw-bold text-uppercase small">
+                Popular Coimbatore Services
+            </span>
+
+            <h2 class="fw-bold mt-2">
+                Book Your Travel Service in Coimbatore
+            </h2>
+
+            <p class="text-secondary mx-auto"
+               style="max-width:720px;">
+                Explore our dedicated travel services for Tempo Traveller,
+                bus rental, Ooty tours and outstation cab travel from Coimbatore.
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-md-6 col-lg-3">
+
+                <a href="{% url 'tempo_traveller_rental_coimbatore' %}"
+                   class="text-decoration-none">
+
+                    <div class="bg-white rounded-4 p-4 h-100 border shadow-sm">
+
+                        <i class="bi bi-people-fill text-danger fs-2 mb-3"></i>
+
+                        <h3 class="h5 fw-bold text-dark">
+                            Tempo Traveller Rental
+                        </h3>
+
+                        <p class="small text-secondary mb-0">
+                            Comfortable Tempo Traveller rental in Coimbatore
+                            for family and group trips.
+                        </p>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-3">
+
+                <a href="{% url 'bus_rental_coimbatore' %}"
+                   class="text-decoration-none">
+
+                    <div class="bg-white rounded-4 p-4 h-100 border shadow-sm">
+
+                        <i class="bi bi-bus-front-fill text-danger fs-2 mb-3"></i>
+
+                        <h3 class="h5 fw-bold text-dark">
+                            Bus Rental Coimbatore
+                        </h3>
+
+                        <p class="small text-secondary mb-0">
+                            Tourist bus rental for weddings, events,
+                            corporate and group tours.
+                        </p>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-3">
+
+                <a href="{% url 'coimbatore_to_ooty_tour' %}"
+                   class="text-decoration-none">
+
+                    <div class="bg-white rounded-4 p-4 h-100 border shadow-sm">
+
+                        <i class="bi bi-signpost-split-fill text-danger fs-2 mb-3"></i>
+
+                        <h3 class="h5 fw-bold text-dark">
+                            Coimbatore to Ooty Tour
+                        </h3>
+
+                        <p class="small text-secondary mb-0">
+                            Plan your Ooty trip from Coimbatore with cab
+                            and Tempo Traveller options.
+                        </p>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-3">
+
+                <a href="{% url 'outstation_cab_coimbatore' %}"
+                   class="text-decoration-none">
+
+                    <div class="bg-white rounded-4 p-4 h-100 border shadow-sm">
+
+                        <i class="bi bi-car-front-fill text-danger fs-2 mb-3"></i>
+
+                        <h3 class="h5 fw-bold text-dark">
+                            Outstation Cab
+                        </h3>
+
+                        <p class="small text-secondary mb-0">
+                            One-way and round-trip outstation cab services
+                            from Coimbatore.
+                        </p>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 <!-- 4. PLACES TO VISIT -->
 {% if city_data.places_to_visit %}
 <section id="places-to-visit" class="py-5 bg-light border-top">

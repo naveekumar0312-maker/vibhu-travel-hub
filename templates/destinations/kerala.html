@@ -1,19 +1,19 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Kerala Travel Packages, Backwater Cabs & Outstation Rentals | Vibhu Travel Hub{% endblock %}
-{% block description %}Explore God's Own Country with Vibhu Travel Hub. Premium cab services, outstation taxi rentals, Tempo Traveller & luxury bus rentals in Kochi, Trivandrum, Munnar, Alleppey, Wayanad, and Varkala.{% endblock %}
-{% block keywords %}Kerala tourism, cab service in Kochi, taxi service in Trivandrum, Munnar cab rental, Alleppey houseboat cabs, Tempo Traveller Kerala, Wayanad tour package, Varkala taxi{% endblock %}
+{% block meta_title %}Kerala Tour Packages from Coimbatore | Vibhu Travel Hub{% endblock %}
+{% block meta_description %}Book Kerala tour packages from Coimbatore with cabs, Tempo Travellers and buses for Munnar, Wayanad, Alleppey, Kochi and more.{% endblock %}
+{% block keywords %}Kerala tour packages from Coimbatore, Kerala tours from Coimbatore, Kerala travel packages from Coimbatore, Coimbatore to Kerala tour, Munnar tour package, Wayanad tour, Alleppey tour{% endblock %}
 {% block canonical %}https://vibhutravelhub.com/destinations/kerala/{% endblock %}
 
 {% block og_title %}Kerala Travel Packages & Cab Services | Vibhu Travel Hub{% endblock %}
 {% block og_description %}Book luxury cabs, Tempo Travellers, and tour packages across Kerala with Vibhu Travel Hub.{% endblock %}
 {% block og_url %}https://vibhutravelhub.com/destinations/kerala/{% endblock %}
-{% block og_image %}https://vibhutravelhub.com{% static 'images/destinations/kerala.jpg' %}{% endblock %}
+{% block og_image %}https://vibhutravelhub.com{% static 'images/destinations/kerala.webp' %}{% endblock %}
 
 {% block twitter_title %}Kerala Travel Packages & Cab Services | Vibhu Travel Hub{% endblock %}
 {% block twitter_description %}Book luxury cabs, Tempo Travellers, and tour packages across Kerala with Vibhu Travel Hub.{% endblock %}
-{% block twitter_image %}https://vibhutravelhub.com{% static 'images/destinations/kerala.jpg' %}{% endblock %}
+{% block twitter_image %}https://vibhutravelhub.com{% static 'images/destinations/kerala.webp' %}{% endblock %}
 
 {% block schema_markup %}
 <script type="application/ld+json">
@@ -44,7 +44,7 @@
   "@type": "TouristDestination",
   "name": "Kerala",
   "description": "Explore God's Own Country with Vibhu Travel Hub. Discover backwaters, hill stations, beaches, wildlife and pristine greenery.",
-  "image": "https://vibhutravelhub.com{% static 'images/destinations/kerala.jpg' %}",
+  "image": "https://vibhutravelhub.com{% static 'images/destinations/kerala.webp' %}",
   "touristType": ["Nature Tour", "Honeymoon", "Family Trip"],
   "includesAttraction": [
     {"@type": "TouristAttraction", "name": "Munnar"},
@@ -203,7 +203,7 @@
     1. HERO SECTION (Matching Master Template)
 ========================================== -->
 <section class="vth-hero-tn py-5">
-    <img src="{% static 'images/destinations/kerala.jpg' %}" alt="Kerala Destinations" class="vth-hero-tn-bg">
+    <img src="{% static 'images/destinations/kerala.webp' %}" alt="Kerala Destinations" class="vth-hero-tn-bg">
     <div class="vth-hero-tn-overlay"></div>
 
     <div class="container position-relative z-3 my-auto">
@@ -222,12 +222,10 @@
                     memorable journey.
                 </p>
                 <div class="d-flex align-items-center gap-3 flex-wrap reveal-up">
-                    <button
+                    <a href="#enquiryModal"
                         class="btn btn-danger rounded-pill px-4 py-2.5 fw-bold text-white shadow-sm border-0 d-inline-flex align-items-center gap-2"
                         style="background-color: #E31E24; font-size: 0.95rem;" data-bs-toggle="modal"
-                        data-bs-target="#enquiryModal" data-destination="Kerala">
-                        Book Your Trip <i class="bi bi-arrow-right"></i>
-                    </button>
+                        data-bs-target="#enquiryModal" data-destination="Kerala">Book Your Trip <i class="bi bi-arrow-right"></i></a>
                     <a href="#popular-destinations"
                         class="btn btn-light rounded-pill px-4 py-2.5 fw-bold d-inline-flex align-items-center gap-2"
                         style="font-size: 0.95rem; color: #1F2937; background: #FFFFFF; border: 1px solid rgba(255, 255, 255, 0.9);">
@@ -315,7 +313,7 @@
             <!-- Left Column: Large Destination Image (~45%) -->
             <div class="col-lg-5 col-md-12 reveal-left">
                 <div class="position-relative rounded-4 overflow-hidden shadow-lg" style="height: 520px;">
-                    <img src="{% static 'images/destinations/kerala-abouts.jpg' %}" alt="About Kerala Backwaters & Hill Stations" class="img-fluid w-100 h-100 hover-scale" style="object-fit: cover; transition: transform 0.6s ease;">
+                    <img src="{% static 'images/destinations/kerala-abouts.webp' %}" alt="About Kerala Backwaters & Hill Stations" class="img-fluid w-100 h-100 hover-scale" style="object-fit: cover; transition: transform 0.6s ease;">
                     <div class="position-absolute bottom-0 start-0 w-100 p-4" style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);">
                         <span class="badge bg-danger rounded-pill px-3 py-1.5 text-white fw-bold mb-1">God's Own Country</span>
                         <h4 class="text-white fw-bold mb-0">Backwaters, Hills & Beaches</h4>
@@ -338,7 +336,7 @@
                         The crowning glory among Kerala tourist places is its world-renowned backwaters. Cruising on Kettuvallam houseboats in Alleppey and Kumarakom, exploring tea plantations in Munnar, spotting wildlife in Thekkady, or relaxing on red cliff beaches in Varkala and Kovalam showcase the state's natural variety. Cultural capital <a href="{% url 'city_detail' state_slug='kerala' city_slug='thrissur' %}" class="text-danger text-decoration-none fw-bold">Thrissur</a> and spice hub <a href="{% url 'city_detail' state_slug='kerala' city_slug='calicut' %}" class="text-danger text-decoration-none fw-bold">Calicut</a> complete the rich cultural mosaic.
                     </p>
                     <p class="mb-0">
-                        Navigating places to visit in Kerala is effortless with Vibhu Travel Hub. We specialize in custom tour packages, outstation cabs, airport transfers at Cochin (COK) and Trivandrum (TRV), and Tempo Travellers across all major Kerala travel destinations.
+                        Planning Kerala tour packages from Coimbatore is easy with Vibhu Travel Hub. We offer custom tour packages, outstation cabs, Tempo Travellers and bus rentals for trips to Munnar, Wayanad, Alleppey, Kochi and other popular Kerala destinations.
                     </p>
                 </div>
 
@@ -387,7 +385,7 @@
                     Services Across Kerala</h2>
             </div>
             <div class="d-flex align-items-center gap-2 reveal-right">
-                <a href="{% url 'local_taxi_service' %}" class="text-decoration-none text-dark fw-bold small">View All
+                <a href="{% url 'local_cab_service' %}" class="text-decoration-none text-dark fw-bold small">View All
                     Services <i class="bi bi-chevron-right ms-1"></i></a>
             </div>
         </div>
@@ -398,7 +396,7 @@
                 <div class="cab-service-card h-100 d-flex flex-column border-0 shadow-sm rounded-4 overflow-hidden">
                     <div class="img-reveal position-relative">
                         <a href="{% url 'city_detail' state_slug='kerala' city_slug='cochin' %}">
-                            <img src="{% static 'images/destinations/cochin.jpg' %}" alt="Cochin Travel Guide"
+                            <img src="{% static 'images/destinations/cochin.webp' %}" alt="Cochin Travel Guide"
                                 class="img-fluid w-100 hover-scale" style="height: 190px; object-fit: cover;">
                         </a>
                         <div class="cab-icon-badge">
@@ -440,7 +438,7 @@
                 <div class="cab-service-card h-100 d-flex flex-column border-0 shadow-sm rounded-4 overflow-hidden">
                     <div class="img-reveal position-relative">
                         <a href="{% url 'city_detail' state_slug='kerala' city_slug='trivandrum' %}">
-                            <img src="{% static 'images/destinations/trivandrum.jpg' %}" alt="Trivandrum Travel Guide"
+                            <img src="{% static 'images/destinations/trivandrum.webp' %}" alt="Trivandrum Travel Guide"
                                 class="img-fluid w-100 hover-scale" style="height: 190px; object-fit: cover;">
                         </a>
                         <div class="cab-icon-badge">
@@ -481,7 +479,7 @@
                 <div class="cab-service-card h-100 d-flex flex-column border-0 shadow-sm rounded-4 overflow-hidden">
                     <div class="img-reveal position-relative">
                         <a href="{% url 'city_detail' state_slug='kerala' city_slug='thrissur' %}">
-                            <img src="{% static 'images/destinations/munnar.jpg' %}" alt="Thrissur Travel Guide"
+                            <img src="{% static 'images/destinations/thrissur.webp' %}" alt="Thrissur Travel Guide"
                                 class="img-fluid w-100 hover-scale" style="height: 190px; object-fit: cover;">
                         </a>
                         <div class="cab-icon-badge">
@@ -522,7 +520,7 @@
                 <div class="cab-service-card h-100 d-flex flex-column border-0 shadow-sm rounded-4 overflow-hidden">
                     <div class="img-reveal position-relative">
                         <a href="{% url 'city_detail' state_slug='kerala' city_slug='calicut' %}">
-                            <img src="{% static 'images/destinations/alapuzha.jpg' %}" alt="Calicut Travel Guide"
+                            <img src="{% static 'images/destinations/calicut.webp' %}" alt="Calicut Travel Guide"
                                 class="img-fluid w-100 hover-scale" style="height: 190px; object-fit: cover;">
                         </a>
                         <div class="cab-icon-badge">
@@ -575,7 +573,7 @@
                     Places in Kerala</h2>
             </div>
             <div class="d-flex align-items-center gap-2 reveal-right">
-                <a href="#cab-services" class="text-decoration-none text-dark fw-bold small">View All Places <i
+                <a href="#popular-destinations" class="text-decoration-none text-dark fw-bold small">View All Places <i
                         class="bi bi-chevron-right ms-1"></i></a>
             </div>
         </div>
@@ -585,7 +583,7 @@
             <div class="col-lg-3 col-md-4 col-6 reveal-up">
                 <div class="dest-mini-card">
                     <div class="img-reveal">
-                        <img src="{% static 'images/destinations/munnar.jpg' %}" alt="Munnar Hill Station">
+                        <img src="{% static 'images/destinations/munnar.webp' %}" alt="Munnar Hill Station">
                     </div>
                     <div class="p-3">
                         <h6 class="fw-bold text-dark mb-0" style="font-size: 0.98rem;">Munnar</h6>
@@ -598,7 +596,7 @@
             <div class="col-lg-3 col-md-4 col-6 reveal-up">
                 <div class="dest-mini-card">
                     <div class="img-reveal">
-                        <img src="{% static 'images/destinations/alapuzha.jpg' %}" alt="Alleppey Backwaters">
+                        <img src="{% static 'images/destinations/alapuzha.webp' %}" alt="Alleppey Backwaters">
                     </div>
                     <div class="p-3">
                         <h6 class="fw-bold text-dark mb-0" style="font-size: 0.98rem;">Alleppey</h6>
@@ -611,7 +609,7 @@
             <div class="col-lg-3 col-md-4 col-6 reveal-up">
                 <div class="dest-mini-card">
                     <div class="img-reveal">
-                        <img src="{% static 'images/destinations/cochin.jpg' %}" alt="Kochi Port City">
+                        <img src="{% static 'images/destinations/cochin.webp' %}" alt="Kochi Port City">
                     </div>
                     <div class="p-3">
                         <h6 class="fw-bold text-dark mb-0" style="font-size: 0.98rem;">Kochi</h6>
@@ -624,7 +622,7 @@
             <div class="col-lg-3 col-md-4 col-6 reveal-up">
                 <div class="dest-mini-card">
                     <div class="img-reveal">
-                        <img src="{% static 'images/destinations/wayanad.jpg' %}" alt="Wayanad Nature">
+                        <img src="{% static 'images/destinations/wayanad.webp' %}" alt="Wayanad Nature">
                     </div>
                     <div class="p-3">
                         <h6 class="fw-bold text-dark mb-0" style="font-size: 0.98rem;">Wayanad</h6>
@@ -637,7 +635,7 @@
             <div class="col-lg-3 col-md-4 col-6 reveal-up">
                 <div class="dest-mini-card">
                     <div class="img-reveal">
-                        <img src="{% static 'images/destinations/thekkady.jpg' %}" alt="Thekkady Spice Plantations">
+                        <img src="{% static 'images/destinations/thekkady.webp' %}" alt="Thekkady Spice Plantations">
                     </div>
                     <div class="p-3">
                         <h6 class="fw-bold text-dark mb-0" style="font-size: 0.98rem;">Thekkady</h6>
@@ -650,7 +648,7 @@
             <div class="col-lg-3 col-md-4 col-6 reveal-up">
                 <div class="dest-mini-card">
                     <div class="img-reveal">
-                        <img src="{% static 'images/destinations/varkala.avif' %}" alt="Varkala Cliff Beach">
+                        <img src="{% static 'images/destinations/varkala.webp' %}" alt="Varkala Cliff Beach">
                     </div>
                     <div class="p-3">
                         <h6 class="fw-bold text-dark mb-0" style="font-size: 0.98rem;">Varkala</h6>
@@ -663,7 +661,7 @@
             <div class="col-lg-3 col-md-4 col-6 reveal-up">
                 <div class="dest-mini-card">
                     <div class="img-reveal">
-                        <img src="{% static 'images/destinations/kovalam.jpg' %}" alt="Kovalam Beach Resort">
+                        <img src="{% static 'images/destinations/kovalam.webp' %}" alt="Kovalam Beach Resort">
                     </div>
                     <div class="p-3">
                         <h6 class="fw-bold text-dark mb-0" style="font-size: 0.98rem;">Kovalam</h6>
@@ -676,7 +674,7 @@
             <div class="col-lg-3 col-md-4 col-6 reveal-up">
                 <div class="dest-mini-card">
                     <div class="img-reveal">
-                        <img src="{% static 'images/destinations/kerala-abouts.jpg' %}" alt="Kumarakom Backwaters">
+                        <img src="{% static 'images/destinations/kerala-abouts.webp' %}" alt="Kumarakom Backwaters">
                     </div>
                     <div class="p-3">
                         <h6 class="fw-bold text-dark mb-0" style="font-size: 0.98rem;">Kumarakom</h6>
@@ -719,34 +717,34 @@
                         </p>
 
                         <div class="d-flex flex-wrap gap-2 mb-4">
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Munnar"><i class="bi bi-signpost text-danger"></i> Kochi to Munnar
                                 Cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Alleppey"><i class="bi bi-signpost text-danger"></i> Kochi to Alleppey
                                 Cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Thekkady"><i class="bi bi-signpost text-danger"></i> Kochi to Thekkady
                                 Cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Wayanad"><i class="bi bi-signpost text-danger"></i> Kochi to Wayanad
                                 Cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Trivandrum"><i class="bi bi-signpost text-danger"></i> Kochi to
                                 Trivandrum Cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Kozhikode"><i class="bi bi-signpost text-danger"></i> Kochi to
                                 Kozhikode Cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Kumarakom"><i class="bi bi-signpost text-danger"></i> Kochi to
                                 Kumarakom Cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Munnar Alleppey"><i class="bi bi-signpost text-danger"></i> Munnar to
                                 Alleppey Cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Munnar Thekkady"><i class="bi bi-signpost text-danger"></i> Munnar to
                                 Thekkady Cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Varkala"><i class="bi bi-signpost text-danger"></i> Alleppey to
                                 Varkala Cab</a>
                         </div>
@@ -773,39 +771,39 @@
                                 across Kerala</h4>
                         </div>
                         <p class="text-muted small mb-3" style="line-height: 1.6;">
-                            Vibhu Travel Hub provides seamless outstation taxi rentals, airport taxis, and Tempo
+                            Vibhu Travel Hub provides seamless outstation cab rentals, airport cabs, and Tempo
                             Travellers connecting Kerala with Tamil Nadu, Karnataka & interstate destinations.
                         </p>
 
                         <div class="d-flex flex-wrap gap-2 mb-4">
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Kanyakumari"><i class="bi bi-signpost text-danger"></i> Trivandrum to
                                 Kanyakumari Cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Varkala"><i class="bi bi-signpost text-danger"></i> Trivandrum to
                                 Varkala Cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Alleppey"><i class="bi bi-signpost text-danger"></i> Trivandrum to
                                 Alleppey Cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
-                                data-destination="Kovalam Taxi"><i class="bi bi-airplane text-danger"></i> Trivandrum
-                                Airport to Kovalam Taxi</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                                data-destination="Kovalam Cab"><i class="bi bi-airplane text-danger"></i> Trivandrum
+                                Airport to Kovalam Cab</a>
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Wayanad"><i class="bi bi-signpost text-danger"></i> Kozhikode to
                                 Wayanad Cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Airport Munnar"><i class="bi bi-airplane text-danger"></i> Kochi
-                                Airport to Munnar Taxi</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                                Airport to Munnar Cab</a>
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Airport Alleppey"><i class="bi bi-airplane text-danger"></i> Kochi
-                                Airport to Alleppey Taxi</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                                Airport to Alleppey Cab</a>
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Bangalore"><i class="bi bi-signpost text-danger"></i> Kochi to
                                 Bangalore Outstation Cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Coimbatore"><i class="bi bi-signpost text-danger"></i> Kochi to
                                 Coimbatore Cab</a>
-                            <a href="#" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                            <a href="#enquiryModal" class="route-chip" data-bs-toggle="modal" data-bs-target="#enquiryModal"
                                 data-destination="Chennai"><i class="bi bi-signpost text-danger"></i> Kochi to Chennai
                                 Cab</a>
                         </div>
@@ -840,33 +838,33 @@
                 <div class="row g-2.5">
                     <div class="col-4">
                         <div class="gallery-tile">
-                            <img src="{% static 'images/destinations/munnar.jpg' %}" alt="Munnar Tea Plantations">
+                            <img src="{% static 'images/destinations/munnar.webp' %}" alt="Munnar Tea Plantations">
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="gallery-tile">
-                            <img src="{% static 'images/destinations/alapuzha.jpg' %}"
+                            <img src="{% static 'images/destinations/alapuzha.webp' %}"
                                 alt="Alleppey Backwater Houseboat">
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="gallery-tile">
-                            <img src="{% static 'images/destinations/kovalam.jpg' %}" alt="Kovalam Lighthouse Beach">
+                            <img src="{% static 'images/destinations/kovalam.webp' %}" alt="Kovalam Lighthouse Beach">
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="gallery-tile">
-                            <img src="{% static 'images/destinations/varkala.avif' %}" alt="Varkala Cliff & Coast">
+                            <img src="{% static 'images/destinations/varkala.webp' %}" alt="Varkala Cliff & Coast">
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="gallery-tile">
-                            <img src="{% static 'images/destinations/vagamon.jpg' %}" alt="Vagamon Green Meadows">
+                            <img src="{% static 'images/destinations/vagamon.webp' %}" alt="Vagamon Green Meadows">
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="gallery-tile">
-                            <img src="{% static 'images/destinations/athira.jpg' %}" alt="Athirappilly Waterfalls">
+                            <img src="{% static 'images/destinations/athira.webp' %}" alt="Athirappilly Waterfalls">
                         </div>
                     </div>
                 </div>
@@ -962,7 +960,7 @@
                         <div class="d-flex align-items-start gap-3">
                             <div class="rounded-circle p-2.5 text-danger border border-danger-subtle bg-danger-subtle d-flex align-items-center justify-content-center"
                                 style="width: 44px; height: 44px; min-width: 44px;">
-                                <i class="bi bi-clock-check-fill fs-5"></i>
+                                <i class="bi bi-clock-fill fs-5"></i>
                             </div>
                             <div>
                                 <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem;">On-Time Service</h6>

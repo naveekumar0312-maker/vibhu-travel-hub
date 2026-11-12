@@ -1,0 +1,37 @@
+# Vibhu Travel Hub
+
+> Vibhu Travel Hub is a travel and transportation service provider based in Coimbatore, Tamil Nadu, offering cab rentals, tempo traveller rentals, bus rentals, outstation travel and customized travel services.
+
+## Main Pages
+
+- [Home](https://vibhutravelhub.com/)
+- [About Us](https://vibhutravelhub.com/about/)
+- [Fleet](https://vibhutravelhub.com/fleet/)
+- [Services](https://vibhutravelhub.com/services/)
+- [Tamil Nadu Destinations](https://vibhutravelhub.com/destinations/tamil-nadu/)
+- [Kerala Destinations](https://vibhutravelhub.com/destinations/kerala/)
+- [Karnataka Destinations](https://vibhutravelhub.com/destinations/karnataka/)
+- [Contact](https://vibhutravelhub.com/contact/)
+
+## Services
+
+- [Local Cab Service](https://vibhutravelhub.com/services/local-cab-service/)
+- [Outstation Tours](https://vibhutravelhub.com/services/outstation-tours/)
+- [Tempo Traveller](https://vibhutravelhub.com/services/tempo-traveller/)
+- [Bus Booking](https://vibhutravelhub.com/services/bus-booking/)
+- [Pilgrimage Trips](https://vibhutravelhub.com/services/pilgrimage-trips/)
+- [Corporate Travel](https://vibhutravelhub.com/services/corporate-travel/)
+
+## Booking
+
+- [Book a Cab](https://vibhutravelhub.com/book-cab/)
+- [One Way Cab](https://vibhutravelhub.com/book-cab/one-way/)
+- [Round Trip Cab](https://vibhutravelhub.com/book-cab/round-trip/)
+- [Hourly Cab](https://vibhutravelhub.com/book-cab/hourly/)
+- [Bulk Booking](https://vibhutravelhub.com/book-cab/bulk/)
+
+## Contact
+
+- Location: Joyce Villa Building, 87, Grey Town, Coimbatore, Tamil Nadu – 641018
+- Phone: +91 96558 66660
+- Email: vibhutravelhub66@gmail.com

@@ -9,6 +9,19 @@ __pycache__/
 *.log
 staticfiles/
 
+# Server backup and temporary files
+_*backup*
+*backup*
+*before*
+*.bak
+*.bak*
+*.zip
+*.tar.gz
+fleet-search.txt
+seo-keyword-implementation-before-*
+_image_optimized*
+_image_quarantine*
+
 media/*
 !media/vehicles/
 *.sqlite3

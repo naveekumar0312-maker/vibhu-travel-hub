@@ -1,16 +1,21 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}{{ place_data.title }}{% endblock %}
-{% block description %}{{ place_data.description }}{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/destination.css' %}?v={{ STATIC_VERSION }}">
+{% endblock %}
+
+
+{% block meta_title %}{{ place_data.title }}{% endblock %}
+{% block meta_description %}{{ place_data.description }}{% endblock %}
 
 {% block og_title %}{{ place_data.title }}{% endblock %}
 {% block og_description %}{{ place_data.description }}{% endblock %}
-{% block og_image %}https://vibhutravelhub.com{% static 'images/destinations/' %}{{ place_data.slug }}.avif{% endblock %}
+{% block og_image %}https://vibhutravelhub.com{% static 'images/destinations/' %}{{ place_data.slug }}.webp{% endblock %}
 
 {% block twitter_title %}{{ place_data.title }}{% endblock %}
 {% block twitter_description %}{{ place_data.description }}{% endblock %}
-{% block twitter_image %}https://vibhutravelhub.com{% static 'images/destinations/' %}{{ place_data.slug }}.avif{% endblock %}
+{% block twitter_image %}https://vibhutravelhub.com{% static 'images/destinations/' %}{{ place_data.slug }}.webp{% endblock %}
 
 {% block schema %}
 <script type="application/ld+json">

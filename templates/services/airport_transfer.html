@@ -1,31 +1,36 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Airport Taxi & Transfer Services | Coimbatore & South India | Vibhu Travel Hub{% endblock %}
-{% block description %}Book 24/7 airport pickup and drop taxi services in Coimbatore, Chennai, Cochin & Bangalore. Reliable on-time cabs with driver assistance and zero wait charges.{% endblock %}
-{% block keywords %}airport taxi coimbatore, coimbatore airport pickup, airport drop cab, coimbatore airport to ooty taxi, airport transfer service south india{% endblock %}
+{% block meta_title %}
+<title>Airport Cab & Transfer in Coimbatore | Vibhu Travel Hub</title>
+{% endblock %}
 
-{% block og_title %}Airport Taxi & Transfer Services | Vibhu Travel Hub{% endblock %}
-{% block og_description %}Book 24/7 airport pickup and drop taxi services in Coimbatore, Chennai, Cochin & Bangalore. Reliable on-time cabs with driver assistance and zero wait charges.{% endblock %}
-{% block og_image %}https://vibhutravelhub.com{% static 'images/services/taxi-service-hero.jpg' %}{% endblock %}
+{% block meta_description %}
+Book reliable airport cab and transfer services in Coimbatore with Vibhu Travel Hub for Coimbatore International Airport pickups, drops and outstation travel.
+{% endblock %}
+{% block keywords %}airport cab coimbatore, coimbatore airport pickup, airport drop cab, coimbatore airport to ooty cab, airport transfer service south india{% endblock %}
 
-{% block twitter_title %}Airport Taxi & Transfer Services | Vibhu Travel Hub{% endblock %}
-{% block twitter_description %}Book 24/7 airport pickup and drop taxi services in Coimbatore, Chennai, Cochin & Bangalore. Reliable on-time cabs with driver assistance and zero wait charges.{% endblock %}
-{% block twitter_image %}https://vibhutravelhub.com{% static 'images/services/taxi-service-hero.jpg' %}{% endblock %}
+{% block og_title %}Airport Cab & Transfer Services | Vibhu Travel Hub{% endblock %}
+{% block og_description %}Book 24/7 airport pickup and drop cab services in Coimbatore, Chennai, Cochin & Bangalore. Reliable on-time cabs with driver assistance and zero wait charges.{% endblock %}
+{% block og_image %}https://vibhutravelhub.com{% static 'images/home-optimized/cab-service-hero.webp' %}{% endblock %}
+
+{% block twitter_title %}Airport Cab & Transfer Services | Vibhu Travel Hub{% endblock %}
+{% block twitter_description %}Book 24/7 airport pickup and drop cab services in Coimbatore, Chennai, Cochin & Bangalore. Reliable on-time cabs with driver assistance and zero wait charges.{% endblock %}
+{% block twitter_image %}https://vibhutravelhub.com{% static 'images/home-optimized/cab-service-hero.webp' %}{% endblock %}
 
 {% block schema %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "Airport Taxi & Transfer Services",
+  "name": "Airport Cab & Transfer Services",
   "provider": {
     "@type": "TravelAgency",
     "name": "Vibhu Travel Hub",
     "url": "https://vibhutravelhub.com"
   },
   "areaServed": "South India",
-  "description": "24/7 airport pickup and drop taxi services in Coimbatore, Chennai, Cochin and Bangalore."
+  "description": "24/7 airport pickup and drop cab services in Coimbatore, Chennai, Cochin and Bangalore."
 }
 </script>
 <script type="application/ld+json">
@@ -65,7 +70,7 @@
     },
     {
       "@type": "Question",
-      "name": "Can I book a direct airport taxi from Coimbatore Airport to Ooty or Munnar?",
+      "name": "Can I book a direct airport cab from Coimbatore Airport to Ooty or Munnar?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Yes, we provide direct outstation cabs from Coimbatore Airport directly to Ooty, Kodaikanal, Munnar, and Coorg."
@@ -88,7 +93,6 @@
 <link rel="stylesheet" href="{% static 'css/service.css' %}?v={{ STATIC_VERSION }}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap" rel="stylesheet">
 {% endblock %}
 
 {% block content %}
@@ -96,7 +100,7 @@
     1. HERO SECTION (EXACT MATCH FOR TAMIL NADU MASTER REFERENCE)
 ========================================== -->
 <section class="vth-hero-tn py-5">
-    <img src="{% static 'images/services/taxi-service-hero.jpg' %}" alt="Airport Taxi & Transfer Services" class="vth-hero-tn-bg">
+    <img src="{% static 'images/home-optimized/cab-service-hero.webp' %}" alt="Airport Cab & Transfer Services" class="vth-hero-tn-bg">
     <div class="vth-hero-tn-overlay"></div>
 
     <div class="container position-relative z-3 my-auto">
@@ -104,13 +108,13 @@
             <div class="col-lg-7 col-md-10">
                 <span class="vth-hero-script reveal-down d-block mb-1" style="color: #FF5A5F; font-size: 1.8rem; font-family: 'Caveat', cursive, sans-serif;">24/7 AIRPORT TRANSFERS</span>
                 <h1 class="hero-main-title text-white mb-3 reveal-left" style="font-size: 3.6rem; font-weight: 800; line-height: 1.1; letter-spacing: -1.2px;">
-                    Airport Taxi & Transfer Services
+                    Airport Cab & Transfer Services
                 </h1>
                 <p class="text-white-50 mb-4 reveal-left" style="font-size: 1.08rem; line-height: 1.65; color: rgba(255, 255, 255, 0.9) !important; max-width: 620px;">
-                    Reliable 24/7 airport pickup and drop taxi services in Coimbatore (CJB), Chennai (MAA), Cochin (COK), and Bangalore (BLR) with flight tracking and zero wait fees.
+                    Reliable 24/7 airport pickup and drop cab services in Coimbatore (CJB), Chennai (MAA), Cochin (COK), and Bangalore (BLR) with flight tracking and zero wait fees.
                 </p>
                 <div class="d-flex align-items-center gap-3 flex-wrap reveal-up">
-                    <button class="btn btn-danger rounded-pill px-4 py-2.5 fw-bold text-white shadow-sm border-0 d-inline-flex align-items-center gap-2" style="background-color: #E31E24; font-size: 0.95rem;" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Airport Taxi & Transfer Services">
+                    <button class="btn btn-danger rounded-pill px-4 py-2.5 fw-bold text-white shadow-sm border-0 d-inline-flex align-items-center gap-2" style="background-color: #E31E24; font-size: 0.95rem;" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Airport Cab & Transfer Services">
                         Book Airport Transfer <i class="bi bi-arrow-right"></i>
                     </button>
                     <a href="#about" class="btn btn-light rounded-pill px-4 py-2.5 fw-bold d-inline-flex align-items-center gap-2" style="font-size: 0.95rem; color: #1F2937; background: #FFFFFF; border: 1px solid rgba(255, 255, 255, 0.9);">
@@ -151,7 +155,7 @@
                     <div class="d-flex align-items-center gap-2.5">
                         <i class="bi bi-car-front text-danger fs-3"></i>
                         <div>
-                            <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">Luxury Fleet</h6>
+                            <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">Airport Transfer Fleet</h6>
                             <span class="text-muted d-block" style="font-size: 0.75rem;">Well maintained vehicles</span>
                         </div>
                     </div>
@@ -269,7 +273,7 @@
             <div class="col-md-6 col-lg-4 reveal-up reveal-delay-5">
                 <div class="p-4 bg-white rounded-4 border shadow-sm h-100 hover-lift">
                     <h3 class="h6 fw-bold text-dark mb-2"><i class="bi bi-geo-alt-fill text-danger me-2 wobble"></i>Trivandrum Airport (TRV)</h3>
-                    <p class="small text-secondary mb-2">Airport taxis to Kovalam beach, Varkala cliff & Kanyakumari.</p>
+                    <p class="small text-secondary mb-2">Airport cabs to Kovalam beach, Varkala cliff & Kanyakumari.</p>
                 </div>
             </div>
         </div>
@@ -330,7 +334,7 @@
                     <div class="accordion-item border rounded-3 mb-3 overflow-hidden shadow-sm">
                         <h3 class="accordion-header" id="headingA2">
                             <button class="accordion-button collapsed fw-bold text-dark py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseA2" aria-expanded="false">
-                                Can I book a direct airport taxi from Coimbatore Airport to Ooty or Munnar?
+                                Can I book a direct airport cab from Coimbatore Airport to Ooty or Munnar?
                             </button>
                         </h3>
                         <div id="collapseA2" class="accordion-collapse collapse" data-bs-parent="#airportFaqAccordion">
@@ -363,7 +367,7 @@
         <h2 class="fw-extrabold mb-2">Book Your Airport Transfer Now</h2>
         <p class="lead mb-4 opacity-90">Reliable, comfortable & punctual airport pickups and drops.</p>
         <button class="btn btn-light rounded-pill px-5 py-3 fw-bold text-danger shadow" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Airport Transfer Booking">
-            <i class="bi bi-airplane-fill me-2 wobble"></i> Reserve Airport Taxi
+            <i class="bi bi-airplane-fill me-2 wobble"></i> Reserve Airport Cab
         </button>
     </div>
 </section>

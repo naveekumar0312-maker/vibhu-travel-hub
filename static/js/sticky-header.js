@@ -1,13 +1,1 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const siteHeader = document.getElementById("siteHeader");
-    
-    if (siteHeader) {
-        window.addEventListener('scroll', function () {
-            if (window.scrollY > 80) {
-                siteHeader.classList.add('scrolled');
-            } else {
-                siteHeader.classList.remove('scrolled');
-            }
-        });
-    }
-});
+document.addEventListener("DOMContentLoaded",function(){const e=document.getElementById("siteHeader");e&&window.addEventListener("scroll",function(){window.scrollY>80?e.classList.add("scrolled"):e.classList.remove("scrolled")})});

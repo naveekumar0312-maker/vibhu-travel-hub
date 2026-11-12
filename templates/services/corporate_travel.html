@@ -1,16 +1,21 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Corporate Travel & Executive Car Rentals | Vibhu Travel Hub{% endblock %}
-{% block description %}Professional corporate vehicle rentals, executive employee transport, and event cab services in Coimbatore, Chennai, and Bangalore.{% endblock %}
+{% block meta_title %}
+Corporate Travel Services in Coimbatore | Vibhu Travel Hub
+{% endblock %}
+
+{% block meta_description %}
+Vibhu Travel Hub provides reliable corporate travel services in Coimbatore including employee transportation, business travel, airport transfers and group travel.
+{% endblock %}
 {% block keywords %}Innova Crysta rental in Coimbatore, Force Urbania rental in Chennai, 26 seater Tempo Traveller in Bangalore, 50 seater bus rental in Chennai{% endblock %}
 {% block og_title %}Corporate Travel & Executive Car Rentals | Vibhu Travel Hub{% endblock %}
 {% block og_description %}Professional corporate vehicle rentals, executive employee transport, and event cab services in Coimbatore, Chennai, and Bangalore.{% endblock %}
-{% block og_image %}https://vibhutravelhub.com{% static 'images/services/corporate-hero.jpg' %}{% endblock %}
+{% block og_image %}https://vibhutravelhub.com{% static 'images/services/corporate-hero.webp' %}{% endblock %}
 
 {% block twitter_title %}Corporate Travel & Executive Car Rentals | Vibhu Travel Hub{% endblock %}
 {% block twitter_description %}Professional corporate vehicle rentals, executive employee transport, and event cab services in Coimbatore, Chennai, and Bangalore.{% endblock %}
-{% block twitter_image %}https://vibhutravelhub.com{% static 'images/services/corporate-hero.jpg' %}{% endblock %}
+{% block twitter_image %}https://vibhutravelhub.com{% static 'images/services/corporate-hero.webp' %}{% endblock %}
 
 {% block schema %}
 <script type="application/ld+json">
@@ -21,11 +26,19 @@
   "provider": {
     "@type": "TravelAgency",
     "name": "Vibhu Travel Hub",
-    "url": "https://vibhutravelhub.com"
+    "url": "https://vibhutravelhub.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Joyce Villa Building, 87, Grey Town",
+      "addressLocality": "Coimbatore",
+      "addressRegion": "Tamil Nadu",
+      "postalCode": "641018",
+      "addressCountry": "IN"
+    }
   },
   "areaServed": ["Coimbatore", "Chennai", "Bangalore"],
-  "description": "Executive corporate car rentals, luxury sedan hires, and employee transportation services for business clients.",
-  "image": "https://vibhutravelhub.com/static/images/services/corporate-hero.jpg"
+  "description": "Executive corporate car rentals, sedan rentals, and employee transportation services for business clients.",
+  "image": "https://vibhutravelhub.com/static/images/services/corporate-hero.webp"
 }
 </script>
 <script type="application/ld+json">
@@ -57,7 +70,6 @@
 <!-- Google Fonts for Cursive Script -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap" rel="stylesheet">
 
 <style>
     .vth-script-eyebrow {
@@ -126,7 +138,7 @@
     1. HERO SECTION (EXACT MATCH FOR TAMIL NADU MASTER REFERENCE)
 ========================================== -->
 <section class="vth-hero-tn py-5">
-    <img src="{% static 'images/services/corporate-hero.jpg' %}" alt="Corporate Travel & Executive Car Rentals" class="vth-hero-tn-bg">
+    <img src="{% static 'images/services/corporate-hero.webp' %}" alt="Corporate Travel & Executive Car Rentals" class="vth-hero-tn-bg">
     <div class="vth-hero-tn-overlay"></div>
 
     <div class="container position-relative z-3 my-auto">
@@ -137,7 +149,7 @@
                     Corporate Travel & Executive Car Rentals
                 </h1>
                 <p class="text-white-50 mb-4 reveal-left" style="font-size: 1.08rem; line-height: 1.65; color: rgba(255, 255, 255, 0.9) !important; max-width: 620px;">
-                    Professional executive car rentals, corporate cabs, employee transport, and VIP luxury vehicles for corporate events, business summits and client visits.
+                    Professional executive car rentals, corporate cabs, employee transport, and corporate vehicles for corporate events, business summits and client visits.
                 </p>
                 <div class="d-flex align-items-center gap-3 flex-wrap reveal-up">
                     <button class="btn btn-danger rounded-pill px-4 py-2.5 fw-bold text-white shadow-sm border-0 d-inline-flex align-items-center gap-2" style="background-color: #E31E24; font-size: 0.95rem;" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="Corporate Travel & Executive Car Rentals">
@@ -181,7 +193,7 @@
                     <div class="d-flex align-items-center gap-2.5">
                         <i class="bi bi-car-front text-danger fs-3"></i>
                         <div>
-                            <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">Luxury Fleet</h6>
+                            <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.85rem;">Corporate Travel Fleet</h6>
                             <span class="text-muted d-block" style="font-size: 0.75rem;">Well maintained vehicles</span>
                         </div>
                     </div>
@@ -312,7 +324,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="feature-card">
                     <div class="feature-icon"><i class="bi bi-car-front-fill"></i></div>
                     <h5 class="fw-bold mb-3">Executive Fleet</h5>
-                    <p class="text-muted mb-0">Impeccably clean, well-maintained premium vehicles perfect for VIP and guest transfers.</p>
+                    <p class="text-muted mb-0">Impeccably clean, well-maintained well-maintained vehicles perfect for VIP and guest transfers.</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 vth-card-anim-up">
