@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block meta_title %}About Vibhu Travel Hub | Travel Agency in Coimbatore{% endblock %}
+{% block meta_title %}About Vibhu Travel Hub | Premier Travels & Cabs in Coimbatore{% endblock %}
 
-{% block meta_description %}Learn about Vibhu Travel Hub, a trusted travel agency in Coimbatore providing premium cab rentals, tempo travellers, luxury buses and customized travel services.{% endblock %}
+{% block meta_description %}Learn about Vibhu Travel Hub in Coimbatore. Leading travel agency providing premium cabs, tempo travellers, luxury buses & tour packages across South India.{% endblock %}
 {% block og_title %}About Us | Vibhu Travel Hub — Premier Travel Agency in South India{% endblock %}
 {% block og_description %}Learn about Vibhu Travel Hub, leading travel agency in Coimbatore offering premium cabs, tempo travellers, luxury buses, and outstation tours with professional drivers.{% endblock %}
 {% block og_image %}https://vibhutravelhub.com{% static 'images/logo/og-banner.webp' %}{% endblock %}
@@ -26,6 +26,27 @@
   }]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TravelAgency",
+  "name": "Vibhu Travel Hub",
+  "url": "https://vibhutravelhub.com",
+  "logo": "https://vibhutravelhub.com/static/images/logo/logo.webp",
+  "image": "https://vibhutravelhub.com/static/images/logo/og-banner.webp",
+  "description": "Premier travel agency in Coimbatore providing sanitized cabs, tempo travellers, luxury tourist buses, outstation trips, college tours and corporate packages.",
+  "telephone": "+91 96558 66660",
+  "email": "vibhutravelhub66@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Joyce Villa Building, 87, Grey Town",
+    "addressLocality": "Coimbatore",
+    "addressRegion": "Tamil Nadu",
+    "postalCode": "641018",
+    "addressCountry": "IN"
+  }
+}
+</script>
 {% endblock %}
 
 {% block extra_css %}
@@ -38,17 +59,17 @@
     .vth-script-eyebrow {
         font-family: 'Caveat', cursive, sans-serif;
         color: #E31E24;
-        font-size: 1.8rem;
+        font-size: 1.85rem;
         line-height: 1;
         display: block;
-        margin-bottom: 0.3rem;
+        margin-bottom: 0.35rem;
     }
 
     /* Hero Banner */
     .about-hero-section {
         background: url("{% static 'images/destinations/tn-gallery-3.webp' %}") no-repeat center right / cover;
         position: relative;
-        min-height: 340px;
+        min-height: 380px;
         display: flex;
         align-items: center;
         width: 100%;
@@ -58,64 +79,150 @@
     .about-hero-overlay {
         position: absolute;
         top: 0; left: 0; width: 100%; height: 100%;
-        background: linear-gradient(90deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.88) 42%, rgba(255, 255, 255, 0.45) 75%, rgba(255, 255, 255, 0.15) 100%);
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0.97) 0%, rgba(255, 255, 255, 0.90) 45%, rgba(255, 255, 255, 0.55) 75%, rgba(255, 255, 255, 0.25) 100%);
         z-index: 1;
     }
 
     /* Story Composition Images */
     .story-img-main {
         border-radius: 20px;
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-        width: 86%;
-        height: 380px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        width: 88%;
+        height: 420px;
         object-fit: cover;
     }
 
     .story-img-inset {
         position: absolute;
-        bottom: -20px;
+        bottom: -25px;
         right: 0;
         width: 48%;
-        height: 180px;
+        height: 200px;
         object-fit: cover;
         border-radius: 16px;
         border: 4px solid #FFFFFF;
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
     }
 
     .story-badge-exp {
         position: absolute;
-        bottom: 20px;
-        left: -10px;
-        background: #E31E24;
+        bottom: 25px;
+        left: -15px;
+        background: linear-gradient(135deg, #E31E24 0%, #b31217 100%);
         color: #FFFFFF;
-        padding: 16px 22px;
+        padding: 16px 24px;
         border-radius: 16px;
         box-shadow: 0 12px 30px rgba(227, 30, 36, 0.35);
         z-index: 3;
     }
 
-    /* Value & Stat Cards */
-    .about-card-hover {
+    /* Modern Card Hover Effects */
+    .about-feature-box {
         background: #FFFFFF;
         border: 1px solid #E2E8F0;
-        border-radius: 18px;
+        border-radius: 20px;
+        padding: 32px 24px;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+        transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+        height: 100%;
+        position: relative;
+    }
+
+    .about-feature-box:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+        border-color: rgba(227, 30, 36, 0.3);
+    }
+
+    .about-feature-box .feature-icon-wrapper {
+        width: 60px;
+        height: 60px;
+        border-radius: 16px;
+        background: rgba(227, 30, 36, 0.08);
+        color: #E31E24;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.6rem;
+        margin-bottom: 20px;
         transition: all 0.3s ease;
     }
 
-    .about-card-hover:hover {
+    .about-feature-box:hover .feature-icon-wrapper {
+        background: #E31E24;
+        color: #FFFFFF;
+        transform: scale(1.08);
+    }
+
+    /* Process Step Cards */
+    .process-step-card {
+        background: #FFFFFF;
+        border: 1px dashed #CBD5E1;
+        border-radius: 18px;
+        padding: 28px 20px;
+        text-align: center;
+        position: relative;
+        height: 100%;
+        transition: all 0.3s ease;
+    }
+
+    .process-step-card:hover {
+        border-color: #E31E24;
+        border-style: solid;
+        background: #FFFBFB;
         transform: translateY(-4px);
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-        border-color: rgba(227, 30, 36, 0.2);
+    }
+
+    .step-number-badge {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: #E31E24;
+        color: #FFFFFF;
+        font-weight: 800;
+        font-size: 0.95rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 16px;
+    }
+
+    /* Fleet Showcase Cards */
+    .fleet-item-box {
+        background: #FFFFFF;
+        border: 1px solid #E2E8F0;
+        border-radius: 18px;
+        padding: 24px;
+        transition: all 0.3s ease;
+        height: 100%;
+        text-align: center;
+    }
+
+    .fleet-item-box:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.07);
+        border-color: #E31E24;
+    }
+
+    .fleet-item-box img {
+        height: 130px;
+        width: auto;
+        max-width: 100%;
+        object-fit: contain;
+        margin-bottom: 16px;
+        transition: transform 0.3s ease;
+    }
+
+    .fleet-item-box:hover img {
+        transform: scale(1.05);
     }
 
     /* Coverage Row Item */
     .coverage-state-card {
         background: #FFFFFF;
         border: 1px solid #E2E8F0;
-        border-radius: 14px;
-        padding: 14px 20px;
+        border-radius: 16px;
+        padding: 18px 24px;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -128,36 +235,8 @@
     .coverage-state-card:hover {
         border-color: #E31E24;
         color: #E31E24;
-        box-shadow: 0 4px 15px rgba(227, 30, 36, 0.1);
-        transform: translateX(4px);
-    }
-
-    /* Icon Box */
-    .about-icon-box {
-        width: 52px;
-        height: 52px;
-        border-radius: 14px;
-        background: rgba(227, 30, 36, 0.08);
-        color: #E31E24;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.4rem;
-        margin-bottom: 16px;
-    }
-
-    /* Entrance Animations */
-    @keyframes fadeInUpSlow {
-        from { opacity: 0; transform: translateY(25px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-
-    .anim-fade-up {
-        animation: fadeInUpSlow 700ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-        .anim-fade-up { animation: none !important; opacity: 1 !important; transform: none !important; }
+        box-shadow: 0 6px 20px rgba(227, 30, 36, 0.12);
+        transform: translateX(6px);
     }
 </style>
 {% endblock %}
@@ -165,17 +244,17 @@
 {% block content %}
 
 <!-- ==========================================
-    SECTION 1 — ABOUT HERO BANNER (REFERENCE MATCH)
+    SECTION 1 — HERO BANNER
 ========================================== -->
 <section class="about-hero-section py-5">
     <div class="about-hero-overlay"></div>
     <div class="container position-relative z-2">
         <div class="row align-items-center">
-            <div class="col-lg-6 col-md-10 anim-fade-up">
-                <span class="vth-script-eyebrow">Know More About Us</span>
-                <h1 class="fw-extrabold text-dark mb-3" style="font-size: 3.2rem; letter-spacing: -1.2px; line-height: 1.15;">About Vibhu Travel Hub</h1>
-                <p class="text-secondary mb-4" style="font-size: 1.05rem; line-height: 1.65; max-width: 520px; color: #475569;">
-                    We are one of the most trusted travel partners across South India. Our mission is to provide safe, comfortable and memorable journeys for every traveller.
+            <div class="col-lg-7 col-md-11 reveal-left">
+                <span class="vth-script-eyebrow">Redefining South India Travel</span>
+                <h1 class="fw-extrabold text-dark mb-3" style="font-size: 3.2rem; letter-spacing: -1px; line-height: 1.15;">About Vibhu Travel Hub</h1>
+                <p class="text-secondary mb-4" style="font-size: 1.1rem; line-height: 1.7; max-width: 580px; color: #475569;">
+                    Based in Coimbatore, we are South India’s trusted travel companion. From airport transfers and family getaways to grand college educational tours and corporate fleet rentals, we ensure every mile is safe, luxurious, and hassle-free.
                 </p>
                 <div class="d-flex align-items-center gap-2 text-muted small fw-medium">
                     <a href="{% url 'home' %}" class="text-decoration-none text-muted">Home</a>
@@ -188,7 +267,7 @@
 </section>
 
 <!-- ==========================================
-    SECTION 2 — OUR STORY SECTION
+    SECTION 2 — OUR STORY & BACKGROUND
 ========================================== -->
 <section class="py-5 bg-white overflow-hidden">
     <div class="container py-lg-4">
@@ -196,84 +275,64 @@
             <!-- Left Column: Image Composition with Inset & Badge -->
             <div class="col-lg-6 reveal-left">
                 <div class="position-relative pe-lg-4">
-                    <!-- Main Image (Tempo Traveller in South India) -->
-                    <img src="{% static 'images/vehicles/traveller.webp' %}" alt="Vibhu Travel Hub Fleet" class="story-img-main img-fluid">
-                    
-                    <!-- Small Inset Image (Scenic Road) -->
-                    <img src="{% static 'images/destinations/munnar.webp' %}" alt="Scenic Road Journey" class="story-img-inset img-fluid d-none d-sm-block">
+                    <img src="{% static 'images/vehicles/traveller.webp' %}" alt="Vibhu Travel Hub Fleet in South India" class="story-img-main img-fluid">
+                    <img src="{% static 'images/destinations/munnar.webp' %}" alt="Munnar Tea Hills Road Trip" class="story-img-inset img-fluid d-none d-sm-block">
 
-                    <!-- Experience Red Floating Badge -->
                     <div class="story-badge-exp d-flex align-items-center gap-3">
-                        <i class="bi bi-award-fill fs-2"></i>
+                        <i class="bi bi-award-fill fs-1 text-white"></i>
                         <div>
-                            <div class="fw-extrabold fs-3 lh-1">5+</div>
-                            <div class="small text-white-50 fw-medium">Years of Experience</div>
+                            <div class="fw-extrabold fs-2 lh-1 text-white">5+ Years</div>
+                            <div class="small text-white-50 fw-medium">Excellence in Mobility</div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Right Column: Content & 2-Column Feature List -->
+            <!-- Right Column: Content & 6 Highlights -->
             <div class="col-lg-6 reveal-right">
-                <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block mb-1" style="color: #E31E24; font-size: 0.8rem; letter-spacing: 1.5px;">OUR STORY</span>
-                <h2 class="fw-extrabold text-dark mb-3" style="font-size: 2.4rem; letter-spacing: -0.6px; line-height: 1.2;">Your Journey.<br>Our Responsibility.</h2>
-                <p class="text-secondary mb-4" style="font-size: 1rem; line-height: 1.65; color: #475569;">
-                    Vibhu Travel Hub started with a simple goal — to redefine travel experiences across South India. With a focus on safety, punctuality and customer satisfaction, we have become a preferred choice for thousands of happy travellers.
+                <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block mb-1" style="font-size: 0.82rem; letter-spacing: 1.5px;">OUR JOURNEY & PASSION</span>
+                <h2 class="fw-extrabold text-dark mb-3" style="font-size: 2.4rem; letter-spacing: -0.6px; line-height: 1.2;">Committed to Comfort.<br>Driven by Hospitality.</h2>
+                <p class="text-secondary mb-3" style="font-size: 1.02rem; line-height: 1.7; color: #475569;">
+                    Founded in Coimbatore, <strong>Vibhu Travel Hub</strong> was born from a desire to make regional travel effortless, trustworthy, and transparent. We recognized that travellers deserve clean vehicles, polite experienced chauffeurs, and upfront pricing without hidden charges.
+                </p>
+                <p class="text-secondary mb-4" style="font-size: 1.02rem; line-height: 1.7; color: #475569;">
+                    Today, with an extensive network spanning Tamil Nadu, Kerala, and Karnataka, we handle thousands of successful journeys every year — serving honeymoon couples, families, college batches on Industrial Visits (IV), and corporate teams.
                 </p>
 
-                <!-- 2-Column Feature Grid (6 Points) -->
                 <div class="row g-3">
                     <div class="col-sm-6">
-                        <div class="d-flex align-items-start gap-2.5">
-                            <i class="bi bi-check-circle-fill text-danger fs-5 mt-0.5"></i>
+                        <div class="d-flex align-items-start gap-2">
+                            <i class="bi bi-check-circle-fill text-danger fs-5 mt-1"></i>
                             <div>
-                                <h6 class="fw-bold text-dark mb-0" style="font-size: 0.92rem;">Professional Drivers</h6>
-                                <span class="text-muted small">Experienced & verified drivers</span>
+                                <h4 class="fw-bold text-dark mb-0" style="font-size: 0.95rem;">Verified Drivers</h4>
+                                <span class="text-muted small">Background-checked & polite</span>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-6">
-                        <div class="d-flex align-items-start gap-2.5">
-                            <i class="bi bi-check-circle-fill text-danger fs-5 mt-0.5"></i>
+                        <div class="d-flex align-items-start gap-2">
+                            <i class="bi bi-check-circle-fill text-danger fs-5 mt-1"></i>
                             <div>
-                                <h6 class="fw-bold text-dark mb-0" style="font-size: 0.92rem;">Customer Satisfaction</h6>
-                                <span class="text-muted small">Our travellers are our pride</span>
+                                <h4 class="fw-bold text-dark mb-0" style="font-size: 0.95rem;">Transparent Pricing</h4>
+                                <span class="text-muted small">Zero hidden driver batta</span>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-6">
-                        <div class="d-flex align-items-start gap-2.5">
-                            <i class="bi bi-check-circle-fill text-danger fs-5 mt-0.5"></i>
+                        <div class="d-flex align-items-start gap-2">
+                            <i class="bi bi-check-circle-fill text-danger fs-5 mt-1"></i>
                             <div>
-                                <h6 class="fw-bold text-dark mb-0" style="font-size: 0.92rem;">Well Maintained Fleet</h6>
-                                <span class="text-muted small">Regularly serviced vehicles</span>
+                                <h4 class="fw-bold text-dark mb-0" style="font-size: 0.95rem;">Sanitized Fleet</h4>
+                                <span class="text-muted small">AC & push-back luxury</span>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-6">
-                        <div class="d-flex align-items-start gap-2.5">
-                            <i class="bi bi-check-circle-fill text-danger fs-5 mt-0.5"></i>
+                        <div class="d-flex align-items-start gap-2">
+                            <i class="bi bi-check-circle-fill text-danger fs-5 mt-1"></i>
                             <div>
-                                <h6 class="fw-bold text-dark mb-0" style="font-size: 0.92rem;">24/7 Support</h6>
-                                <span class="text-muted small">Always available for you</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="d-flex align-items-start gap-2.5">
-                            <i class="bi bi-check-circle-fill text-danger fs-5 mt-0.5"></i>
-                            <div>
-                                <h6 class="fw-bold text-dark mb-0" style="font-size: 0.92rem;">Transparent Pricing</h6>
-                                <span class="text-muted small">No hidden charges</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="d-flex align-items-start gap-2.5">
-                            <i class="bi bi-check-circle-fill text-danger fs-5 mt-0.5"></i>
-                            <div>
-                                <h6 class="fw-bold text-dark mb-0" style="font-size: 0.92rem;">Safe & Secure Journey</h6>
-                                <span class="text-muted small">Your safety is our top priority</span>
+                                <h4 class="fw-bold text-dark mb-0" style="font-size: 0.95rem;">24/7 Roadside Support</h4>
+                                <span class="text-muted small">Instant WhatsApp assistance</span>
                             </div>
                         </div>
                     </div>
@@ -284,7 +343,7 @@
 </section>
 
 <!-- ==========================================
-    SECTION 3 — STATISTICS / TRUST BAR
+    SECTION 3 — KEY METRICS & TRUST COUNTER
 ========================================== -->
 <section class="py-4" style="background-color: #F8FAFC;">
     <div class="container">
@@ -292,30 +351,30 @@
             <div class="row g-4 text-center">
                 <div class="col-lg-3 col-6 border-end border-light-subtle-sm">
                     <div class="d-flex flex-column align-items-center">
-                        <i class="bi bi-people-fill text-danger fs-2 mb-2"></i>
-                        <h3 class="fw-extrabold text-dark mb-0" style="font-size: 2.2rem; letter-spacing: -0.5px;">1K+</h3>
-                        <span class="text-muted small fw-medium">Happy Customers</span>
+                        <i class="bi bi-people-fill text-danger fs-1 mb-2"></i>
+                        <h3 class="fw-extrabold text-dark mb-0" style="font-size: 2.4rem; letter-spacing: -0.5px;">15,000+</h3>
+                        <span class="text-muted small fw-semibold">Happy Travellers Served</span>
                     </div>
                 </div>
                 <div class="col-lg-3 col-6 border-end border-light-subtle-sm">
                     <div class="d-flex flex-column align-items-center">
-                        <i class="bi bi-car-front-fill text-danger fs-2 mb-2"></i>
-                        <h3 class="fw-extrabold text-dark mb-0" style="font-size: 2.2rem; letter-spacing: -0.5px;">7+</h3>
-                        <span class="text-muted small fw-medium">Premium Vehicles</span>
+                        <i class="bi bi-truck-front-fill text-danger fs-1 mb-2"></i>
+                        <h3 class="fw-extrabold text-dark mb-0" style="font-size: 2.4rem; letter-spacing: -0.5px;">50+</h3>
+                        <span class="text-muted small fw-semibold">Fleet Network Vehicles</span>
                     </div>
                 </div>
                 <div class="col-lg-3 col-6 border-end border-light-subtle-sm">
                     <div class="d-flex flex-column align-items-center">
-                        <i class="bi bi-geo-alt-fill text-danger fs-2 mb-2"></i>
-                        <h3 class="fw-extrabold text-dark mb-0" style="font-size: 2.2rem; letter-spacing: -0.5px;">3+</h3>
-                        <span class="text-muted small fw-medium">Destinations Covered</span>
+                        <i class="bi bi-geo-alt-fill text-danger fs-1 mb-2"></i>
+                        <h3 class="fw-extrabold text-dark mb-0" style="font-size: 2.4rem; letter-spacing: -0.5px;">120+</h3>
+                        <span class="text-muted small fw-semibold">Routes & Destinations</span>
                     </div>
                 </div>
                 <div class="col-lg-3 col-6">
                     <div class="d-flex flex-column align-items-center">
-                        <i class="bi bi-shield-check text-danger fs-2 mb-2"></i>
-                        <h3 class="fw-extrabold text-dark mb-0" style="font-size: 2.2rem; letter-spacing: -0.5px;">5+</h3>
-                        <span class="text-muted small fw-medium">Years of Experience</span>
+                        <i class="bi bi-star-fill text-warning fs-1 mb-2"></i>
+                        <h3 class="fw-extrabold text-dark mb-0" style="font-size: 2.4rem; letter-spacing: -0.5px;">4.9 / 5</h3>
+                        <span class="text-muted small fw-semibold">Customer Star Rating</span>
                     </div>
                 </div>
             </div>
@@ -324,55 +383,86 @@
 </section>
 
 <!-- ==========================================
-    SECTION 4 — OUR VALUES SECTION
+    SECTION 4 — OUR MISSION & CORE VALUES
 ========================================== -->
 <section class="py-5 bg-white border-top">
     <div class="container py-lg-4 text-center">
-        <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block mb-1" style="color: #E31E24; font-size: 0.8rem; letter-spacing: 1.5px;">OUR VALUES</span>
-        <h2 class="fw-extrabold text-dark mb-5" style="font-size: 2.3rem; letter-spacing: -0.5px;">Committed to Excellence</h2>
+        <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block mb-1" style="font-size: 0.82rem; letter-spacing: 1.5px;">PILLARS OF TRUST</span>
+        <h2 class="fw-extrabold text-dark mb-2" style="font-size: 2.4rem; letter-spacing: -0.5px;">Why Travel With Vibhu Travel Hub?</h2>
+        <p class="text-secondary mx-auto mb-5" style="max-width: 620px; font-size: 1.05rem;">
+            We don’t just rent vehicles; we build enduring relationships through dependable, safe, and welcoming service.
+        </p>
 
-        <div class="row g-4 text-center">
-            <!-- Card 1: Safety First -->
-            <div class="col-lg-3 col-md-6 vth-card-anim-left">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="bi bi-shield-fill-check"></i>
+        <div class="row g-4 text-start">
+            <div class="col-lg-4 col-md-6 reveal-up">
+                <div class="about-feature-box">
+                    <div class="feature-icon-wrapper">
+                        <i class="bi bi-shield-check"></i>
                     </div>
-                    <h5 class="fw-bold text-dark mb-2" style="font-size: 1.1rem;">Safety First</h5>
-                    <p class="text-muted small mb-0">We follow strict safety standards to ensure a secure journey.</p>
+                    <h4 class="fw-bold text-dark mb-2" style="font-size: 1.2rem;">Safety Above All</h4>
+                    <p class="text-secondary small mb-0" style="line-height: 1.7;">
+                        Regular mechanical audits, GPS vehicle monitoring, trained hill-driving chauffeurs, and emergency SOS support on all long-distance journeys.
+                    </p>
                 </div>
             </div>
 
-            <!-- Card 2: Integrity -->
-            <div class="col-lg-3 col-md-6 vth-card-anim-up">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="bi bi-person-heart"></i>
+            <div class="col-lg-4 col-md-6 reveal-up delay-100">
+                <div class="about-feature-box">
+                    <div class="feature-icon-wrapper">
+                        <i class="bi bi-cash-coin"></i>
                     </div>
-                    <h5 class="fw-bold text-dark mb-2" style="font-size: 1.1rem;">Integrity</h5>
-                    <p class="text-muted small mb-0">Honest pricing, transparent processes and reliable services.</p>
+                    <h4 class="fw-bold text-dark mb-2" style="font-size: 1.2rem;">Honest All-Inclusive Fares</h4>
+                    <p class="text-secondary small mb-0" style="line-height: 1.7;">
+                        No last-minute surcharges or unexpected driver claims. What you are quoted is what you pay, complete with clear toll & tax guidelines.
+                    </p>
                 </div>
             </div>
 
-            <!-- Card 3: Quality Service -->
-            <div class="col-lg-3 col-md-6 vth-card-anim-up">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="bi bi-star-fill"></i>
+            <div class="col-lg-4 col-md-6 reveal-up delay-200">
+                <div class="about-feature-box">
+                    <div class="feature-icon-wrapper">
+                        <i class="bi bi-mortarboard-fill"></i>
                     </div>
-                    <h5 class="fw-bold text-dark mb-2" style="font-size: 1.1rem;">Quality Service</h5>
-                    <p class="text-muted small mb-0">From booking to destination, we provide the best travel experience.</p>
+                    <h4 class="fw-bold text-dark mb-2" style="font-size: 1.2rem;">College & Group Specialists</h4>
+                    <p class="text-secondary small mb-0" style="line-height: 1.7;">
+                        Dedicated fleet support for college Industrial Visits (IV), school educational tours, and corporate team events with high-capacity sound coaches.
+                    </p>
                 </div>
             </div>
 
-            <!-- Card 4: Customer First -->
-            <div class="col-lg-3 col-md-6 vth-card-anim-right">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="bi bi-heart-fill"></i>
+            <div class="col-lg-4 col-md-6 reveal-up">
+                <div class="about-feature-box">
+                    <div class="feature-icon-wrapper">
+                        <i class="bi bi-clock-history"></i>
                     </div>
-                    <h5 class="fw-bold text-dark mb-2" style="font-size: 1.1rem;">Customer First</h5>
-                    <p class="text-muted small mb-0">Our customer's happiness drives everything we do.</p>
+                    <h4 class="fw-bold text-dark mb-2" style="font-size: 1.2rem;">100% Punctuality</h4>
+                    <p class="text-secondary small mb-0" style="line-height: 1.7;">
+                        Flight to catch or sunrise to view in Ooty? Our drivers arrive 15 minutes ahead of scheduled time for smooth, unhurried departures.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 reveal-up delay-100">
+                <div class="about-feature-box">
+                    <div class="feature-icon-wrapper">
+                        <i class="bi bi-gem"></i>
+                    </div>
+                    <h4 class="fw-bold text-dark mb-2" style="font-size: 1.2rem;">Premium Vehicle Hygiene</h4>
+                    <p class="text-secondary small mb-0" style="line-height: 1.7;">
+                        Every car, traveller, and bus is vacuumed, sanitized, and perfumed before every pickup, ensuring a pleasant atmosphere for your family.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 reveal-up delay-200">
+                <div class="about-feature-box">
+                    <div class="feature-icon-wrapper">
+                        <i class="bi bi-chat-heart-fill"></i>
+                    </div>
+                    <h4 class="fw-bold text-dark mb-2" style="font-size: 1.2rem;">Local Route Expertise</h4>
+                    <p class="text-secondary small mb-0" style="line-height: 1.7;">
+                        Our drivers are locals who know the best viewpoints, neatest family restaurants, clean highway restrooms, and quiet shortcuts.
+                    </p>
                 </div>
             </div>
         </div>
@@ -380,48 +470,161 @@
 </section>
 
 <!-- ==========================================
-    SECTION 5 — OUR COVERAGE — SOUTH INDIA
+    SECTION 5 — OUR DIVERSE FLEET SHOWCASE
+========================================== -->
+<section class="py-5" style="background-color: #F8FAFC;">
+    <div class="container py-lg-4">
+        <div class="text-center mb-5">
+            <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block mb-1" style="font-size: 0.82rem; letter-spacing: 1.5px;">MODERN MOBILITY FLEET</span>
+            <h2 class="fw-extrabold text-dark mb-2" style="font-size: 2.4rem; letter-spacing: -0.5px;">Vehicles Tailored to Every Group Size</h2>
+            <p class="text-secondary mx-auto" style="max-width: 600px;">Explore our versatile, well-serviced vehicle line-up available for booking 24/7.</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Fleet 1: Sedans -->
+            <div class="col-lg-3 col-md-6 reveal-up">
+                <div class="fleet-item-box">
+                    <img src="{% static 'images/vehicles/sedan.webp' %}" alt="Sedan Car Rental in Coimbatore" class="img-fluid">
+                    <h4 class="fw-bold text-dark mb-1" style="font-size: 1.15rem;">Prime Sedans</h4>
+                    <span class="badge bg-danger-subtle text-danger mb-2">4 Passengers + Driver</span>
+                    <p class="text-muted small mb-3">Swift Dzire & Toyota Etios. Perfect for corporate drops, city taxi, and airport pickups.</p>
+                    <a href="{% url 'local_cab_service' %}" class="btn btn-outline-danger btn-sm rounded-pill px-3 fw-semibold">View Sedans</a>
+                </div>
+            </div>
+
+            <!-- Fleet 2: Premium SUVs -->
+            <div class="col-lg-3 col-md-6 reveal-up delay-100">
+                <div class="fleet-item-box">
+                    <img src="{% static 'images/vehicles/innova.webp' %}" alt="Toyota Innova Crysta Rental" class="img-fluid">
+                    <h4 class="fw-bold text-dark mb-1" style="font-size: 1.15rem;">Innova & Crysta</h4>
+                    <span class="badge bg-danger-subtle text-danger mb-2">6–7 Passengers + Driver</span>
+                    <p class="text-muted small mb-3">Luxury SUVs with individual AC vents and pushback seats for long family vacations.</p>
+                    <a href="{% url 'outstation_tours' %}" class="btn btn-outline-danger btn-sm rounded-pill px-3 fw-semibold">View SUVs</a>
+                </div>
+            </div>
+
+            <!-- Fleet 3: Tempo Travellers -->
+            <div class="col-lg-3 col-md-6 reveal-up delay-200">
+                <div class="fleet-item-box">
+                    <img src="{% static 'images/vehicles/traveller.webp' %}" alt="Tempo Traveller in Coimbatore" class="img-fluid">
+                    <h4 class="fw-bold text-dark mb-1" style="font-size: 1.15rem;">Tempo Travellers</h4>
+                    <span class="badge bg-danger-subtle text-danger mb-2">10 to 18 Seaters</span>
+                    <p class="text-muted small mb-3">Spacious Force Tempo Travellers equipped with audio-video systems and luggage carrier.</p>
+                    <a href="{% url 'tempo_traveller' %}" class="btn btn-outline-danger btn-sm rounded-pill px-3 fw-semibold">View Travellers</a>
+                </div>
+            </div>
+
+            <!-- Fleet 4: Tourist Buses -->
+            <div class="col-lg-3 col-md-6 reveal-up delay-300">
+                <div class="fleet-item-box">
+                    <img src="{% static 'images/services/bus.webp' %}" alt="Luxury Tourist Bus Rental" class="img-fluid">
+                    <h4 class="fw-bold text-dark mb-1" style="font-size: 1.15rem;">Luxury Coaches</h4>
+                    <span class="badge bg-danger-subtle text-danger mb-2">21 to 55 Seaters</span>
+                    <p class="text-muted small mb-3">AC and Non-AC luxury coaches for college tours, industrial visits, weddings and events.</p>
+                    <a href="{% url 'bus_booking' %}" class="btn btn-outline-danger btn-sm rounded-pill px-3 fw-semibold">View Buses</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+    SECTION 6 — HOW WE WORK (4 SIMPLE STEPS)
+========================================== -->
+<section class="py-5 bg-white border-top">
+    <div class="container py-lg-4">
+        <div class="text-center mb-5">
+            <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block mb-1" style="font-size: 0.82rem; letter-spacing: 1.5px;">EASY BOOKING PROCESS</span>
+            <h2 class="fw-extrabold text-dark mb-2" style="font-size: 2.4rem; letter-spacing: -0.5px;">How Your Journey Begins</h2>
+            <p class="text-secondary mx-auto" style="max-width: 580px;">Booking your dream trip with Vibhu Travel Hub takes less than 2 minutes.</p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-3 col-sm-6 reveal-up">
+                <div class="process-step-card">
+                    <div class="step-number-badge">1</div>
+                    <h4 class="fw-bold text-dark mb-2" style="font-size: 1.15rem;">Choose Ride</h4>
+                    <p class="text-muted small mb-0">Select Sedan, Innova, Tempo Traveller or Coach matching your group size.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6 reveal-up delay-100">
+                <div class="process-step-card">
+                    <div class="step-number-badge">2</div>
+                    <h4 class="fw-bold text-dark mb-2" style="font-size: 1.15rem;">Instant Quote</h4>
+                    <p class="text-muted small mb-0">Receive a clear all-inclusive rate via WhatsApp or call with no hidden charges.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6 reveal-up delay-200">
+                <div class="process-step-card">
+                    <div class="step-number-badge">3</div>
+                    <h4 class="fw-bold text-dark mb-2" style="font-size: 1.15rem;">Driver Details</h4>
+                    <p class="text-muted small mb-0">Get chauffeur details, vehicle number, and tracking link prior to pickup.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6 reveal-up delay-300">
+                <div class="process-step-card">
+                    <div class="step-number-badge">4</div>
+                    <h4 class="fw-bold text-dark mb-2" style="font-size: 1.15rem;">Enjoy Journey</h4>
+                    <p class="text-muted small mb-0">Sit back, relax, and create unforgettable memories across South India.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+    SECTION 7 — SOUTH INDIA COVERAGE
 ========================================== -->
 <section class="py-5" style="background-color: #F8FAFC;">
     <div class="container py-lg-4">
         <div class="row align-items-center g-5">
-            <!-- Left Column: Text & 3 State Cards -->
             <div class="col-lg-5 reveal-left">
-                <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block mb-1" style="color: #E31E24; font-size: 0.8rem; letter-spacing: 1.5px;">OUR COVERAGE</span>
-                <h2 class="fw-extrabold text-dark mb-3" style="font-size: 2.3rem; letter-spacing: -0.5px;">Across South India</h2>
-                <p class="text-secondary mb-4" style="font-size: 1rem; line-height: 1.65; color: #475569;">
-                    We provide cab services and travel packages across Tamil Nadu, Kerala and Karnataka with a wide range of destinations.
+                <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block mb-1" style="font-size: 0.82rem; letter-spacing: 1.5px;">EXPANSIVE REACH</span>
+                <h2 class="fw-extrabold text-dark mb-3" style="font-size: 2.4rem; letter-spacing: -0.5px;">Operating Across South India</h2>
+                <p class="text-secondary mb-4" style="font-size: 1.05rem; line-height: 1.7; color: #475569;">
+                    Headquartered in Coimbatore, our reliable network operates effortlessly through the emerald tea slopes of Nilgiris, coastal highways of Tamil Nadu, tranquil backwaters of Kerala, and royal heritage centers of Karnataka.
                 </p>
 
                 <div class="d-flex flex-column gap-3">
                     <a href="/destinations/tamil-nadu/" class="coverage-state-card shadow-sm">
                         <div class="d-flex align-items-center gap-3">
                             <i class="bi bi-geo-alt-fill text-danger fs-5"></i>
-                            <span>Tamil Nadu</span>
+                            <div>
+                                <h4 class="mb-0 fw-bold fs-6">Tamil Nadu</h4>
+                                <span class="text-muted small">Ooty, Kodaikanal, Madurai, Chennai & Rameswaram</span>
+                            </div>
                         </div>
                         <i class="bi bi-chevron-right text-muted"></i>
                     </a>
                     <a href="/destinations/kerala/" class="coverage-state-card shadow-sm">
                         <div class="d-flex align-items-center gap-3">
                             <i class="bi bi-geo-alt-fill text-danger fs-5"></i>
-                            <span>Kerala</span>
+                            <div>
+                                <h4 class="mb-0 fw-bold fs-6">Kerala</h4>
+                                <span class="text-muted small">Munnar, Alleppey, Wayanad, Kochi & Thekkady</span>
+                            </div>
                         </div>
                         <i class="bi bi-chevron-right text-muted"></i>
                     </a>
                     <a href="/destinations/karnataka/" class="coverage-state-card shadow-sm">
                         <div class="d-flex align-items-center gap-3">
                             <i class="bi bi-geo-alt-fill text-danger fs-5"></i>
-                            <span>Karnataka</span>
+                            <div>
+                                <h4 class="mb-0 fw-bold fs-6">Karnataka</h4>
+                                <span class="text-muted small">Mysore, Coorg, Chikmagalur & Bangalore</span>
+                            </div>
                         </div>
                         <i class="bi bi-chevron-right text-muted"></i>
                     </a>
                 </div>
             </div>
 
-            <!-- Right Column: South India Coverage Map Visual -->
             <div class="col-lg-7 reveal-right">
                 <div class="p-4 rounded-4 bg-white border border-light-subtle shadow-sm text-center">
-                    <img src="{% static 'images/destinations/shess.webp' %}" alt="South India Coverage Map" class="img-fluid rounded-3" style="max-height: 420px; object-fit: contain;">
+                    <img src="{% static 'images/destinations/shess.webp' %}" alt="South India Destinations Coverage Map" class="img-fluid rounded-3" style="max-height: 440px; object-fit: contain;">
                 </div>
             </div>
         </div>
@@ -429,23 +632,23 @@
 </section>
 
 <!-- ==========================================
-    SECTION 6 — FINAL CTA SECTION
+    SECTION 8 — FINAL CALL TO ACTION
 ========================================== -->
 <section class="py-5 bg-white border-top">
     <div class="container">
         <div class="p-4 p-md-5 rounded-4 bg-white border border-light-subtle shadow-sm reveal-up">
             <div class="row align-items-center g-4">
                 <div class="col-lg-3 col-md-4 text-center">
-                    <img src="{% static 'images/vehicles/innova.webp' %}" alt="Ready to Travel" class="img-fluid rounded-3" style="max-height: 160px; object-fit: contain;">
+                    <img src="{% static 'images/vehicles/innova.webp' %}" alt="Vibhu Travel Hub Ready to Travel" class="img-fluid rounded-3" style="max-height: 160px; object-fit: contain;">
                 </div>
                 <div class="col-lg-6 col-md-8 text-start">
-                    <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block mb-1" style="color: #E31E24; font-size: 0.75rem; letter-spacing: 1px;">READY TO TRAVEL?</span>
-                    <h3 class="fw-extrabold text-dark mb-2" style="font-size: 1.8rem; letter-spacing: -0.5px;">Let's Start Your Journey Today!</h3>
-                    <p class="text-muted small mb-0">Book your ride now and experience premium travel with Vibhu Travel Hub.</p>
+                    <span class="vth-eyebrow text-danger fw-bold text-uppercase d-block mb-1" style="font-size: 0.8rem; letter-spacing: 1.2px;">READY TO EXPLORE?</span>
+                    <h3 class="fw-extrabold text-dark mb-2" style="font-size: 2rem; letter-spacing: -0.5px;">Plan Your South India Trip Today!</h3>
+                    <p class="text-secondary mb-0" style="font-size: 1.02rem;">Contact our travel experts for customized quotes, route suggestions, and immediate vehicle bookings.</p>
                 </div>
                 <div class="col-lg-3 col-md-12 d-flex flex-column flex-sm-row flex-lg-column gap-2 justify-content-center">
-                    <a href="#enquiryModal" class="btn btn-danger rounded-pill px-4 py-2.5 fw-bold text-white shadow-sm border-0 text-center" style="background-color: #E31E24; font-size: 0.95rem;" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="About Us - Book Your Trip">
-                        Book Your Trip
+                    <a href="https://wa.me/919655866660?text=Hi%20Vibhu%20Travel%20Hub,%20I%20would%20like%20to%20plan%20a%20trip." target="_blank" class="btn btn-danger rounded-pill px-4 py-2.5 fw-bold text-white shadow-sm border-0 text-center" style="background-color: #E31E24; font-size: 0.95rem;">
+                        <i class="bi bi-whatsapp me-1"></i> WhatsApp Booking
                     </a>
                     <a href="{% url 'contact' %}" class="btn btn-outline-dark rounded-pill px-4 py-2.5 fw-bold text-center" style="font-size: 0.95rem;">
                         Contact Us
