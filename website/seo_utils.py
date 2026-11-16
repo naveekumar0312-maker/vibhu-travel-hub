@@ -1707,26 +1707,38 @@ COIMBATORE_LANDING_PAGES = {
         ],
         "highlights": [
             {
+                "title": "College Tour Buses & IV Trips",
+                "desc": "Specialized college tour buses in Coimbatore for educational tours, industrial visits (IV) and outstation student group travel with GPS tracking and music systems."
+            },
+            {
                 "title": "Tourist Bus Rental",
-                "desc": "Convenient buses for sightseeing and holiday group tours."
+                "desc": "Convenient luxury AC & Non-AC buses (21 to 55 seaters) for sightseeing and holiday group tours."
             },
             {
                 "title": "Wedding Transportation",
-                "desc": "Group transportation solutions for weddings and family functions."
+                "desc": "Group transportation solutions for weddings, receptions and family functions."
             },
             {
-                "title": "Corporate Travel",
-                "desc": "Reliable transportation for corporate events and team travel."
+                "title": "Corporate & Event Travel",
+                "desc": "Reliable transportation for corporate conferences, team outings and employee travel."
             },
             {
                 "title": "Outstation Tours",
-                "desc": "Comfortable buses for long-distance group journeys."
+                "desc": "Comfortable push-back luxury coaches for long-distance group journeys across Tamil Nadu, Kerala & Karnataka."
             }
         ],
         "faqs": [
             {
-                "q": "Can I rent a tourist bus in Coimbatore?",
-                "a": "Yes. Vibhu Travel Hub provides tourist bus rental services in Coimbatore for group tours, family trips, corporate travel and events."
+                "q": "Can I book college tour buses in Coimbatore for Industrial Visits (IV)?",
+                "a": "Yes! Vibhu Travel Hub specializes in college tour buses in Coimbatore for educational trips, college industrial visits (IV) and department outings across South India with certified drivers and all-India tourist permits."
+            },
+            {
+                "q": "What seating capacities are available for bus rental in Coimbatore?",
+                "a": "We offer 21-seater mini buses, 25-seater, 33-seater, 40-seater and 50/55-seater luxury tourist buses equipped with push-back seats, air conditioning and sound systems."
+            },
+            {
+                "q": "Can I rent a tourist bus in Coimbatore for outstation trips?",
+                "a": "Yes. Vibhu Travel Hub provides tourist bus rental services in Coimbatore for group tours, college tours, family trips, corporate travel and events."
             },
             {
                 "q": "Is bus rental available for outstation trips from Coimbatore?",
