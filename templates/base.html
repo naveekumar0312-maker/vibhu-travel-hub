@@ -18,8 +18,10 @@
     <link rel="icon" type="image/webp" href="{% static 'images/logo/logo.webp' %}">
     <link rel="shortcut icon" href="{% static 'images/logo/logo.webp' %}">
 
-    <!-- Canonical URL (Dynamic HTTPS Production Domain) -->
-    <link rel="canonical" href="https://vibhutravelhub.com{{ request.path }}">
+    <!-- Canonical URL -->
+    {% block canonical_tag %}
+    <link rel="canonical" href="{% block canonical %}https://vibhutravelhub.com{{ request.path }}{% endblock %}">
+    {% endblock %}
 
     <!-- Title -->
 <title>{% block meta_title %}Best Travel Agency in Coimbatore | Cab & Tempo Traveller{% endblock %}</title>
