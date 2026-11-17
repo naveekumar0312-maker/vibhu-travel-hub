@@ -415,7 +415,7 @@ def tourist_place_detail_view(request, state_slug, city_slug, place_slug):
                         "place_name": place_name,
                         "slug": place_slug,
                         "h1": place.get("h1") or f"{place_name} – Travel Guide",
-                        "title": place.get("title") or f"{place_name} Travel Guide | Vibhu Travel Hub",
+                        "title": place.get("title") or (f"{place_name} Travel Guide | Vibhu Travel Hub" if len(f"{place_name} Travel Guide | Vibhu Travel Hub") <= 60 else f"{place_name} Guide | Vibhu Travel Hub"),
                         "description": description,
                         "tagline": place.get("tagline") or description,
                         "about_paragraphs": place.get("about_paragraphs") or [description],
