@@ -108,7 +108,7 @@
                     <a href="tel:+919655866660" class="btn btn-outline-dark rounded-pill px-4 py-2.5 fw-bold d-inline-flex align-items-center gap-2" style="border: 1px solid #CBD5E1; color: #1E293B; background: #FFFFFF;">
                         <i class="bi bi-telephone-fill text-danger"></i> Call Now
                     </a>
-                    <a href="https://wa.me/919655866660?text=Hi%20Vibhu%20Travel%20Hub,%20I%20want%20to%20plan%20a%20trip%20to%20{{ place_data.place_name }}" target="_blank" class="btn btn-success rounded-pill px-4 py-2.5 fw-bold d-inline-flex align-items-center gap-2" style="background-color: #25D366; border: none;">
+                    <a href="https://wa.me/919655866660?text=Hi%20Vibhu%20Travel%20Hub,%20I%20want%20to%20plan%20a%20trip%20to%20{{ place_data.place_name }}" target="_blank" class="btn btn-success rounded-pill px-4 py-2.5 fw-bold d-inline-flex align-items-center gap-2" style="background-color: #25D366; border: none;" rel="noopener noreferrer">
                         <i class="bi bi-whatsapp"></i> WhatsApp
                     </a>
                 </div>
@@ -364,7 +364,7 @@
                 <div class="p-4 bg-light rounded-4 border h-100 d-flex flex-column hover-lift">
                     <h3 class="h6 fw-bold text-dark mb-2">{{ dest.name }}</h3>
                     <p class="small text-secondary mb-3 flex-grow-1">{{ dest.desc }}</p>
-                    <a href="/destinations/{{ place_data.state_slug }}/{{ place_data.city_slug }}/place/{{ dest.slug }}/" class="text-decoration-none text-danger fw-bold small mt-auto d-inline-flex align-items-center gap-1">
+                    <a href="{{ dest.target_url|default:'#' }}" class="text-decoration-none text-danger fw-bold small mt-auto d-inline-flex align-items-center gap-1">
                         Explore Destination <i class="bi bi-arrow-right"></i>
                     </a>
                 </div>
@@ -421,7 +421,7 @@
             <a href="tel:+919655866660" class="btn btn-outline-light rounded-pill px-4 py-3 fw-bold">
                 <i class="bi bi-telephone-fill me-2"></i> Call Now
             </a>
-            <a href="https://wa.me/919655866660?text=Hi%20Vibhu%20Travel%20Hub,%20I%20want%20to%20plan%20a%20trip%20to%20{{ place_data.place_name }}" target="_blank" class="btn btn-outline-light rounded-pill px-4 py-3 fw-bold">
+            <a href="https://wa.me/919655866660?text=Hi%20Vibhu%20Travel%20Hub,%20I%20want%20to%20plan%20a%20trip%20to%20{{ place_data.place_name }}" target="_blank" class="btn btn-outline-light rounded-pill px-4 py-3 fw-bold" rel="noopener noreferrer">
                 <i class="bi bi-whatsapp me-2"></i> WhatsApp
             </a>
         </div>

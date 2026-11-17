@@ -111,7 +111,7 @@
                     <a href="tel:+919655866660" class="btn btn-outline-dark rounded-pill px-4 py-2.5 fw-bold d-inline-flex align-items-center gap-2" style="border: 1px solid #CBD5E1; color: #1E293B; background: #FFFFFF;">
                         <i class="bi bi-telephone-fill text-danger"></i> Call Now
                     </a>
-                    <a href="https://wa.me/919655866660?text=Hi%20Vibhu%20Travel%20Hub,%20I%20want%20to%20plan%20a%20trip%20to%20{{ city_data.city_name }}" target="_blank" class="btn btn-success rounded-pill px-4 py-2.5 fw-bold d-inline-flex align-items-center gap-2" style="background-color: #25D366; border: none;">
+                    <a href="https://wa.me/919655866660?text=Hi%20Vibhu%20Travel%20Hub,%20I%20want%20to%20plan%20a%20trip%20to%20{{ city_data.city_name }}" target="_blank" class="btn btn-success rounded-pill px-4 py-2.5 fw-bold d-inline-flex align-items-center gap-2" style="background-color: #25D366; border: none;" rel="noopener noreferrer">
                         <i class="bi bi-whatsapp"></i> WhatsApp
                     </a>
                 </div>
@@ -384,7 +384,7 @@
                     <span class="badge bg-danger-subtle text-danger rounded-pill px-3 py-1 fw-bold align-self-start mb-2">{{ trip.distance }} • {{ trip.time }}</span>
                     <h3 class="h6 fw-bold text-dark mb-2">{{ trip.name }}</h3>
                     <p class="small text-secondary mb-3 flex-grow-1">{{ trip.desc }}</p>
-                    <a href="{% url 'tourist_place_detail' state_slug=city_data.state_slug city_slug=city_data.slug place_slug=trip.slug %}" class="text-decoration-none text-danger fw-bold small mt-auto d-inline-flex align-items-center gap-1">
+                    <a href="{{ trip.target_url|default:'#' }}" class="text-decoration-none text-danger fw-bold small mt-auto d-inline-flex align-items-center gap-1">
                         Explore Destination <i class="bi bi-arrow-right"></i>
                     </a>
                 </div>
@@ -484,7 +484,7 @@
             <button class="btn btn-light rounded-pill px-5 py-3 fw-bold text-danger shadow" data-bs-toggle="modal" data-bs-target="#enquiryModal" data-destination="{{ city_data.city_name }} Travel">
                 <i class="bi bi-compass-fill me-2 wobble"></i> Plan Your Trip
             </button>
-            <a href="https://wa.me/919655866660?text=Hi%20Vibhu%20Travel%20Hub,%20I%20am%20planning%20a%20trip%20to%20{{ city_data.city_name }}" target="_blank" class="btn btn-outline-light rounded-pill px-4 py-3 fw-bold">
+            <a href="https://wa.me/919655866660?text=Hi%20Vibhu%20Travel%20Hub,%20I%20am%20planning%20a%20trip%20to%20{{ city_data.city_name }}" target="_blank" class="btn btn-outline-light rounded-pill px-4 py-3 fw-bold" rel="noopener noreferrer">
                 <i class="bi bi-whatsapp me-2"></i> WhatsApp Us
             </a>
         </div>

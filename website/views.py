@@ -211,6 +211,29 @@ def get_city_seo_dict():
     return {c.slug: c for c in CitySEO.objects.all()}
 
 
+def resolve_destination_target_url(dest, current_state=None, current_city=None):
+    """Resolve correct canonical URL for trips and nearby destinations."""
+    if isinstance(dest, dict) and dest.get('url'):
+        return dest['url']
+    slug = dest.get('slug') if isinstance(dest, dict) else str(dest)
+    if slug in CITIES_SEO_DATA:
+        c = CITIES_SEO_DATA[slug]
+        return f"/destinations/{c['state_slug']}/{slug}/"
+    if slug in TOURIST_PLACES_SEO_DATA:
+        p = TOURIST_PLACES_SEO_DATA[slug]
+        st = p.get('state_slug') or current_state or 'tamil-nadu'
+        ct = p.get('city_slug') or current_city or 'coimbatore'
+        return f"/destinations/{st}/{ct}/place/{slug}/"
+    custom_map = {
+        'coonoor': '/destinations/tamil-nadu/coimbatore/place/ooty/',
+        'pollachi': '/destinations/tamil-nadu/coimbatore/place/valparai/',
+        'guruvayur': '/destinations/kerala/thrissur/',
+        'thanjavur': '/destinations/tamil-nadu/trichy/',
+        'pondicherry': '/destinations/tamil-nadu/chennai/',
+    }
+    return custom_map.get(slug, f"/destinations/{current_state or 'tamil-nadu'}/")
+
+
 def tamil_nadu_view(request):
     vehicles = Vehicle.objects.filter(is_active=True).order_by('display_order')
     city_seo = get_city_seo_dict()
@@ -243,8 +266,17 @@ def karnataka_view(request):
 
 def city_detail_view(request, state_slug, city_slug):
     city_data = CITIES_SEO_DATA.get(city_slug)
-    if not city_data or city_data.get('state_slug') != state_slug:
+    if not city_data:
         raise Http404("City page not found")
+
+    if city_data.get('state_slug') != state_slug:
+        return redirect('city_detail', state_slug=city_data.get('state_slug'), city_slug=city_slug, permanent=True)
+    
+    # Resolve target_url for each nearby trip
+    for trip in city_data.get('nearby_trips', []):
+        if isinstance(trip, dict):
+            trip['target_url'] = resolve_destination_target_url(trip, state_slug, city_slug)
+            
     vehicles = Vehicle.objects.filter(is_active=True).order_by('display_order')
     return render(request, 'destinations/city_detail.html', {
         'city_data': city_data,
@@ -321,19 +353,31 @@ def tourist_place_detail_view(request, state_slug, city_slug, place_slug):
             permanent=True,
         )
 
-    # If the place slug is actually a configured city, use the canonical city URL.
+    # If the place slug is actually a configured city, redirect to its canonical city URL.
     if place_slug in CITIES_SEO_DATA:
         city_data = CITIES_SEO_DATA.get(place_slug)
-        if city_data and city_data.get("state_slug") == state_slug:
+        if city_data:
             return redirect(
                 "city_detail",
-                state_slug=state_slug,
+                state_slug=city_data.get("state_slug", state_slug),
                 city_slug=place_slug,
                 permanent=True,
             )
 
     # First use explicitly configured standalone tourist-place SEO data.
     place_data = TOURIST_PLACES_SEO_DATA.get(place_slug)
+    if place_data:
+        # If accessed under a non-canonical state or city URL, 301 redirect to canonical URL.
+        canon_state = place_data.get("state_slug")
+        canon_city = place_data.get("city_slug")
+        if (canon_state and canon_state != state_slug) or (canon_city and canon_city != city_slug):
+            return redirect(
+                "tourist_place_detail",
+                state_slug=canon_state or state_slug,
+                city_slug=canon_city or city_slug,
+                place_slug=place_slug,
+                permanent=True,
+            )
 
     # Fallback: some tourist places are defined inside the city's
     # places_to_visit list but are not duplicated in TOURIST_PLACES_SEO_DATA.
@@ -397,12 +441,22 @@ def tourist_place_detail_view(request, state_slug, city_slug, place_slug):
     if not place_data:
         raise Http404("Tourist place page not found")
 
-    # Prevent tourist-place pages from being served under unrelated URLs.
-    if place_data.get("state_slug") and place_data.get("state_slug") != state_slug:
-        raise Http404("Tourist place page not found")
+    # Canonical verification for tourist place page.
+    canon_state = place_data.get("state_slug")
+    canon_city = place_data.get("city_slug")
+    if (canon_state and canon_state != state_slug) or (canon_city and canon_city != city_slug):
+        return redirect(
+            "tourist_place_detail",
+            state_slug=canon_state or state_slug,
+            city_slug=canon_city or city_slug,
+            place_slug=place_slug,
+            permanent=True,
+        )
 
-    if place_data.get("city_slug") and place_data.get("city_slug") != city_slug:
-        raise Http404("Tourist place page not found")
+    # Resolve target_url for each nearby destination
+    for dest in place_data.get('nearby_destinations', []):
+        if isinstance(dest, dict):
+            dest['target_url'] = resolve_destination_target_url(dest, state_slug, city_slug)
 
     vehicles = Vehicle.objects.filter(is_active=True).order_by("display_order")
 
@@ -419,6 +473,9 @@ def tourist_place_detail_view(request, state_slug, city_slug, place_slug):
 def ooty_landing_view(request):
     """Dedicated SEO landing page for Ooty tours from Coimbatore."""
     place_data = get_place_seo_data("ooty")
+    for dest in place_data.get('nearby_destinations', []):
+        if isinstance(dest, dict):
+            dest['target_url'] = resolve_destination_target_url(dest, "tamil-nadu", "coimbatore")
     vehicles = Vehicle.objects.filter(is_active=True).order_by("display_order")
 
     return render(request, "destinations/ooty.html", {

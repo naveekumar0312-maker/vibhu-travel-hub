@@ -16,12 +16,9 @@
 {% block twitter_title %}{{ landing_data.title }}{% endblock %}
 {% block twitter_description %}{{ landing_data.description }}{% endblock %}
 
-\
+{% block canonical %}https://vibhutravelhub.com/{{ landing_data.slug }}/{% endblock %}
+
 {% block schema %}
-
-<link rel="canonical"
-      href="https://vibhutravelhub.com/{{ landing_data.slug }}/">
-
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -187,7 +184,7 @@
 
                     <a href="https://wa.me/919655866660"
                        target="_blank"
-                       class="btn btn-success rounded-pill px-4 py-3 fw-bold">
+                       class="btn btn-success rounded-pill px-4 py-3 fw-bold" rel="noopener noreferrer">
 
                         <i class="bi bi-whatsapp me-2"></i>
                         WhatsApp
