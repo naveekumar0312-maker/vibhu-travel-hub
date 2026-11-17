@@ -1,12 +1,14 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block meta_title %}Explore Our Travel Stories | Vibhu Travel Hub Blog{% endblock %}
-{% block meta_description %}Discover travel guides, destination insights, useful travel tips and inspiring journeys from Vibhu Travel Hub across South India.{% endblock %}
+{% block meta_title %}{% if selected_category and selected_category != 'All' %}{{ selected_category }} Travel Stories | Vibhu Travel Hub{% else %}Explore Our Travel Stories | Vibhu Travel Hub Blog{% endif %}{% endblock %}
+{% block meta_description %}{% if selected_category and selected_category != 'All' %}Discover {{ selected_category|lower }} travel guides, destination insights, and travel tips from Vibhu Travel Hub across South India.{% else %}Discover travel guides, destination insights, useful travel tips and inspiring journeys from Vibhu Travel Hub across South India.{% endif %}{% endblock %}
 
-{% block og_title %}Explore Our Travel Stories | Vibhu Travel Hub Blog{% endblock %}
-{% block og_description %}Discover travel guides, destination insights, useful travel tips and inspiring journeys from Vibhu Travel Hub across South India.{% endblock %}
+{% block og_title %}{% if selected_category and selected_category != 'All' %}{{ selected_category }} Travel Stories | Vibhu Travel Hub{% else %}Explore Our Travel Stories | Vibhu Travel Hub Blog{% endif %}{% endblock %}
+{% block og_description %}{% if selected_category and selected_category != 'All' %}Discover {{ selected_category|lower }} travel guides, destination insights, and travel tips from Vibhu Travel Hub across South India.{% else %}Discover travel guides, destination insights, useful travel tips and inspiring journeys from Vibhu Travel Hub across South India.{% endif %}{% endblock %}
 {% block og_image %}https://vibhutravelhub.com{% static 'images/logo/og-banner.webp' %}{% endblock %}
+
+{% block canonical %}https://vibhutravelhub.com{% url 'blog:blog_list' %}{% endblock %}
 
 {% block schema %}
 <script type="application/ld+json">
@@ -47,7 +49,7 @@
         <div class="row justify-content-center text-center">
             <div class="col-lg-8 col-md-10">
                 <span class="vth-script-eyebrow reveal-up">Travel Stories</span>
-                <h1 class="vth-blog-hero-title text-reveal delay-100">Explore Our Travel Stories</h1>
+                <h1 class="vth-blog-hero-title text-reveal delay-100">{% if selected_category and selected_category != 'All' %}{{ selected_category }} Travel Stories{% else %}Explore Our Travel Stories{% endif %}</h1>
                 <p class="vth-blog-hero-desc reveal-up delay-200">
                     Discover travel guides, destination insights, useful travel tips and inspiring journeys from Vibhu Travel Hub.
                 </p>

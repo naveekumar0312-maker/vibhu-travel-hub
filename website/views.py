@@ -311,6 +311,10 @@ def ooty_legacy_redirect(request):
 
 
 def tourist_place_detail_view(request, state_slug, city_slug, place_slug):
+    # If accessed via legacy /place/<slug>/ path, 301 redirect to canonical /<slug>/
+    if "/place/" in request.path:
+        canonical_path = request.path.replace("/place/", "/")
+        return redirect(canonical_path, permanent=True)
     # Legacy/incorrect Thrissur tourist-place URLs.
     # Redirect to the existing canonical tourist-place pages.
     legacy_redirects = {
