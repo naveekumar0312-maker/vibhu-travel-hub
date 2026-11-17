@@ -8,7 +8,7 @@
 {% block og_description %}{% if selected_category and selected_category != 'All' %}Discover {{ selected_category|lower }} travel guides, destination insights, and travel tips from Vibhu Travel Hub across South India.{% else %}Discover travel guides, destination insights, useful travel tips and inspiring journeys from Vibhu Travel Hub across South India.{% endif %}{% endblock %}
 {% block og_image %}https://vibhutravelhub.com{% static 'images/logo/og-banner.webp' %}{% endblock %}
 
-{% block canonical %}https://vibhutravelhub.com{% url 'blog:blog_list' %}{% endblock %}
+{% block canonical %}https://vibhutravelhub.com{% url 'blog_list' %}{% endblock %}
 
 {% block schema %}
 <script type="application/ld+json">
