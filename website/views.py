@@ -323,7 +323,19 @@ def tourist_place_detail_view(request, state_slug, city_slug, place_slug):
         ("kerala", "thrissur", "guruvayur"): (
             "kerala", "thrissur", "guruvayur-temple"
         ),
+        ("tamil-nadu", "trichy", "thanjavur"): (
+            "tamil-nadu", "trichy", "thanjavur"
+        ),
+        ("tamil-nadu", "coimbatore", "coonoor"): (
+            "tamil-nadu", "coimbatore", "ooty"
+        ),
     }
+
+    if (state_slug, city_slug, place_slug) == ("tamil-nadu", "trichy", "thanjavur"):
+        return redirect("city_detail", state_slug="tamil-nadu", city_slug="trichy", permanent=True)
+
+    if (state_slug, city_slug, place_slug) == ("tamil-nadu", "coimbatore", "coonoor"):
+        return redirect("tourist_place_detail", state_slug="tamil-nadu", city_slug="coimbatore", place_slug="ooty", permanent=True)
 
     redirect_target = legacy_redirects.get(
         (state_slug, city_slug, place_slug)
